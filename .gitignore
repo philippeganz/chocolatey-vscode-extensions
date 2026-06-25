@@ -1,0 +1,13 @@
+*.log
+*.tmp
+*.retry
+.vscode/
+
+# Chocolatey AU specific
+*.nupkg
+*.nuspec.bak
+
+# VSIX Payloads
+# We NEVER commit the binaries to git! AU downloads them locally 
+# on the GitHub Action runner just to pack them into the nupkg.
+*.vsix
