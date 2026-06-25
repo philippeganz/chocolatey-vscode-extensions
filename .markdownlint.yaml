@@ -1,0 +1,10 @@
+# MarkdownLint Configuration
+# This file governs both the GitHub Actions CI pipeline and local VS Code extensions.
+
+# Default state for all rules
+default: true
+
+# MD013/line-length: Disable line length restrictions.
+# Hard-wrapping paragraphs at 80 characters breaks GitHub's dynamic width rendering, 
+# corrupts long URLs, and makes reading raw markdown incredibly frustrating.
+MD013: false
