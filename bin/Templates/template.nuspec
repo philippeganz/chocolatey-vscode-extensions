@@ -8,7 +8,7 @@
     <projectUrl>{{ProjectUrl}}</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
     <iconUrl>{{IconUrl}}</iconUrl>
-    <licenseUrl>{{LicenseUrl}}</licenseUrl>
+    <license type="file">{{LicenseFile}}</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>{{Description}}</description>
     <tags>vscode extension {{ExtensionNameLowerCase}}</tags>

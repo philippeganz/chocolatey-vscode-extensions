@@ -142,8 +142,10 @@ foreach ($extId in $extensions) {
     if ($readmeEntry) {
         [System.IO.Compression.ZipFileExtensions]::ExtractToFile($readmeEntry, (Join-Path $pkgDir "README.md"), $true)
     }
+    $licenseFileName = ""
     if ($licenseEntry) {
-        [System.IO.Compression.ZipFileExtensions]::ExtractToFile($licenseEntry, (Join-Path $pkgDir "LICENSE.txt"), $true)
+        $licenseFileName = $licenseEntry.Name
+        [System.IO.Compression.ZipFileExtensions]::ExtractToFile($licenseEntry, (Join-Path $pkgDir $licenseFileName), $true)
     }
 
     $zip.Dispose()
@@ -187,6 +189,11 @@ foreach ($extId in $extensions) {
     $nuspecContent = $nuspecContent -replace '\{\{IconUrl\}\}', $iconUrl
     $nuspecContent = $nuspecContent -replace '\{\{Description\}\}', $description
     $nuspecContent = $nuspecContent -replace '\{\{Dependencies\}\}', $dependenciesStr
+    if ($licenseFileName) {
+        $nuspecContent = $nuspecContent -replace '\{\{LicenseFile\}\}', $licenseFileName
+    } else {
+        $nuspecContent = $nuspecContent -replace '\s*<license type="file">\{\{LicenseFile\}\}</license>', ''
+    }
     $nuspecContent | Out-File (Join-Path $pkgDir "$packageName.nuspec") -Encoding utf8
 
     $installContent = Get-Content (Join-Path $templatesDir "chocolateyInstall.ps1") -Raw
