@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-{{ExtensionNameLowerCase}}</id>
+    <version>{{Version}}</version>
+    <title>{{Title}}</title>
+    <authors>{{Authors}}</authors>
+    <projectUrl>{{ProjectUrl}}</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>{{IconUrl}}</iconUrl>
+    <licenseUrl>{{LicenseUrl}}</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>{{Description}}</description>
+    <tags>vscode extension {{ExtensionNameLowerCase}}</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" /> {{Dependencies}} </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
