@@ -187,13 +187,9 @@ foreach ($extId in $extensions) {
     $nuspecContent = $nuspecContent -replace '\{\{Authors\}\}', $author
     $nuspecContent = $nuspecContent -replace '\{\{ProjectUrl\}\}', $repoUrl
     $nuspecContent = $nuspecContent -replace '\{\{IconUrl\}\}', $iconUrl
+    $nuspecContent = $nuspecContent -replace '\{\{MarketplaceUrl\}\}', "https://marketplace.visualstudio.com/items?itemName=$extId"
     $nuspecContent = $nuspecContent -replace '\{\{Description\}\}', $description
     $nuspecContent = $nuspecContent -replace '\{\{Dependencies\}\}', $dependenciesStr
-    if ($licenseFileName) {
-        $nuspecContent = $nuspecContent -replace '\{\{LicenseFile\}\}', $licenseFileName
-    } else {
-        $nuspecContent = $nuspecContent -replace '\s*<license type="file">\{\{LicenseFile\}\}</license>', ''
-    }
     $nuspecContent | Out-File (Join-Path $pkgDir "$packageName.nuspec") -Encoding utf8
 
     $installContent = Get-Content (Join-Path $templatesDir "chocolateyInstall.ps1") -Raw
