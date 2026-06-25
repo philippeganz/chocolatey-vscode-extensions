@@ -1,4 +1,5 @@
 [CmdletBinding()]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
 param (
     [Parameter(Mandatory = $false)]
     [string]$ConfigFile = "$PSScriptRoot\config.yaml"
@@ -46,7 +47,7 @@ foreach ($extId in $extensions) {
     Write-Host "Processing: $extId" -ForegroundColor Cyan
 
     $parts = $extId -split '\.'
-    if ($parts.Count -ne 2) { 
+    if ($parts.Count -ne 2) {
         Write-Host "    [ERROR] Invalid ExtensionId format. Skipping." -ForegroundColor Red
         continue
     }
@@ -93,9 +94,9 @@ foreach ($extId in $extensions) {
         continue
     }
 
-    if (-not $extMeta) { 
+    if (-not $extMeta) {
         Write-Host "    [ERROR] Extension not found on Marketplace: $extId" -ForegroundColor Red
-        continue 
+        continue
     }
 
     $version = $extMeta.versions[0].version

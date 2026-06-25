@@ -28,7 +28,7 @@ function global:au_GetLatest {
 
     $res = Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers
     $ext = $res.results[0].extensions[0]
-    
+
     if (-not $ext) { throw "Extension not found on Marketplace" }
 
     $version = $ext.versions[0].version
@@ -47,15 +47,15 @@ function global:au_GetLatest {
 
 function global:au_UpdatePackage {
     param($Latest)
-    
+
     $toolsDir = Join-Path $PSScriptRoot 'tools'
     if (-not (Test-Path $toolsDir)) { New-Item -ItemType Directory -Path $toolsDir | Out-Null }
-    
+
     $vsixPath = Join-Path $toolsDir "{{Publisher}}.{{ExtensionName}}-$($Latest.Version).vsix"
-    
+
     # Download the payload
     Invoke-WebRequest -Uri $Latest.URL64 -OutFile $vsixPath
-    
+
     # The actual factory will inject VSIX extraction logic here later
     # to crack the zip and update README/LICENSE/package.json
 }
