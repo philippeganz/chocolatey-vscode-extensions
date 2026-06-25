@@ -1,0 +1,5 @@
+﻿# This file controls repository ownership and merge request approvals
+## Syntax <pattern> <@username>
+## Default fallback owner for everything
+
+* @philippeganz
