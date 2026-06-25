@@ -1,0 +1,57 @@
+name: Lint and Test
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+
+jobs:
+  powershell-lint:
+    name: PSScriptAnalyzer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          # The -EnableExit flag ensures the workflow fails if any Warnings or Errors are found
+          Invoke-ScriptAnalyzer -Path . -Recurse -EnableExit
+
+  markdown-lint:
+    name: MarkdownLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install MarkdownLint
+        run: npm install -g markdownlint-cli
+
+      - name: Run MarkdownLint
+        run: markdownlint "**/*.md" --ignore "node_modules"
+
+  choco-pack-test:
+    name: Chocolatey Pack Dry-Run
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Test Package Build
+        shell: pwsh
+        run: |
+          # A quick dry-run to ensure the Factory-generated .nuspec files are completely valid
+          Get-ChildItem -Path ./automatic -Directory | ForEach-Object {
+            Write-Host ">>> Testing Pack for $($_.Name)" -ForegroundColor Cyan
+            Push-Location $_.FullName
+            choco pack --limitoutput
+            Pop-Location
+          }
