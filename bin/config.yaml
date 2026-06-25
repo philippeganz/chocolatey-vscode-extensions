@@ -1,0 +1,5 @@
+config:
+  output_dir: "../automatic"
+
+extensions:
+  - esbenp.prettier-vscode
