@@ -1,0 +1,40 @@
+name: Chocolatey AU Updater
+
+on:
+  schedule:
+    - cron: "0 */6 * * *" # Run every 6 hours
+  workflow_dispatch: # Allow manual triggers
+    inputs:
+      forced_packages:
+        description: "Comma separated list of packages to force update (optional)"
+        required: false
+
+jobs:
+  au-update:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Chocolatey AU Module
+        shell: pwsh
+        run: |
+          Install-Module -Name au -Force -AcceptLicense
+
+      - name: Run AU Updater
+        shell: pwsh
+        env:
+          api_key: ${{ secrets.CHOCO_API_KEY }}
+          github_user_repo: "philippeganz/chocolatey-vscode-extensions"
+          github_api_key: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $forced = "${{ github.event.inputs.forced_packages }}"
+          if ($forced) {
+            ./bin/update_all.ps1 -ForcedPackages $forced
+          } else {
+            ./bin/update_all.ps1
+          }
