@@ -45,6 +45,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Upgrade Chocolatey
+        run: choco upgrade chocolatey -y
+
       - name: Test Package Build
         shell: pwsh
         run: |

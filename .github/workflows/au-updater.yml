@@ -20,6 +20,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Upgrade Chocolatey
+        run: choco upgrade chocolatey -y
+
       - name: Install Chocolatey AU Module
         shell: pwsh
         run: |
