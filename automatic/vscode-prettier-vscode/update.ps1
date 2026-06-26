@@ -3,10 +3,9 @@ param()
 
 Import-Module au
 
-# Override standard AU variables. We disable pushing from individual templates
-# because the global CI/CD pipeline handles pushing orchestrations.
+# We bypass the registry checks since these are portable VS Code extensions.
+# Push settings are natively inherited from the global orchestrator.
 $au_NoCheckRegistry = $true
-$au_Push = $false
 
 # -----------------------------------------------------------------------------
 # au_GetLatest: The Metadata Resolver
