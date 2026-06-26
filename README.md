@@ -88,7 +88,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details on our code of conduct an
 
 ### Contributors
 
-- Philippe Ganz @philippeganz
+- [Philippe Ganz](https://github.com/philippeganz)
 
 ## License
 
