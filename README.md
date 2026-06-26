@@ -32,7 +32,7 @@ When you install an extension from this repository:
 
 1. No internet connection is required at install time.
 2. Extensions are mapped 1:1 to their Chocolatey dependencies.
-3. Metadata, `README.md`, and `LICENSE` files are extracted directly from the `.vsix` archive ensuring perfect upstream compliance.
+3. Metadata, `README`, and `LICENSE` files are extracted directly from the `.vsix` archive ensuring perfect upstream compliance.
 4. Deep scanning is employed to ensure packages do not invoke hidden runtime network triggers (e.g., `wget`, `npm install`).
 
 ## Repository Architecture
@@ -84,11 +84,11 @@ Supply the package name in the `forced_packages` input. The orchestrator will in
 
 ## Contributing
 
-Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the Pull Request process.
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details on our code of conduct and the Pull Request process.
 
 ### Contributors
 
-- Philippe Ganz (@philippeganz)
+- Philippe Ganz @philippeganz
 
 ## License
 
