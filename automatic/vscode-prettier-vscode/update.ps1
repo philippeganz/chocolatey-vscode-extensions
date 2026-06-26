@@ -7,10 +7,6 @@ Import-Module au
 # Push settings are natively inherited from the global orchestrator.
 $au_NoCheckRegistry = $true
 
-# Disable AU's automatic checksum calculator. Our payloads are bundled directly inside the
-# nupkg, so AU has no URL to hash. Leaving this on causes AU to aggressively execute
-# chocolateyInstall.ps1 before au_BeforeUpdate downloads the payload, causing ENOENT crashes!
-$ChecksumFor = 'none'
 
 # -----------------------------------------------------------------------------
 # au_GetLatest: The Metadata Resolver
@@ -98,5 +94,5 @@ function global:au_SearchReplace {
     }
 }
 
-update
+update -ChecksumFor none
 
