@@ -56,15 +56,15 @@ function global:au_GetLatest {
 }
 
 # -----------------------------------------------------------------------------
-# au_UpdatePackage: The Payload Downloader
+# au_BeforeUpdate: The Payload Downloader
 #
 # If AU detects that the version returned by au_GetLatest is newer than the
-# current package, it triggers this function to download the new binaries.
+# current package (or is forced), it triggers this hook to download the new binaries.
 # -----------------------------------------------------------------------------
-function global:au_UpdatePackage {
-    param($Latest)
+function global:au_BeforeUpdate {
+    param($package)
 
-    $toolsDir = Join-Path $PSScriptRoot 'tools'
+    $toolsDir = Join-Path $package.Path 'tools'
     if (-not (Test-Path $toolsDir)) { New-Item -ItemType Directory -Path $toolsDir | Out-Null }
 
     $vsixPath = Join-Path $toolsDir "{{Publisher}}.{{ExtensionName}}-$($Latest.Version).vsix"
