@@ -219,12 +219,27 @@ foreach ($extId in $extensions) {
 
     $nuspecContent = Get-Content (Join-Path $templatesDir "template.nuspec") -Raw
     $nuspecContent = $nuspecContent -replace '\{\{ExtensionNameLowerCase\}\}', $packageName.Replace("vscode-", "")
-    
-    # We explicitly inject '0.0.0' into the .nuspec for brand new packages. 
-    # This tricks the AU engine into treating the upstream version as an update, 
-    # triggering a pristine download, test, and push without requiring manual Force arguments.
-    $nuspecContent = $nuspecContent -replace '\{\{Version\}\}', '0.0.0'
-    
+
+    # -------------------------------------------------------------------------
+    # VERSION PRESERVATION LOGIC
+    # -------------------------------------------------------------------------
+    # If this package already exists (e.g., the user is mass-regenerating templates
+    # to apply a hotfix), we MUST preserve the existing .nuspec version.
+    # If we overwrite it with '0.0.0', AU will attempt to natively push the
+    # upstream version without a timestamp, which will crash the pipeline because
+    # that exact version string already exists on the Community Gallery.
+    $nuspecPath = Join-Path $pkgDir "$packageName.nuspec"
+    $targetVersion = '0.0.0'
+    if (Test-Path $nuspecPath) {
+        $existingNuspec = [xml](Get-Content $nuspecPath)
+        $targetVersion = $existingNuspec.package.metadata.version
+        Write-Host "    Preserving existing Nuspec version: $targetVersion"
+    } else {
+        Write-Host "    Brand new package detected. Bootstrapping with 0.0.0"
+    }
+
+    $nuspecContent = $nuspecContent -replace '\{\{Version\}\}', $targetVersion
+
     $nuspecContent = $nuspecContent -replace '\{\{Title\}\}', $displayName
     $nuspecContent = $nuspecContent -replace '\{\{Authors\}\}', $author
     $nuspecContent = $nuspecContent -replace '\{\{ProjectUrl\}\}', $repoUrl
