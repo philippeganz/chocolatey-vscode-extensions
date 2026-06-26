@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-copilot</id>
+    <version>0.0.0</version>
+    <title>GitHub Copilot</title>
+    <authors>GitHub</authors>
+    <projectUrl></projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/copilot/1.388.0/1761326434179/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=GitHub.copilot</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Your AI pair programmer</description>
+    <tags>vscode extension copilot</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-copilot-chat" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
