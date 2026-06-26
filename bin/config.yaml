@@ -1,6 +1,10 @@
+---
 config:
   output_dir: ../automatic
 extensions:
-- GitHub.copilot
-- GitHub.copilot-chat
-
+  - GitHub.copilot
+  - GitHub.copilot-chat
+  - ms-python.debugpy
+  - ms-python.python
+  - ms-python.vscode-pylance
+  - ms-python.vscode-python-envs
