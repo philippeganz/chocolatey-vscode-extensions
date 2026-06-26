@@ -6,12 +6,22 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-# Set the global AU variables directly instead of using the Options dictionary
+# -----------------------------------------------------------------------------
+# AU ORCHESTRATOR CONFIGURATION
+# -----------------------------------------------------------------------------
+# The Chocolatey AU Engine evaluates parameters from the $global scope before it
+# falls back to its Options dictionary. Due to a known parsing bug with the 'Force'
+# parameter in Update-AUPackages, we explicitly inject our configurations globally.
+# 
+# $global:au_Push = $true -> Ensures the package is uploaded to the Community Gallery
+# $global:au_NoCheckRegistry = $true -> Prevents Test-Package from scanning the Windows Registry (Add/Remove Programs) since VS Code extensions don't write to it.
+# -----------------------------------------------------------------------------
 $global:au_Push = $true
 $global:au_Force = $false
 $global:au_NoCheckRegistry = $true
 
 if ($ForcedPackages) {
+    # Bypasses the internal math that aborts updates when local and remote versions match.
     $global:au_Force = $true
 }
 

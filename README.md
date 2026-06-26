@@ -65,6 +65,15 @@ Once an extension is merged into the `main` branch, the `au-updater.yml` GitHub 
 
 Every 6 hours, it crawls the `automatic/` directory. If a new version of an extension is released on the VS Code Marketplace, AU will automatically download the new `.vsix`, pack the `.nupkg`, push it to Chocolatey, and commit the version bump back to this repository.
 
+### Package Testing & Validation
+
+Before AU pushes any package to the community gallery, it executes `Test-Package`. This natively installs the extension onto the GitHub Actions runner to ensure the underlying `.vsix` is completely valid. We pre-load the `chocolatey-vscode.extension` helper module in the workflow to facilitate this.
+
+### Forcing Updates
+
+If you need to manually push a package (e.g., initial publish) even if the version hasn't changed upstream, you can trigger the **Chocolatey AU Updater** workflow manually via the GitHub Actions UI.
+Supply the package name in the `forced_packages` input. The orchestrator will inject `$global:au_Force = $true` to bypass the version math, rebuild the binary, and push it directly to the gallery.
+
 ## Limitations
 
 - Extensions that require OS-level toolchains (e.g., Python, Git) will list them as separate Chocolatey dependencies (Meta-Packages).
