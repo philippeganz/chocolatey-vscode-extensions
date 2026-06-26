@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Automated Chocolatey Package Factory for Visual Studio Code Extensions.
 
