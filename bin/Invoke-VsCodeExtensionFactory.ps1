@@ -201,7 +201,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
 
         $packageJson = $packageJsonContent | ConvertFrom-Json
 
-        $repoUrl = if ($packageJson.repository.url) { $packageJson.repository.url } else { "" }
+        $repoUrl = if ($packageJson.repository.url) { $packageJson.repository.url } else { "https://marketplace.visualstudio.com/items?itemName=$extId" }
         $author = if ($packageJson.publisher) { $packageJson.publisher } else { $publisher }
     }
 
