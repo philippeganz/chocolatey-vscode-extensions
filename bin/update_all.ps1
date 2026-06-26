@@ -1,3 +1,5 @@
+[CmdletBinding()]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 param(
     [string]$ForcedPackages = ''
 )
