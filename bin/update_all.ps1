@@ -17,6 +17,4 @@ if ($ForcedPackages) {
 # The main AU command to execute the update.ps1 scripts in all subfolders
 Update-AUPackages -Options @{
     Threads = 3
-    # Use standard chocolatey community push
-    PushURL = 'https://push.chocolatey.org/'
 }
