@@ -15,7 +15,8 @@ if ($ForcedPackages) {
 }
 
 $opts = [ordered]@{
-    Push = $true
+    Push  = $true
+    Force = if ($ForcedPackages) { $true } else { $false }
 }
 
 # Resolve the path to the 'automatic' directory where packages live
