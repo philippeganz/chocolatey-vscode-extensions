@@ -1,3 +1,26 @@
+<#
+.SYNOPSIS
+    Automated Chocolatey Package Factory for Visual Studio Code Extensions.
+
+.DESCRIPTION
+    A highly robust PowerShell script that automates the scaffolding of Chocolatey packages
+    for Visual Studio Code extensions. It queries the VS Code Marketplace API to extract
+    metadata, payload URLs, and dependency graphs.
+    
+    This Factory is designed for enterprise air-gapped compliance. It extracts the embedded
+    README and LICENSE files directly from the `.vsix` archive and ensures the generated
+    `.nuspec` natively maps the Chocolatey dependencies correctly.
+    
+    [Smart Versioning]
+    If the Factory is regenerating an existing package, it safely preserves the current
+    version in the `.nuspec` instead of resetting it to 0.0.0, preventing CI pipeline collisions.
+    
+    [Auto-Discovery Engine]
+    The Factory recursively parses internal `extensionDependencies` and `extensionPacks`.
+    If it discovers missing dependencies, it queues them dynamically, scaffolds them automatically,
+    filters out malformed cyclic self-dependencies, and safely rewrites the `config.yaml`
+    file to explicitly track them as top-level peers.
+#>
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
 param (
@@ -43,17 +66,34 @@ if (-not (Test-Path $OutputDir)) {
     New-Item -ItemType Directory -Force -Path $OutputDir | Out-Null
 }
 
-$extensions = if ($ExtensionId) { @($ExtensionId) } else { $yamlObj.extensions }
-if (-not $extensions -or $extensions.Count -eq 0) {
+$extensionsList = [System.Collections.Generic.List[string]]::new()
+if ($ExtensionId) {
+    $extensionsList.Add($ExtensionId)
+}
+else {
+    foreach ($ext in $yamlObj.extensions) {
+        $extensionsList.Add([string]$ext)
+    }
+}
+
+if ($extensionsList.Count -eq 0) {
     throw "No extensions found in $ConfigFile, and no -ExtensionId was provided."
 }
 
 Write-Host ">>> Starting VS Code Extension Factory" -ForegroundColor Cyan
 Write-Host "    Target Output Directory: $OutputDir"
-Write-Host "    Extensions to Process: $($extensions.Count)"
+Write-Host "    Initial Extensions to Process: $($extensionsList.Count)"
 
 # 2. Main Factory Loop
-foreach ($extId in $extensions) {
+# We use a standard for-loop so we can dynamically append discovered dependencies to the end of the list
+$processed = @{}
+
+for ($i = 0; $i -lt $extensionsList.Count; $i++) {
+    $extId = $extensionsList[$i]
+    
+    if ($processed[$extId]) { continue }
+    $processed[$extId] = $true
+
     Write-Host "`n----------------------------------------" -ForegroundColor DarkGray
     Write-Host "Processing: $extId" -ForegroundColor Cyan
 
@@ -75,7 +115,8 @@ foreach ($extId in $extensions) {
         if ($Force) {
             Write-Host "    [INFO] Package folder exists. -Force is set. Regenerating..." -ForegroundColor Yellow
             Remove-Item -Path $pkgDir -Recurse -Force
-        } else {
+        }
+        else {
             Write-Host "    [INFO] Package folder already exists ($packageName). Skipping. Use -Force to regenerate." -ForegroundColor Yellow
             continue
         }
@@ -186,7 +227,15 @@ foreach ($extId in $extensions) {
         foreach ($dep in $packageJson.extensionDependencies) {
             $depName = ($dep -split '\.')[1].ToLower()
             $depPackageName = if ($depName.StartsWith("vscode-")) { $depName } else { "vscode-$depName" }
-            $dependenciesStr += "      <dependency id=`"$depPackageName`" />`n"
+            if ($depPackageName -ne $packageName) {
+                $dependenciesStr += "      <dependency id=`"$depPackageName`" />`n"
+                
+                # Auto-Discovery: Queue the dependency for scaffolding if we aren't already tracking it
+                if (-not $extensionsList.Contains($dep)) {
+                    Write-Host "    [AUTO-DISCOVERY] Queuing missing dependency: $dep" -ForegroundColor Magenta
+                    $extensionsList.Add($dep)
+                }
+            }
         }
     }
     if ($packageJson.extensionPack) {
@@ -194,7 +243,15 @@ foreach ($extId in $extensions) {
         foreach ($dep in $packageJson.extensionPack) {
             $depName = ($dep -split '\.')[1].ToLower()
             $depPackageName = if ($depName.StartsWith("vscode-")) { $depName } else { "vscode-$depName" }
-            $dependenciesStr += "      <dependency id=`"$depPackageName`" />`n"
+            if ($depPackageName -ne $packageName) {
+                $dependenciesStr += "      <dependency id=`"$depPackageName`" />`n"
+                
+                # Auto-Discovery: Queue the dependency for scaffolding if we aren't already tracking it
+                if (-not $extensionsList.Contains($dep)) {
+                    Write-Host "    [AUTO-DISCOVERY] Queuing missing dependency: $dep" -ForegroundColor Magenta
+                    $extensionsList.Add($dep)
+                }
+            }
         }
     }
 
@@ -234,7 +291,8 @@ foreach ($extId in $extensions) {
         $existingNuspec = [xml](Get-Content $nuspecPath)
         $targetVersion = $existingNuspec.package.metadata.version
         Write-Host "    Preserving existing Nuspec version: $targetVersion"
-    } else {
+    }
+    else {
         Write-Host "    Brand new package detected. Bootstrapping with 0.0.0"
     }
 
@@ -267,4 +325,21 @@ foreach ($extId in $extensions) {
 
     Write-Host "    [SUCCESS] Scaffolded at: $pkgDir" -ForegroundColor Green
 }
+
+# =============================================================================
+# Rewrite Configuration File
+# =============================================================================
+# If we auto-discovered any dependencies, or if the list was unsorted, we rewrite
+# the config.yaml file to permanently track the fully resolved hierarchy as flat peers.
+if (-not $ExtensionId) {
+    Write-Host "`n>>> Finalizing and Syncing config.yaml..." -ForegroundColor Cyan
+    $sortedExtensions = $extensionsList | Sort-Object | Get-Unique
+    
+    $yamlObj.extensions = $sortedExtensions
+    $yamlStr = ConvertTo-Yaml $yamlObj
+    
+    $yamlStr | Out-File $ConfigFile -Encoding utf8
+    Write-Host "    [SUCCESS] Resolved $($sortedExtensions.Count) total dependencies!" -ForegroundColor Green
+}
+
 Write-Host "`n>>> Factory Run Complete!" -ForegroundColor Cyan
