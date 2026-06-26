@@ -69,11 +69,28 @@ function global:au_UpdatePackage {
 
     $vsixPath = Join-Path $toolsDir "{{Publisher}}.{{ExtensionName}}-$($Latest.Version).vsix"
 
-    # Download the payload
+    # Purge any old VSIX payloads to prevent package bloat
+    Get-ChildItem -Path $toolsDir -Filter "*.vsix" | Remove-Item -Force
+
+    # Download the new payload
     Invoke-WebRequest -Uri $Latest.URL64 -OutFile $vsixPath
 
     # The actual factory will inject VSIX extraction logic here later
     # to crack the zip and update README/LICENSE/package.json
+}
+
+# -----------------------------------------------------------------------------
+# au_SearchReplace: The String Replacer
+#
+# AU executes this function to natively update the hardcoded version strings
+# inside our scripts (like chocolateyInstall.ps1) so the new binaries are used.
+# -----------------------------------------------------------------------------
+function global:au_SearchReplace {
+    @{
+        "tools\chocolateyInstall.ps1" = @{
+            "(?i)({{Publisher}}\.{{ExtensionName}}-)[\d\.]+(\.vsix)" = "`$1$($Latest.Version)`$2"
+        }
+    }
 }
 
 update
