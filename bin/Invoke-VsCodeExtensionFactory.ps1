@@ -2,7 +2,13 @@
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
 param (
     [Parameter(Mandatory = $false)]
-    [string]$ConfigFile = "$PSScriptRoot\config.yaml"
+    [string]$ConfigFile = "$PSScriptRoot\config.yaml",
+
+    [Parameter(Mandatory = $false)]
+    [string]$ExtensionId,
+
+    [Parameter(Mandatory = $false)]
+    [switch]$Force
 )
 
 $ErrorActionPreference = 'Stop'
@@ -37,9 +43,9 @@ if (-not (Test-Path $OutputDir)) {
     New-Item -ItemType Directory -Force -Path $OutputDir | Out-Null
 }
 
-$extensions = $yamlObj.extensions
+$extensions = if ($ExtensionId) { @($ExtensionId) } else { $yamlObj.extensions }
 if (-not $extensions -or $extensions.Count -eq 0) {
-    throw "No extensions found in $ConfigFile"
+    throw "No extensions found in $ConfigFile, and no -ExtensionId was provided."
 }
 
 Write-Host ">>> Starting VS Code Extension Factory" -ForegroundColor Cyan
@@ -66,8 +72,13 @@ foreach ($extId in $extensions) {
 
     $pkgDir = Join-Path $OutputDir $packageName
     if (Test-Path $pkgDir) {
-        Write-Host "    [INFO] Package folder already exists ($packageName). Skipping." -ForegroundColor Yellow
-        continue
+        if ($Force) {
+            Write-Host "    [INFO] Package folder exists. -Force is set. Regenerating..." -ForegroundColor Yellow
+            Remove-Item -Path $pkgDir -Recurse -Force
+        } else {
+            Write-Host "    [INFO] Package folder already exists ($packageName). Skipping. Use -Force to regenerate." -ForegroundColor Yellow
+            continue
+        }
     }
 
     # =========================================================================
