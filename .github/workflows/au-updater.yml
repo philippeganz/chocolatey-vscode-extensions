@@ -28,6 +28,9 @@ jobs:
         run: |
           Install-Module -Name au -Force -AcceptLicense
 
+      - name: Pre-load Testing Dependencies
+        run: choco install vscode chocolatey-vscode.extension -y
+
       - name: Run AU Updater
         shell: pwsh
         env:
