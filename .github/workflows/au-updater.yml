@@ -24,12 +24,12 @@ jobs:
         run: choco upgrade chocolatey -y --no-progress
 
       - name: Install Chocolatey AU Module
-        shell: pwsh
+        shell: powershell
         run: |
           Install-Module -Name au -Force -AcceptLicense
 
       - name: Run AU Updater
-        shell: pwsh
+        shell: powershell
         env:
           api_key: ${{ secrets.CHOCO_API_KEY }}
           github_user_repo: "philippeganz/chocolatey-vscode-extensions"

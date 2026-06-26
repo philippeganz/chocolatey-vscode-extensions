@@ -14,6 +14,7 @@ $ErrorActionPreference = 'Stop'
 # parameter in Update-AUPackages, we explicitly inject our configurations globally.
 #
 # $global:au_Push = $true -> Ensures the package is uploaded to the Community Gallery
+# $global:au_Force = $false -> Default state. When $true, it bypasses internal version math and forces AU to rebuild the package even if versions match.
 # $global:au_NoCheckRegistry = $true -> Prevents Test-Package from scanning the Windows Registry (Add/Remove Programs) since VS Code extensions don't write to it.
 # -----------------------------------------------------------------------------
 $global:au_Push = $true
@@ -41,9 +42,11 @@ Push-Location $packagesDir
 try {
     if ($ForcedPackages) {
         Update-AUPackages -Name $ForcedPackages -Options $opts
-    } else {
+    }
+    else {
         Update-AUPackages -Options $opts
     }
-} finally {
+}
+finally {
     Pop-Location
 }
