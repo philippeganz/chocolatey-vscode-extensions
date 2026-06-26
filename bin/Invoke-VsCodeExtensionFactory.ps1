@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Automated Chocolatey Package Factory for Visual Studio Code Extensions.
 
@@ -6,15 +6,15 @@
     A highly robust PowerShell script that automates the scaffolding of Chocolatey packages
     for Visual Studio Code extensions. It queries the VS Code Marketplace API to extract
     metadata, payload URLs, and dependency graphs.
-    
+
     This Factory is designed for enterprise air-gapped compliance. It extracts the embedded
     README and LICENSE files directly from the `.vsix` archive and ensures the generated
     `.nuspec` natively maps the Chocolatey dependencies correctly.
-    
+
     [Smart Versioning]
     If the Factory is regenerating an existing package, it safely preserves the current
     version in the `.nuspec` instead of resetting it to 0.0.0, preventing CI pipeline collisions.
-    
+
     [Auto-Discovery Engine]
     The Factory recursively parses internal `extensionDependencies` and `extensionPacks`.
     If it discovers missing dependencies, it queues them dynamically, scaffolds them automatically,
@@ -90,7 +90,7 @@ $processed = @{}
 
 for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $extId = $extensionsList[$i]
-    
+
     if ($processed[$extId]) { continue }
     $processed[$extId] = $true
 
@@ -229,7 +229,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
             $depPackageName = if ($depName.StartsWith("vscode-")) { $depName } else { "vscode-$depName" }
             if ($depPackageName -ne $packageName) {
                 $dependenciesStr += "      <dependency id=`"$depPackageName`" />`n"
-                
+
                 # Auto-Discovery: Queue the dependency for scaffolding if we aren't already tracking it
                 if (-not $extensionsList.Contains($dep)) {
                     Write-Host "    [AUTO-DISCOVERY] Queuing missing dependency: $dep" -ForegroundColor Magenta
@@ -245,7 +245,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
             $depPackageName = if ($depName.StartsWith("vscode-")) { $depName } else { "vscode-$depName" }
             if ($depPackageName -ne $packageName) {
                 $dependenciesStr += "      <dependency id=`"$depPackageName`" />`n"
-                
+
                 # Auto-Discovery: Queue the dependency for scaffolding if we aren't already tracking it
                 if (-not $extensionsList.Contains($dep)) {
                     Write-Host "    [AUTO-DISCOVERY] Queuing missing dependency: $dep" -ForegroundColor Magenta
@@ -334,13 +334,13 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
 if (-not $ExtensionId) {
     Write-Host "`n>>> Finalizing and Syncing config.yaml..." -ForegroundColor Cyan
     $sortedExtensions = $extensionsList | Sort-Object -Unique
-    
+
     $yamlObj.extensions = $sortedExtensions
     $yamlStr = ConvertTo-Yaml $yamlObj
-    
+
     # Enforce standard YAML aesthetics (document separator and 2-space indented arrays)
     $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -')
-    
+
     $formattedYaml | Out-File $ConfigFile -Encoding utf8
     Write-Host "    [SUCCESS] Resolved $($sortedExtensions.Count) total dependencies!" -ForegroundColor Green
 }
