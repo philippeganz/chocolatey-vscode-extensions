@@ -219,7 +219,12 @@ foreach ($extId in $extensions) {
 
     $nuspecContent = Get-Content (Join-Path $templatesDir "template.nuspec") -Raw
     $nuspecContent = $nuspecContent -replace '\{\{ExtensionNameLowerCase\}\}', $packageName.Replace("vscode-", "")
-    $nuspecContent = $nuspecContent -replace '\{\{Version\}\}', $versionClean
+    
+    # We explicitly inject '0.0.0' into the .nuspec for brand new packages. 
+    # This tricks the AU engine into treating the upstream version as an update, 
+    # triggering a pristine download, test, and push without requiring manual Force arguments.
+    $nuspecContent = $nuspecContent -replace '\{\{Version\}\}', '0.0.0'
+    
     $nuspecContent = $nuspecContent -replace '\{\{Title\}\}', $displayName
     $nuspecContent = $nuspecContent -replace '\{\{Authors\}\}', $author
     $nuspecContent = $nuspecContent -replace '\{\{ProjectUrl\}\}', $repoUrl
