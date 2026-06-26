@@ -4,14 +4,16 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-# Configure AU execution environment
-$Env:au_Push = 'true'
-$Env:au_Force = 'false'
+# Set the global AU variables directly instead of using the Options dictionary
+$global:au_Push = $true
+$global:au_Force = $false
 
-# If forced packages are specified (e.g. "vscode-yaml"), AU will ignore versions and force update them
 if ($ForcedPackages) {
-    $Env:au_Force = 'true'
-    $Env:au_Packages = $ForcedPackages
+    $global:au_Force = $true
+}
+
+$opts = [ordered]@{
+    Push = $true
 }
 
 # Resolve the path to the 'automatic' directory where packages live
@@ -23,8 +25,11 @@ if (-not (Test-Path $packagesDir)) {
 Push-Location $packagesDir
 
 try {
-    # The main AU command to execute the update.ps1 scripts in all subfolders
-    Update-AUPackages
+    if ($ForcedPackages) {
+        Update-AUPackages -Name $ForcedPackages -Options $opts
+    } else {
+        Update-AUPackages -Options $opts
+    }
 } finally {
     Pop-Location
 }
