@@ -88,7 +88,7 @@ function global:au_UpdatePackage {
 function global:au_SearchReplace {
     @{
         "tools\chocolateyInstall.ps1" = @{
-            "(?i)({{Publisher}}\.{{ExtensionName}}-)[\d\.]+(\.vsix)" = "`$1$($Latest.Version)`$2"
+            "(?i)({{Publisher}}\.{{ExtensionName}}-)[\d\.]+(\.vsix)" = "`${1}$($Latest.Version)`${2}"
         }
     }
 }
