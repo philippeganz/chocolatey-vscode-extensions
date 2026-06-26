@@ -333,12 +333,15 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
 # the config.yaml file to permanently track the fully resolved hierarchy as flat peers.
 if (-not $ExtensionId) {
     Write-Host "`n>>> Finalizing and Syncing config.yaml..." -ForegroundColor Cyan
-    $sortedExtensions = $extensionsList | Sort-Object | Get-Unique
+    $sortedExtensions = $extensionsList | Sort-Object -Unique
     
     $yamlObj.extensions = $sortedExtensions
     $yamlStr = ConvertTo-Yaml $yamlObj
     
-    $yamlStr | Out-File $ConfigFile -Encoding utf8
+    # Enforce standard YAML aesthetics (document separator and 2-space indented arrays)
+    $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -')
+    
+    $formattedYaml | Out-File $ConfigFile -Encoding utf8
     Write-Host "    [SUCCESS] Resolved $($sortedExtensions.Count) total dependencies!" -ForegroundColor Green
 }
 
