@@ -14,7 +14,17 @@ if ($ForcedPackages) {
     $Env:au_Packages = $ForcedPackages
 }
 
-# The main AU command to execute the update.ps1 scripts in all subfolders
-Update-AUPackages -Options @{
-    Threads = 3
+# Resolve the path to the 'automatic' directory where packages live
+$packagesDir = Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Definition) "..\automatic"
+if (-not (Test-Path $packagesDir)) {
+    throw "Automatic packages directory not found: $packagesDir"
+}
+
+Push-Location $packagesDir
+
+try {
+    # The main AU command to execute the update.ps1 scripts in all subfolders
+    Update-AUPackages
+} finally {
+    Pop-Location
 }
