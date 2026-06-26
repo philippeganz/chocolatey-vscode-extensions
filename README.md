@@ -57,6 +57,7 @@ We welcome community contributions to expand the list of managed extensions! Bec
    ```
 
 4. The factory will scrape the VS Code Marketplace, extract the `.vsix`, and automatically generate the Chocolatey templates in the `automatic/` directory.
+   - *Note:* Brand new extensions are explicitly bootstrapped with `<version>0.0.0</version>` in their `.nuspec`. This inherently triggers the AU Engine to push the pristine upstream version on its first run without requiring manual intervention!
 5. Commit the generated folder and open a Pull Request!
 
 ## Continuous Integration (AU)
@@ -69,10 +70,12 @@ Every 6 hours, it crawls the `automatic/` directory. If a new version of an exte
 
 Before AU pushes any package to the community gallery, it executes `Test-Package`. This natively installs the extension onto the GitHub Actions runner to ensure the underlying `.vsix` is completely valid. We pre-load the `chocolatey-vscode.extension` helper module in the workflow to facilitate this.
 
-### Forcing Updates
+### Emergency Hotfixes (Forced Updates)
 
-If you need to manually push a package (e.g., initial publish) even if the version hasn't changed upstream, you can trigger the **Chocolatey AU Updater** workflow manually via the GitHub Actions UI.
-Supply the package name in the `forced_packages` input. The orchestrator will inject `$global:au_Force = $true` to bypass the version math, rebuild the binary, and push it directly to the gallery.
+If you need to manually push a hotfix to a package (e.g., you fixed a typo in the installer script) but the upstream software version hasn't changed, you must trigger the **Chocolatey AU Updater** workflow manually via the GitHub Actions UI.
+Supply the package name in the `forced_packages` input. The orchestrator will inject `$global:au_Force = $true` to bypass the version math, trigger `set_fix_version()` to append a `.YYYYMMDD` timestamp, rebuild the binary, and push the revision directly to the gallery.
+
+*Fail-Safe:* If you need to use the Factory script to locally mass-regenerate existing templates to apply a hotfix, the Factory utilizes **Smart Version Preservation**. It reads the existing `.nuspec` and preserves the current version tag (e.g. `12.4.0`) rather than resetting it to `0.0.0`. This guarantees the AU Engine won't accidentally try to push a duplicate, un-timestamped version to the Community Gallery and crash your CI.
 
 ## Limitations
 
