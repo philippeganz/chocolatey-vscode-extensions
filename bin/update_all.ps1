@@ -9,6 +9,7 @@ $ErrorActionPreference = 'Stop'
 # Set the global AU variables directly instead of using the Options dictionary
 $global:au_Push = $true
 $global:au_Force = $false
+$global:au_NoCheckRegistry = $true
 
 if ($ForcedPackages) {
     $global:au_Force = $true
