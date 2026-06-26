@@ -3,11 +3,22 @@ param()
 
 Import-Module au
 
+# Override standard AU variables. We disable pushing from individual templates
+# because the global CI/CD pipeline handles pushing orchestrations.
 $au_NoCheckRegistry = $true
 $au_Push = $false
 
+# -----------------------------------------------------------------------------
+# au_GetLatest: The Metadata Resolver
+#
+# AU executes this function every 6 hours. We send a raw REST API POST request
+# to the Visual Studio Code Marketplace to query the absolute latest version
+# of the extension.
+# -----------------------------------------------------------------------------
 function global:au_GetLatest {
     $marketplaceUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
+
+    # The Marketplace requires a highly specific, undocumented payload to query extensions.
     $body = @{
         filters = @(
             @{
@@ -35,7 +46,7 @@ function global:au_GetLatest {
     # Simple SemVer sanitization
     $version = $version -replace '[^\d\.-]', ''
 
-    # Download URL for the vsix
+    # Construct the direct download URL for the .vsix payload.
     $vsixUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/esbenp/vsextensions/prettier-vscode/$version/vspackage"
 
     return @{
@@ -45,6 +56,12 @@ function global:au_GetLatest {
     }
 }
 
+# -----------------------------------------------------------------------------
+# au_UpdatePackage: The Payload Downloader
+#
+# If AU detects that the version returned by au_GetLatest is newer than the
+# current package, it triggers this function to download the new binaries.
+# -----------------------------------------------------------------------------
 function global:au_UpdatePackage {
     param($Latest)
 
