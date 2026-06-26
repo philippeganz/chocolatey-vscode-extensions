@@ -7,7 +7,7 @@
 # To add a new extension, find it on the VS Code Marketplace and copy its
 # "Unique Identifier" (formatted as Publisher.ExtensionName).
 #
-# Example: 
+# Example:
 #   For "Prettier", the identifier is "esbenp.prettier-vscode"
 # =============================================================================
 
@@ -16,5 +16,3 @@ config:
   output_dir: "../automatic"
 
 extensions:
-  # Add new extensions below this line
-  - esbenp.prettier-vscode
