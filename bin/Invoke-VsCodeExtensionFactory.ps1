@@ -11,8 +11,8 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 # =============================================================================
 # 1. Configuration & Scaffolding
 # =============================================================================
-# We parse the config.yaml to determine which extensions the Factory should 
-# track. The output directory defaults to 'automatic/' where the generated 
+# We parse the config.yaml to determine which extensions the Factory should
+# track. The output directory defaults to 'automatic/' where the generated
 # Chocolatey packages will be placed.
 if (-not (Test-Path $ConfigFile)) { throw "Configuration file not found: $ConfigFile" }
 
@@ -131,8 +131,8 @@ foreach ($extId in $extensions) {
     # =========================================================================
     # 3. Payload Extraction (Air-Gap Compliance)
     # =========================================================================
-    # A .vsix file is just a ZIP archive. We crack it open using native .NET 
-    # libraries to extract the internal package.json, README.md, and LICENSE 
+    # A .vsix file is just a ZIP archive. We crack it open using native .NET
+    # libraries to extract the internal package.json, README.md, and LICENSE
     # files so we can natively bundle them into the Chocolatey .nupkg.
     Write-Host "    Extracting Metadata from VSIX Archive..."
     $zip = [System.IO.Compression.ZipFile]::OpenRead($vsixPath)
@@ -190,7 +190,7 @@ foreach ($extId in $extensions) {
     # =========================================================================
     # 5. Security Validation
     # =========================================================================
-    # We scan the raw binary payload to look for forbidden runtime commands 
+    # We scan the raw binary payload to look for forbidden runtime commands
     # that might attempt to break out of an offline/air-gapped network.
     Write-Host "    Deep Scanning VSIX for Network Triggers..."
     $dangerousMatches = Select-String -Path "$vsixPath" -Pattern "(wget\s|curl\s|Invoke-WebRequest|npm install|pip install)" -Quiet
@@ -201,7 +201,7 @@ foreach ($extId in $extensions) {
     # =========================================================================
     # 6. Template Rendering
     # =========================================================================
-    # We take the static scaffolding templates from bin/Templates and inject 
+    # We take the static scaffolding templates from bin/Templates and inject
     # the dynamically resolved metadata to finalize the AU package structure.
     Write-Host "    Rendering AU Templates..."
     $templatesDir = Join-Path $PSScriptRoot "Templates"

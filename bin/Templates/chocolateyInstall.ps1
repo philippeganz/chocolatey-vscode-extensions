@@ -1,9 +1,9 @@
 # -----------------------------------------------------------------------------
 # Chocolatey Installation Script
-# 
+#
 # This script is executed by Chocolatey when the package is installed.
-# It resolves the path to the bundled .vsix payload and hands it off to the 
-# 'chocolatey-vscode.extension' dependency, which natively injects the 
+# It resolves the path to the bundled .vsix payload and hands it off to the
+# 'chocolatey-vscode.extension' dependency, which natively injects the
 # extension into Visual Studio Code while remaining entirely offline.
 # -----------------------------------------------------------------------------
 $ErrorActionPreference = 'Stop'
