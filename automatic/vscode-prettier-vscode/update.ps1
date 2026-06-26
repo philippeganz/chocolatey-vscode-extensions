@@ -65,6 +65,12 @@ function global:au_GetLatest {
 function global:au_BeforeUpdate {
     param($package)
 
+    # Intelligent CI Bootstrapper: Only install VS Code test dependencies if an update is actively happening
+    if (-not (Get-Command code -ErrorAction SilentlyContinue)) {
+        Write-Host ">>> Pre-loading Test Dependencies for CI Environment..." -ForegroundColor Cyan
+        choco install vscode chocolatey-vscode.extension -y --no-progress
+    }
+
     $toolsDir = Join-Path $package.Path 'tools'
     if (-not (Test-Path $toolsDir)) { New-Item -ItemType Directory -Path $toolsDir | Out-Null }
 
