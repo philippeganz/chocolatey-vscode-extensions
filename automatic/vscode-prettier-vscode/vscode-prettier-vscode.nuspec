@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-prettier-vscode</id>
-    <version>12.4.0</version>
+    <version>0.0.0</version>
     <title>Prettier - Code formatter</title>
     <authors>esbenp</authors>
     <projectUrl>https://github.com/prettier/prettier-vscode.git</projectUrl>
