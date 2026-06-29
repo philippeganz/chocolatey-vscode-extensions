@@ -41,3 +41,9 @@ jobs:
           } else {
             ./bin/update_all.ps1
           }
+
+      - name: Commit and Push Successful Updates
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Auto-Update VS Code Extensions [skip ci]"
+          file_pattern: 'automatic/*'
