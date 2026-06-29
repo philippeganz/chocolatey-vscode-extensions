@@ -219,7 +219,8 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
         # We MUST scrub emails from the README itself to pass Chocolatey Moderation checks.
         $readmeRaw = Get-Content $readmePath -Raw
         $readmeRaw = $readmeRaw -replace '(?i)[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}', '[email removed]'
-        $readmeRaw | Set-Content $readmePath -Encoding utf8 -NoNewline
+        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+        [System.IO.File]::WriteAllText($readmePath, $readmeRaw, $utf8NoBom)
     }
     $licenseFileName = ""
     if ($licenseEntry) {
@@ -319,18 +320,21 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $nuspecContent = $nuspecContent -replace '\{\{Description\}\}', $description
     $nuspecContent = $nuspecContent -replace '\{\{Summary\}\}', $summary
     $nuspecContent = $nuspecContent -replace '\{\{Dependencies\}\}', $dependenciesStr
-    $nuspecContent | Out-File (Join-Path $pkgDir "$packageName.nuspec") -Encoding utf8
+    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+    [System.IO.File]::WriteAllText((Join-Path $pkgDir "$packageName.nuspec"), $nuspecContent, $utf8NoBom)
 
     $installContent = Get-Content (Join-Path $templatesDir "chocolateyInstall.ps1") -Raw
     $installContent = $installContent -replace '\{\{Publisher\}\}', $publisher
     $installContent = $installContent -replace '\{\{ExtensionName\}\}', $extensionName
     $installContent = $installContent -replace '\{\{Version\}\}', $versionClean
-    $installContent | Out-File (Join-Path $toolsDir "chocolateyInstall.ps1") -Encoding utf8
+    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+    [System.IO.File]::WriteAllText((Join-Path $toolsDir "chocolateyInstall.ps1"), $installContent, $utf8NoBom)
 
     $updateContent = Get-Content (Join-Path $templatesDir "update.ps1") -Raw
     $updateContent = $updateContent -replace '\{\{Publisher\}\}', $publisher
     $updateContent = $updateContent -replace '\{\{ExtensionName\}\}', $extensionName
-    $updateContent | Out-File (Join-Path $pkgDir "update.ps1") -Encoding utf8
+    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+    [System.IO.File]::WriteAllText((Join-Path $pkgDir "update.ps1"), $updateContent, $utf8NoBom)
 
     # Download Icon
     if ($iconUrl) {
@@ -360,7 +364,8 @@ if (-not $ExtensionId) {
     # Enforce standard YAML aesthetics (document separator and 2-space indented arrays)
     $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -').TrimEnd()
 
-    $formattedYaml | Out-File $ConfigFile -Encoding utf8
+    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+    [System.IO.File]::WriteAllText($ConfigFile, $formattedYaml, $utf8NoBom)
     Write-Host "    [SUCCESS] Resolved $($sortedExtensions.Count) total dependencies!" -ForegroundColor Green
 }
 
