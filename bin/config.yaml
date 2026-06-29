@@ -18,6 +18,7 @@ extensions:
   - ms-vscode.cpptools
   - ms-vscode.cpptools-extension-pack
   - ms-vscode.cpptools-themes
+  - redhat.java
   - ritwickdey.LiveServer
   - visualstudioexptteam.intellicode-api-usage-examples
   - VisualStudioExptTeam.vscodeintellicode
