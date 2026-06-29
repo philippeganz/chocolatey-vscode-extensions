@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-cmake-tools</id>
+    <version>0.0.0</version>
+    <title>CMake Tools</title>
+    <authors>ms-vscode</authors>
+    <projectUrl>https://github.com/microsoft/vscode-cmake-tools</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cmake-tools/1.24.22/1781844364783/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Extended CMake support in Visual Studio Code</description>
+    <summary>Extended CMake support in Visual Studio Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools#changelog</releaseNotes>
+    <tags>vscode extension cmake-tools</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-cpp-devtools" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
