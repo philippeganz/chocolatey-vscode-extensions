@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-cpptools-themes</id>
+    <version>0.0.0</version>
+    <title>C/C++ Themes</title>
+    <authors>ms-vscode</authors>
+    <projectUrl>https://github.com/Microsoft/vscode-cpptools.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpptools-themes/2.0.0/1666648137053/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-themes</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>UI Themes for C/C++ extension.</description>
+    <summary>UI Themes for C/C++ extension.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-themes#changelog</releaseNotes>
+    <tags>vscode extension cpptools-themes</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
