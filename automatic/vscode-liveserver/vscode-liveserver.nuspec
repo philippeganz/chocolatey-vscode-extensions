@@ -10,8 +10,8 @@
     <iconUrl>https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.7.10/1772184436918/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Launch a development local Server with live reload feature for static & dynamic pages</description>
-    <summary>Launch a development local Server with live reload feature for static & dynamic pages</summary>
+    <description>Launch a development local Server with live reload feature for static &amp; dynamic pages</description>
+    <summary>Launch a development local Server with live reload feature for static &amp; dynamic pages</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer#changelog</releaseNotes>
     <tags>vscode extension liveserver</tags>
     <dependencies>
