@@ -11,6 +11,8 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Provides a unified python environment experience</description>
+    <summary>Provides a unified python environment experience</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs#changelog</releaseNotes>
     <tags>vscode extension python-envs</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>

@@ -11,6 +11,8 @@
     <licenseUrl>{{MarketplaceUrl}}</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>{{Description}}</description>
+    <summary>{{Summary}}</summary>
+    <releaseNotes>{{MarketplaceUrl}}#changelog</releaseNotes>
     <tags>vscode extension {{ExtensionNameLowerCase}}</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" /> {{Dependencies}} </dependencies>

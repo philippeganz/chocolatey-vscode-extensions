@@ -164,6 +164,12 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $versionClean = $version -replace '[^\d\.-]', ''
     $displayName = $extMeta.displayName
     $description = $extMeta.shortDescription
+
+    # Chocolatey Validation Requirements: Scrub emails and enforce limits
+    $description = $description -replace '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', '[email removed]'
+    $summary = $description
+    if ($summary.Length -gt 4000) { $summary = $summary.Substring(0, 3996) + "..." }
+
     $iconUrl = $extMeta.versions[0].files | Where-Object { $_.assetType -eq "Microsoft.VisualStudio.Services.Icons.Default" } | Select-Object -ExpandProperty source
 
     Write-Host "    Version: $versionClean"
@@ -206,7 +212,13 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     }
 
     if ($readmeEntry) {
-        [System.IO.Compression.ZipFileExtensions]::ExtractToFile($readmeEntry, (Join-Path $pkgDir "README.md"), $true)
+        $readmePath = Join-Path $pkgDir "README.md"
+        [System.IO.Compression.ZipFileExtensions]::ExtractToFile($readmeEntry, $readmePath, $true)
+        # The AU Engine natively ingests this README.md and overwrites the .nuspec description with it.
+        # We MUST scrub emails from the README itself to pass Chocolatey Moderation checks.
+        $readmeRaw = Get-Content $readmePath -Raw
+        $readmeRaw = $readmeRaw -replace '(?i)[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}', '[email removed]'
+        $readmeRaw | Set-Content $readmePath -Encoding utf8 -NoNewline
     }
     $licenseFileName = ""
     if ($licenseEntry) {
@@ -304,6 +316,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $nuspecContent = $nuspecContent -replace '\{\{IconUrl\}\}', $iconUrl
     $nuspecContent = $nuspecContent -replace '\{\{MarketplaceUrl\}\}', "https://marketplace.visualstudio.com/items?itemName=$extId"
     $nuspecContent = $nuspecContent -replace '\{\{Description\}\}', $description
+    $nuspecContent = $nuspecContent -replace '\{\{Summary\}\}', $summary
     $nuspecContent = $nuspecContent -replace '\{\{Dependencies\}\}', $dependenciesStr
     $nuspecContent | Out-File (Join-Path $pkgDir "$packageName.nuspec") -Encoding utf8
 
@@ -344,7 +357,7 @@ if (-not $ExtensionId) {
     $yamlStr = ConvertTo-Yaml $orderedYaml
 
     # Enforce standard YAML aesthetics (document separator and 2-space indented arrays)
-    $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -')
+    $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -').TrimEnd()
 
     $formattedYaml | Out-File $ConfigFile -Encoding utf8
     Write-Host "    [SUCCESS] Resolved $($sortedExtensions.Count) total dependencies!" -ForegroundColor Green

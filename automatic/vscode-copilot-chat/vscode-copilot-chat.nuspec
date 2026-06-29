@@ -11,6 +11,8 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>AI chat features powered by Copilot</description>
+    <summary>AI chat features powered by Copilot</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat#changelog</releaseNotes>
     <tags>vscode extension copilot-chat</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>

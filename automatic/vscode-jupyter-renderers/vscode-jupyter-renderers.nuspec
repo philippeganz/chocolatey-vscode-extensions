@@ -11,6 +11,8 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-renderers</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Renderers for Jupyter Notebooks (with plotly, vega, gif, png, svg, jpeg and other such outputs)</description>
+    <summary>Renderers for Jupyter Notebooks (with plotly, vega, gif, png, svg, jpeg and other such outputs)</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-renderers#changelog</releaseNotes>
     <tags>vscode extension jupyter-renderers</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
