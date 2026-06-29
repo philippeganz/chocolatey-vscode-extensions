@@ -2,6 +2,7 @@
 config:
   output_dir: ../automatic
 extensions:
+  - esbenp.prettier-vscode
   - GitHub.copilot
   - GitHub.copilot-chat
   - ms-python.debugpy
