@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-jupyter</id>
+    <version>0.0.0</version>
+    <title>Jupyter</title>
+    <authors>ms-toolsai</authors>
+    <projectUrl>https://github.com/Microsoft/vscode-jupyter</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://ms-toolsai.gallerycdn.vsassets.io/extensions/ms-toolsai/jupyter/2026.6.2026061001/1781085548563/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Jupyter notebook support, interactive programming and computing that supports Intellisense, debugging and more.</description>
+    <tags>vscode extension jupyter</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-jupyter-keymap" />
+      <dependency id="vscode-jupyter-renderers" />
+      <dependency id="vscode-jupyter-slideshow" />
+      <dependency id="vscode-jupyter-cell-tags" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
