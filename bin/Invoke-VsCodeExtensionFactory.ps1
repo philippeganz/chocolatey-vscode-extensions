@@ -88,6 +88,19 @@ Write-Host "    Initial Extensions to Process: $($extensionsList.Count)"
 # We use a standard for-loop so we can dynamically append discovered dependencies to the end of the list
 $processed = @{}
 
+# Legacy extensions often declare dependencies using outdated aliases instead of canonical publisher IDs.
+# We intercept and translate them here to prevent 404 API crashes during Auto-Discovery.
+$dependencyAliases = @{
+    "vscode.docker"                = "ms-azuretools.vscode-docker"
+    "PeterJausovec.vscode-docker"  = "ms-azuretools.vscode-docker"
+    "vscode.yaml"                  = "redhat.vscode-yaml"
+    "donjayamanne.python"          = "ms-python.python"
+    "lukehoban.Go"                 = "golang.Go"
+    "ms-vscode.Go"                 = "golang.Go"
+    "ms-vscode.csharp"             = "ms-dotnettools.csharp"
+    "eg2.tslint"                   = "ms-vscode.vscode-typescript-tslint-plugin"
+}
+
 for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $extId = $extensionsList[$i]
 
@@ -238,7 +251,9 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $dependenciesStr = ""
     if ($packageJson.extensionDependencies) {
         Write-Host "    Found Extension Dependencies!" -ForegroundColor Yellow
-        foreach ($dep in $packageJson.extensionDependencies) {
+        foreach ($depRaw in $packageJson.extensionDependencies) {
+            $dep = if ($dependencyAliases.ContainsKey($depRaw)) { $dependencyAliases[$depRaw] } else { $depRaw }
+            
             $depName = ($dep -split '\.')[1].ToLower()
             $depPackageName = if ($depName.StartsWith("vscode-")) { $depName } else { "vscode-$depName" }
             if ($depPackageName -ne $packageName) {
@@ -254,7 +269,9 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     }
     if ($packageJson.extensionPack) {
         Write-Host "    Found Extension Pack Bundles!" -ForegroundColor Yellow
-        foreach ($dep in $packageJson.extensionPack) {
+        foreach ($depRaw in $packageJson.extensionPack) {
+            $dep = if ($dependencyAliases.ContainsKey($depRaw)) { $dependencyAliases[$depRaw] } else { $depRaw }
+            
             $depName = ($dep -split '\.')[1].ToLower()
             $depPackageName = if ($depName.StartsWith("vscode-")) { $depName } else { "vscode-$depName" }
             if ($depPackageName -ne $packageName) {
