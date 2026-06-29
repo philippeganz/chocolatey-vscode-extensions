@@ -1,7 +1,8 @@
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 param(
-    [string]$ForcedPackages = ''
+    [string]$ForcedPackages = '',
+    [string]$PushUrl = ''
 )
 
 $ErrorActionPreference = 'Stop'
@@ -20,6 +21,11 @@ $ErrorActionPreference = 'Stop'
 $global:au_Push = $true
 $global:au_Force = $false
 $global:au_NoCheckRegistry = $true
+
+if ($PushUrl) {
+    $global:au_PushUrl = $PushUrl
+    Write-Host ">>> Retargeting AU Push to Internal Repository: $PushUrl" -ForegroundColor Magenta
+}
 
 if ($ForcedPackages) {
     # Bypasses the internal math that aborts updates when local and remote versions match.
