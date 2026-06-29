@@ -66,7 +66,7 @@ if ($ModerationRepush) {
         $nuspecPath = Join-Path $pkgDir "$pkg.nuspec"
         $nuspec = [xml](Get-Content $nuspecPath)
         $nuspec.package.metadata.version = $upstreamVersion
-        
+
         if (Test-Path "README.md") {
             $readmeData = Get-Content "README.md" -Raw
             $descNode = $nuspec.SelectSingleNode("//*[local-name()='description']")
@@ -76,7 +76,7 @@ if ($ModerationRepush) {
                 $descNode.AppendChild($cdata) | Out-Null
             }
         }
-        
+
         $nuspec.Save($nuspecPath)
 
         # 3. Download the VSIX payload
