@@ -334,15 +334,15 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
 if (-not $ExtensionId) {
     Write-Host "`n>>> Finalizing and Syncing config.yaml..." -ForegroundColor Cyan
     $sortedExtensions = $extensionsList | Sort-Object -Unique
-    
+
     # Enforce strict property ordering so 'config' is always rendered before 'extensions'
     $orderedYaml = [ordered]@{
         config = $yamlObj.config
         extensions = $sortedExtensions
     }
-    
+
     $yamlStr = ConvertTo-Yaml $orderedYaml
-    
+
     # Enforce standard YAML aesthetics (document separator and 2-space indented arrays)
     $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -')
 
