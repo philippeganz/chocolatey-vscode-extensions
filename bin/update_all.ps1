@@ -4,7 +4,8 @@
 param(
     [string]$ForcedPackages = '',
     [string]$PushUrl = '',
-    [string]$ModerationRepush = ''
+    [string]$ModerationRepush = '',
+    [string]$OutputDir = ''
 )
 
 $ErrorActionPreference = 'Stop'
@@ -34,8 +35,13 @@ if ($ForcedPackages) {
     $global:au_Force = $true
 }
 
+if ($OutputDir) {
+    Write-Host ">>> Output Directory specified: $OutputDir (Disabling native AU Push)" -ForegroundColor Magenta
+    $global:au_Push = $false
+}
+
 $opts = [ordered]@{
-    Push  = $true
+    Push  = if ($OutputDir) { $false } else { $true }
     Force = if ($ForcedPackages) { $true } else { $false }
 }
 
@@ -111,4 +117,16 @@ try {
 }
 finally {
     Pop-Location
+    
+    if ($OutputDir) {
+        Write-Host "`n>>> Consolidating compiled .nupkg artifacts into Output Directory: $OutputDir" -ForegroundColor Cyan
+        if (-not (Test-Path $OutputDir)) { New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null }
+        $payloads = Get-ChildItem -Path $packagesDir -Filter "*.nupkg" -Recurse
+        if ($payloads) {
+            $payloads | Move-Item -Destination $OutputDir -Force
+            Write-Host "    Successfully moved $($payloads.Count) packages to $OutputDir" -ForegroundColor Green
+        } else {
+            Write-Host "    No compiled packages found to move." -ForegroundColor Yellow
+        }
+    }
 }
