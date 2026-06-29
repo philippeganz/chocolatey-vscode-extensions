@@ -52,37 +52,37 @@ if ($ModerationRepush) {
     foreach ($pkg in ($ModerationRepush -split ',')) {
         $pkgDir = Join-Path $packagesDir $pkg
         if (-not (Test-Path $pkgDir)) { Write-Host "    [ERROR] Not found: $pkg" -ForegroundColor Red; continue }
-        
+
         Push-Location $pkgDir
         Write-Host "    Processing $pkg" -ForegroundColor Cyan
-        
+
         # 1. Scrape exact upstream version from Marketplace using local update.ps1
         . .\update.ps1
         $latestMeta = au_GetLatest
         $upstreamVersion = $latestMeta.Version
         Write-Host "    Target Upstream Version: $upstreamVersion"
-        
+
         # 2. Hardcode the exact version into the .nuspec
         $nuspecPath = Join-Path $pkgDir "$pkg.nuspec"
         $nuspec = [xml](Get-Content $nuspecPath)
         $nuspec.package.metadata.version = $upstreamVersion
         $nuspec.Save($nuspecPath)
-        
+
         # 3. Download the VSIX payload
         $global:Latest = $latestMeta
         au_BeforeUpdate -package @{ Path = $pkgDir }
-        
+
         # 4. Pack and Push natively to bypass AU's timestamp logic
         Write-Host "    Compiling Payload..."
         choco pack
-        
+
         if ($env:api_key) {
             Write-Host "    Pushing to Chocolatey Moderation Queue..."
             choco push "$pkg.$upstreamVersion.nupkg" --source https://push.chocolatey.org --key $env:api_key --force
         } else {
             Write-Host "    [WARNING] No api_key found in environment. Skipping push." -ForegroundColor Yellow
         }
-        
+
         Pop-Location
     }
     Pop-Location
