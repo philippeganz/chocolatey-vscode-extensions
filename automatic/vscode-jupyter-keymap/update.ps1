@@ -81,7 +81,19 @@ function global:au_BeforeUpdate {
     Get-ChildItem -Path $toolsDir -Filter "*.vsix" | Remove-Item -Force
 
     # Download the new payload
-    Invoke-WebRequest -Uri $Latest.URL64 -OutFile $vsixPath
+    $retryCount = 0
+    $success = $false
+    while (-not $success -and $retryCount -lt 3) {
+        try {
+            Invoke-WebRequest -Uri $Latest.URL64 -OutFile $vsixPath -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -ErrorAction Stop
+            $success = $true
+        } catch {
+            Write-Host "    [WARNING] Download failed. Retrying in 5 seconds..." -ForegroundColor Yellow
+            $retryCount++
+            if ($retryCount -ge 3) { throw }
+            Start-Sleep -Seconds 5
+        }
+    }
 
     # The actual factory will inject VSIX extraction logic here later
     # to crack the zip and update README/LICENSE/package.json
