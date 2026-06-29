@@ -15,3 +15,5 @@ extensions:
   - ms-toolsai.vscode-jupyter-slideshow
   - ms-vscode.cpptools
   - ritwickdey.LiveServer
+  - visualstudioexptteam.intellicode-api-usage-examples
+  - VisualStudioExptTeam.vscodeintellicode
