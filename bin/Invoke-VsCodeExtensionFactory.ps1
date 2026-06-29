@@ -167,6 +167,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
 
     # Chocolatey Validation Requirements: Scrub emails and enforce limits
     $description = $description -replace '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', '[email removed]'
+    $description = [System.Security.SecurityElement]::Escape($description)
     $summary = $description
     if ($summary.Length -gt 4000) { $summary = $summary.Substring(0, 3996) + "..." }
 
