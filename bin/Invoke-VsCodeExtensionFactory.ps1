@@ -178,7 +178,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     # 3. Payload Extraction (Air-Gap Compliance)
     # =========================================================================
     $packageJson = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
-    
+
     if ($packageJson) {
         $repoUrl = if ($packageJson.repository.url) { $packageJson.repository.url } else { "https://marketplace.visualstudio.com/items?itemName=$extId" }
         $author = if ($packageJson.publisher) { $packageJson.publisher } else { $publisher }
