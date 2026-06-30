@@ -209,39 +209,43 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     Write-Host "    Extracting Metadata from VSIX Archive..."
     $zip = [System.IO.Compression.ZipFile]::OpenRead($vsixPath)
 
-    $packageJsonEntry = $zip.Entries | Where-Object { $_.FullName -eq 'extension/package.json' }
-    $readmeEntry = $zip.Entries | Where-Object { $_.FullName -match '(?i)extension/README\.md' }
-    $licenseEntry = $zip.Entries | Where-Object { $_.FullName -match '(?i)extension/LICENSE' }
+    try {
+        $packageJsonEntry = $zip.Entries | Where-Object { $_.FullName -eq 'extension/package.json' } | Select-Object -First 1
+        $readmeEntry = $zip.Entries | Where-Object { $_.FullName -match '(?i)^extension/README\.md$' } | Select-Object -First 1
+        $licenseEntry = $zip.Entries | Where-Object { $_.FullName -match '(?i)^extension/LICENSE(?:\.txt|\.md)?$' } | Select-Object -First 1
 
-    if ($packageJsonEntry) {
-        $stream = $packageJsonEntry.Open()
-        $reader = New-Object System.IO.StreamReader($stream)
-        $packageJsonContent = $reader.ReadToEnd()
-        $reader.Close(); $stream.Close()
+        if ($packageJsonEntry) {
+            $stream = $packageJsonEntry.Open()
+            $reader = New-Object System.IO.StreamReader($stream)
+            $packageJsonContent = $reader.ReadToEnd()
+            $reader.Close(); $stream.Close()
 
-        $packageJson = $packageJsonContent | ConvertFrom-Json
+            $packageJson = $packageJsonContent | ConvertFrom-Json
 
-        $repoUrl = if ($packageJson.repository.url) { $packageJson.repository.url } else { "https://marketplace.visualstudio.com/items?itemName=$extId" }
-        $author = if ($packageJson.publisher) { $packageJson.publisher } else { $publisher }
+            $repoUrl = if ($packageJson.repository.url) { $packageJson.repository.url } else { "https://marketplace.visualstudio.com/items?itemName=$extId" }
+            $author = if ($packageJson.publisher) { $packageJson.publisher } else { $publisher }
+        }
+
+        if ($readmeEntry) {
+            $readmePath = Join-Path $pkgDir "README.md"
+            [System.IO.Compression.ZipFileExtensions]::ExtractToFile($readmeEntry, $readmePath, $true)
+            # The AU Engine natively ingests this README.md and overwrites the .nuspec description with it.
+            # We MUST scrub emails from the README itself to pass Chocolatey Moderation checks.
+            $readmeRaw = Get-Content $readmePath -Raw
+            $readmeRaw = $readmeRaw -replace '(?i)[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}', '[email removed]'
+            $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+            [System.IO.File]::WriteAllText($readmePath, $readmeRaw, $utf8NoBom)
+        }
+        $licenseFileName = ""
+        if ($licenseEntry) {
+            $licenseFileName = $licenseEntry.Name
+            [System.IO.Compression.ZipFileExtensions]::ExtractToFile($licenseEntry, (Join-Path $pkgDir $licenseFileName), $true)
+        }
+    } finally {
+        if ($null -ne $zip) {
+            $zip.Dispose()
+        }
     }
-
-    if ($readmeEntry) {
-        $readmePath = Join-Path $pkgDir "README.md"
-        [System.IO.Compression.ZipFileExtensions]::ExtractToFile($readmeEntry, $readmePath, $true)
-        # The AU Engine natively ingests this README.md and overwrites the .nuspec description with it.
-        # We MUST scrub emails from the README itself to pass Chocolatey Moderation checks.
-        $readmeRaw = Get-Content $readmePath -Raw
-        $readmeRaw = $readmeRaw -replace '(?i)[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}', '[email removed]'
-        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-        [System.IO.File]::WriteAllText($readmePath, $readmeRaw, $utf8NoBom)
-    }
-    $licenseFileName = ""
-    if ($licenseEntry) {
-        $licenseFileName = $licenseEntry.Name
-        [System.IO.Compression.ZipFileExtensions]::ExtractToFile($licenseEntry, (Join-Path $pkgDir $licenseFileName), $true)
-    }
-
-    $zip.Dispose()
 
     # =========================================================================
     # 4. Chocolatey Dependency Resolution
