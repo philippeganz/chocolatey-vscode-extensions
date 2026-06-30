@@ -105,7 +105,7 @@ The extension is available in multiple languages: `de`, `en`, `es`, `fa`, `fr`, 
 -   If you have a question about how to accomplish something with the extension, please [ask on Discussions](https://github.com/microsoft/vscode-jupyter/discussions). Our [wiki](https://github.com/microsoft/vscode-jupyter/wiki) can be a source of information as well.
 -   Any and all feedback is appreciated and welcome! If you come across a problem or bug with the extension, please [file an issue](https://github.com/microsoft/vscode-jupyter/issues/new/choose).
 
-    -   If someone has already [filed an issue](https://github.com/Microsoft/vscode-jupyter/issues) that encompasses your feedback, please leave a 👍/👎 reaction on the issue.
+    -   If someone has already [filed an issue](https://github.com/Microsoft/vscode-jupyter/issues) that encompasses your feedback, please leave a ðŸ‘/ðŸ‘Ž reaction on the issue.
 
 -   Contributions are always welcome, so please see our [contributing guide](https://github.com/Microsoft/vscode-jupyter/blob/main/CONTRIBUTING.md) for more details.
 

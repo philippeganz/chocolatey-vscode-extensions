@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-javascriptsnippets</id>
-    <version>0.0.0</version>
+    <version>1.8.0</version>
     <title>JavaScript (ES6) code snippets</title>
     <authors>xabikos</authors>
     <projectUrl>https://github.com/xabikos/vscode-javascript</projectUrl>
@@ -10,12 +10,110 @@
     <iconUrl>https://xabikos.gallerycdn.vsassets.io/extensions/xabikos/javascriptsnippets/1.8.0/1587489699375/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Code snippets for JavaScript in ES6 syntax</description>
+    <description><![CDATA[# JavaScript
+## VS Code JavaScript (ES6) snippets
+-------------------
+
+[![Version](https://vsmarketplacebadge.apphb.com/version/xabikos.JavaScriptSnippets.svg)](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs/xabikos.JavaScriptSnippets.svg)](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
+[![Ratings](https://vsmarketplacebadge.apphb.com/rating/xabikos.JavaScriptSnippets.svg)](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
+
+This extension contains code snippets for JavaScript in ES6 syntax for [Vs Code][code] editor (supports both JavaScript and TypeScript).
+
+### Note
+**All the snippets include the final semicolon `;` There is a fork of those snippets [here](https://marketplace.visualstudio.com/items?itemName=jmsv.JavaScriptSnippetsStandard)
+made by @jmsv where semicolons are not included. So feel free to use them according to your needs.**
+
+## Sponsors
+<p><a title="Try CodeStream" href="https://sponsorlink.codestream.com/?utm_source=vscmarket&amp;utm_campaign=jses6codesnippets&amp;utm_medium=banner"><img src="https://alt-images.codestream.com/codestream_logo_jses6codesnippets.png"></a></br>
+Request and perform code reviews from inside your IDE.  Review any code, even if it's a work-in-progress that hasn't been committed yet, and use jump-to-definition, your favorite keybindings, and other IDE tools.<br> <a title="Try CodeStream" href="https://sponsorlink.codestream.com/?utm_source=vscmarket&amp;utm_campaign=jses6codesnippets&amp;utm_medium=banner">Try it free</a></p>
+
+
+## Installation
+
+In order to install an extension you need to launch the Command Palette (Ctrl + Shift + P or Cmd + Shift + P) and type Extensions.
+There you have either the option to show the already installed snippets or install new ones. Search for *JavaScript (ES6) code snippets* and install it.
+
+## Supported languages (file extensions)
+* JavaScript (.js)
+* TypeScript (.ts)
+* JavaScript React (.jsx)
+* TypeScript React (.tsx)
+* Html (.html)
+* Vue (.vue)
+
+## Snippets
+
+Below is a list of all available snippets and the triggers of each one. The **Ã¢â€¡Â¥** means the `TAB` key.
+
+### Import and export
+| Trigger  | Content |
+| -------: | ------- |
+| `impÃ¢â€ â€™`   | imports entire module `import fs from 'fs';`|
+| `imnÃ¢â€ â€™`   | imports entire module without module name `import 'animate.css'` |
+| `imdÃ¢â€ â€™`   | imports only a portion of the module using destructing  `import {rename} from 'fs';` |
+| `imeÃ¢â€ â€™`   | imports everything as alias from the module `import * as localAlias from 'fs';` |
+| `imaÃ¢â€ â€™`   | imports only a portion of the module as alias `import { rename  as localRename } from 'fs';` |
+| `rqrÃ¢â€ â€™`   | require package `require('');`|
+| `reqÃ¢â€ â€™`   | require package to const `const packageName = require('packageName');`|
+| `mdeÃ¢â€ â€™`   | default module.exports `module.exports = {};`|
+| `envÃ¢â€ â€™`   | exports name variable `export const nameVariable = localVariable;` |
+| `enfÃ¢â€ â€™`   | exports name function `export const log = (parameter) => { console.log(parameter);};` |
+| `edfÃ¢â€ â€™`   | exports default function `export default function fileName (parameter){ console.log(parameter);};` |
+| `eclÃ¢â€ â€™`   | exports default class `export default class Calculator { };` |
+| `eceÃ¢â€ â€™`   | exports default class by extending a base one `export default class Calculator extends BaseClass { };` |
+
+### Class helpers
+| Trigger  | Content |
+| -------: | ------- |
+| `conÃ¢â€ â€™`   | adds default constructor in the class `constructor() {}`|
+| `metÃ¢â€ â€™`   | creates a method inside a class `add() {}` |
+| `pgeÃ¢â€ â€™`   | creates a getter property `get propertyName() {return value;}` |
+| `pseÃ¢â€ â€™`   | creates a setter property `set propertyName(value) {}` |
+
+### Various methods
+| Trigger  | Content |
+| -------: | ------- |
+| `freÃ¢â€ â€™`   | forEach loop in ES6 syntax `array.forEach(currentItem => {})`|
+| `fofÃ¢â€ â€™`   | for ... of loop `for(const item of object) {}` |
+| `finÃ¢â€ â€™`   | for ... in loop `for(const item in object) {}` |
+| `anfnÃ¢â€ â€™`  | creates an anonymous function `(params) => {}` |
+| `nfnÃ¢â€ â€™`   | creates a named function `const add = (params) => {}` |
+| `dobÃ¢â€ â€™`   | destructing object syntax `const {rename} = fs` |
+| `darÃ¢â€ â€™`   | destructing array syntax `const [first, second] = [1,2]` |
+| `stiÃ¢â€ â€™`   | set interval helper method `setInterval(() => {});` |
+| `stoÃ¢â€ â€™`   | set timeout helper method `setTimeout(() => {});` |
+| `promÃ¢â€ â€™`  | creates a new Promise `return new Promise((resolve, reject) => {});`|
+| `thencÃ¢â€ â€™` | adds then and catch declaration to a promise `.then((res) => {}).catch((err) => {});`|
+
+### Console methods
+| Trigger  | Content |
+| -------: | ------- |
+| `casÃ¢â€ â€™`   | console alert method `console.assert(expression, object)`|
+| `cclÃ¢â€ â€™`   | console clear `console.clear()` |
+| `ccoÃ¢â€ â€™`   | console count `console.count(label)` |
+| `cdbÃ¢â€ â€™`   | console debug `console.debug(object)` |
+| `cdiÃ¢â€ â€™`   | console dir `console.dir` |
+| `cerÃ¢â€ â€™`   | console error `console.error(object)` |
+| `cgrÃ¢â€ â€™`   | console group `console.group(label)` |
+| `cgeÃ¢â€ â€™`   | console groupEnd `console.groupEnd()` |
+| `clgÃ¢â€ â€™`   | console log `console.log(object)` |
+| `cloÃ¢â€ â€™`   | console log object with name `console.log('object :>> ', object);` |
+| `ctrÃ¢â€ â€™`   | console trace `console.trace(object)` |
+| `cwaÃ¢â€ â€™`   | console warn `console.warn` |
+| `cinÃ¢â€ â€™`   | console info `console.info` |
+| `cltÃ¢â€ â€™`   | console table `console.table` |
+| `ctiÃ¢â€ â€™`   | console time `console.time` |
+| `cteÃ¢â€ â€™`   | console timeEnd `console.timeEnd` |
+
+[code]: https://code.visualstudio.com/
+]]></description>
     <summary>Code snippets for JavaScript in ES6 syntax</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets#changelog</releaseNotes>
     <tags>vscode extension javascriptsnippets</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

@@ -123,9 +123,9 @@ for more information on what is included in the generated dev container.
 
 ### Create a dev container
 
-Quick Links Panel: Go to Ansible sidebar → click dev container
+Quick Links Panel: Go to Ansible sidebar â†’ click dev container
 
-Command Palette: Ctrl+Shift+P → search "Ansible: Create a dev container"
+Command Palette: Ctrl+Shift+P â†’ search "Ansible: Create a dev container"
 
 ### Configuration Options
 
@@ -139,7 +139,7 @@ Set destination and overwrite options in the webview, and click "Create".
 
 ### Open workspace in the dev container
 
-Command Palette: Ctrl+Shift+P → search "Dev Containers: Reopen in container"
+Command Palette: Ctrl+Shift+P â†’ search "Dev Containers: Reopen in container"
 
 Select the dev container file that matches your desired container engine.
 
@@ -388,4 +388,4 @@ We welcome your feedback, questions and ideas. Learn how to
 ## Credit
 
 Based on the good work done by
-[Tomasz Maciążek](https://github.com/tomaciazek/vscode-ansible)
+[Tomasz MaciÄ…Å¼ek](https://github.com/tomaciazek/vscode-ansible)

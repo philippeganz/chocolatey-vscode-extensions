@@ -8,7 +8,7 @@ SQL Database Projects for Azure Data Studio and VS Code provides a way to design
 
 ![SQL project lifecycle](https://github.com/Microsoft/vscode-mssql/raw/main/extensions/sql-database-projects/images/sqlproj-lifecycle.png)
 
-📕 Learn more about SQL Database Projects in the documentation: https://aka.ms/sqlprojects
+ðŸ“• Learn more about SQL Database Projects in the documentation: https://aka.ms/sqlprojects
 
 ## Requirements
 
@@ -29,7 +29,7 @@ CREATE TABLE [dbo].[Product] (
 3. Build the SQL project to validate the SQL syntax and object references. In the Database Projects view, right-click the database project's root node and select Build.
 4. Building the project created a `.dacpac` file in the output folder. This file contains the schema of the database project and can be deployed to a SQL Server or Azure SQL instance.
 
-📕 Dive in further with this complete tutorial for [creating and deploying a SQL project](https://learn.microsoft.com/sql/tools/sql-database-projects/tutorials/create-deploy-sql-project?pivots=sq1-visual-studio-code).
+ðŸ“• Dive in further with this complete tutorial for [creating and deploying a SQL project](https://learn.microsoft.com/sql/tools/sql-database-projects/tutorials/create-deploy-sql-project?pivots=sq1-visual-studio-code).
 
 ![AdventureWorks SQL project](https://github.com/Microsoft/vscode-mssql/raw/main/extensions/sql-database-projects/images/readme-sqlproj.png)
 

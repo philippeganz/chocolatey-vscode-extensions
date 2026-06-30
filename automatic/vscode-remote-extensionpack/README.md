@@ -32,7 +32,7 @@ The Remote SSH extension at work:
 **Additional SSH support:**
 
 - Windows 10 / Server 2016/2019 (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
-- macOS 10.14+ (Mojave) SSH hosts with [Remote Login enabled](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
+- macOSÂ 10.14+Â (Mojave)Â SSHÂ hostsÂ withÂ [RemoteÂ LoginÂ enabled](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
 
 Other `glibc` based Linux SSH Hosts, containers, or WSL distributions may work if they have [needed prerequisites](https://aka.ms/vscode-remote/linux).
 

@@ -38,7 +38,7 @@ The rest of the extension functionality is still limited to other extensions tha
 If you want to use your own installation(s) of .NET, you can either use one for all extensions in VS Code, or use different installations for specific extensions.
 
 This is the path to an existing .NET host executable that will select a runtime based on what's installed beside it for an extension's code to run under.
-⚠️ This is NOT the .NET Runtime that your project will use to run. Extensions such as `C#`, `C# DevKit`, and more have components written in .NET. This .NET PATH is the `dotnet.exe` or `dotnet` that these extensions will use to run their code, not your code.
+âš ï¸ This is NOT the .NET Runtime that your project will use to run. Extensions such as `C#`, `C# DevKit`, and more have components written in .NET. This .NET PATH is the `dotnet.exe` or `dotnet` that these extensions will use to run their code, not your code.
 
 Using a path value in which .NET does not meet the requirements of a specific extension will cause that extension to fail. The version of .NET that is used for your project is determined by the .NET host, or dotnet.exe. The .NET host picks a runtime based on your project. To use a specific version of .NET for your project, install the .NET SDK using the `.NET Install Tool - Install SDK System-Wide` command, install .NET manually using [our instructions](https://dotnet.microsoft.com/download), or edit your PATH environment variable to point to a `dotnet.exe` that has an `/sdk/` folder with only one SDK.
 
@@ -114,7 +114,7 @@ This extension attempts to solve the above issues.
 
 The .NET Install Tool is a [.NET Foundation](https://www.dotnetfoundation.org/projects) project.
 
-See the [.NET home repo](https://github.com/Microsoft/dotnet) to find other .NET-related projects.
+See the [.NET home repo](https://github.com/Microsoft/dotnet)Â to find other .NET-related projects.
 
 ## License
 
@@ -143,7 +143,7 @@ File questions, issues, or feature requests for the extension.
 
 ## Trademarks
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow Microsoft’s Trademark & Brand Guidelines. Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party’s policies.
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow Microsoftâ€™s Trademark & Brand Guidelines. Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-partyâ€™s policies.
 
 
 [C#]: https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp

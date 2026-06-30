@@ -6,13 +6,13 @@ Run code snippet or code file for multiple languages: **C, C++, Java, JavaScript
 
 ## Book for VS Code
 
-[《Visual Studio Code 权威指南》](https://union-click.jd.com/jdc?e=jdext-1261348777639735296-0&p=AyIGZRhbHQsWAVIaXxEyEgRdG1sRBxU3EUQDS10iXhBeGlcJDBkNXg9JHUlSSkkFSRwSBF0bWxEHFRgMXgdIMkRxFAUJD1RQZT0cBnwKDE4%2BaDpgB2ILWStbHAIQD1QaWxIBIgdUGlsRBxEEUxprJQIXNwd1g6O0yqLkB4%2B%2FjcePwitaJQIWD1cfWhwKGwVSG1wlAhoDZc31gdeauIyr%2FsOovNLYq46cqca50ytrJQEiXABPElAeEgRSG1kQCxQBUxxZHQQQA1YTXAkDIgdUGlscChECXRs1FGwSD1UbWRALFwRWK1slASJZOxoLRlUXU1NONU9QEkdXWRlJbBUDVB9TFgAVN1caWhcA)：带你深入浅出 VS Code！
+[ã€ŠVisual Studio Code æƒå¨æŒ‡å—ã€‹](https://union-click.jd.com/jdc?e=jdext-1261348777639735296-0&p=AyIGZRhbHQsWAVIaXxEyEgRdG1sRBxU3EUQDS10iXhBeGlcJDBkNXg9JHUlSSkkFSRwSBF0bWxEHFRgMXgdIMkRxFAUJD1RQZT0cBnwKDE4%2BaDpgB2ILWStbHAIQD1QaWxIBIgdUGlsRBxEEUxprJQIXNwd1g6O0yqLkB4%2B%2FjcePwitaJQIWD1cfWhwKGwVSG1wlAhoDZc31gdeauIyr%2FsOovNLYq46cqca50ytrJQEiXABPElAeEgRSG1kQCxQBUxxZHQQQA1YTXAkDIgdUGlscChECXRs1FGwSD1UbWRALFwRWK1slASJZOxoLRlUXU1NONU9QEkdXWRlJbBUDVB9TFgAVN1caWhcA)ï¼šå¸¦ä½ æ·±å…¥æµ…å‡º VS Codeï¼
 
 ![Book](https://github.com/formulahendry/vscode-code-runner/raw/HEAD/images/book.jpg)
 
 ## WeChat Official Account
 
-VS Code 的热门文章、使用技巧、插件推荐、插件开发攻略等，请关注“**玩转VS Code**”公众号！
+VS Code çš„çƒ­é—¨æ–‡ç« ã€ä½¿ç”¨æŠ€å·§ã€æ’ä»¶æŽ¨èã€æ’ä»¶å¼€å‘æ”»ç•¥ç­‰ï¼Œè¯·å…³æ³¨â€œ**çŽ©è½¬VS Code**â€å…¬ä¼—å·ï¼
 
 ![WeChat](https://github.com/formulahendry/vscode-code-runner/raw/HEAD/images/WeChatPublicAccount.jpg)
 

@@ -31,7 +31,7 @@ Follow Tekton Pipeline Extension [tutorial](https://github.com/redhat-developer/
 
 ### Commands
 
-Tekton Pipelines extension supports a number of commands & actions for interacting with Tekton Pipelines; these are accessible via the command menu (`Cmd+Shift+P` <kbd>⌘⇧P</kbd> on macOS or `Ctrl+Shift+P` <kbd>⌃⇧P</kbd> on Windows and Linux) and may be bound to keys in the normal way.
+Tekton Pipelines extension supports a number of commands & actions for interacting with Tekton Pipelines; these are accessible via the command menu (`Cmd+Shift+P` <kbd>âŒ˜â‡§P</kbd> on macOS or `Ctrl+Shift+P` <kbd>âŒƒâ‡§P</kbd> on Windows and Linux) and may be bound to keys in the normal way.
 
 * `Tekton: About` - Provides the `tkn` tool version.
 * `Tekton: Show Output Channel` - Shows commands running under the hood and their output.

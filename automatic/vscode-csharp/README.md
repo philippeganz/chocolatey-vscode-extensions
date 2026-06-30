@@ -27,7 +27,7 @@ For more information you can:
 - Check out the [C# documentation](https://code.visualstudio.com/docs/languages/csharp) on the VS Code site for general information about using the extension.
 
 ## How to use OmniSharp?
-If you don’t want to take advantage of the great Language Server features, you can revert back to using OmniSharp by going to the Extension settings and setting `dotnet.server.useOmnisharp` to true. Next, uninstall or disable C# Dev Kit. Finally, restart VS Code for this to take effect.
+If you donâ€™t want to take advantage of the great Language Server features, you can revert back to using OmniSharp by going to the Extension settings and setting `dotnet.server.useOmnisharp` to true. Next, uninstall or disable C# Dev Kit. Finally, restart VS Code for this to take effect.
 
 ## Found a Bug?
 To file a new issue, follow the instructions at https://github.com/dotnet/vscode-csharp/blob/main/SUPPORT.md.
@@ -36,7 +36,7 @@ To file a new issue, follow the instructions at https://github.com/dotnet/vscode
 
 ### License
 
-Copyright © .NET Foundation, and contributors.
+Copyright Â© .NET Foundation, and contributors.
 
 The Microsoft C# extension is subject to [these license terms](https://github.com/dotnet/vscode-csharp/blob/main/RuntimeLicenses/license.txt).
 The source code to this extension is available on [https://github.com/dotnet/vscode-csharp](https://github.com/dotnet/vscode-csharp) and licensed under the [MIT license](https://github.com/dotnet/vscode-csharp/LICENSE.txt).
@@ -60,7 +60,7 @@ Check out the FAQs before filing a question.
 File questions, issues, or feature requests for the extension.
 
 [Known issues](https://github.com/dotnet/vscode-csharp/issues)
-If someone has already filed an issue that encompasses your feedback, please leave a 👍 or 👎 reaction on the issue to upvote or downvote it to help us prioritize the issue.
+If someone has already filed an issue that encompasses your feedback, please leave a ðŸ‘ or ðŸ‘Ž reaction on the issue to upvote or downvote it to help us prioritize the issue.
 
 [Quick survey](https://www.research.net/r/8KGJ9V8?o=[o_value]&v=[v_value]&m=[m_value])
 Let us know what you think of the extension by taking the quick survey.

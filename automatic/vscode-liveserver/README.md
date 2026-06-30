@@ -2,7 +2,7 @@ _[Wanna try [LIVE SERVER++](https://github.com/ritwickdey/vscode-live-server-plu
 
 # Live Server
 
-**Live Server loves** 💘 **your multi-root workspace**
+**Live Server loves** ðŸ’˜ **your multi-root workspace**
 
 > **Live Server for server side pages like PHP. [Check Here](https://github.com/ritwickdey/live-server-web-extension)**
 

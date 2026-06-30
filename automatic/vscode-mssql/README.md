@@ -13,11 +13,11 @@ The [**MSSQL Extension for Visual Studio Code**](https://www.aka.ms/vscode-mssql
 
 [![MSSQL Extension Demo Playlist](https://raw.githubusercontent.com/microsoft/vscode-mssql/main/images/yt-thumbnail.png)](https://aka.ms/vscode-mssql-demos)
 
-- 🎬 [Watch the demos](https://aka.ms/vscode-mssql-demos): Explore key features through our YouTube playlist
-- 🤖 [Watch the GitHub Copilot demos](https://aka.ms/vscode-mssql-copilot-demos): Learn how to use GitHub Copilot to write, explain, and refactor your database schema
-- 📝 [Read the blog posts](https://aka.ms/vscode-mssql-blogs): Learn from use cases, walkthroughs, and product updates
-- 📖 [Read the documentation](https://aka.ms/vscode-mssql-docs): Get started or go deep with our official docs
-- 🗺️ [Check out the roadmap](https://aka.ms/vscode-mssql-roadmap#2026): See what's coming next, including upcoming features and improvements
+- ðŸŽ¬ [Watch the demos](https://aka.ms/vscode-mssql-demos): Explore key features through our YouTube playlist
+- ðŸ¤– [Watch the GitHub Copilot demos](https://aka.ms/vscode-mssql-copilot-demos): Learn how to use GitHub Copilot to write, explain, and refactor your database schema
+- ðŸ“ [Read the blog posts](https://aka.ms/vscode-mssql-blogs): Learn from use cases, walkthroughs, and product updates
+- ðŸ“– [Read the documentation](https://aka.ms/vscode-mssql-docs): Get started or go deep with our official docs
+- ðŸ—ºï¸ [Check out the roadmap](https://aka.ms/vscode-mssql-roadmap#2026): See what's coming next, including upcoming features and improvements
 
 ## Features
 
@@ -93,38 +93,38 @@ Press `F1` and type `MS SQL` to see all available commands. Here are the most co
 
 **Connections**
 
-- **MS SQL: Connect** — connect using connection profiles or recent connections
-- **MS SQL: Disconnect** — disconnect the current editor session
-- **MS SQL: Use Database** — switch to another database on the same server
-- **MS SQL: Manage Connection Profiles** — create, edit, or remove connection profiles
-- **MS SQL: Add Connection** — add a new connection to the Object Explorer
+- **MS SQL: Connect** â€” connect using connection profiles or recent connections
+- **MS SQL: Disconnect** â€” disconnect the current editor session
+- **MS SQL: Use Database** â€” switch to another database on the same server
+- **MS SQL: Manage Connection Profiles** â€” create, edit, or remove connection profiles
+- **MS SQL: Add Connection** â€” add a new connection to the Object Explorer
 
 **Queries**
 
-- **MS SQL: New Query** — open a new SQL query file with your selected connection
-- **MS SQL: Execute Query** — run T-SQL scripts, statements, or batches
-- **MS SQL: Execute Current Statement** — run only the statement under the cursor
-- **MS SQL: Cancel Query** — cancel a running query
-- **MS SQL: Estimated Plan** — view the estimated execution plan without running the query
-- **MS SQL: Toggle Actual Plan** — enable or disable actual execution plan capture
+- **MS SQL: New Query** â€” open a new SQL query file with your selected connection
+- **MS SQL: Execute Query** â€” run T-SQL scripts, statements, or batches
+- **MS SQL: Execute Current Statement** â€” run only the statement under the cursor
+- **MS SQL: Cancel Query** â€” cancel a running query
+- **MS SQL: Estimated Plan** â€” view the estimated execution plan without running the query
+- **MS SQL: Toggle Actual Plan** â€” enable or disable actual execution plan capture
 
 **Local Development**
 
-- **MS SQL: Create Container Group** — set up a new SQL Server container locally
-- **MS SQL: Schema Designer** — open the visual schema designer
-- **MS SQL: Schema Compare** — compare schemas between databases, DACPACs, or SQL projects
+- **MS SQL: Create Container Group** â€” set up a new SQL Server container locally
+- **MS SQL: Schema Designer** â€” open the visual schema designer
+- **MS SQL: Schema Compare** â€” compare schemas between databases, DACPACs, or SQL projects
 
 **Data**
 
-- **MS SQL: Edit Data** — browse and edit table data inline
-- **MS SQL: Select Top 1000** — quick-select rows from a table
-- **MS SQL: DACPAC/BACPAC Operations** — deploy, extract, import, or export `.dacpac` and `.bacpac` files
+- **MS SQL: Edit Data** â€” browse and edit table data inline
+- **MS SQL: Select Top 1000** â€” quick-select rows from a table
+- **MS SQL: DACPAC/BACPAC Operations** â€” deploy, extract, import, or export `.dacpac` and `.bacpac` files
 
 **Copilot**
 
-- **MS SQL: Explain Query** — get an AI explanation of the current query
-- **MS SQL: Analyze Query Performance** — AI-powered query performance analysis
-- **MS SQL: Rewrite Query** — let Copilot rewrite and optimize your query
+- **MS SQL: Explain Query** â€” get an AI explanation of the current query
+- **MS SQL: Analyze Query Performance** â€” AI-powered query performance analysis
+- **MS SQL: Rewrite Query** â€” let Copilot rewrite and optimize your query
 
 </details>
 
@@ -312,7 +312,7 @@ For full details on all extension settings and keyboard shortcuts, see the wiki:
 
 - Windows 11 (x64, arm64)
 - macOS (Intel & Apple Silicon)
-- Linux (x64, arm64) — including Ubuntu, Debian, RHEL, Fedora, and other major distributions
+- Linux (x64, arm64) â€” including Ubuntu, Debian, RHEL, Fedora, and other major distributions
 
 ## Offline Installation
 

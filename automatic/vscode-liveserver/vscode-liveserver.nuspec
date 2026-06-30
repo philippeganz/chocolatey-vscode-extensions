@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-liveserver</id>
@@ -10,9 +10,11 @@
     <iconUrl>https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.7.10/1772184436918/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Live Server
+    <description><![CDATA[_[Wanna try [LIVE SERVER++](https://github.com/ritwickdey/vscode-live-server-plus-plus) (BETA) ? It'll enable live changes without saving file.  https://github.com/ritwickdey/vscode-live-server-plus-plus ]_
 
-**Live Server loves** 💘 **your multi-root workspace**
+# Live Server
+
+**Live Server loves** ðŸ’˜ **your multi-root workspace**
 
 > **Live Server for server side pages like PHP. [Check Here](https://github.com/ritwickdey/live-server-web-extension)**
 
@@ -113,7 +115,8 @@ This extension is licensed under the [MIT License](https://github.com/ritwickdey
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer#changelog</releaseNotes>
     <tags>vscode extension liveserver</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

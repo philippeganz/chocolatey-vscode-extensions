@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-copilot</id>
@@ -10,7 +10,9 @@
     <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/copilot/1.388.0/1761326434179/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=GitHub.copilot</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[**[GitHub Copilot](https://code.visualstudio.com/docs/copilot/overview)** is an AI peer programming tool that helps you write code faster and smarter.
+    <description><![CDATA[# GitHub Copilot - Your AI peer programmer
+
+**[GitHub Copilot](https://code.visualstudio.com/docs/copilot/overview)** is an AI peer programming tool that helps you write code faster and smarter.
 
 GitHub Copilot adapts to your unique needs allowing you to select the best model for your project, customize chat responses with custom instructions, and utilize agent mode for AI-powered, seamlessly integrated peer programming sessions.
 
@@ -53,7 +55,7 @@ To access GitHub Copilot, an active GitHub Copilot subscription is required. You
 
 ### Supported languages and frameworks
 
-GitHub Copilot works on any language, including Java, PHP, Python, JavaScript, Ruby, Go, C#, or C++. Because it’s been trained on languages in public repositories, it works for most popular languages, libraries and frameworks.
+GitHub Copilot works on any language, including Java, PHP, Python, JavaScript, Ruby, Go, C#, or C++. Because itâ€™s been trained on languages in public repositories, it works for most popular languages, libraries and frameworks.
 
 ### Version compatibility
 
@@ -76,14 +78,14 @@ To get the latest security fixes, please use the latest version of the Copilot e
 * **[Copilot Chat quickstart video](https://www.youtube.com/watch?v=3surPGP7_4o)** to learn Copilot Chat in less than 4 minutes
 * **[VS Code Copilot Series on YouTube](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt)**
 * **[FAQ](https://code.visualstudio.com/docs/copilot/faq)**
-* **[Feedback](https://github.com/microsoft/vscode/issues)**: We'd love to get your help in making GitHub Copilot better!
-]]></description>
+* **[Feedback](https://github.com/microsoft/vscode/issues)**: We'd love to get your help in making GitHub Copilot better!]]></description>
     <summary>Your AI pair programmer</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=GitHub.copilot#changelog</releaseNotes>
     <tags>vscode extension copilot</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-copilot-chat" />
- </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="vscode-copilot-chat" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

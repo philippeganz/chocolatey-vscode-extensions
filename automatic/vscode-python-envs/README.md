@@ -6,10 +6,10 @@
 
 The Python Environments extension for VS Code helps you manage Python environments and packages using your preferred environment manager, backed by its extensible APIs. This extension provides unique support for specifying environments for specific files, entire Python folders, or projects, including multi-root and mono-repo scenarios. The core feature set includes:
 
--   🌐 Create, delete, and manage environments
--   📦 Install and uninstall packages within the selected environment
--   ✅ Create activated terminals
--   🖌️ Add and create new Python projects
+-   ðŸŒ Create, delete, and manage environments
+-   ðŸ“¦ Install and uninstall packages within the selected environment
+-   âœ… Create activated terminals
+-   ðŸ–Œï¸ Add and create new Python projects
 
 > **Note:** This extension is in preview, and its APIs and features are subject to change as the project evolves.
 
@@ -52,12 +52,12 @@ The following environment managers are supported out of the box:
 
 | Environment Manager | Find Environments | Create | Quick Create |
 | ------------------- | ----------------- | ------ | ------------ |
-| venv                | ✅                | ✅     | ✅           |
-| conda               | ✅                | ✅     | ✅           |
-| pyenv               | ✅                |        |              |
-| poetry              | ✅                |        |              |
-| system              | ✅                |        |              |
-| pipenv              | ✅                |        |              |
+| venv                | âœ…                | âœ…     | âœ…           |
+| conda               | âœ…                | âœ…     | âœ…           |
+| pyenv               | âœ…                |        |              |
+| poetry              | âœ…                |        |              |
+| system              | âœ…                |        |              |
+| pipenv              | âœ…                |        |              |
 
 **Legend:**
 
@@ -105,7 +105,7 @@ There are a few ways to add a Python Project from the Python Environments panel:
 
 #### Create New Project from Template
 
-The **Python Envs: Create New Project from Template** command simplifies the process of starting a new Python project by scaffolding it for you. Whether in a new workspace or an existing one, this command configures the environment and boilerplate file structure, so you don’t have to worry about the initial setup, and only the code you want to write. There are currently two project types supported:
+The **Python Envs: Create New Project from Template** command simplifies the process of starting a new Python project by scaffolding it for you. Whether in a new workspace or an existing one, this command configures the environment and boilerplate file structure, so you donâ€™t have to worry about the initial setup, and only the code you want to write. There are currently two project types supported:
 
 -   Package: A structured Python package with files like `__init__.py` and setup configurations.
 -   Script: A simple project for standalone Python scripts, ideal for quick tasks or just to get you started.
@@ -326,7 +326,7 @@ Users who do not need to execute code or work in **Virtual Workspaces** can use 
 
 ### Trust Relationship Between Python and Python Environments Extensions
 
-VS Code supports trust management, allowing extensions to function in either **trusted** or **untrusted** scenarios. Code execution and tools that can modify the user’s environment are typically unavailable in untrusted scenarios.
+VS Code supports trust management, allowing extensions to function in either **trusted** or **untrusted** scenarios. Code execution and tools that can modify the userâ€™s environment are typically unavailable in untrusted scenarios.
 
 The relationship is illustrated below:
 
@@ -354,7 +354,7 @@ contact [[email removed]](mailto:[email removed]) with any additional questions 
 -   If you come across a problem with the extension, please [file an issue](https://github.com/microsoft/vscode-python).
 -   Contributions are always welcome! Please see our [contributing guide](https://github.com/Microsoft/vscode-python/blob/main/CONTRIBUTING.md) for more details.
 -   Any and all feedback is appreciated and welcome!
-    -   If someone has already [filed an issue](https://github.com/Microsoft/vscode-python) that encompasses your feedback, please leave a 👍/👎 reaction on the issue.
+    -   If someone has already [filed an issue](https://github.com/Microsoft/vscode-python) that encompasses your feedback, please leave a ðŸ‘/ðŸ‘Ž reaction on the issue.
     -   Otherwise please start a [new discussion](https://github.com/microsoft/vscode-python/discussions/categories/ideas).
 -   If you're interested in the development of the extension, you can read about our [development process](https://github.com/Microsoft/vscode-python/blob/main/CONTRIBUTING.md#development-process).
 

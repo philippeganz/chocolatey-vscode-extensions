@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-java</id>
@@ -10,7 +10,9 @@
     <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/java/1.55.2026062708/1782551076708/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.java</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+    <description><![CDATA[Language support for Java &trade; for Visual Studio Code
+=====================
+
 [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/redhat.java?style=for-the-badge&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/redhat.java?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 [![Join the chat at https://gitter.im/redhat-developer/vscode-java](https://img.shields.io/gitter/room/redhat-developer/vscode-java?style=for-the-badge&logo=gitter)](https://gitter.im/redhat-developer/vscode-java)
@@ -330,7 +332,8 @@ EPL 2.0, See [LICENSE](https://github.com/redhat-developer/vscode-java/blob/HEAD
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.java#changelog</releaseNotes>
     <tags>vscode extension java</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

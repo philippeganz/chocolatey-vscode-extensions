@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-containers</id>
@@ -10,7 +10,9 @@
     <iconUrl>https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-containers/2.4.5/1780056837253/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[The Container Tools extension makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. It also provides one-click debugging of Node.js, Python, and .NET inside a container.
+    <description><![CDATA[## Container Tools for Visual Studio Code
+
+The Container Tools extension makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. It also provides one-click debugging of Node.js, Python, and .NET inside a container.
 
 ![Container Tools extension overview](https://github.com/microsoft/vscode-containers/raw/HEAD/resources/readme/overview.gif)
 
@@ -114,7 +116,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## Telemetry
 
-VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=521839) to learn more. If you don’t wish to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` setting to `off`. Learn more in our [FAQ](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
+VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=521839) to learn more. If you donâ€™t wish to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` setting to `off`. Learn more in our [FAQ](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
 
 ## License
 
@@ -124,9 +126,10 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers#changelog</releaseNotes>
     <tags>vscode extension containers</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-docker" />
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="vscode-docker" />
       <dependency id="vscode-yaml" />
- </dependencies>
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

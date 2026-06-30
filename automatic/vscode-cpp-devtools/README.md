@@ -2,7 +2,7 @@
 
 The C/C++ DevTools extension exposes C++ language and CMake build tooling as tools that **GitHub Copilot's agent mode** can invoke. It integrates with the [C/C++](https://github.com/microsoft/vscode-cpptools/) and [CMake Tools](https://github.com/microsoft/vscode-cmake-tools/) extensions to give Copilot deep, symbol-level awareness of your codebase and your active CMake build configuration.
 
-> **Note:** This extension requires [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). If you don't use Copilot, it has no effect on your workflow — your C/C++ and CMake Tools extensions will continue to work normally.
+> **Note:** This extension requires [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). If you don't use Copilot, it has no effect on your workflow â€” your C/C++ and CMake Tools extensions will continue to work normally.
 
 ## Installation
 
@@ -36,8 +36,8 @@ For full documentation, visit [C++ DevTools docs](https://code.visualstudio.com/
 
 To report issues or share feedback, please file them in the appropriate repository:
 
-- For CMake-related functionality: [Issues · microsoft/vscode-cmake-tools](https://github.com/microsoft/vscode-cmake-tools/issues)
-- For C++-related functionality: [Issues · microsoft/vscode-cpptools](https://github.com/microsoft/vscode-cpptools/issues)
+- For CMake-related functionality: [Issues Â· microsoft/vscode-cmake-tools](https://github.com/microsoft/vscode-cmake-tools/issues)
+- For C++-related functionality: [Issues Â· microsoft/vscode-cpptools](https://github.com/microsoft/vscode-cpptools/issues)
 
 ## Data/Telemetry
 

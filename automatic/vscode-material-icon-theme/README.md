@@ -28,11 +28,11 @@
 
 ### File icons
 
-<details><summary>🏞️ <b>Show all available file icons</b></summary><br/><img src="https://raw.githubusercontent.com/material-extensions/vscode-material-icon-theme/main/images/fileIcons.png" alt="file icons"></details>
+<details><summary>ðŸžï¸ <b>Show all available file icons</b></summary><br/><img src="https://raw.githubusercontent.com/material-extensions/vscode-material-icon-theme/main/images/fileIcons.png" alt="file icons"></details>
 
 ### Folder icons
 
-<details><summary>🏞️ <b>Show all available folder icons</b></summary><br/><img src="https://raw.githubusercontent.com/material-extensions/vscode-material-icon-theme/main/images/folderIcons.png" alt="folder icons"></details>
+<details><summary>ðŸžï¸ <b>Show all available folder icons</b></summary><br/><img src="https://raw.githubusercontent.com/material-extensions/vscode-material-icon-theme/main/images/folderIcons.png" alt="folder icons"></details>
 
 <br />
 
@@ -139,9 +139,9 @@ For example a custom SVG file called `sample.svg` can be placed in an `icons` fo
 
 ```text
 .vscode
- ┗ extensions
-   ┗ icons
-     ┗ sample.svg
+ â”— extensions
+   â”— icons
+     â”— sample.svg
 ```
 
 In the settings.json (User Settings only!) the icon can be associated to a file name or file extension like this:
@@ -202,10 +202,10 @@ In our example we place them into an `icons` folder inside of the `.vscode/exten
 
 ```text
 .vscode
- ┗ extensions
-   ┗ icons
-     ┣ folder-sample.svg
-     ┗ folder-sample-open.svg
+ â”— extensions
+   â”— icons
+     â”£ folder-sample.svg
+     â”— folder-sample-open.svg
 ```
 
 In the settings.json (User Settings only!) the folder icons can be associated to a folder name (e.g. "src") like this:
@@ -343,16 +343,16 @@ We welcome contributions of all kinds! Whether you want to add new icons, improv
 
 **How to get involved:**
 
-- 📖 **Read the [Contribution Guidelines](https://github.com/material-extensions/vscode-material-icon-theme/blob/main/CONTRIBUTING.md)**
+- ðŸ“– **Read the [Contribution Guidelines](https://github.com/material-extensions/vscode-material-icon-theme/blob/main/CONTRIBUTING.md)**
   Learn about our coding standards, icon design tips, and workflow.
 
-- 🐛 **Report Issues**
+- ðŸ› **Report Issues**
   Found a bug or have an icon request? [Open an issue](https://github.com/material-extensions/vscode-material-icon-theme/issues).
 
-- 💡 **Submit Pull Requests**
+- ðŸ’¡ **Submit Pull Requests**
   Ready to contribute code or icons? [Create a pull request](https://github.com/material-extensions/vscode-material-icon-theme/pulls).
 
-- 🌍 **Help with Translations**
+- ðŸŒ **Help with Translations**
   Improve or add translations by editing the files in `src/core/i18n/translations/` and `package.nls.*.json`.
 
 ## Related extensions

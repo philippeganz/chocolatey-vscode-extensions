@@ -394,7 +394,7 @@ Specify glob patterns for manifests to be ignored for background analysis e.g. `
 	}
 	```
 
-	For example, creating an alternative file to `requirements.txt`, like `requirements-dev.txt` or `requirements-test.txt` and adding the dev or test dependencies there instead. For `pyproject.toml` projects, dev dependencies in `[tool.poetry.group.dev.dependencies]` and `[project.optional-dependencies]` groups are included in the analysis — to exclude them, use `exhortignore` comments.
+	For example, creating an alternative file to `requirements.txt`, like `requirements-dev.txt` or `requirements-test.txt` and adding the dev or test dependencies there instead. For `pyproject.toml` projects, dev dependencies in `[tool.poetry.group.dev.dependencies]` and `[project.optional-dependencies]` groups are included in the analysis â€” to exclude them, use `exhortignore` comments.
 
 	For example, placing dependencies under `[dev-dependencies]` or `[build-dependencies]` in a `Cargo.toml` file. Red Hat Dependency Analytics excludes these from analysis and only reports on `[dependencies]`, `[workspace.dependencies]`, and platform-specific sections such as `[target.'cfg(windows)'.dependencies]`.
 

@@ -69,7 +69,7 @@ Live information is scraped from running apps using JMX to connect to [Spring Bo
 
 #### Spring Boot 2.2 and beyond
 
-⚠️ The JMX versions of the actuator endpoints (which the tooling uses under the hood to retrieve live data from the running applications) is not enabled by default anymore since Spring Boot 2.2. In order to allow Spring Tools to continue to visualize live data from the running applications, you need to start the boot app with `-Dspring.jmx.enabled=true` in order to activate the JMX endpoints.
+âš ï¸ The JMX versions of the actuator endpoints (which the tooling uses under the hood to retrieve live data from the running applications) is not enabled by default anymore since Spring Boot 2.2. In order to allow Spring Tools to continue to visualize live data from the running applications, you need to start the boot app with `-Dspring.jmx.enabled=true` in order to activate the JMX endpoints.
 
 ### Managing Live Data Connections
 

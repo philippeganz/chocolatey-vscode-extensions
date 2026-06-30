@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-cmake-tools</id>
@@ -10,7 +10,9 @@
     <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cmake-tools/1.24.22/1781844364783/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[<p align=center ><i>Enhancing CMake development in VS Code.</i></p>
+    <description><![CDATA[<h1 align=center> <img align=center width=48 src="https://github.com/microsoft/vscode-cmake-tools/raw/HEAD/res/logo-margin-bottom.png" alt="CMake Logo"/> CMake Tools </h1>
+
+<p align=center ><i>Enhancing CMake development in VS Code.</i></p>
 
 <div align=center>
     <img alt="VS Code" src="https://img.shields.io/badge/VSCode-7d57c2?style=for-the-badge&logo=visual%20studio%20code&logoColor=white"/>
@@ -108,8 +110,9 @@ This project was started by [@vector-of-bool](https://github.com/vector-of-bool)
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools#changelog</releaseNotes>
     <tags>vscode extension cmake-tools</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-cpp-devtools" />
- </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="vscode-cpp-devtools" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

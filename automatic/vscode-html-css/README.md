@@ -38,7 +38,7 @@ Glob patterns for local style sheets can have the following syntax:
 | `*`     | zero or more characters in a path segment             |
 | `?`     | one character in a path segment                       |
 | `**`    | any number of path segments, including none           |
-| `{}`    | group conditions like `**​/*.{css,scss}`              |
+| `{}`    | group conditions like `**â€‹/*.{css,scss}`              |
 | `[]`    | a range of characters like `[0-9]` or negate `[!0-9]` |
 
 The following variable substitutions are supported for local style sheets as well:
@@ -149,7 +149,7 @@ With this setup, styles defined in e.g. `app.component.css` will be available in
 
 ## Go to Definition
 
-Go to definition for `id` and `class` selectors for local style sheets are supported. Selecting `Go to Definition` from context menu (`F12` or `⌘ click`) on a selector will open the local style sheet which the selector is defined.
+Go to definition for `id` and `class` selectors for local style sheets are supported. Selecting `Go to Definition` from context menu (`F12` or `âŒ˜ click`) on a selector will open the local style sheet which the selector is defined.
 
 ## Commands
 

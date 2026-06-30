@@ -136,9 +136,9 @@ Pylance provides users with the ability to customize their Python language suppo
     - **Experimental.** When enabled, Pylance automatically adds the source root of every project declared via `python-envs.pythonProjects` to `extraPaths`, so cross-project imports between sub-projects of a monorepo resolve without configuring `extraPaths` manually.
     - The source root is detected per project: a `src` directory if present, otherwise the project's parent directory when the project folder is itself a package (contains `__init__.py`), otherwise the project folder.
     - Editable/local cross-package references declared in each project's `pyproject.toml` are followed transitively, so a registered project that imports sibling packages as editable installs picks up their source roots too. This is what makes monorepos such as dagster resolve without registering every package individually. The following dependency-manager formats are recognized:
-        - **uv** — `[tool.uv.sources]` entries with a local `path`.
-        - **Poetry** — `path`/`develop` entries in `[tool.poetry.dependencies]`, `[tool.poetry.dev-dependencies]`, and `[tool.poetry.group.<group>.dependencies]`.
-        - **PDM / Rye / PEP 508 / PEP 735** — `file:` direct references (including `${PROJECT_ROOT}` and `{root:uri}` root tokens, and `-e`/`--editable` entries) in `[project].dependencies`, `[project.optional-dependencies]`, `[dependency-groups]`, `[tool.pdm.dev-dependencies]`, and `[tool.rye.dev-dependencies]`.
+        - **uv** â€” `[tool.uv.sources]` entries with a local `path`.
+        - **Poetry** â€” `path`/`develop` entries in `[tool.poetry.dependencies]`, `[tool.poetry.dev-dependencies]`, and `[tool.poetry.group.<group>.dependencies]`.
+        - **PDM / Rye / PEP 508 / PEP 735** â€” `file:` direct references (including `${PROJECT_ROOT}` and `{root:uri}` root tokens, and `-e`/`--editable` entries) in `[project].dependencies`, `[project.optional-dependencies]`, `[dependency-groups]`, `[tool.pdm.dev-dependencies]`, and `[tool.rye.dev-dependencies]`.
     - Named, VCS, and remote-URL requirements are ignored, and references that point at built archives (wheels/sdists) are skipped.
     - Any `extraPaths` you configure are preserved; the detected source roots are appended.
     - Default value: `false`
@@ -545,8 +545,8 @@ Pylance provides users with the ability to customize their Python language suppo
 - `python.analysis.pyreflyVersion`
     - Specifies the version of Pyrefly to use for diagnostics. This setting is only used when `python.analysis.diagnosticsSource` is set to `Pylance + Pyrefly`. Minimum version allowed is 0.60.0.
     - Accepted values:
-        - empty (default) — automatically find or download the latest version
-        - version string, e.g. `0.60.0` — download and use that specific version
+        - empty (default) â€” automatically find or download the latest version
+        - version string, e.g. `0.60.0` â€” download and use that specific version
         - path to a local pyrefly executable
 
 - `python.analysis.enableColorPicker`

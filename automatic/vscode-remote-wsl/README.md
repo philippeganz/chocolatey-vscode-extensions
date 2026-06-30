@@ -10,17 +10,17 @@ The **WSL** extension lets you use VS Code in WSL just as you would from Windows
 
 WSL lets you run a Linux environment -- including command-line tools and applications -- directly on Windows, without the overhead of a traditional virtual machine or dualboot setup. WSL especially helps web developers and those working with Bash and Linux-first tools (i.e. Ruby, Python) to use their toolchain on Windows and ensure consistency between development and production environments.
 
-When you install a version of Linux on Windows, you’re getting a full Linux environment. It's isolated from Windows- the UI is the terminal, and you can install tools, languages, and compilers into the Linux environment without modifying or disrupting your Windows installation.
+When you install a version of Linux on Windows, youâ€™re getting a full Linux environment. It's isolated from Windows- the UI is the terminal, and you can install tools, languages, and compilers into the Linux environment without modifying or disrupting your Windows installation.
 
 We recommend using WSL 2 as you will benefit from significant [performance advantages](https://docs.microsoft.com/en-us/windows/wsl/compare-versions) over WSL 1. 
 
 ### Why the WSL extension in VS Code?
 
-While you can edit files in Linux using Windows-based tools, you can’t easily run or debug on Windows: you'd have to install all the same tools on Windows as you did on Linux, defeating the purpose of having an isolated Linux environment. You could view files from your `\\wsl.localhost\` share, but you wouldn't have access to features such as autocomplete, debugging, or linting.
+While you can edit files in Linux using Windows-based tools, you canâ€™t easily run or debug on Windows: you'd have to install all the same tools on Windows as you did on Linux, defeating the purpose of having an isolated Linux environment. You could view files from your `\\wsl.localhost\` share, but you wouldn't have access to features such as autocomplete, debugging, or linting.
 
 ![View and modify files from WSL share](https://microsoft.github.io/vscode-remote-release/images/remote-wsl-share-path.PNG)
 
-With VS Code and the **WSL extension** combined, VS Code’s UI runs on Windows, and all your commands, extensions, and even the terminal, run on Linux. You get the full VS Code experience, including autocomplete and debugging, powered by the tools and compilers installed on Linux. 
+With VS Code and the **WSL extension** combined, VS Codeâ€™s UI runs on Windows, and all your commands, extensions, and even the terminal, run on Linux. You get the full VS Code experience, including autocomplete and debugging, powered by the tools and compilers installed on Linux. 
 
 ## Getting started
 
@@ -34,7 +34,7 @@ To get started with your first app using the **WSL** extension, check out the st
 
 ## Commands
 
-The extension adds several commands to VS Code. You can bring them up by pressing `F1` to open the Command Palette and typing in **WSL**, or by selecting the remote indicator in the lower left corner of the status bar: 
+The extension adds several commands to VS Code. You can bring them up by pressingâ€¯`F1`â€¯to open the Command Palette and typing inâ€¯**WSL**, or by selecting the remote indicator in the lower left corner of the status bar: 
 
 ![Quick actions status bar item](https://microsoft.github.io/vscode-remote-release/images/remote-dev-status-bar.png)
 
@@ -44,7 +44,7 @@ A new VS Code window will open, connected to your default WSL distro.
 
 ![Command palette](https://microsoft.github.io/vscode-remote-release/images/remote-wsl-command-palette-update.png)
 
-Notice the remote indicator updates to the WSL distro to which you are now connected (in this case, Ubuntu). You can select the **Open Folder** button to view the contents of your remote Linux distro's file system: 
+Notice the remote indicator updates to the WSL distro to which you are now connected (in this case, Ubuntu). You can select theâ€¯**Open Folder**â€¯button to view the contents of your remote Linux distro's file system: 
 
 ![VS Code connected to Ubuntu](https://microsoft.github.io/vscode-remote-release/images/remote-wsl-new-window.png)
 
@@ -54,7 +54,7 @@ When you hover over any of the files within your folder, notice they have the co
 
 ![Hover over file in explorer to see Linux path](https://microsoft.github.io/vscode-remote-release/images/remote-wsl-path.PNG)
 
-To open a Terminal, you can use the Ctrl+` keyboard shortcut. Notice that when you run “uname,” it shows you’re on a Linux machine: 
+To open a Terminal, you can use the Ctrl+` keyboard shortcut. Notice that when you run â€œuname,â€ it shows youâ€™re on a Linux machine: 
 
 ![Integrated terminal uname shows Linux](https://microsoft.github.io/vscode-remote-release/images/remote-wsl-command-uname.png)
 
@@ -68,9 +68,9 @@ Like **WSL: New Window**, this command opens a new VS Code window connected to W
 
 Reopen a folder in WSL that is currently open in a VS Code instance connected to Windows.  
 
-If your folder resides in the WSL file system, hovering over it will display a Linux path. If your folder resides in Windows, you’ll see the mount point that was automatically created by WSL, i.e. `/mnt/c/<file_path>`.
+If your folder resides in the WSL file system, hovering over it will display a Linux path. If your folder resides in Windows, youâ€™ll see the mount point that was automatically created by WSL, i.e. `/mnt/c/<file_path>`.
 
-> **Note:**  To optimize for the fastest performance speed, store your project files in the Linux file system (i.e. `\\wsl$\Ubuntu-18.04\home\<user name>\Project)`, not the Windows file system (i.e. `C:\Users\<user name>\Project`). If your files currently reside on Windows, we recommend copying them to the Linux file system. See the [WSL documentation](https://docs.microsoft.com/en-us/windows/wsl/faq) for more information about working with files. 
+> **Note:**â€¯ To optimize for the fastest performance speed, store your project files in the Linux file system (i.e. `\\wsl$\Ubuntu-18.04\home\<user name>\Project)`, not the Windows file system (i.e. `C:\Users\<user name>\Project`). If your files currently reside on Windows, we recommend copying them to the Linux file system. See the [WSL documentation](https://docs.microsoft.com/en-us/windows/wsl/faq) for more information about working with files. 
 
 ## Additional configuration
 
@@ -83,7 +83,7 @@ If your folder resides in the WSL file system, hovering over it will display a L
 
 ## Further reading
 
-You can check out the [WSL extension documentation](https://aka.ms/vscode-remote/wsl) to learn more about working within WSL in VS Code, and the [WSL docs](https://docs.microsoft.com/en-us/windows/wsl/) to learn more about WSL in general.
+You can check out theâ€¯[WSL extension documentation](https://aka.ms/vscode-remote/wsl)â€¯to learn more about working within WSL in VS Code, and the [WSL docs](https://docs.microsoft.com/en-us/windows/wsl/) to learn more about WSL in general.
 
 ## Release Notes
 
@@ -102,7 +102,7 @@ Have a question or feedback?
 
 ## Telemetry
 
-Visual Studio Code WSL and related extensions collect telemetry data to help us build a better experience working remotely from VS Code. We only collect data on which commands are executed. We do not collect any information about image names, paths, etc. The extension respects the `telemetry.enableTelemetry` setting which you can learn more about in the [Visual Studio Code FAQ](https://aka.ms/vscode-remote/telemetry).
+Visual Studio Code WSL and related extensions collect telemetry data to help us build a better experience working remotely from VS Code. We only collect data on which commands are executed. We do not collect any information about image names, paths, etc. The extension respects theÂ `telemetry.enableTelemetry`Â setting which you can learn more about in the [Visual Studio Code FAQ](https://aka.ms/vscode-remote/telemetry).
 
 ## License
 

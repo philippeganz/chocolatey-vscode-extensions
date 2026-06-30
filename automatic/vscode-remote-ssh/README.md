@@ -23,13 +23,13 @@ You can connect to a running SSH server on the following platforms.
 - ARMv7l (AArch32) Raspbian Stretch/9+ (32-bit).
 - ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).
 - Windows 10 / Server 2016/2019 (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
-- macOS 10.14+ (Mojave) SSH hosts with [Remote Login enabled](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
+- macOSÂ 10.14+Â (Mojave)Â SSHÂ hostsÂ withÂ [RemoteÂ LoginÂ enabled](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
 
 Other `glibc` based Linux distributions for x86_64, ARMv7l (AArch32), and ARMv8l (AArch64) should work if they have the needed prerequisites. See the [Remote Development with Linux](https://aka.ms/vscode-remote/linux) article for information prerequisites and tips for getting community supported distributions up and running.
 
 While ARMv7l (AArch32) and ARMv8l (AArch64) support is available, some extensions installed on these devices may not work due to the use of x86 native code in the extension.
 
-> **Note:** While 1 GB RAM is required (similar to the [hardware requirements](https://code.visualstudio.com/docs/supporting/requirements) for VS Code), at least 2 GB RAM and a 2-core CPU is recommended.
+> **Note:**â€¯While 1 GB RAM is required (similar to the [hardware requirements](https://code.visualstudio.com/docs/supporting/requirements) for VS Code), at least 2 GB RAM and a 2-core CPU is recommended.
 
 ## Security Note
 

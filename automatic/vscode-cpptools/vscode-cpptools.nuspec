@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-cpptools</id>
@@ -10,7 +10,9 @@
     <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpptools/1.33.2/1782515898000/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[#### [Repository](https://github.com/microsoft/vscode-cpptools)&nbsp;&nbsp;|&nbsp;&nbsp;[Issues](https://github.com/microsoft/vscode-cpptools/issues)&nbsp;&nbsp;|&nbsp;&nbsp;[Documentation](https://code.visualstudio.com/docs/languages/cpp)&nbsp;&nbsp;|&nbsp;&nbsp;[Code Samples](https://github.com/microsoft/vscode-cpptools/tree/main/Code%20Samples)
+    <description><![CDATA[# C/C++ for Visual Studio Code
+
+#### [Repository](https://github.com/microsoft/vscode-cpptools)&nbsp;&nbsp;|&nbsp;&nbsp;[Issues](https://github.com/microsoft/vscode-cpptools/issues)&nbsp;&nbsp;|&nbsp;&nbsp;[Documentation](https://code.visualstudio.com/docs/languages/cpp)&nbsp;&nbsp;|&nbsp;&nbsp;[Code Samples](https://github.com/microsoft/vscode-cpptools/tree/main/Code%20Samples)
 
 [![Badge](https://aka.ms/vsls-badge)](https://aka.ms/vsls)
 
@@ -68,7 +70,7 @@ File questions, issues, or feature requests for the extension.
 
 **[Known issues](https://github.com/Microsoft/vscode-cpptools/issues)**
 <br>
-If someone has already filed an issue that encompasses your feedback, please leave a 👍 or 👎 reaction on the issue to upvote or downvote it to help us prioritize the issue.
+If someone has already filed an issue that encompasses your feedback, please leave a ðŸ‘ or ðŸ‘Ž reaction on the issue to upvote or downvote it to help us prioritize the issue.
 <br>
 
 **[Quick survey](https://aka.ms/vcvscodesurvey)**
@@ -91,7 +93,8 @@ This extension collects usage data and sends it to Microsoft to help improve our
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools#changelog</releaseNotes>
     <tags>vscode extension cpptools</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

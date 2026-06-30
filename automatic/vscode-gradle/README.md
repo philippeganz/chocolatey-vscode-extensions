@@ -275,7 +275,7 @@ At this point the Gradle `sourceSet` paths will be added to the `.classpath` and
 
 This extension provides an API which can be used by 3rd-party vscode extensions.
 
-👉 [Extension API](https://github.com/microsoft/vscode-gradle/blob/HEAD/API.md)
+ðŸ‘‰ [Extension API](https://github.com/microsoft/vscode-gradle/blob/HEAD/API.md)
 
 ## Troubleshooting
 
@@ -400,19 +400,19 @@ The reason for the incompatibility is due to the extensions providing the same t
 
 ## Support
 
-- 👉 [Submit a bug report](https://github.com/microsoft/vscode-gradle/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
-- 👉 [Submit a feature request](https://github.com/microsoft/vscode-gradle/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=)
-- 👉 [Submit any feedback](https://github.com/microsoft/vscode-gradle/issues/new/choose)
+- ðŸ‘‰ [Submit a bug report](https://github.com/microsoft/vscode-gradle/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
+- ðŸ‘‰ [Submit a feature request](https://github.com/microsoft/vscode-gradle/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=)
+- ðŸ‘‰ [Submit any feedback](https://github.com/microsoft/vscode-gradle/issues/new/choose)
 
 ## Data/Telemetry
 
-VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](http://go.microsoft.com/fwlink/?LinkId=521839) to learn more. If you don’t wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`. Learn more in our [FAQ](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
+VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](http://go.microsoft.com/fwlink/?LinkId=521839) to learn more. If you donâ€™t wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`. Learn more in our [FAQ](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
 
 ## Contributing
 
 Refer to [CONTRIBUTING.md](https://github.com/microsoft/vscode-gradle/blob/HEAD/CONTRIBUTING.md) for instructions on how to run the project.
 
-👉 [Architecture Overview](https://github.com/microsoft/vscode-gradle/blob/HEAD/ARCHITECTURE.md)
+ðŸ‘‰ [Architecture Overview](https://github.com/microsoft/vscode-gradle/blob/HEAD/ARCHITECTURE.md)
 
 ## Credits
 

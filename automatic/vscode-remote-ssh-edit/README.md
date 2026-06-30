@@ -21,7 +21,7 @@ Or connect with the community...
 
 ## Telemetry
 
-Visual Studio Code **Remote - SSH: Editing Configuration Files** and related extensions collect telemetry data to help us build a better experience working remotely from VS Code. We only collect data on which commands are executed. We do not collect any information about image names, paths, etc. The extension respects the `telemetry.enableTelemetry` setting which you can learn more about in the [Visual Studio Code FAQ](https://aka.ms/vscode-remote/telemetry).
+Visual Studio Code **Remote - SSH: Editing Configuration Files** and related extensions collect telemetry data to help us build a better experience working remotely from VS Code. We only collect data on which commands are executed. We do not collect any information about image names, paths, etc. The extension respects theÂ `telemetry.enableTelemetry`Â setting which you can learn more about in the [Visual Studio Code FAQ](https://aka.ms/vscode-remote/telemetry).
 
 ## License
 

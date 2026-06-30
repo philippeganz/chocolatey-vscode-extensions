@@ -36,7 +36,7 @@ Java Platform extension from Oracle brings full-featured development support (ed
     - If no JDK is present in your system then the extension can set things up for you. For more details refer to [JDK Downloader](#jdk-downloader) section.
     - Set the VS Code `Settings | Jdk: Jdkhome` setting to point to the JDK that the Language Server will run on and also by default use for running and compiling projects.
         - The extension requires JDK 17 or newer to run.
-    - Optionally, set a different JDK to compile and run projects in the `Settings | Jdk › Project: Jdkhome` setting.
+    - Optionally, set a different JDK to compile and run projects in the `Settings | Jdk â€º Project: Jdkhome` setting.
         - By default, the __jdk.jdkhome__ setting is used. 
         - Projects can run on JDK 8 and above.
     - For more information, see the section [Selecting the JDK](#selecting-the-jdk).
@@ -211,24 +211,24 @@ Move members refactoring provides dedicated form as well.<br/>
 ## Formatter Preferences
 Easily update default formatter preferences by adjusting a simple configuration option to tailor settings according to specific needs.
 
-Open VS Code `Settings | Extensions | Java` and set `Jdk › Format: Settings Path:` option to the formatter preferences file.
+Open VS Code `Settings | Extensions | Java` and set `Jdk â€º Format: Settings Path:` option to the formatter preferences file.
 
 Please refer to [Java formatting preferences](https://github.com/oracle/javavscode/wiki/Java-formatting-preferences) wiki for more info.
 
 ## Hints Preferences
 Easily update default hint preferences by adjusting a simple configuration option to tailor hint preferences to specific needs.
 
-Open VS Code `Settings | Extensions | Java` and set `Jdk › Hints: Preferences:` option to the xml hint preferences file.
+Open VS Code `Settings | Extensions | Java` and set `Jdk â€º Hints: Preferences:` option to the xml hint preferences file.
 
 ## Organize Imports
 Out of the box support for organizing imports in Java sources is available. It removes unused imports, groups imports by packages and updates your imports whenever a file is saved. In addition to the defaults, there is a rich set of configuration options. 
 
-Open VS Code `Settings | Extensions | Java` and search for _Jdk_ to set `Jdk › Java › Imports:` options:
+Open VS Code `Settings | Extensions | Java` and search for _Jdk_ to set `Jdk â€º Java â€º Imports:` options:
 * `Count For Using Star Import` - Class count to use a star-import, 999 is the default value
 * `Count For Using Static Star Import` - Members count to use a static star-import, 999 is the default value
 * `Groups` - Groups of import statements (specified by their package prefixes) and their sorting order. Import statements within a group are ordered alphabetically
 
-The `Jdk › Java › On Save: Organize Imports` setting in VS Code `Settings | Extensions | Java` enables the **Organize Imports** action to run when saving a document.
+The `Jdk â€º Java â€º On Save: Organize Imports` setting in VS Code `Settings | Extensions | Java` enables the **Organize Imports** action to run when saving a document.
 
 ## JavaDoc smart editing
 When adding JavaDoc to code Oracle Java Platform extension assists by suggesting to insert preformatted and prepopulated JavaDoc comment. Type `/**` above the method signature and the IDE offers to complete the JavaDoc. The action creates a JavaDoc comment with all the parameters prepared.<br/>
@@ -257,7 +257,7 @@ As soon as one of the settings is changed, the Language Server is restarted. The
 
 ## How to use JDK early access builds
 This setup makes it easier to experiment with early access JDK builds. Follow these steps to enable the use of an early access JDK:
-1. Open VS Code `Settings | Jdk › Advanced › Disable: Nbjavac` and enable the checkbox.
+1. Open VS Code `Settings | Jdk â€º Advanced â€º Disable: Nbjavac` and enable the checkbox.
 2. Set `Settings | Jdk: Jdkhome` to point to the home-folder path of the early access JDK.
 
 ## Troubleshooting
@@ -272,12 +272,12 @@ The extension will analyze the content of the opened workspace, and relevant oth
     2. If duplicated tags are found, remove the extra tags and attempt to compile again.
     3. Add the `--enable-preview` VM argument to the *exec-maven-plugin* or *maven-surefile-plugin* configurations if they are used for execution or test runs.
 2. The *Project: Test Project* command executes the project's tests but does not update the Testing or the Tests Results panels. The test output is present only in the Terminal or Debug Console panel.
-3. The `Jdk › Advanced › Disable: Nbjavac` setting (i.e. `jdk.advanced.disable.nbjavac`) cannot be enabled for JDK 26 and early-access versions of JDK 27 and higher.
+3. The `Jdk â€º Advanced â€º Disable: Nbjavac` setting (i.e. `jdk.advanced.disable.nbjavac`) cannot be enabled for JDK 26 and early-access versions of JDK 27 and higher.
     - In order to use JDK 26 or experimental builds based on JDK 26, ensure that this setting is OFF. The extension already supports JDK 26 without this setting.
     - In order to use early access builds of JDK 27 or higher, the `jdk.project.jdkhome` setting may be used. Most of the early access features of the JDK are expected to be supported.
         1. Set `Settings | Jdk: Jdkhome` to point to JDK 26.
-        2. Set `Settings | Jdk › Project: Jdkhome` to point to the home-folder path of the early access JDK.
-        3. Ensure `Settings | Jdk › Advanced › Disable: Nbjavac` checkbox is not enabled.
+        2. Set `Settings | Jdk â€º Project: Jdkhome` to point to the home-folder path of the early access JDK.
+        3. Ensure `Settings | Jdk â€º Advanced â€º Disable: Nbjavac` checkbox is not enabled.
 
 ## Telemetry
 

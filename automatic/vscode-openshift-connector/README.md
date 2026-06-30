@@ -105,7 +105,7 @@ Creates a Function in the mentioned directory with the specified language/runtim
 
 ##  Commands and Features
 
-The extension supports several commands to interact with OpenShift clusters and resources. The commands are accessible via the command palette (`Cmd+Shift+P` <kbd>⌘⇧P</kbd> on macOS or `Ctrl+Shift+P` <kbd>⌃⇧P</kbd> on Windows and Linux), Visual Studio Code View title buttons and tree context menus.
+The extension supports several commands to interact with OpenShift clusters and resources. The commands are accessible via the command palette (`Cmd+Shift+P` <kbd>âŒ˜â‡§P</kbd> on macOS or `Ctrl+Shift+P` <kbd>âŒƒâ‡§P</kbd> on Windows and Linux), Visual Studio Code View title buttons and tree context menus.
 
 > [!TIP]  
 > For more detailed information about specific commands and dependencies, please read the [extension commands](https://github.com/redhat-developer/vscode-openshift-tools/blob/HEAD/README.commands.md) guide.

@@ -58,7 +58,7 @@ File questions, issues, or feature requests for the extension.
 
 **[Known issues](https://github.com/Microsoft/vscode-cpptools/issues)**
 <br>
-If someone has already filed an issue that encompasses your feedback, please leave a 👍 or 👎 reaction on the issue to upvote or downvote it to help us prioritize the issue.
+If someone has already filed an issue that encompasses your feedback, please leave a ðŸ‘ or ðŸ‘Ž reaction on the issue to upvote or downvote it to help us prioritize the issue.
 <br>
 
 **[Quick survey](https://aka.ms/vcvscodesurvey)**

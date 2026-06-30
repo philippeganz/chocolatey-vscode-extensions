@@ -32,66 +32,66 @@ There you have either the option to show the already installed snippets or insta
 
 ## Snippets
 
-Below is a list of all available snippets and the triggers of each one. The **⇥** means the `TAB` key.
+Below is a list of all available snippets and the triggers of each one. The **â‡¥** means the `TAB` key.
 
 ### Import and export
 | Trigger  | Content |
 | -------: | ------- |
-| `imp→`   | imports entire module `import fs from 'fs';`|
-| `imn→`   | imports entire module without module name `import 'animate.css'` |
-| `imd→`   | imports only a portion of the module using destructing  `import {rename} from 'fs';` |
-| `ime→`   | imports everything as alias from the module `import * as localAlias from 'fs';` |
-| `ima→`   | imports only a portion of the module as alias `import { rename  as localRename } from 'fs';` |
-| `rqr→`   | require package `require('');`|
-| `req→`   | require package to const `const packageName = require('packageName');`|
-| `mde→`   | default module.exports `module.exports = {};`|
-| `env→`   | exports name variable `export const nameVariable = localVariable;` |
-| `enf→`   | exports name function `export const log = (parameter) => { console.log(parameter);};` |
-| `edf→`   | exports default function `export default function fileName (parameter){ console.log(parameter);};` |
-| `ecl→`   | exports default class `export default class Calculator { };` |
-| `ece→`   | exports default class by extending a base one `export default class Calculator extends BaseClass { };` |
+| `impâ†’`   | imports entire module `import fs from 'fs';`|
+| `imnâ†’`   | imports entire module without module name `import 'animate.css'` |
+| `imdâ†’`   | imports only a portion of the module using destructing  `import {rename} from 'fs';` |
+| `imeâ†’`   | imports everything as alias from the module `import * as localAlias from 'fs';` |
+| `imaâ†’`   | imports only a portion of the module as alias `import { rename  as localRename } from 'fs';` |
+| `rqrâ†’`   | require package `require('');`|
+| `reqâ†’`   | require package to const `const packageName = require('packageName');`|
+| `mdeâ†’`   | default module.exports `module.exports = {};`|
+| `envâ†’`   | exports name variable `export const nameVariable = localVariable;` |
+| `enfâ†’`   | exports name function `export const log = (parameter) => { console.log(parameter);};` |
+| `edfâ†’`   | exports default function `export default function fileName (parameter){ console.log(parameter);};` |
+| `eclâ†’`   | exports default class `export default class Calculator { };` |
+| `eceâ†’`   | exports default class by extending a base one `export default class Calculator extends BaseClass { };` |
 
 ### Class helpers
 | Trigger  | Content |
 | -------: | ------- |
-| `con→`   | adds default constructor in the class `constructor() {}`|
-| `met→`   | creates a method inside a class `add() {}` |
-| `pge→`   | creates a getter property `get propertyName() {return value;}` |
-| `pse→`   | creates a setter property `set propertyName(value) {}` |
+| `conâ†’`   | adds default constructor in the class `constructor() {}`|
+| `metâ†’`   | creates a method inside a class `add() {}` |
+| `pgeâ†’`   | creates a getter property `get propertyName() {return value;}` |
+| `pseâ†’`   | creates a setter property `set propertyName(value) {}` |
 
 ### Various methods
 | Trigger  | Content |
 | -------: | ------- |
-| `fre→`   | forEach loop in ES6 syntax `array.forEach(currentItem => {})`|
-| `fof→`   | for ... of loop `for(const item of object) {}` |
-| `fin→`   | for ... in loop `for(const item in object) {}` |
-| `anfn→`  | creates an anonymous function `(params) => {}` |
-| `nfn→`   | creates a named function `const add = (params) => {}` |
-| `dob→`   | destructing object syntax `const {rename} = fs` |
-| `dar→`   | destructing array syntax `const [first, second] = [1,2]` |
-| `sti→`   | set interval helper method `setInterval(() => {});` |
-| `sto→`   | set timeout helper method `setTimeout(() => {});` |
-| `prom→`  | creates a new Promise `return new Promise((resolve, reject) => {});`|
-| `thenc→` | adds then and catch declaration to a promise `.then((res) => {}).catch((err) => {});`|
+| `freâ†’`   | forEach loop in ES6 syntax `array.forEach(currentItem => {})`|
+| `fofâ†’`   | for ... of loop `for(const item of object) {}` |
+| `finâ†’`   | for ... in loop `for(const item in object) {}` |
+| `anfnâ†’`  | creates an anonymous function `(params) => {}` |
+| `nfnâ†’`   | creates a named function `const add = (params) => {}` |
+| `dobâ†’`   | destructing object syntax `const {rename} = fs` |
+| `darâ†’`   | destructing array syntax `const [first, second] = [1,2]` |
+| `stiâ†’`   | set interval helper method `setInterval(() => {});` |
+| `stoâ†’`   | set timeout helper method `setTimeout(() => {});` |
+| `promâ†’`  | creates a new Promise `return new Promise((resolve, reject) => {});`|
+| `thencâ†’` | adds then and catch declaration to a promise `.then((res) => {}).catch((err) => {});`|
 
 ### Console methods
 | Trigger  | Content |
 | -------: | ------- |
-| `cas→`   | console alert method `console.assert(expression, object)`|
-| `ccl→`   | console clear `console.clear()` |
-| `cco→`   | console count `console.count(label)` |
-| `cdb→`   | console debug `console.debug(object)` |
-| `cdi→`   | console dir `console.dir` |
-| `cer→`   | console error `console.error(object)` |
-| `cgr→`   | console group `console.group(label)` |
-| `cge→`   | console groupEnd `console.groupEnd()` |
-| `clg→`   | console log `console.log(object)` |
-| `clo→`   | console log object with name `console.log('object :>> ', object);` |
-| `ctr→`   | console trace `console.trace(object)` |
-| `cwa→`   | console warn `console.warn` |
-| `cin→`   | console info `console.info` |
-| `clt→`   | console table `console.table` |
-| `cti→`   | console time `console.time` |
-| `cte→`   | console timeEnd `console.timeEnd` |
+| `casâ†’`   | console alert method `console.assert(expression, object)`|
+| `cclâ†’`   | console clear `console.clear()` |
+| `ccoâ†’`   | console count `console.count(label)` |
+| `cdbâ†’`   | console debug `console.debug(object)` |
+| `cdiâ†’`   | console dir `console.dir` |
+| `cerâ†’`   | console error `console.error(object)` |
+| `cgrâ†’`   | console group `console.group(label)` |
+| `cgeâ†’`   | console groupEnd `console.groupEnd()` |
+| `clgâ†’`   | console log `console.log(object)` |
+| `cloâ†’`   | console log object with name `console.log('object :>> ', object);` |
+| `ctrâ†’`   | console trace `console.trace(object)` |
+| `cwaâ†’`   | console warn `console.warn` |
+| `cinâ†’`   | console info `console.info` |
+| `cltâ†’`   | console table `console.table` |
+| `ctiâ†’`   | console time `console.time` |
+| `cteâ†’`   | console timeEnd `console.timeEnd` |
 
 [code]: https://code.visualstudio.com/

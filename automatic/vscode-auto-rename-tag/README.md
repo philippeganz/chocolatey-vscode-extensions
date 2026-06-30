@@ -7,7 +7,7 @@ Automatically rename paired HTML/XML tag, same as Visual Studio IDE does.
 ## Sponsors
 
 [![Tabnine](https://github.com/formulahendry/vscode-auto-rename-tag/raw/HEAD/images/tabnine.png)](https://bit.ly/2LZsrQ9)<br>
-Increase your coding productivity with Tabnine’s AI code completions! Tabnine is a free powerful Artificial Intelligence assistant designed to help you code faster, reduce mistakes, and discover best coding practices - without ever leaving the comfort of VS Code.<br>
+Increase your coding productivity with Tabnineâ€™s AI code completions! Tabnine is a free powerful Artificial Intelligence assistant designed to help you code faster, reduce mistakes, and discover best coding practices - without ever leaving the comfort of VS Code.<br>
 Tabnine is trusted by more than a million developers worldwide. [Get it now](https://bit.ly/2LZsrQ9).
 
 <p><a title="Try CodeStream" href="https://sponsorlink.codestream.com/?utm_source=vscmarket&amp;utm_campaign=autorenametag&amp;utm_medium=banner"><img src="https://alt-images.codestream.com/codestream_logo_autorenametag.png"></a><br>
@@ -24,11 +24,11 @@ Easy pair programming with any IDE. Duckly enables you to talk, share your code 
 
 ## Book for VS Code
 
-[《Visual Studio Code 权威指南》](https://union-click.jd.com/jdc?e=jdext-1261348777639735296-0&p=AyIGZRhbHQsWAVIaXxEyEgRdG1sRBxU3EUQDS10iXhBeGlcJDBkNXg9JHUlSSkkFSRwSBF0bWxEHFRgMXgdIMkRxFAUJD1RQZT0cBnwKDE4%2BaDpgB2ILWStbHAIQD1QaWxIBIgdUGlsRBxEEUxprJQIXNwd1g6O0yqLkB4%2B%2FjcePwitaJQIWD1cfWhwKGwVSG1wlAhoDZc31gdeauIyr%2FsOovNLYq46cqca50ytrJQEiXABPElAeEgRSG1kQCxQBUxxZHQQQA1YTXAkDIgdUGlscChECXRs1FGwSD1UbWRALFwRWK1slASJZOxoLRlUXU1NONU9QEkdXWRlJbBUDVB9TFgAVN1caWhcA)：带你深入浅出 VS Code！
+[ã€ŠVisual Studio Code æƒå¨æŒ‡å—ã€‹](https://union-click.jd.com/jdc?e=jdext-1261348777639735296-0&p=AyIGZRhbHQsWAVIaXxEyEgRdG1sRBxU3EUQDS10iXhBeGlcJDBkNXg9JHUlSSkkFSRwSBF0bWxEHFRgMXgdIMkRxFAUJD1RQZT0cBnwKDE4%2BaDpgB2ILWStbHAIQD1QaWxIBIgdUGlsRBxEEUxprJQIXNwd1g6O0yqLkB4%2B%2FjcePwitaJQIWD1cfWhwKGwVSG1wlAhoDZc31gdeauIyr%2FsOovNLYq46cqca50ytrJQEiXABPElAeEgRSG1kQCxQBUxxZHQQQA1YTXAkDIgdUGlscChECXRs1FGwSD1UbWRALFwRWK1slASJZOxoLRlUXU1NONU9QEkdXWRlJbBUDVB9TFgAVN1caWhcA)ï¼šå¸¦ä½ æ·±å…¥æµ…å‡º VS Codeï¼
 
 ![Book](https://github.com/formulahendry/vscode-auto-rename-tag/raw/HEAD/images/book.jpg)
 
-## ❤️ Contributors
+## â¤ï¸ Contributors
 
 Kudos to [@SimonSiefke](https://github.com/SimonSiefke) for rewriting the logic of this extension!
 

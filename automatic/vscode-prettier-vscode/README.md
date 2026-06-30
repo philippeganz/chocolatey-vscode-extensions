@@ -5,33 +5,33 @@
 <p align="center">
   <em>
     JavaScript
-    · TypeScript
-    · Flow
-    · JSX
-    · JSON
+    Â· TypeScript
+    Â· Flow
+    Â· JSX
+    Â· JSON
   </em>
   <br />
   <em>
     CSS
-    · SCSS
-    · Less
+    Â· SCSS
+    Â· Less
   </em>
   <br />
   <em>
     HTML
-    · Vue
-    · Angular
+    Â· Vue
+    Â· Angular
   </em>
   <em>
     HANDLEBARS
-    · Ember
-    · Glimmer
+    Â· Ember
+    Â· Glimmer
   </em>
   <br />
   <em>
     GraphQL
-    · Markdown
-    · YAML
+    Â· Markdown
+    Â· YAML
   </em>
   <br />
   <em>
@@ -82,14 +82,14 @@ To ensure that this extension is used over other extensions you may have install
 **Note:** VS Code does not support combined language syntax for `editor.defaultFormatter`. You must set the formatter for each language separately:
 
 ```json
-// ❌ This will NOT work
+// âŒ This will NOT work
 {
   "[javascript][typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
 
-// ✅ Use separate blocks instead
+// âœ… Use separate blocks instead
 {
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

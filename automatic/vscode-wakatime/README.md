@@ -8,7 +8,7 @@
 
 ## Installation
 
-1. Press `F1` or `⌘ + Shift + P` and type `install`. Pick `Extensions: Install Extension`.
+1. Press `F1` or `âŒ˜ + Shift + P` and type `install`. Pick `Extensions: Install Extension`.
 
    ![type install](https://github.com/wakatime/vscode-wakatime/raw/HEAD/images/type-install.png)
 
@@ -18,7 +18,7 @@
 
 3. Enter your [api key][api key], then press `enter`.
 
-   > (If you’re not prompted, press `F1` or `⌘ + Shift + P` then type `WakaTime API Key`.)
+   > (If youâ€™re not prompted, press `F1` or `âŒ˜ + Shift + P` then type `WakaTime API Key`.)
 
 4. Use VSCode and your coding activity will be displayed on your [WakaTime dashboard](https://wakatime.com)
 
@@ -30,11 +30,11 @@ Visit [https://wakatime.com](https://wakatime.com) to see your coding activity.
 
 ## Configuring
 
-VS Code specific settings are available from `⌘ + Shift + P`, then typing `wakatime`.
+VS Code specific settings are available from `âŒ˜ + Shift + P`, then typing `wakatime`.
 
 For example, to hide today's coding activity in your status bar:
 
-Press `⌘ + Shift + P` then set `WakaTime: Status Bar Coding Activity` to `false`.
+Press `âŒ˜ + Shift + P` then set `WakaTime: Status Bar Coding Activity` to `false`.
 
 ### Status Bar Alignment
 
@@ -54,19 +54,19 @@ If using an online IDE like [gitpods](https://gitpod.io/), add your [api key][ap
 Notes:
 
 1. `$HOME` defaults to `$HOME`
-1. To disable the extension at startup add `disabled=true` to your config, this operation can also be performed by pressing `⌘ + Shift + P` and selecting `WakaTime: Disable`.
+1. To disable the extension at startup add `disabled=true` to your config, this operation can also be performed by pressing `âŒ˜ + Shift + P` and selecting `WakaTime: Disable`.
 
 ## Troubleshooting
 
 First, turn on debug mode:
 
-1. Press `F1` or `⌘ + Shift + P`
+1. Press `F1` or `âŒ˜ + Shift + P`
 2. Type `> WakaTime: Debug`, and press `Enter`.
 3. Select `true`, then press `Enter`.
 
 Next, open your Developer Console to view logs and errors:
 
-`Help → Toggle Developer Tools`
+`Help â†’ Toggle Developer Tools`
 
 Errors outside the scope of vscode-wakatime go to `$HOME/.wakatime/wakatime.log` from [wakatime-cli][wakatime-cli help].
 
@@ -91,7 +91,7 @@ If you're connected to a remote host using the [ssh extension](https://code.visu
 
 3. Click the settings icon next to WakaTime, then click Uninstall.
 
-4. Delete the `~/.wakatime*` files in your home directory, unless you’re still using WakaTime with another IDE.
+4. Delete the `~/.wakatime*` files in your home directory, unless youâ€™re still using WakaTime with another IDE.
 
 ## Contributing
 

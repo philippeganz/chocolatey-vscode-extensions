@@ -43,7 +43,7 @@ To access GitHub Copilot, an active GitHub Copilot subscription is required. You
 
 ### Supported languages and frameworks
 
-GitHub Copilot works on any language, including Java, PHP, Python, JavaScript, Ruby, Go, C#, or C++. Because it’s been trained on languages in public repositories, it works for most popular languages, libraries and frameworks.
+GitHub Copilot works on any language, including Java, PHP, Python, JavaScript, Ruby, Go, C#, or C++. Because itâ€™s been trained on languages in public repositories, it works for most popular languages, libraries and frameworks.
 
 ### Version compatibility
 

@@ -131,9 +131,9 @@ Combined with `editor.suggest.preview` and `terraform.experimentalFeatures.prefi
 
 ### HCP Terraform Integration
 
-Every time you have to switch away from your code, you risk losing momentum and the context about your tasks. Previously, Terraform users needed to have at least two windows open – their editor and a web page – to develop Terraform code. The editor contains all of the Terraform code they are working on, and the web page has the HCP Terraform workspace loaded. Switching back and forth between the HCP Terraform website and the text editor can be a frustrating and fragmented experience.
+Every time you have to switch away from your code, you risk losing momentum and the context about your tasks. Previously, Terraform users needed to have at least two windows open â€“ their editor and a web page â€“ to develop Terraform code. The editor contains all of the Terraform code they are working on, and the web page has the HCP Terraform workspace loaded. Switching back and forth between the HCP Terraform website and the text editor can be a frustrating and fragmented experience.
 
-The HCP Terraform Visual Studio Code integration improves user experience by allowing users to view workspaces directly from within Visual Studio Code. Users can view the status of current and past runs and inspect detailed logs – without ever leaving the comfort of their editor.
+The HCP Terraform Visual Studio Code integration improves user experience by allowing users to view workspaces directly from within Visual Studio Code. Users can view the status of current and past runs and inspect detailed logs â€“ without ever leaving the comfort of their editor.
 
 To start using HCP Terraform with VS Code, open the new HCP Terraform sidebar and click "Login to HCP Terraform". You can login using a stored token from the Terraform CLI, an existing token you provide, or open the HCP Terraform website to generate a new token.
 
@@ -435,7 +435,7 @@ The configuration has changed from 1.4.0 to v2.X. If you are having issues with 
 
 - If you have a question about how to accomplish something with the extension, please ask on the [Terraform Editor Discuss site](https://discuss.hashicorp.com/c/terraform-core/terraform-editor-integrations/46)
 - If you come across a problem with the extension, please file an [issue](https://github.com/hashicorp/vscode-terraform/issues/new/choose).
-- If someone has already filed an issue that encompasses your feedback, please leave a 👍/👎 reaction on the issue
+- If someone has already filed an issue that encompasses your feedback, please leave a ðŸ‘/ðŸ‘Ž reaction on the issue
 - Contributions are always welcome! Please see our [contributing guide](https://github.com/hashicorp/vscode-terraform/issues/new?assignees=&labels=enhancement&template=feature_request.md) for more details
 - If you're interested in the development of the extension, you can read about our [development process](https://github.com/hashicorp/vscode-terraform/blob/pre-release/DEVELOPMENT.md)
 

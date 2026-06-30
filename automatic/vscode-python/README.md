@@ -11,9 +11,9 @@ The Python extension does offer [some support](https://github.com/microsoft/vsco
 
 The Python extension will automatically install the following extensions by default to provide the best Python development experience in VS Code:
 
-- [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) – performant Python language support
-- [Python Debugger](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) – seamless debug experience with debugpy
-- **(NEW)** [Python Environments](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs) – dedicated environment management (see below)
+- [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) â€“ performant Python language support
+- [Python Debugger](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) â€“ seamless debug experience with debugpy
+- **(NEW)** [Python Environments](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs) â€“ dedicated environment management (see below)
 
 These extensions are optional dependencies, meaning the Python extension will remain fully functional if they fail to be installed. Any or all of these extensions can be [disabled](https://code.visualstudio.com/docs/editor/extension-marketplace#_disable-an-extension) or [uninstalled](https://code.visualstudio.com/docs/editor/extension-marketplace#_uninstall-an-extension) at the expense of some features. Extensions installed through the marketplace are subject to the [Marketplace Terms of Use](https://cdn.vsassets.io/v/M146_20190123.39/_content/Microsoft-Visual-Studio-Marketplace-Terms-of-Use.pdf).
 
@@ -111,7 +111,7 @@ The extension is available in multiple languages: `de`, `en`, `es`, `fa`, `fr`, 
 -   If you come across a problem with the extension, please [file an issue](https://github.com/microsoft/vscode-python).
 -   Contributions are always welcome! Please see our [contributing guide](https://github.com/Microsoft/vscode-python/blob/main/CONTRIBUTING.md) for more details.
 -   Any and all feedback is appreciated and welcome!
-    -   If someone has already [filed an issue](https://github.com/Microsoft/vscode-python) that encompasses your feedback, please leave a 👍/👎 reaction on the issue.
+    -   If someone has already [filed an issue](https://github.com/Microsoft/vscode-python) that encompasses your feedback, please leave a ðŸ‘/ðŸ‘Ž reaction on the issue.
     -   Otherwise please start a [new discussion](https://github.com/microsoft/vscode-python/discussions/categories/ideas).
 -   If you're interested in the development of the extension, you can read about our [development process](https://github.com/Microsoft/vscode-python/blob/main/CONTRIBUTING.md#development-process).
 

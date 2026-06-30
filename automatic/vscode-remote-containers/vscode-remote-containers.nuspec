@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-remote-containers</id>
-    <version>0.462.0</version>
+    <version>0.464.0</version>
     <title>Dev Containers</title>
     <authors>ms-vscode-remote</authors>
     <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
@@ -10,7 +10,9 @@
     <iconUrl>https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-containers/0.462.0/1782407900621/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[The **Dev Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. Whether you deploy to containers or not, containers make a great development environment because you can:
+    <description><![CDATA[# Visual Studio Code Dev Containers
+
+The **Dev Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. Whether you deploy to containers or not, containers make a great development environment because you can:
 
 - Develop with a consistent, easily reproducible toolchain on the same operating system you deploy to.
 - Quickly swap between different, separate development environments and safely make updates without worrying about impacting your local machine.
@@ -119,7 +121,7 @@ Have a question or feedback?
 
 ## Telemetry
 
-Visual Studio Code Dev Containers and related extensions collect telemetry data to help us build a better experience working remotely from VS Code. We only collect data on which commands are executed. We do not collect any information about image names, paths, etc. The extension respects the `telemetry.enableTelemetry` setting which you can learn more about in the [Visual Studio Code FAQ](https://aka.ms/vscode-remote/telemetry).
+Visual Studio Code Dev Containers and related extensions collect telemetry data to help us build a better experience working remotely from VS Code. We only collect data on which commands are executed. We do not collect any information about image names, paths, etc. The extension respects theÃ‚Â `telemetry.enableTelemetry`Ã‚Â setting which you can learn more about in the [Visual Studio Code FAQ](https://aka.ms/vscode-remote/telemetry).
 
 ## License
 
@@ -129,7 +131,8 @@ By downloading and using the Visual Studio Dev Containers extension and its rela
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers#changelog</releaseNotes>
     <tags>vscode extension remote-containers</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

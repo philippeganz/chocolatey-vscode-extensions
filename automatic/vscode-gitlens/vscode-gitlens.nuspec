@@ -1,20 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-gitlens</id>
     <version>2026.6.300615</version>
-    <title>GitLens — Git supercharged</title>
+    <title>GitLens â€” Git supercharged</title>
     <authors>eamodio</authors>
     <projectUrl>https://github.com/gitkraken/vscode-gitlens.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
     <iconUrl>https://eamodio.gallerycdn.vsassets.io/extensions/eamodio/gitlens/2026.6.300615/1782814624272/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[> Supercharge Git and unlock **untapped knowledge** within your repo to better **understand**, **write**, and **review** code. Focus, collaborate, accelerate.
+    <description><![CDATA[# GitLens &mdash; Supercharge Git in VS Code
+
+> Supercharge Git and unlock **untapped knowledge** within your repo to better **understand**, **write**, and **review** code. Focus, collaborate, accelerate.
 
 [GitLens](https://gitkraken.com/gitlens?utm_source=gitlens-extension&utm_medium=in-app-links&utm_campaign=gitlens-logo-links 'Learn more about GitLens') is a powerful [open-source](https://github.com/gitkraken/vscode-gitlens 'Open GitLens on GitHub') extension for Visual Studio Code built and maintained by GitKraken.
 
-Enhance your workflows with powerful Git functionality like in-editor blame annotations, hovers, CodeLens, and more—all fully customizable within VS Code. Try GitLens Pro's advanced workflows that accelerate PR reviews, provide rich interactive Git actions, and enhance collaboration for you and your team.
+Enhance your workflows with powerful Git functionality like in-editor blame annotations, hovers, CodeLens, and moreâ€”all fully customizable within VS Code. Try GitLens Pro's advanced workflows that accelerate PR reviews, provide rich interactive Git actions, and enhance collaboration for you and your team.
 
 ## Getting Started
 
@@ -51,13 +53,13 @@ You can [try GitLens Pro for free](https://gitkraken.dev/register?product=gitlen
 
 # Discover Powerful Workflows
 
-GitLens offers a wide range of features—here are the three most popular workflows that users rely on to boost their productivity:
+GitLens offers a wide range of featuresâ€”here are the three most popular workflows that users rely on to boost their productivity:
 
-- [**Interactive Code History**](#interactive-code-history) &mdash; Understanding code in repositories with multiple branches and contributors can be difficult. GitLens provides the context you need with tools like blame, hovers, and file annotations. But it doesn’t stop there—the interactive Commit Graph lets you create branches, rebase, revert, and more, all with powerful search capabilities.
+- [**Interactive Code History**](#interactive-code-history) &mdash; Understanding code in repositories with multiple branches and contributors can be difficult. GitLens provides the context you need with tools like blame, hovers, and file annotations. But it doesnâ€™t stop thereâ€”the interactive Commit Graph lets you create branches, rebase, revert, and more, all with powerful search capabilities.
 
 - [**Accelerate PR Reviews**](#accelerate-pr-reviews) &mdash; Reduce context switching and manage all your PRs in one place. Prioritize tasks and identify bottlenecks right in VS Code with Launchpad when you integrate Github or other host providers. Work on multiple branches at once without disrupting your main workspace with Worktrees.
 
-- [**Streamline Collaboration**](#streamline-collaboration) &mdash; GitLens isn’t just for solo developers—it’s designed to enhance team collaboration. With Cloud Patches and Code Suggest, you can share and discuss suggested changes with any GitLens or GitKraken user, on multiple files and even PRs.
+- [**Streamline Collaboration**](#streamline-collaboration) &mdash; GitLens isnâ€™t just for solo developersâ€”itâ€™s designed to enhance team collaboration. With Cloud Patches and Code Suggest, you can share and discuss suggested changes with any GitLens or GitKraken user, on multiple files and even PRs.
 
 ## Home View - Your VS Code Workflow Hub
 
@@ -65,7 +67,7 @@ Compact but powerful, the Home View lets you take your tasks and issues from cod
 
 ## Accelerate Your Workflow with AI (Preview)
 
-GitLens leverages AI to simplify tedious tasks like writing commit messages, crafting pull request descriptions, generating changelogs and more—allowing you to focus on your code.
+GitLens leverages AI to simplify tedious tasks like writing commit messages, crafting pull request descriptions, generating changelogs and moreâ€”allowing you to focus on your code.
 
 - **Generate Commit and Stash Messages**: Quickly create descriptive commit or stash messages tailored to your code changes.
 
@@ -78,7 +80,7 @@ GitLens leverages AI to simplify tedious tasks like writing commit messages, cra
 
 **Community Features**: Community users can generate commit messages for free if they are using GitHub Copilot or have a free [GitKraken](https://gitkraken.dev/register?product=gitlens&source=marketing_page&redirect_uri=vscode%3A%2F%2Feamodio.gitlens%2Flogin&flow=gitlens_web&utm_source=gitlens-extension&utm_medium=readme-ai) account with an API key connected to other providers like OpenAI, Anthropic, DeepSeek, Gemini, etc.
 
-**Pro Features**: Subscribe to GitLens Pro to access all AI features with GitKraken AI—no manual key management required.
+**Pro Features**: Subscribe to GitLens Pro to access all AI features with GitKraken AIâ€”no manual key management required.
 
 # Interactive Code History
 
@@ -101,7 +103,7 @@ Provides historical context about line changes through unobtrusive **blame annot
   <figcaption>Status bar blame annotations</figcaption>
 </figure>
 
-💡 Use the `Toggle Line Blame` and `Toggle Git CodeLens` commands from the Command Palette to turn the annotations on and off.
+ðŸ’¡ Use the `Toggle Line Blame` and `Toggle Git CodeLens` commands from the Command Palette to turn the annotations on and off.
 
 ### Git CodeLens
 
@@ -135,7 +137,7 @@ Use on-demand whole file annotations to see authorship, recent changes, and a he
   <figcaption>File Heatmap annotations</figcaption>
 </figure>
 
-💡 On an active file, use the `Toggle File Blame`, `Toggle File Changes`, and `Toggle File Heatmap` commands from the Command Palette to turn the annotations on and off.
+ðŸ’¡ On an active file, use the `Toggle File Blame`, `Toggle File Changes`, and `Toggle File Heatmap` commands from the Command Palette to turn the annotations on and off.
 
 ## Commit Graph `Pro`
 
@@ -147,9 +149,9 @@ Use the rich commit search to find exactly what you're looking for. Its powerful
   <img src="https://raw.githubusercontent.com/gitkraken/vscode-gitlens/main/images/docs/commit-graph.png" alt="Commit Graph" />
 </figure>
 
-💡Quickly toggle the Graph via the `Toggle Commit Graph` command.
+ðŸ’¡Quickly toggle the Graph via the `Toggle Commit Graph` command.
 
-💡Maximize the Graph via the `Toggle Maximized Commit Graph` command.
+ðŸ’¡Maximize the Graph via the `Toggle Maximized Commit Graph` command.
 
 ## Revision Navigation
 
@@ -161,7 +163,7 @@ With just a click of a button, you can navigate backwards and forwards through t
 
 # Accelerate PR Reviews
 
-PR reviews often require switching between GitHub, email, and your IDE. Launchpad is your centralized PR hub in VS Code where you can spot bottlenecks, prioritize reviews and unblock your team. With Worktrees, you can work on multiple branches—hotfixes, features, or experiments—without disrupting your workspace.
+PR reviews often require switching between GitHub, email, and your IDE. Launchpad is your centralized PR hub in VS Code where you can spot bottlenecks, prioritize reviews and unblock your team. With Worktrees, you can work on multiple branchesâ€”hotfixes, features, or experimentsâ€”without disrupting your workspace.
 
 ## Launchpad `Pro`
 
@@ -181,7 +183,7 @@ Worktrees enable efficient multitasking by allowing you to work on multiple bran
 
 # Streamline Collaboration
 
-GitLens isn’t just for solo developers—it’s designed to enhance team collaboration. Sharing code can be tricky without adding noise to your repository with extra commits or branches. GitLens simplifies this with Cloud Patches and Code Suggest, letting you share or propose changes to any file in the repository without committing or pushing to a remote.
+GitLens isnâ€™t just for solo developersâ€”itâ€™s designed to enhance team collaboration. Sharing code can be tricky without adding noise to your repository with extra commits or branches. GitLens simplifies this with Cloud Patches and Code Suggest, letting you share or propose changes to any file in the repository without committing or pushing to a remote.
 
 ## Cloud Patches `Preview`
 
@@ -189,7 +191,7 @@ Privately and securely share code changes by creating a Cloud Patch from your wo
 
 ## Code Suggest `Preview`
 
-Break free from GitHub's limited, comment-only review feedback. With GitLens, you can suggest code changes directly from your IDE, just like editing a Google Doc. Provide feedback on any part of your project during a review—not just the lines changed in a PR. [Learn more](https://gitkraken.com/solutions/code-suggest?utm_source=gitlens-extension&utm_medium=in-app-links)
+Break free from GitHub's limited, comment-only review feedback. With GitLens, you can suggest code changes directly from your IDE, just like editing a Google Doc. Provide feedback on any part of your project during a reviewâ€”not just the lines changed in a PR. [Learn more](https://gitkraken.com/solutions/code-suggest?utm_source=gitlens-extension&utm_medium=in-app-links)
 
 <figure align="center">
   <img src="https://raw.githubusercontent.com/gitkraken/vscode-gitlens/main/images/docs/code-suggest.png" alt="Code Suggest" />
@@ -206,7 +208,7 @@ Our views are arranged for focus and productivity, although you can easily drag 
   <figcaption>GitLens Inspect as shown above has been manually moved into the Secondary Side Bar</figcaption>
 </figure>
 
-💡 Use the `Reset Views Layout` command to quickly get back to the default layout.
+ðŸ’¡ Use the `Reset Views Layout` command to quickly get back to the default layout.
 
 ### GitLens Inspect
 
@@ -337,7 +339,7 @@ Contributions to the documentation are greatly appreciated. If you find any area
 
 # Contributors
 
-A big thanks to the people that have contributed to this project 🙏❤️:
+A big thanks to the people that have contributed to this project ðŸ™â¤ï¸:
 
 - Zeeshan Adnan ([@zeeshanadnan](https://github.com/zeeshanadnan)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=zeeshanadnan)
 - Alex ([@deadmeu](https://github.com/deadmeu)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=deadmeu)
@@ -367,7 +369,7 @@ A big thanks to the people that have contributed to this project 🙏❤️:
 - Omar Ghazi ([@omarfesal](https://github.com/omarfesal)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=omarfesal)
 - Neil Ghosh ([@neilghosh](https://github.com/neilghosh)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=neilghosh)
 - Guillaume Rozan ([@grozan](https://github.com/grozan)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=grozan)
-- Guillem González Vela ([@guillemglez](https://github.com/guillemglez)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=guillemglez)
+- Guillem GonzÃ¡lez Vela ([@guillemglez](https://github.com/guillemglez)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=guillemglez)
 - Vladislav Guleaev ([@vguleaev](https://github.com/vguleaev)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=vguleaev)
 - Dmitry Gurovich ([@yrtimiD](https://github.com/yrtimiD)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=yrtimiD)
 - hahaaha ([@hahaaha](https://github.com/hahaaha)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=hahaaha)
@@ -392,7 +394,7 @@ A big thanks to the people that have contributed to this project 🙏❤️:
 - John Letey ([@johnletey](https://github.com/johnletey)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=johnletey)
 - Stanislav Lvovsky ([@slavik-lvovsky](https://github.com/slavik-lvovsky)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=slavik-lvovsky)
 - Peng Lyu ([@rebornix](https://github.com/rebornix)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=rebornix)
-- Cédric Malard ([@cmalard](https://github.com/cmalard)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=cmalard)
+- CÃ©dric Malard ([@cmalard](https://github.com/cmalard)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=cmalard)
 - Asif Kamran Malick ([@akmalick](https://github.com/akmalick)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=akmalick)
 - Sam Martin ([@smartinio](https://github.com/smartinio)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=smartinio)
 - mcy-kylin ([@mcy-kylin](https://github.com/mcy-kylin)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=mcy-kylin)
@@ -405,13 +407,13 @@ A big thanks to the people that have contributed to this project 🙏❤️:
 - Kevin Paxton ([kpaxton](https://github.com/kpaxton)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=kpaxton)
 - Connor Peet ([@connor4312](https://github.com/connor4312)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=connor4312)
 - Maxim Pekurin ([@pmaxim25](https://github.com/pmaxim25)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=pmaxim25)
-- Leo Dan Peña ([@leo9-py](https://github.com/leo9-py)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=leo9-py)
+- Leo Dan PeÃ±a ([@leo9-py](https://github.com/leo9-py)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=leo9-py)
 - Aman Prakash ([@gitgoap](https://github.com/gitgoap)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=gitgoap)
 - Arunprasad Rajkumar ([@arajkumar](https://github.com/arajkumar)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=arajkumar)
 - David Rees ([@studgeek](https://github.com/studgeek)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=studgeek)
 - Rickard ([@rickardp](https://github.com/rickardp)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=rickardp)
 - Johannes Rieken ([@jrieken](https://github.com/jrieken)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=jrieken)
-- Daniel Rodríguez ([@sadasant](https://github.com/sadasant)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=sadasant)
+- Daniel RodrÃ­guez ([@sadasant](https://github.com/sadasant)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=sadasant)
 - Guillaume Rozan ([@rozangu1](https://github.com/rozangu1)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=rozangu1)
 - ryenus ([@ryenus](https://github.com/ryenus)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=ryenus)
 - Felipe Santos ([@felipecrs](https://github.com/felipecrs)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=felipecrs)
@@ -444,7 +446,7 @@ A big thanks to the people that have contributed to this project 🙏❤️:
 - Zyck ([@qzyse2017](https://github.com/qzyse2017)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=qzyse2017)
 - Yonatan Greenfeld ([@YonatanGreenfeld](https://github.com/YonatanGreenfeld)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=YonatanGreenfeld)
 - WofWca ([@WofWca](https://github.com/WofWca)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=WofWca)
-- 不见月 ([@nooooooom](https://github.com/nooooooom)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=nooooooom)
+- ä¸è§æœˆ ([@nooooooom](https://github.com/nooooooom)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=nooooooom)
 - Ian Chamberlain ([@ian-h-chamberlain](https://github.com/ian-h-chamberlain)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=ian-h-chamberlain)
 - Brandon Cheng ([@gluxon](https://github.com/gluxon)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=gluxon)
 - yutotnh ([@yutotnh](https://github.com/yutotnh)) &mdash; [contributions](https://github.com/gitkraken/vscode-gitlens/commits?author=yutotnh)
@@ -474,11 +476,12 @@ All files in or under any directory named "plus" fall under LICENSE.plus.
 
 The remaining files fall under the MIT license.
 ]]></description>
-    <summary>Supercharge Git within VS Code — Visualize code authorship at a glance via Git blame annotations and CodeLens, seamlessly navigate and explore Git repositories, gain valuable insights via rich visualizations and powerful comparison commands, and so much more</summary>
+    <summary>Supercharge Git within VS Code â€” Visualize code authorship at a glance via Git blame annotations and CodeLens, seamlessly navigate and explore Git repositories, gain valuable insights via rich visualizations and powerful comparison commands, and so much more</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#changelog</releaseNotes>
     <tags>vscode extension gitlens</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

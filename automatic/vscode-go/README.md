@@ -15,7 +15,7 @@ provides rich language support for the
 
 ## Quick Start
 
-Welcome! 👋🏻<br/>
+Welcome! ðŸ‘‹ðŸ»<br/>
 Whether you are new to Go or an experienced Go developer, we hope this
 extension fits your needs and enhances your development experience.
 
@@ -38,7 +38,7 @@ extension fits your needs and enhances your development experience.
 <em>(Install Missing Tools)</em>
 </p>
 
-You are ready to Go :-) &nbsp;&nbsp; 🎉🎉🎉
+You are ready to Go :-) &nbsp;&nbsp; ðŸŽ‰ðŸŽ‰ðŸŽ‰
 
 ## What's next
 
@@ -94,7 +94,7 @@ extension.
 <img src="https://github.com/golang/vscode-go/raw/v0.55.0/docs/images/toggletestfile.gif" width=75%>
 <br/><em>(Toggle Test File)</em></p>
 
-**⚠️ Note**: the default syntax highlighting for Go files is provided by a
+**âš ï¸ Note**: the default syntax highlighting for Go files is provided by a
 [TextMate rule](https://github.com/worlpaker/go-syntax) embedded in VS
 Code, not by this extension.
 

@@ -178,7 +178,7 @@ Just have in mind that this should come with a performance hit, as booting up a 
 
 ### Integrating other VS Code extensions
 
-This extension provides a small API, which allows other VS Code extensions to interact with the ShellCheck extension. For details, see [API.md](https://github.com/vscode-shellcheck/vscode-shellcheck/blob/HEAD/doc/API.md).
+This extension provides a small API, which allows other VSÂ Code extensions to interact with the ShellCheck extension. For details, see [API.md](https://github.com/vscode-shellcheck/vscode-shellcheck/blob/HEAD/doc/API.md).
 
 ## Acknowledgements
 

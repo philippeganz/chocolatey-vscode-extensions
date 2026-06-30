@@ -5,7 +5,7 @@ The VSCode Microsoft Terraform extension is designed to increase developer produ
 ![overview](https://raw.githubusercontent.com/Azure/vscode-azureterraform/master/images/overview.png)
 
 ## Important Note
-⚠️ **CloudShell integration is currently unavailable** in this version of the extension. All Terraform commands will run in your local integrated terminal.
+âš ï¸ **CloudShell integration is currently unavailable** in this version of the extension. All Terraform commands will run in your local integrated terminal.
 
 ## Requirements
 
