@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-oracle-java</id>
+    <version>0.0.0</version>
+    <title>Java</title>
+    <authors>Oracle</authors>
+    <projectUrl>https://github.com/oracle/javavscode</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://Oracle.gallerycdn.vsassets.io/extensions/oracle/oracle-java/26.0.0/1780905052521/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=Oracle.oracle-java</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Java Platform Extension for Visual Studio Code</description>
+    <summary>Java Platform Extension for Visual Studio Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=Oracle.oracle-java#changelog</releaseNotes>
+    <tags>vscode extension oracle-java</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
