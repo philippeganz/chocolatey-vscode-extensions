@@ -40,7 +40,6 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 # =============================================================================
 # 1. Configuration & Scaffolding
 # =============================================================================
-$PSScriptRoot = Split-Path -Parent -Path $MyInvocation.MyCommand.Definition
 Import-Module "$PSScriptRoot\VsCodeMarketplace.psm1" -Force
 
 # We parse the config.yaml to determine which extensions the Factory should

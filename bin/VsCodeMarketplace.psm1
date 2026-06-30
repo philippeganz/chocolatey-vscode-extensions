@@ -129,9 +129,9 @@ function Expand-VsCodePayload {
     $packageJson = $null
 
     try {
-        $packageJsonEntry = $zip.Entries | Where-Object { $_.FullName -eq 'extension/package.json' } | Select-Object -First 1
-        $readmeEntry = $zip.Entries | Where-Object { $_.FullName -match '(?i)^extension/README\.md$' } | Select-Object -First 1
-        $licenseEntry = $zip.Entries | Where-Object { $_.FullName -match '(?i)^extension/LICENSE(?:\.txt|\.md)?$' } | Select-Object -First 1
+        $packageJsonEntry = $zip.Entries | Where-Object FullName -eq 'extension/package.json' | Select-Object -First 1
+        $readmeEntry = $zip.Entries | Where-Object FullName -match '(?i)^extension/README\.md$' | Select-Object -First 1
+        $licenseEntry = $zip.Entries | Where-Object FullName -match '(?i)^extension/LICENSE(?:\.txt|\.md)?$' | Select-Object -First 1
 
         if ($packageJsonEntry) {
             $stream = $packageJsonEntry.Open()
