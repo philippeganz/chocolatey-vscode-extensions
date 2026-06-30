@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-redhat-account</id>
+    <version>0.0.0</version>
+    <title>Red Hat Authentication</title>
+    <authors>redhat</authors>
+    <projectUrl>https://github.com/redhat-developer/vscode-redhat-account</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-redhat-account/0.2.0/1712252352544/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-redhat-account</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides authentication support for Red Hat accounts</description>
+    <summary>Provides authentication support for Red Hat accounts</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-redhat-account#changelog</releaseNotes>
+    <tags>vscode extension redhat-account</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>

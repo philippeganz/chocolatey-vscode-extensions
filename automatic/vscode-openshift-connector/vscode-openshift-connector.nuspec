@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-openshift-connector</id>
+    <version>0.0.0</version>
+    <title>OpenShift Toolkit</title>
+    <authors>redhat</authors>
+    <projectUrl>https://github.com/redhat-developer/vscode-openshift-tools.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-openshift-connector/1.21.1/1762258372564/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-openshift-connector</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Fast iterative application development on Red Hat OpenShift and Kubernetes</description>
+    <summary>Fast iterative application development on Red Hat OpenShift and Kubernetes</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-openshift-connector#changelog</releaseNotes>
+    <tags>vscode extension openshift-connector</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-redhat-account" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>

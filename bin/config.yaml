@@ -58,7 +58,11 @@ extensions:
   - Oracle.oracledevtools
   - pkief.material-icon-theme
   - redhat.ansible
+  - redhat.fabric8-analytics
   - redhat.java
+  - redhat.vscode-openshift-connector
+  - redhat.vscode-redhat-account
+  - redhat.vscode-tekton-pipelines
   - redhat.vscode-xml
   - redhat.vscode-yaml
   - ritwickdey.liveserver
