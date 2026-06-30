@@ -38,7 +38,22 @@ function global:au_GetLatest {
         "Content-Type" = "application/json"
     }
 
-    $res = Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers
+    $retryCount = 0
+    $success = $false
+    $res = $null
+
+    while (-not $success -and $retryCount -lt 5) {
+        try {
+            $res = Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers -ErrorAction Stop
+            $success = $true
+        } catch {
+            Write-Host "    [WARNING] VS Code Marketplace API failed (Rate Limit/Network). Retrying in 5 seconds..." -ForegroundColor Yellow
+            $retryCount++
+            if ($retryCount -ge 5) { throw $_ }
+            Start-Sleep -Seconds 5
+        }
+    }
+
     $ext = $res.results[0].extensions[0]
 
     if (-not $ext) { throw "Extension not found on Marketplace" }
