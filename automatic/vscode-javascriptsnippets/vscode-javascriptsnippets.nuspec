@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-javascriptsnippets</id>
+    <version>0.0.0</version>
+    <title>JavaScript (ES6) code snippets</title>
+    <authors>xabikos</authors>
+    <projectUrl>https://github.com/xabikos/vscode-javascript</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://xabikos.gallerycdn.vsassets.io/extensions/xabikos/javascriptsnippets/1.8.0/1587489699375/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Code snippets for JavaScript in ES6 syntax</description>
+    <summary>Code snippets for JavaScript in ES6 syntax</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets#changelog</releaseNotes>
+    <tags>vscode extension javascriptsnippets</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>

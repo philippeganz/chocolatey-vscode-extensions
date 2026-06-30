@@ -52,3 +52,4 @@ extensions:
   - vscjava.vscode-maven
   - vscode-icons-team.vscode-icons
   - WakaTime.vscode-wakatime
+  - xabikos.JavaScriptSnippets
