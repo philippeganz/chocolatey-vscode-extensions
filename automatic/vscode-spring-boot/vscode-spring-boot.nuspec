@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-spring-boot</id>
+    <version>0.0.0</version>
+    <title>Spring Boot Tools</title>
+    <authors>vmware</authors>
+    <projectUrl>https://github.com/spring-projects/spring-tools.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://vmware.gallerycdn.vsassets.io/extensions/vmware/vscode-spring-boot/2.3.2026063000/1782782248368/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides validation and content assist for Spring Boot `application.properties`, `application.yml` properties files. As well as Boot-specific support for `.java` files.</description>
+    <summary>Provides validation and content assist for Spring Boot `application.properties`, `application.yml` properties files. As well as Boot-specific support for `.java` files.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot#changelog</releaseNotes>
+    <tags>vscode extension spring-boot</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-java" />
+      <dependency id="vscode-maven" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>

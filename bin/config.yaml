@@ -62,6 +62,7 @@ extensions:
   - twxs.cmake
   - visualstudioexptteam.intellicode-api-usage-examples
   - visualstudioexptteam.vscodeintellicode
+  - vmware.vscode-spring-boot
   - vscjava.vscode-gradle
   - vscjava.vscode-java-debug
   - vscjava.vscode-java-dependency
