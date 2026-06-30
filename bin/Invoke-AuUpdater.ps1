@@ -111,7 +111,7 @@ function Resolve-PackageDependency {
     foreach ($pkg in $Packages) {
         & $resolve $pkg
     }
-    
+
     return $sortedList.ToArray()
 }
 
