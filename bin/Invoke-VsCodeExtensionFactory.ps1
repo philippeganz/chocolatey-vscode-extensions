@@ -198,7 +198,19 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $vsixPath = Join-Path $toolsDir $vsixName
 
     Write-Host "    Downloading VSIX Payload..."
-    Invoke-WebRequest -Uri $vsixUrl -OutFile $vsixPath
+    $retryCount = 0
+    $success = $false
+    while (-not $success -and $retryCount -lt 3) {
+        try {
+            Invoke-WebRequest -Uri $vsixUrl -OutFile $vsixPath -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -ErrorAction Stop
+            $success = $true
+        } catch {
+            Write-Host "    [WARNING] VSIX Download failed. Retrying in 5 seconds ($($retryCount + 1)/3)..." -ForegroundColor Yellow
+            $retryCount++
+            if ($retryCount -ge 3) { throw }
+            Start-Sleep -Seconds 5
+        }
+    }
 
     # =========================================================================
     # 3. Payload Extraction (Air-Gap Compliance)
