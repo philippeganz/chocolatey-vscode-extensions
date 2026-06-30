@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-remote-server</id>
+    <version>0.0.0</version>
+    <title>Remote - Tunnels</title>
+    <authors>ms-vscode</authors>
+    <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/remote-server/1.6.2026061009/1781082963568/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Connect to a remote machine through a Tunnel</description>
+    <summary>Connect to a remote machine through a Tunnel</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server#changelog</releaseNotes>
+    <tags>vscode extension remote-server</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-remote-explorer" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>

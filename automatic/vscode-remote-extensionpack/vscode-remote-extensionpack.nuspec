@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-remote-extensionpack</id>
+    <version>0.0.0</version>
+    <title>Remote Development</title>
+    <authors>ms-vscode-remote</authors>
+    <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/vscode-remote-extensionpack/0.26.0/1729778338986/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An extension pack that lets you open any folder in a container, on a remote machine, or in WSL and take advantage of VS Code&apos;s full feature set.</description>
+    <summary>An extension pack that lets you open any folder in a container, on a remote machine, or in WSL and take advantage of VS Code&apos;s full feature set.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack#changelog</releaseNotes>
+    <tags>vscode extension remote-extensionpack</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-remote-wsl" />
+      <dependency id="vscode-remote-containers" />
+      <dependency id="vscode-remote-ssh" />
+      <dependency id="vscode-remote-server" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
