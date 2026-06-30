@@ -8,9 +8,11 @@ on:
       forced_packages:
         description: "Comma separated list of packages to force update (optional)"
         required: false
+        type: string
       moderation_repush:
         description: "Comma separated list of packages to repush to moderation without timestamping (optional)"
         required: false
+        type: string
 
 jobs:
   au-update:
@@ -20,7 +22,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -39,8 +41,8 @@ jobs:
           github_user_repo: "philippeganz/chocolatey-vscode-extensions"
           github_api_key: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          $forced = "${{ github.event.inputs.forced_packages }}"
-          $moderation = "${{ github.event.inputs.moderation_repush }}"
+          $forced = "${{ inputs.forced_packages }}"
+          $moderation = "${{ inputs.moderation_repush }}"
 
           if ($moderation) {
             ./bin/update_all.ps1 -ModerationRepush $moderation
@@ -51,7 +53,7 @@ jobs:
           }
 
       - name: Create Pull Request for Updates
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "🤖 Auto-Update VS Code Extensions [skip ci]"
