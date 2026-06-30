@@ -9,6 +9,8 @@ extensions:
   - GitHub.copilot-chat
   - ms-azuretools.vscode-containers
   - ms-azuretools.vscode-docker
+  - ms-dotnettools.csharp
+  - ms-dotnettools.vscode-dotnet-runtime
   - ms-python.debugpy
   - ms-python.python
   - ms-python.vscode-pylance
