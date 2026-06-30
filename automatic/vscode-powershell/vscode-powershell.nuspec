@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-powershell</id>
+    <version>0.0.0</version>
+    <title>PowerShell</title>
+    <authors>ms-vscode</authors>
+    <projectUrl>https://github.com/PowerShell/vscode-powershell.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/powershell/2026.1.2/1782428179629/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.powershell</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Develop PowerShell modules, commands and scripts in Visual Studio Code!</description>
+    <summary>Develop PowerShell modules, commands and scripts in Visual Studio Code!</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.powershell#changelog</releaseNotes>
+    <tags>vscode extension powershell</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
