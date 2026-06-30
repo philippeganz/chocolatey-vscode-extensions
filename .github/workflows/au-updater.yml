@@ -45,11 +45,11 @@ jobs:
           $moderation = "${{ inputs.moderation_repush }}"
 
           if ($moderation) {
-            ./bin/update_all.ps1 -ModerationRepush $moderation
+            ./bin/Invoke-AuUpdater.ps1 -ModerationRepush $moderation
           } elseif ($forced) {
-            ./bin/update_all.ps1 -ForcedPackages $forced
+            ./bin/Invoke-AuUpdater.ps1 -ForcedPackages $forced
           } else {
-            ./bin/update_all.ps1
+            ./bin/Invoke-AuUpdater.ps1
           }
 
       - name: Create Pull Request for Updates

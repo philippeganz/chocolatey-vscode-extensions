@@ -1,8 +1,10 @@
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 param()
 
 Import-Module au
+Import-Module "$PSScriptRoot\..\..\bin\VsCodeMarketplace.psm1" -Force -ErrorAction SilentlyContinue
 
 # We bypass the registry checks since these are portable VS Code extensions.
 # Push settings are natively inherited from the global orchestrator.
@@ -17,53 +19,13 @@ $au_NoCheckRegistry = $true
 # of the extension.
 # -----------------------------------------------------------------------------
 function global:au_GetLatest {
-    $marketplaceUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
-
-    # The Marketplace requires a highly specific, undocumented payload to query extensions.
-    $body = @{
-        filters = @(
-            @{
-                criteria   = @(
-                    @{ filterType = 7; value = "{{Publisher}}.{{ExtensionName}}" }
-                )
-                pageNumber = 1
-                pageSize   = 1
-            }
-        )
-        flags   = 914
-    } | ConvertTo-Json -Depth 10
-
-    $headers = @{
-        "Accept"       = "application/json;api-version=3.0-preview.1"
-        "Content-Type" = "application/json"
-    }
-
-    $retryCount = 0
-    $success = $false
-    $res = $null
-
-    while (-not $success -and $retryCount -lt 5) {
-        try {
-            $res = Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers -ErrorAction Stop
-            $success = $true
-        } catch {
-            Write-Host "    [WARNING] VS Code Marketplace API failed (Rate Limit/Network). Retrying in 5 seconds..." -ForegroundColor Yellow
-            $retryCount++
-            if ($retryCount -ge 5) { throw $_ }
-            Start-Sleep -Seconds 5
-        }
-    }
-
-    $ext = $res.results[0].extensions[0]
-
-    if (-not $ext) { throw "Extension not found on Marketplace" }
+    $ext = Get-VsCodeMarketplaceMetadata -Publisher $ExtensionPublisher -ExtensionName $ExtensionName
 
     $version = $ext.versions[0].version
     # Simple SemVer sanitization
     $version = $version -replace '[^\d\.-]', ''
 
-    # Construct the direct download URL for the .vsix payload.
-    $vsixUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/{{Publisher}}/vsextensions/{{ExtensionName}}/$version/vspackage"
+    $vsixUrl = Get-VsCodeExtensionUrl -Publisher $ExtensionPublisher -ExtensionName $ExtensionName -Version $version -ExtMeta $ext
 
     return @{
         Version = $version
@@ -90,28 +52,17 @@ function global:au_BeforeUpdate {
     $toolsDir = Join-Path $package.Path 'tools'
     if (-not (Test-Path $toolsDir)) { New-Item -ItemType Directory -Path $toolsDir | Out-Null }
 
-    $vsixPath = Join-Path $toolsDir "{{Publisher}}.{{ExtensionName}}-$($Latest.Version).vsix"
+    $vsixPath = Join-Path $toolsDir "$ExtensionPublisher.$ExtensionName-$($Latest.Version).vsix"
 
     # Purge any old VSIX payloads to prevent package bloat
     Get-ChildItem -Path $toolsDir -Filter "*.vsix" | Remove-Item -Force
 
     # Download the new payload
-    $retryCount = 0
-    $success = $false
-    while (-not $success -and $retryCount -lt 3) {
-        try {
-            Invoke-WebRequest -Uri $Latest.URL64 -OutFile $vsixPath -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600 -ErrorAction Stop
-            $success = $true
-        } catch {
-            Write-Host "    [WARNING] Download failed. Retrying in 5 seconds..." -ForegroundColor Yellow
-            $retryCount++
-            if ($retryCount -ge 3) { throw }
-            Start-Sleep -Seconds 5
-        }
-    }
+    Invoke-RobustDownload -Url $Latest.URL64 -OutFile $vsixPath
 
-    # The actual factory will inject VSIX extraction logic here later
-    # to crack the zip and update README/LICENSE/package.json
+    # Automatically extract the newest README.md and LICENSE from the ZIP payload
+    # so AU can natively inject the updated documentation into the Chocolatey package.
+    $null = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $package.Path
 }
 
 # -----------------------------------------------------------------------------
@@ -123,7 +74,7 @@ function global:au_BeforeUpdate {
 function global:au_SearchReplace {
     @{
         "tools\chocolateyInstall.ps1" = @{
-            "(?i)({{Publisher}}\.{{ExtensionName}}-)[\d\.]+(\.vsix)" = "`${1}$($Latest.Version)`${2}"
+            "(?i)($ExtensionPublisher\.$ExtensionName-)[\d\.]+(\.vsix)" = "`${1}$($Latest.Version)`${2}"
         }
     }
 }

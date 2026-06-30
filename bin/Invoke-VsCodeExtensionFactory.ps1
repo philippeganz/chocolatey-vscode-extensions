@@ -40,6 +40,9 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 # =============================================================================
 # 1. Configuration & Scaffolding
 # =============================================================================
+$PSScriptRoot = Split-Path -Parent -Path $MyInvocation.MyCommand.Definition
+Import-Module "$PSScriptRoot\VsCodeMarketplace.psm1" -Force
+
 # We parse the config.yaml to determine which extensions the Factory should
 # track. The output directory defaults to 'automatic/' where the generated
 # Chocolatey packages will be placed.
@@ -138,38 +141,10 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     # =========================================================================
     # 2. Query VS Code Marketplace API
     # =========================================================================
-    # We send an undocumented POST request to the Gallery API to retrieve the
-    # extension's metadata (version, description, icon URL).
-    $marketplaceUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
-    $body = @{
-        filters = @(
-            @{
-                criteria   = @(
-                    @{ filterType = 7; value = $extId }
-                )
-                pageNumber = 1
-                pageSize   = 1
-            }
-        )
-        flags   = 914
-    } | ConvertTo-Json -Depth 10
-
-    $headers = @{
-        "Accept"       = "application/json;api-version=3.0-preview.1"
-        "Content-Type" = "application/json"
-    }
-
     try {
-        $res = Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers
-        $extMeta = $res.results[0].extensions[0]
-    }
-    catch {
-        Write-Host "    [ERROR] Failed to fetch metadata for $extId" -ForegroundColor Red
-        continue
-    }
-
-    if (-not $extMeta) {
-        Write-Host "    [ERROR] Extension not found on Marketplace: $extId" -ForegroundColor Red
+        $extMeta = Get-VsCodeMarketplaceMetadata -Publisher $publisher -ExtensionName $extensionName
+    } catch {
+        Write-Host "    [ERROR] $_" -ForegroundColor Red
         continue
     }
 
@@ -193,72 +168,21 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     New-Item -ItemType Directory -Force -Path $toolsDir | Out-Null
 
     # Download VSIX
-    $vsixUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/$publisher/vsextensions/$extensionName/$version/vspackage"
+    $vsixUrl = Get-VsCodeExtensionUrl -Publisher $publisher -ExtensionName $extensionName -Version $version -ExtMeta $extMeta
     $vsixName = "$publisher.$extensionName-$versionClean.vsix"
     $vsixPath = Join-Path $toolsDir $vsixName
 
-    Write-Host "    Downloading VSIX Payload..."
-    $retryCount = 0
-    $success = $false
-    while (-not $success -and $retryCount -lt 3) {
-        try {
-            Invoke-WebRequest -Uri $vsixUrl -OutFile $vsixPath -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600 -ErrorAction Stop
-            $success = $true
-        } catch {
-            Write-Host "    [WARNING] VSIX Download failed. Retrying in 5 seconds ($($retryCount + 1)/3)..." -ForegroundColor Yellow
-            $retryCount++
-            if ($retryCount -ge 3) { throw }
-            Start-Sleep -Seconds 5
-        }
-    }
+    Invoke-RobustDownload -Url $vsixUrl -OutFile $vsixPath
 
     # =========================================================================
     # 3. Payload Extraction (Air-Gap Compliance)
     # =========================================================================
-    # A .vsix file is just a ZIP archive. We crack it open using native .NET
-    # libraries to extract the internal package.json, README.md, and LICENSE
-    # files so we can natively bundle them into the Chocolatey .nupkg.
-    Write-Host "    Extracting Metadata from VSIX Archive..."
-    $zip = [System.IO.Compression.ZipFile]::OpenRead($vsixPath)
-
-    try {
-        $packageJsonEntry = $zip.Entries | Where-Object { $_.FullName -eq 'extension/package.json' } | Select-Object -First 1
-        $readmeEntry = $zip.Entries | Where-Object { $_.FullName -match '(?i)^extension/README\.md$' } | Select-Object -First 1
-        $licenseEntry = $zip.Entries | Where-Object { $_.FullName -match '(?i)^extension/LICENSE(?:\.txt|\.md)?$' } | Select-Object -First 1
-
-        if ($packageJsonEntry) {
-            $stream = $packageJsonEntry.Open()
-            $reader = New-Object System.IO.StreamReader($stream)
-            $packageJsonContent = $reader.ReadToEnd()
-            $reader.Close(); $stream.Close()
-
-            $packageJson = $packageJsonContent | ConvertFrom-Json
-
-            $repoUrl = if ($packageJson.repository.url) { $packageJson.repository.url } else { "https://marketplace.visualstudio.com/items?itemName=$extId" }
-            $author = if ($packageJson.publisher) { $packageJson.publisher } else { $publisher }
-        }
-
-        if ($readmeEntry) {
-            $readmePath = Join-Path $pkgDir "README.md"
-            [System.IO.Compression.ZipFileExtensions]::ExtractToFile($readmeEntry, $readmePath, $true)
-            # The AU Engine natively ingests this README.md and overwrites the .nuspec description with it.
-            # We MUST scrub emails from the README itself to pass Chocolatey Moderation checks.
-            $readmeRaw = Get-Content $readmePath -Raw
-            $readmeRaw = $readmeRaw -replace '(?i)[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}', '[email removed]'
-            $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-            [System.IO.File]::WriteAllText($readmePath, $readmeRaw, $utf8NoBom)
-        }
-        $licenseFileName = ""
-        if ($licenseEntry) {
-            $licenseFileName = $licenseEntry.Name
-            [System.IO.Compression.ZipFileExtensions]::ExtractToFile($licenseEntry, (Join-Path $pkgDir $licenseFileName), $true)
-        }
-    } finally {
-        if ($null -ne $zip) {
-            $zip.Dispose()
-        }
+    $packageJson = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
+    
+    if ($packageJson) {
+        $repoUrl = if ($packageJson.repository.url) { $packageJson.repository.url } else { "https://marketplace.visualstudio.com/items?itemName=$extId" }
+        $author = if ($packageJson.publisher) { $packageJson.publisher } else { $publisher }
     }
-
     # =========================================================================
     # 4. Chocolatey Dependency Resolution
     # =========================================================================
@@ -371,9 +295,11 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $utf8NoBom = New-Object System.Text.UTF8Encoding $false
     [System.IO.File]::WriteAllText((Join-Path $toolsDir "chocolateyInstall.ps1"), $installContent, $utf8NoBom)
 
-    $updateContent = Get-Content (Join-Path $templatesDir "update.ps1") -Raw
-    $updateContent = $updateContent -replace '\{\{Publisher\}\}', $publisher
-    $updateContent = $updateContent -replace '\{\{ExtensionName\}\}', $extensionName
+    $updateContent = @"
+`$ExtensionPublisher = "$publisher"
+`$ExtensionName = "$extensionName"
+. "`$PSScriptRoot\..\..\bin\AuExtensionHooks.ps1"
+"@
     $utf8NoBom = New-Object System.Text.UTF8Encoding $false
     [System.IO.File]::WriteAllText((Join-Path $pkgDir "update.ps1"), $updateContent, $utf8NoBom)
 
