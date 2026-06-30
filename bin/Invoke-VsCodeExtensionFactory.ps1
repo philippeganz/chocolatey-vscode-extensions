@@ -256,6 +256,10 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     if ($packageJson.extensionDependencies) {
         Write-Host "    Found Extension Dependencies!" -ForegroundColor Yellow
         foreach ($depRaw in $packageJson.extensionDependencies) {
+            if ($depRaw.ToLower().StartsWith("vscode.")) {
+                Write-Host "    [SKIP] Ignoring built-in dependency: $depRaw" -ForegroundColor DarkGray
+                continue
+            }
             $dep = if ($dependencyAliases.ContainsKey($depRaw)) { $dependencyAliases[$depRaw] } else { $depRaw }
 
             $depName = ($dep -split '\.')[1].ToLower()
@@ -274,6 +278,10 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     if ($packageJson.extensionPack) {
         Write-Host "    Found Extension Pack Bundles!" -ForegroundColor Yellow
         foreach ($depRaw in $packageJson.extensionPack) {
+            if ($depRaw.ToLower().StartsWith("vscode.")) {
+                Write-Host "    [SKIP] Ignoring built-in dependency: $depRaw" -ForegroundColor DarkGray
+                continue
+            }
             $dep = if ($dependencyAliases.ContainsKey($depRaw)) { $dependencyAliases[$depRaw] } else { $depRaw }
 
             $depName = ($dep -split '\.')[1].ToLower()
