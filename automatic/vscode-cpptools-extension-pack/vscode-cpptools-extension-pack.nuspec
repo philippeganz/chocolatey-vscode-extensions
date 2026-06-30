@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-cpptools-extension-pack</id>
-    <version>0.0.0</version>
+    <version>1.5.1</version>
     <title>C/C++ Extension Pack</title>
     <authors>ms-vscode</authors>
     <projectUrl>https://github.com/microsoft/vscode-cpptools.git</projectUrl>
@@ -10,7 +10,12 @@
     <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpptools-extension-pack/1.5.1/1771540600646/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Popular extensions for C++ development in Visual Studio Code.</description>
+    <description><![CDATA[This extension pack includes a set of popular extensions for C++ development in Visual Studio Code:
+* [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+* [C/C++ Themes](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-themes)
+* [C/C++ DevTools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools)
+* [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
+]]></description>
     <summary>Popular extensions for C++ development in Visual Studio Code.</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack#changelog</releaseNotes>
     <tags>vscode extension cpptools-extension-pack</tags>
