@@ -6,8 +6,14 @@ and platform-specific payload ambiguities.
 #>
 
 [CmdletBinding()]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
 param()
 
+<#
+.SYNOPSIS
+Fetches the raw JSON metadata payload for a specific extension from the VS Code Marketplace API.
+#>
 function Get-VsCodeMarketplaceMetadata {
     param (
         [Parameter(Mandatory = $true)][string]$Publisher,
@@ -56,6 +62,10 @@ function Get-VsCodeMarketplaceMetadata {
     return $ext
 }
 
+<#
+.SYNOPSIS
+Constructs the direct VSIX payload download URL, handling platform-specific ambiguities.
+#>
 function Get-VsCodeExtensionUrl {
     param (
         [Parameter(Mandatory = $true)][string]$Publisher,
@@ -76,6 +86,10 @@ function Get-VsCodeExtensionUrl {
     return $vsixUrl
 }
 
+<#
+.SYNOPSIS
+Wraps Invoke-WebRequest with robust, auto-healing retry logic to survive CDN rate-limits and timeouts.
+#>
 function Invoke-RobustDownload {
     param (
         [Parameter(Mandatory = $true)][string]$Url,
@@ -99,6 +113,10 @@ function Invoke-RobustDownload {
     }
 }
 
+<#
+.SYNOPSIS
+Cracks open a VSIX ZIP archive, extracts package.json, README.md, and LICENSE, and scrubs emails.
+#>
 function Expand-VsCodePayload {
     param (
         [Parameter(Mandatory = $true)][string]$VsixPath,

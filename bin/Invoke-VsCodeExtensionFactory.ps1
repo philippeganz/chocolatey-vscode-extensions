@@ -297,6 +297,8 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     [System.IO.File]::WriteAllText((Join-Path $toolsDir "chocolateyInstall.ps1"), $installContent, $utf8NoBom)
 
     $updateContent = @"
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
+param()
 `$ExtensionPublisher = "$publisher"
 `$ExtensionName = "$extensionName"
 . "`$PSScriptRoot\..\..\bin\AuExtensionHooks.ps1"
