@@ -117,7 +117,7 @@ try {
 }
 finally {
     Pop-Location
-    
+
     if ($OutputDir) {
         Write-Host "`n>>> Consolidating compiled .nupkg artifacts into Output Directory: $OutputDir" -ForegroundColor Cyan
         if (-not (Test-Path $OutputDir)) { New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null }
