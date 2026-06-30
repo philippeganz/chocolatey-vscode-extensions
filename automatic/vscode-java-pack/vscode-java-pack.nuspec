@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-java-pack</id>
+    <version>0.0.0</version>
+    <title>Extension Pack for Java</title>
+    <authors>vscjava</authors>
+    <projectUrl>https://github.com/Microsoft/vscode-java-pack</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-pack/0.31.2026060907/1780990629973/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Popular extensions for Java development that provides Java IntelliSense, debugging, testing, Maven/Gradle support, project management and more</description>
+    <summary>Popular extensions for Java development that provides Java IntelliSense, debugging, testing, Maven/Gradle support, project management and more</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack#changelog</releaseNotes>
+    <tags>vscode extension java-pack</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-java" />
+      <dependency id="vscode-java-debug" />
+      <dependency id="vscode-java-test" />
+      <dependency id="vscode-maven" />
+      <dependency id="vscode-gradle" />
+      <dependency id="vscode-java-dependency" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
