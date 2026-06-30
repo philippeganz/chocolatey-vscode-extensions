@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-java-test</id>
+    <version>0.0.0</version>
+    <title>Test Runner for Java</title>
+    <authors>vscjava</authors>
+    <projectUrl>https://github.com/Microsoft/vscode-java-test</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-test/0.46.0/1782452281424/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Run and debug JUnit or TestNG test cases.</description>
+    <summary>Run and debug JUnit or TestNG test cases.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test#changelog</releaseNotes>
+    <tags>vscode extension java-test</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-java" />
+      <dependency id="vscode-java-debug" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
