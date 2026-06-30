@@ -55,7 +55,7 @@ Push-Location $packagesDir
 
 if ($ModerationRepush) {
     Write-Host "`n>>> Initiating Moderation Repush Bypass..." -ForegroundColor Magenta
-    
+
     $targetPackages = if ($ModerationRepush -eq '*') {
         Get-ChildItem $packagesDir -Directory | Select-Object -ExpandProperty Name
     }
