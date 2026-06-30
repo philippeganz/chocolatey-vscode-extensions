@@ -5,6 +5,7 @@ extensions:
   - dbaeumer.vscode-eslint
   - eamodio.gitlens
   - esbenp.prettier-vscode
+  - formulahendry.code-runner
   - GitHub.copilot
   - GitHub.copilot-chat
   - ms-azuretools.vscode-containers
