@@ -6,6 +6,7 @@ extensions:
   - eamodio.gitlens
   - ecmel.vscode-html-css
   - esbenp.prettier-vscode
+  - formulahendry.auto-rename-tag
   - formulahendry.code-runner
   - GitHub.copilot
   - GitHub.copilot-chat
