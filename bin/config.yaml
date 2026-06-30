@@ -8,6 +8,7 @@ extensions:
   - formulahendry.code-runner
   - GitHub.copilot
   - GitHub.copilot-chat
+  - GitHub.vscode-pull-request-github
   - ms-azuretools.vscode-containers
   - ms-azuretools.vscode-docker
   - ms-dotnettools.csharp
