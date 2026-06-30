@@ -202,7 +202,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $success = $false
     while (-not $success -and $retryCount -lt 3) {
         try {
-            Invoke-WebRequest -Uri $vsixUrl -OutFile $vsixPath -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -ErrorAction Stop
+            Invoke-WebRequest -Uri $vsixUrl -OutFile $vsixPath -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600 -ErrorAction Stop
             $success = $true
         } catch {
             Write-Host "    [WARNING] VSIX Download failed. Retrying in 5 seconds ($($retryCount + 1)/3)..." -ForegroundColor Yellow
