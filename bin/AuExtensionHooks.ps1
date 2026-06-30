@@ -1,6 +1,16 @@
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
+<#
+.SYNOPSIS
+    The centralized Logic Engine for Chocolatey AU packages.
+
+.DESCRIPTION
+    Instead of maintaining massive 100-line update.ps1 scripts in every package folder,
+    all packages use a tiny 3-line stub that dot-sources this file. This script injects
+    the global AU hooks (au_GetLatest, au_BeforeUpdate) into the runtime context so AU
+    knows how to update the package.
+#>
 param()
 
 Import-Module au

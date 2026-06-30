@@ -38,11 +38,15 @@ When you install an extension from this repository:
 
 ## Repository Architecture
 
-This is a standard Chocolatey AU Mono-Repo powered by a custom PowerShell Factory.
+This is a standard Chocolatey AU Mono-Repo powered by a custom PowerShell Factory, built on a hyper-DRY paradigm.
 
-- `.github/workflows/`: Contains the AU CI/CD pipelines and the Branch Naming PR enforcer.
-- `automatic/`: Contains the AU templates for every managed extension.
-- `bin/`: Contains the `Invoke-VsCodeExtensionFactory.ps1` script and its YAML configuration.
+- `.github/workflows/`: Contains the AU CI/CD pipelines (which natively run `Invoke-AuUpdater.ps1`).
+- `automatic/`: Contains the AU templates for every managed extension. **(All 70+ packages use an optimized 3-line stub pattern instead of bloated 100-line scripts, pointing to a shared logic engine).**
+- `bin/`: Contains the core engineering modules:
+  - **`Invoke-VsCodeExtensionFactory.ps1`**: The scaffolding engine. It auto-discovers dependencies, extracts ZIP payloads for documentation, and generates the packages.
+  - **`Invoke-AuUpdater.ps1`**: The Chocolatey AU Engine orchestrator. It sweeps the repository every 6 hours to download new updates.
+  - **`AuExtensionHooks.ps1`**: The shared logic template that all 72+ packages natively dot-source.
+  - **`VsCodeMarketplace.psm1`**: The shared API module handling robust network downloads, platform-detection (`win32-x64`), and ZIP payload cracking for documentation extraction.
 
 ## How to Add a New Extension
 

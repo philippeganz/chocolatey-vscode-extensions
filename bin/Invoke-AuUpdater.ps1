@@ -1,6 +1,16 @@
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
+<#
+.SYNOPSIS
+    The core Orchestrator for the Chocolatey Automatic Updater (AU) Engine.
+
+.DESCRIPTION
+    This script is executed by the GitHub Actions CI/CD pipeline on a cron schedule.
+    It iterates over all packages in the automatic/ directory, triggers their update
+    hooks, and determines if new versions need to be compiled and published to the
+    Chocolatey Community Repository.
+#>
 param(
     [string]$ForcedPackages = '',
     [string]$PushUrl = '',
