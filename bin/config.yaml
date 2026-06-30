@@ -30,5 +30,6 @@ extensions:
   - visualstudioexptteam.intellicode-api-usage-examples
   - VisualStudioExptTeam.vscodeintellicode
   - vscjava.vscode-java-debug
+  - vscjava.vscode-java-dependency
   - vscjava.vscode-java-test
   - vscjava.vscode-maven
