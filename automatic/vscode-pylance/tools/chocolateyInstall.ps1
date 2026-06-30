@@ -14,4 +14,3 @@ $vsixPath = Join-Path $toolsDir "ms-python.vscode-pylance-2026.2.106.vsix"
 
 # Install-VsCodeExtension is a specialized helper provided by the chocolatey-vscode.extension dependency.
 Install-VsCodeExtension -extensionId $vsixPath
-

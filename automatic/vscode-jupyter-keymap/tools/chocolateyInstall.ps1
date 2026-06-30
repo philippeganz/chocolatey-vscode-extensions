@@ -14,4 +14,3 @@ $vsixPath = Join-Path $toolsDir "ms-toolsai.jupyter-keymap-1.1.2.vsix"
 
 # Install-VsCodeExtension is a specialized helper provided by the chocolatey-vscode.extension dependency.
 Install-VsCodeExtension -extensionId $vsixPath
-

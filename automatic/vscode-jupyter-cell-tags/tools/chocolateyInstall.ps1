@@ -14,4 +14,3 @@ $vsixPath = Join-Path $toolsDir "ms-toolsai.vscode-jupyter-cell-tags-0.1.9.vsix"
 
 # Install-VsCodeExtension is a specialized helper provided by the chocolatey-vscode.extension dependency.
 Install-VsCodeExtension -extensionId $vsixPath
-

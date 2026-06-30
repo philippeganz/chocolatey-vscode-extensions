@@ -1,4 +1,4 @@
-﻿# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Chocolatey Installation Script
 #
 # This script is executed by Chocolatey when the package is installed.
@@ -14,4 +14,3 @@ $vsixPath = Join-Path $toolsDir "ritwickdey.LiveServer-5.7.10.vsix"
 
 # Install-VsCodeExtension is a specialized helper provided by the chocolatey-vscode.extension dependency.
 Install-VsCodeExtension -extensionId $vsixPath
-

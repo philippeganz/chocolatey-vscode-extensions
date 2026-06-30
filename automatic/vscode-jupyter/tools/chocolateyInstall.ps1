@@ -14,4 +14,3 @@ $vsixPath = Join-Path $toolsDir "ms-toolsai.jupyter-2026.6.2026061001.vsix"
 
 # Install-VsCodeExtension is a specialized helper provided by the chocolatey-vscode.extension dependency.
 Install-VsCodeExtension -extensionId $vsixPath
-

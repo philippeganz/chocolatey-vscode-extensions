@@ -14,4 +14,3 @@ $vsixPath = Join-Path $toolsDir "ms-toolsai.jupyter-renderers-1.3.2025062701.vsi
 
 # Install-VsCodeExtension is a specialized helper provided by the chocolatey-vscode.extension dependency.
 Install-VsCodeExtension -extensionId $vsixPath
-

@@ -14,4 +14,3 @@ $vsixPath = Join-Path $toolsDir "ms-toolsai.vscode-jupyter-slideshow-0.1.6.vsix"
 
 # Install-VsCodeExtension is a specialized helper provided by the chocolatey-vscode.extension dependency.
 Install-VsCodeExtension -extensionId $vsixPath
-

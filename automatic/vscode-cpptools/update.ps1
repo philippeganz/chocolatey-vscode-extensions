@@ -114,4 +114,3 @@ function global:au_SearchReplace {
 }
 
 update -ChecksumFor none
-
