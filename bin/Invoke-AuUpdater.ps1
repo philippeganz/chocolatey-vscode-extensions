@@ -94,22 +94,21 @@ function Resolve-PackageDependency {
     $tempMark = @{}
 
     # Recursively resolve dependencies (Kahn's Algorithm variation)
-    $resolve = {
-        param($node)
+    function Visit($node) {
         if ($tempMark[$node]) { return } # Cycle detected, gracefully break
         if (-not $visited[$node]) {
             $tempMark[$node] = $true
             foreach ($dep in $graph[$node]) {
-                & $resolve $dep
+                Visit $dep
             }
             $tempMark[$node] = $false
             $visited[$node] = $true
             $sortedList.Add($node)
         }
-    }.GetNewClosure()
+    }
 
     foreach ($pkg in $Packages) {
-        & $resolve $pkg
+        Visit $pkg
     }
 
     return $sortedList.ToArray()
