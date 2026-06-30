@@ -19,6 +19,8 @@ extensions:
   - hashicorp.sentinel
   - hashicorp.terraform
   - mechatroner.rainbow-csv
+  - ms-azuretools.vscode-azureterraform
+  - ms-azuretools.vscode-bicep
   - ms-azuretools.vscode-containers
   - ms-azuretools.vscode-docker
   - ms-dotnettools.csharp
