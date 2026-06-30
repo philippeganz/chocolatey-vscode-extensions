@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-remote-ssh</id>
+    <version>0.0.0</version>
+    <title>Remote - SSH</title>
+    <authors>ms-vscode-remote</authors>
+    <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-ssh/0.125.2026062315/1782228190072/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Open any folder on a remote machine using SSH and take advantage of VS Code&apos;s full feature set.</description>
+    <summary>Open any folder on a remote machine using SSH and take advantage of VS Code&apos;s full feature set.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh#changelog</releaseNotes>
+    <tags>vscode extension remote-ssh</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-remote-ssh-edit" />
+      <dependency id="vscode-remote-explorer" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
