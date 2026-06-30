@@ -5,6 +5,8 @@ extensions:
   - esbenp.prettier-vscode
   - GitHub.copilot
   - GitHub.copilot-chat
+  - ms-azuretools.vscode-containers
+  - ms-azuretools.vscode-docker
   - ms-python.debugpy
   - ms-python.python
   - ms-python.vscode-pylance
@@ -20,6 +22,7 @@ extensions:
   - ms-vscode.cpptools-extension-pack
   - ms-vscode.cpptools-themes
   - redhat.java
+  - redhat.vscode-yaml
   - ritwickdey.LiveServer
   - visualstudioexptteam.intellicode-api-usage-examples
   - VisualStudioExptTeam.vscodeintellicode

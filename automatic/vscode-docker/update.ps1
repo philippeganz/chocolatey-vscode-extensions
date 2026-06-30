@@ -24,7 +24,7 @@ function global:au_GetLatest {
         filters = @(
             @{
                 criteria   = @(
-                    @{ filterType = 7; value = "GitHub.copilot" }
+                    @{ filterType = 7; value = "ms-azuretools.vscode-docker" }
                 )
                 pageNumber = 1
                 pageSize   = 1
@@ -48,7 +48,7 @@ function global:au_GetLatest {
     $version = $version -replace '[^\d\.-]', ''
 
     # Construct the direct download URL for the .vsix payload.
-    $vsixUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/GitHub/vsextensions/copilot/$version/vspackage"
+    $vsixUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-azuretools/vsextensions/vscode-docker/$version/vspackage"
 
     return @{
         Version = $version
@@ -75,7 +75,7 @@ function global:au_BeforeUpdate {
     $toolsDir = Join-Path $package.Path 'tools'
     if (-not (Test-Path $toolsDir)) { New-Item -ItemType Directory -Path $toolsDir | Out-Null }
 
-    $vsixPath = Join-Path $toolsDir "GitHub.copilot-$($Latest.Version).vsix"
+    $vsixPath = Join-Path $toolsDir "ms-azuretools.vscode-docker-$($Latest.Version).vsix"
 
     # Purge any old VSIX payloads to prevent package bloat
     Get-ChildItem -Path $toolsDir -Filter "*.vsix" | Remove-Item -Force
@@ -108,7 +108,7 @@ function global:au_BeforeUpdate {
 function global:au_SearchReplace {
     @{
         "tools\chocolateyInstall.ps1" = @{
-            "(?i)(GitHub\.copilot-)[\d\.]+(\.vsix)" = "`${1}$($Latest.Version)`${2}"
+            "(?i)(ms-azuretools\.vscode-docker-)[\d\.]+(\.vsix)" = "`${1}$($Latest.Version)`${2}"
         }
     }
 }

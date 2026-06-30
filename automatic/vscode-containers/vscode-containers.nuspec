@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-containers</id>
+    <version>0.0.0</version>
+    <title>Container Tools</title>
+    <authors>ms-azuretools</authors>
+    <projectUrl>https://github.com/microsoft/vscode-containers</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-containers/2.4.5/1780056837253/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Makes it easy to create, manage, and debug containerized applications.</description>
+    <summary>Makes it easy to create, manage, and debug containerized applications.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers#changelog</releaseNotes>
+    <tags>vscode extension containers</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-docker" />
+      <dependency id="vscode-yaml" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
