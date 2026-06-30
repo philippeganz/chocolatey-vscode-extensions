@@ -24,6 +24,7 @@ extensions:
   - ms-mssql.mssql
   - ms-mssql.sql-bindings-vscode
   - ms-mssql.sql-database-projects-vscode
+  - ms-python.black-formatter
   - ms-python.debugpy
   - ms-python.isort
   - ms-python.python
