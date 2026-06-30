@@ -2,6 +2,7 @@
 config:
   output_dir: ../automatic
 extensions:
+  - dbaeumer.vscode-eslint
   - esbenp.prettier-vscode
   - GitHub.copilot
   - GitHub.copilot-chat
