@@ -28,3 +28,4 @@ extensions:
   - ritwickdey.LiveServer
   - visualstudioexptteam.intellicode-api-usage-examples
   - VisualStudioExptTeam.vscodeintellicode
+  - vscjava.vscode-java-debug
