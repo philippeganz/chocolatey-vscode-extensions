@@ -2,6 +2,7 @@
 config:
   output_dir: ../automatic
 extensions:
+  - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint
   - eamodio.gitlens
   - ecmel.vscode-html-css
