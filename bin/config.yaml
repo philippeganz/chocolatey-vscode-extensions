@@ -55,6 +55,7 @@ extensions:
   - redhat.vscode-xml
   - redhat.vscode-yaml
   - ritwickdey.liveserver
+  - tim-koehler.helm-intellisense
   - twxs.cmake
   - visualstudioexptteam.intellicode-api-usage-examples
   - visualstudioexptteam.vscodeintellicode
