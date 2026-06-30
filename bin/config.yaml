@@ -26,6 +26,7 @@ extensions:
   - redhat.java
   - redhat.vscode-yaml
   - ritwickdey.LiveServer
+  - twxs.cmake
   - visualstudioexptteam.intellicode-api-usage-examples
   - VisualStudioExptTeam.vscodeintellicode
   - vscjava.vscode-java-debug
