@@ -52,6 +52,7 @@ extensions:
   - ms-vsliveshare.vsliveshare
   - pkief.material-icon-theme
   - redhat.java
+  - redhat.vscode-xml
   - redhat.vscode-yaml
   - ritwickdey.liveserver
   - twxs.cmake
