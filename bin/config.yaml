@@ -51,6 +51,7 @@ extensions:
   - ms-vscode.remote-server
   - ms-vsliveshare.vsliveshare
   - pkief.material-icon-theme
+  - redhat.ansible
   - redhat.java
   - redhat.vscode-xml
   - redhat.vscode-yaml
