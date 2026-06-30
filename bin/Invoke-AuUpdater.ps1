@@ -64,6 +64,58 @@ if (-not (Test-Path $packagesDir)) {
 
 Push-Location $packagesDir
 
+# -----------------------------------------------------------------------------
+# TOPOLOGICAL DEPENDENCY SORTER
+# -----------------------------------------------------------------------------
+# Ensures that if Package A depends on Package B, Package B is strictly built
+# and tested FIRST, preventing Chocolatey AU from failing local dependency checks.
+function Resolve-PackageDependency {
+    param([string[]]$Packages)
+
+    $graph = @{}
+    foreach ($pkg in $Packages) {
+        $graph[$pkg] = @()
+        $nuspec = Get-ChildItem "$packagesDir\$pkg\*.nuspec" -ErrorAction SilentlyContinue | Select-Object -First 1
+        if ($nuspec) {
+            $xml = [xml](Get-Content $nuspec.FullName)
+            $deps = $xml.package.metadata.dependencies.dependency
+            if ($deps) {
+                foreach ($dep in $deps) {
+                    if ($Packages -contains $dep.id) {
+                        $graph[$pkg] += [string]$dep.id
+                    }
+                }
+            }
+        }
+    }
+
+    $sortedList = [System.Collections.Generic.List[string]]::new()
+    $visited = @{}
+    $tempMark = @{}
+
+    # Recursively resolve dependencies (Kahn's Algorithm variation)
+    $resolve = {
+        param($node)
+        if ($tempMark[$node]) { return } # Cycle detected, gracefully break
+        if (-not $visited[$node]) {
+            $tempMark[$node] = $true
+            foreach ($dep in $graph[$node]) {
+                & $resolve $dep
+            }
+            $tempMark[$node] = $false
+            $visited[$node] = $true
+            $sortedList.Add($node)
+        }
+    }.GetNewClosure()
+
+    foreach ($pkg in $Packages) {
+        & $resolve $pkg
+    }
+    
+    return $sortedList.ToArray()
+}
+
+
 if ($ModerationRepush) {
     Write-Host "`n>>> Initiating Moderation Repush Bypass..." -ForegroundColor Magenta
 
@@ -73,6 +125,9 @@ if ($ModerationRepush) {
     else {
         $ModerationRepush -split ','
     }
+
+    $targetPackages = Resolve-PackageDependency -Packages $targetPackages
+
 
     foreach ($pkg in $targetPackages) {
         $pkgDir = Join-Path $packagesDir $pkg
@@ -134,10 +189,13 @@ if ($ModerationRepush) {
 
 try {
     if ($ForcedPackages) {
-        Update-AUPackages -Name $ForcedPackages -Options $opts
+        $targetPackages = Resolve-PackageDependency -Packages ($ForcedPackages -split ',')
+        Update-AUPackages -Name $targetPackages -Options $opts
     }
     else {
-        Update-AUPackages -Options $opts
+        $allPackages = Get-ChildItem $packagesDir -Directory | Select-Object -ExpandProperty Name
+        $sortedPackages = Resolve-PackageDependency -Packages $allPackages
+        Update-AUPackages -Name $sortedPackages -Options $opts
     }
 }
 finally {
