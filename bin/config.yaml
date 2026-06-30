@@ -50,3 +50,4 @@ extensions:
   - vscjava.vscode-java-test
   - vscjava.vscode-maven
   - vscode-icons-team.vscode-icons
+  - WakaTime.vscode-wakatime
