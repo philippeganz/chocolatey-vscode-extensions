@@ -85,7 +85,7 @@ function global:au_BeforeUpdate {
     $success = $false
     while (-not $success -and $retryCount -lt 3) {
         try {
-            Invoke-WebRequest -Uri $Latest.URL64 -OutFile $vsixPath -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -ErrorAction Stop
+            Invoke-WebRequest -Uri $Latest.URL64 -OutFile $vsixPath -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600 -ErrorAction Stop
             $success = $true
         } catch {
             Write-Host "    [WARNING] Download failed. Retrying in 5 seconds..." -ForegroundColor Yellow

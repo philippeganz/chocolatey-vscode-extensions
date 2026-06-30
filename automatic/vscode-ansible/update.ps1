@@ -46,7 +46,8 @@ function global:au_GetLatest {
         try {
             $res = Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers -ErrorAction Stop
             $success = $true
-        } catch {
+        }
+        catch {
             Write-Host "    [WARNING] VS Code Marketplace API failed (Rate Limit/Network). Retrying in 5 seconds..." -ForegroundColor Yellow
             $retryCount++
             if ($retryCount -ge 5) { throw $_ }
@@ -100,9 +101,10 @@ function global:au_BeforeUpdate {
     $success = $false
     while (-not $success -and $retryCount -lt 3) {
         try {
-            Invoke-WebRequest -Uri $Latest.URL64 -OutFile $vsixPath -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -ErrorAction Stop
+            Invoke-WebRequest -Uri $Latest.URL64 -OutFile $vsixPath -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600 -ErrorAction Stop
             $success = $true
-        } catch {
+        }
+        catch {
             Write-Host "    [WARNING] Download failed. Retrying in 5 seconds..." -ForegroundColor Yellow
             $retryCount++
             if ($retryCount -ge 3) { throw }
