@@ -9,9 +9,10 @@ extensions:
   - esbenp.prettier-vscode
   - formulahendry.auto-rename-tag
   - formulahendry.code-runner
-  - GitHub.copilot
-  - GitHub.copilot-chat
-  - GitHub.vscode-pull-request-github
+  - github.copilot
+  - github.copilot-chat
+  - github.vscode-github-actions
+  - github.vscode-pull-request-github
   - mechatroner.rainbow-csv
   - ms-azuretools.vscode-containers
   - ms-azuretools.vscode-docker
@@ -37,14 +38,14 @@ extensions:
   - ms-vscode.cpptools-extension-pack
   - ms-vscode.cpptools-themes
   - ms-vscode.remote-explorer
-  - MS-vsliveshare.vsliveshare
-  - PKief.material-icon-theme
+  - ms-vsliveshare.vsliveshare
+  - pkief.material-icon-theme
   - redhat.java
   - redhat.vscode-yaml
-  - ritwickdey.LiveServer
+  - ritwickdey.liveserver
   - twxs.cmake
   - visualstudioexptteam.intellicode-api-usage-examples
-  - VisualStudioExptTeam.vscodeintellicode
+  - visualstudioexptteam.vscodeintellicode
   - vscjava.vscode-gradle
   - vscjava.vscode-java-debug
   - vscjava.vscode-java-dependency
@@ -52,5 +53,5 @@ extensions:
   - vscjava.vscode-java-test
   - vscjava.vscode-maven
   - vscode-icons-team.vscode-icons
-  - WakaTime.vscode-wakatime
-  - xabikos.JavaScriptSnippets
+  - wakatime.vscode-wakatime
+  - xabikos.javascriptsnippets
