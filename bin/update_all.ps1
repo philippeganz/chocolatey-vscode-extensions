@@ -55,7 +55,15 @@ Push-Location $packagesDir
 
 if ($ModerationRepush) {
     Write-Host "`n>>> Initiating Moderation Repush Bypass..." -ForegroundColor Magenta
-    foreach ($pkg in ($ModerationRepush -split ',')) {
+    
+    $targetPackages = if ($ModerationRepush -eq '*') {
+        Get-ChildItem $packagesDir -Directory | Select-Object -ExpandProperty Name
+    }
+    else {
+        $ModerationRepush -split ','
+    }
+
+    foreach ($pkg in $targetPackages) {
         $pkgDir = Join-Path $packagesDir $pkg
         if (-not (Test-Path $pkgDir)) { Write-Host "    [ERROR] Not found: $pkg" -ForegroundColor Red; continue }
 
@@ -93,17 +101,23 @@ if ($ModerationRepush) {
         Write-Host "    Compiling Payload..."
         choco pack
 
-        if ($env:api_key) {
+        if ($OutputDir) {
+            Write-Host "    >>> Output Directory specified. Moving payload to $OutputDir..." -ForegroundColor Cyan
+            if (-not (Test-Path $OutputDir)) { New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null }
+            Move-Item "$pkg.$upstreamVersion.nupkg" -Destination $OutputDir -Force
+        }
+        elseif ($env:api_key) {
             Write-Host "    Pushing to Chocolatey Moderation Queue..."
             choco push "$pkg.$upstreamVersion.nupkg" --source https://push.chocolatey.org --key $env:api_key --force
-        } else {
+        }
+        else {
             Write-Host "    [WARNING] No api_key found in environment. Skipping push." -ForegroundColor Yellow
         }
 
         Pop-Location
     }
     Pop-Location
-    Write-Host "`n>>> Moderation Repush Complete!" -ForegroundColor Green
+    Write-Host "`n>>> Moderation Repush / Manual Build Complete!" -ForegroundColor Green
     exit 0
 }
 
@@ -125,7 +139,8 @@ finally {
         if ($payloads) {
             $payloads | Move-Item -Destination $OutputDir -Force
             Write-Host "    Successfully moved $($payloads.Count) packages to $OutputDir" -ForegroundColor Green
-        } else {
+        }
+        else {
             Write-Host "    No compiled packages found to move." -ForegroundColor Yellow
         }
     }
