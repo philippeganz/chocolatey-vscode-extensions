@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-isort</id>
+    <version>0.0.0</version>
+    <title>isort</title>
+    <authors>ms-python</authors>
+    <projectUrl>https://github.com/microsoft/vscode-isort.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/isort/2026.7.11811007/1782815991709/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.isort</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Import organization support for Python files using isort.</description>
+    <summary>Import organization support for Python files using isort.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.isort#changelog</releaseNotes>
+    <tags>vscode extension isort</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-python" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
