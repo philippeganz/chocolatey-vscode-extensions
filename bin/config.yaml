@@ -4,6 +4,7 @@ config:
 extensions:
   - dbaeumer.vscode-eslint
   - eamodio.gitlens
+  - ecmel.vscode-html-css
   - esbenp.prettier-vscode
   - formulahendry.code-runner
   - GitHub.copilot
