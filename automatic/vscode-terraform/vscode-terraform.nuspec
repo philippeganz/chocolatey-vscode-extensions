@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-terraform</id>
+    <version>0.0.0</version>
+    <title>HashiCorp Terraform</title>
+    <authors>hashicorp</authors>
+    <projectUrl>https://github.com/hashicorp/vscode-terraform.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://HashiCorp.gallerycdn.vsassets.io/extensions/hashicorp/terraform/2.39.2026030417/1772624260560/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Syntax highlighting and autocompletion for Terraform</description>
+    <summary>Syntax highlighting and autocompletion for Terraform</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform#changelog</releaseNotes>
+    <tags>vscode extension terraform</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="README.md" target="." />
+    <file src="LICENSE*" target="." />
+    <file src="icon.png" target="." />
+  </files>
+</package>
