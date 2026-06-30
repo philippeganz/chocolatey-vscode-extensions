@@ -94,14 +94,14 @@ $processed = @{}
 # Legacy extensions often declare dependencies using outdated aliases instead of canonical publisher IDs.
 # We intercept and translate them here to prevent 404 API crashes during Auto-Discovery.
 $dependencyAliases = @{
-    "vscode.docker"                = "ms-azuretools.vscode-docker"
-    "PeterJausovec.vscode-docker"  = "ms-azuretools.vscode-docker"
-    "vscode.yaml"                  = "redhat.vscode-yaml"
-    "donjayamanne.python"          = "ms-python.python"
-    "lukehoban.Go"                 = "golang.Go"
-    "ms-vscode.Go"                 = "golang.Go"
-    "ms-vscode.csharp"             = "ms-dotnettools.csharp"
-    "eg2.tslint"                   = "ms-vscode.vscode-typescript-tslint-plugin"
+    "vscode.docker"               = "ms-azuretools.vscode-docker"
+    "PeterJausovec.vscode-docker" = "ms-azuretools.vscode-docker"
+    "vscode.yaml"                 = "redhat.vscode-yaml"
+    "donjayamanne.python"         = "ms-python.python"
+    "lukehoban.Go"                = "golang.Go"
+    "ms-vscode.Go"                = "golang.Go"
+    "ms-vscode.csharp"            = "ms-dotnettools.csharp"
+    "eg2.tslint"                  = "ms-vscode.vscode-typescript-tslint-plugin"
 }
 
 for ($i = 0; $i -lt $extensionsList.Count; $i++) {
@@ -143,7 +143,8 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     # =========================================================================
     try {
         $extMeta = Get-VsCodeMarketplaceMetadata -Publisher $publisher -ExtensionName $extensionName
-    } catch {
+    }
+    catch {
         Write-Host "    [ERROR] $_" -ForegroundColor Red
         continue
     }
@@ -322,7 +323,7 @@ if (-not $ExtensionId) {
 
     # Enforce strict property ordering so 'config' is always rendered before 'extensions'
     $orderedYaml = [ordered]@{
-        config = $yamlObj.config
+        config     = $yamlObj.config
         extensions = $sortedExtensions
     }
 

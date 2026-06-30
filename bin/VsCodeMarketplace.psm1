@@ -10,8 +10,8 @@ param()
 
 function Get-VsCodeMarketplaceMetadata {
     param (
-        [Parameter(Mandatory=$true)][string]$Publisher,
-        [Parameter(Mandatory=$true)][string]$ExtensionName
+        [Parameter(Mandatory = $true)][string]$Publisher,
+        [Parameter(Mandatory = $true)][string]$ExtensionName
     )
 
     $marketplaceUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
@@ -41,7 +41,8 @@ function Get-VsCodeMarketplaceMetadata {
         try {
             $res = Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers -ErrorAction Stop
             $success = $true
-        } catch {
+        }
+        catch {
             Write-Host "    [WARNING] VS Code Marketplace API failed (Rate Limit/Network). Retrying in 5 seconds..." -ForegroundColor Yellow
             $retryCount++
             if ($retryCount -ge 5) { throw $_ }
@@ -57,10 +58,10 @@ function Get-VsCodeMarketplaceMetadata {
 
 function Get-VsCodeExtensionUrl {
     param (
-        [Parameter(Mandatory=$true)][string]$Publisher,
-        [Parameter(Mandatory=$true)][string]$ExtensionName,
-        [Parameter(Mandatory=$true)][string]$Version,
-        [Parameter(Mandatory=$true)][object]$ExtMeta
+        [Parameter(Mandatory = $true)][string]$Publisher,
+        [Parameter(Mandatory = $true)][string]$ExtensionName,
+        [Parameter(Mandatory = $true)][string]$Version,
+        [Parameter(Mandatory = $true)][object]$ExtMeta
     )
 
     $vsixUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/$Publisher/vsextensions/$ExtensionName/$Version/vspackage"
@@ -77,8 +78,8 @@ function Get-VsCodeExtensionUrl {
 
 function Invoke-RobustDownload {
     param (
-        [Parameter(Mandatory=$true)][string]$Url,
-        [Parameter(Mandatory=$true)][string]$OutFile
+        [Parameter(Mandatory = $true)][string]$Url,
+        [Parameter(Mandatory = $true)][string]$OutFile
     )
 
     Write-Host "    Downloading VSIX Payload..."
@@ -88,7 +89,8 @@ function Invoke-RobustDownload {
         try {
             Invoke-WebRequest -Uri $Url -OutFile $OutFile -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600 -ErrorAction Stop
             $success = $true
-        } catch {
+        }
+        catch {
             Write-Host "    [WARNING] Download failed. Retrying in 5 seconds ($($retryCount + 1)/3)..." -ForegroundColor Yellow
             $retryCount++
             if ($retryCount -ge 3) { throw }
@@ -99,8 +101,8 @@ function Invoke-RobustDownload {
 
 function Expand-VsCodePayload {
     param (
-        [Parameter(Mandatory=$true)][string]$VsixPath,
-        [Parameter(Mandatory=$true)][string]$DestinationDir
+        [Parameter(Mandatory = $true)][string]$VsixPath,
+        [Parameter(Mandatory = $true)][string]$DestinationDir
     )
 
     Write-Host "    Extracting Metadata from VSIX Archive..."
@@ -136,7 +138,8 @@ function Expand-VsCodePayload {
             $licenseFileName = $licenseEntry.Name
             [System.IO.Compression.ZipFileExtensions]::ExtractToFile($licenseEntry, (Join-Path $DestinationDir $licenseFileName), $true)
         }
-    } finally {
+    }
+    finally {
         if ($null -ne $zip) {
             $zip.Dispose()
         }
