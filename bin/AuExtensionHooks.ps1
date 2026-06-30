@@ -14,7 +14,7 @@
 param()
 
 Import-Module au
-Import-Module "$PSScriptRoot\..\..\bin\VsCodeMarketplace.psm1" -Force -ErrorAction SilentlyContinue
+Import-Module "$PSScriptRoot\..\..\bin\VsCodeMarketplace.psm1" -Global -Force -ErrorAction SilentlyContinue
 
 # We bypass the registry checks since these are portable VS Code extensions.
 # Push settings are natively inherited from the global orchestrator.
