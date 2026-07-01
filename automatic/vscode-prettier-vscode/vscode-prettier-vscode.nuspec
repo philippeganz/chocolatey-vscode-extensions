@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-prettier-vscode</id>
@@ -10,7 +10,9 @@
     <iconUrl>https://esbenp.gallerycdn.vsassets.io/extensions/esbenp/prettier-vscode/12.4.0/1773688466128/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[[Prettier](https://prettier.io/) is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
+    <description><![CDATA[# Prettier Formatter for Visual Studio Code
+
+[Prettier](https://prettier.io/) is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
 
 <p align="center">
   <em>
@@ -444,7 +446,8 @@ You must trust this workspace to use plugins and local/global modules. See: [Wor
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode#changelog</releaseNotes>
     <tags>vscode extension prettier-vscode</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

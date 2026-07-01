@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-debugpy</id>
@@ -10,7 +10,9 @@
     <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/debugpy/2026.7.11751011/1782299088041/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[A [Visual Studio Code](https://code.visualstudio.com/) [extension](https://marketplace.visualstudio.com/VSCode) that supports Python debugging with debugpy. Python Debugger provides a seamless debugging experience by allowing you to set breakpoints, step through code, inspect variables, and perform other essential debugging tasks. The debugpy extension offers debugging support for various types of Python applications including scripts, web applications, remote processes, and multi-threaded processes. 
+    <description><![CDATA[# Python Debugger extension for Visual Studio Code
+
+A [Visual Studio Code](https://code.visualstudio.com/) [extension](https://marketplace.visualstudio.com/VSCode) that supports Python debugging with debugpy. Python Debugger provides a seamless debugging experience by allowing you to set breakpoints, step through code, inspect variables, and perform other essential debugging tasks. The debugpy extension offers debugging support for various types of Python applications including scripts, web applications, remote processes, and multi-threaded processes. 
 
 Note: 
 - The Python extension offers the python debugger extension as an optional installation, including it during the setup process.
@@ -69,8 +71,9 @@ The Debugpy Extension for Visual Studio Code collects usage data and sends it to
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy#changelog</releaseNotes>
     <tags>vscode extension debugpy</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-python" />
- </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="vscode-python" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-cpptools-extension-pack</id>
@@ -10,7 +10,9 @@
     <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpptools-extension-pack/1.5.1/1771540600646/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[This extension pack includes a set of popular extensions for C++ development in Visual Studio Code:
+    <description><![CDATA[# C/C++ Extension Pack
+
+This extension pack includes a set of popular extensions for C++ development in Visual Studio Code:
 * [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 * [C/C++ Themes](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-themes)
 * [C/C++ DevTools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools)
@@ -20,11 +22,12 @@
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack#changelog</releaseNotes>
     <tags>vscode extension cpptools-extension-pack</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-cpptools" />
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="vscode-cpptools" />
       <dependency id="vscode-cpptools-themes" />
       <dependency id="vscode-cpp-devtools" />
       <dependency id="vscode-cmake-tools" />
- </dependencies>
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

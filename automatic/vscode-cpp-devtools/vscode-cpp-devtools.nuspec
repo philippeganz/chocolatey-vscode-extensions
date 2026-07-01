@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-cpp-devtools</id>
-    <version>0.6.8</version>
+    <version>0.6.9</version>
     <title>C/C++ DevTools</title>
     <authors>ms-vscode</authors>
     <projectUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools</projectUrl>
@@ -10,7 +10,9 @@
     <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpp-devtools/0.6.7/1782275319406/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[The C/C++ DevTools extension exposes C++ language and CMake build tooling as tools that **GitHub Copilot's agent mode** can invoke. It integrates with the [C/C++](https://github.com/microsoft/vscode-cpptools/) and [CMake Tools](https://github.com/microsoft/vscode-cmake-tools/) extensions to give Copilot deep, symbol-level awareness of your codebase and your active CMake build configuration.
+    <description><![CDATA[# C/C++ DevTools
+
+The C/C++ DevTools extension exposes C++ language and CMake build tooling as tools that **GitHub Copilot's agent mode** can invoke. It integrates with the [C/C++](https://github.com/microsoft/vscode-cpptools/) and [CMake Tools](https://github.com/microsoft/vscode-cmake-tools/) extensions to give Copilot deep, symbol-level awareness of your codebase and your active CMake build configuration.
 
 > **Note:** This extension requires [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). If you don't use Copilot, it has no effect on your workflow — your C/C++ and CMake Tools extensions will continue to work normally.
 
@@ -57,7 +59,8 @@ This extension collects usage data and sends it to Microsoft to help improve our
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools#changelog</releaseNotes>
     <tags>vscode extension cpp-devtools</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

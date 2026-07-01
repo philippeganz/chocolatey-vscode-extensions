@@ -1,4 +1,4 @@
-# -----------------------------------------------------------------------------
+﻿# -----------------------------------------------------------------------------
 # Chocolatey Installation Script
 #
 # This script is executed by Chocolatey when the package is installed.
