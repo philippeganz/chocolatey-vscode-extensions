@@ -146,7 +146,7 @@ function Expand-VsCodePayload {
             [System.IO.Compression.ZipFileExtensions]::ExtractToFile($readmeEntry, $readmePath, $true)
 
             # Scrub emails from the README itself to pass Chocolatey Moderation checks.
-            $readmeRaw = Get-Content $readmePath -Raw
+            $readmeRaw = Get-Content $readmePath -Raw -Encoding UTF8
             $readmeRaw = $readmeRaw -replace '(?i)[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}', '[email removed]'
             $utf8NoBom = New-Object System.Text.UTF8Encoding $false
             [System.IO.File]::WriteAllText($readmePath, $readmeRaw, $utf8NoBom)

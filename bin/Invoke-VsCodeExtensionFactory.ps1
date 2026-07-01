@@ -53,7 +53,7 @@ if (-not (Get-Module -ListAvailable powershell-yaml)) {
 }
 Import-Module powershell-yaml
 
-$yamlObj = Get-Content $ConfigFile -Raw | ConvertFrom-Yaml
+$yamlObj = Get-Content $ConfigFile -Raw -Encoding UTF8 | ConvertFrom-Yaml
 
 # Resolve relative OutputDir
 $OutputDir = $yamlObj.config.output_dir
@@ -253,7 +253,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     Write-Host "    Rendering AU Templates..."
     $templatesDir = Join-Path $PSScriptRoot "Templates"
 
-    $nuspecContent = Get-Content (Join-Path $templatesDir "template.nuspec") -Raw
+    $nuspecContent = Get-Content (Join-Path $templatesDir "template.nuspec") -Raw -Encoding UTF8
     $nuspecContent = $nuspecContent -replace '\{\{ExtensionNameLowerCase\}\}', $packageName.Replace("vscode-", "")
 
     # -------------------------------------------------------------------------
@@ -267,7 +267,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $nuspecPath = Join-Path $pkgDir "$packageName.nuspec"
     $targetVersion = '0.0.0'
     if (Test-Path $nuspecPath) {
-        $existingNuspec = [xml](Get-Content $nuspecPath)
+        $existingNuspec = [xml](Get-Content $nuspecPath -Encoding UTF8)
         $targetVersion = $existingNuspec.package.metadata.version
         Write-Host "    Preserving existing Nuspec version: $targetVersion"
     }
@@ -288,7 +288,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $utf8NoBom = New-Object System.Text.UTF8Encoding $false
     [System.IO.File]::WriteAllText((Join-Path $pkgDir "$packageName.nuspec"), $nuspecContent, $utf8NoBom)
 
-    $installContent = Get-Content (Join-Path $templatesDir "chocolateyInstall.ps1") -Raw
+    $installContent = Get-Content (Join-Path $templatesDir "chocolateyInstall.ps1") -Raw -Encoding UTF8
     $installContent = $installContent -replace '\{\{Publisher\}\}', $publisher
     $installContent = $installContent -replace '\{\{ExtensionName\}\}', $extensionName
     $installContent = $installContent -replace '\{\{Version\}\}', $versionClean

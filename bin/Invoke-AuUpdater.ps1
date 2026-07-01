@@ -77,7 +77,7 @@ function Resolve-PackageDependency {
         $graph[$pkg] = @()
         $nuspec = Get-ChildItem "$packagesDir\$pkg\*.nuspec" -ErrorAction SilentlyContinue | Select-Object -First 1
         if ($nuspec) {
-            $xml = [xml](Get-Content $nuspec.FullName)
+            $xml = [xml](Get-Content $nuspec.FullName -Encoding UTF8)
             $deps = $xml.package.metadata.dependencies.dependency
             if ($deps) {
                 foreach ($dep in $deps) {
@@ -143,11 +143,11 @@ if ($ModerationRepush) {
 
         # 2. Hardcode the exact version into the .nuspec
         $nuspecPath = Join-Path $pkgDir "$pkg.nuspec"
-        $nuspec = [xml](Get-Content $nuspecPath)
+        $nuspec = [xml](Get-Content $nuspecPath -Encoding UTF8)
         $nuspec.package.metadata.version = $upstreamVersion
 
         if (Test-Path "README.md") {
-            $readmeData = Get-Content "README.md" -Raw
+            $readmeData = Get-Content "README.md" -Raw -Encoding UTF8
             $descNode = $nuspec.SelectSingleNode("//*[local-name()='description']")
             if ($descNode) {
                 $descNode.RemoveAll()
