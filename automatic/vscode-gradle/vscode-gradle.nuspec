@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-gradle</id>
@@ -10,7 +10,9 @@
     <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-gradle/3.17.2026062602/1782442737167/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/vscjava.vscode-gradle)](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle)
+    <description><![CDATA[# Gradle for Java
+
+[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/vscjava.vscode-gradle)](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle)
 [![Build & Publish](https://github.com/microsoft/vscode-gradle/workflows/Build%20&%20Publish/badge.svg)](https://github.com/microsoft/vscode-gradle/actions/workflows/main.yml?query=workflow%3A%22%5C%22Build%22)
 [![GitHub bug issues](https://img.shields.io/github/issues/microsoft/vscode-gradle/bug?label=bug%20reports)](https://github.com/microsoft/vscode-gradle/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 
@@ -450,7 +452,8 @@ See [LICENSE.md](https://github.com/microsoft/vscode-gradle/blob/HEAD/LICENSE.md
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle#changelog</releaseNotes>
     <tags>vscode extension gradle</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

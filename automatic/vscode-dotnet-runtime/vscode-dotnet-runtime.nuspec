@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-dotnet-runtime</id>
@@ -10,7 +10,9 @@
     <iconUrl>https://ms-dotnettools.gallerycdn.vsassets.io/extensions/ms-dotnettools/vscode-dotnet-runtime/3.1.0/1781201336184/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-runtime</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[This extension provides a unified way for other extensions like the [C#] and [C# Dev Kit] extensions to install local versions of the .NET Runtime, and machine-wide versions of the .NET SDK. Those extensions tell the .NET Install Tool when they would like a .NET SDK to be on the machine, and we install one for them if there's not already one that matches the SDK they need to run properly. Users can also install the .NET SDK themselves by reading below.
+    <description><![CDATA[# .NET Install Tool
+
+This extension provides a unified way for other extensions like the [C#] and [C# Dev Kit] extensions to install local versions of the .NET Runtime, and machine-wide versions of the .NET SDK. Those extensions tell the .NET Install Tool when they would like a .NET SDK to be on the machine, and we install one for them if there's not already one that matches the SDK they need to run properly. Users can also install the .NET SDK themselves by reading below.
 
 
 ## Why do I have this extension?
@@ -169,7 +171,8 @@ This project may contain trademarks or logos for projects, products, or services
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-runtime#changelog</releaseNotes>
     <tags>vscode extension dotnet-runtime</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

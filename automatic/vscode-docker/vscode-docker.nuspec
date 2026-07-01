@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-docker</id>
@@ -10,7 +10,9 @@
     <iconUrl>https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-docker/2.0.0/1748459272971/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+    <description><![CDATA[# Docker Extension Pack for Visual Studio Code
+The Docker Extension Pack makes it easy to build, manage, and deploy containerized applications from Visual Studio Code.
+
 ## Overview
 The Docker extension has become the Docker Extension Pack. It currently contains one extension.
 
@@ -37,8 +39,9 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker#changelog</releaseNotes>
     <tags>vscode extension docker</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-containers" />
- </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="vscode-containers" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

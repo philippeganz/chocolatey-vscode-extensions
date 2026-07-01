@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-remote-wsl</id>
@@ -10,7 +10,9 @@
     <iconUrl>https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-wsl/0.104.3/1759355620566/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[The **WSL extension** lets you use VS Code on Windows to build Linux applications that run on the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl). You get all the productivity of Windows while developing with Linux-based tools, runtimes, and utilities.
+    <description><![CDATA[# Visual Studio Code WSL
+
+The **WSL extension** lets you use VS Code on Windows to build Linux applications that run on the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl). You get all the productivity of Windows while developing with Linux-based tools, runtimes, and utilities.
 
 The **WSL** extension lets you use VS Code in WSL just as you would from Windows.
 
@@ -122,7 +124,8 @@ By downloading and using the Visual Studio WSL extension and its related compone
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl#changelog</releaseNotes>
     <tags>vscode extension remote-wsl</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
