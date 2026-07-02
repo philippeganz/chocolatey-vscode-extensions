@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-pull-request-github</id>
-    <version>0.153.2026070104</version>
+    <version>0.155.2026070204</version>
     <title>GitHub Pull Requests</title>
     <authors>GitHub</authors>
     <projectUrl>https://github.com/Microsoft/vscode-pull-request-github</projectUrl>
@@ -10,9 +10,7 @@
     <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-pull-request-github/0.153.2026063010/1782814448439/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[[![Build Status](https://dev.azure.com/vscode/vscode-pull-request-github/_apis/build/status/vscode-pull-request-github%20%28pr%29?branchName=main)](https://dev.azure.com/vscode/vscode-pull-request-github/_build?definitionId=44&branchName=main)
-
-> Review and manage your GitHub pull requests and issues directly in VS Code
+    <description><![CDATA[> Review and manage your GitHub pull requests and issues directly in VS Code
 
 This extension allows you to review and manage GitHub pull requests and issues in Visual Studio Code. The support includes:
 

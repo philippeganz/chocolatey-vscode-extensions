@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-eslint</id>
-    <version>3.0.31</version>
+    <version>3.0.33</version>
     <title>ESLint</title>
     <authors>dbaeumer</authors>
     <projectUrl>https://github.com/Microsoft/vscode-eslint.git</projectUrl>
@@ -10,9 +10,7 @@
     <iconUrl>https://dbaeumer.gallerycdn.vsassets.io/extensions/dbaeumer/vscode-eslint/3.0.31/1782116407798/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# VS Code ESLint extension
-
-
+    <description><![CDATA[
 [![Build Status](https://dev.azure.com/vscode/vscode-eslint/_apis/build/status%2Fvscode-eslint?branchName=main)](https://dev.azure.com/vscode/vscode-eslint/_build?definitionId=51)
 
 Integrates [ESLint](http://eslint.org/) into VS Code. If you are new to ESLint check the [documentation](http://eslint.org/).
@@ -108,6 +106,10 @@ If you're using the legacy version, consider reading [how to migrate to flat con
 This section describes major releases and their improvements. For a detailed list of changes please refer to the [change log](https://github.com/Microsoft/vscode-eslint/blob/HEAD/CHANGELOG.md).
 
 From version 2.2.3 on forward odd minor or patch version numbers indicate an insider or pre-release. So versions `2.2.3`, `2.2.5` and `2.3.1` will all be pre-release versions. `2.2.10`, `2.4.10` and `3.0.0` will all be regular release versions.
+
+### Version 3.0.33 - pre-release
+
+- move to latest LSP libraries
 
 ### Version 3.0.31 - pre-release
 
