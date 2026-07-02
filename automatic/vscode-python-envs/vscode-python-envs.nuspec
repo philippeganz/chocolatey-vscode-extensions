@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-python-envs</id>
-    <version>1.37.2026062601</version>
+    <version>1.37.2026070101</version>
     <title>Python Environments</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/vscode-python-environments.git</projectUrl>
@@ -10,9 +10,7 @@
     <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/vscode-python-envs/1.37.2026062601/1782470462192/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Python Environments (preview)
-
-> **Note:** The Python Environments icon may no longer appear in the Activity Bar due to the ongoing rollout of the Python Environments extension. To restore the extension, add `"python.useEnvironmentsExtension": true` to your User settings. This setting is temporarily necessary until the rollout is complete!
+    <description><![CDATA[> **Note:** The Python Environments icon may no longer appear in the Activity Bar due to the ongoing rollout of the Python Environments extension. To restore the extension, add `"python.useEnvironmentsExtension": true` to your User settings. This setting is temporarily necessary until the rollout is complete!
 
 ## Overview
 
