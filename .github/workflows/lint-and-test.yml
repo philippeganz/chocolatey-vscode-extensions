@@ -38,6 +38,26 @@ jobs:
       - name: Run MarkdownLint
         run: markdownlint "**/*.md" --ignore "node_modules" --ignore "automatic"
 
+  yaml-lint:
+    name: YamlLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install YamlLint
+        run: pip install yamllint
+
+      - name: Run YamlLint
+        # We ignore line-length and truthy warnings that conflict with standard GitHub Action syntax
+        run: |
+          yamllint -d "{extends: default, rules: {line-length: disable, truthy: disable, new-lines: disable}}" .
+
   choco-pack-test:
     name: Chocolatey Pack Dry-Run
     runs-on: windows-latest
