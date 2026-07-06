@@ -277,7 +277,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
 
     $nuspecContent = $nuspecContent -replace '\{\{Version\}\}', $targetVersion
 
-    $nuspecContent = $nuspecContent -replace '\{\{Title\}\}', $displayName
+    $nuspecContent = $nuspecContent -replace '\{\{Title\}\}', "Visual Studio Code Extension - $displayName"
     $nuspecContent = $nuspecContent -replace '\{\{Authors\}\}', $author
     $nuspecContent = $nuspecContent -replace '\{\{ProjectUrl\}\}', $repoUrl
     $nuspecContent = $nuspecContent -replace '\{\{IconUrl\}\}', $iconUrl
