@@ -120,7 +120,8 @@ Cracks open a VSIX ZIP archive, extracts package.json, README.md, and LICENSE, a
 function Expand-VsCodePayload {
     param (
         [Parameter(Mandatory = $true)][string]$VsixPath,
-        [Parameter(Mandatory = $true)][string]$DestinationDir
+        [Parameter(Mandatory = $true)][string]$DestinationDir,
+        [Parameter(Mandatory = $false)][switch]$ExtractPackageJsonOnly
     )
 
     Write-Host "    Extracting Metadata from VSIX Archive..."
@@ -141,20 +142,22 @@ function Expand-VsCodePayload {
             $packageJson = $packageJsonContent | ConvertFrom-Json
         }
 
-        if ($readmeEntry) {
-            $readmePath = Join-Path $DestinationDir "README.md"
-            [System.IO.Compression.ZipFileExtensions]::ExtractToFile($readmeEntry, $readmePath, $true)
+        if (-not $ExtractPackageJsonOnly) {
+            if ($readmeEntry) {
+                $readmePath = Join-Path $DestinationDir "README.md"
+                [System.IO.Compression.ZipFileExtensions]::ExtractToFile($readmeEntry, $readmePath, $true)
 
-            # Scrub emails from the README itself to pass Chocolatey Moderation checks.
-            $readmeRaw = Get-Content $readmePath -Raw -Encoding UTF8
-            $readmeRaw = $readmeRaw -replace '(?i)[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}', '[email removed]'
-            $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-            [System.IO.File]::WriteAllText($readmePath, $readmeRaw, $utf8NoBom)
-        }
+                # Scrub emails from the README itself to pass Chocolatey Moderation checks.
+                $readmeRaw = Get-Content $readmePath -Raw -Encoding UTF8
+                $readmeRaw = $readmeRaw -replace '(?i)[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}', '[email removed]'
+                $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+                [System.IO.File]::WriteAllText($readmePath, $readmeRaw, $utf8NoBom)
+            }
 
-        if ($licenseEntry) {
-            $licenseFileName = $licenseEntry.Name
-            [System.IO.Compression.ZipFileExtensions]::ExtractToFile($licenseEntry, (Join-Path $DestinationDir $licenseFileName), $true)
+            if ($licenseEntry) {
+                $licenseFileName = $licenseEntry.Name
+                [System.IO.Compression.ZipFileExtensions]::ExtractToFile($licenseEntry, (Join-Path $DestinationDir $licenseFileName), $true)
+            }
         }
     }
     finally {

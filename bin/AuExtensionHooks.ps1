@@ -36,11 +36,13 @@ function global:au_GetLatest {
     $version = $version -replace '[^\d\.-]', ''
 
     $vsixUrl = Get-VsCodeExtensionUrl -Publisher $ExtensionPublisher -ExtensionName $ExtensionName -Version $version -ExtMeta $ext
+    $iconUrl = $ext.versions[0].files | Where-Object { $_.assetType -eq "Microsoft.VisualStudio.Services.Icons.Default" } | Select-Object -ExpandProperty source
 
     return @{
         Version = $version
         URL32   = $vsixUrl
         URL64   = $vsixUrl
+        IconUrl = $iconUrl
     }
 }
 
@@ -83,11 +85,20 @@ function global:au_BeforeUpdate {
 # inside our scripts (like chocolateyInstall.ps1) so the new binaries are used.
 # -----------------------------------------------------------------------------
 function global:au_SearchReplace {
-    @{
+    # We conditionally build the replacement rules so we don't accidentally write empty icon URLs if the extension lacks one
+    $rules = @{
         "tools\chocolateyInstall.ps1" = @{
             "(?i)($ExtensionPublisher\.$ExtensionName-)[\d\.]+(\.vsix)" = "`${1}$($Latest.Version)`${2}"
         }
     }
+    
+    if ($Latest.IconUrl) {
+        $rules["*.nuspec"] = @{
+            "(?is)<iconUrl>.*?</iconUrl>" = "<iconUrl>$($Latest.IconUrl)</iconUrl>"
+        }
+    }
+    
+    return $rules
 }
 
 update -ChecksumFor none

@@ -31,7 +31,10 @@ param (
     [string]$ExtensionId,
 
     [Parameter(Mandatory = $false)]
-    [switch]$Force
+    [switch]$Force,
+
+    [Parameter(Mandatory = $false)]
+    [switch]$UpdateMetadata
 )
 
 $ErrorActionPreference = 'Stop'
@@ -131,8 +134,11 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
             Write-Host "    [INFO] Package folder exists. -Force is set. Regenerating..." -ForegroundColor Yellow
             Remove-Item -Path $pkgDir -Recurse -Force
         }
+        elseif ($UpdateMetadata) {
+            Write-Host "    [INFO] Package folder exists. -UpdateMetadata is set. Updating XML..." -ForegroundColor Yellow
+        }
         else {
-            Write-Host "    [INFO] Package folder already exists ($packageName). Skipping. Use -Force to regenerate." -ForegroundColor Yellow
+            Write-Host "    [INFO] Package folder already exists ($packageName). Skipping. Use -Force to regenerate or -UpdateMetadata to refresh metadata." -ForegroundColor Yellow
             continue
         }
     }
@@ -151,21 +157,29 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $version = $extMeta.versions[0].version
     $versionClean = $version -replace '[^\d\.-]', ''
     $displayName = $extMeta.displayName
-    $description = $extMeta.shortDescription
+    $descriptionRaw = $extMeta.shortDescription
+    $descriptionRaw = $descriptionRaw -replace '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', '[email removed]'
+    
+    $descriptionEscaped = [System.Security.SecurityElement]::Escape($descriptionRaw)
+    
+    $summaryRaw = $descriptionRaw
+    if ($summaryRaw.Length -gt 4000) { $summaryRaw = $summaryRaw.Substring(0, 3996) + "..." }
 
-    # Chocolatey Validation Requirements: Scrub emails and enforce limits
-    $description = $description -replace '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', '[email removed]'
-    $description = [System.Security.SecurityElement]::Escape($description)
-    $summary = $description
-    if ($summary.Length -gt 4000) { $summary = $summary.Substring(0, 3996) + "..." }
+    $summaryEscaped = $summaryRaw
+    if ($summaryEscaped.Length -gt 4000) { $summaryEscaped = $summaryEscaped.Substring(0, 3996) + "..." }
 
     $iconUrl = $extMeta.versions[0].files | Where-Object { $_.assetType -eq "Microsoft.VisualStudio.Services.Icons.Default" } | Select-Object -ExpandProperty source
 
     Write-Host "    Version: $versionClean"
 
-    # Scaffold Package Directory
+    # Scaffold Package Directory if it doesn't exist (e.g. not using -UpdateMetadata)
+    if (-not (Test-Path $pkgDir)) {
+        New-Item -ItemType Directory -Force -Path $pkgDir | Out-Null
+    }
     $toolsDir = Join-Path $pkgDir "tools"
-    New-Item -ItemType Directory -Force -Path $toolsDir | Out-Null
+    if (-not (Test-Path $toolsDir)) {
+        New-Item -ItemType Directory -Force -Path $toolsDir | Out-Null
+    }
 
     # Download VSIX
     $vsixUrl = Get-VsCodeExtensionUrl -Publisher $publisher -ExtensionName $extensionName -Version $version -ExtMeta $extMeta
@@ -177,7 +191,11 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     # =========================================================================
     # 3. Payload Extraction (Air-Gap Compliance)
     # =========================================================================
-    $packageJson = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
+    if ($UpdateMetadata) {
+        $packageJson = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir -ExtractPackageJsonOnly
+    } else {
+        $packageJson = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
+    }
 
     if ($packageJson) {
         $repoUrl = if ($packageJson.repository.url) { $packageJson.repository.url } else { "https://marketplace.visualstudio.com/items?itemName=$extId" }
@@ -189,6 +207,8 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     # If the VS Code extension declares internal dependencies (e.g., Extension Packs),
     # we dynamically translate those into Chocolatey package dependencies.
     $dependenciesStr = ""
+    $discoveredDeps = [System.Collections.Generic.List[string]]::new()
+
     if ($packageJson.extensionDependencies) {
         Write-Host "    Found Extension Dependencies!" -ForegroundColor Yellow
         foreach ($depRaw in $packageJson.extensionDependencies) {
@@ -202,6 +222,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
             $depPackageName = if ($depName.StartsWith("vscode-")) { $depName } else { "vscode-$depName" }
             if ($depPackageName -ne $packageName) {
                 $dependenciesStr += "      <dependency id=`"$depPackageName`" />`n"
+                $discoveredDeps.Add($depPackageName)
 
                 # Auto-Discovery: Queue the dependency for scaffolding if we aren't already tracking it
                 if (-not $extensionsList.Contains($dep)) {
@@ -224,6 +245,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
             $depPackageName = if ($depName.StartsWith("vscode-")) { $depName } else { "vscode-$depName" }
             if ($depPackageName -ne $packageName) {
                 $dependenciesStr += "      <dependency id=`"$depPackageName`" />`n"
+                $discoveredDeps.Add($depPackageName)
 
                 # Auto-Discovery: Queue the dependency for scaffolding if we aren't already tracking it
                 if (-not $extensionsList.Contains($dep)) {
@@ -253,57 +275,80 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     Write-Host "    Rendering AU Templates..."
     $templatesDir = Join-Path $PSScriptRoot "Templates"
 
-    $nuspecContent = Get-Content (Join-Path $templatesDir "template.nuspec") -Raw -Encoding UTF8
-    $nuspecContent = $nuspecContent -replace '\{\{ExtensionNameLowerCase\}\}', $packageName.Replace("vscode-", "")
-
-    # -------------------------------------------------------------------------
-    # VERSION PRESERVATION LOGIC
-    # -------------------------------------------------------------------------
-    # If this package already exists (e.g., the user is mass-regenerating templates
-    # to apply a hotfix), we MUST preserve the existing .nuspec version.
-    # If we overwrite it with '0.0.0', AU will attempt to natively push the
-    # upstream version without a timestamp, which will crash the pipeline because
-    # that exact version string already exists on the Community Gallery.
     $nuspecPath = Join-Path $pkgDir "$packageName.nuspec"
-    $targetVersion = '0.0.0'
-    if (Test-Path $nuspecPath) {
-        $existingNuspec = [xml](Get-Content $nuspecPath -Encoding UTF8)
-        $targetVersion = $existingNuspec.package.metadata.version
-        Write-Host "    Preserving existing Nuspec version: $targetVersion"
+
+    if ($UpdateMetadata -and (Test-Path $nuspecPath)) {
+        Write-Host "    Updating existing Nuspec XML natively to preserve manual description..."
+
+        $xml = [xml](Get-Content $nuspecPath -Encoding UTF8)
+        $ns = $xml.DocumentElement.NamespaceURI
+
+        $xml.package.metadata.title = "Visual Studio Code Extension - $displayName"
+        $xml.package.metadata.authors = $author
+        $xml.package.metadata.projectUrl = $repoUrl
+        $xml.package.metadata.summary = $summaryRaw
+
+        # Safely rewrite dependencies using XML Nodes
+        $depsNode = $xml.package.metadata.dependencies
+        if ($null -eq $depsNode) {
+            $depsNode = $xml.CreateElement("dependencies", $ns)
+            $xml.package.metadata.AppendChild($depsNode) | Out-Null
+        }
+        else {
+            $depsNode.RemoveAll()
+        }
+
+        # Always inject the foundational Chocolatey extension dependency
+        $baseDep = $xml.CreateElement("dependency", $ns)
+        $baseDep.SetAttribute("id", "chocolatey-vscode.extension")
+        $baseDep.SetAttribute("version", "1.1.0")
+        $depsNode.AppendChild($baseDep) | Out-Null
+
+        foreach ($depId in $discoveredDeps) {
+            $depElement = $xml.CreateElement("dependency", $ns)
+            $depElement.SetAttribute("id", $depId)
+            $depsNode.AppendChild($depElement) | Out-Null
+        }
+
+        $xml.Save($nuspecPath)
     }
     else {
-        Write-Host "    Brand new package detected. Bootstrapping with 0.0.0"
+        $nuspecContent = Get-Content (Join-Path $templatesDir "template.nuspec") -Raw -Encoding UTF8
+        $nuspecContent = $nuspecContent -replace '\{\{ExtensionNameLowerCase\}\}', $packageName.Replace("vscode-", "")
+
+        $nuspecContent = $nuspecContent -replace '\{\{Version\}\}', '0.0.0'
+        $nuspecContent = $nuspecContent -replace '\{\{Title\}\}', "Visual Studio Code Extension - $displayName"
+        $nuspecContent = $nuspecContent -replace '\{\{Authors\}\}', $author
+        $nuspecContent = $nuspecContent -replace '\{\{ProjectUrl\}\}', $repoUrl
+        $nuspecContent = $nuspecContent -replace '\{\{IconUrl\}\}', $iconUrl
+        $nuspecContent = $nuspecContent -replace '\{\{MarketplaceUrl\}\}', "https://marketplace.visualstudio.com/items?itemName=$extId"
+        $nuspecContent = $nuspecContent -replace '\{\{Description\}\}', $descriptionEscaped
+        $nuspecContent = $nuspecContent -replace '\{\{Summary\}\}', $summaryEscaped
+        $nuspecContent = $nuspecContent -replace '\{\{Dependencies\}\}', $dependenciesStr
+        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+        [System.IO.File]::WriteAllText($nuspecPath, $nuspecContent, $utf8NoBom)
     }
 
-    $nuspecContent = $nuspecContent -replace '\{\{Version\}\}', $targetVersion
+    if (-not ($UpdateMetadata -and (Test-Path (Join-Path $toolsDir "chocolateyInstall.ps1")))) {
+        $installContent = Get-Content (Join-Path $templatesDir "chocolateyInstall.ps1") -Raw -Encoding UTF8
+        $installContent = $installContent -replace '\{\{Publisher\}\}', $publisher
+        $installContent = $installContent -replace '\{\{ExtensionName\}\}', $extensionName
+        $installContent = $installContent -replace '\{\{Version\}\}', $versionClean
+        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+        [System.IO.File]::WriteAllText((Join-Path $toolsDir "chocolateyInstall.ps1"), $installContent, $utf8NoBom)
+    }
 
-    $nuspecContent = $nuspecContent -replace '\{\{Title\}\}', "Visual Studio Code Extension - $displayName"
-    $nuspecContent = $nuspecContent -replace '\{\{Authors\}\}', $author
-    $nuspecContent = $nuspecContent -replace '\{\{ProjectUrl\}\}', $repoUrl
-    $nuspecContent = $nuspecContent -replace '\{\{IconUrl\}\}', $iconUrl
-    $nuspecContent = $nuspecContent -replace '\{\{MarketplaceUrl\}\}', "https://marketplace.visualstudio.com/items?itemName=$extId"
-    $nuspecContent = $nuspecContent -replace '\{\{Description\}\}', $description
-    $nuspecContent = $nuspecContent -replace '\{\{Summary\}\}', $summary
-    $nuspecContent = $nuspecContent -replace '\{\{Dependencies\}\}', $dependenciesStr
-    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-    [System.IO.File]::WriteAllText((Join-Path $pkgDir "$packageName.nuspec"), $nuspecContent, $utf8NoBom)
-
-    $installContent = Get-Content (Join-Path $templatesDir "chocolateyInstall.ps1") -Raw -Encoding UTF8
-    $installContent = $installContent -replace '\{\{Publisher\}\}', $publisher
-    $installContent = $installContent -replace '\{\{ExtensionName\}\}', $extensionName
-    $installContent = $installContent -replace '\{\{Version\}\}', $versionClean
-    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-    [System.IO.File]::WriteAllText((Join-Path $toolsDir "chocolateyInstall.ps1"), $installContent, $utf8NoBom)
-
-    $updateContent = @"
+    if (-not ($UpdateMetadata -and (Test-Path (Join-Path $pkgDir "update.ps1")))) {
+        $updateContent = @"
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 param()
 `$ExtensionPublisher = "$publisher"
 `$ExtensionName = "$extensionName"
 . "`$PSScriptRoot\..\..\bin\AuExtensionHooks.ps1"
 "@
-    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-    [System.IO.File]::WriteAllText((Join-Path $pkgDir "update.ps1"), $updateContent, $utf8NoBom)
+        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+        [System.IO.File]::WriteAllText((Join-Path $pkgDir "update.ps1"), $updateContent, $utf8NoBom)
+    }
 
     # Download Icon
     if ($iconUrl) {

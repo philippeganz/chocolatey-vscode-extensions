@@ -56,9 +56,9 @@ extensions:
   - ms-vscode.remote-explorer
   - ms-vscode.remote-server
   - ms-vsliveshare.vsliveshare
-  - Oracle.mysql-shell-for-vs-code
-  - Oracle.oracle-java
-  - Oracle.oracledevtools
+  - oracle.mysql-shell-for-vs-code
+  - oracle.oracle-java
+  - oracle.oracledevtools
   - pkief.material-icon-theme
   - redhat.ansible
   - redhat.fabric8-analytics
