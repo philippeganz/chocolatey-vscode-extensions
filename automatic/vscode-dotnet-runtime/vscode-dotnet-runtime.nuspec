@@ -3,12 +3,14 @@
   <metadata>
     <id>vscode-dotnet-runtime</id>
     <version>3.1.0</version>
-    <title>.NET Install Tool</title>
+    <title>Visual Studio Code Extension - .NET Install Tool</title>
     <authors>ms-dotnettools</authors>
     <projectUrl>https://github.com/dotnet/vscode-dotnet-runtime.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-dotnettools.gallerycdn.vsassets.io/extensions/ms-dotnettools/vscode-dotnet-runtime/3.1.0/1781201336184/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-runtime</licenseUrl>
+    <iconUrl>
+      https://ms-dotnettools.gallerycdn.vsassets.io/extensions/ms-dotnettools/vscode-dotnet-runtime/3.1.0/1781201336184/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>
+      https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-runtime</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# .NET Install Tool
 
@@ -168,7 +170,8 @@ This project may contain trademarks or logos for projects, products, or services
 [Bicep]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep
 ]]></description>
     <summary>This extension installs and manages different versions of the .NET SDK and Runtime.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-runtime#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-runtime#changelog</releaseNotes>
     <tags>vscode extension dotnet-runtime</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

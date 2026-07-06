@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-makefile-tools</id>
     <version>0.13.37</version>
-    <title>Makefile Tools</title>
+    <title>Visual Studio Code Extension - Makefile Tools</title>
     <authors>ms-vscode</authors>
     <projectUrl>https://github.com/Microsoft/vscode-makefile-tools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/makefile-tools/0.13.37/1781844103014/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/makefile-tools/0.13.37/1781844103014/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[<h1 align=center> <img align=center width=48 src="https://github.com/Microsoft/vscode-makefile-tools/raw/HEAD/res/makefile-logo-no-background.png" alt="Makefile Logo"/> Makefile Tools </h1>
@@ -166,7 +167,8 @@ This extension collects usage data and sends it to Microsoft to help improve our
 </a>
 ]]></description>
     <summary>Provide makefile support in VS Code: C/C++ IntelliSense, build, debug/run.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools#changelog</releaseNotes>
     <tags>vscode extension makefile-tools</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

@@ -3,12 +3,14 @@
   <metadata>
     <id>vscode-pull-request-github</id>
     <version>0.155.2026070204</version>
-    <title>GitHub Pull Requests</title>
+    <title>Visual Studio Code Extension - GitHub Pull Requests</title>
     <authors>GitHub</authors>
     <projectUrl>https://github.com/Microsoft/vscode-pull-request-github</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-pull-request-github/0.153.2026063010/1782814448439/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github</licenseUrl>
+    <iconUrl>
+      https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-pull-request-github/0.153.2026063010/1782814448439/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>
+      https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[> Review and manage your GitHub pull requests and issues directly in VS Code
 
@@ -95,7 +97,8 @@ If you're interested in contributing, or want to explore the source code of this
 - [Code of Conduct](https://github.com/Microsoft/vscode-pull-request-github/wiki/Contributing#code-of-conduct)
 ]]></description>
     <summary>Pull Request and Issue Provider for GitHub</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github#changelog</releaseNotes>
     <tags>vscode extension pull-request-github</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

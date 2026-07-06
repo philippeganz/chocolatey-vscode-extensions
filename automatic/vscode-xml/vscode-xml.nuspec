@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-xml</id>
     <version>0.29.2026061109</version>
-    <title>XML</title>
+    <title>Visual Studio Code Extension - XML</title>
     <authors>redhat</authors>
     <projectUrl>https://github.com/redhat-developer/vscode-xml</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-xml/0.29.2026061109/1781170323534/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-xml/0.29.2026061109/1781170323534/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# XML Language Support by Red Hat

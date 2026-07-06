@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-html-css</id>
     <version>2.0.14</version>
-    <title>HTML CSS Support</title>
+    <title>Visual Studio Code Extension - HTML CSS Support</title>
     <authors>ecmel</authors>
     <projectUrl>https://github.com/ecmel/vscode-html-css.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ecmel.gallerycdn.vsassets.io/extensions/ecmel/vscode-html-css/2.0.14/1770897391434/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ecmel.gallerycdn.vsassets.io/extensions/ecmel/vscode-html-css/2.0.14/1770897391434/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Visual Studio Code CSS Intellisense for HTML
@@ -183,7 +184,8 @@ Clears style sheets cache.
 Extension can be installed from [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css).
 ]]></description>
     <summary>CSS Intellisense for HTML</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css#changelog</releaseNotes>
     <tags>vscode extension html-css</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

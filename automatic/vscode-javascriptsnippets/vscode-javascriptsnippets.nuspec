@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-javascriptsnippets</id>
     <version>1.8.0</version>
-    <title>JavaScript (ES6) code snippets</title>
+    <title>Visual Studio Code Extension - JavaScript (ES6) code snippets</title>
     <authors>xabikos</authors>
     <projectUrl>https://github.com/xabikos/vscode-javascript</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://xabikos.gallerycdn.vsassets.io/extensions/xabikos/javascriptsnippets/1.8.0/1587489699375/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://xabikos.gallerycdn.vsassets.io/extensions/xabikos/javascriptsnippets/1.8.0/1587489699375/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# JavaScript
@@ -109,7 +110,8 @@ Below is a list of all available snippets and the triggers of each one. The **â‡
 [code]: https://code.visualstudio.com/
 ]]></description>
     <summary>Code snippets for JavaScript in ES6 syntax</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets#changelog</releaseNotes>
     <tags>vscode extension javascriptsnippets</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

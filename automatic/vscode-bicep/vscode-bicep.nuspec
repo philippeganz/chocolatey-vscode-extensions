@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-bicep</id>
     <version>0.44.1</version>
-    <title>Bicep</title>
+    <title>Visual Studio Code Extension - Bicep</title>
     <authors>ms-azuretools</authors>
     <projectUrl>https://github.com/Azure/bicep</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-bicep/0.44.1/1781055387581/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-bicep/0.44.1/1781055387581/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Key features of the Bicep VS Code extension
@@ -125,7 +126,8 @@ Use the "Insert Resource" command to quickly import a resource from Azure into a
 ![Insert resource command](https://github.com/Azure/bicep/raw/main/src/vscode-bicep/readme-links/insertresource.gif)
 ]]></description>
     <summary>Bicep language support for Visual Studio Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep#changelog</releaseNotes>
     <tags>vscode extension bicep</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

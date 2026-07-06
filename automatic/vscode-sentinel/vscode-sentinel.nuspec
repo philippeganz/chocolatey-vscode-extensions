@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-sentinel</id>
     <version>0.3.0</version>
-    <title>HashiCorp Sentinel</title>
+    <title>Visual Studio Code Extension - HashiCorp Sentinel</title>
     <authors>hashicorp</authors>
     <projectUrl>https://github.com/hashicorp/vscode-sentinel.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://HashiCorp.gallerycdn.vsassets.io/extensions/hashicorp/sentinel/0.3.0/1701786621072/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://HashiCorp.gallerycdn.vsassets.io/extensions/hashicorp/sentinel/0.3.0/1701786621072/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=hashicorp.sentinel</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Sentinel Extension for Visual Studio Code

@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-rainbow-csv</id>
     <version>3.24.1</version>
-    <title>Rainbow CSV</title>
+    <title>Visual Studio Code Extension - Rainbow CSV</title>
     <authors>mechatroner</authors>
     <projectUrl>https://github.com/mechatroner/vscode_rainbow_csv</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://mechatroner.gallerycdn.vsassets.io/extensions/mechatroner/rainbow-csv/3.24.1/1768618250211/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://mechatroner.gallerycdn.vsassets.io/extensions/mechatroner/rainbow-csv/3.24.1/1768618250211/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Rainbow CSV
@@ -198,7 +199,8 @@ These extensions can work well together with Rainbow CSV and provide additional 
 
 ]]></description>
     <summary>Highlight CSV and TSV files, Run SQL-like queries</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv#changelog</releaseNotes>
     <tags>vscode extension rainbow-csv</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

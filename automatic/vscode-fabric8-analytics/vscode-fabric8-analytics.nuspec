@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-fabric8-analytics</id>
     <version>1.0.0</version>
-    <title>Red Hat Dependency Analytics</title>
+    <title>Visual Studio Code Extension - Red Hat Dependency Analytics</title>
     <authors>redhat</authors>
     <projectUrl>https://github.com/fabric8-analytics/fabric8-analytics-vscode-extension</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/fabric8-analytics/1.0.0/1781174203414/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://redhat.gallerycdn.vsassets.io/extensions/redhat/fabric8-analytics/1.0.0/1781174203414/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.fabric8-analytics</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Red Hat Dependency Analytics
@@ -510,8 +511,10 @@ There are two ways you can contact us:
 
 Apache 2.0, See [LICENSE](https://github.com/fabric8-analytics/fabric8-analytics-vscode-extension/blob/HEAD/LICENSE) for more information.
 ]]></description>
-    <summary>Provides insights on security vulnerabilities and license compatibility in your application dependencies.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.fabric8-analytics#changelog</releaseNotes>
+    <summary>Provides insights on security vulnerabilities and license compatibility in your
+      application dependencies.</summary>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=redhat.fabric8-analytics#changelog</releaseNotes>
     <tags>vscode extension fabric8-analytics</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

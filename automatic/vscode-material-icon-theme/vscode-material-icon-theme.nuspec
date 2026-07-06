@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-material-icon-theme</id>
     <version>5.36.1</version>
-    <title>Material Icon Theme</title>
+    <title>Visual Studio Code Extension - Material Icon Theme</title>
     <authors>PKief</authors>
     <projectUrl>git+https://github.com/material-extensions/vscode-material-icon-theme.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://PKief.gallerycdn.vsassets.io/extensions/pkief/material-icon-theme/5.36.1/1782238809254/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://PKief.gallerycdn.vsassets.io/extensions/pkief/material-icon-theme/5.36.1/1782238809254/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[<!-- markdownlint-disable -->
@@ -387,7 +388,8 @@ We welcome contributions of all kinds! Whether you want to add new icons, improv
 </p>
 ]]></description>
     <summary>Material Design Icons for Visual Studio Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme#changelog</releaseNotes>
     <tags>vscode extension material-icon-theme</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-oracledevtools</id>
     <version>23.4.1</version>
-    <title>Oracle Developer Tools for VS Code (SQL and PLSQL)</title>
+    <title>Visual Studio Code Extension - Oracle Developer Tools for VS Code (SQL and PLSQL)</title>
     <authors>Oracle</authors>
     <projectUrl>https://marketplace.visualstudio.com/items?itemName=Oracle.oracledevtools</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://Oracle.gallerycdn.vsassets.io/extensions/oracle/oracledevtools/23.4.1/1724949901572/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://Oracle.gallerycdn.vsassets.io/extensions/oracle/oracledevtools/23.4.1/1724949901572/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=Oracle.oracledevtools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
@@ -183,7 +184,8 @@ Please refer to the [Licensing Information User Manual for Oracle Developer Tool
  Copyright (c) 2024, Oracle and/or its affiliates. 
 ]]></description>
     <summary>Develop SQL and PL/SQL with Oracle Database and Oracle Autonomous Database</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=Oracle.oracledevtools#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=Oracle.oracledevtools#changelog</releaseNotes>
     <tags>vscode extension oracledevtools</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

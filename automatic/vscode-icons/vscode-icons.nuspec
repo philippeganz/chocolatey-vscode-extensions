@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-icons</id>
     <version>12.19.0</version>
-    <title>vscode-icons</title>
+    <title>Visual Studio Code Extension - vscode-icons</title>
     <authors>vscode-icons-team</authors>
     <projectUrl>https://github.com/vscode-icons/vscode-icons</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://vscode-icons-team.gallerycdn.vsassets.io/extensions/vscode-icons-team/vscode-icons/12.19.0/1782585231472/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://vscode-icons-team.gallerycdn.vsassets.io/extensions/vscode-icons-team/vscode-icons/12.19.0/1782585231472/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[<div align="center">
@@ -136,7 +137,8 @@ We like to express our "Special Thanks" to:
 **Enjoy!**
 ]]></description>
     <summary>Icons for Visual Studio Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons#changelog</releaseNotes>
     <tags>vscode extension icons</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-remote-server</id>
     <version>1.6.2026061009</version>
-    <title>Remote - Tunnels</title>
+    <title>Visual Studio Code Extension - Remote - Tunnels</title>
     <authors>ms-vscode</authors>
     <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/remote-server/1.6.2026061009/1781082963568/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/remote-server/1.6.2026061009/1781082963568/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Visual Studio Code Remote - Tunnels
@@ -77,7 +78,8 @@ Visual Studio Code Remote - Tunnels and related extensions collect telemetry dat
 By downloading and using the Visual Studio Remote - Tunnels extension and its related components, you agree to the product [license terms](https://go.microsoft.com/fwlink/?linkid=2077057) and [privacy statement](https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx).
 ]]></description>
     <summary>Connect to a remote machine through a Tunnel</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server#changelog</releaseNotes>
     <tags>vscode extension remote-server</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

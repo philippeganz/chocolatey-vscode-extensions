@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-yaml</id>
     <version>1.24.2026063009</version>
-    <title>YAML</title>
+    <title>Visual Studio Code Extension - YAML</title>
     <authors>redhat</authors>
     <projectUrl>https://github.com/redhat-developer/vscode-yaml</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-yaml/1.24.2026062509/1782378729804/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-yaml/1.24.2026062509/1782378729804/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/redhat.vscode-yaml?style=for-the-badge&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)

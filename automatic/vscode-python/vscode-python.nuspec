@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-python</id>
     <version>2026.5.2026061001</version>
-    <title>Python</title>
+    <title>Visual Studio Code Extension - Python</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/Microsoft/vscode-python</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/python/2026.5.2026061001/1781089457873/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/python/2026.5.2026061001/1781089457873/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.python</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Python extension for Visual Studio Code
@@ -137,7 +138,8 @@ learn more. This extension respects the `telemetry.telemetryLevel`
 setting which you can learn more about at
 https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting.
 ]]></description>
-    <summary>Python language support with extension access points for IntelliSense (Pylance), Debugging (Python Debugger), linting, formatting, refactoring, unit tests, and more.</summary>
+    <summary>Python language support with extension access points for IntelliSense (Pylance),
+      Debugging (Python Debugger), linting, formatting, refactoring, unit tests, and more.</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.python#changelog</releaseNotes>
     <tags>vscode extension python</tags>
     <dependencies>

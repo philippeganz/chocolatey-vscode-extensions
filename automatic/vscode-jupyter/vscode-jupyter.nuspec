@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-jupyter</id>
     <version>2026.6.2026061001</version>
-    <title>Jupyter</title>
+    <title>Visual Studio Code Extension - Jupyter</title>
     <authors>ms-toolsai</authors>
     <projectUrl>https://github.com/Microsoft/vscode-jupyter</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-toolsai.gallerycdn.vsassets.io/extensions/ms-toolsai/jupyter/2026.6.2026061001/1781085548563/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ms-toolsai.gallerycdn.vsassets.io/extensions/ms-toolsai/jupyter/2026.6.2026061001/1781085548563/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Jupyter Extension for Visual Studio Code
@@ -131,7 +132,8 @@ The Microsoft Jupyter Extension for Visual Studio Code collects usage data and s
 
 This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow Microsoft's Trademark & Brand Guidelines. Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party's policies.
 ]]></description>
-    <summary>Jupyter notebook support, interactive programming and computing that supports Intellisense, debugging and more.</summary>
+    <summary>Jupyter notebook support, interactive programming and computing that supports
+      Intellisense, debugging and more.</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter#changelog</releaseNotes>
     <tags>vscode extension jupyter</tags>
     <dependencies>

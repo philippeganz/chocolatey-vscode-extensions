@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-black-formatter</id>
     <version>2026.7.11811009</version>
-    <title>Black Formatter</title>
+    <title>Visual Studio Code Extension - Black Formatter</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/vscode-black-formatter.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/black-formatter/2026.7.11811009/1782816244965/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/black-formatter/2026.7.11811009/1782816244965/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Formatter extension for Visual Studio Code using the Black formatter
@@ -142,7 +143,8 @@ In this section, you will find some common issues you might encounter and how to
     -   Install Black in the selected environment.
 ]]></description>
     <summary>Formatting support for Python files using the Black formatter.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter#changelog</releaseNotes>
     <tags>vscode extension black-formatter</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

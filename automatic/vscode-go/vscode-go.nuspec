@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-go</id>
     <version>0.55.0</version>
-    <title>Go</title>
+    <title>Visual Studio Code Extension - Go</title>
     <authors>golang</authors>
     <projectUrl>https://github.com/golang/vscode-go</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://golang.gallerycdn.vsassets.io/extensions/golang/go/0.55.0/1781121081416/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://golang.gallerycdn.vsassets.io/extensions/golang/go/0.55.0/1781121081416/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=golang.go</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Go for Visual Studio Code

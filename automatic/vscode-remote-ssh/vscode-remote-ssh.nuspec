@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-remote-ssh</id>
     <version>0.125.2026062315</version>
-    <title>Remote - SSH</title>
+    <title>Visual Studio Code Extension - Remote - SSH</title>
     <authors>ms-vscode-remote</authors>
     <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-ssh/0.125.2026062315/1782228190072/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-ssh/0.125.2026062315/1782228190072/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[> **This is a pre-release version of this extension for early feedback and testing. This extension works best with [VS Code Insiders](https://code.visualstudio.com/insiders)**
@@ -97,8 +98,10 @@ Visual Studio Code **Remote - SSH** and related extensions collect telemetry dat
 
 By downloading and using the Visual Studio **Remote - SSH** extension and its related components, you agree to the product [license terms](https://go.microsoft.com/fwlink/?linkid=2077057) and [privacy statement](https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx).
 ]]></description>
-    <summary>Open any folder on a remote machine using SSH and take advantage of VS Code's full feature set.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh#changelog</releaseNotes>
+    <summary>Open any folder on a remote machine using SSH and take advantage of VS Code's full
+      feature set.</summary>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh#changelog</releaseNotes>
     <tags>vscode extension remote-ssh</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

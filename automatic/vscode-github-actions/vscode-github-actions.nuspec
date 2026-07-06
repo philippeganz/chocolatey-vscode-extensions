@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-github-actions</id>
     <version>0.32.1</version>
-    <title>GitHub Actions</title>
+    <title>Visual Studio Code Extension - GitHub Actions</title>
     <authors>github</authors>
     <projectUrl>https://github.com/github/vscode-github-actions</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-github-actions/0.32.1/1782498285743/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-github-actions/0.32.1/1782498285743/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# GitHub Actions for VS Code
@@ -78,7 +79,8 @@ See [CONTRIBUTING.md](https://github.com/github/vscode-github-actions/blob/HEAD/
 This project is licensed under the terms of the MIT open source license. Please refer to [MIT](https://github.com/github/vscode-github-actions/blob/HEAD/LICENSE) for the full terms.
 ]]></description>
     <summary>GitHub Actions workflows and runs for github.com hosted repositories in VS Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions#changelog</releaseNotes>
     <tags>vscode extension github-actions</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

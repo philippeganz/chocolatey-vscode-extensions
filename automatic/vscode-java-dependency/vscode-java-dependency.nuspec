@@ -3,12 +3,14 @@
   <metadata>
     <id>vscode-java-dependency</id>
     <version>0.27.2026062300</version>
-    <title>Project Manager for Java</title>
+    <title>Visual Studio Code Extension - Project Manager for Java</title>
     <authors>vscjava</authors>
     <projectUrl>https://github.com/Microsoft/vscode-java-dependency.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-dependency/0.27.2026062300/1782178306937/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency</licenseUrl>
+    <iconUrl>
+      https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-dependency/0.27.2026062300/1782178306937/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>
+      https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Project Manager for Java
 
@@ -108,7 +110,8 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [[email removed]](mailto:[email removed]) with any additional questions or comments.
 ]]></description>
     <summary>Manage Java projects in Visual Studio Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency#changelog</releaseNotes>
     <tags>vscode extension java-dependency</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

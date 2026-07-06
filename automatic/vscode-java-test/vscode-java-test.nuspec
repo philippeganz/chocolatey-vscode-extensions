@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-java-test</id>
     <version>0.46.0</version>
-    <title>Test Runner for Java</title>
+    <title>Visual Studio Code Extension - Test Runner for Java</title>
     <authors>vscjava</authors>
     <projectUrl>https://github.com/Microsoft/vscode-java-test</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-test/0.46.0/1782452281424/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-test/0.46.0/1782452281424/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Test Runner for Java
@@ -154,7 +155,8 @@ This extension is licensed under [MIT License](https://github.com/Microsoft/vsco
 This extension collects telemetry data to help improve our products. Please read [Microsoft privacy statement](https://privacy.microsoft.com/en-us/privacystatement) to learn more. If you opt out to send telemetry data to Microsoft, please set below configuration in settings.json: `telemetry.enableTelemetry = false`. Learn more in our [FAQ](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
 ]]></description>
     <summary>Run and debug JUnit or TestNG test cases.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test#changelog</releaseNotes>
     <tags>vscode extension java-test</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-vsliveshare</id>
     <version>1.1.122</version>
-    <title>Live Share</title>
+    <title>Visual Studio Code Extension - Live Share</title>
     <authors>ms-vsliveshare</authors>
     <projectUrl>https://github.com/MicrosoftDocs/live-share</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://MS-vsliveshare.gallerycdn.vsassets.io/extensions/ms-vsliveshare/vsliveshare/1.1.122/1775530401653/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://MS-vsliveshare.gallerycdn.vsassets.io/extensions/ms-vsliveshare/vsliveshare/1.1.122/1775530401653/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Microsoft Visual Studio Live Share
@@ -84,7 +85,8 @@ If you have any trouble joining, see the ["joining manually"](https://aka.ms/vsl
 - [Contact Us](https://aka.ms/vsls-support)
 - [License](https://aka.ms/vsls-license)]]></description>
     <summary>Real-time collaborative development from the comfort of your favorite tools.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare#changelog</releaseNotes>
     <tags>vscode extension vsliveshare</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

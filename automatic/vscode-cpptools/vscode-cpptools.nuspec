@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-cpptools</id>
     <version>1.33.2</version>
-    <title>C/C++</title>
+    <title>Visual Studio Code Extension - C/C++</title>
     <authors>ms-vscode</authors>
     <projectUrl>git+https://github.com/Microsoft/vscode-cpptools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpptools/1.33.2/1782515898000/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpptools/1.33.2/1782515898000/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# C/C++ for Visual Studio Code

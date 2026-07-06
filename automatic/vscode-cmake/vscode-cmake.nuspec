@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-cmake</id>
     <version>0.0.17</version>
-    <title>CMake</title>
+    <title>Visual Studio Code Extension - CMake</title>
     <authors>twxs</authors>
     <projectUrl>https://github.com/twxs/vs.language.cmake.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://twxs.gallerycdn.vsassets.io/extensions/twxs/cmake/0.0.17/1488841920286/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://twxs.gallerycdn.vsassets.io/extensions/twxs/cmake/0.0.17/1488841920286/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=twxs.cmake</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# CMake For VisualStudio Code

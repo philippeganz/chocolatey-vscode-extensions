@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-helm-intellisense</id>
     <version>0.15.0</version>
-    <title>Helm Intellisense</title>
+    <title>Visual Studio Code Extension - Helm Intellisense</title>
     <authors>Tim-Koehler</authors>
     <projectUrl>https://github.com/tim-koehler/Helm-Intellisense</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://Tim-Koehler.gallerycdn.vsassets.io/extensions/tim-koehler/helm-intellisense/0.15.0/1746220925164/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://Tim-Koehler.gallerycdn.vsassets.io/extensions/tim-koehler/helm-intellisense/0.15.0/1746220925164/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=tim-koehler.helm-intellisense</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[<h1 align="center">Helm-Intellisense</h1>
@@ -61,7 +62,8 @@ When mulitple value files are defined they are parsed from the bottom up:
 In this case values will be overwritten/merged by dev and dev by prod. This also means that the linter will only throw an error if a certain key is not found in any of the specified files.
 ]]></description>
     <summary>This extension provides intellisense for helm templates</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=tim-koehler.helm-intellisense#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=tim-koehler.helm-intellisense#changelog</releaseNotes>
     <tags>vscode extension helm-intellisense</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

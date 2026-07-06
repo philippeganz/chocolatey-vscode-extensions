@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-oracle-java</id>
     <version>26.0.0</version>
-    <title>Java</title>
+    <title>Visual Studio Code Extension - Java</title>
     <authors>Oracle</authors>
     <projectUrl>https://github.com/oracle/javavscode</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://Oracle.gallerycdn.vsassets.io/extensions/oracle/oracle-java/26.0.0/1780905052521/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://Oracle.gallerycdn.vsassets.io/extensions/oracle/oracle-java/26.0.0/1780905052521/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=Oracle.oracle-java</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[<!--
@@ -321,7 +322,8 @@ Oracle Java Platform Extension for Visual Studio Code is licensed under [Apache 
 The [THIRD_PARTY_LICENSES](https://github.com/oracle/javavscode/blob/ad16371d316860772abfa4b891ec3cb763e96c0c/THIRD_PARTY_LICENSES.txt) file contains third party notices and licenses.
 ]]></description>
     <summary>Java Platform Extension for Visual Studio Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=Oracle.oracle-java#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=Oracle.oracle-java#changelog</releaseNotes>
     <tags>vscode extension oracle-java</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

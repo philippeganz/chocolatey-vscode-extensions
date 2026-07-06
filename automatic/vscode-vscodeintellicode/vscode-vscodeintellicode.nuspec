@@ -3,12 +3,14 @@
   <metadata>
     <id>vscode-vscodeintellicode</id>
     <version>1.3.2</version>
-    <title>IntelliCode</title>
+    <title>Visual Studio Code Extension - IntelliCode</title>
     <authors>VisualStudioExptTeam</authors>
     <projectUrl>https://github.com/MicrosoftDocs/intellicode</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://VisualStudioExptTeam.gallerycdn.vsassets.io/extensions/visualstudioexptteam/vscodeintellicode/1.3.2/1729726946695/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode</licenseUrl>
+    <iconUrl>
+      https://VisualStudioExptTeam.gallerycdn.vsassets.io/extensions/visualstudioexptteam/vscodeintellicode/1.3.2/1729726946695/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>
+      https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Visual Studio IntelliCode
 
@@ -94,7 +96,8 @@ You can also check out our [FAQ](https://go.microsoft.com/fwlink/?linkid=873429)
 There is much more to come -- [sign up here](https://go.microsoft.com/fwlink/?linkid=872706) for future news and updates!
 ]]></description>
     <summary>AI-assisted development</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode#changelog</releaseNotes>
     <tags>vscode extension vscodeintellicode</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

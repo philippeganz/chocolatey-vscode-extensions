@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-tekton-pipelines</id>
     <version>1.1.0</version>
-    <title>Tekton Pipelines</title>
+    <title>Visual Studio Code Extension - Tekton Pipelines</title>
     <authors>redhat</authors>
     <projectUrl>https://github.com/redhat-developer/vscode-tekton.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-tekton-pipelines/1.1.0/1669943505057/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-tekton-pipelines/1.1.0/1669943505057/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-tekton-pipelines</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# <img src="https://raw.githubusercontent.com/redhat-developer/vscode-tekton/main/images/tekton.png" width="30" height="30" /><span style="margin: 5px">Tekton Pipelines
@@ -123,7 +124,8 @@ MIT, See [LICENSE](https://github.com/redhat-developer/vscode-tekton/blob/HEAD/L
 The Red Hat OpenShift Toolkit for Visual Studio Code collects anonymous [usage data](https://github.com/redhat-developer/vscode-tekton/blob/HEAD/USAGE_DATA.md) and sends it to Red Hat servers to help improve our products and services. Read our [privacy statement](https://developers.redhat.com/article/tool-data-collection) to learn more. This extension respects the `redhat.telemetry.enabled` setting which you can learn more about at https://github.com/redhat-developer/vscode-redhat-telemetry#how-to-disable-telemetry-reporting
 ]]></description>
     <summary>Cloud Native CI/CD using Tekton Pipelines</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-tekton-pipelines#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=redhat.vscode-tekton-pipelines#changelog</releaseNotes>
     <tags>vscode extension tekton-pipelines</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

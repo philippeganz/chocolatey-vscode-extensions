@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-remote-wsl</id>
     <version>0.104.3</version>
-    <title>WSL</title>
+    <title>Visual Studio Code Extension - WSL</title>
     <authors>ms-vscode-remote</authors>
     <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-wsl/0.104.3/1759355620566/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-wsl/0.104.3/1759355620566/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Visual Studio Code WSL
@@ -120,8 +121,10 @@ Visual Studio Code WSL and related extensions collect telemetry data to help us 
 
 By downloading and using the Visual Studio WSL extension and its related components, you agree to the product [license terms](https://go.microsoft.com/fwlink/?linkid=2077057) and [privacy statement](https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx).
 ]]></description>
-    <summary>Open any folder in the Windows Subsystem for Linux (WSL) and take advantage of Visual Studio Code's full feature set.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl#changelog</releaseNotes>
+    <summary>Open any folder in the Windows Subsystem for Linux (WSL) and take advantage of Visual
+      Studio Code's full feature set.</summary>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl#changelog</releaseNotes>
     <tags>vscode extension remote-wsl</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

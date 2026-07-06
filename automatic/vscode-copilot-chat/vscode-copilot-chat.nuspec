@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-copilot-chat</id>
     <version>0.48.1</version>
-    <title>GitHub Copilot Chat</title>
+    <title>Visual Studio Code Extension - GitHub Copilot Chat</title>
     <authors>GitHub</authors>
     <projectUrl>https://github.com/microsoft/vscode-copilot-chat</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/copilot-chat/0.48.1/1778884121163/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://GitHub.gallerycdn.vsassets.io/extensions/github/copilot-chat/0.48.1/1778884121163/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# GitHub Copilot - Your autonomous AI peer programmer

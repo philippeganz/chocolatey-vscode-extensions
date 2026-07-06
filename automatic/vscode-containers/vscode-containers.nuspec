@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-containers</id>
     <version>2.4.5</version>
-    <title>Container Tools</title>
+    <title>Visual Studio Code Extension - Container Tools</title>
     <authors>ms-azuretools</authors>
     <projectUrl>https://github.com/microsoft/vscode-containers</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-containers/2.4.5/1780056837253/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-containers/2.4.5/1780056837253/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[## Container Tools for Visual Studio Code
@@ -123,7 +124,8 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
 [MIT](https://github.com/microsoft/vscode-containers/blob/HEAD/LICENSE.md)
 ]]></description>
     <summary>Makes it easy to create, manage, and debug containerized applications.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers#changelog</releaseNotes>
     <tags>vscode extension containers</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

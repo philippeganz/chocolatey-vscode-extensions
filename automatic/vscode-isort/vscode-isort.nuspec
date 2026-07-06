@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-isort</id>
     <version>2026.7.11811007</version>
-    <title>isort</title>
+    <title>Visual Studio Code Extension - isort</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/vscode-isort.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/isort/2026.7.11811007/1782815991709/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/isort/2026.7.11811007/1782815991709/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.isort</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Import sorting extension for Visual Studio Code using isort

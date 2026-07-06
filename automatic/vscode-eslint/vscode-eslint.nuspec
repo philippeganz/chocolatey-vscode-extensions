@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-eslint</id>
     <version>3.0.33</version>
-    <title>ESLint</title>
+    <title>Visual Studio Code Extension - ESLint</title>
     <authors>dbaeumer</authors>
     <projectUrl>https://github.com/Microsoft/vscode-eslint.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://dbaeumer.gallerycdn.vsassets.io/extensions/dbaeumer/vscode-eslint/3.0.31/1782116407798/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://dbaeumer.gallerycdn.vsassets.io/extensions/dbaeumer/vscode-eslint/3.0.31/1782116407798/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
@@ -572,7 +573,8 @@ Migrating from ESLint 5.x to ESLint 6.x might need some adaption (see the [ESLin
 
 ]]></description>
     <summary>Integrates ESLint JavaScript into VS Code.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint#changelog</releaseNotes>
     <tags>vscode extension eslint</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

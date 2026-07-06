@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-sql-bindings-vscode</id>
     <version>0.4.1</version>
-    <title>SQL Bindings</title>
+    <title>Visual Studio Code Extension - SQL Bindings</title>
     <authors>ms-mssql</authors>
     <projectUrl>https://github.com/Microsoft/azuredatastudio.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-mssql.gallerycdn.vsassets.io/extensions/ms-mssql/sql-bindings-vscode/0.4.1/1746044873829/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ms-mssql.gallerycdn.vsassets.io/extensions/ms-mssql/sql-bindings-vscode/0.4.1/1746044873829/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-mssql.sql-bindings-vscode</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Microsoft SQL Bindings for VS Code
@@ -56,7 +57,8 @@ Copyright (c) Microsoft Corporation. All rights reserved.
 Licensed under the [MIT License](https://raw.githubusercontent.com/Microsoft/azuredatastudio/main/LICENSE.txt).
 ]]></description>
     <summary>Enables users to develop and publish Azure Functions with Azure SQL bindings</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-mssql.sql-bindings-vscode#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=ms-mssql.sql-bindings-vscode#changelog</releaseNotes>
     <tags>vscode extension sql-bindings-vscode</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

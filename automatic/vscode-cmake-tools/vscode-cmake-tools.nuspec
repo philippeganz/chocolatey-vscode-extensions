@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-cmake-tools</id>
     <version>1.24.22</version>
-    <title>CMake Tools</title>
+    <title>Visual Studio Code Extension - CMake Tools</title>
     <authors>ms-vscode</authors>
     <projectUrl>https://github.com/microsoft/vscode-cmake-tools</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cmake-tools/1.24.22/1781844364783/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cmake-tools/1.24.22/1781844364783/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[<h1 align=center> <img align=center width=48 src="https://github.com/microsoft/vscode-cmake-tools/raw/HEAD/res/logo-margin-bottom.png" alt="CMake Logo"/> CMake Tools </h1>
@@ -107,7 +108,8 @@ This project was started by [@vector-of-bool](https://github.com/vector-of-bool)
 </a>
 ]]></description>
     <summary>Extended CMake support in Visual Studio Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools#changelog</releaseNotes>
     <tags>vscode extension cmake-tools</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

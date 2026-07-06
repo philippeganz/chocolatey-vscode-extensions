@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-java-debug</id>
     <version>0.59.2026061007</version>
-    <title>Debugger for Java</title>
+    <title>Visual Studio Code Extension - Debugger for Java</title>
     <authors>vscjava</authors>
     <projectUrl>https://github.com/Microsoft/vscode-java-debug.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-debug/0.59.2026061007/1781100744008/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-debug/0.59.2026061007/1781100744008/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Debugger for Java
@@ -227,7 +228,8 @@ This extension is licensed under [MIT License](https://github.com/Microsoft/vsco
 VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more. If you don't wish to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` setting to `"off"`. Learn more in our [FAQ](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
 ]]></description>
     <summary>A lightweight Java debugger for Visual Studio Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug#changelog</releaseNotes>
     <tags>vscode extension java-debug</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />

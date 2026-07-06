@@ -3,11 +3,12 @@
   <metadata>
     <id>vscode-hcl</id>
     <version>0.6.0</version>
-    <title>HashiCorp HCL</title>
+    <title>Visual Studio Code Extension - HashiCorp HCL</title>
     <authors>hashicorp</authors>
     <projectUrl>https://github.com/hashicorp/vscode-hcl.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://HashiCorp.gallerycdn.vsassets.io/extensions/hashicorp/hcl/0.6.0/1729689056959/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>
+      https://HashiCorp.gallerycdn.vsassets.io/extensions/hashicorp/hcl/0.6.0/1729689056959/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=hashicorp.hcl</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# HCL Extension for Visual Studio Code
