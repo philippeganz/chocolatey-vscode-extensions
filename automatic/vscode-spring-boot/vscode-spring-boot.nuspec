@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-spring-boot</id>
-    <version>2.3.2026063000</version>
+    <version>2.3.2026070400</version>
     <title>Visual Studio Code Extension - Spring Boot Tools</title>
     <authors>vmware</authors>
     <projectUrl>https://github.com/spring-projects/spring-tools.git</projectUrl>
