@@ -129,8 +129,7 @@ Visual Studio Code Dev Containers and related extensions collect telemetry data 
 
 By downloading and using the Visual Studio Dev Containers extension and its related components, you agree to the product [license terms](https://go.microsoft.com/fwlink/?linkid=2077057) and [privacy statement](https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx).
 ]]></description>
-    <summary>Open any folder or repository inside a Docker container and take advantage of Visual
-      Studio Code's full feature set.</summary>
+    <summary>Open any folder or repository inside a Docker container and take advantage of Visual Studio Code's full feature set.</summary>
     <releaseNotes>
       https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers#changelog</releaseNotes>
     <tags>vscode extension remote-containers</tags>

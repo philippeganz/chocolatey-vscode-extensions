@@ -5,7 +5,7 @@
     <version>1.388.0</version>
     <title>Visual Studio Code Extension - GitHub Copilot</title>
     <authors>GitHub</authors>
-    <projectUrl>https://marketplace.visualstudio.com/items?itemName=GitHub.copilot</projectUrl>
+    <projectUrl>https://marketplace.visualstudio.com/items?itemName=github.copilot</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
     <iconUrl>
       https://GitHub.gallerycdn.vsassets.io/extensions/github/copilot/1.388.0/1761326434179/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>

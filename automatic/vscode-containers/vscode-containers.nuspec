@@ -129,8 +129,6 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
     <tags>vscode extension containers</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="1.1.0" />
-      <dependency id="vscode-docker" />
-      <dependency id="vscode-yaml" />
     </dependencies>
   </metadata>
   <files>

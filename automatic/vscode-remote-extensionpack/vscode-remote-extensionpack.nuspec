@@ -129,8 +129,7 @@ The Visual Studio Code Remote Development extension pack and its related extensi
 
 By downloading and using the Visual Studio Remote Development extension pack and its related components, you agree to the product [license terms](https://go.microsoft.com/fwlink/?linkid=2077057) and [privacy statement](https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx).
 ]]></description>
-    <summary>An extension pack that lets you open any folder in a container, on a remote machine, or
-      in WSL and take advantage of VS Code's full feature set.</summary>
+    <summary>An extension pack that lets you open any folder in a container, on a remote machine, or in WSL and take advantage of VS Code's full feature set.</summary>
     <releaseNotes>
       https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack#changelog</releaseNotes>
     <tags>vscode extension remote-extensionpack</tags>
