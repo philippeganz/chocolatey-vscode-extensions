@@ -7,8 +7,7 @@
     <authors>F5DevCentral</authors>
     <projectUrl>https://github.com/f5devcentral/vscode-f5.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://F5DevCentral.gallerycdn.vsassets.io/extensions/f5devcentral/vscode-f5/3.19.0/1772248236015/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://F5DevCentral.gallerycdn.vsassets.io/extensions/f5devcentral/vscode-f5/3.19.0/1772248236015/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=f5devcentral.vscode-f5</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# The F5 VSCode Extension

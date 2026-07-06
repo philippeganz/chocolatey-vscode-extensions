@@ -7,8 +7,7 @@
     <authors>hashicorp</authors>
     <projectUrl>https://github.com/hashicorp/vscode-terraform.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://HashiCorp.gallerycdn.vsassets.io/extensions/hashicorp/terraform/2.39.2026030417/1772624260560/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://HashiCorp.gallerycdn.vsassets.io/extensions/hashicorp/terraform/2.39.2026030417/1772624260560/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Terraform Extension for Visual Studio Code

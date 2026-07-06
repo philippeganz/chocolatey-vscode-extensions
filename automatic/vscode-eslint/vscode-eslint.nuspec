@@ -7,8 +7,7 @@
     <authors>dbaeumer</authors>
     <projectUrl>https://github.com/Microsoft/vscode-eslint.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://dbaeumer.gallerycdn.vsassets.io/extensions/dbaeumer/vscode-eslint/3.0.31/1782116407798/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://dbaeumer.gallerycdn.vsassets.io/extensions/dbaeumer/vscode-eslint/3.0.31/1782116407798/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

@@ -7,8 +7,7 @@
     <authors>VisualStudioExptTeam</authors>
     <projectUrl>https://github.com/MicrosoftDocs/intellicode</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://VisualStudioExptTeam.gallerycdn.vsassets.io/extensions/visualstudioexptteam/intellicode-api-usage-examples/0.2.9/1729726308726/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://VisualStudioExptTeam.gallerycdn.vsassets.io/extensions/visualstudioexptteam/intellicode-api-usage-examples/0.2.9/1729726308726/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=visualstudioexptteam.intellicode-api-usage-examples</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -31,8 +30,7 @@ This feature currently supports Python, JavaScript and TypeScript (including JSX
 
 ## How does it work?
 It uses a scan of public GitHub repositories, which creates a mapping from function names to code snippets. These code snippets represent real world usages of those functions. The mapping is used to provide the examples you see when using the feature, via a web service. When you hover a function, the feature only ever sends the names of functions found in public open source repos to the service. It will never send your own custom function names. You can read more about the privacy characteristics of the feature [here](https://aka.ms/apiexamplesprivacy)]]></description>
-    <summary>See relevant code examples from GitHub for over 100K different APIs right in your
-      editor.</summary>
+    <summary>See relevant code examples from GitHub for over 100K different APIs right in your editor.</summary>
     <releaseNotes>
       https://marketplace.visualstudio.com/items?itemName=visualstudioexptteam.intellicode-api-usage-examples#changelog</releaseNotes>
     <tags>vscode extension intellicode-api-usage-examples</tags>

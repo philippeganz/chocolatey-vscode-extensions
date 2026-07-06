@@ -7,8 +7,7 @@
     <authors>DavidAnson</authors>
     <projectUrl>https://github.com/DavidAnson/vscode-markdownlint.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://DavidAnson.gallerycdn.vsassets.io/extensions/davidanson/vscode-markdownlint/0.61.2/1774828896376/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://DavidAnson.gallerycdn.vsassets.io/extensions/davidanson/vscode-markdownlint/0.61.2/1774828896376/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=davidanson.vscode-markdownlint</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

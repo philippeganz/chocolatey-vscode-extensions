@@ -7,8 +7,7 @@
     <authors>ms-kubernetes-tools</authors>
     <projectUrl>https://github.com/vscode-kubernetes-tools/vscode-kubernetes-tools</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://ms-kubernetes-tools.gallerycdn.vsassets.io/extensions/ms-kubernetes-tools/vscode-kubernetes-tools/1.4.0/1780010813118/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-kubernetes-tools.gallerycdn.vsassets.io/extensions/ms-kubernetes-tools/vscode-kubernetes-tools/1.4.0/1780010813118/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

@@ -73,11 +73,11 @@ if (-not (Test-Path $OutputDir)) {
 
 $extensionsList = [System.Collections.Generic.List[string]]::new()
 if ($ExtensionId) {
-    $extensionsList.Add($ExtensionId)
+    $extensionsList.Add($ExtensionId.ToLower())
 }
 else {
     foreach ($ext in $yamlObj.extensions) {
-        $extensionsList.Add([string]$ext)
+        $extensionsList.Add(([string]$ext).ToLower())
     }
 }
 
@@ -159,9 +159,9 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $displayName = $extMeta.displayName
     $descriptionRaw = $extMeta.shortDescription
     $descriptionRaw = $descriptionRaw -replace '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', '[email removed]'
-    
+
     $descriptionEscaped = [System.Security.SecurityElement]::Escape($descriptionRaw)
-    
+
     $summaryRaw = $descriptionRaw
     if ($summaryRaw.Length -gt 4000) { $summaryRaw = $summaryRaw.Substring(0, 3996) + "..." }
 
@@ -193,7 +193,8 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     # =========================================================================
     if ($UpdateMetadata) {
         $packageJson = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir -ExtractPackageJsonOnly
-    } else {
+    }
+    else {
         $packageJson = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
     }
 
@@ -225,9 +226,10 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
                 $discoveredDeps.Add($depPackageName)
 
                 # Auto-Discovery: Queue the dependency for scaffolding if we aren't already tracking it
-                if (-not $extensionsList.Contains($dep)) {
-                    Write-Host "    [AUTO-DISCOVERY] Queuing missing dependency: $dep" -ForegroundColor Magenta
-                    $extensionsList.Add($dep)
+                $depLower = $dep.ToLower()
+                if (-not $extensionsList.Contains($depLower)) {
+                    Write-Host "    [AUTO-DISCOVERY] Queuing missing dependency: $depLower" -ForegroundColor Magenta
+                    $extensionsList.Add($depLower)
                 }
             }
         }
@@ -248,9 +250,10 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
                 $discoveredDeps.Add($depPackageName)
 
                 # Auto-Discovery: Queue the dependency for scaffolding if we aren't already tracking it
-                if (-not $extensionsList.Contains($dep)) {
-                    Write-Host "    [AUTO-DISCOVERY] Queuing missing dependency: $dep" -ForegroundColor Magenta
-                    $extensionsList.Add($dep)
+                $depLower = $dep.ToLower()
+                if (-not $extensionsList.Contains($depLower)) {
+                    Write-Host "    [AUTO-DISCOVERY] Queuing missing dependency: $depLower" -ForegroundColor Magenta
+                    $extensionsList.Add($depLower)
                 }
             }
         }
@@ -280,7 +283,8 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     if ($UpdateMetadata -and (Test-Path $nuspecPath)) {
         Write-Host "    Updating existing Nuspec XML natively to preserve manual description..."
 
-        $xml = [xml](Get-Content $nuspecPath -Encoding UTF8)
+        $xml = New-Object System.Xml.XmlDocument
+        $xml.Load((Resolve-Path $nuspecPath).Path)
         $ns = $xml.DocumentElement.NamespaceURI
 
         $xml.package.metadata.title = "Visual Studio Code Extension - $displayName"
@@ -310,7 +314,12 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
             $depsNode.AppendChild($depElement) | Out-Null
         }
 
-        $xml.Save($nuspecPath)
+        $settings = New-Object System.Xml.XmlWriterSettings
+        $settings.Indent = $true
+        $settings.IndentChars = "  "
+        $writer = [System.Xml.XmlWriter]::Create((Resolve-Path $nuspecPath).Path, $settings)
+        $xml.Save($writer)
+        $writer.Dispose()
     }
     else {
         $nuspecContent = Get-Content (Join-Path $templatesDir "template.nuspec") -Raw -Encoding UTF8

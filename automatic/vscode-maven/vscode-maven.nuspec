@@ -7,8 +7,7 @@
     <authors>vscjava</authors>
     <projectUrl>https://github.com/Microsoft/vscode-maven.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-maven/0.45.2026052803/1780974462926/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-maven/0.45.2026052803/1780974462926/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Maven for Java
@@ -212,8 +211,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 Refer to [CHANGELOG](https://github.com/Microsoft/vscode-maven/blob/HEAD/CHANGELOG.md)
 ]]></description>
-    <summary>Manage Maven projects, execute goals, generate project from archetype, improve user
-      experience for Java developers.</summary>
+    <summary>Manage Maven projects, execute goals, generate project from archetype, improve user experience for Java developers.</summary>
     <releaseNotes>
       https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven#changelog</releaseNotes>
     <tags>vscode extension maven</tags>

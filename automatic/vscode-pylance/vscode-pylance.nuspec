@@ -7,8 +7,7 @@
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/pylance-release</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/vscode-pylance/2026.2.106/1782488767651/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/vscode-pylance/2026.2.106/1782488767651/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[Pylance

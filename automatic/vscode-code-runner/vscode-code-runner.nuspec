@@ -7,8 +7,7 @@
     <authors>formulahendry</authors>
     <projectUrl>https://github.com/formulahendry/vscode-code-runner.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://formulahendry.gallerycdn.vsassets.io/extensions/formulahendry/code-runner/0.12.2/1712309175692/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://formulahendry.gallerycdn.vsassets.io/extensions/formulahendry/code-runner/0.12.2/1712309175692/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Code Runner
@@ -234,10 +233,7 @@ Submit the [issues](https://github.com/formulahendry/vscode-code-runner/issues) 
 ## Contribution
 Fork the [repo](https://github.com/formulahendry/vscode-code-runner) and submit pull requests.
 ]]></description>
-    <summary>Run C, C++, Java, JS, PHP, Python, Perl, Ruby, Go, Lua, Groovy, PowerShell, CMD,
-      BASH, F#, C#, VBScript, TypeScript, CoffeeScript, Scala, Swift, Julia, Crystal, OCaml,
-      R, AppleScript, Elixir, VB.NET, Clojure, Haxe, Obj-C, Rust, Racket, Scheme, AutoHotkey,
-      AutoIt, Kotlin, Dart, Pascal, Haskell, Nim, </summary>
+    <summary>Run C, C++, Java, JS, PHP, Python, Perl, Ruby, Go, Lua, Groovy, PowerShell, CMD, BASH, F#, C#, VBScript, TypeScript, CoffeeScript, Scala, Swift, Julia, Crystal, OCaml, R, AppleScript, Elixir, VB.NET, Clojure, Haxe, Obj-C, Rust, Racket, Scheme, AutoHotkey, AutoIt, Kotlin, Dart, Pascal, Haskell, Nim, </summary>
     <releaseNotes>
       https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner#changelog</releaseNotes>
     <tags>vscode extension code-runner</tags>

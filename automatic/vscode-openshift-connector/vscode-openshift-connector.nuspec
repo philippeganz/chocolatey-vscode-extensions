@@ -7,8 +7,7 @@
     <authors>redhat</authors>
     <projectUrl>https://github.com/redhat-developer/vscode-openshift-tools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-openshift-connector/1.21.1/1762258372564/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-openshift-connector/1.21.1/1762258372564/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=redhat.vscode-openshift-connector</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

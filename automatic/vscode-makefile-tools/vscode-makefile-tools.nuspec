@@ -7,8 +7,7 @@
     <authors>ms-vscode</authors>
     <projectUrl>https://github.com/Microsoft/vscode-makefile-tools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/makefile-tools/0.13.37/1781844103014/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/makefile-tools/0.13.37/1781844103014/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[<h1 align=center> <img align=center width=48 src="https://github.com/Microsoft/vscode-makefile-tools/raw/HEAD/res/makefile-logo-no-background.png" alt="Makefile Logo"/> Makefile Tools </h1>

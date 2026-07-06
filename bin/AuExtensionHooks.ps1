@@ -1,4 +1,4 @@
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
+﻿[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 <#
@@ -91,13 +91,13 @@ function global:au_SearchReplace {
             "(?i)($ExtensionPublisher\.$ExtensionName-)[\d\.]+(\.vsix)" = "`${1}$($Latest.Version)`${2}"
         }
     }
-    
+
     if ($Latest.IconUrl) {
         $rules["*.nuspec"] = @{
             "(?is)<iconUrl>.*?</iconUrl>" = "<iconUrl>$($Latest.IconUrl)</iconUrl>"
         }
     }
-    
+
     return $rules
 }
 

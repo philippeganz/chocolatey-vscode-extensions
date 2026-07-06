@@ -7,8 +7,7 @@
     <authors>vscode-icons-team</authors>
     <projectUrl>https://github.com/vscode-icons/vscode-icons</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://vscode-icons-team.gallerycdn.vsassets.io/extensions/vscode-icons-team/vscode-icons/12.19.0/1782585231472/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://vscode-icons-team.gallerycdn.vsassets.io/extensions/vscode-icons-team/vscode-icons/12.19.0/1782585231472/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[<div align="center">

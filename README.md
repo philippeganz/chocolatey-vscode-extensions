@@ -40,6 +40,7 @@ This repository solves that. We maintain **"Pure Packages"** where the `.vsix` p
 ### What these packages affect
 
 When you install an extension from this repository, it affects your local VS Code environment:
+
 - The raw `.vsix` extension payload is natively unpacked into your user profile (`%USERPROFILE%\.vscode\extensions`).
 - Chocolatey registers the installation so it can be cleanly uninstalled or upgraded via CLI.
 - No OS-level services or firewall rules are modified by default.

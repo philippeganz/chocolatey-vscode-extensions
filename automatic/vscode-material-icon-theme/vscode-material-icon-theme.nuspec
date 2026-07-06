@@ -7,8 +7,7 @@
     <authors>PKief</authors>
     <projectUrl>git+https://github.com/material-extensions/vscode-material-icon-theme.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://PKief.gallerycdn.vsassets.io/extensions/pkief/material-icon-theme/5.36.1/1782238809254/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://PKief.gallerycdn.vsassets.io/extensions/pkief/material-icon-theme/5.36.1/1782238809254/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[<!-- markdownlint-disable -->

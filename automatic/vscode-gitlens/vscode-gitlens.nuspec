@@ -7,8 +7,7 @@
     <authors>eamodio</authors>
     <projectUrl>https://github.com/gitkraken/vscode-gitlens.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://eamodio.gallerycdn.vsassets.io/extensions/eamodio/gitlens/2026.6.300615/1782814624272/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://eamodio.gallerycdn.vsassets.io/extensions/eamodio/gitlens/2026.6.300615/1782814624272/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[> Supercharge Git and unlock **untapped knowledge** within your repo to better **understand**, **write**, and **review** code. Focus, collaborate, accelerate.
@@ -475,9 +474,7 @@ All files in or under any directory named "plus" fall under LICENSE.plus.
 
 The remaining files fall under the MIT license.
 ]]></description>
-    <summary>Supercharge Git within VS Code — Visualize code authorship at a glance via Git blame
-      annotations and CodeLens, seamlessly navigate and explore Git repositories, gain valuable
-      insights via rich visualizations and powerful comparison commands, and so much more</summary>
+    <summary>Supercharge Git within VS Code — Visualize code authorship at a glance via Git blame annotations and CodeLens, seamlessly navigate and explore Git repositories, gain valuable insights via rich visualizations and powerful comparison commands, and so much more</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#changelog</releaseNotes>
     <tags>vscode extension gitlens</tags>
     <dependencies>

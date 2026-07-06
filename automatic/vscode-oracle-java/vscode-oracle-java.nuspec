@@ -7,8 +7,7 @@
     <authors>Oracle</authors>
     <projectUrl>https://github.com/oracle/javavscode</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://Oracle.gallerycdn.vsassets.io/extensions/oracle/oracle-java/26.0.0/1780905052521/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://Oracle.gallerycdn.vsassets.io/extensions/oracle/oracle-java/26.0.0/1780905052521/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=Oracle.oracle-java</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[<!--

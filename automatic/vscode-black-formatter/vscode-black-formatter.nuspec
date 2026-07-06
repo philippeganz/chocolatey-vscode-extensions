@@ -7,8 +7,7 @@
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/vscode-black-formatter.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/black-formatter/2026.7.11811009/1782816244965/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/black-formatter/2026.7.11811009/1782816244965/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Formatter extension for Visual Studio Code using the Black formatter

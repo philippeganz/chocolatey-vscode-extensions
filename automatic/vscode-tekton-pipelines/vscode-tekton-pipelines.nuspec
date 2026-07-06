@@ -7,8 +7,7 @@
     <authors>redhat</authors>
     <projectUrl>https://github.com/redhat-developer/vscode-tekton.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-tekton-pipelines/1.1.0/1669943505057/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-tekton-pipelines/1.1.0/1669943505057/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-tekton-pipelines</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# <img src="https://raw.githubusercontent.com/redhat-developer/vscode-tekton/main/images/tekton.png" width="30" height="30" /><span style="margin: 5px">Tekton Pipelines

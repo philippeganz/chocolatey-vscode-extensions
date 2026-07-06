@@ -7,8 +7,7 @@
     <authors>ms-vsliveshare</authors>
     <projectUrl>https://github.com/MicrosoftDocs/live-share</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://MS-vsliveshare.gallerycdn.vsassets.io/extensions/ms-vsliveshare/vsliveshare/1.1.122/1775530401653/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://MS-vsliveshare.gallerycdn.vsassets.io/extensions/ms-vsliveshare/vsliveshare/1.1.122/1775530401653/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Microsoft Visual Studio Live Share

@@ -7,8 +7,7 @@
     <authors>github</authors>
     <projectUrl>https://github.com/github/vscode-github-actions</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-github-actions/0.32.1/1782498285743/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-github-actions/0.32.1/1782498285743/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# GitHub Actions for VS Code

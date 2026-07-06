@@ -7,8 +7,7 @@
     <authors>vscjava</authors>
     <projectUrl>https://github.com/Microsoft/vscode-java-pack</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-pack/0.31.2026060907/1780990629973/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-pack/0.31.2026060907/1780990629973/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Extension Pack for Java
@@ -88,8 +87,7 @@ This extension collects telemetry data to help us improve the Java development e
 
 Happy Coding!
 ]]></description>
-    <summary>Popular extensions for Java development that provides Java IntelliSense, debugging,
-      testing, Maven/Gradle support, project management and more</summary>
+    <summary>Popular extensions for Java development that provides Java IntelliSense, debugging, testing, Maven/Gradle support, project management and more</summary>
     <releaseNotes>
       https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack#changelog</releaseNotes>
     <tags>vscode extension java-pack</tags>

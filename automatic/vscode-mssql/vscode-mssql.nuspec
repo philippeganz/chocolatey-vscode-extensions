@@ -7,8 +7,7 @@
     <authors>ms-mssql</authors>
     <projectUrl>https://github.com/Microsoft/vscode-mssql.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://ms-mssql.gallerycdn.vsassets.io/extensions/ms-mssql/mssql/1.43.0/1780378053147/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-mssql.gallerycdn.vsassets.io/extensions/ms-mssql/mssql/1.43.0/1780378053147/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[[![Roadmap 2026](https://img.shields.io/badge/Roadmap%202026-green?logo=github)](https://aka.ms/vscode-mssql-roadmap#2026)
@@ -466,8 +465,7 @@ The [Microsoft Enterprise and Developer Privacy Statement](https://go.microsoft.
 
 This extension is [licensed under the MIT License](https://github.com/Microsoft/vscode-mssql/blob/main/mssql/LICENSE.txt). Please see the [third-party notices](https://github.com/Microsoft/vscode-mssql/blob/main/mssql/ThirdPartyNotices.txt) file for additional copyright notices and license terms applicable to portions of the software.
 ]]></description>
-    <summary>Design and optimize schemas for SQL Server, Azure SQL, and SQL Database in Fabric using
-      a modern, lightweight extension built for developers</summary>
+    <summary>Design and optimize schemas for SQL Server, Azure SQL, and SQL Database in Fabric using a modern, lightweight extension built for developers</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql#changelog</releaseNotes>
     <tags>vscode extension mssql</tags>
     <dependencies>

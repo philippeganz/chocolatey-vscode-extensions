@@ -7,8 +7,7 @@
     <authors>Tim-Koehler</authors>
     <projectUrl>https://github.com/tim-koehler/Helm-Intellisense</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://Tim-Koehler.gallerycdn.vsassets.io/extensions/tim-koehler/helm-intellisense/0.15.0/1746220925164/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://Tim-Koehler.gallerycdn.vsassets.io/extensions/tim-koehler/helm-intellisense/0.15.0/1746220925164/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=tim-koehler.helm-intellisense</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[<h1 align="center">Helm-Intellisense</h1>

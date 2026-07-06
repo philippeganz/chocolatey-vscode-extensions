@@ -7,8 +7,7 @@
     <authors>redhat</authors>
     <projectUrl>https://github.com/redhat-developer/vscode-redhat-account</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-redhat-account/0.2.0/1712252352544/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-redhat-account/0.2.0/1712252352544/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-redhat-account</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/redhat.vscode-redhat-account?style=for-the-badge&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-redhat-account)

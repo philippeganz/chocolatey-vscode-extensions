@@ -7,8 +7,7 @@
     <authors>vscjava</authors>
     <projectUrl>https://github.com/Microsoft/vscode-java-dependency.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-dependency/0.27.2026062300/1782178306937/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-dependency/0.27.2026062300/1782178306937/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

@@ -7,8 +7,7 @@
     <authors>ms-dotnettools</authors>
     <projectUrl>https://github.com/dotnet/vscode-dotnet-runtime.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://ms-dotnettools.gallerycdn.vsassets.io/extensions/ms-dotnettools/vscode-dotnet-runtime/3.1.0/1781201336184/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-dotnettools.gallerycdn.vsassets.io/extensions/ms-dotnettools/vscode-dotnet-runtime/3.1.0/1781201336184/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-runtime</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

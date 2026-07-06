@@ -5,10 +5,9 @@
     <version>23.4.1</version>
     <title>Visual Studio Code Extension - Oracle Developer Tools for VS Code (SQL and PLSQL)</title>
     <authors>Oracle</authors>
-    <projectUrl>https://marketplace.visualstudio.com/items?itemName=Oracle.oracledevtools</projectUrl>
+    <projectUrl>https://marketplace.visualstudio.com/items?itemName=oracle.oracledevtools</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://Oracle.gallerycdn.vsassets.io/extensions/oracle/oracledevtools/23.4.1/1724949901572/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://Oracle.gallerycdn.vsassets.io/extensions/oracle/oracledevtools/23.4.1/1724949901572/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=Oracle.oracledevtools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

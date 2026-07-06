@@ -7,8 +7,7 @@
     <authors>VisualStudioExptTeam</authors>
     <projectUrl>https://github.com/MicrosoftDocs/intellicode</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://VisualStudioExptTeam.gallerycdn.vsassets.io/extensions/visualstudioexptteam/vscodeintellicode/1.3.2/1729726946695/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://VisualStudioExptTeam.gallerycdn.vsassets.io/extensions/visualstudioexptteam/vscodeintellicode/1.3.2/1729726946695/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

@@ -7,8 +7,7 @@
     <authors>Oracle</authors>
     <projectUrl>https://github.com/mysql/mysql-shell-plugins</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://Oracle.gallerycdn.vsassets.io/extensions/oracle/mysql-shell-for-vs-code/2026.5.0/1780328255347/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://Oracle.gallerycdn.vsassets.io/extensions/oracle/mysql-shell-for-vs-code/2026.5.0/1780328255347/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=Oracle.mysql-shell-for-vs-code</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# MySQL Shell for VS Code 2026.5.0+9.7.0

@@ -7,8 +7,7 @@
     <authors>vmware</authors>
     <projectUrl>https://github.com/spring-projects/spring-tools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://vmware.gallerycdn.vsassets.io/extensions/vmware/vscode-spring-boot/2.3.2026063000/1782782248368/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://vmware.gallerycdn.vsassets.io/extensions/vmware/vscode-spring-boot/2.3.2026063000/1782782248368/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# VS Code Language Server for Spring Boot
@@ -158,8 +157,7 @@ open vscode, press `CTRL-SHIFT-P` and search for VSIX, then select `Extension: I
 
 *Version: 2.3.0-PRE-RELEASE*
 ]]></description>
-    <summary>Provides validation and content assist for Spring Boot `application.properties`,
-      `application.yml` properties files. As well as Boot-specific support for `.java` files.</summary>
+    <summary>Provides validation and content assist for Spring Boot `application.properties`, `application.yml` properties files. As well as Boot-specific support for `.java` files.</summary>
     <releaseNotes>
       https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot#changelog</releaseNotes>
     <tags>vscode extension spring-boot</tags>

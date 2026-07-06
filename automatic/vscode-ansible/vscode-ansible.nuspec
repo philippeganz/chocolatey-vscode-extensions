@@ -7,8 +7,7 @@
     <authors>redhat</authors>
     <projectUrl>git+https://github.com/ansible/vscode-ansible.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://redhat.gallerycdn.vsassets.io/extensions/redhat/ansible/26.6.0/1780306951951/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/ansible/26.6.0/1780306951951/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.ansible</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Ansible VS Code Extension

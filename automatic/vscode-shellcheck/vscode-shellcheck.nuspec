@@ -7,8 +7,7 @@
     <authors>timonwong</authors>
     <projectUrl>https://github.com/vscode-shellcheck/vscode-shellcheck.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://timonwong.gallerycdn.vsassets.io/extensions/timonwong/shellcheck/0.39.5/1778339305104/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://timonwong.gallerycdn.vsassets.io/extensions/timonwong/shellcheck/0.39.5/1778339305104/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=timonwong.shellcheck</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# ShellCheck for Visual Studio Code

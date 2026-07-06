@@ -7,8 +7,7 @@
     <authors>ms-azuretools</authors>
     <projectUrl>https://github.com/Azure/vscode-azureterraform.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-azureterraform/0.10.1/1780629438640/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-azureterraform/0.10.1/1780629438640/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureterraform</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

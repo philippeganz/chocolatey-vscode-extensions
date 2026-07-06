@@ -7,8 +7,7 @@
     <authors>redhat</authors>
     <projectUrl>https://github.com/redhat-developer/vscode-java</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://redhat.gallerycdn.vsassets.io/extensions/redhat/java/1.55.2026062708/1782551076708/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/java/1.55.2026062708/1782551076708/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.java</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[Language support for Java &trade; for Visual Studio Code

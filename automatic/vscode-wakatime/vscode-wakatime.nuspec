@@ -7,8 +7,7 @@
     <authors>WakaTime</authors>
     <projectUrl>https://github.com/wakatime/vscode-wakatime.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://WakaTime.gallerycdn.vsassets.io/extensions/wakatime/vscode-wakatime/30.2.1/1781275727798/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://WakaTime.gallerycdn.vsassets.io/extensions/wakatime/vscode-wakatime/30.2.1/1781275727798/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=WakaTime.vscode-wakatime</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# WakaTime for Visual Studio Code
@@ -143,8 +142,7 @@ Made with :heart: by the [WakaTime Team][about].
 [issues]: https://github.com/wakatime/vscode-wakatime/issues
 [about]: https://wakatime.com/about
 ]]></description>
-    <summary>Metrics, insights, and time tracking automatically generated from your programming
-      activity.</summary>
+    <summary>Metrics, insights, and time tracking automatically generated from your programming activity.</summary>
     <releaseNotes>
       https://marketplace.visualstudio.com/items?itemName=WakaTime.vscode-wakatime#changelog</releaseNotes>
     <tags>vscode extension wakatime</tags>

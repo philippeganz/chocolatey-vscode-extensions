@@ -7,8 +7,7 @@
     <authors>ms-toolsai</authors>
     <projectUrl>https://github.com/Microsoft/vscode-notebook-renderers</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://ms-toolsai.gallerycdn.vsassets.io/extensions/ms-toolsai/jupyter-renderers/1.3.2025062701/1751008411968/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-toolsai.gallerycdn.vsassets.io/extensions/ms-toolsai/jupyter-renderers/1.3.2025062701/1751008411968/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-renderers</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Renderers for Jupyter Notebooks in Visual Studio Code
@@ -57,8 +56,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [[email removed]](mailto:[email removed]) with any additional questions or comments.
 ]]></description>
-    <summary>Renderers for Jupyter Notebooks (with plotly, vega, gif, png, svg, jpeg and other such
-      outputs)</summary>
+    <summary>Renderers for Jupyter Notebooks (with plotly, vega, gif, png, svg, jpeg and other such outputs)</summary>
     <releaseNotes>
       https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-renderers#changelog</releaseNotes>
     <tags>vscode extension jupyter-renderers</tags>

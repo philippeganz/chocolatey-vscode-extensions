@@ -7,8 +7,7 @@
     <authors>vscjava</authors>
     <projectUrl>https://github.com/Microsoft/vscode-java-debug.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-debug/0.59.2026061007/1781100744008/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-debug/0.59.2026061007/1781100744008/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[# Debugger for Java
