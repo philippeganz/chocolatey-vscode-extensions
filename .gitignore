@@ -2,6 +2,7 @@
 *.tmp
 *.retry
 .vscode/
+.mailmap
 
 # Chocolatey AU specific
 *.nupkg
