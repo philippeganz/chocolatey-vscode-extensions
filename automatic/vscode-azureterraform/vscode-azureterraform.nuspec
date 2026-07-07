@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-azureterraform</id>
-    <version>0.10.1</version>
+    <version>0.10.2</version>
     <title>Visual Studio Code Extension - Microsoft Terraform</title>
     <authors>ms-azuretools</authors>
     <projectUrl>https://github.com/Azure/vscode-azureterraform.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-azureterraform/0.10.1/1780629438640/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-azureterraform/0.10.2/1783039274983/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureterraform</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

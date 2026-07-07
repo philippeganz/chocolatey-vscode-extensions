@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-pylance</id>
-    <version>2026.2.106</version>
+    <version>2026.2.107</version>
     <title>Visual Studio Code Extension - Pylance</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/pylance-release</projectUrl>
