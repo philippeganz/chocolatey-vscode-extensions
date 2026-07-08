@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Centralized helper module for interacting with the Visual Studio Code Marketplace API.
 Contains robust, self-healing functions to abstract away API quirks, rate limits,
@@ -144,48 +144,71 @@ function Expand-VsCodePayload {
 
         if (-not $ExtractPackageJsonOnly) {
             if ($readmeEntry) {
-                $readmePath = Join-Path $DestinationDir "README.md"
+                $readmePath = Join-Path $DestinationDir "tools\README.md"
                 [System.IO.Compression.ZipFileExtensions]::ExtractToFile($readmeEntry, $readmePath, $true)
 
                 # Scrub emails from the README itself to pass Chocolatey Moderation checks.
                 $readmeRaw = Get-Content $readmePath -Raw -Encoding UTF8
                 $readmeRaw = $readmeRaw -replace '(?i)[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}', '[email removed]'
+                $readmeFull = $readmeRaw
 
                 # Semantically truncate to comply with Chocolatey's 4000 character `<description>` limit
                 $limit = 3900
                 if ($readmeRaw.Length -gt $limit) {
                     $searchSpace = $readmeRaw.Substring(0, $limit)
+                    $truncated = ""
+
                     $match = [regex]::Match($searchSpace, '(?is).*(</table>|</ul>|</ol>|</p>|</div>|</pre>|</blockquote>|\r?\n[ \t]*\r?\n|</tr>|</li>|</dd>)')
-                    if ($match.Success -and $match.Length -gt 2000) {
-                        $readmeRaw = $match.Value
-                    } else {
+                    if ($match.Success -and $match.Length -gt 1500) {
+                        $truncated = $match.Value
+                    }
+                    else {
                         $match = [regex]::Match($searchSpace, '(?is).*\.(?=\s)')
-                        if ($match.Success -and $match.Length -gt 2000) {
-                            $readmeRaw = $match.Value
-                        } else {
+                        if ($match.Success -and $match.Length -gt 1500) {
+                            $truncated = $match.Value
+                        }
+                        else {
                             $match = [regex]::Match($searchSpace, '(?is).*(?=\r?\n)')
-                            if ($match.Success -and $match.Length -gt 2000) {
-                                $readmeRaw = $match.Value
-                            } else {
+                            if ($match.Success -and $match.Length -gt 1500) {
+                                $truncated = $match.Value
+                            }
+                            else {
                                 $idx = $searchSpace.LastIndexOf(' ')
                                 if ($idx -gt 0) {
-                                    $readmeRaw = $searchSpace.Substring(0, $idx)
-                                } else {
-                                    $readmeRaw = $searchSpace
+                                    $truncated = $searchSpace.Substring(0, $idx)
+                                }
+                                else {
+                                    $truncated = $searchSpace
                                 }
                             }
                         }
                     }
-                    $readmeRaw = $readmeRaw.TrimEnd() + "`n`n... [Truncated due to Chocolatey character limits. See extension page for full documentation]"
+
+                    $truncated = $truncated.TrimEnd()
+
+                    # Auto-close any unclosed HTML tags (from innermost to outermost) to prevent layout breaking
+                    $tagsToBalance = @("td", "th", "tr", "thead", "tbody", "table", "li", "ul", "ol", "pre", "div", "blockquote", "dd", "dl")
+                    foreach ($tag in $tagsToBalance) {
+                        $open = ([regex]::Matches($truncated, "(?i)<$tag\b")).Count
+                        $close = ([regex]::Matches($truncated, "(?i)</$tag>")).Count
+                        if ($open -gt $close) {
+                            for ($i = 0; $i -lt ($open - $close); $i++) {
+                                $truncated += "</$tag>"
+                            }
+                        }
+                    }
+
+                    $readmeRaw = $truncated + "`n`n... [Truncated due to Chocolatey character limits. See extension page for full documentation]"
                 }
 
+                # We save the FULL readme back to tools/README.md for the user, but we will return the $readmeRaw (which is truncated) for the nuspec
                 $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-                [System.IO.File]::WriteAllText($readmePath, $readmeRaw, $utf8NoBom)
+                [System.IO.File]::WriteAllText($readmePath, $readmeFull, $utf8NoBom)
             }
 
             if ($licenseEntry) {
                 $licenseFileName = $licenseEntry.Name
-                [System.IO.Compression.ZipFileExtensions]::ExtractToFile($licenseEntry, (Join-Path $DestinationDir $licenseFileName), $true)
+                [System.IO.Compression.ZipFileExtensions]::ExtractToFile($licenseEntry, (Join-Path $DestinationDir "tools\$licenseFileName"), $true)
             }
         }
     }
@@ -195,7 +218,10 @@ function Expand-VsCodePayload {
         }
     }
 
-    return $packageJson
+    return [PSCustomObject]@{
+        PackageJson     = $packageJson
+        TruncatedReadme = $readmeRaw
+    }
 }
 
 Export-ModuleMember -Function Get-VsCodeMarketplaceMetadata, Get-VsCodeExtensionUrl, Invoke-RobustDownload, Expand-VsCodePayload
