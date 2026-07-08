@@ -29,6 +29,9 @@ jobs:
       - name: Upgrade Chocolatey
         run: choco upgrade chocolatey -y --no-progress
 
+      - name: Install Chocolatey Community Validation Extension
+        run: choco install chocolatey-community-validation.extension -y --no-progress
+
       - name: Install Chocolatey AU Module
         shell: powershell
         run: |
