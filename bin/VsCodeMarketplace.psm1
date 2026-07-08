@@ -150,6 +150,12 @@ function Expand-VsCodePayload {
                 # Scrub emails from the README itself to pass Chocolatey Moderation checks.
                 $readmeRaw = Get-Content $readmePath -Raw -Encoding UTF8
                 $readmeRaw = $readmeRaw -replace '(?i)[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}', '[email removed]'
+                
+                # Truncate to comply with Chocolatey's 4000 character `<description>` limit
+                if ($readmeRaw.Length -gt 3900) {
+                    $readmeRaw = $readmeRaw.Substring(0, 3900) + "`n`n... [Truncated due to Chocolatey character limits. See extension page for full documentation]"
+                }
+
                 $utf8NoBom = New-Object System.Text.UTF8Encoding $false
                 [System.IO.File]::WriteAllText($readmePath, $readmeRaw, $utf8NoBom)
             }
