@@ -1,4 +1,5 @@
-name: "Enforce Branch Naming"
+---
+name: Enforce Branch Naming
 on:
   pull_request:
     types: [opened, synchronize, reopened]
