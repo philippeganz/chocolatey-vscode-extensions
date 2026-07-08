@@ -155,7 +155,11 @@ if ($ModerationRepush) {
         $upstreamVersion = $latestMeta.Version
         Write-Host "    Target Upstream Version: $upstreamVersion"
 
-        # 2. Hardcode the exact version into the .nuspec
+        # 2. Download the VSIX payload and extract fresh documentation FIRST
+        $global:Latest = $latestMeta
+        au_BeforeUpdate -package @{ Path = $pkgDir }
+
+        # 3. Hardcode the exact version into the .nuspec
         $nuspecPath = Join-Path $pkgDir "$pkg.nuspec"
         $nuspec = [xml](Get-Content $nuspecPath -Encoding UTF8)
         $nuspec.package.metadata.version = $upstreamVersion
@@ -171,10 +175,6 @@ if ($ModerationRepush) {
         }
 
         $nuspec.Save($nuspecPath)
-
-        # 3. Download the VSIX payload
-        $global:Latest = $latestMeta
-        au_BeforeUpdate -package @{ Path = $pkgDir }
 
         # 4. Pack and Push natively to bypass AU's timestamp logic
         Write-Host "    Compiling Payload..."
