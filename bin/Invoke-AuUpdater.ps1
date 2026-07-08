@@ -56,21 +56,8 @@ $opts = [ordered]@{
     Force = if ($ForcedPackages) { $true } else { $false }
 }
 
-# Resolve the path to the packages directory from config.yaml to adhere to DRY principles
-if (-not (Get-Module -ListAvailable powershell-yaml)) { Install-Module powershell-yaml -Force -Scope CurrentUser }
-Import-Module powershell-yaml -ErrorAction SilentlyContinue
 
-$configFile = Join-Path $PSScriptRoot "config.yaml"
-if (-not (Test-Path $configFile)) { throw "Configuration file not found: $configFile" }
-$yamlObj = Get-Content $configFile -Raw -Encoding UTF8 | ConvertFrom-Yaml
-$packagesDir = $yamlObj.config.output_dir
-
-if (-not [System.IO.Path]::IsPathRooted($packagesDir)) {
-    $packagesDir = Resolve-Path (Join-Path $PSScriptRoot $packagesDir) -ErrorAction SilentlyContinue
-    if (-not $packagesDir) {
-        $packagesDir = Join-Path $PSScriptRoot $yamlObj.config.output_dir
-    }
-}
+$packagesDir = Join-Path (Split-Path $PSScriptRoot -Parent) "automatic"
 
 if (-not (Test-Path $packagesDir)) {
     throw "Configured packages directory not found: $packagesDir"
