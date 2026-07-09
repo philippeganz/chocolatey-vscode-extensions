@@ -1,4 +1,4 @@
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
+﻿[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 <#
@@ -80,7 +80,7 @@ function global:au_BeforeUpdate {
     # Inject the semantically truncated CDATA description into the nuspec
     if ($payloadResult.TruncatedReadme) {
         $cdataSafe = $payloadResult.TruncatedReadme -replace '\]\]>', ']]]]><![CDATA[>'
-        
+
         # Update AU's in-memory XML DOM so it doesn't overwrite our changes later
         if ($package -and $package.NuspecXml) {
             $descNode = $package.NuspecXml.SelectSingleNode("//*[local-name()='description']")
