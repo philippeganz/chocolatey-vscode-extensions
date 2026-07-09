@@ -198,7 +198,8 @@ function Expand-VsCodePayload {
                         }
                     }
 
-                    $readmeRaw = $truncated + "`n`n... [Truncated due to Chocolatey character limits. See extension page for full documentation]"
+                    $marketplaceUrl = "https://marketplace.visualstudio.com/items?itemName=$($packageJson.publisher).$($packageJson.name)"
+                    $readmeRaw = $truncated + "`n`n... [Truncated due to Chocolatey character limits. See [extension page]($marketplaceUrl) for full documentation]"
                 }
 
                 # We save the FULL readme back to tools/README.md for the user, but we will return the $readmeRaw (which is truncated) for the nuspec
