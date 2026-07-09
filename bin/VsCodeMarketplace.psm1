@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
 Centralized helper module for interacting with the Visual Studio Code Marketplace API.
 Contains robust, self-healing functions to abstract away API quirks, rate limits,
@@ -153,7 +153,7 @@ function Expand-VsCodePayload {
                 $readmeFull = $readmeRaw
 
                 # Semantically truncate to comply with Chocolatey's 4000 character `<description>` limit
-                $limit = 3900
+                $limit = 3750
                 if ($readmeRaw.Length -gt $limit) {
                     $searchSpace = $readmeRaw.Substring(0, $limit)
                     $truncated = ""
