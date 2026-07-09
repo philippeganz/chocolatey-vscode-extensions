@@ -152,8 +152,6 @@ Made with :heart: by the [WakaTime Team][about].
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

@@ -1,4 +1,4 @@
-﻿[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 <#
@@ -75,7 +75,32 @@ function global:au_BeforeUpdate {
 
     # Automatically extract the newest README.md and LICENSE from the ZIP payload
     # so AU can natively inject the updated documentation into the Chocolatey package.
-    $null = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $package.Path
+    $payloadResult = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $package.Path
+
+    # Inject the semantically truncated CDATA description into the nuspec
+    if ($payloadResult.TruncatedReadme) {
+        $cdataSafe = $payloadResult.TruncatedReadme -replace '\]\]>', ']]]]><![CDATA[>'
+        
+        # Update AU's in-memory XML DOM so it doesn't overwrite our changes later
+        if ($package -and $package.NuspecXml) {
+            $descNode = $package.NuspecXml.SelectSingleNode("//*[local-name()='description']")
+            if ($descNode) {
+                $descNode.RemoveAll()
+                $cdata = $package.NuspecXml.CreateCDataSection("`n" + $cdataSafe + "`n")
+                $descNode.AppendChild($cdata) | Out-Null
+            }
+        }
+
+        # Update the physical file on disk for immediate tools
+        $descriptionEscaped = "<![CDATA[`n" + $cdataSafe + "`n]]>"
+        $nuspecPath = Join-Path $package.Path "$($package.Name).nuspec"
+        if (Test-Path $nuspecPath) {
+            $nuspecContent = Get-Content $nuspecPath -Raw -Encoding UTF8
+            $nuspecContent = $nuspecContent -replace '(?is)<description>.*?</description>', "<description>$descriptionEscaped</description>"
+            $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+            [System.IO.File]::WriteAllText($nuspecPath, $nuspecContent, $utf8NoBom)
+        }
+    }
 }
 
 # -----------------------------------------------------------------------------

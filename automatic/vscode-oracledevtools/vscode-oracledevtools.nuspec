@@ -193,8 +193,6 @@ Please refer to the [Licensing Information User Manual for Oracle Developer Tool
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

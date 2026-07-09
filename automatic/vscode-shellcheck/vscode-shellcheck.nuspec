@@ -213,8 +213,6 @@ Bundled [ShellCheck] binaries are licensed under [GPLv3](https://github.com/koal
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

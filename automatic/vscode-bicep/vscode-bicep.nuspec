@@ -135,8 +135,6 @@ Use the "Insert Resource" command to quickly import a resource from Azure into a
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

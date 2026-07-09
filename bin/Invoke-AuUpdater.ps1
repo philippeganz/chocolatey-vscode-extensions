@@ -144,22 +144,12 @@ if ($ModerationRepush) {
 
         # 2. Download the VSIX payload and extract fresh documentation FIRST
         $global:Latest = $latestMeta
-        au_BeforeUpdate -package @{ Path = $pkgDir }
+        au_BeforeUpdate -package @{ Path = $pkgDir; Name = $pkg }
 
         # 3. Hardcode the exact version into the .nuspec
         $nuspecPath = Join-Path $pkgDir "$pkg.nuspec"
         $nuspec = [xml](Get-Content $nuspecPath -Encoding UTF8)
         $nuspec.package.metadata.version = $upstreamVersion
-
-        if (Test-Path "README.md") {
-            $readmeData = Get-Content "README.md" -Raw -Encoding UTF8
-            $descNode = $nuspec.SelectSingleNode("//*[local-name()='description']")
-            if ($descNode) {
-                $descNode.RemoveAll()
-                $cdata = $nuspec.CreateCDataSection($readmeData)
-                $descNode.AppendChild($cdata) | Out-Null
-            }
-        }
 
         $nuspec.Save($nuspecPath)
 

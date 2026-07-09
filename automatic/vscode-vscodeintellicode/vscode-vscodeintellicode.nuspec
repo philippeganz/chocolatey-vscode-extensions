@@ -105,8 +105,6 @@ There is much more to come -- [sign up here](https://go.microsoft.com/fwlink/?li
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

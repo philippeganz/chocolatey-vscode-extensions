@@ -245,8 +245,6 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

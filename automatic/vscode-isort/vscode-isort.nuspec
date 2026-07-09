@@ -90,8 +90,6 @@ To open the logs, click on the language status icon (`{}`) on the bottom right o
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

@@ -337,8 +337,6 @@ EPL 2.0, See [LICENSE](https://github.com/redhat-developer/vscode-java/blob/HEAD
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

@@ -458,8 +458,6 @@ See [LICENSE.md](https://github.com/microsoft/vscode-gradle/blob/HEAD/LICENSE.md
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

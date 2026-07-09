@@ -138,8 +138,6 @@ By downloading and using the Visual Studio Dev Containers extension and its rela
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

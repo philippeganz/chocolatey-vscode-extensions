@@ -149,8 +149,6 @@ https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-repo
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

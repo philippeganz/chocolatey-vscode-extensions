@@ -159,8 +159,6 @@ Note that this extension also abides by Visual Studio Code's telemetry level: if
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

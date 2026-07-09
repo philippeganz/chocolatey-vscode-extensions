@@ -391,8 +391,6 @@ Any use of third-party trademarks or logos are subject to those third-party's po
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

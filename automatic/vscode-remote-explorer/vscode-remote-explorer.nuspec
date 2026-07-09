@@ -47,8 +47,6 @@ By downloading and using the Visual Studio **Remote Explorer** extension and its
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

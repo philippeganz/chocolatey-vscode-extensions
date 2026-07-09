@@ -384,8 +384,6 @@ vscode-kubernetes-tools a Series of LF Projects, LLC.
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

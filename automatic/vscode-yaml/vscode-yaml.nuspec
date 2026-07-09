@@ -321,8 +321,6 @@ The instructions are available in the [contribution guide](https://github.com/re
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

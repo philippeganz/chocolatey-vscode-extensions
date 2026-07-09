@@ -110,8 +110,6 @@ Licensed under the [MIT](https://github.com/microsoft/vscode-copilot-chat/blob/H
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

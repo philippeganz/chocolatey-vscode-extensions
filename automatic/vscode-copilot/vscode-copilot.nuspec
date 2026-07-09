@@ -89,8 +89,6 @@ To get the latest security fixes, please use the latest version of the Copilot e
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

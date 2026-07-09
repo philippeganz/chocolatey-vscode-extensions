@@ -40,8 +40,6 @@ It uses a scan of public GitHub repositories, which creates a mapping from funct
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>

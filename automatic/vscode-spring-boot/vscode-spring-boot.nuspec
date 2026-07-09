@@ -169,8 +169,6 @@ open vscode, press `CTRL-SHIFT-P` and search for VSIX, then select `Extension: I
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="README.md" target="." />
-    <file src="LICENSE*" target="." />
     <file src="icon.png" target="." />
   </files>
 </package>
