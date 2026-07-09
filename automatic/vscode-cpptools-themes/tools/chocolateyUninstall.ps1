@@ -1,0 +1,3 @@
+$ErrorActionPreference = 'Stop'
+
+Uninstall-VsCodeExtension -extensionId "ms-vscode.cpptools-themes"
