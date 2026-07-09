@@ -10,7 +10,8 @@
     <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/remote-explorer/0.6.2026031809/1773825461230/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Visual Studio Code Remote Explorer
+    <description><![CDATA[
+# Visual Studio Code Remote Explorer
 
 The Remote - SSH and Remote - Tunnels extensions let you use any remote machine as your development environment.
 
@@ -36,6 +37,7 @@ Visual Studio Code **Remote Explorer** and related extensions collect telemetry 
 ## License
 
 By downloading and using the Visual Studio **Remote Explorer** extension and its related components, you agree to the product [license terms](https://go.microsoft.com/fwlink/?linkid=2077057) and [privacy statement](https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx).
+
 ]]></description>
     <summary>View remote machines for SSH and Tunnels.</summary>
     <releaseNotes>

@@ -11,7 +11,8 @@
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Project Manager for Java
+    <description><![CDATA[
+# Project Manager for Java
 
 > Manage Java projects in Visual Studio Code
 
@@ -76,37 +77,7 @@ You can tell that the glob pattern is supported. And here's more - you can  incl
 
 ## Settings
 
-| Setting Name | Description | Default Value |
-|---|---|---|
-| `java.dependency.showMembers` | Specify whether to show the members in the Java Projects explorer. | `false` |
-| `java.dependency.syncWithFolderExplorer` | Specify whether to link Java Projects Explorer with the active editor. | `true` |
-| `java.dependency.autoRefresh` | Specify whether to automatically sync the change from editor to the Java Projects explorer. | `true` |
-| `java.dependency.refreshDelay` | The delay time (ms) the auto refresh is invoked when changes are detected. | `2000ms` |
-| `java.dependency.packagePresentation` | Specify how to display the package. Supported values are: `flat`, `hierarchical`.| `flat` |
-| `java.dependency.enableDependencyCheckup` | Show reminders when your Java runtimes or dependencies need an upgrade. | `true` |
-| `java.project.exportJar.targetPath` | The output path of export jar. When this setting is **empty** , a file explorer will pop up to let the user select the output location.| `${workspaceFolder}/${workspaceFolderBasename}.jar` |
-| `java.project.explorer.showNonJavaResources` | When enabled, the explorer shows non-Java resources. | `true` |
-
-## Contribution
-
-### Build
-* Prerequirement
-    - Node.js
-    - Java SDK 11 or above
-
-* Go to root folder:
-```
-npm install
-npm run build-server
-```
-
-## Telemetry
-VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more. If you don't wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`. Learn more in our [FAQ](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
-
-
----
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [[email removed]](mailto:[email removed]) with any additional questions or comments.
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) for full documentation]
 ]]></description>
     <summary>Manage Java projects in Visual Studio Code</summary>
     <releaseNotes>

@@ -10,7 +10,8 @@
     <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/remote-server/1.6.2026061009/1781082963568/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Visual Studio Code Remote - Tunnels
+    <description><![CDATA[
+# Visual Studio Code Remote - Tunnels
 
 The **Remote - Tunnels** extension lets you connect to a remote machine, like a desktop PC or virtual machine (VM), via a secure tunnel. You can then securely connect to that machine from anywhere, without the requirement of SSH.
 
@@ -70,11 +71,7 @@ Have a question or feedback?
 
 ## Telemetry
 
-Visual Studio Code Remote - Tunnels and related extensions collect telemetry data to help us build a better experience working remotely from VS Code. We only collect data on which commands are executed. We do not collect any information about image names, paths, etc. The extension respects the `telemetry.enableTelemetry` setting which you can learn more about in the [Visual Studio Code FAQ](https://aka.ms/vscode-remote/telemetry).
-
-## License
-
-By downloading and using the Visual Studio Remote - Tunnels extension and its related components, you agree to the product [license terms](https://go.microsoft.com/fwlink/?linkid=2077057) and [privacy statement](https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx).
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) for full documentation]
 ]]></description>
     <summary>Connect to a remote machine through a Tunnel</summary>
     <releaseNotes>

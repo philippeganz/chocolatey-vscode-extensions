@@ -10,7 +10,8 @@
     <iconUrl>https://twxs.gallerycdn.vsassets.io/extensions/twxs/cmake/0.0.17/1488841920286/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=twxs.cmake</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# CMake For VisualStudio Code
+    <description><![CDATA[
+# CMake For VisualStudio Code
 
 [![Join the chat at https://gitter.im/twxs/vs.language.cmake](https://badges.gitter.im/twxs/vs.language.cmake.svg)](https://gitter.im/twxs/vs.language.cmake?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -71,6 +72,7 @@ Feel free to contribute...
 ## License
 
 [MIT](https://github.com/twxs/vs.language.cmake/blob/master/LICENSE)
+
 ]]></description>
     <summary>CMake langage support for Visual Studio Code</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=twxs.cmake#changelog</releaseNotes>

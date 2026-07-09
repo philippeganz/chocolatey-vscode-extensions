@@ -10,7 +10,8 @@
     <iconUrl>https://ms-toolsai.gallerycdn.vsassets.io/extensions/ms-toolsai/jupyter-keymap/1.1.2/1685987377049/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-keymap</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Jupyter Keymaps Extension for Visual Studio Code
+    <description><![CDATA[
+# Jupyter Keymaps Extension for Visual Studio Code
 
 This extension provides keymaps for notebooks in Visual Studio Code to match the keybindings in [Jupyter Notebook](https://jupyter.org). This extension comes with the [Jupyter extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) and can be disabled or uninstalled.
 
@@ -35,6 +36,7 @@ trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
+
 ]]></description>
     <summary>Jupyter keymaps for notebooks</summary>
     <releaseNotes>

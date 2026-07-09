@@ -10,7 +10,8 @@
     <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpp-devtools/0.6.7/1782275319406/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# C/C++ DevTools
+    <description><![CDATA[
+# C/C++ DevTools
 
 The C/C++ DevTools extension exposes C++ language and CMake build tooling as tools that **GitHub Copilot's agent mode** can invoke. It integrates with the [C/C++](https://github.com/microsoft/vscode-cpptools/) and [CMake Tools](https://github.com/microsoft/vscode-cmake-tools/) extensions to give Copilot deep, symbol-level awareness of your codebase and your active CMake build configuration.
 
@@ -54,6 +55,7 @@ To report issues or share feedback, please file them in the appropriate reposito
 ## Data/Telemetry
 
 This extension collects usage data and sends it to Microsoft to help improve our products and services. Collection of telemetry is controlled via the same setting provided by Visual Studio Code: `"telemetry.enableTelemetry"`. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkId=521839) to learn more.
+
 ]]></description>
     <summary>Enhanced development tools for C++ in VS Code</summary>
     <releaseNotes>

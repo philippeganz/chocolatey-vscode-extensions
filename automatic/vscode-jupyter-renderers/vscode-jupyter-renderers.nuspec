@@ -10,7 +10,8 @@
     <iconUrl>https://ms-toolsai.gallerycdn.vsassets.io/extensions/ms-toolsai/jupyter-renderers/1.3.2025062701/1751008411968/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-renderers</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Renderers for Jupyter Notebooks in Visual Studio Code
+    <description><![CDATA[
+# Renderers for Jupyter Notebooks in Visual Studio Code
 
 A [Visual Studio Code](https://code.visualstudio.com/) extension that provides renderers for outputs of [Jupyter Notebooks](https://jupyter.org/).
 
@@ -55,6 +56,7 @@ provided by the bot. You will only need to do this once across all repos using o
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [[email removed]](mailto:[email removed]) with any additional questions or comments.
+
 ]]></description>
     <summary>Renderers for Jupyter Notebooks (with plotly, vega, gif, png, svg, jpeg and other such outputs)</summary>
     <releaseNotes>

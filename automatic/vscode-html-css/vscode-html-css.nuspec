@@ -10,7 +10,8 @@
     <iconUrl>https://ecmel.gallerycdn.vsassets.io/extensions/ecmel/vscode-html-css/2.0.14/1770897391434/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Visual Studio Code CSS Intellisense for HTML
+    <description><![CDATA[
+# Visual Studio Code CSS Intellisense for HTML
 
 [![commit](https://github.com/ecmel/vscode-html-css/actions/workflows/commit.yml/badge.svg)](https://github.com/ecmel/vscode-html-css/actions/workflows/commit.yml)
 
@@ -117,70 +118,7 @@ Component's [static styles](https://lit.dev/docs/components/styles/) will be ava
 
 **`.vscode/settings.json`**
 
-```json
-{
-  "css.styleSheets": ["src/base-styles.ts"]
-}
-```
-
-Variable substitution can be used to refer to a related `css` file. If you are working on `my-component.ts` and your `css` is in `my-component-css.ts` then a suitable setup can be:
-
-**`.vscode/settings.json`**
-
-```json
-{
-  "css.styleSheets": ["**/${fileBasenameNoExtension}-css.ts"]
-}
-```
-
-### [Vue](https://vuejs.org/)
-
-Install your favorite Vue language extension from [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Avue&target=VSCode&category=All%20categories&sortBy=Relevance) which registers `vue` language id then enable `vue` in global settings and restart VS Code:
-
-```json
-{
-  "css.enabledLanguages": ["html", "vue"]
-}
-```
-
-Styles defined in component's `<style>` section will be available for completion in component's `<template>` section.
-
-### [Angular](https://angular.io/)
-
-Variable substitution can be used for Angular development:
-
-**`.vscode/settings.json`**
-
-```json
-{
-  "css.styleSheets": ["**/${fileBasenameNoExtension}.css"]
-}
-```
-
-With this setup, styles defined in e.g. `app.component.css` will be available in `app.component.html`.
-
-## Go to Definition
-
-Go to definition for `id` and `class` selectors for local style sheets are supported. Selecting `Go to Definition` from context menu (`F12` or `⌘ click`) on a selector will open the local style sheet which the selector is defined.
-
-## Commands
-
-### Validate class selectors
-
-Validates all `class` selectors in the active editor. Auto validation can be configured in extension settings globally or per workspace.
-
-### Clear style sheets cache
-
-Clears style sheets cache.
-
-## Sponsor
-
-- [Github Sponsors](https://github.com/sponsors/ecmel)
-- [Buy me a coffee](https://www.buymeacoffee.com/ecmel)
-
-## Installation
-
-Extension can be installed from [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css).
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css) for full documentation]
 ]]></description>
     <summary>CSS Intellisense for HTML</summary>
     <releaseNotes>

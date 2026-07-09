@@ -10,7 +10,8 @@
     <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-github-actions/0.32.1/1782498285743/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# GitHub Actions for VS Code
+    <description><![CDATA[
+# GitHub Actions for VS Code
 
 The GitHub Actions extension lets you manage your workflows, view the workflow run history, and helps with authoring workflows.
 
@@ -71,11 +72,7 @@ We currently do not have the capability to support Operating System (OS) certifi
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/github/vscode-github-actions/blob/HEAD/CONTRIBUTING.md). A description of the architecture of the extension can be found [here](https://github.com/github/vscode-github-actions/blob/HEAD/docs/project-architecture.md).
-
-## License
-
-This project is licensed under the terms of the MIT open source license. Please refer to [MIT](https://github.com/github/vscode-github-actions/blob/HEAD/LICENSE) for the full terms.
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions) for full documentation]
 ]]></description>
     <summary>GitHub Actions workflows and runs for github.com hosted repositories in VS Code</summary>
     <releaseNotes>

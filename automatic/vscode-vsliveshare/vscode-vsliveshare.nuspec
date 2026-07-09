@@ -10,7 +10,8 @@
     <iconUrl>https://MS-vsliveshare.gallerycdn.vsassets.io/extensions/ms-vsliveshare/vsliveshare/1.1.122/1775530401653/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Microsoft Visual Studio Live Share
+    <description><![CDATA[
+# Microsoft Visual Studio Live Share
 
 Visual Studio Live Share enables you to collaboratively edit and debug with others in real time, regardless what [programming languages](https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/platform-support#visual-studio-code) you're using or app types you're building. It allows you to instantly (and [securely](https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/security)) share your current project, and then as needed, share [debugging sessions](https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode#co-debugging), [terminal instances](https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode#share-a-terminal), [localhost web apps](https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode#share-a-server), and more! Developers that join your sessions receive all of their editor context from your environment (e.g. language services, debugging), which ensures they can start productively collaborating immediately, without needing to clone any repos or install any SDKs.
 
@@ -45,44 +46,8 @@ After installing VS Live Share, it only takes a few steps to instantly share you
 
     <img src="https://aka.ms/vsls/quickstart/invite" width="450px" />
 
-1. That's it! Once an invited "guest" joins, you'll get a notification, and will see their cursor appear in your currently opened file. All guests will start out ["following"](https://aka.ms/vsls-docs/vscode#following) you, which means that as you scroll or navigate between files, they will track those actions as well. This makes it easy to orient them with the issue/question/task you're about to start collaborating on.
-
-    <img src="https://aka.ms/vsls/quickstart/guest-join" width="400px" />
-
-1. To get the most out of Live Share, check out the `Session Details` viewlet, by clicking the Live Share logo in your activity bar. From there, you can [follow/focus participants](https://aka.ms/vsls-docs/vscode#following), see which file/line everyone is currently editing, and even share [localhost servers](https://aka.ms/vsls-docs/vscode#share-a-server) and [terminals](https://aka.ms/vsls-docs/vscode#share-a-terminal).
-
-    <img src="https://aka.ms/vsls/quickstart/viewlet-host" width="300" />
-
-> Want to evaluate VS Live Share but don't have anyone to collaborate with? No problem! You can actually share with yourself from another instance of VS Code. Simply open the session URL in your browser to get started.
-
-## Quickstart (Joining)
-
-After installing VS Live Share, joining a collaboration session only requires a few steps:
-
-1. Click the session URL the "host" sent you, which will open it up in a browser. When prompted, allow your browser to launch VS Code
-
-1. You'll be asked to sign in the first time you share (using a GitHub or Microsoft account), which allows others to identity you when collaborating. 
-
-1. That's it! After you join, you'll be immediately presented with the file that the "host" has open, and can see their cursor and any edits they make.
-
-    Additionally, you start out "following" the host, so as they scroll or navigate between files, you'll follow along with them. This makes it easy to orient yourself with the issue/question/task you're about to start collaborating on.
-
-1. To get the most out of Live Share, check out the `Session Details` viewlet, by clicking the Live Share logo in your activity bar. From there, you can [follow/focus participants](https://aka.ms/vsls-docs/vscode#following), see which file/line everyone is currently editing, and open any [localhost servers](https://aka.ms/vsls-docs/vscode#share-a-server) and [terminals](https://aka.ms/vsls-docs/vscode#share-a-terminal) that have been shared as part of the collaboration session.
-
-    <img src="https://aka.ms/vsls/quickstart/viewlet-guest" width="300" />
-
-If you have any trouble joining, see the ["joining manually"](https://aka.ms/vsls-docs/manual-join) section in our docs for more information.
-
-> By downloading and using Visual Studio Live Share, you agree to the [license terms](https://aka.ms/vsls-license) and [privacy statement](https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx). See [troubeshooting](https://aka.ms/vsls-troubleshooting) if you run into problems.
-
-## More Information
-
-- [Documentation](https://aka.ms/vsls-docs)
-- [Visual Studio Live Share Site](https://aka.ms/vsls)
-- [Visual Studio Live Share FAQ](https://aka.ms/vsls-faq)
-- [Report a Problem](https://aka.ms/vsls-problem)
-- [Contact Us](https://aka.ms/vsls-support)
-- [License](https://aka.ms/vsls-license)]]></description>
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare) for full documentation]
+]]></description>
     <summary>Real-time collaborative development from the comfort of your favorite tools.</summary>
     <releaseNotes>
       https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare#changelog</releaseNotes>

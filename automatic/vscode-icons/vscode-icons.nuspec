@@ -10,7 +10,8 @@
     <iconUrl>https://vscode-icons-team.gallerycdn.vsassets.io/extensions/vscode-icons-team/vscode-icons/12.19.0/1782585231472/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[<div align="center">
+    <description><![CDATA[
+<div align="center">
 
 
 <h3>Bring real icons to your <a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a></h3>
@@ -120,20 +121,7 @@ Branded icons are licensed under their copyright license.
 
 ## Change Log
 
-You can check out all our changes in our [change log](https://github.com/vscode-icons/vscode-icons/blob/master/CHANGELOG.md).
-
-## Acknowledgements
-
-We like to express our "Special Thanks" to:
-
-* All users that made us their favorite **Icons** theme. We wouldn't be where we are without you.
-
-## Related extensions
-
-* [vscode-icons for GitHub](https://github.com/dderevjanik/github-vscode-icons) by [@dderevjanik](https://github.com/dderevjanik) will allow you to see all `GitHub`'s files with `vscode-icons` icons.
-* [vscode-icons-js](https://github.com/dderevjanik/vscode-icons-js) by [@dderevjanik](https://github.com/dderevjanik) get file/folder specific icon from `vscode-icons` icons.
-
-**Enjoy!**
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons) for full documentation]
 ]]></description>
     <summary>Icons for Visual Studio Code</summary>
     <releaseNotes>
