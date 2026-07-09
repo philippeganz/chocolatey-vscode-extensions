@@ -123,7 +123,7 @@ if ($ModerationRepush) {
         Get-ChildItem $packagesDir -Directory | Select-Object -ExpandProperty Name
     }
     else {
-        $ModerationRepush -split ','
+        $ModerationRepush -split ',' | Where-Object { $_.Trim() -ne '' } | ForEach-Object { $_.Trim() }
     }
 
     $targetPackages = Resolve-PackageDependency -Packages $targetPackages
