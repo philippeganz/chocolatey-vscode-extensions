@@ -81,7 +81,7 @@ jobs:
 
       - name: Get changed automatic packages
         id: changed-packages
-        uses: tj-actions/changed-files@v44
+        uses: tj-actions/changed-files@v47
         with:
           files: automatic/**
           dir_names: true
@@ -89,16 +89,14 @@ jobs:
           separator: ","
 
       - name: Upgrade Chocolatey
+        if: steps.changed-packages.outputs.any_changed == 'true'
         run: choco upgrade chocolatey -y
 
       - name: Test Package Build
+        if: steps.changed-packages.outputs.any_changed == 'true'
         shell: pwsh
         run: |
           $changed = "${{ steps.changed-packages.outputs.all_changed_files }}"
-          if (-not $changed) {
-            Write-Host "No changes detected in 'automatic/' directory. Skipping pack dry-run." -ForegroundColor Green
-            exit 0
-          }
 
           $packages = $changed -split ','
           foreach ($pkg in $packages) {
@@ -152,7 +150,7 @@ jobs:
           }
 
       - name: Upload Test and Coverage Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: always()
         with:
           name: pester-artifacts
@@ -170,7 +168,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Download Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: pester-artifacts
 
