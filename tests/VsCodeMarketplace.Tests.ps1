@@ -1,4 +1,4 @@
-﻿[CmdletBinding()]
+[CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 param()
 
@@ -22,7 +22,7 @@ Describe "VsCodeMarketplace API Wrapper" {
 
             $result = Get-VsCodeNuspecMetadata -ExtMeta $mockMeta -ExtensionPublisher "mechatroner" -ExtensionName "rainbow-csv"
 
-            $result.Title | Should -Be "Rainbow CSV"
+            $result.Title | Should -Be "Visual Studio Code Extension - Rainbow CSV"
             $result.Summary | Should -Be "Highlight CSV and TSV files"
             $result.Authors | Should -Be "mechatroner"
             $result.ProjectUrl | Should -Be "https://github.com/mechatroner/vscode_rainbow_csv"
@@ -74,7 +74,7 @@ Describe "VsCodeMarketplace API Wrapper" {
         It "Should successfully retry on transient failures" {
             # Mock Invoke-WebRequest to fail twice then succeed
             $script:failCount = 0
-            Mock Invoke-WebRequest {
+            Mock Invoke-WebRequest -ModuleName VsCodeMarketplace -MockWith {
                 $script:failCount++
                 if ($script:failCount -lt 3) {
                     throw "Transient Network Error"
@@ -83,7 +83,7 @@ Describe "VsCodeMarketplace API Wrapper" {
             }
 
             # We don't want to actually sleep during tests
-            Mock Start-Sleep { return }
+            Mock Start-Sleep -ModuleName VsCodeMarketplace -MockWith { return }
 
             Invoke-RobustDownload -Url "https://fake.url" -OutFile "fake.vsix" | Out-Null
 

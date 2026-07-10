@@ -398,13 +398,19 @@ function Get-VsCodeNuspecMetadata {
         [Parameter(Mandatory = $false)][string]$Description = ''
     )
 
+    function ConvertTo-XmlSafeString([string]$text) {
+        if ([string]::IsNullOrEmpty($text)) { return "" }
+        return [System.Security.SecurityElement]::Escape($text)
+    }
+
     $extNameDisplay = if ($ExtMeta.displayName) { $ExtMeta.displayName } else { $ExtensionName }
-    $title = "Visual Studio Code Extension - $extNameDisplay"
+    $title = ConvertTo-XmlSafeString "Visual Studio Code Extension - $extNameDisplay"
 
     $summaryRaw = if ($ExtMeta.shortDescription) { $ExtMeta.shortDescription } else { "" }
-    $summaryEscaped = $summaryRaw -replace '"', '&quot;' -replace '<', '&lt;' -replace '>', '&gt;' -replace '&', '&amp;'
+    $summaryEscaped = ConvertTo-XmlSafeString $summaryRaw
 
-    $author = if ($ExtMeta.publisher.publisherName) { $ExtMeta.publisher.publisherName } else { $ExtensionPublisher }
+    $authorRaw = if ($ExtMeta.publisher.publisherName) { $ExtMeta.publisher.publisherName } else { $ExtensionPublisher }
+    $author = ConvertTo-XmlSafeString $authorRaw
 
     $extId = "$ExtensionPublisher.$ExtensionName"
     $repoUrl = "https://marketplace.visualstudio.com/items?itemName=$extId"
@@ -420,9 +426,9 @@ function Get-VsCodeNuspecMetadata {
         Title          = $title
         Summary        = $summaryEscaped
         Authors        = $author
-        ProjectUrl     = $repoUrl
-        MarketplaceUrl = "https://marketplace.visualstudio.com/items?itemName=$extId"
-        IconUrl        = $iconUrl
+        ProjectUrl     = ConvertTo-XmlSafeString $repoUrl
+        MarketplaceUrl = ConvertTo-XmlSafeString "https://marketplace.visualstudio.com/items?itemName=$extId"
+        IconUrl        = ConvertTo-XmlSafeString $iconUrl
         Description    = $Description
     }
 }
