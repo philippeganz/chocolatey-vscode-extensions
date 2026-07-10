@@ -53,6 +53,8 @@ jobs:
 
       - name: Set up Python
         uses: actions/setup-python@v6
+        with:
+          python-version: 3.x
 
       - name: Install YamlLint
         run: pip install yamllint
@@ -103,4 +105,8 @@ jobs:
       - name: Run Pester Tests
         shell: pwsh
         run: |
-          Invoke-Pester -Path ./tests/Workflow.Tests.ps1 -EnableExit
+          $result = Invoke-Pester -Path ./tests/Workflow.Tests.ps1 -PassThru
+          if ($result.FailedCount -gt 0) {
+              Write-Error "Pester tests failed!"
+              exit 1
+          }
