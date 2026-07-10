@@ -2,16 +2,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-pull-request-github</id>
-    <version>0.155.2026070604</version>
+    <version>0.157.2026070910</version>
     <title>Visual Studio Code Extension - GitHub Pull Requests</title>
     <authors>GitHub</authors>
     <projectUrl>https://github.com/Microsoft/vscode-pull-request-github</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-pull-request-github/0.155.2026070604/1783311810683/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-pull-request-github/0.157.2026070910/1783595304477/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[[![Build Status](https://dev.azure.com/vscode/vscode-pull-request-github/_apis/build/status/vscode-pull-request-github%20%28pr%29?branchName=main)](https://dev.azure.com/vscode/vscode-pull-request-github/_build?definitionId=44&branchName=main)
+    <description><![CDATA[
+[![Build Status](https://dev.azure.com/vscode/vscode-pull-request-github/_apis/build/status/vscode-pull-request-github%20%28pr%29?branchName=main)](https://dev.azure.com/vscode/vscode-pull-request-github/_build?definitionId=44&branchName=main)
 
 > Review and manage your GitHub pull requests and issues directly in VS Code
 
@@ -90,12 +91,7 @@ See our [wiki](https://github.com/Microsoft/vscode-pull-request-github/wiki) for
 
 ## Contributing
 
-If you're interested in contributing, or want to explore the source code of this extension yourself, see our [contributing guide](https://github.com/Microsoft/vscode-pull-request-github/wiki/Contributing), which includes:
-
-- [How to Build and Run](https://github.com/Microsoft/vscode-pull-request-github/wiki/Contributing#build-and-run)
-- [Architecture](https://github.com/Microsoft/vscode-pull-request-github/wiki/Contributing#architecture)
-- [Making Pull Requests](https://github.com/Microsoft/vscode-pull-request-github/wiki/Contributing#pull-requests)
-- [Code of Conduct](https://github.com/Microsoft/vscode-pull-request-github/wiki/Contributing#code-of-conduct)
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) for full documentation]
 ]]></description>
     <summary>Pull Request and Issue Provider for GitHub</summary>
     <releaseNotes>

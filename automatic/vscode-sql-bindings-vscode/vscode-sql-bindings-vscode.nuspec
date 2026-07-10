@@ -10,7 +10,8 @@
     <iconUrl>https://ms-mssql.gallerycdn.vsassets.io/extensions/ms-mssql/sql-bindings-vscode/0.4.1/1746044873829/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-mssql.sql-bindings-vscode</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Microsoft SQL Bindings for VS Code
+    <description><![CDATA[
+# Microsoft SQL Bindings for VS Code
 
 ## Overview
 
@@ -54,6 +55,7 @@ To learn more about our Privacy Statement visit [this link](https://go.microsoft
 Copyright (c) Microsoft Corporation. All rights reserved.
 
 Licensed under the [MIT License](https://raw.githubusercontent.com/Microsoft/azuredatastudio/main/LICENSE.txt).
+
 ]]></description>
     <summary>Enables users to develop and publish Azure Functions with Azure SQL bindings</summary>
     <releaseNotes>

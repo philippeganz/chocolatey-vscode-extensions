@@ -2,15 +2,16 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-csharp</id>
-    <version>2.145.15</version>
+    <version>2.146.2</version>
     <title>Visual Studio Code Extension - C#</title>
     <authors>ms-dotnettools</authors>
     <projectUrl>https://github.com/dotnet/vscode-csharp</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-dotnettools.gallerycdn.vsassets.io/extensions/ms-dotnettools/csharp/2.145.15/1782352790328/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-dotnettools.gallerycdn.vsassets.io/extensions/ms-dotnettools/csharp/2.146.2/1783525116205/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[## C# for Visual Studio Code
+    <description><![CDATA[
+## C# for Visual Studio Code
 A [Visual Studio Code](https://code.visualstudio.com/) [extension](https://marketplace.visualstudio.com/VSCode) that provides rich language support for C# and is shipped along with [C# Dev Kit][csdevkitextension]. Powered by a Language Server Protocol (LSP) server, this extension integrates with open source components like [Roslyn](https://github.com/dotnet/roslyn) and [Razor](https://github.com/dotnet/razor) to provide rich type information and a faster, more reliable C# experience.
 
 ## Recommended Install
@@ -59,26 +60,7 @@ By signing the [CLA](https://cla.dotnetfoundation.org/), the community is free t
 
 ### .NET Foundation
 
-This project is supported by the [.NET Foundation](http://www.dotnetfoundation.org).
-
-## Feedback
-
-<!-- 
-[FAQs]
-Check out the FAQs before filing a question. 
--->
-
-[Provide feedback](https://github.com/dotnet/vscode-csharp/issues)
-File questions, issues, or feature requests for the extension.
-
-[Known issues](https://github.com/dotnet/vscode-csharp/issues)
-If someone has already filed an issue that encompasses your feedback, please leave a 👍 or 👎 reaction on the issue to upvote or downvote it to help us prioritize the issue.
-
-[Quick survey](https://www.research.net/r/8KGJ9V8?o=[o_value]&v=[v_value]&m=[m_value])
-Let us know what you think of the extension by taking the quick survey.
-
-
-[csdevkitextension]: https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for full documentation]
 ]]></description>
     <summary>Base language support for C#</summary>
     <releaseNotes>

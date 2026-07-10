@@ -11,7 +11,8 @@
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-jupyter-cell-tags</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Jupyter Cell Tags support in VS Code
+    <description><![CDATA[
+# Jupyter Cell Tags support in VS Code
 
 This extension provides support for notebook cell tags in Visual Studio Code for workng with tools like [`papermill`](https://github.com/nteract/papermill), [`nbconvert`](https://github.com/jupyter/nbconvert), [`nbgrader`](https://github.com/jupyter/nbgrader) and many more. Support for adding slide types to notebook cells are provided by the [Jupyter Slide Show](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-jupyter-slideshow) extension.
 
@@ -43,6 +44,7 @@ trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
+
 ]]></description>
     <summary>Jupyter Cell Tags support for VS Code</summary>
     <releaseNotes>

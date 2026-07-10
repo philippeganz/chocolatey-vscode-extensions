@@ -10,7 +10,8 @@
     <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-pack/0.31.2026060907/1780990629973/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Extension Pack for Java
+    <description><![CDATA[
+# Extension Pack for Java
 
 Extension Pack for Java is a collection of popular extensions that can help write, test and debug Java applications in Visual Studio Code. Check out [Java in VS Code](https://code.visualstudio.com/docs/languages/java) to get started.
 
@@ -66,26 +67,7 @@ You can use [📦 Docker](https://marketplace.visualstudio.com/items?itemName=Pe
 
 ### Tomcat and Jetty
 
-Both [📦 Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) and [📦 Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty) extension are available. They provide dedicated views to help work with your favorite web servers.
-
-### Linting
-The [📦 SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extension lets you detect bugs and vulnerabilities as you write code in VS Code. The extension will simply run in the background and highlight code that poses a quality or security concern.
-
-At the same time, [📦 CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) is also available.
-
-## Questions & Issues
-
-Each extension mentioned above is a separate open-source project and has its own repository. To make things easier, simply [🙋 open an issue in this repository](https://github.com/Microsoft/vscode-java-pack/issues). The new issue will be triaged and redirected.
-
-## Data/Telemetry
-
-This extension collects telemetry data to help us improve the Java development experience in VS Code. It does not collect any personal information such as names, addresses, or file paths. For more details, see our [privacy statement](http://go.microsoft.com/fwlink/?LinkId=521839). You can disable telemetry collection at any time by changing the `telemetry.enableTelemetry` setting as described in our [FAQ](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
-
-## License
-
-[MIT](https://github.com/Microsoft/vscode-java-pack/blob/master/LICENSE.txt)
-
-Happy Coding!
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) for full documentation]
 ]]></description>
     <summary>Popular extensions for Java development that provides Java IntelliSense, debugging, testing, Maven/Gradle support, project management and more</summary>
     <releaseNotes>

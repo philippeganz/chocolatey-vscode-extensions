@@ -10,7 +10,8 @@
     <iconUrl>https://HashiCorp.gallerycdn.vsassets.io/extensions/hashicorp/sentinel/0.3.0/1701786621072/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=hashicorp.sentinel</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Sentinel Extension for Visual Studio Code
+    <description><![CDATA[
+# Sentinel Extension for Visual Studio Code
 
 The HashiCorp Sentinel Extension for Visual Studio Code adds syntax highlighting and other editing features for <a href="https://www.hashicorp.com/sentinel/">Sentinel</a> files.
 
@@ -26,6 +27,7 @@ The HashiCorp Sentinel Extension for Visual Studio Code adds syntax highlighting
 ## Credits
 
 - [Glenn Gillen](https://github.com/glenngillen) - for creating a starting point and inspiration for this extension.
+
 ]]></description>
     <summary>Syntax highlighting for HashiCorp Sentinel</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=hashicorp.sentinel#changelog</releaseNotes>

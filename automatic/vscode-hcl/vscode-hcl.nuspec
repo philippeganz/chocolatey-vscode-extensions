@@ -10,7 +10,8 @@
     <iconUrl>https://HashiCorp.gallerycdn.vsassets.io/extensions/hashicorp/hcl/0.6.0/1729689056959/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=hashicorp.hcl</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# HCL Extension for Visual Studio Code
+    <description><![CDATA[
+# HCL Extension for Visual Studio Code
 
 The [HashiCorp HCL Extension](https://marketplace.visualstudio.com/items?itemName=hashicorp.hcl) for Visual Studio Code (VS Code) adds syntax highlighting for [HCL](https://www.hashicorp.com) files.
 
@@ -42,6 +43,7 @@ We use telemetry to collect data about opened file _types_ which are implied fro
 ## Credits
 
  - We thank [William Holroyd](https://github.com/wholroyd) for creation and past maintenance of [`wholroyd.HCL`](https://marketplace.visualstudio.com/items?itemName=wholroyd.HCL) VS Code extension and for agreeing to the extension namespace transfer to make the transition conflict-less and easy for existing users
+
 ]]></description>
     <summary>HashiCorp HCL syntax</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=hashicorp.hcl#changelog</releaseNotes>

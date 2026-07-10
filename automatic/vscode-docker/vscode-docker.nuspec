@@ -10,7 +10,8 @@
     <iconUrl>https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-docker/2.0.0/1748459272971/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Docker Extension Pack for Visual Studio Code
+    <description><![CDATA[
+# Docker Extension Pack for Visual Studio Code
 The Docker Extension Pack makes it easy to build, manage, and deploy containerized applications from Visual Studio Code.
 
 ## Overview
@@ -34,6 +35,7 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
 ## License
 
 [MIT](https://github.com/microsoft/vscode-docker/blob/HEAD/LICENSE.md)
+
 ]]></description>
     <summary>Makes it easy to create, manage, and debug containerized applications.</summary>
     <releaseNotes>

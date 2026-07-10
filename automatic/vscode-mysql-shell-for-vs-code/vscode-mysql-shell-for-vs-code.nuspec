@@ -10,7 +10,8 @@
     <iconUrl>https://Oracle.gallerycdn.vsassets.io/extensions/oracle/mysql-shell-for-vs-code/2026.5.0/1780328255347/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=Oracle.mysql-shell-for-vs-code</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# MySQL Shell for VS Code 2026.5.0+9.7.0
+    <description><![CDATA[
+# MySQL Shell for VS Code 2026.5.0+9.7.0
 
 The MySQL Shell for VS Code extension integrates the powerful feature set of MySQL Shell - an advanced MySQL client for developers and DBAs - directly into VS Code.
 
@@ -62,56 +63,7 @@ Takes SQL embedded in your source files and runs it inside the DB Editor. Update
 
 ### Features Include
 
-- Database Connection Manager:
-  - Management of database connections to MySQL Server and MySQL Database Service (MHS) instances.
-  - Browse through schema catalog
-  - Dump schemas and load schemas with support for MHS instances
-  - Open DB Editor for a database connection
-  - Open MySQL Shell GUI Console for a database connection
-- Oracle Cloud Infrastructure (OCI) Browser
-  - Support for standard OCI profile configuration
-  - Browse OCI compartments, MySQL DB Systems, Bastions, Compute Instances, and Load Balancers
-  - Start/Stop operations for MySQL DB Systems
-  - Creation of OCI Bastions and tunneled connections to MHS instance on private OCI networks
-- DB Editor to work with live database connections:
-  - Notebook Interface
-  - Support for SQL, TypeScript, and JavaScript to work with the database
-  - Auto-completion for SQL, TypeScript and JavaScript
-  - Query result set browsing in a paged result grid
-  - Support for multiple result sets in tabbed result grids
-  - Support for text output for TypeScript and JavaScript code
-  - Support for graphs for TypeScript and JavaScript code
-- MySQL Shell GUI Console:
-  - Notebook Interface
-  - Support for SQL, Python, and JavaScript
-  - Query result set browsing in a result grid
-- Execute SQL from source files in DB Editor:
-  - Execute any selected SQL commands from SQL files
-  - Execute multi-line SQL blocks from Python files
-    - Update original Python files with changes made in DB Editor
-- MySQL REST Service support:
-  - Full support for the MySQL REST Service and HeatWave REST Service
-  - Create and manage REST services and REST endpoint
-  - Manage authentication, authorization for REST endpoints
-  - Upload Progressive Web Apps (PWAs) for a full-stack web app solution running on top of MySQL
-- MySQL HeatWave Migration Assistant
-  - Easily migrate MySQL databases to the managed MySQL HeatWave Service on Oracle Cloud
-
-## How to report a bug
-
-To file a bug report, select the following menu item or go to [bugs.mysql.com](https://bugs.mysql.com/report.php?category=Shell%20VSCode%20Extension).
-
-![File a Bug](https://github.com/mysql/mysql-shell-plugins/raw/main/gui/extension/images/screenshots/MySQLShellForVSCodeFileBug.gif)
-
-## Supported Platforms
-
-| OS      | Version/Dependency | Architecture |
-|---------|--------------------|--------------|
-| macOS   | 14 and higher      | arm64, x64   |
-| Windows | 11 and higher      | x64          |
-| Linux   | glibc 2.28         | arm64, x64   |
-
-Copyright &copy; 2022, 2026, Oracle and/or its affiliates.
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=Oracle.mysql-shell-for-vs-code) for full documentation]
 ]]></description>
     <summary>The power of MySQL Shell as part of your VS Code workflow.</summary>
     <releaseNotes>

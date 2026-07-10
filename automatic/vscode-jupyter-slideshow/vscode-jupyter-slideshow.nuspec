@@ -11,7 +11,8 @@
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-jupyter-slideshow</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[# Jupyter Slide Show support in VS Code
+    <description><![CDATA[
+# Jupyter Slide Show support in VS Code
 
 This extension provides support for adding slide types to notebook cells for working with tools like [`nbconvert`](https://github.com/jupyter/nbconvert) to help easily convert your `.ipynb` file into a slide show. Supported slide types are:
 ![Slide types](https://github.com/Microsoft/vscode-jupyter-slideshow/raw/HEAD/images/slide-types.png)
@@ -49,6 +50,7 @@ trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
+
 ]]></description>
     <summary>Jupyter Slide Show support for VS Code</summary>
     <releaseNotes>
