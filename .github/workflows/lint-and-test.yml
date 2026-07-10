@@ -11,6 +11,8 @@ on:
 
 permissions:
   contents: read
+  checks: write
+  pull-requests: write
 
 jobs:
   powershell-lint:
@@ -110,8 +112,21 @@ jobs:
       - name: Run Pester Tests
         shell: pwsh
         run: |
-          $result = Invoke-Pester -Path ./tests/Workflow.Tests.ps1 -PassThru
+          $config = [PesterConfiguration]::Default
+          $config.Run.Path = './tests/Workflow.Tests.ps1'
+          $config.Run.PassThru = $true
+          $config.TestResult.Enabled = $true
+          $config.TestResult.OutputFormat = 'JUnitXml'
+          $config.TestResult.OutputPath = 'test-results.xml'
+          
+          $result = Invoke-Pester -Configuration $config
           if ($result.FailedCount -gt 0) {
               Write-Error "Pester tests failed!"
               exit 1
           }
+
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: "test-results.xml"

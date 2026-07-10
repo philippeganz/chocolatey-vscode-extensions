@@ -251,7 +251,7 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
             $pkgDir = Join-Path $baseAuto $pkgName
             if (Test-Path $pkgDir) {
                 Remove-Item -Path $pkgDir -Recurse -Force
-                Write-Success "Deleted local package directory: automatic\$pkgName"
+                Write-Success "Deleted local package directory: $(Split-Path $baseAuto -Leaf)\$pkgName"
             }
         }
     }
