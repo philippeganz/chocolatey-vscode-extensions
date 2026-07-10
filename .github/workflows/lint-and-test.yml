@@ -86,7 +86,7 @@ jobs:
           files: automatic/**
           dir_names: true
           dir_names_max_depth: 2
-          separator: ","
+          separator: ','
 
       - name: Upgrade Chocolatey
         if: steps.changed-packages.outputs.any_changed == 'true'
@@ -175,7 +175,7 @@ jobs:
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         with:
-          files: "test-results.xml"
+          files: 'test-results.xml'
 
       - name: Publish Code Coverage Summary
         uses: irongut/CodeCoverageSummary@v1.3.0

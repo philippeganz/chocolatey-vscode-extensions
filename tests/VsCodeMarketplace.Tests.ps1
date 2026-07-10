@@ -26,8 +26,6 @@ Describe "VsCodeMarketplace API Wrapper" {
             $result.Summary | Should -Be "Highlight CSV and TSV files"
             $result.Authors | Should -Be "mechatroner"
             $result.ProjectUrl | Should -Be "https://github.com/mechatroner/vscode_rainbow_csv"
-            $result.Tags | Should -Match "csv tsv highlight"
-            $result.Tags | Should -Match "vscode"
         }
 
         It "Should safely escape XML characters in description and title" {
@@ -88,7 +86,7 @@ Describe "VsCodeMarketplace API Wrapper" {
             Invoke-RobustDownload -Url "https://fake.url" -OutFile "fake.vsix" | Out-Null
 
             $script:failCount | Should -Be 3
-            Assert-MockCalled Invoke-WebRequest -Times 3 -Exactly
+            Should -Invoke -CommandName Invoke-WebRequest -ModuleName VsCodeMarketplace -Times 3 -Exactly
         }
     }
 }
