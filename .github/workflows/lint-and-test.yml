@@ -112,13 +112,20 @@ jobs:
       - name: Run Pester Tests
         shell: pwsh
         run: |
+          Import-Module Pester
           $config = [PesterConfiguration]::Default
-          $config.Run.Path = './tests/Workflow.Tests.ps1'
+          $config.Run.Path = './tests'
           $config.Run.PassThru = $true
           $config.TestResult.Enabled = $true
           $config.TestResult.OutputFormat = 'JUnitXml'
           $config.TestResult.OutputPath = 'test-results.xml'
-          
+
+          # Enable Code Coverage Profiling
+          $config.CodeCoverage.Enabled = $true
+          $config.CodeCoverage.Path = @('./bin/*.ps1', './bin/*.psm1')
+          $config.CodeCoverage.OutputFormat = 'JaCoCo'
+          $config.CodeCoverage.OutputPath = 'coverage.xml'
+
           $result = Invoke-Pester -Configuration $config
           if ($result.FailedCount -gt 0) {
               Write-Error "Pester tests failed!"
@@ -126,7 +133,29 @@ jobs:
           }
 
       - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2
+        uses: mikepenz/action-junit-report@v4
         if: always()
         with:
-          files: "test-results.xml"
+          report_paths: 'test-results.xml'
+
+      - name: Publish Code Coverage Summary
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        if: always()
+        with:
+          filename: coverage.xml
+          badge: true
+          fail_below_min: false
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: true
+          indicators: true
+          output: both
+          thresholds: '50 75'
+
+      - name: Add Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == 'pull_request'
+        with:
+          recreate: true
+          path: code-coverage-results.md
+
