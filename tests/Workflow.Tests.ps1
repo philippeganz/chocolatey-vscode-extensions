@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 param()
 $ErrorActionPreference = "Stop"
@@ -14,7 +14,7 @@ Describe "VSCode Extensions Chocolatey Workflow" {
         $script:publisher = "mechatroner"
         $script:extName = "rainbow-csv"
         $script:packageName = "vscode-rainbow-csv"
-        
+
         # Isolate the Packages Directory to a temp folder parallel to bin so relative paths in AU templates still work
         $script:realPackagesDir = Join-Path $script:repoRoot "test_automatic"
         $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir

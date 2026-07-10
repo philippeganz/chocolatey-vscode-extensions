@@ -20,6 +20,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v7
 
+      - name: Update PSScriptAnalyzer
+        shell: pwsh
+        run: Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser -AllowClobber
+
       - name: Run PSScriptAnalyzer
         shell: pwsh
         run: |
@@ -100,6 +104,7 @@ jobs:
         shell: pwsh
         run: |
           Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber
+          Install-Module -Name au -Force -Scope CurrentUser -AllowClobber -AcceptLicense
           Install-Module -Name Pester -Force -Scope CurrentUser -AllowClobber -SkipPublisherCheck
 
       - name: Run Pester Tests
