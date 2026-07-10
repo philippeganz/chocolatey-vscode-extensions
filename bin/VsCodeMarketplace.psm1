@@ -7,7 +7,6 @@ and platform-specific payload ambiguities.
 
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
 param()
 
 <#
@@ -246,12 +245,10 @@ The absolute path to the config.yaml tracker.
 function Update-NuspecDependency {
     [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
     param(
         [Parameter(Mandatory = $true)][object]$NuspecXml,
         [Parameter(Mandatory = $true)][object]$PackageJson,
-        [Parameter(Mandatory = $true)][string]$PackageName,
         [Parameter(Mandatory = $true)][string]$ConfigPath
     )
 
@@ -329,7 +326,6 @@ Maps raw JSON fields from the VS Code Marketplace API into a sanitized hashtable
 The raw JSON payload returned by the VS Code Marketplace API.
 #>
 function Get-VsCodeNuspecMetadata {
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
     param(
         [Parameter(Mandatory = $true)][object]$ExtMeta,
         [Parameter(Mandatory = $true)][string]$ExtensionPublisher,
@@ -366,7 +362,7 @@ function Get-VsCodeNuspecMetadata {
     }
 }
 
-Export-ModuleMember -Function Get-VsCodeMarketplaceMetadata, Get-VsCodeExtensionUrl, Invoke-RobustDownload, Expand-VsCodePayload, Update-NuspecDependencies, Get-VsCodeNuspecMetadata
+Export-ModuleMember -Function Get-VsCodeMarketplaceMetadata, Get-VsCodeExtensionUrl, Invoke-RobustDownload, Expand-VsCodePayload, Update-NuspecDependency, Get-VsCodeNuspecMetadata
 
 
 

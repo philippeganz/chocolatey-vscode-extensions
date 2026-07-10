@@ -39,11 +39,7 @@
 .EXAMPLE
     .\Manage-ExtensionPool.ps1 -Add "ms-python.python"
 #>
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingPositionalParameters', '')]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingEmptyCatchBlock', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 [CmdletBinding(DefaultParameterSetName = 'None')]
 param (
     [Parameter(ParameterSetName = 'Add', Mandatory = $true)]
@@ -210,7 +206,8 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
         if ($parts.Count -eq 2) {
             $pkgName = $parts[1]
             if (-not $pkgName.StartsWith("vscode-")) { $pkgName = "vscode-$pkgName" }
-            $pkgDir = Join-Path (Split-Path $PSScriptRoot -Parent) "automatic\$pkgName"
+            $baseAuto = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { Join-Path (Split-Path $PSScriptRoot -Parent) "automatic" }
+            $pkgDir = Join-Path $baseAuto $pkgName
             if (Test-Path $pkgDir) {
                 Remove-Item -Path $pkgDir -Recurse -Force
                 Write-Success "Deleted local package directory: automatic\$pkgName"
@@ -257,10 +254,9 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Search') {
         Write-Skip "No extensions found matching that query."
     }
 }
-elseif ($PSCmdlet.ParameterSetName -eq 'CheckStale') {
+elseif ($CheckStale) {
     Write-Info "Scanning Chocolatey Community API for stale packages (> 3 months old)..."
-
-    $autoDir = Join-Path (Split-Path $PSScriptRoot -Parent) "automatic"
+    $autoDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { Join-Path (Split-Path $PSScriptRoot -Parent) "automatic" }
     if (-not (Test-Path $autoDir)) { throw "Automatic directory not found." }
     $packages = (Get-ChildItem -Path $autoDir -Directory).Name
 
@@ -297,6 +293,7 @@ elseif ($PSCmdlet.ParameterSetName -eq 'CheckStale') {
         }
         catch {
             # Ignore HTTP 404s for unpublished packages
+            Write-Verbose $_
         }
     }
 
@@ -307,10 +304,10 @@ elseif ($PSCmdlet.ParameterSetName -eq 'CheckStale') {
         Write-Success "All packages are perfectly up to date with the Community Feed!"
     }
 }
-elseif ($PSCmdlet.ParameterSetName -eq 'Audit') {
+elseif ($Audit) {
     Write-Info "Auditing state configuration against local directory structures..."
     $state = Get-ConfigState
-    $autoDir = Join-Path (Split-Path $PSScriptRoot -Parent) "automatic"
+    $autoDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { Join-Path (Split-Path $PSScriptRoot -Parent) "automatic" }
     $directories = if (Test-Path $autoDir) { (Get-ChildItem -Path $autoDir -Directory).Name } else { @() }
 
     $expectedDirs = [System.Collections.Generic.List[string]]::new()
@@ -352,5 +349,6 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Audit') {
 else {
     Write-Err "Please specify a valid operation: -Add, -Remove, -Search, -CheckStale, or -Audit"
 }
+
 
 

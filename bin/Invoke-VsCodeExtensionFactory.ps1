@@ -70,10 +70,8 @@ Import-Module powershell-yaml
 $yamlObj = Get-Content $ConfigFile -Raw -Encoding UTF8 | ConvertFrom-Yaml
 
 # Factory only outputs to the automatic/ directory at the root
-$OutputDir = Resolve-Path (Join-Path $PSScriptRoot "..\automatic") -ErrorAction SilentlyContinue
-if (-not $OutputDir) {
-    $OutputDir = Join-Path $PSScriptRoot "..\automatic"
-}
+$OutputDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { Resolve-Path (Join-Path $PSScriptRoot "..\automatic") -ErrorAction SilentlyContinue }
+if (-not $OutputDir) { $OutputDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { Join-Path $PSScriptRoot "..\automatic" } }
 
 if (-not (Test-Path $OutputDir)) {
     New-Item -ItemType Directory -Force -Path $OutputDir | Out-Null
@@ -316,7 +314,6 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
 
     if (-not (Test-Path (Join-Path $pkgDir "update.ps1"))) {
         $updateContent = @"
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 param()
 `$ExtensionPublisher = "$publisher"
 `$ExtensionName = "$extensionName"

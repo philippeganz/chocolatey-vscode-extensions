@@ -1,4 +1,3 @@
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 <#
@@ -99,7 +98,7 @@ function global:au_BeforeUpdate {
                 $configPath = Resolve-Path "$PSScriptRoot\..\config.yaml" -ErrorAction SilentlyContinue
                 if (-not $configPath) { $configPath = "$PSScriptRoot\..\config.yaml" }
                 $resolvedPath = if ($configPath -is [string]) { $configPath } else { $configPath.Path }
-                Update-NuspecDependencies -NuspecXml $package.NuspecXml -PackageJson $payloadResult.PackageJson -PackageName $package.Name -ConfigPath $resolvedPath
+                Update-NuspecDependency -NuspecXml $package.NuspecXml -PackageJson $payloadResult.PackageJson -ConfigPath $resolvedPath
             }
         }
 

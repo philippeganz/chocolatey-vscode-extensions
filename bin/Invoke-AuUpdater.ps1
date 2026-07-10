@@ -78,7 +78,7 @@ $opts = [ordered]@{
 }
 
 
-$packagesDir = Join-Path (Split-Path $PSScriptRoot -Parent) "automatic"
+$packagesDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { Join-Path (Split-Path $PSScriptRoot -Parent) "automatic" }
 
 if (-not (Test-Path $packagesDir)) {
     throw "Configured packages directory not found: $packagesDir"
