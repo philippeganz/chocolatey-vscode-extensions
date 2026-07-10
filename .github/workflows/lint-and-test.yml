@@ -151,15 +151,36 @@ jobs:
               exit 1
           }
 
-      - name: Publish Test Results
-        uses: mikepenz/action-junit-report@v4
+      - name: Upload Test and Coverage Artifacts
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          report_paths: 'test-results.xml'
+          name: pester-artifacts
+          path: |
+            test-results.xml
+            coverage.xml
+
+  publish-reports:
+    name: Publish Reports
+    needs: pester-workflow-tests
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: pester-artifacts
+
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        with:
+          files: "test-results.xml"
 
       - name: Publish Code Coverage Summary
         uses: irongut/CodeCoverageSummary@v1.3.0
-        if: always()
         with:
           filename: coverage.xml
           badge: true
@@ -177,4 +198,3 @@ jobs:
         with:
           recreate: true
           path: code-coverage-results.md
-
