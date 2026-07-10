@@ -1,4 +1,4 @@
-﻿[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 <#
@@ -10,6 +10,9 @@
     all packages use a tiny 3-line stub that dot-sources this file. This script injects
     the global AU hooks (au_GetLatest, au_BeforeUpdate) into the runtime context so AU
     knows how to update the package.
+
+.EXAMPLE
+    . $PSScriptRoot\..\..\bin\AuExtensionHooks.ps1
 #>
 param()
 
@@ -18,7 +21,7 @@ Import-Module "$PSScriptRoot\VsCodeMarketplace.psm1" -Global -Force -ErrorAction
 
 # We bypass the registry checks since these are portable VS Code extensions.
 # Push settings are natively inherited from the global orchestrator.
-$au_NoCheckRegistry = $true
+$global:au_NoCheckRegistry = $true
 
 
 # -----------------------------------------------------------------------------
@@ -43,6 +46,7 @@ function global:au_GetLatest {
         URL32   = $vsixUrl
         URL64   = $vsixUrl
         IconUrl = $iconUrl
+        RawMeta = $ext
     }
 }
 
@@ -56,10 +60,10 @@ function global:au_BeforeUpdate {
     param($package)
 
     # Intelligent CI Bootstrapper: Only install VS Code test dependencies if an update is actively happening
-    if (-not (Get-Command code -ErrorAction SilentlyContinue) -and -not $global:VsCodeDependenciesLoaded) {
+    if (-not (Get-Command code -ErrorAction SilentlyContinue) -and -not $script:VsCodeDependenciesLoaded) {
         Write-Host ">>> Pre-loading Test Dependencies for CI Environment..." -ForegroundColor Cyan
         choco install vscode chocolatey-vscode.extension -y --no-progress
-        $global:VsCodeDependenciesLoaded = $true
+        $script:VsCodeDependenciesLoaded = $true
     }
 
     $toolsDir = Join-Path $package.Path 'tools'
@@ -89,6 +93,14 @@ function global:au_BeforeUpdate {
                 $cdata = $package.NuspecXml.CreateCDataSection("`n" + $cdataSafe + "`n")
                 $descNode.AppendChild($cdata) | Out-Null
             }
+
+            # Dynamically resolve and inject missing dependencies
+            if ($payloadResult.PackageJson) {
+                $configPath = Resolve-Path "$PSScriptRoot\..\config.yaml" -ErrorAction SilentlyContinue
+                if (-not $configPath) { $configPath = "$PSScriptRoot\..\config.yaml" }
+                $resolvedPath = if ($configPath -is [string]) { $configPath } else { $configPath.Path }
+                Update-NuspecDependencies -NuspecXml $package.NuspecXml -PackageJson $payloadResult.PackageJson -PackageName $package.Name -ConfigPath $resolvedPath
+            }
         }
 
         # Update the physical file on disk for immediate tools
@@ -97,6 +109,18 @@ function global:au_BeforeUpdate {
         if (Test-Path $nuspecPath) {
             $nuspecContent = Get-Content $nuspecPath -Raw -Encoding UTF8
             $nuspecContent = $nuspecContent -replace '(?is)<description>.*?</description>', "<description>$descriptionEscaped</description>"
+            if ($Latest.IconUrl) {
+                $nuspecContent = $nuspecContent -replace '(?is)<iconUrl>.*?</iconUrl>', "<iconUrl>$($Latest.IconUrl)</iconUrl>"
+            }
+
+            if ($Latest.RawMeta) {
+                $meta = Get-VsCodeNuspecMetadata -ExtMeta $Latest.RawMeta -ExtensionPublisher $ExtensionPublisher -ExtensionName $ExtensionName
+
+                $nuspecContent = $nuspecContent -replace '(?is)<title>.*?</title>', "<title>$($meta.Title)</title>"
+                $nuspecContent = $nuspecContent -replace '(?is)<summary>.*?</summary>', "<summary>$($meta.Summary)</summary>"
+                $nuspecContent = $nuspecContent -replace '(?is)<authors>.*?</authors>', "<authors>$($meta.Authors)</authors>"
+                $nuspecContent = $nuspecContent -replace '(?is)<projectUrl>.*?</projectUrl>', "<projectUrl>$($meta.ProjectUrl)</projectUrl>"
+            }
             $utf8NoBom = New-Object System.Text.UTF8Encoding $false
             [System.IO.File]::WriteAllText($nuspecPath, $nuspecContent, $utf8NoBom)
         }

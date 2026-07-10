@@ -10,6 +10,27 @@
     It iterates over all packages in the automatic/ directory, triggers their update
     hooks, and determines if new versions need to be compiled and published to the
     Chocolatey Community Repository.
+
+.PARAMETER ForcedPackages
+    A comma-separated string of package names to force-update, bypassing the native
+    version-matching math. Useful for emergency hotfixes.
+
+.PARAMETER PushUrl
+    Override the default Chocolatey Community push endpoint with a custom NuGet repository URL.
+
+.PARAMETER ModerationRepush
+    A comma-separated string of package names (or '*' for all) to rebuild and push without
+    running the standard AU pipeline. Useful for pushing to the moderation queue.
+
+.PARAMETER OutputDir
+    An absolute path where compiled `.nupkg` artifacts should be moved instead of pushing
+    them to a live repository. Disables automated push.
+
+.EXAMPLE
+    .\Invoke-AuUpdater.ps1
+
+.EXAMPLE
+    .\Invoke-AuUpdater.ps1 -ForcedPackages "vscode-python,vscode-docker" -OutputDir "C:\artifacts"
 #>
 param(
     [string]$ForcedPackages = '',
@@ -204,3 +225,12 @@ finally {
         }
     }
 }
+
+if ($global:au_RequiresSecondRun) {
+    Write-Host "
+>>> [AUTO-DISCOVERY] New dependencies were scaffolded! Triggering secondary AU run to package them..." -ForegroundColor Magenta
+    $global:au_RequiresSecondRun = $false
+    & $MyInvocation.MyCommand.Path -ForcedPackages $ForcedPackages -PushUrl $PushUrl -ModerationRepush $ModerationRepush -OutputDir $OutputDir
+}
+
+

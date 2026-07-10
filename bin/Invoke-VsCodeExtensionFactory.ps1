@@ -20,6 +20,20 @@
     If it discovers missing dependencies, it queues them dynamically, scaffolds them automatically,
     filters out malformed cyclic self-dependencies, and safely rewrites the `config.yaml`
     file to explicitly track them as top-level peers.
+
+.PARAMETER ExtensionId
+    The exact unique identifier of the extension from the VS Code Marketplace
+    (e.g., 'ms-python.python'). When provided, the Factory scaffolds this single package.
+
+.PARAMETER Force
+    If specified, completely nukes the existing package directory in 'automatic/'
+    and forces a clean regeneration of all templates. Resets the version to 0.0.0.
+
+.EXAMPLE
+    .\Invoke-VsCodeExtensionFactory.ps1 -ExtensionId "ms-python.python"
+
+.EXAMPLE
+    .\Invoke-VsCodeExtensionFactory.ps1 -ExtensionId "ms-python.python" -Force
 #>
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
@@ -28,13 +42,10 @@ param (
     [string]$ConfigFile = "$PSScriptRoot\config.yaml",
 
     [Parameter(Mandatory = $false)]
-    [string]$ExtensionId,
+    [string[]]$ExtensionId,
 
     [Parameter(Mandatory = $false)]
-    [switch]$Force,
-
-    [Parameter(Mandatory = $false)]
-    [switch]$UpdateMetadata
+    [switch]$Force
 )
 
 $ErrorActionPreference = 'Stop'
@@ -58,13 +69,10 @@ Import-Module powershell-yaml
 
 $yamlObj = Get-Content $ConfigFile -Raw -Encoding UTF8 | ConvertFrom-Yaml
 
-# Resolve relative OutputDir
-$OutputDir = $yamlObj.config.output_dir
-if (-not [System.IO.Path]::IsPathRooted($OutputDir)) {
-    $OutputDir = Resolve-Path (Join-Path $PSScriptRoot $OutputDir) -ErrorAction SilentlyContinue
-    if (-not $OutputDir) {
-        $OutputDir = Join-Path $PSScriptRoot $yamlObj.config.output_dir
-    }
+# Factory only outputs to the automatic/ directory at the root
+$OutputDir = Resolve-Path (Join-Path $PSScriptRoot "..\automatic") -ErrorAction SilentlyContinue
+if (-not $OutputDir) {
+    $OutputDir = Join-Path $PSScriptRoot "..\automatic"
 }
 
 if (-not (Test-Path $OutputDir)) {
@@ -156,7 +164,6 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
 
     $version = $extMeta.versions[0].version
     $versionClean = $version -replace '[^\d\.-]', ''
-    $displayName = $extMeta.displayName
     $descriptionRaw = $extMeta.shortDescription
     $descriptionRaw = $descriptionRaw -replace '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', '[email removed]'
 
@@ -191,19 +198,10 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     # =========================================================================
     # 3. Payload Extraction (Air-Gap Compliance)
     # =========================================================================
-    if ($UpdateMetadata) {
-        $packageJson = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir -ExtractPackageJsonOnly
-    }
-    else {
-        $packageJson = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
-    }
+    $packageJson = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
 
-    if ($packageJson) {
-        $repoUrl = if ($packageJson.repository.url) { $packageJson.repository.url } else { "https://marketplace.visualstudio.com/items?itemName=$extId" }
-        $author = if ($packageJson.publisher) { $packageJson.publisher } else { $publisher }
-    }
     # =========================================================================
-    # 4. Chocolatey Dependency Resolution
+    # 4. Generate Core Package Files
     # =========================================================================
     # If the VS Code extension declares internal dependencies (e.g., Extension Packs),
     # we dynamically translate those into Chocolatey package dependencies.
@@ -279,66 +277,27 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $templatesDir = Join-Path $PSScriptRoot "Templates"
 
     $nuspecPath = Join-Path $pkgDir "$packageName.nuspec"
+    $cdataSafe = $descriptionRaw -replace ']]>', ']]]]><![CDATA[>'
+    $descriptionEscaped = "<![CDATA[`n" + $cdataSafe + "`n]]>"
 
-    if ($UpdateMetadata -and (Test-Path $nuspecPath)) {
-        Write-Host "    Updating existing Nuspec XML natively to preserve manual description..."
+    $meta = Get-VsCodeNuspecMetadata -ExtMeta $extMeta -ExtensionPublisher $publisher -ExtensionName $extensionName -Description $descriptionEscaped
 
-        $xml = New-Object System.Xml.XmlDocument
-        $xml.Load((Resolve-Path $nuspecPath).Path)
-        $ns = $xml.DocumentElement.NamespaceURI
+    $nuspecContent = Get-Content (Join-Path $templatesDir "template.nuspec") -Raw -Encoding UTF8
+    $nuspecContent = $nuspecContent -replace '\{\{ExtensionNameLowerCase\}\}', $packageName.Replace("vscode-", "")
 
-        $xml.package.metadata.title = "Visual Studio Code Extension - $displayName"
-        $xml.package.metadata.authors = $author
-        $xml.package.metadata.projectUrl = $repoUrl
-        $xml.package.metadata.summary = $summaryRaw
+    $nuspecContent = $nuspecContent -replace '\{\{Version\}\}', '0.0.0'
+    $nuspecContent = $nuspecContent -replace '\{\{Title\}\}', $meta.Title
+    $nuspecContent = $nuspecContent -replace '\{\{Authors\}\}', $meta.Authors
+    $nuspecContent = $nuspecContent -replace '\{\{ProjectUrl\}\}', $meta.ProjectUrl
+    $nuspecContent = $nuspecContent -replace '\{\{IconUrl\}\}', $meta.IconUrl
+    $nuspecContent = $nuspecContent -replace '\{\{MarketplaceUrl\}\}', $meta.MarketplaceUrl
+    $nuspecContent = $nuspecContent -replace '\{\{Description\}\}', $meta.Description
+    $nuspecContent = $nuspecContent -replace '\{\{Summary\}\}', $meta.Summary
+    $nuspecContent = $nuspecContent -replace '\{\{Dependencies\}\}', $dependenciesStr
+    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+    [System.IO.File]::WriteAllText($nuspecPath, $nuspecContent, $utf8NoBom)
 
-        # Safely rewrite dependencies using XML Nodes
-        $depsNode = $xml.package.metadata.dependencies
-        if ($null -eq $depsNode) {
-            $depsNode = $xml.CreateElement("dependencies", $ns)
-            $xml.package.metadata.AppendChild($depsNode) | Out-Null
-        }
-        else {
-            $depsNode.RemoveAll()
-        }
-
-        # Always inject the foundational Chocolatey extension dependency
-        $baseDep = $xml.CreateElement("dependency", $ns)
-        $baseDep.SetAttribute("id", "chocolatey-vscode.extension")
-        $baseDep.SetAttribute("version", "1.1.0")
-        $depsNode.AppendChild($baseDep) | Out-Null
-
-        foreach ($depId in $discoveredDeps) {
-            $depElement = $xml.CreateElement("dependency", $ns)
-            $depElement.SetAttribute("id", $depId)
-            $depsNode.AppendChild($depElement) | Out-Null
-        }
-
-        $settings = New-Object System.Xml.XmlWriterSettings
-        $settings.Indent = $true
-        $settings.IndentChars = "  "
-        $writer = [System.Xml.XmlWriter]::Create((Resolve-Path $nuspecPath).Path, $settings)
-        $xml.Save($writer)
-        $writer.Dispose()
-    }
-    else {
-        $nuspecContent = Get-Content (Join-Path $templatesDir "template.nuspec") -Raw -Encoding UTF8
-        $nuspecContent = $nuspecContent -replace '\{\{ExtensionNameLowerCase\}\}', $packageName.Replace("vscode-", "")
-
-        $nuspecContent = $nuspecContent -replace '\{\{Version\}\}', '0.0.0'
-        $nuspecContent = $nuspecContent -replace '\{\{Title\}\}', "Visual Studio Code Extension - $displayName"
-        $nuspecContent = $nuspecContent -replace '\{\{Authors\}\}', $author
-        $nuspecContent = $nuspecContent -replace '\{\{ProjectUrl\}\}', $repoUrl
-        $nuspecContent = $nuspecContent -replace '\{\{IconUrl\}\}', $iconUrl
-        $nuspecContent = $nuspecContent -replace '\{\{MarketplaceUrl\}\}', "https://marketplace.visualstudio.com/items?itemName=$extId"
-        $nuspecContent = $nuspecContent -replace '\{\{Description\}\}', $descriptionEscaped
-        $nuspecContent = $nuspecContent -replace '\{\{Summary\}\}', $summaryEscaped
-        $nuspecContent = $nuspecContent -replace '\{\{Dependencies\}\}', $dependenciesStr
-        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-        [System.IO.File]::WriteAllText($nuspecPath, $nuspecContent, $utf8NoBom)
-    }
-
-    if (-not ($UpdateMetadata -and (Test-Path (Join-Path $toolsDir "chocolateyInstall.ps1")))) {
+    if (-not (Test-Path (Join-Path $toolsDir "chocolateyInstall.ps1"))) {
         $installContent = Get-Content (Join-Path $templatesDir "chocolateyInstall.ps1") -Raw -Encoding UTF8
         $installContent = $installContent -replace '\{\{Publisher\}\}', $publisher
         $installContent = $installContent -replace '\{\{ExtensionName\}\}', $extensionName
@@ -347,7 +306,15 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
         [System.IO.File]::WriteAllText((Join-Path $toolsDir "chocolateyInstall.ps1"), $installContent, $utf8NoBom)
     }
 
-    if (-not ($UpdateMetadata -and (Test-Path (Join-Path $pkgDir "update.ps1")))) {
+    if (-not (Test-Path (Join-Path $toolsDir "chocolateyUninstall.ps1"))) {
+        $uninstallContent = Get-Content (Join-Path $templatesDir "chocolateyUninstall.ps1") -Raw -Encoding UTF8
+        $uninstallContent = $uninstallContent -replace '\{\{Publisher\}\}', $publisher
+        $uninstallContent = $uninstallContent -replace '\{\{ExtensionName\}\}', $extensionName
+        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+        [System.IO.File]::WriteAllText((Join-Path $toolsDir "chocolateyUninstall.ps1"), $uninstallContent, $utf8NoBom)
+    }
+
+    if (-not (Test-Path (Join-Path $pkgDir "update.ps1"))) {
         $updateContent = @"
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 param()
@@ -376,10 +343,8 @@ if (-not $ExtensionId) {
     Write-Host "`n>>> Finalizing and Syncing config.yaml..." -ForegroundColor Cyan
     $sortedExtensions = $extensionsList | Sort-Object -Unique
 
-    # Enforce strict property ordering so 'config' is always rendered before 'extensions'
     $orderedYaml = [ordered]@{
-        config     = $yamlObj.config
-        extensions = $sortedExtensions
+        extensions = @($sortedExtensions)
     }
 
     $yamlStr = ConvertTo-Yaml $orderedYaml
@@ -393,3 +358,5 @@ if (-not $ExtensionId) {
 }
 
 Write-Host "`n>>> Factory Run Complete!" -ForegroundColor Cyan
+
+

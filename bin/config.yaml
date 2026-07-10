@@ -1,6 +1,4 @@
----
-config:
-  output_dir: ../automatic
+﻿---
 extensions:
   - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint
@@ -84,3 +82,8 @@ extensions:
   - vscode-icons-team.vscode-icons
   - wakatime.vscode-wakatime
   - xabikos.javascriptsnippets
+
+
+
+
+

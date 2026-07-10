@@ -3,8 +3,8 @@ name: Chocolatey AU Updater
 
 on:
   # schedule:
-  #   - cron: "0 */6 * * *" # Run every 6 hours
-  workflow_dispatch:  # Allow manual triggers
+  #   - cron: '0 0 * * *' # Run daily at midnight
+  workflow_dispatch: # Allow manual triggers
     inputs:
       forced_packages:
         description: Comma separated list of packages to force update (optional)
@@ -37,6 +37,11 @@ jobs:
         shell: powershell
         run: |
           Install-Module -Name au -Force -AcceptLicense
+
+      - name: Install PowerShell-Yaml
+        shell: powershell
+        run: |
+          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber
 
       - name: Run AU Updater
         shell: powershell
