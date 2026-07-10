@@ -65,6 +65,10 @@ $ErrorActionPreference = 'Stop'
 # =============================================================================
 $script:IsPS7 = $PSVersionTable.PSVersion.Major -ge 7
 
+<#
+.SYNOPSIS
+A cross-platform helper for rendering colorized, structured console messages.
+#>
 function Write-StyledMessage {
     param(
         [Parameter(Mandatory = $true)][string]$Prefix,
@@ -81,9 +85,28 @@ function Write-StyledMessage {
     }
 }
 
+<#
+.SYNOPSIS
+Writes a green success message to the console.
+#>
 function Write-Success ([string]$msg) { Write-StyledMessage -Prefix "[SUCCESS]" -Message $msg -FallbackColor Green -AnsiColor "`e[32m" }
+
+<#
+.SYNOPSIS
+Writes a cyan info message to the console.
+#>
 function Write-Info    ([string]$msg) { Write-StyledMessage -Prefix "[INFO]"    -Message $msg -FallbackColor Cyan  -AnsiColor "`e[36m" }
+
+<#
+.SYNOPSIS
+Writes a yellow skip message to the console.
+#>
 function Write-Skip    ([string]$msg) { Write-StyledMessage -Prefix "[SKIP]"    -Message $msg -FallbackColor Yellow -AnsiColor "`e[33m" }
+
+<#
+.SYNOPSIS
+Writes a red error message to the console.
+#>
 function Write-Err     ([string]$msg) { Write-StyledMessage -Prefix "[ERROR]"   -Message $msg -FallbackColor Red   -AnsiColor "`e[31m" }
 
 Import-Module "$PSScriptRoot\VsCodeMarketplace.psm1" -Force
@@ -102,6 +125,14 @@ Import-Module powershell-yaml
 # =============================================================================
 # 2. State Management Helpers
 # =============================================================================
+
+<#
+.SYNOPSIS
+Reads and parses the config.yaml state tracker.
+
+.OUTPUTS
+A hashtable containing the raw parsed YAML and a populated List of tracked extensions.
+#>
 function Get-ConfigState {
     if (-not (Test-Path $configPath)) { throw "config.yaml not found at $($configPath)" }
     $yamlObj = Get-Content $configPath -Raw -Encoding UTF8 | ConvertFrom-Yaml
@@ -114,6 +145,16 @@ function Get-ConfigState {
     return @{ Raw = $yamlObj; Extensions = $extensions }
 }
 
+<#
+.SYNOPSIS
+Saves the modified extension pool back to config.yaml safely.
+
+.PARAMETER yamlObj
+The original YAML object to preserve structure.
+
+.PARAMETER extensionsList
+The updated System.Collections.Generic.List of active extensions.
+#>
 function Save-ConfigState ([object]$yamlObj, [System.Collections.Generic.List[string]]$extensionsList) {
     $sortedExtensions = $extensionsList | Sort-Object -Unique
     $orderedYaml = [ordered]@{
@@ -349,6 +390,3 @@ elseif ($Audit) {
 else {
     Write-Err "Please specify a valid operation: -Add, -Remove, -Search, -CheckStale, or -Audit"
 }
-
-
-

@@ -4,7 +4,7 @@ name: Chocolatey AU Updater
 on:
   # schedule:
   #   - cron: '0 0 * * *'  # Run daily at midnight
-  workflow_dispatch:  # Allow manual triggers
+  workflow_dispatch: # Allow manual triggers
     inputs:
       forced_packages:
         description: Comma separated list of packages to force update (optional)

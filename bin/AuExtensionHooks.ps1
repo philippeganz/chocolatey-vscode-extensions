@@ -1,5 +1,3 @@
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 <#
 .SYNOPSIS
     The centralized Logic Engine for Chocolatey AU packages.
@@ -13,6 +11,9 @@
 .EXAMPLE
     . $PSScriptRoot\..\..\bin\AuExtensionHooks.ps1
 #>
+[CmdletBinding()]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 param()
 
 Import-Module au
@@ -23,13 +24,15 @@ Import-Module "$PSScriptRoot\VsCodeMarketplace.psm1" -Global -Force -ErrorAction
 $global:au_NoCheckRegistry = $true
 
 
-# -----------------------------------------------------------------------------
-# au_GetLatest: The Metadata Resolver
-#
-# AU executes this function every 6 hours. We send a raw REST API POST request
-# to the Visual Studio Code Marketplace to query the absolute latest version
-# of the extension.
-# -----------------------------------------------------------------------------
+<#
+.SYNOPSIS
+The Metadata Resolver hook for Chocolatey AU.
+
+.DESCRIPTION
+AU executes this function on a schedule. It sends a REST API POST request to the
+Visual Studio Code Marketplace to natively query the absolute latest version
+of the extension, resolving icon URLs and download paths dynamically.
+#>
 function global:au_GetLatest {
     $ext = Get-VsCodeMarketplaceMetadata -Publisher $ExtensionPublisher -ExtensionName $ExtensionName
 
@@ -49,12 +52,19 @@ function global:au_GetLatest {
     }
 }
 
-# -----------------------------------------------------------------------------
-# au_BeforeUpdate: The Payload Downloader
-#
-# If AU detects that the version returned by au_GetLatest is newer than the
-# current package (or is forced), it triggers this hook to download the new binaries.
-# -----------------------------------------------------------------------------
+<#
+.SYNOPSIS
+The Payload Downloader hook for Chocolatey AU.
+
+.DESCRIPTION
+If AU detects that the version returned by au_GetLatest is newer than the
+current package (or is forced), it triggers this hook. This downloads the actual
+VSIX binary, extracts the metadata and LICENSE, dynamically injects dependencies,
+and algorithmically truncates the README to update the nuspec.
+
+.PARAMETER package
+The AU package object representing the current context.
+#>
 function global:au_BeforeUpdate {
     param($package)
 
@@ -126,12 +136,14 @@ function global:au_BeforeUpdate {
     }
 }
 
-# -----------------------------------------------------------------------------
-# au_SearchReplace: The String Replacer
-#
-# AU executes this function to natively update the hardcoded version strings
-# inside our scripts (like chocolateyInstall.ps1) so the new binaries are used.
-# -----------------------------------------------------------------------------
+<#
+.SYNOPSIS
+The String Replacer hook for Chocolatey AU.
+
+.DESCRIPTION
+AU executes this function to natively update the hardcoded version strings
+inside our runtime scripts (like chocolateyInstall.ps1) so the new binaries are properly targeted.
+#>
 function global:au_SearchReplace {
     # We conditionally build the replacement rules so we don't accidentally write empty icon URLs if the extension lacks one
     $rules = @{

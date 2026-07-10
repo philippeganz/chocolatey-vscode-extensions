@@ -1,0 +1,11 @@
+# Enforce LF (\n) line endings for all text files, regardless of the host OS (Windows)
+* text=auto eol=lf
+
+# Specifically enforce LF for scripts and data files
+*.ps1 text eol=lf
+*.psm1 text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.xml text eol=lf

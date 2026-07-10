@@ -1,4 +1,14 @@
-﻿[CmdletBinding()]
+<#
+.SYNOPSIS
+The primary end-to-end integration test suite for the Chocolatey VS Code Extension framework.
+
+.DESCRIPTION
+This test suite uses Pester 5 to fully simulate the entire extension lifecycle in an isolated
+`test_automatic` environment. It validates that the Factory Engine successfully builds structural
+scaffolding, the AU Engine natively updates binaries and patches `package.json` metadata, and
+the pool manager perfectly manages state lifecycle (Add/Remove) without polluting local Git structures.
+#>
+[CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 param()
 $ErrorActionPreference = "Stop"
@@ -103,5 +113,3 @@ extensions:
         }
     }
 }
-
-

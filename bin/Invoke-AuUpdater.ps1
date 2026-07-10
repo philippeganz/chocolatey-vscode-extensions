@@ -1,6 +1,3 @@
-[CmdletBinding()]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
 <#
 .SYNOPSIS
     The core Orchestrator for the Chocolatey Automatic Updater (AU) Engine.
@@ -32,6 +29,9 @@
 .EXAMPLE
     .\Invoke-AuUpdater.ps1 -ForcedPackages "vscode-python,vscode-docker" -OutputDir "C:\artifacts"
 #>
+[CmdletBinding()]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
 param(
     [string]$ForcedPackages = '',
     [string]$PushUrl = '',
@@ -86,11 +86,20 @@ if (-not (Test-Path $packagesDir)) {
 
 Push-Location $packagesDir
 
-# -----------------------------------------------------------------------------
-# TOPOLOGICAL DEPENDENCY SORTER
-# -----------------------------------------------------------------------------
-# Ensures that if Package A depends on Package B, Package B is strictly built
-# and tested FIRST, preventing Chocolatey AU from failing local dependency checks.
+<#
+.SYNOPSIS
+A dependency graph resolver for ordered building.
+
+.DESCRIPTION
+Ensures that if Package A depends on Package B, Package B is strictly built
+and tested FIRST, preventing Chocolatey AU from failing local dependency checks.
+
+.PARAMETER Packages
+An array of package names to resolve.
+
+.OUTPUTS
+An ordered array of package names optimized for dependency-first execution.
+#>
 function Resolve-PackageDependency {
     param([string[]]$Packages)
 
@@ -115,7 +124,13 @@ function Resolve-PackageDependency {
     $visited = @{}
     $tempMark = @{}
 
-    # Recursively resolve dependencies (Kahn's Algorithm variation)
+    <#
+    .SYNOPSIS
+    Recursive DFS helper function for Topological Sort.
+
+    .PARAMETER node
+    The current node/package being visited in the graph.
+    #>
     function Visit($node) {
         if ($tempMark[$node]) { return } # Cycle detected, gracefully break
         if (-not $visited[$node]) {
@@ -232,5 +247,3 @@ if ($global:au_RequiresSecondRun) {
     $global:au_RequiresSecondRun = $false
     & $MyInvocation.MyCommand.Path -ForcedPackages $ForcedPackages -PushUrl $PushUrl -ModerationRepush $ModerationRepush -OutputDir $OutputDir
 }
-
-

@@ -1,3 +1,10 @@
+<#
+.SYNOPSIS
+Auto-generated install script for Chocolatey.
+
+.DESCRIPTION
+Downloads and installs the VSIX extension payload into VS Code.
+#>
 # -----------------------------------------------------------------------------
 # Chocolatey Installation Script
 #

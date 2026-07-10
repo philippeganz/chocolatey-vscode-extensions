@@ -2,6 +2,7 @@
 *.tmp
 *.retry
 .vscode/
+.editorconfig
 .mailmap
 
 # Chocolatey AU specific
@@ -12,3 +13,7 @@
 # We NEVER commit the binaries to git! AU downloads them locally 
 # on the GitHub Action runner just to pack them into the nupkg.
 *.vsix
+
+# Auto-generated documentation (do not commit!)
+docs/reference/
+site/

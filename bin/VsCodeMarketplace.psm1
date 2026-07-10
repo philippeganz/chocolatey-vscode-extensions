@@ -12,8 +12,20 @@ param()
 <#
 .SYNOPSIS
 Fetches the raw JSON metadata payload for a specific extension from the VS Code Marketplace API.
+
+.DESCRIPTION
+Constructs a robust POST request to the official VS Code Marketplace Gallery API. It abstracts
+away rate-limiting quirks and ensures retries on transient network failures, returning the raw
+JSON payload block for the specified extension identifier.
+
+.PARAMETER Publisher
+The canonical publisher name of the extension (e.g. 'ms-python').
+
+.PARAMETER ExtensionName
+The canonical name of the extension (e.g. 'python').
 #>
 function Get-VsCodeMarketplaceMetadata {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
     param (
         [Parameter(Mandatory = $true)][string]$Publisher,
         [Parameter(Mandatory = $true)][string]$ExtensionName
@@ -64,6 +76,23 @@ function Get-VsCodeMarketplaceMetadata {
 <#
 .SYNOPSIS
 Constructs the direct VSIX payload download URL, handling platform-specific ambiguities.
+
+.DESCRIPTION
+The Marketplace often hosts OS-specific precompiled binaries for heavy extensions (like C# or Go).
+This helper inspects the raw Marketplace Metadata and explicitly targets the `win32-x64` VSIX payload
+if the extension is platform-dependent, falling back to the universal payload otherwise.
+
+.PARAMETER Publisher
+The canonical publisher name.
+
+.PARAMETER ExtensionName
+The canonical extension name.
+
+.PARAMETER Version
+The exact version string of the extension to download (e.g. '1.0.0').
+
+.PARAMETER ExtMeta
+The raw JSON metadata payload retrieved from Get-VsCodeMarketplaceMetadata.
 #>
 function Get-VsCodeExtensionUrl {
     param (
@@ -88,6 +117,17 @@ function Get-VsCodeExtensionUrl {
 <#
 .SYNOPSIS
 Wraps Invoke-WebRequest with robust, auto-healing retry logic to survive CDN rate-limits and timeouts.
+
+.DESCRIPTION
+The VS Code CDN will frequently throttle CI nodes or throw HTTP 502/503 during mass automated pulls.
+This wrapper enforces a strict 600s timeout per attempt, retrying up to 3 times with exponential
+backoff to guarantee payload delivery.
+
+.PARAMETER Url
+The absolute direct download link for the .vsix payload.
+
+.PARAMETER OutFile
+The local destination path to save the .vsix archive.
 #>
 function Invoke-RobustDownload {
     param (
@@ -115,6 +155,21 @@ function Invoke-RobustDownload {
 <#
 .SYNOPSIS
 Cracks open a VSIX ZIP archive, extracts package.json, README.md, and LICENSE, and scrubs emails.
+
+.DESCRIPTION
+VSIX files are strictly ZIP archives. This command utilizes System.IO.Compression to surgically stream
+and extract ONLY the mandatory metadata files, avoiding inflating the heavy binaries. It actively parses
+and sanitizes the README.md to remove sensitive emails (preventing Chocolatey Moderation rejection)
+and algorithmically truncates the string to safely fit inside the 4000-character `<description>` nuspec limit.
+
+.PARAMETER VsixPath
+The local absolute path to the downloaded .vsix file.
+
+.PARAMETER DestinationDir
+The target automatic/package scaffolding directory to extract the tools/ metadata into.
+
+.OUTPUTS
+A PSCustomObject containing the parsed JSON from package.json and the fully sanitized/truncated README block.
 #>
 function Expand-VsCodePayload {
     param (
@@ -322,10 +377,20 @@ Centralized helper to transform VS Code Marketplace JSON into Chocolatey Nuspec 
 .DESCRIPTION
 Maps raw JSON fields from the VS Code Marketplace API into a sanitized hashtable of standard Chocolatey attributes, ensuring special XML characters are safely escaped.
 
-.PARAMETER RawMeta
+.PARAMETER ExtMeta
 The raw JSON payload returned by the VS Code Marketplace API.
+
+.PARAMETER ExtensionPublisher
+The canonical publisher name.
+
+.PARAMETER ExtensionName
+The canonical extension name.
+
+.PARAMETER Description
+Optional pre-formatted Markdown description block to inject into the returned object.
 #>
 function Get-VsCodeNuspecMetadata {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
     param(
         [Parameter(Mandatory = $true)][object]$ExtMeta,
         [Parameter(Mandatory = $true)][string]$ExtensionPublisher,
@@ -363,6 +428,3 @@ function Get-VsCodeNuspecMetadata {
 }
 
 Export-ModuleMember -Function Get-VsCodeMarketplaceMetadata, Get-VsCodeExtensionUrl, Invoke-RobustDownload, Expand-VsCodePayload, Update-NuspecDependency, Get-VsCodeNuspecMetadata
-
-
-
