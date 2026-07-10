@@ -140,7 +140,7 @@ jobs:
           # Enable Code Coverage Profiling
           $config.CodeCoverage.Enabled = $true
           $config.CodeCoverage.Path = @('./bin/*.ps1', './bin/*.psm1')
-          $config.CodeCoverage.OutputFormat = 'JaCoCo'
+          $config.CodeCoverage.OutputFormat = 'Cobertura'
           $config.CodeCoverage.OutputPath = 'coverage.xml'
 
           $result = Invoke-Pester -Configuration $config
@@ -150,7 +150,7 @@ jobs:
           }
 
       - name: Upload Test and Coverage Artifacts
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: pester-artifacts
@@ -168,7 +168,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Download Artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         with:
           name: pester-artifacts
 
