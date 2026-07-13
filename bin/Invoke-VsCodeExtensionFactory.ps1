@@ -318,6 +318,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
 
     if (-not (Test-Path (Join-Path $pkgDir "update.ps1"))) {
         $updateContent = @"
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 param()
 `$ExtensionPublisher = "$publisher"
 `$ExtensionName = "$extensionName"
