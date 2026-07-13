@@ -20,15 +20,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install Configuration Parser (yq)
-        run: choco install yq -y --no-progress
-
       - name: Parse Issue and Scaffold Extension
         id: factory
         shell: powershell
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+
           # The GitHub Issue Form markdown injects responses below the headers
           $issueBody = $env:ISSUE_BODY
 

@@ -7,7 +7,7 @@ theme:
   name: material
   palette:
     # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
+    - media: '(prefers-color-scheme: light)'
       scheme: default
       primary: blue
       accent: light blue
@@ -16,7 +16,7 @@ theme:
         name: Switch to dark mode
 
     # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
+    - media: '(prefers-color-scheme: dark)'
       scheme: slate
       primary: blue
       accent: light blue
