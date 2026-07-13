@@ -84,7 +84,8 @@ extensions:
     Context "2. Update the Package (Invoke-AuUpdater.ps1)" {
         It "Should run the AU updater and update metadata/binaries" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
-            & $script -ForcedPackages $script:packageName
+            $outDir = Join-Path $script:realPackagesDir "out_artifacts"
+            & $script -ForcedPackages $script:packageName -OutputDir $outDir
         }
 
         It "Should bump the version in the nuspec to a real version" {
@@ -99,7 +100,57 @@ extensions:
         }
     }
 
-    Context "3. Remove the Package (Manage-ExtensionPool.ps1)" {
+    Context "2.5. Re-run Factory with -Force" {
+        It "Should execute factory with Force without errors" {
+            $script = Join-Path $script:binDir "Invoke-VsCodeExtensionFactory.ps1"
+            # Set CHOC_VSCODE_AUTOMATIC_DIR to redirect scaffolding to test_automatic
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
+            try {
+                & $script -ExtensionId "$script:publisher.$script:extName" -Force
+            } finally {
+                Remove-Item Env:\CHOCO_VSCODE_AUTOMATIC_DIR
+            }
+        }
+    }
+
+
+
+    Context "3. Search for an Extension (Manage-ExtensionPool.ps1)" {
+        It "Should successfully search the VS Code Marketplace API" {
+            $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
+            $output = & $script -Search "mechatroner.rainbow-csv"
+            $output | Should -Not -BeNullOrEmpty
+        }
+    }
+
+    Context "4. Audit the Package Pool (Manage-ExtensionPool.ps1)" {
+        It "Should successfully audit the pool without errors" {
+            $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
+            & $script -Audit
+        }
+    }
+
+    Context "4.1 Moderation Repush (Invoke-AuUpdater.ps1)" {
+        It "Should successfully run moderation repush bypass" {
+            $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
+            $outDir = Join-Path $script:realPackagesDir "out_artifacts_2"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
+            try {
+                & $script -ModerationRepush "$script:packageName" -OutputDir $outDir
+            } finally {
+                Remove-Item Env:\CHOCO_VSCODE_AUTOMATIC_DIR
+            }
+        }
+    }
+
+    Context "5. Check Stale Packages (Manage-ExtensionPool.ps1)" {
+        It "Should successfully check for stale packages" {
+            $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
+            & $script -CheckStale
+        }
+    }
+
+    Context "6. Remove the Package (Manage-ExtensionPool.ps1)" {
         It "Should successfully remove the package from the pool" {
             $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
             & $script -Remove "$script:publisher.$script:extName"

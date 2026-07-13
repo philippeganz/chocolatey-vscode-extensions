@@ -4,7 +4,7 @@ param()
 
 $ErrorActionPreference = "Stop"
 
-$script:modulePath = Join-Path (Split-Path $PSScriptRoot -Parent) "bin\VsCodeMarketplace.psm1"
+$script:modulePath = Join-Path (Split-Path $PSScriptRoot -Parent) "lib\VsCodeMarketplace.psm1"
 Import-Module $script:modulePath -Force
 
 Describe "VsCodeMarketplace API Wrapper" {
@@ -87,6 +87,45 @@ Describe "VsCodeMarketplace API Wrapper" {
 
             $script:failCount | Should -Be 3
             Should -Invoke -CommandName Invoke-WebRequest -ModuleName VsCodeMarketplace -Times 3 -Exactly
+        }
+    }
+
+    Context "Update-NuspecDependency" {
+        It "Should inject extensionDependencies as chocolatey dependencies and map aliases" {
+            $mockNuspec = [xml]@"
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-test</id>
+  </metadata>
+</package>
+"@
+            $mockPkgJson = @{
+                extensionDependencies = @("donjayamanne.python", "unknown.extension")
+            }
+            
+            # Create a mock config.yaml
+            $mockConfig = Join-Path $PSScriptRoot "mock_config.yaml"
+            "---`nextensions:`n  - ms-python.python`n" | Set-Content $mockConfig
+            
+            # Prevent pollution of the real automatic directory and ignore expected CLI errors
+            $tempAuto = Join-Path $PSScriptRoot "temp_auto"
+            New-Item -ItemType Directory -Path $tempAuto -Force | Out-Null
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $tempAuto
+
+            try {
+                Update-NuspecDependency -NuspecXml $mockNuspec -PackageJson $mockPkgJson -ConfigPath $mockConfig -ErrorAction SilentlyContinue
+            } catch {}
+
+            $deps = $mockNuspec.package.metadata.dependencies.dependency
+            $deps.Count | Should -Be 3
+            $deps[0].id | Should -Be "chocolatey-vscode.extension"
+            $deps[1].id | Should -Be "vscode-python"
+            $deps[2].id | Should -Be "vscode-extension" # The fallback naming for unknown
+            
+            Remove-Item $mockConfig -Force
+            Remove-Item $tempAuto -Recurse -Force
+            Remove-Item Env:\CHOCO_VSCODE_AUTOMATIC_DIR -ErrorAction SilentlyContinue
         }
     }
 }
