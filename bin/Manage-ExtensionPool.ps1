@@ -112,9 +112,11 @@ function Write-Err     ([string]$msg) { Write-StyledMessage -Prefix "[ERROR]"   
 Import-Module "$PSScriptRoot\VsCodeMarketplace.psm1" -Force
 
 # Load config.yaml safely
-$configPath = Resolve-Path (Join-Path $PSScriptRoot "config.yaml") -ErrorAction SilentlyContinue
+$configPath = Resolve-Path (Join-Path (Split-Path $PSScriptRoot -Parent) "etc\config.yaml") -ErrorAction SilentlyContinue
 if (-not $configPath) {
-    $configPath = Join-Path $PSScriptRoot "config.yaml"
+    $configPath = Join-Path (Split-Path $PSScriptRoot -Parent) "etc\config.yaml"
+} else {
+    $configPath = $configPath.Path
 }
 if (-not (Get-Module -ListAvailable powershell-yaml)) {
     Write-Info "Installing required powershell-yaml module..."

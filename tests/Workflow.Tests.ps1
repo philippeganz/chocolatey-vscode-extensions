@@ -20,7 +20,7 @@ Describe "VSCode Extensions Chocolatey Workflow" {
         $script:repoRoot = Split-Path $PSScriptRoot -Parent
 
         $script:binDir = Join-Path $script:repoRoot "bin"
-        $script:configPath = Join-Path $script:repoRoot "bin\config.yaml"
+        $script:configPath = Join-Path $script:repoRoot "etc\config.yaml"
         $script:publisher = "mechatroner"
         $script:extName = "rainbow-csv"
         $script:packageName = "vscode-rainbow-csv"

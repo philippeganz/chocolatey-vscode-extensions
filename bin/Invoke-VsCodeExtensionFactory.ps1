@@ -39,7 +39,7 @@
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
 param (
     [Parameter(Mandatory = $false)]
-    [string]$ConfigFile = "$PSScriptRoot\config.yaml",
+    [string]$ConfigFile = "$PSScriptRoot\..\etc\config.yaml",
 
     [Parameter(Mandatory = $false)]
     [string[]]$ExtensionId,
