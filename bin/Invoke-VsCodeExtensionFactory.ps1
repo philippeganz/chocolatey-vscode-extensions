@@ -356,6 +356,11 @@ if (-not $ExtensionId) {
 
     $utf8NoBom = New-Object System.Text.UTF8Encoding $false
     [System.IO.File]::WriteAllText($ConfigFile, $formattedYaml, $utf8NoBom)
+
+    $badgeJson = @{ schemaVersion = 1; label = "Extensions Tracked"; message = "$($sortedExtensions.Count)"; color = "blue" } | ConvertTo-Json -Compress
+    $badgePath = Join-Path (Split-Path $ConfigFile) "badge.json"
+    [System.IO.File]::WriteAllText($badgePath, $badgeJson, $utf8NoBom)
+
     Write-Host "    [SUCCESS] Resolved $($sortedExtensions.Count) total dependencies!" -ForegroundColor Green
 }
 

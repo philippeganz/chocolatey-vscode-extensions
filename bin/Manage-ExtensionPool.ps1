@@ -166,6 +166,11 @@ function Save-ConfigState ([object]$yamlObj, [System.Collections.Generic.List[st
     $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -').TrimEnd() + "`n"
     $utf8NoBom = New-Object System.Text.UTF8Encoding $false
     [System.IO.File]::WriteAllText($configPath, $formattedYaml, $utf8NoBom)
+
+    $badgeJson = @{ schemaVersion = 1; label = "Extensions Tracked"; message = "$($sortedExtensions.Count)"; color = "blue" } | ConvertTo-Json -Compress
+    $badgePath = Join-Path (Split-Path $configPath) "badge.json"
+    [System.IO.File]::WriteAllText($badgePath, $badgeJson, $utf8NoBom)
+
     Write-Success "State saved to config.yaml ($($sortedExtensions.Count) total extensions tracked)."
 }
 
