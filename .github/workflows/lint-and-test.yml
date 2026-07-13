@@ -30,7 +30,7 @@ jobs:
         shell: pwsh
         run: |
           # The -EnableExit flag ensures the workflow fails if any Warnings or Errors are found
-          Invoke-ScriptAnalyzer -Path ./bin, ./lib, ./tests -Recurse -EnableExit
+          Invoke-ScriptAnalyzer -Path . -Recurse -EnableExit
 
   markdown-lint:
     name: MarkdownLint
