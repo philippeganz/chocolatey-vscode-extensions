@@ -135,13 +135,13 @@ jobs:
           $config.Run.PassThru = $true
           $config.TestResult.Enabled = $true
           $config.TestResult.OutputFormat = 'JUnitXml'
-          $config.TestResult.OutputPath = 'test-results.xml'
+          $config.TestResult.OutputPath = Join-Path $PWD 'test-results.xml'
 
           # Enable Code Coverage Profiling
           $config.CodeCoverage.Enabled = $true
-          $config.CodeCoverage.Path = @('./bin/*.ps1', './bin/*.psm1')
+          $config.CodeCoverage.Path = @('./bin/*.ps1', './lib/*.psm1')
           $config.CodeCoverage.OutputFormat = 'Cobertura'
-          $config.CodeCoverage.OutputPath = 'coverage.xml'
+          $config.CodeCoverage.OutputPath = Join-Path $PWD 'coverage.xml'
 
           $result = Invoke-Pester -Configuration $config
           if ($result.FailedCount -gt 0) {
