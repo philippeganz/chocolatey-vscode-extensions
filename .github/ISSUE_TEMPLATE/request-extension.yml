@@ -2,7 +2,7 @@
 name: '🚀 Request New Extension'
 description: 'Request a new VS Code Extension to be added to the Chocolatey repository.'
 title: '[Extension Request] '
-labels: ['enhancement', 'extension-request']
+labels: ['extension-request']
 body:
   - type: markdown
     attributes:

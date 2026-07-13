@@ -156,7 +156,7 @@ jobs:
                       # 1. Provide exact relative path for Codecov file mapping
                       $relPath = $case.classname -ireplace $pwdStr, '' -replace '\\', '/'
                       $case.SetAttribute('file', $relPath)
-                      
+
                       # 2. Provide clean classname for Codecov UI display (no absolute paths)
                       $cleanClass = [System.IO.Path]::GetFileNameWithoutExtension($case.classname)
                       $case.classname = $cleanClass
