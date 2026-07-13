@@ -1,0 +1,64 @@
+---
+name: Publish Documentation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
+      - 'bin/**'
+      - 'lib/**'
+      - 'mkdocs.yml'
+      - '.github/workflows/docs.yml'
+      - 'README.md'
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.x
+
+      - name: Install MkDocs Material
+        run: pip install mkdocs-material
+
+      - name: Generate API Documentation
+        shell: pwsh
+        run: ./bin/Update-Documentation.ps1
+
+      - name: Prepare Markdown Files
+        run: |
+          cp README.md docs/index.md
+          cp SUPPORT.md docs/SUPPORT.md
+          cp CONTRIBUTING.md docs/CONTRIBUTING.md
+
+      - name: Build site
+        run: mkdocs build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
