@@ -148,13 +148,19 @@ jobs:
           # Codecov Test Analytics requires relative paths to map tests correctly
           if (Test-Path 'test-results.xml') {
               [xml]$xml = Get-Content 'test-results.xml'
-              $pwdStr = $PWD.Path + [IO.Path]::DirectorySeparatorChar
+              $pwdStr = [regex]::Escape($PWD.Path + [IO.Path]::DirectorySeparatorChar)
               foreach ($suite in $xml.testsuites.testsuite) {
-                  $suite.name = $suite.name.Replace($pwdStr, '').Replace('\', '/')
-                  $suite.package = $suite.package.Replace($pwdStr, '').Replace('\', '/')
+                  $suite.name = $suite.name -ireplace $pwdStr, '' -replace '\\', '/'
+                  $suite.package = $suite.package -ireplace $pwdStr, '' -replace '\\', '/'
                   foreach ($case in $suite.testcase) {
-                      $case.classname = $case.classname.Replace($pwdStr, '').Replace('\', '/')
-                      $case.SetAttribute('file', $case.classname)
+                      # 1. Provide exact relative path for Codecov file mapping
+                      $relPath = $case.classname -ireplace $pwdStr, '' -replace '\\', '/'
+                      $case.SetAttribute('file', $relPath)
+                      
+                      # 2. Provide clean classname for Codecov UI display (no absolute paths)
+                      $cleanClass = [System.IO.Path]::GetFileNameWithoutExtension($case.classname)
+                      $case.classname = $cleanClass
+                      $case.name = $case.name -ireplace $pwdStr, '' -replace '\\', '/'
                   }
               }
               $xml.Save((Join-Path $PWD 'test-results.xml'))
@@ -207,13 +213,13 @@ jobs:
       - name: Write to Job Summary
         run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
 
-      - name: Upload to Codecov
+      - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage.xml
           fail_ci_if_error: false
-          verbose: true
+          verbose: false
 
       - name: Upload test results to Codecov
         uses: codecov/codecov-action@v7
@@ -222,7 +228,7 @@ jobs:
           files: test-results.xml
           report_type: test_results
           fail_ci_if_error: false
-          verbose: true
+          verbose: false
 
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v3
