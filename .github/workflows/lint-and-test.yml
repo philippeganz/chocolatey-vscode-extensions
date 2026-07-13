@@ -15,6 +15,25 @@ permissions:
   pull-requests: write
 
 jobs:
+  detect-changes:
+    name: Detect File Changes
+    runs-on: ubuntu-latest
+    outputs:
+      backend: ${{ steps.changed-backend.outputs.any_changed }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+      
+      - name: Check for backend changes
+        id: changed-backend
+        uses: tj-actions/changed-files@v47
+        with:
+          files: |
+            bin/**
+            lib/**
+            tests/**
+            .github/workflows/lint-and-test.yml
+
   powershell-lint:
     name: PSScriptAnalyzer
     runs-on: ubuntu-latest
@@ -110,6 +129,8 @@ jobs:
 
   pester-workflow-tests:
     name: Pester Workflow Tests
+    needs: detect-changes
+    if: needs.detect-changes.outputs.backend == 'true'
     runs-on: windows-latest
     steps:
       - name: Checkout Repository
@@ -182,7 +203,7 @@ jobs:
     name: Publish Reports
     needs: pester-workflow-tests
     runs-on: ubuntu-latest
-    if: always()
+    if: always() && needs.pester-workflow-tests.result != 'skipped'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v7
