@@ -22,7 +22,6 @@ This repository is the central Automatic Updater (AU) Mono-Repo for Visual Studi
 - [Development](#development)
   - [Repository Architecture](#repository-architecture)
   - [How to Add a New Extension](#how-to-add-a-new-extension)
-  - [Managing Existing Extensions](#managing-existing-extensions)
 - [Support & Feedback](#support--feedback)
 - [Contributing](#contributing)
 - [License](#license)
@@ -82,70 +81,36 @@ This section is strictly for repository maintainers and contributors.
 
 ### Repository Architecture
 
-This is a standard Chocolatey AU Mono-Repo powered by a custom PowerShell Factory, built on a hyper-DRY paradigm.
+For a deep dive into the engineering behind this mono-repo, including Mermaid diagrams of the Factory and AU Engine lifecycles, please see our dedicated [Architecture Documentation](docs/architecture.md).
 
-- `.github/workflows/`: Contains the AU CI/CD pipelines (which natively run `Invoke-AuUpdater.ps1`).
-- `automatic/`: Contains the AU templates for every managed extension. **(All 70+ packages use an optimized 3-line stub pattern instead of bloated 100-line scripts, pointing to a shared logic engine).**
-- `bin/`: Contains the core engineering modules:
-  - **`Invoke-VsCodeExtensionFactory.ps1`**: The scaffolding engine. It auto-discovers dependencies, extracts ZIP payloads for documentation, and generates the packages.
-  - **`Invoke-AuUpdater.ps1`**: The Chocolatey AU Engine orchestrator. It sweeps the repository every 6 hours to download new updates.
-  - **`AuExtensionHooks.ps1`**: The shared logic template that all 72+ packages natively dot-source.
-  - **`VsCodeMarketplace.psm1`**: The shared API module handling robust network downloads, platform-detection (`win32-x64`), and ZIP payload cracking for documentation extraction.
+For a complete breakdown of the PowerShell scripts, modules, and internal functions, please visit our auto-generated [GitHub Pages API Reference Site](https://philippeganz.github.io/chocolatey-vscode-extensions/).
 
 ### How to Add a New Extension
 
-We welcome community contributions to expand the list of managed extensions! Because we use an automated factory, adding a new extension requires zero manual templating.
+We welcome community contributions! Because we use an automated factory, adding a new extension requires zero manual templating. You have two options:
 
-1. Create a new branch: `feature/add-my-extension` (Strict Branch Naming is enforced).
-2. Open `bin/config.yaml` and add the `Publisher.ExtensionName` to the `extensions` array.
-3. Run the factory locally:
+**Option A: The Fast Route (Open an Issue)**
+If you don't want to mess with code, simply open a **New Package Request** issue.
+
+1. Go to the VS Code Marketplace and find your extension.
+2. Look for the **Unique Identifier** (e.g., `ms-python.python`) on the right sidebar.
+3. Open an issue with that identifier. Our maintainers will trigger the Factory and roll out the package for you!
+
+**Option B: The Contributor Route (Pull Request)**
+If you want to scaffold the package yourself:
+
+1. Create a new branch: `feature/add-my-extension`.
+2. Find the **Unique Identifier** (e.g., `Publisher.ExtensionName`) on the VS Code Marketplace.
+3. Use the Pool Manager to automatically scaffold the package:
 
    ```powershell
-   cd bin
-   .\Invoke-VsCodeExtensionFactory.ps1
+   .\bin\Manage-ExtensionPool.ps1 -Add "Publisher.ExtensionName"
    ```
 
-4. The factory will scrape the VS Code Marketplace, extract the `.vsix`, and automatically generate the Chocolatey templates in the `automatic/` directory.
-   - **Smart CI Bootstrapping:** Extensions are explicitly bootstrapped with `<version>0.0.0</version>` in their `.nuspec`. This inherently triggers the AU Engine to push the pristine upstream version on its first run without requiring manual intervention.
-   - **Deep Recursive Auto-Discovery:** If the extension has internal dependencies (like Extension Packs), the Factory will natively unroll them, dynamically scaffold the complete missing dependency tree, and employ **Cyclic Dependency Protection** to prevent `.nuspec` resolution loops.
-   - **Self-Healing Configuration:** The Factory automatically updates, deduplicates, and alphabetically sorts your `config.yaml` to securely track all auto-discovered dependencies as a flattened source of truth.
-5. Commit the generated folder and open a Pull Request!
+4. The script will automatically pull the binaries, update the configuration, and drop the fully generated package into the `automatic/` directory.
+5. Commit the resulting changes and open a Pull Request!
 
-### Managing Existing Extensions
-
-This repository enforces a strict **Separation of Concerns** between the Factory and the AU Engine.
-
-- **AU Framework (`Invoke-AuUpdater`)**: Exclusively handles chronological payload updates. It pulls the latest `.vsix` binaries, updates the `.nuspec` `<version>` and `<iconUrl>`, and dynamically extracts the `README.md` and `LICENSE` directly from the payload.
-- **Factory (`Invoke-VsCodeExtensionFactory.ps1`)**: Exclusively handles scaffolding and structural metadata.
-
-#### Refreshing Metadata (`-UpdateMetadata`)
-
-If you need to refresh an extension's Tags, Summary, Authors, or dynamically map new dependencies from the Marketplace, use the surgical update flag:
-
-```powershell
-.\bin\Invoke-VsCodeExtensionFactory.ps1 -ExtensionId "publisher.extension" -UpdateMetadata
-```
-
-This flag will explicitly *only* update structural `.nuspec` fields and intelligently preserve your manual `<!-- README -->` injection placeholders. It will never overwrite the `README.md` or version strings maintained by AU.
-
-#### Regenerating Packages (`-Force`)
-
-If you need to completely nuke a package and rebuild it from scratch, use the `-Force` flag. This will obliterate the directory, wipe any custom `.nuspec` tweaks, and bootstrap a fresh package starting at `0.0.0`.
-
-Once an extension is merged into the `main` branch, the `au-updater.yml` GitHub Action takes over.
-
-Every 6 hours, it crawls the `automatic/` directory. If a new version of an extension is released on the VS Code Marketplace, AU will automatically download the new `.vsix`, pack the `.nupkg`, push it to Chocolatey, and commit the version bump back to this repository.
-
-#### Package Testing & Validation
-
-Before AU pushes any package to the community gallery, it executes `Test-Package`. This **Native Validation** silently pre-installs VS Code and core helper extensions onto the GitHub Actions runner to ensure the underlying `.vsix` installs perfectly.
-
-### Emergency Hotfixes (Forced Updates)
-
-If you need to manually push a hotfix to a package (e.g., you fixed a typo in the installer script) but the upstream software version hasn't changed, you must trigger the **Chocolatey AU Updater** workflow manually via the GitHub Actions UI.
-Supply the package name in the `forced_packages` input. The orchestrator will inject `$global:au_Force = $true` to bypass the version math, trigger `set_fix_version()` to append a `.YYYYMMDD` timestamp, rebuild the binary, and push the revision directly to the gallery.
-
-*Fail-Safe:* Because `-Force` completely nukes the package and resets the version to `0.0.0`, you should **never** use the Factory to roll out mass structural changes to existing templates (e.g., adding a flag to `chocolateyInstall.ps1`). Doing so would destroy your injected READMEs. Instead, use a native PowerShell loop (`Get-ChildItem | ForEach-Object { $_ -replace ... }`) across the `automatic/` directory to push template changes without disturbing AU's state.
+Once an extension is merged into the `main` branch, the `au-updater.yml` GitHub Action takes over. Every 6 hours, it crawls the repository and automatically builds and pushes updates to the Chocolatey Gallery.
 
 ## Limitations
 
