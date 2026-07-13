@@ -23,6 +23,9 @@ The canonical publisher name of the extension (e.g. 'ms-python').
 
 .PARAMETER ExtensionName
 The canonical name of the extension (e.g. 'python').
+
+.EXAMPLE
+$extMeta = Get-VsCodeMarketplaceMetadata -Publisher "ms-python" -ExtensionName "python"
 #>
 function Get-VsCodeMarketplaceMetadata {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
@@ -93,6 +96,9 @@ The exact version string of the extension to download (e.g. '1.0.0').
 
 .PARAMETER ExtMeta
 The raw JSON metadata payload retrieved from Get-VsCodeMarketplaceMetadata.
+
+.EXAMPLE
+$url = Get-VsCodeExtensionUrl -Publisher "ms-python" -ExtensionName "python" -Version "1.0.0" -ExtMeta $extMeta
 #>
 function Get-VsCodeExtensionUrl {
     param (
@@ -128,6 +134,9 @@ The absolute direct download link for the .vsix payload.
 
 .PARAMETER OutFile
 The local destination path to save the .vsix archive.
+
+.EXAMPLE
+Invoke-RobustDownload -Url "https://example.com/payload.vsix" -OutFile "C:\temp\payload.vsix"
 #>
 function Invoke-RobustDownload {
     param (
@@ -170,6 +179,9 @@ The target automatic/package scaffolding directory to extract the tools/ metadat
 
 .OUTPUTS
 A PSCustomObject containing the parsed JSON from package.json and the fully sanitized/truncated README block.
+
+.EXAMPLE
+$result = Expand-VsCodePayload -VsixPath "C:\temp\payload.vsix" -DestinationDir "C:\packages\vscode-python"
 #>
 function Expand-VsCodePayload {
     param (
@@ -307,6 +319,9 @@ The canonical Chocolatey package name currently being processed.
 
 .PARAMETER ConfigPath
 The absolute path to the config.yaml tracker.
+
+.EXAMPLE
+Update-NuspecDependency -NuspecXml $xml -PackageJson $json -ConfigPath "C:\etc\config.yaml"
 #>
 function Update-NuspecDependency {
     [CmdletBinding()]
@@ -399,6 +414,9 @@ The canonical extension name.
 
 .PARAMETER Description
 Optional pre-formatted Markdown description block to inject into the returned object.
+
+.EXAMPLE
+$nuspecMeta = Get-VsCodeNuspecMetadata -ExtMeta $extMeta -ExtensionPublisher "ms-python" -ExtensionName "python"
 #>
 function Get-VsCodeNuspecMetadata {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]

@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Auto-generates Markdown documentation for all scripts in the repository using platyPS.
 
@@ -61,7 +61,19 @@ if (Test-Path (Join-Path $rootDir "lib")) {
     }
 }
 
+Write-Host ">>> Scrubbing platyPS placeholders from documentation..." -ForegroundColor Cyan
+Get-ChildItem -Path $docsDir -Filter "*.md" | ForEach-Object {
+    $content = Get-Content $_.FullName -Raw
+    $original = $content
+    $content = $content -replace '(?im)^\s*\{\{\s*Fill\s+.*?\}\}\s*$', ''
+    $content = $content -replace '(?sm)PS C:\\>\s*\{\{\s*Add\s+example\s+code\s+here\s*\}\}\r?\n\{\{\s*Add\s+example\s+description\s+here\s*\}\}', ''
+    $content = $content -replace '(?sm)^\{\{\s*Add\s+example\s+description\s+here\s*\}\}\r?\n', ''
+
+    # Sometimes platyPS leaves empty EXAMPLES or PARAMETERS blocks after scrubbing
+    if ($original -ne $content) {
+        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+        [System.IO.File]::WriteAllText($_.FullName, $content, $utf8NoBom)
+    }
+}
+
 Write-Host ">>> Documentation successfully compiled to $docsDir!" -ForegroundColor Green
-
-
-

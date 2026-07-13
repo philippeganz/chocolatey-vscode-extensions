@@ -25,6 +25,9 @@
     The exact unique identifier of the extension from the VS Code Marketplace
     (e.g., 'ms-python.python'). When provided, the Factory scaffolds this single package.
 
+.PARAMETER ConfigFile
+    The absolute or relative path to the YAML configuration file that contains the list of extensions to track. Defaults to 'etc/config.yaml'.
+
 .PARAMETER Force
     If specified, completely nukes the existing package directory in 'automatic/'
     and forces a clean regeneration of all templates. Resets the version to 0.0.0.
@@ -54,7 +57,7 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 # =============================================================================
 # 1. Configuration & Scaffolding
 # =============================================================================
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Force
+Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1"
 
 # We parse the config.yaml to determine which extensions the Factory should
 # track. The output directory defaults to 'automatic/' where the generated
@@ -196,7 +199,8 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     # =========================================================================
     # 3. Payload Extraction (Air-Gap Compliance)
     # =========================================================================
-    $packageJson = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
+    $payloadData = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
+    $packageJson = $payloadData.PackageJson
 
     # =========================================================================
     # 4. Generate Core Package Files
