@@ -276,7 +276,6 @@ function Expand-VsCodePayload {
         $readmeRaw = $readmeRaw -replace '(?i)<img[^>]*>', ''
         $readmeRaw = $readmeRaw -replace '(?i)</?span[^>]*>', ''
         $readmeRaw = $readmeRaw -replace '(?i)</?div[^>]*>', ''
-        $readmeRaw = $readmeRaw -replace '(?i)</?kbd[^>]*>', ''
         $readmeRaw = $readmeRaw -replace '(?i)</?center[^>]*>', ''
         $readmeRaw = $readmeRaw -replace '(?i)</?picture[^>]*>', ''
         $readmeRaw = $readmeRaw -replace '(?i)<br\s*/?>', "`n"
@@ -366,7 +365,7 @@ function Update-NuspecDependency {
 
             if (-not $trackedExtensions.Contains($dep)) {
                 Write-Host "    [AUTO-DISCOVERY] Queuing missing dependency via Factory: $dep" -ForegroundColor Magenta
-                $factoryPath = Join-Path (Split-Path $PSScriptRoot -Parent) "bin\Manage-ExtensionPool.ps1"
+                $factoryPath = "$PSScriptRoot\..\bin\Manage-ExtensionPool.ps1"
                 & $factoryPath -Add $dep
                 $trackedExtensions.Add($dep) | Out-Null
                 $global:au_RequiresSecondRun = $true

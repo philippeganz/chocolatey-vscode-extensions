@@ -1,7 +1,7 @@
 Describe "Invoke-VsCodeExtensionFactory.ps1" {
     BeforeAll {
-        $script:scriptPath = Join-Path (Split-Path -Parent $PSScriptRoot) "bin\Invoke-VsCodeExtensionFactory.ps1"
-        $script:mockDir = Join-Path (Split-Path -Parent $PSScriptRoot) "test_factory_mock"
+        $script:scriptPath = "$PSScriptRoot\..\bin\Invoke-VsCodeExtensionFactory.ps1"
+        $script:mockDir = "$PSScriptRoot\..\test_factory_mock"
         if (Test-Path $script:mockDir) { Remove-Item $script:mockDir -Recurse -Force }
         New-Item -ItemType Directory -Path $script:mockDir | Out-Null
 
@@ -50,7 +50,7 @@ Describe "Invoke-VsCodeExtensionFactory.ps1" {
     It "Should scaffold a package and discover dependencies" {
         Mock Get-VsCodeMarketplaceMetadata -MockWith {
             return @{
-                versions = @( @{ version = "1.0.0"; files = @( @{ assetType = "Microsoft.VisualStudio.Services.Icons.Default"; source = "http://icon" } ) } )
+                versions         = @( @{ version = "1.0.0"; files = @( @{ assetType = "Microsoft.VisualStudio.Services.Icons.Default"; source = "http://icon" } ) } )
                 shortDescription = "Test " * 5000 # Test length > 4000
             }
         }
@@ -62,18 +62,18 @@ Describe "Invoke-VsCodeExtensionFactory.ps1" {
         Mock Expand-VsCodePayload -MockWith {
             return @{
                 extensionDependencies = @("vscode.built-in", "vscode.yaml") # tests skip and alias
-                extensionPack = @("peterjausovec.vscode-docker", "unknown.dependency")
+                extensionPack         = @("peterjausovec.vscode-docker", "unknown.dependency")
             }
         }
         Mock Get-VsCodeNuspecMetadata -MockWith {
             return @{
-                Title = "Title"
-                Authors = "Authors"
-                ProjectUrl = "http://project"
-                IconUrl = "http://icon"
+                Title          = "Title"
+                Authors        = "Authors"
+                ProjectUrl     = "http://project"
+                IconUrl        = "http://icon"
                 MarketplaceUrl = "http://marketplace"
-                Description = "Desc"
-                Summary = "Summary"
+                Description    = "Desc"
+                Summary        = "Summary"
             }
         }
         Mock Invoke-WebRequest -MockWith { return $true }

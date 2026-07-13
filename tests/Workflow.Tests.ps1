@@ -17,7 +17,7 @@ Describe "VSCode Extensions Chocolatey Workflow" {
 
     BeforeAll {
         # Resolve repo root dynamically (agnostic to local vs CI)
-        $script:repoRoot = Split-Path $PSScriptRoot -Parent
+        $script:repoRoot = "$PSScriptRoot\.."
 
         $script:binDir = Join-Path $script:repoRoot "bin"
         $script:configPath = Join-Path $script:repoRoot "etc\config.yaml"

@@ -112,9 +112,9 @@ function Write-Err     ([string]$msg) { Write-StyledMessage -Prefix "[ERROR]"   
 Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Force
 
 # Load config.yaml safely
-$configPath = Resolve-Path (Join-Path (Split-Path $PSScriptRoot -Parent) "etc\config.yaml") -ErrorAction SilentlyContinue
+$configPath = Resolve-Path "$PSScriptRoot\..\etc\config.yaml" -ErrorAction SilentlyContinue
 if (-not $configPath) {
-    $configPath = Join-Path (Split-Path $PSScriptRoot -Parent) "etc\config.yaml"
+    $configPath = "$PSScriptRoot\..\etc\config.yaml"
 } else {
     $configPath = $configPath.Path
 }
@@ -249,7 +249,7 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
         if ($parts.Count -eq 2) {
             $pkgName = $parts[1]
             if (-not $pkgName.StartsWith("vscode-")) { $pkgName = "vscode-$pkgName" }
-            $baseAuto = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { Join-Path (Split-Path $PSScriptRoot -Parent) "automatic" }
+            $baseAuto = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" }
             $pkgDir = Join-Path $baseAuto $pkgName
             if (Test-Path $pkgDir) {
                 Remove-Item -Path $pkgDir -Recurse -Force
@@ -299,7 +299,7 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Search') {
 }
 elseif ($CheckStale) {
     Write-Info "Scanning Chocolatey Community API for stale packages (> 3 months old)..."
-    $autoDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { Join-Path (Split-Path $PSScriptRoot -Parent) "automatic" }
+    $autoDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" }
     if (-not (Test-Path $autoDir)) { throw "Automatic directory not found." }
     $packages = (Get-ChildItem -Path $autoDir -Directory).Name
 
@@ -350,7 +350,7 @@ elseif ($CheckStale) {
 elseif ($Audit) {
     Write-Info "Auditing state configuration against local directory structures..."
     $state = Get-ConfigState
-    $autoDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { Join-Path (Split-Path $PSScriptRoot -Parent) "automatic" }
+    $autoDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" }
     $directories = if (Test-Path $autoDir) { (Get-ChildItem -Path $autoDir -Directory).Name } else { @() }
 
     $expectedDirs = [System.Collections.Generic.List[string]]::new()

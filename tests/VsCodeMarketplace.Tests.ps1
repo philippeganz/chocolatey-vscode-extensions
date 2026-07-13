@@ -4,7 +4,7 @@ param()
 
 $ErrorActionPreference = "Stop"
 
-$script:modulePath = Join-Path (Split-Path $PSScriptRoot -Parent) "lib\VsCodeMarketplace.psm1"
+$script:modulePath = "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1"
 Import-Module $script:modulePath -Force
 
 Describe "VsCodeMarketplace API Wrapper" {
@@ -53,9 +53,9 @@ Describe "VsCodeMarketplace API Wrapper" {
                         extensions = @(
                             @{
                                 extensionName = "rainbow-csv"
-                                displayName = "Rainbow CSV"
-                                publisher = @{ publisherName = "mechatroner" }
-                                versions = @( @{ version = "3.24.1" } )
+                                displayName   = "Rainbow CSV"
+                                publisher     = @{ publisherName = "mechatroner" }
+                                versions      = @( @{ version = "3.24.1" } )
                             }
                         )
                     }
@@ -151,7 +151,8 @@ Describe "VsCodeMarketplace API Wrapper" {
 
             try {
                 Update-NuspecDependency -NuspecXml $mockNuspec -PackageJson $mockPkgJson -ConfigPath $mockConfig -ErrorAction SilentlyContinue
-            } catch { Write-Verbose $PSItem }
+            }
+            catch { Write-Verbose $PSItem }
 
             $deps = $mockNuspec.package.metadata.dependencies.dependency
             $deps.Count | Should -Be 3

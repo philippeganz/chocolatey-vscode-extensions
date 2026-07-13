@@ -20,14 +20,14 @@ if (-not (Get-Module -ListAvailable -Name platyPS)) {
 }
 Import-Module platyPS -ErrorAction Stop
 
-$docsDir = Join-Path (Split-Path $PSScriptRoot -Parent) "docs\reference"
+$docsDir = "$PSScriptRoot\..\docs\reference"
 if (-not (Test-Path $docsDir)) {
     New-Item -ItemType Directory -Path $docsDir -Force | Out-Null
 }
 
 Write-Host ">>> Generating Markdown Documentation from Comment-Based Help..." -ForegroundColor Cyan
 
-$rootDir = Split-Path $PSScriptRoot -Parent
+$rootDir = "$PSScriptRoot\.."
 
 Write-Host ">>> Processing Scripts in bin/ ..." -ForegroundColor Cyan
 $binScripts = Get-ChildItem -Path (Join-Path $rootDir "bin") -Filter "*.ps1" -File

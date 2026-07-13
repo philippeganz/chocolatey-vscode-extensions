@@ -6,13 +6,13 @@ $ErrorActionPreference = "Stop"
 
 Describe "Manage-ExtensionPool CLI" {
     BeforeAll {
-        $script:scriptPath = Join-Path (Split-Path $PSScriptRoot -Parent) "bin\Manage-ExtensionPool.ps1"
+        $script:scriptPath = "$PSScriptRoot\..\bin\Manage-ExtensionPool.ps1"
     }
 
     Context "Audit Mode" {
         It "Should succeed when config matches directories" {
 
-            $mockAuto = Join-Path (Split-Path $PSScriptRoot -Parent) "automatic"
+            $mockAuto = "$PSScriptRoot\..\automatic"
 
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
             if (-not (Test-Path $mockAuto)) { New-Item -ItemType Directory -Path $mockAuto -Force | Out-Null }
@@ -40,9 +40,9 @@ Describe "Manage-ExtensionPool CLI" {
                     @{
                         extensions = @(
                             @{
-                                publisher = @{ publisherName = "test" }
-                                extensionName = "test-ext"
-                                displayName = "Test Ext"
+                                publisher        = @{ publisherName = "test" }
+                                extensionName    = "test-ext"
+                                displayName      = "Test Ext"
                                 shortDescription = "A test extension"
                             }
                         )
@@ -68,7 +68,7 @@ Describe "Manage-ExtensionPool CLI" {
 
     Context "CheckStale Mode" {
         It "Should ignore unpublished packages correctly" {
-            $mockAuto = Join-Path (Split-Path $PSScriptRoot -Parent) "automatic"
+            $mockAuto = "$PSScriptRoot\..\automatic"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
             if (-not (Test-Path $mockAuto)) { New-Item -ItemType Directory -Path $mockAuto -Force | Out-Null }
             New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-missing") -Force | Out-Null

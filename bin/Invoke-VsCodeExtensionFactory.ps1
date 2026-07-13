@@ -70,8 +70,8 @@ Import-Module powershell-yaml
 $yamlObj = Get-Content $ConfigFile -Raw -Encoding UTF8 | ConvertFrom-Yaml
 
 # Factory only outputs to the automatic/ directory at the root
-$OutputDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { Resolve-Path (Join-Path $PSScriptRoot "..\automatic") -ErrorAction SilentlyContinue }
-if (-not $OutputDir) { $OutputDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { Join-Path $PSScriptRoot "..\automatic" } }
+$OutputDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { Resolve-Path "$PSScriptRoot\..\automatic" -ErrorAction SilentlyContinue }
+if (-not $OutputDir) { $OutputDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" } }
 
 if (-not (Test-Path $OutputDir)) {
     New-Item -ItemType Directory -Force -Path $OutputDir | Out-Null
@@ -269,10 +269,10 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     # =========================================================================
     # 6. Template Rendering
     # =========================================================================
-    # We take the static scaffolding templates from bin/Templates and inject
+    # We take the static scaffolding templates from etc/templates and inject
     # the dynamically resolved metadata to finalize the AU package structure.
     Write-Host "    Rendering AU Templates..."
-    $templatesDir = Join-Path $PSScriptRoot "Templates"
+    $templatesDir = "$PSScriptRoot\..\etc\templates"
 
     $nuspecPath = Join-Path $pkgDir "$packageName.nuspec"
     $cdataSafe = $descriptionRaw -replace ']]>', ']]]]><![CDATA[>'

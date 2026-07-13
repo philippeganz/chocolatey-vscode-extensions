@@ -17,6 +17,7 @@
 param()
 
 Import-Module au
+# We need access to the module for some of the shared functions
 Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -Force -ErrorAction Stop
 
 # We bypass the registry checks since these are portable VS Code extensions.
@@ -105,6 +106,7 @@ function global:au_BeforeUpdate {
 
             # Dynamically resolve and inject missing dependencies
             if ($payloadResult.PackageJson) {
+                # Path to config.yaml is one level up from bin
                 $configPath = Resolve-Path "$PSScriptRoot\..\etc\config.yaml" -ErrorAction SilentlyContinue
                 if (-not $configPath) { $configPath = "$PSScriptRoot\..\etc\config.yaml" }
                 $resolvedPath = if ($configPath -is [string]) { $configPath } else { $configPath.Path }
