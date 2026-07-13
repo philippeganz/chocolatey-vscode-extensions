@@ -52,7 +52,7 @@ jobs:
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'feat: add ${{ steps.factory.outputs.EXT_ID }} to Chocolatey pool'
+          commit-message: 'Add new ${{ steps.factory.outputs.EXT_ID }} extension'
           title: '🚀 Add VS Code Extension: ${{ steps.factory.outputs.EXT_ID }}'
           body: |
             Closes #${{ github.event.issue.number }}
