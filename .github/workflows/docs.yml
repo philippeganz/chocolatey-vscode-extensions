@@ -44,6 +44,18 @@ jobs:
           cp SUPPORT.md docs/SUPPORT.md
           cp CONTRIBUTING.md docs/CONTRIBUTING.md
 
+      - name: Dynamically Inject API Reference Nav
+        shell: pwsh
+        run: |
+          $files = Get-ChildItem -Path docs/reference -Filter "*.md" -File | Sort-Object Name
+          $navStr = "  - API Reference:`n"
+          foreach ($f in $files) {
+              $navStr += "    - $($f.BaseName): reference/$($f.Name)`n"
+          }
+          $content = Get-Content mkdocs.yml -Raw
+          $content = $content -replace '(?m)^\s*-\s*API Reference:\s*reference/?\s*$', $navStr
+          $content | Set-Content mkdocs.yml -NoNewline
+
       - name: Build site
         run: mkdocs build
 
