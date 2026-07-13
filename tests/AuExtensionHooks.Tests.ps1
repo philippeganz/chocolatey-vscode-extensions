@@ -9,7 +9,7 @@ Describe "AuExtensionHooks" {
         $script:hooksPath = Join-Path (Split-Path $PSScriptRoot -Parent) "bin\AuExtensionHooks.ps1"
         $script:mockConfig = Join-Path $PSScriptRoot "mock_config.yaml"
         $script:mockRepo = Join-Path $PSScriptRoot "mock_repo"
-        
+
         "---`nextensions:`n  - ms-python.python`n" | Set-Content $script:mockConfig -Encoding UTF8
         New-Item -ItemType Directory -Path $script:mockRepo -Force | Out-Null
         $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:mockRepo
@@ -24,8 +24,8 @@ Describe "AuExtensionHooks" {
 
         try {
             . $script:hooksPath -ErrorAction SilentlyContinue
-        } catch {}
-        
+        } catch { Write-Verbose $PSItem }
+
         Pop-Location
     }
 
@@ -39,7 +39,7 @@ Describe "AuExtensionHooks" {
         It "Should return a hashtable with Version and URL" {
             # Since the function relies on the directory name for extension ID, we mock Split-Path
             $global:au_NoCheckChocoVersion = $true
-            
+
             # Setup a fake package directory environment
             $fakePkgDir = Join-Path $script:mockRepo "vscode-rainbow-csv"
             New-Item -ItemType Directory -Path $fakePkgDir -Force | Out-Null
@@ -67,18 +67,19 @@ Describe "AuExtensionHooks" {
             Mock Invoke-RobustDownload -ModuleName VsCodeMarketplace -MockWith { return }
             Mock Expand-VsCodePayload -ModuleName VsCodeMarketplace -MockWith { return @{} }
             Mock Update-NuspecDependency -ModuleName VsCodeMarketplace -MockWith { return }
-            
+
             # We must create a fake nuspec and tools dir
             "<?xml version='1.0'?><package><metadata></metadata></package>" | Set-Content "vscode-rainbow-csv.nuspec"
             New-Item -ItemType Directory -Path "tools" -Force | Out-Null
             "fake content" | Set-Content "tools\chocolateyInstall.ps1"
-            
+
             try {
                 au_BeforeUpdate
             } catch {
+                Write-Verbose $PSItem
                 # We expect an error because of missing payload JSONs, but it executes code!
             }
-            
+
             Set-Location $PSScriptRoot
         }
     }

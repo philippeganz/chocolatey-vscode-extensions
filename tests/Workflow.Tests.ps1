@@ -103,13 +103,9 @@ extensions:
     Context "2.5. Re-run Factory with -Force" {
         It "Should execute factory with Force without errors" {
             $script = Join-Path $script:binDir "Invoke-VsCodeExtensionFactory.ps1"
-            # Set CHOC_VSCODE_AUTOMATIC_DIR to redirect scaffolding to test_automatic
+            # Set CHOCO_VSCODE_AUTOMATIC_DIR to redirect scaffolding to test_automatic
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
-            try {
-                & $script -ExtensionId "$script:publisher.$script:extName" -Force
-            } finally {
-                Remove-Item Env:\CHOCO_VSCODE_AUTOMATIC_DIR
-            }
+            & $script -ExtensionId "$script:publisher.$script:extName" -Force
         }
     }
 
@@ -135,11 +131,7 @@ extensions:
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
             $outDir = Join-Path $script:realPackagesDir "out_artifacts_2"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
-            try {
-                & $script -ModerationRepush "$script:packageName" -OutputDir $outDir
-            } finally {
-                Remove-Item Env:\CHOCO_VSCODE_AUTOMATIC_DIR
-            }
+            & $script -ModerationRepush "$script:packageName" -OutputDir $outDir
         }
     }
 

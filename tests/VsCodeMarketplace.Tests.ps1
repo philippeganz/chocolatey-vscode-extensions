@@ -103,11 +103,11 @@ Describe "VsCodeMarketplace API Wrapper" {
             $mockPkgJson = @{
                 extensionDependencies = @("donjayamanne.python", "unknown.extension")
             }
-            
+
             # Create a mock config.yaml
             $mockConfig = Join-Path $PSScriptRoot "mock_config.yaml"
             "---`nextensions:`n  - ms-python.python`n" | Set-Content $mockConfig
-            
+
             # Prevent pollution of the real automatic directory and ignore expected CLI errors
             $tempAuto = Join-Path $PSScriptRoot "temp_auto"
             New-Item -ItemType Directory -Path $tempAuto -Force | Out-Null
@@ -115,14 +115,14 @@ Describe "VsCodeMarketplace API Wrapper" {
 
             try {
                 Update-NuspecDependency -NuspecXml $mockNuspec -PackageJson $mockPkgJson -ConfigPath $mockConfig -ErrorAction SilentlyContinue
-            } catch {}
+            } catch { Write-Verbose $PSItem }
 
             $deps = $mockNuspec.package.metadata.dependencies.dependency
             $deps.Count | Should -Be 3
             $deps[0].id | Should -Be "chocolatey-vscode.extension"
             $deps[1].id | Should -Be "vscode-python"
             $deps[2].id | Should -Be "vscode-extension" # The fallback naming for unknown
-            
+
             Remove-Item $mockConfig -Force
             Remove-Item $tempAuto -Recurse -Force
             Remove-Item Env:\CHOCO_VSCODE_AUTOMATIC_DIR -ErrorAction SilentlyContinue
