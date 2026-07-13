@@ -40,7 +40,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-Import-Module "$PSScriptRoot\VsCodeMarketplace.psm1" -Global -Force
+Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -Force
 
 # -----------------------------------------------------------------------------
 # AU ORCHESTRATOR CONFIGURATION

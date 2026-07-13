@@ -354,7 +354,7 @@ function Update-NuspecDependency {
 
             if (-not $trackedExtensions.Contains($dep)) {
                 Write-Host "    [AUTO-DISCOVERY] Queuing missing dependency via Factory: $dep" -ForegroundColor Magenta
-                $factoryPath = Join-Path (Split-Path $ConfigPath) "Manage-ExtensionPool.ps1"
+                $factoryPath = Join-Path (Split-Path $PSScriptRoot -Parent) "bin\Manage-ExtensionPool.ps1"
                 & $factoryPath -Add $dep
                 $trackedExtensions.Add($dep) | Out-Null
                 $global:au_RequiresSecondRun = $true

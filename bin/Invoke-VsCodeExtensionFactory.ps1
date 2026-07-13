@@ -54,7 +54,7 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 # =============================================================================
 # 1. Configuration & Scaffolding
 # =============================================================================
-Import-Module "$PSScriptRoot\VsCodeMarketplace.psm1" -Force
+Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Force
 
 # We parse the config.yaml to determine which extensions the Factory should
 # track. The output directory defaults to 'automatic/' where the generated

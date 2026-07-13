@@ -109,7 +109,7 @@ Writes a red error message to the console.
 #>
 function Write-Err     ([string]$msg) { Write-StyledMessage -Prefix "[ERROR]"   -Message $msg -FallbackColor Red   -AnsiColor "`e[31m" }
 
-Import-Module "$PSScriptRoot\VsCodeMarketplace.psm1" -Force
+Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Force
 
 # Load config.yaml safely
 $configPath = Resolve-Path (Join-Path (Split-Path $PSScriptRoot -Parent) "etc\config.yaml") -ErrorAction SilentlyContinue
