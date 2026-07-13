@@ -11,7 +11,7 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-tekton-pipelines</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-# <img src="https://raw.githubusercontent.com/redhat-developer/vscode-tekton/main/images/tekton.png" width="30" height="30" /><span style="margin: 5px">Tekton Pipelines
+# Tekton Pipelines
 
 [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/redhat.vscode-tekton-pipelines?style=for-the-badge&label=VS%20Marketplace&logo=visual-studio-code&color=blue)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-tekton-pipelines)
 [![Downloads](https://img.shields.io/visual-studio-marketplace/d/redhat.vscode-tekton-pipelines?style=for-the-badge&color=purple)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-tekton-pipelines)
@@ -30,7 +30,8 @@ Using this extension:
    * Tekton variables [code completion](#tekton-variables-code-completion).
    * Pipeline/PipelineRun [preview diagram](#pipelinerun-preview)
 
-<div><img src="https://github.com/redhat-developer/vscode-tekton/raw/HEAD/images/gif-tekton/demo.gif" /></div><br>
+
+
 
 # Getting Started
 
