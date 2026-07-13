@@ -144,6 +144,22 @@ jobs:
           $config.CodeCoverage.OutputPath = Join-Path $PWD 'coverage.xml'
 
           $result = Invoke-Pester -Configuration $config
+
+          # Codecov Test Analytics requires relative paths to map tests correctly
+          if (Test-Path 'test-results.xml') {
+              [xml]$xml = Get-Content 'test-results.xml'
+              $pwdStr = $PWD.Path + [IO.Path]::DirectorySeparatorChar
+              foreach ($suite in $xml.testsuites.testsuite) {
+                  $suite.name = $suite.name.Replace($pwdStr, '').Replace('\', '/')
+                  $suite.package = $suite.package.Replace($pwdStr, '').Replace('\', '/')
+                  foreach ($case in $suite.testcase) {
+                      $case.classname = $case.classname.Replace($pwdStr, '').Replace('\', '/')
+                      $case.SetAttribute('file', $case.classname)
+                  }
+              }
+              $xml.Save((Join-Path $PWD 'test-results.xml'))
+          }
+
           if ($result.FailedCount -gt 0) {
               Write-Error "Pester tests failed!"
               exit 1
