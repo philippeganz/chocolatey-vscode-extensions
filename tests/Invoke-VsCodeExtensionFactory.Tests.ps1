@@ -60,9 +60,10 @@ Describe "Invoke-VsCodeExtensionFactory.ps1" {
             Set-Content -Path $OutFile -Value "fake payload"
         }
         Mock Expand-VsCodePayload -MockWith {
-            return @{
-                extensionDependencies = @("vscode.built-in", "vscode.yaml") # tests skip and alias
-                extensionPack         = @("peterjausovec.vscode-docker", "unknown.dependency")
+            $jsonStr = '{ "extensionDependencies": ["vscode.built-in", "vscode.yaml"], "extensionPack": ["peterjausovec.vscode-docker", "unknown.dependency"] }'
+            return [PSCustomObject]@{
+                PackageJson = $jsonStr | ConvertFrom-Json
+                TruncatedReadme = "Test"
             }
         }
         Mock Get-VsCodeNuspecMetadata -MockWith {
@@ -79,20 +80,20 @@ Describe "Invoke-VsCodeExtensionFactory.ps1" {
         Mock Invoke-WebRequest -MockWith { return $true }
 
         # Test full scaffold without forcing
-        & $script:scriptPath -ConfigFile $script:mockConfig -ExtensionId "test.mock"
+        & $script:scriptPath -ConfigFile $script:mockConfig -ExtensionId "test.deps"
 
-        $pkgDir = Join-Path $env:CHOCO_VSCODE_AUTOMATIC_DIR "vscode-mock"
+        $pkgDir = Join-Path $env:CHOCO_VSCODE_AUTOMATIC_DIR "vscode-deps"
         Test-Path $pkgDir | Should -Be $true
-        Test-Path (Join-Path $pkgDir "vscode-mock.nuspec") | Should -Be $true
+        Test-Path (Join-Path $pkgDir "vscode-deps.nuspec") | Should -Be $true
         Test-Path (Join-Path $pkgDir "tools\chocolateyInstall.ps1") | Should -Be $true
         Test-Path (Join-Path $pkgDir "update.ps1") | Should -Be $true
 
         # Test skipping existing
-        & $script:scriptPath -ConfigFile $script:mockConfig -ExtensionId "test.mock"
+        & $script:scriptPath -ConfigFile $script:mockConfig -ExtensionId "test.deps"
 
         # Test Force regenerating
         Start-Sleep -Milliseconds 200
-        & $script:scriptPath -ConfigFile $script:mockConfig -ExtensionId "test.mock" -Force
+        & $script:scriptPath -ConfigFile $script:mockConfig -ExtensionId "test.deps" -Force
 
         # Ensure dependencies were discovered by checking console output or something?
         # Actually we just run it and let the mocks hit
