@@ -154,9 +154,7 @@ jobs:
         if: always()
         with:
           name: pester-artifacts
-          path: |
-            test-results.xml
-            coverage.xml
+          path: '*.xml'
 
   publish-reports:
     name: Publish Reports
@@ -168,7 +166,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Download Artifacts
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: pester-artifacts
 
@@ -194,7 +192,7 @@ jobs:
         run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
 
       - name: Upload to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage.xml
@@ -202,7 +200,7 @@ jobs:
           verbose: true
 
       - name: Add Coverage PR Comment
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v3
         if: github.event_name == 'pull_request'
         with:
           recreate: true

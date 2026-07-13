@@ -26,11 +26,11 @@ jobs:
       - name: Parse Issue and Scaffold Extension
         id: factory
         shell: powershell
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
           # The GitHub Issue Form markdown injects responses below the headers
-          $issueBody = @"
-          ${{ github.event.issue.body }}
-          "@
+          $issueBody = $env:ISSUE_BODY
 
           $extId = ""
           if ($issueBody -match '(?sm)### Extension ID\s*\n+(.*?)(?=\n###|\z)') {
@@ -50,7 +50,7 @@ jobs:
 
       - name: Create Pull Request for Review
         id: cpr
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'feat: add ${{ steps.factory.outputs.EXT_ID }} to Chocolatey pool'
@@ -75,7 +75,7 @@ jobs:
             etc/config.yaml
 
       - name: Comment on Issue
-        uses: peter-evans/create-or-update-comment@v4
+        uses: peter-evans/create-or-update-comment@v5
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
