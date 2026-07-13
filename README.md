@@ -2,6 +2,7 @@
 
 [![AU Updater](https://github.com/philippeganz/chocolatey-vscode-extensions/actions/workflows/au-updater.yml/badge.svg)](https://github.com/philippeganz/chocolatey-vscode-extensions/actions)
 [![Lint and Test](https://github.com/philippeganz/chocolatey-vscode-extensions/actions/workflows/lint-and-test.yml/badge.svg)](https://github.com/philippeganz/chocolatey-vscode-extensions/actions)
+[![codecov](https://codecov.io/gh/philippeganz/chocolatey-vscode-extensions/graph/badge.svg)](https://codecov.io/gh/philippeganz/chocolatey-vscode-extensions)
 ![VS Code](https://img.shields.io/badge/Visual%20Studio%20Code-Extensions-007ACC?style=flat-square&logo=visual-studio-code)
 ![Chocolatey](https://img.shields.io/badge/Chocolatey-AU%20Automation-81C5EE?style=flat-square&logo=chocolatey)
 ![Air-Gap Ready](https://img.shields.io/badge/Air--Gapped-100%25%20Compliant-brightgreen?style=flat-square)
