@@ -45,6 +45,44 @@ Describe "VsCodeMarketplace API Wrapper" {
         }
     }
 
+    Context "Get-VsCodeMarketplaceMetadata" {
+        It "Should correctly query the marketplace and return JSON metadata" {
+            $mockResponse = @{
+                Content = '{
+                    "results": [
+                        {
+                            "extensions": [
+                                {
+                                    "extensionName": "rainbow-csv",
+                                    "displayName": "Rainbow CSV",
+                                    "publisher": { "publisherName": "mechatroner" },
+                                    "versions": [ { "version": "3.24.1" } ]
+                                }
+                            ]
+                        }
+                    ]
+                }'
+            }
+            Mock Invoke-WebRequest -ModuleName VsCodeMarketplace -MockWith { return $mockResponse }
+
+            $result = Get-VsCodeMarketplaceMetadata -Publisher "mechatroner" -ExtensionName "rainbow-csv"
+
+            $result.extensionName | Should -Be "rainbow-csv"
+            $result.displayName | Should -Be "Rainbow CSV"
+            $result.versions[0].version | Should -Be "3.24.1"
+            Should -Invoke -CommandName Invoke-WebRequest -ModuleName VsCodeMarketplace -Times 1 -Exactly
+        }
+
+        It "Should throw an error if the extension is not found" {
+            $mockResponse = @{
+                Content = '{ "results": [ { "extensions": [] } ] }'
+            }
+            Mock Invoke-WebRequest -ModuleName VsCodeMarketplace -MockWith { return $mockResponse }
+
+            { Get-VsCodeMarketplaceMetadata -Publisher "mechatroner" -ExtensionName "missing" } | Should -Throw "Extension 'mechatroner.missing' not found on VS Code Marketplace"
+        }
+    }
+
     Context "Get-VsCodeExtensionUrl" {
         It "Should extract the win32-x64 target platform if it exists" {
             $mockMeta = '{
@@ -126,6 +164,52 @@ Describe "VsCodeMarketplace API Wrapper" {
             Remove-Item $mockConfig -Force
             Remove-Item $tempAuto -Recurse -Force
             Remove-Item Env:\CHOCO_VSCODE_AUTOMATIC_DIR -ErrorAction SilentlyContinue
+        }
+    }
+
+    Context "Expand-VsCodePayload" {
+        It "Should extract package.json and cleanly strip HTML tags from README.md" {
+            $tempDir = Join-Path $PSScriptRoot "temp_vsix"
+            $extractDir = Join-Path $PSScriptRoot "temp_extract"
+            $vsixPath = Join-Path $PSScriptRoot "fake.vsix"
+
+            New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
+            New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force | Out-Null
+
+            # Create a mock package.json
+            '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
+
+            # Create a mock README.md with HTML tags and embedded images
+            $readmeContent = @"
+# Hello World
+<div>Some text</div>
+<img src="test.png" />
+<p>More text</p>
+![Embedded](image.jpg)
+"@
+            $readmeContent | Set-Content (Join-Path $tempDir "extension\README.md")
+
+            # Zip it up as fake.vsix
+            Compress-Archive -Path (Join-Path $tempDir "*") -DestinationPath $vsixPath -Force
+
+            # Expand-VsCodePayload expects the tools directory to exist
+            New-Item -ItemType Directory -Path (Join-Path $extractDir "tools") -Force | Out-Null
+
+            # Run the extraction
+            $result = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $extractDir
+
+            $result.PackageJson.name | Should -Be "fake"
+
+            # Verify the HTML stripping
+            $strippedReadme = Get-Content (Join-Path $extractDir "extension\README.md") -Raw
+            $strippedReadme | Should -Not -Match "<div>"
+            $strippedReadme | Should -Not -Match "<img "
+            $strippedReadme | Should -Match "![Embedded]"
+
+            # Clean up
+            Remove-Item $tempDir -Recurse -Force
+            Remove-Item $extractDir -Recurse -Force
+            Remove-Item $vsixPath -Force
         }
     }
 }
