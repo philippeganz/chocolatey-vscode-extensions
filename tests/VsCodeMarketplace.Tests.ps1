@@ -48,38 +48,36 @@ Describe "VsCodeMarketplace API Wrapper" {
     Context "Get-VsCodeMarketplaceMetadata" {
         It "Should correctly query the marketplace and return JSON metadata" {
             $mockResponse = @{
-                Content = '{
-                    "results": [
-                        {
-                            "extensions": [
-                                {
-                                    "extensionName": "rainbow-csv",
-                                    "displayName": "Rainbow CSV",
-                                    "publisher": { "publisherName": "mechatroner" },
-                                    "versions": [ { "version": "3.24.1" } ]
-                                }
-                            ]
-                        }
-                    ]
-                }'
+                results = @(
+                    @{
+                        extensions = @(
+                            @{
+                                extensionName = "rainbow-csv"
+                                displayName = "Rainbow CSV"
+                                publisher = @{ publisherName = "mechatroner" }
+                                versions = @( @{ version = "3.24.1" } )
+                            }
+                        )
+                    }
+                )
             }
-            Mock Invoke-WebRequest -ModuleName VsCodeMarketplace -MockWith { return $mockResponse }
+            Mock Invoke-RestMethod -ModuleName VsCodeMarketplace -MockWith { return $mockResponse }
 
             $result = Get-VsCodeMarketplaceMetadata -Publisher "mechatroner" -ExtensionName "rainbow-csv"
 
             $result.extensionName | Should -Be "rainbow-csv"
             $result.displayName | Should -Be "Rainbow CSV"
             $result.versions[0].version | Should -Be "3.24.1"
-            Should -Invoke -CommandName Invoke-WebRequest -ModuleName VsCodeMarketplace -Times 1 -Exactly
+            Should -Invoke -CommandName Invoke-RestMethod -ModuleName VsCodeMarketplace -Times 1 -Exactly
         }
 
         It "Should throw an error if the extension is not found" {
             $mockResponse = @{
-                Content = '{ "results": [ { "extensions": [] } ] }'
+                results = @( @{ extensions = @() } )
             }
-            Mock Invoke-WebRequest -ModuleName VsCodeMarketplace -MockWith { return $mockResponse }
+            Mock Invoke-RestMethod -ModuleName VsCodeMarketplace -MockWith { return $mockResponse }
 
-            { Get-VsCodeMarketplaceMetadata -Publisher "mechatroner" -ExtensionName "missing" } | Should -Throw "Extension 'mechatroner.missing' not found on VS Code Marketplace"
+            { Get-VsCodeMarketplaceMetadata -Publisher "mechatroner" -ExtensionName "missing" } | Should -Throw "Extension not found on Marketplace: mechatroner.missing"
         }
     }
 
@@ -168,7 +166,7 @@ Describe "VsCodeMarketplace API Wrapper" {
     }
 
     Context "Expand-VsCodePayload" {
-        It "Should extract package.json and cleanly strip HTML tags from README.md" {
+        It "Should extract package.json and cleanly scrub emails from README.md" {
             $tempDir = Join-Path $PSScriptRoot "temp_vsix"
             $extractDir = Join-Path $PSScriptRoot "temp_extract"
             $vsixPath = Join-Path $PSScriptRoot "fake.vsix"
@@ -179,13 +177,10 @@ Describe "VsCodeMarketplace API Wrapper" {
             # Create a mock package.json
             '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
 
-            # Create a mock README.md with HTML tags and embedded images
+            # Create a mock README.md with emails
             $readmeContent = @"
 # Hello World
-<div>Some text</div>
-<img src="test.png" />
-<p>More text</p>
-![Embedded](image.jpg)
+Contact me at test@example.com!
 "@
             $readmeContent | Set-Content (Join-Path $tempDir "extension\README.md")
 
@@ -200,11 +195,10 @@ Describe "VsCodeMarketplace API Wrapper" {
 
             $result.PackageJson.name | Should -Be "fake"
 
-            # Verify the HTML stripping
-            $strippedReadme = Get-Content (Join-Path $extractDir "extension\README.md") -Raw
-            $strippedReadme | Should -Not -Match "<div>"
-            $strippedReadme | Should -Not -Match "<img "
-            $strippedReadme | Should -Match "![Embedded]"
+            # Verify the email scrubbing
+            $strippedReadme = Get-Content (Join-Path $extractDir "tools\README.md") -Raw
+            $strippedReadme | Should -Not -Match "test@example.com"
+            $strippedReadme | Should -Match "\[email removed\]"
 
             # Clean up
             Remove-Item $tempDir -Recurse -Force
