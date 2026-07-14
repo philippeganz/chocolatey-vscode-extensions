@@ -1,0 +1,59 @@
+# No Code
+
+No code is the best way to write secure and reliable applications. Write nothing; deploy nowhere.
+
+## Inspired By
+[Inspired By Awesome Code](https://github.com/Wscats/compile-hero/commit/7165a7700487d5ad60184266e696059ceafef697)
+
+## Roadmap
+[![DHmIG6.png](https://s3.ax1x.com/2020/12/04/DHmIG6.png)](https://imgchr.com/i/DHmIG6)
+
+## Getting Started
+
+Start by not writing any code.
+
+```
+
+```
+
+This is just an example application, but imagine it doing anything you want. Adding new features is easy too:
+
+```
+
+```
+
+The possibilities are endless.
+
+### Building the Application
+
+Now that you have not done anything it's time to build your application:
+
+```
+
+```
+
+Yep. That's it. You should see the following output:
+
+```
+
+```
+
+### Deploying
+
+While you still have not done anything it's time to deploy your application. By running the following command you can deploy your application absolutely nowhere.
+
+```
+
+```
+
+It's that simple. And when it comes time to scale the application, all you have to do is:
+
+```
+
+```
+
+I know right?
+
+## Contributing
+
+You don't.

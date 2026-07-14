@@ -174,4 +174,5 @@ extensions:
   - wakatime.vscode-wakatime
   - wayou.vscode-todo-highlight
   - wholroyd.jinja
+  - writenothing.no-code
   - xabikos.javascriptsnippets

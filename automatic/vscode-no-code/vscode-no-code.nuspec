@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-no-code</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - No Code</title>
+    <authors>writenothing</authors>
+    <projectUrl>https://marketplace.visualstudio.com/items?itemName=writenothing.no-code</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://writenothing.gallerycdn.vsassets.io/extensions/writenothing/no-code/2.0.2/1607016338338/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=writenothing.no-code</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+No code is the best way to write secure and reliable applications. Write nothing; deploy nowhere. 
+]]></description>
+    <summary>No code is the best way to write secure and reliable applications. Write nothing; deploy nowhere. </summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=writenothing.no-code#changelog</releaseNotes>
+    <tags>vscode extension no-code</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
