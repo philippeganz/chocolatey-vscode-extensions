@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-thunder-client</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Thunder Client</title>
+    <authors>rangav</authors>
+    <projectUrl>https://github.com/thunderclient/thunder-client-support.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://rangav.gallerycdn.vsassets.io/extensions/rangav/vscode-thunder-client/2.41.0/1782398500056/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Lightweight Rest API Client for VS Code
+]]></description>
+    <summary>Lightweight Rest API Client for VS Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client#changelog</releaseNotes>
+    <tags>vscode extension thunder-client</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
