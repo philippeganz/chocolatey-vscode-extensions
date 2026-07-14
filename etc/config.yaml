@@ -173,4 +173,5 @@ extensions:
   - vue.volar
   - wakatime.vscode-wakatime
   - wayou.vscode-todo-highlight
+  - wholroyd.jinja
   - xabikos.javascriptsnippets
