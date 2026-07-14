@@ -125,6 +125,7 @@ extensions:
   - msjsdiag.vscode-react-native
   - mtxr.sqltools
   - naumovs.color-highlight
+  - njpwerner.autodocstring
   - oracle.mysql-shell-for-vs-code
   - oracle.oracle-java
   - oracle.oracledevtools
