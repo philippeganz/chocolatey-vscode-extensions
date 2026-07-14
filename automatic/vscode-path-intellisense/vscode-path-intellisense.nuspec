@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-path-intellisense</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Path Intellisense</title>
+    <authors>christian-kohler</authors>
+    <projectUrl>https://github.com/ChristianKohler/PathIntellisense.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://christian-kohler.gallerycdn.vsassets.io/extensions/christian-kohler/path-intellisense/2.10.0/1732919213601/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Visual Studio Code plugin that autocompletes filenames
+]]></description>
+    <summary>Visual Studio Code plugin that autocompletes filenames</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense#changelog</releaseNotes>
+    <tags>vscode extension path-intellisense</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
