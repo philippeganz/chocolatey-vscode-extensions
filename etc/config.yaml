@@ -111,6 +111,7 @@ extensions:
   - ms-vscode.cpptools
   - ms-vscode.cpptools-extension-pack
   - ms-vscode.cpptools-themes
+  - ms-vscode.hexeditor
   - ms-vscode.makefile-tools
   - ms-vscode.powershell
   - ms-vscode.remote-explorer
