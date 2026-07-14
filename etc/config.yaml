@@ -167,6 +167,7 @@ extensions:
   - vscjava.vscode-java-pack
   - vscjava.vscode-java-test
   - vscjava.vscode-maven
+  - vscjava.vscode-spring-initializr
   - vscode-icons-team.vscode-icons
   - wakatime.vscode-wakatime
   - xabikos.javascriptsnippets
