@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-csdevkit</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - C# Dev Kit</title>
+    <authors>ms-dotnettools</authors>
+    <projectUrl> https://devdiv.visualstudio.com/DevDiv/_git/vs-green</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://ms-dotnettools.gallerycdn.vsassets.io/extensions/ms-dotnettools/csdevkit/3.27.196/1783434180901/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Official C# extension from Microsoft
+]]></description>
+    <summary>Official C# extension from Microsoft</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit#changelog</releaseNotes>
+    <tags>vscode extension csdevkit</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-dotnet-runtime" />
+      <dependency id="vscode-csharp" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>

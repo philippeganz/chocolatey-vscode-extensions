@@ -78,6 +78,7 @@ extensions:
   - ms-ceintl.vscode-language-pack-pt-br
   - ms-ceintl.vscode-language-pack-ru
   - ms-ceintl.vscode-language-pack-zh-hans
+  - ms-dotnettools.csdevkit
   - ms-dotnettools.csharp
   - ms-dotnettools.vscode-dotnet-runtime
   - ms-kubernetes-tools.vscode-kubernetes-tools
