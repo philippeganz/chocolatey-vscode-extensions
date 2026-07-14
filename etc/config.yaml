@@ -116,6 +116,7 @@ extensions:
   - ms-vscode.makefile-tools
   - ms-vscode.powershell
   - ms-vscode.remote-explorer
+  - ms-vscode.remote-repositories
   - ms-vscode.remote-server
   - ms-vsliveshare.vsliveshare
   - oracle.mysql-shell-for-vs-code
