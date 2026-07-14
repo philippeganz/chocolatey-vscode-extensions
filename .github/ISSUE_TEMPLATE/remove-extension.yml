@@ -1,0 +1,26 @@
+---
+name: '🗑️ Request Extension Removal'
+description: 'Request a VS Code Extension to be removed from the Chocolatey repository.'
+title: '[Extension Removal] '
+labels: ['extension-removal']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please use this form if a tracked extension has become permanently deprecated, maliciously taken over, or otherwise needs to be removed from the repository.
+  - type: input
+    id: extension_id
+    attributes:
+      label: 'Extension ID'
+      description: "The unique identifier of the extension to remove (e.g., ms-python.python)."
+      placeholder: 'publisher.extension-name'
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 'Reason for Removal'
+      description: "Please explain why this extension should be removed."
+      placeholder: "e.g., The extension has been deprecated by the author, or it is no longer available on the Marketplace."
+    validations:
+      required: true
