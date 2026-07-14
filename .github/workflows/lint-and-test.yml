@@ -245,16 +245,15 @@ jobs:
       - name: Write to Job Summary
         run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
 
-      - name: Upload coverage to Codecov
+      - name: Publish Coverage Reports
         uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage.xml
           fail_ci_if_error: false
           verbose: false
-          branch: ${{ github.head_ref || github.ref_name }}
 
-      - name: Upload test results to Codecov
+      - name: Publish Test Results
         uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -262,7 +261,6 @@ jobs:
           report_type: test_results
           fail_ci_if_error: false
           verbose: false
-          branch: ${{ github.head_ref || github.ref_name }}
 
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v3
