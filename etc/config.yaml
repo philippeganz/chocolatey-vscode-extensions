@@ -1,6 +1,7 @@
 ---
 extensions:
   - aaron-bond.better-comments
+  - abusaidm.html-snippets
   - anthropic.claude-code
   - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint

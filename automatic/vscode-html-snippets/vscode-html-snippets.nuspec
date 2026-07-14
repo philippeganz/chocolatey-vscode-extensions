@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-html-snippets</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - HTML Snippets</title>
+    <authors>abusaidm</authors>
+    <projectUrl>https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://abusaidm.gallerycdn.vsassets.io/extensions/abusaidm/html-snippets/0.2.1/1514476281055/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Full HTML tags including HTML5 Snippets
+]]></description>
+    <summary>Full HTML tags including HTML5 Snippets</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets#changelog</releaseNotes>
+    <tags>vscode extension html-snippets</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
