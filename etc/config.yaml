@@ -4,6 +4,7 @@ extensions:
   - abusaidm.html-snippets
   - akamud.vscode-theme-onedark
   - alefragnani.project-manager
+  - angular.ng-template
   - anthropic.claude-code
   - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint
