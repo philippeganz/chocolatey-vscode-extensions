@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-better-comments</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Better Comments</title>
+    <authors>aaron-bond</authors>
+    <projectUrl>https://github.com/aaron-bond/better-comments.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://aaron-bond.gallerycdn.vsassets.io/extensions/aaron-bond/better-comments/3.0.2/1659144495902/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Improve your code commenting by annotating with alert, informational, TODOs, and more!
+]]></description>
+    <summary>Improve your code commenting by annotating with alert, informational, TODOs, and more!</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments#changelog</releaseNotes>
+    <tags>vscode extension better-comments</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
