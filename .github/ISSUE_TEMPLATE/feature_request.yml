@@ -1,11 +1,12 @@
-name: Feature Request
+---
+name: '✨ Feature Request'
 description: Suggest an idea or enhancement for the AU Factory
 labels: ['enhancement']
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for suggesting an enhancement! 
+        Thanks for suggesting an enhancement!
         *(Note: If you want to request a new VS Code Extension be packaged, please use the "Request Extension" form instead!)*
   - type: textarea
     id: problem

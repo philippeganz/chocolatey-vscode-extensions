@@ -142,7 +142,7 @@ extensions:
     Context "4.5 Remove a package from the Pool (Manage-ExtensionPool.ps1)" {
         It "Should successfully skip removing a non-existent package" {
             $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
-            & $script -Remove -PackageId "fake.to-remove" -Force
+            & $script -Remove "fake.to-remove" -Force
         }
     }
 
