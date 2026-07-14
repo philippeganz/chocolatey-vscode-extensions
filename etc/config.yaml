@@ -12,6 +12,7 @@ extensions:
   - burkeholland.simple-react-snippets
   - christian-kohler.npm-intellisense
   - christian-kohler.path-intellisense
+  - codezombiech.gitignore
   - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint
   - eamodio.gitlens
