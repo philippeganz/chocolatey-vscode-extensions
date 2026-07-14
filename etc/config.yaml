@@ -180,3 +180,4 @@ extensions:
   - xdebug.php-pack
   - yzhang.markdown-all-in-one
   - zhuangtongfa.material-theme
+  - zignd.html-css-class-completion
