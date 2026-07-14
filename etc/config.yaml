@@ -151,6 +151,7 @@ extensions:
   - streetsidesoftware.code-spell-checker
   - tabnine.tabnine-vscode
   - techer.open-in-browser
+  - tht13.python
   - tim-koehler.helm-intellisense
   - timonwong.shellcheck
   - twxs.cmake
