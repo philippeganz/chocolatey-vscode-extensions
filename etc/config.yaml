@@ -28,6 +28,7 @@ extensions:
   - donjayamanne.githistory
   - donjayamanne.python-environment-manager
   - donjayamanne.python-extension-pack
+  - dotjoshjohnson.xml
   - eamodio.gitlens
   - ecmel.vscode-html-css
   - esbenp.prettier-vscode
