@@ -156,6 +156,7 @@ extensions:
   - timonwong.shellcheck
   - tomoki1207.pdf
   - twxs.cmake
+  - usernamehw.errorlens
   - visualstudioexptteam.intellicode-api-usage-examples
   - visualstudioexptteam.vscodeintellicode
   - vmware.vscode-spring-boot
