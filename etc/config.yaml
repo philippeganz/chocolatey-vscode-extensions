@@ -134,6 +134,7 @@ extensions:
   - oracle.oracledevtools
   - pkief.material-icon-theme
   - platformio.platformio-ide
+  - pranaygp.vscode-css-peek
   - redhat.ansible
   - redhat.fabric8-analytics
   - redhat.java
