@@ -51,6 +51,10 @@ param (
     [Parameter(ParameterSetName = 'Remove', Mandatory = $true)]
     [string[]]$Remove,
 
+    [Parameter(ParameterSetName = 'Add', Mandatory = $false)]
+    [Parameter(ParameterSetName = 'Remove', Mandatory = $false)]
+    [switch]$AutoCommit,
+
     [Parameter(ParameterSetName = 'Search', Mandatory = $true)]
     [string]$Search,
 
@@ -226,18 +230,40 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
             Force       = $Force.IsPresent
         }
         $factoryPath = Join-Path $PSScriptRoot "Invoke-VsCodeExtensionFactory.ps1"
-        $processedIds = & $factoryPath @factoryParams
+        & $factoryPath @factoryParams
 
-        # The Factory returns all processed packages (including auto-discovered dependencies)
-        if ($processedIds) {
-            foreach ($p in $processedIds) {
-                if (-not $state.Extensions.Contains($p)) {
-                    Write-Info "Auto-discovered dependency '$p' appended to state."
-                    $state.Extensions.Add($p)
+        # Save state
+        $state.Raw.extensions = @($state.Extensions)
+        $yamlStr = ConvertTo-Yaml $state.Raw
+        $yamlStr = $yamlStr -replace '`r`n', "`n" -replace "`r", "`n"
+        $yamlStr | Set-Content $configPath -NoNewline -Encoding UTF8
+        Write-Success "State saved to config.yaml ($($state.Extensions.Count) total extensions tracked)."
+
+        if ($AutoCommit) {
+            Write-Info "Evaluating git state for auto-commit..."
+            git add "etc/config.yaml"
+            $baseAuto = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" }
+
+            foreach ($p in $validIds) {
+                $pkgName = ($p -split '\.')[1]
+                if (-not $pkgName) { $pkgName = $p }
+                if (-not $pkgName.StartsWith("vscode-")) { $pkgName = "vscode-$pkgName" }
+                git add (Join-Path $baseAuto $pkgName)
+            }
+
+            $staged = git diff --name-only --cached
+            if (-not $staged) {
+                Write-Skip "No git changes detected. Skipping auto-commit."
+            }
+            else {
+                $msg = "Add new extensions: $($validIds -join ', ')"
+                if ($validIds.Count -eq 1) {
+                    $msg = "Add new $($validIds[0]) extension"
                 }
+                git commit -m $msg | Out-Null
+                Write-Success "Auto-Committed: '$msg'"
             }
         }
-        Save-ConfigState $state.Raw $state.Extensions
     }
     else {
         Write-Skip "No valid packages were queued for the Factory."
@@ -273,6 +299,36 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
 
     if ($mutated) {
         Save-ConfigState $state.Raw $state.Extensions
+
+        if ($AutoCommit) {
+            Write-Info "Evaluating git state for auto-commit..."
+            git add "etc/config.yaml"
+            $baseAuto = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" }
+
+            foreach ($id in $Remove) {
+                $cleanId = $id.ToLower()
+                $parts = $cleanId -split '\.'
+                if ($parts.Count -eq 2) {
+                    $pkgName = $parts[1]
+                    if (-not $pkgName.StartsWith("vscode-")) { $pkgName = "vscode-$pkgName" }
+                    # Suppress errors in case the package wasn't scaffolded or tracked in git
+                    git add --all (Join-Path $baseAuto $pkgName) 2>$null
+                }
+            }
+
+            $staged = git diff --name-only --cached
+            if (-not $staged) {
+                Write-Skip "No git changes detected. Skipping auto-commit."
+            }
+            else {
+                $msg = "Remove extensions: $($Remove -join ', ')"
+                if ($Remove.Count -eq 1) {
+                    $msg = "Remove $($Remove[0]) extension"
+                }
+                git commit -m $msg | Out-Null
+                Write-Success "Auto-Committed: '$msg'"
+            }
+        }
     }
 }
 elseif ($PSCmdlet.ParameterSetName -eq 'Search') {

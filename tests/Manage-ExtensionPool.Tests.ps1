@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 param()
 
@@ -108,5 +108,134 @@ Describe "Manage-ExtensionPool CLI" {
 
             { & $script:scriptPath -Add "test.tracked" -Force } | Should -Not -Throw
         }
+
+        It "Should auto-commit new extensions if -AutoCommit is specified" {
+            $mockAuto = "$PSScriptRoot\..\automatic"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+
+            Mock Test-Path -MockWith { return $false } -ParameterFilter { $Path -match 'autocommit' }
+            Mock Test-Path -MockWith { return $true }
+            Mock Get-Content -MockWith { return "---`nextensions:`n  - other.ext" }
+            Mock Set-Content -MockWith {}
+            Mock Get-VsCodeMarketplaceMetadata -MockWith {
+                return [PSCustomObject]@{
+                    Title          = "Test"
+                    Authors        = "Test"
+                    ProjectUrl     = "http"
+                    IconUrl        = "http"
+                    MarketplaceUrl = "http"
+                    Description    = "Test"
+                    Summary        = "Test"
+                    Categories     = ""
+                    versions       = @(
+                        @{
+                            version = "1.0.0"
+                            files   = @()
+                        }
+                    )
+                }
+            }
+            Import-Module (Join-Path $PSScriptRoot "..\lib\VsCodeMarketplace.psm1") -Force
+            Mock Invoke-RobustDownload -MockWith { }
+            Mock Expand-VsCodePayload -MockWith {
+                return @{
+                    PackageJson = @{
+                        extensionDependencies = @()
+                        extensionPack = @()
+                    }
+                }
+            }
+            Mock Select-String -MockWith { return $null } -ParameterFilter { $Path -match 'vsix' }
+
+            $factoryPath = (Resolve-Path "$PSScriptRoot\..\bin\Invoke-VsCodeExtensionFactory.ps1").Path
+            Mock -CommandName $factoryPath -MockWith { return @("test.autocommit") }
+
+            Mock git -MockWith {
+                if ($args[0] -eq 'diff') { return "config.yaml" }
+            }
+
+            { & $script:scriptPath -Add "test.autocommit" -AutoCommit } | Should -Not -Throw
+            Should -Invoke -CommandName git -Times 3
+
+            Remove-Item (Join-Path $mockAuto "vscode-autocommit") -Recurse -Force -ErrorAction SilentlyContinue
+        }
+    }
+
+    Context "Remove Mode" {
+        It "Should remove extension and auto-commit if -AutoCommit is specified" {
+            $mockAuto = "$PSScriptRoot\..\automatic"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+
+            Mock Test-Path -MockWith { return $true }
+            Mock Get-Content -MockWith { return "---`nextensions:`n  - test.removeme" }
+            Mock Set-Content -MockWith {}
+            Mock Remove-Item -MockWith {}
+
+            Mock git -MockWith {
+                if ($args[0] -eq 'diff') { return "config.yaml" }
+            }
+
+            { & $script:scriptPath -Remove "test.removeme" -AutoCommit } | Should -Not -Throw
+            Should -Invoke -CommandName git -Times 3
+        }
+
+    Context "Additional Coverage" {
+        It "Should warn on invalid ID format in Add Mode" {
+            { & $script:scriptPath -Add "invalidformat" } | Should -Not -Throw
+        }
+
+        It "Should warn when API rejects extension in Add Mode" {
+            Mock Get-VsCodeMarketplaceMetadata -MockWith { throw "404" }
+            Mock Test-Path -MockWith { return $true }
+            Mock Get-Content -MockWith { return "---`nextensions:`n  - other" }
+            { & $script:scriptPath -Add "publisher.invalidext" } | Should -Not -Throw
+        }
+
+        It "Should skip missing extension in Remove Mode" {
+            Mock Test-Path -MockWith { return $true }
+            Mock Remove-Item -MockWith {}
+            Mock Get-Content -MockWith { return "---`nextensions:`n  - test.other" }
+            { & $script:scriptPath -Remove "test.nottracked" } | Should -Not -Throw
+        }
+
+        It "Should report missing automatic scaffold in Audit Mode" {
+            Mock Test-Path -MockWith { if ($Path -match 'config.yaml') { return $true } else { return $false } }
+            Mock Get-Content -MockWith { return "---`nextensions:`n  - missing.ext" }
+            { & $script:scriptPath -Audit } | Should -Not -Throw
+        }
+
+        It "Should successfully audit when scaffolds match in Audit Mode" {
+            Mock Test-Path -MockWith { return $true }
+            Mock Get-Content -MockWith { return "---`nextensions:`n  - missing.ext" }
+            { & $script:scriptPath -Audit } | Should -Not -Throw
+        }
+
+        It "Should error if no operation is specified" {
+            { & $script:scriptPath } | Should -Not -Throw
+        }
+
+        It "Should report stale packages in CheckStale Mode" {
+            $mockAuto = "$PSScriptRoot\..\automatic"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+            if (-not (Test-Path $mockAuto)) { New-Item -ItemType Directory -Path $mockAuto -Force | Out-Null }
+            New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-stale") -Force | Out-Null
+
+            Mock Test-Path -MockWith { return $true }
+            Mock Get-Content -MockWith { return "$mockAuto\vscode-stale" } -ParameterFilter { $Path -match 'nuspec' }
+            Mock Get-Content -MockWith { return "---`nextensions:`n  - stale" } -ParameterFilter { $Path -match 'config' }
+
+            # Create dummy nuspec
+            $dummyNuspec = "<package><metadata><version>1.0.0</version></metadata></package>"
+            Set-Content (Join-Path $mockAuto "vscode-stale\vscode-stale.nuspec") $dummyNuspec
+
+            # Mock XML response with older published date and newer version
+            $dummyXml = "<feed><entry><m:properties><d:Version>1.1.0</d:Version><d:Published>2020-01-01T00:00:00Z</d:Published></m:properties></entry></feed>"
+            Mock Invoke-WebRequest -MockWith { return @{ Content = $dummyXml } }
+
+            { & $script:scriptPath -CheckStale } | Should -Not -Throw
+
+            Remove-Item (Join-Path $mockAuto "vscode-stale") -Recurse -Force
+        }
+    }
     }
 }

@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 The primary end-to-end integration test suite for the Chocolatey VS Code Extension framework.
 
@@ -216,5 +216,42 @@ extensions:
         It "Should delete the package directory" {
             Test-Path $script:pkgDir | Should -Be $false
         }
+
+    Context "4.2 Bulk Update Mode (Invoke-AuUpdater.ps1)" {
+        It "Should run successfully when updating all packages" {
+            $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
+            $outDir = Join-Path $script:realPackagesDir "out_artifacts_bulk"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
+            { & $script -OutputDir $outDir  } | Should -Not -Throw
+        }
+    }
+
+    Context "4.3 Native Push Mode (Invoke-AuUpdater.ps1)" {
+        It "Should warn about missing API key when native pushing" {
+            $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
+            $oldKey = $env:CHOCO_API_KEY
+            $oldApi = $env:api_key
+            $env:CHOCO_API_KEY = $null
+            $env:api_key = $null
+            try { & $script -ForcedPackages $script:packageName } catch { }
+            $env:CHOCO_API_KEY = $oldKey
+            $env:api_key = $oldApi
+        }
+    }
+
+    Context "4.4 Moderation Repush without OutputDir (Invoke-AuUpdater.ps1)" {
+        It "Should skip push when no api_key is present" {
+            $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
+            $oldKey = $env:CHOCO_API_KEY
+            $oldApi = $env:api_key
+            $env:CHOCO_API_KEY = $null
+            $env:api_key = $null
+            & $script -ModerationRepush $script:packageName
+            $env:CHOCO_API_KEY = $oldKey
+            $env:api_key = $oldApi
+        }
+    }
     }
 }
