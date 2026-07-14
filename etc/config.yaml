@@ -146,6 +146,7 @@ extensions:
   - redhat.vscode-yaml
   - ritwickdey.liveserver
   - rust-lang.rust-analyzer
+  - shd101wyy.markdown-preview-enhanced
   - tim-koehler.helm-intellisense
   - timonwong.shellcheck
   - twxs.cmake
