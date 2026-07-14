@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-todo-tree</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Todo Tree</title>
+    <authors>Gruntfuggly</authors>
+    <projectUrl>https://github.com/Gruntfuggly/todo-tree.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://Gruntfuggly.gallerycdn.vsassets.io/extensions/gruntfuggly/todo-tree/0.0.226/1681324794296/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=gruntfuggly.todo-tree</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Show TODO, FIXME, etc. comment tags in a tree view
+]]></description>
+    <summary>Show TODO, FIXME, etc. comment tags in a tree view</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=gruntfuggly.todo-tree#changelog</releaseNotes>
+    <tags>vscode extension todo-tree</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>

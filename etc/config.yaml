@@ -52,6 +52,7 @@ extensions:
   - github.vscode-pull-request-github
   - golang.go
   - grapecity.gc-excelviewer
+  - gruntfuggly.todo-tree
   - hashicorp.hcl
   - hashicorp.sentinel
   - hashicorp.terraform
