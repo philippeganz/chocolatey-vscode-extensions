@@ -38,6 +38,7 @@ extensions:
   - equinusocio.vsc-material-theme-icons
   - esbenp.prettier-vscode
   - f5devcentral.vscode-f5
+  - felixfbecker.php-intellisense
   - formulahendry.auto-rename-tag
   - formulahendry.code-runner
   - github.copilot
