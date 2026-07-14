@@ -118,7 +118,8 @@ Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Force
 $configPath = Resolve-Path "$PSScriptRoot\..\etc\config.yaml" -ErrorAction SilentlyContinue
 if (-not $configPath) {
     $configPath = "$PSScriptRoot\..\etc\config.yaml"
-} else {
+}
+else {
     $configPath = $configPath.Path
 }
 if (-not (Get-Module -ListAvailable powershell-yaml)) {
@@ -197,7 +198,8 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
             if ($Force) {
                 Write-Info "Extension '$cleanId' is already tracked, but -Force was requested. Regenerating..."
                 $validIds.Add($cleanId)
-            } else {
+            }
+            else {
                 Write-Skip "Extension '$cleanId' is already tracked in state. Use -Force to regenerate."
             }
             continue

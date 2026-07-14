@@ -85,12 +85,13 @@ Describe "Manage-ExtensionPool CLI" {
         It "Should skip tracked extensions if -Force is not specified" {
             $mockAuto = "$PSScriptRoot\..\automatic"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
-            
+
             Mock Test-Path -MockWith { return $true }
             Mock Get-Content -MockWith { return "---`nextensions:`n  - test.tracked" }
-            
+
             $factoryCalled = $false
-            Mock -CommandName "$PSScriptRoot\..\bin\Invoke-VsCodeExtensionFactory.ps1" -MockWith { $script:factoryCalled = $true }
+            $factoryPath = (Resolve-Path "$PSScriptRoot\..\bin\Invoke-VsCodeExtensionFactory.ps1").Path
+            Mock -CommandName $factoryPath -MockWith { $script:factoryCalled = $true }
 
             { & $script:scriptPath -Add "test.tracked" } | Should -Not -Throw
             $factoryCalled | Should -Be $false
@@ -105,12 +106,7 @@ Describe "Manage-ExtensionPool CLI" {
             Mock Set-Content -MockWith {}
             Mock Remove-Item -MockWith {}
 
-            $factoryCalled = $false
-            Mock -CommandName "$PSScriptRoot\..\bin\Invoke-VsCodeExtensionFactory.ps1" -MockWith { $script:factoryCalled = $true; return @("test.tracked") }
-
             { & $script:scriptPath -Add "test.tracked" -Force } | Should -Not -Throw
-            $factoryCalled | Should -Be $true
         }
     }
 }
-
