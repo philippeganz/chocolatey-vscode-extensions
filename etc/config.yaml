@@ -42,6 +42,7 @@ extensions:
   - formulahendry.auto-close-tag
   - formulahendry.auto-rename-tag
   - formulahendry.code-runner
+  - franneck94.c-cpp-runner
   - github.copilot
   - github.copilot-chat
   - github.vscode-github-actions
