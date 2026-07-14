@@ -177,3 +177,4 @@ extensions:
   - writenothing.no-code
   - xabikos.javascriptsnippets
   - xdebug.php-debug
+  - xdebug.php-pack
