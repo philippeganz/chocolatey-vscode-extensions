@@ -33,6 +33,7 @@ extensions:
   - dsznajder.es7-react-js-snippets
   - eamodio.gitlens
   - ecmel.vscode-html-css
+  - editorconfig.editorconfig
   - esbenp.prettier-vscode
   - f5devcentral.vscode-f5
   - formulahendry.auto-rename-tag
