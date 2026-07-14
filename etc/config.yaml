@@ -81,6 +81,7 @@ extensions:
   - ms-dotnettools.csdevkit
   - ms-dotnettools.csharp
   - ms-dotnettools.vscode-dotnet-runtime
+  - ms-edgedevtools.vscode-edge-devtools
   - ms-kubernetes-tools.vscode-kubernetes-tools
   - ms-mssql.data-workspace-vscode
   - ms-mssql.mssql

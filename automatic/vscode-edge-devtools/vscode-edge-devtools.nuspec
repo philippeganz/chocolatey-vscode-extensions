@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-edge-devtools</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Microsoft Edge Tools for VS Code</title>
+    <authors>ms-edgedevtools</authors>
+    <projectUrl>https://github.com/Microsoft/vscode-edge-devtools.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://ms-edgedevtools.gallerycdn.vsassets.io/extensions/ms-edgedevtools/vscode-edge-devtools/2.1.10/1762989527589/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Use the Microsoft Edge Tools from within VS Code to see your site's runtime HTML structure, alter its layout, fix styling issues as well as see your site's network requests.
+]]></description>
+    <summary>Use the Microsoft Edge Tools from within VS Code to see your site&apos;s runtime HTML structure, alter its layout, fix styling issues as well as see your site&apos;s network requests.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools#changelog</releaseNotes>
+    <tags>vscode extension edge-devtools</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
