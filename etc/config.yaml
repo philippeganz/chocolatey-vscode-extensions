@@ -70,6 +70,7 @@ extensions:
   - ms-azuretools.vscode-bicep
   - ms-azuretools.vscode-containers
   - ms-azuretools.vscode-docker
+  - ms-ceintl.vscode-language-pack-de
   - ms-dotnettools.csharp
   - ms-dotnettools.vscode-dotnet-runtime
   - ms-kubernetes-tools.vscode-kubernetes-tools
