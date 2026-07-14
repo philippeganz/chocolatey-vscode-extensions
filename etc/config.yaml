@@ -122,6 +122,7 @@ extensions:
   - ms-vsliveshare.vsliveshare
   - ms-vsliveshare.vsliveshare-audio
   - msjsdiag.debugger-for-chrome
+  - msjsdiag.vscode-react-native
   - oracle.mysql-shell-for-vs-code
   - oracle.oracle-java
   - oracle.oracledevtools

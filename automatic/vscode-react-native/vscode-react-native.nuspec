@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-react-native</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - React Native Tools</title>
+    <authors>msjsdiag</authors>
+    <projectUrl>https://github.com/microsoft/vscode-react-native.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://msjsdiag.gallerycdn.vsassets.io/extensions/msjsdiag/vscode-react-native/1.13.0/1711327727854/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=msjsdiag.vscode-react-native</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Debugging and integrated commands for React Native
+]]></description>
+    <summary>Debugging and integrated commands for React Native</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=msjsdiag.vscode-react-native#changelog</releaseNotes>
+    <tags>vscode extension react-native</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-js-debug" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
