@@ -87,6 +87,7 @@ extensions:
   - ms-mssql.mssql
   - ms-mssql.sql-bindings-vscode
   - ms-mssql.sql-database-projects-vscode
+  - ms-python.autopep8
   - ms-python.black-formatter
   - ms-python.debugpy
   - ms-python.isort
