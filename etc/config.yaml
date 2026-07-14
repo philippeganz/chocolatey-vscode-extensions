@@ -62,6 +62,7 @@ extensions:
   - jeff-hykin.better-cpp-syntax
   - kevinrose.vsc-python-indent
   - mechatroner.rainbow-csv
+  - mhutchie.git-graph
   - ms-azuretools.vscode-azureterraform
   - ms-azuretools.vscode-bicep
   - ms-azuretools.vscode-containers

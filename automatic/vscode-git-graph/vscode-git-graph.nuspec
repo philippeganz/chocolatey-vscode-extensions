@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-git-graph</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Git Graph</title>
+    <authors>mhutchie</authors>
+    <projectUrl>https://github.com/mhutchie/vscode-git-graph.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://mhutchie.gallerycdn.vsassets.io/extensions/mhutchie/git-graph/1.30.0/1617594001998/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+View a Git Graph of your repository, and perform Git actions from the graph.
+]]></description>
+    <summary>View a Git Graph of your repository, and perform Git actions from the graph.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph#changelog</releaseNotes>
+    <tags>vscode extension git-graph</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
