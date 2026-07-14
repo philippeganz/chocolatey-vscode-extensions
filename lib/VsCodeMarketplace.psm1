@@ -31,10 +31,15 @@ function Get-VsCodeMarketplaceMetadata {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
     param (
         [Parameter(Mandatory = $true)][string]$Publisher,
-        [Parameter(Mandatory = $true)][string]$ExtensionName
+        [Parameter(Mandatory = $true)][string]$ExtensionName,
+        [switch]$IncludeAllVersions
     )
 
     $marketplaceUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
+
+    # Flag 914 includes 512 (IncludeLatestVersionOnly). 402 excludes it, fetching the full version history.
+    $queryFlags = if ($IncludeAllVersions) { 402 } else { 914 }
+
     $body = @{
         filters = @(
             @{
@@ -45,7 +50,7 @@ function Get-VsCodeMarketplaceMetadata {
                 pageSize   = 1
             }
         )
-        flags   = 914
+        flags   = $queryFlags
     } | ConvertTo-Json -Depth 10
 
     $headers = @{

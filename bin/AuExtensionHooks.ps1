@@ -35,7 +35,22 @@ Visual Studio Code Marketplace to natively query the absolute latest version
 of the extension, resolving icon URLs and download paths dynamically.
 #>
 function global:au_GetLatest {
-    $ext = Get-VsCodeMarketplaceMetadata -Publisher $ExtensionPublisher -ExtensionName $ExtensionName
+    if ($global:ExtensionVersion) {
+        $ext = Get-VsCodeMarketplaceMetadata -Publisher $ExtensionPublisher -ExtensionName $ExtensionName -IncludeAllVersions
+    } else {
+        $ext = Get-VsCodeMarketplaceMetadata -Publisher $ExtensionPublisher -ExtensionName $ExtensionName
+    }
+
+    if ($global:ExtensionVersion) {
+        $matchedVersion = $ext.versions | Where-Object { $_.version -eq $global:ExtensionVersion }
+        if ($matchedVersion) {
+            $ext.versions = @($matchedVersion)
+            Write-Host "    [INFO] Moderation Override: Locking to version $($global:ExtensionVersion)" -ForegroundColor Cyan
+        }
+        else {
+            Write-Host "    [WARNING] Target override version $($global:ExtensionVersion) not found on Marketplace!" -ForegroundColor Yellow
+        }
+    }
 
     $version = $ext.versions[0].version
     # Simple SemVer sanitization

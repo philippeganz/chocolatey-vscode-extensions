@@ -155,11 +155,23 @@ function Resolve-PackageDependency {
 if ($ModerationRepush) {
     Write-Host "`n>>> Initiating Moderation Repush Bypass..." -ForegroundColor Magenta
 
-    $targetPackages = if ($ModerationRepush -eq '*') {
+    $versionOverrides = @{}
+    $rawPackages = if ($ModerationRepush -eq '*') {
         Get-ChildItem $packagesDir -Directory | Select-Object -ExpandProperty Name
     }
     else {
         $ModerationRepush -split ',' | Where-Object { $_.Trim() -ne '' } | ForEach-Object { $_.Trim() }
+    }
+
+    $targetPackages = @()
+    foreach ($pkgRaw in $rawPackages) {
+        $pkgId = $pkgRaw
+        if ($pkgRaw -match '@') {
+            $parts = $pkgRaw -split '@'
+            $pkgId = $parts[0]
+            $versionOverrides[$pkgId] = $parts[1]
+        }
+        $targetPackages += $pkgId
     }
 
     $targetPackages = Resolve-PackageDependency -Packages $targetPackages
@@ -171,6 +183,12 @@ if ($ModerationRepush) {
 
         Push-Location $pkgDir
         Write-Host "    Processing $pkg" -ForegroundColor Cyan
+
+        if ($versionOverrides.ContainsKey($pkg)) {
+            $global:ExtensionVersion = $versionOverrides[$pkg]
+        } else {
+            $global:ExtensionVersion = $null
+        }
 
         # 1. Scrape exact upstream version from Marketplace using local update.ps1
         . .\update.ps1

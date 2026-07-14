@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 The primary end-to-end integration test suite for the Chocolatey VS Code Extension framework.
 
@@ -132,6 +132,18 @@ extensions:
             $outDir = Join-Path $script:realPackagesDir "out_artifacts_2"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
             & $script -ModerationRepush "$script:packageName" -OutputDir $outDir
+        }
+
+        It "Should successfully parse @version and build older specific version" {
+            $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
+            $outDir = Join-Path $script:realPackagesDir "out_artifacts_3"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
+
+            # Using an older specific version of rainbow-csv to test override functionality
+            & $script -ModerationRepush "$script:packageName@3.24.0" -OutputDir $outDir
+
+            $nuspec = [xml](Get-Content (Join-Path $script:pkgDir "$script:packageName.nuspec"))
+            $nuspec.package.metadata.version | Should -Be "3.24.0"
         }
     }
 
