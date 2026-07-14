@@ -170,5 +170,6 @@ extensions:
   - vscjava.vscode-spring-initializr
   - vscode-icons-team.vscode-icons
   - vscodevim.vim
+  - vue.volar
   - wakatime.vscode-wakatime
   - xabikos.javascriptsnippets
