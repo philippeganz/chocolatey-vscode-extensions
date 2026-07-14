@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
 The primary end-to-end integration test suite for the Chocolatey VS Code Extension framework.
 
@@ -123,6 +123,33 @@ extensions:
         It "Should successfully audit the pool without errors" {
             $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
             & $script -Audit
+        }
+
+        It "Should report missing scaffolds during Audit" {
+            $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
+            $config = Get-Content $script:configPath -Raw
+            $newConfig = $config + "`n  - fake.missing-extension"
+            $newConfig | Set-Content $script:configPath -Encoding UTF8
+
+            # Run audit which will now hit the missing directory logic
+            & $script -Audit
+
+            # Restore config
+            $config | Set-Content $script:configPath -Encoding UTF8
+        }
+    }
+
+    Context "4.5 Remove a package from the Pool (Manage-ExtensionPool.ps1)" {
+        It "Should successfully skip removing a non-existent package" {
+            $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
+            & $script -Remove -PackageId "fake.to-remove" -Force
+        }
+    }
+
+    Context "4.6 Search for a package (Manage-ExtensionPool.ps1)" {
+        It "Should successfully search the marketplace" {
+            $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
+            & $script -Search "rainbow-csv"
         }
     }
 
