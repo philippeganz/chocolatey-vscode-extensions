@@ -64,6 +64,7 @@ extensions:
   - mechatroner.rainbow-csv
   - mhutchie.git-graph
   - mikestead.dotenv
+  - ms-azuretools.vscode-azurefunctions
   - ms-azuretools.vscode-azureterraform
   - ms-azuretools.vscode-bicep
   - ms-azuretools.vscode-containers
