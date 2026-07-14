@@ -43,6 +43,7 @@ extensions:
   - formulahendry.auto-rename-tag
   - formulahendry.code-runner
   - franneck94.c-cpp-runner
+  - github.codespaces
   - github.copilot
   - github.copilot-chat
   - github.vscode-github-actions
