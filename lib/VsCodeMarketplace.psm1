@@ -290,6 +290,11 @@ function Expand-VsCodePayload {
         $readmeRaw = $readmeRaw -replace '(?i)</?div[^>]*>', ''
         $readmeRaw = $readmeRaw -replace '(?i)</?center[^>]*>', ''
         $readmeRaw = $readmeRaw -replace '(?i)</?picture[^>]*>', ''
+        $readmeRaw = $readmeRaw -replace '(?i)</?h[1-6][^>]*>', ''
+        $readmeRaw = $readmeRaw -replace '(?i)</?p[^>]*>', ''
+        $readmeRaw = $readmeRaw -replace '(?i)</?details[^>]*>', ''
+        $readmeRaw = $readmeRaw -replace '(?i)</?summary[^>]*>', ''
+        $readmeRaw = $readmeRaw -replace '(?i)</?i[^>]*>', ''
         $readmeRaw = $readmeRaw -replace '(?i)<br\s*/?>', "`n"
     }
 
