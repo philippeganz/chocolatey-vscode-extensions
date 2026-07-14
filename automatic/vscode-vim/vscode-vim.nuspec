@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-vim</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Vim</title>
+    <authors>vscodevim</authors>
+    <projectUrl>https://github.com/VSCodeVim/Vim.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://vscodevim.gallerycdn.vsassets.io/extensions/vscodevim/vim/1.32.4/1765753483040/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscodevim.vim</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Vim emulation for Visual Studio Code
+]]></description>
+    <summary>Vim emulation for Visual Studio Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscodevim.vim#changelog</releaseNotes>
+    <tags>vscode extension vim</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
