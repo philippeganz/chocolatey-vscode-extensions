@@ -357,7 +357,7 @@ function Update-NuspecDependency {
     $depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n      ")) | Out-Null
     $baseDep = $NuspecXml.CreateElement("dependency", $ns)
     $baseDep.SetAttribute("id", "chocolatey-vscode.extension")
-    $baseDep.SetAttribute("version", "1.1.0")
+    $baseDep.SetAttribute("version", "[1.1.0, 2.0.0)")
     $depsNode.AppendChild($baseDep) | Out-Null
 
     if (-not (Get-Module -Name powershell-yaml)) {
