@@ -157,6 +157,7 @@ extensions:
   - tomoki1207.pdf
   - twxs.cmake
   - usernamehw.errorlens
+  - vadimcn.vscode-lldb
   - visualstudioexptteam.intellicode-api-usage-examples
   - visualstudioexptteam.vscodeintellicode
   - vmware.vscode-spring-boot
