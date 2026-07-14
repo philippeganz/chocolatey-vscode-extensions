@@ -176,3 +176,4 @@ extensions:
   - wholroyd.jinja
   - writenothing.no-code
   - xabikos.javascriptsnippets
+  - xdebug.php-debug

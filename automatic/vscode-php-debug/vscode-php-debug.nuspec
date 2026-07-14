@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-php-debug</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - PHP Debug</title>
+    <authors>xdebug</authors>
+    <projectUrl>https://github.com/xdebug/vscode-php-debug.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://xdebug.gallerycdn.vsassets.io/extensions/xdebug/php-debug/1.40.1/1775571930745/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Debug support for PHP with Xdebug
+]]></description>
+    <summary>Debug support for PHP with Xdebug</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug#changelog</releaseNotes>
+    <tags>vscode extension php-debug</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
