@@ -120,6 +120,7 @@ extensions:
   - ms-vscode.remote-server
   - ms-vscode.vscode-typescript-next
   - ms-vsliveshare.vsliveshare
+  - ms-vsliveshare.vsliveshare-audio
   - oracle.mysql-shell-for-vs-code
   - oracle.oracle-java
   - oracle.oracledevtools

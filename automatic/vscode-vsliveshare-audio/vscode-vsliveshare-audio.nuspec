@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-vsliveshare-audio</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - [Deprecated] Live Share Audio</title>
+    <authors>MS-vsliveshare</authors>
+    <projectUrl>https://github.com/MicrosoftDocs/live-share</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://MS-vsliveshare.gallerycdn.vsassets.io/extensions/ms-vsliveshare/vsliveshare-audio/0.1.93/1674786493197/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare-audio</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Adds audio calling capabilities to Visual Studio Live Share
+]]></description>
+    <summary>Adds audio calling capabilities to Visual Studio Live Share</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare-audio#changelog</releaseNotes>
+    <tags>vscode extension vsliveshare-audio</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-vsliveshare" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
