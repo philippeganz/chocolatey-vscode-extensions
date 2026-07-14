@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-auto-close-tag</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Auto Close Tag</title>
+    <authors>formulahendry</authors>
+    <projectUrl>https://github.com/formulahendry/vscode-auto-close-tag.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://formulahendry.gallerycdn.vsassets.io/extensions/formulahendry/auto-close-tag/0.5.15/1702959502562/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Automatically add HTML/XML close tag, same as Visual Studio IDE or Sublime Text
+]]></description>
+    <summary>Automatically add HTML/XML close tag, same as Visual Studio IDE or Sublime Text</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag#changelog</releaseNotes>
+    <tags>vscode extension auto-close-tag</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>

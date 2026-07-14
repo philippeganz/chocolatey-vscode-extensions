@@ -39,6 +39,7 @@ extensions:
   - esbenp.prettier-vscode
   - f5devcentral.vscode-f5
   - felixfbecker.php-intellisense
+  - formulahendry.auto-close-tag
   - formulahendry.auto-rename-tag
   - formulahendry.code-runner
   - github.copilot
