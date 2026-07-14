@@ -354,6 +354,7 @@ function Update-NuspecDependency {
         $depsNode.RemoveAll()
     }
 
+    $depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n      ")) | Out-Null
     $baseDep = $NuspecXml.CreateElement("dependency", $ns)
     $baseDep.SetAttribute("id", "chocolatey-vscode.extension")
     $baseDep.SetAttribute("version", "1.1.0")
@@ -374,6 +375,7 @@ function Update-NuspecDependency {
         $depPackageName = if ($depName.StartsWith("vscode-")) { $depName } else { "vscode-$depName" }
 
         if ($depPackageName -ne $PackageName) {
+            $depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n      ")) | Out-Null
             $depNode = $NuspecXml.CreateElement("dependency", $ns)
             $depNode.SetAttribute("id", $depPackageName)
             $depsNode.AppendChild($depNode) | Out-Null
@@ -394,6 +396,8 @@ function Update-NuspecDependency {
     if ($PackageJson.extensionPack) {
         foreach ($depRaw in $PackageJson.extensionPack) { & $processDep $depRaw }
     }
+
+    $depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n    ")) | Out-Null
 }
 
 <#
