@@ -9,6 +9,7 @@ extensions:
   - batisteo.vscode-django
   - bmewburn.vscode-intelephense-client
   - bradlc.vscode-tailwindcss
+  - burkeholland.simple-react-snippets
   - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint
   - eamodio.gitlens
