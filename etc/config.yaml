@@ -17,6 +17,7 @@ extensions:
   - coenraads.bracket-pair-colorizer-2
   - cschlosser.doxdocgen
   - danielpinto8zz6.c-cpp-compile-run
+  - dart-code.dart-code
   - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint
   - eamodio.gitlens
