@@ -147,6 +147,7 @@ extensions:
   - ritwickdey.liveserver
   - rust-lang.rust-analyzer
   - shd101wyy.markdown-preview-enhanced
+  - sidthesloth.html5-boilerplate
   - tim-koehler.helm-intellisense
   - timonwong.shellcheck
   - twxs.cmake
