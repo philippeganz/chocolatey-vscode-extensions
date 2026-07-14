@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-live-server</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Live Preview</title>
+    <authors>ms-vscode</authors>
+    <projectUrl>https://github.com/microsoft/vscode-livepreview.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/live-server/0.5.2026070201/1782984345631/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Hosts a local server in your workspace for you to preview your webpages on.
+]]></description>
+    <summary>Hosts a local server in your workspace for you to preview your webpages on.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server#changelog</releaseNotes>
+    <tags>vscode extension live-server</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
