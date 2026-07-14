@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-django</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Django</title>
+    <authors>batisteo</authors>
+    <projectUrl>https://github.com/vscode-django/vscode-django.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://batisteo.gallerycdn.vsassets.io/extensions/batisteo/vscode-django/1.15.0/1703694028504/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Beautiful syntax and scoped snippets for perfectionists with deadlines
+]]></description>
+    <summary>Beautiful syntax and scoped snippets for perfectionists with deadlines</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django#changelog</releaseNotes>
+    <tags>vscode extension django</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>

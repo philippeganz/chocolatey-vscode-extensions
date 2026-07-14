@@ -6,6 +6,7 @@ extensions:
   - alefragnani.project-manager
   - angular.ng-template
   - anthropic.claude-code
+  - batisteo.vscode-django
   - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint
   - eamodio.gitlens
