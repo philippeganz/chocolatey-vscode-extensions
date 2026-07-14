@@ -118,6 +118,7 @@ extensions:
   - ms-vscode.remote-explorer
   - ms-vscode.remote-repositories
   - ms-vscode.remote-server
+  - ms-vscode.vscode-typescript-next
   - ms-vsliveshare.vsliveshare
   - oracle.mysql-shell-for-vs-code
   - oracle.oracle-java
