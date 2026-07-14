@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-todo-highlight</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - TODO Highlight</title>
+    <authors>wayou</authors>
+    <projectUrl>https://github.com/wayou/vscode-todo-highlight.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://wayou.gallerycdn.vsassets.io/extensions/wayou/vscode-todo-highlight/1.0.5/1635478170130/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+highlight TODOs, FIXMEs, and any keywords, annotations...
+]]></description>
+    <summary>highlight TODOs, FIXMEs, and any keywords, annotations...</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight#changelog</releaseNotes>
+    <tags>vscode extension todo-highlight</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>

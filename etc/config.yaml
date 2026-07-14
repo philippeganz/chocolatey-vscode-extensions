@@ -172,4 +172,5 @@ extensions:
   - vscodevim.vim
   - vue.volar
   - wakatime.vscode-wakatime
+  - wayou.vscode-todo-highlight
   - xabikos.javascriptsnippets
