@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-flutter</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Flutter</title>
+    <authors>Dart-Code</authors>
+    <projectUrl>https://github.com/Dart-Code/Flutter.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://Dart-Code.gallerycdn.vsassets.io/extensions/dart-code/flutter/3.139.20260630/1782825117243/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=dart-code.flutter</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Flutter support and debugger for Visual Studio Code.
+]]></description>
+    <summary>Flutter support and debugger for Visual Studio Code.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=dart-code.flutter#changelog</releaseNotes>
+    <tags>vscode extension flutter</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-dart-code" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>

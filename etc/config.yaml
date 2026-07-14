@@ -18,6 +18,7 @@ extensions:
   - cschlosser.doxdocgen
   - danielpinto8zz6.c-cpp-compile-run
   - dart-code.dart-code
+  - dart-code.flutter
   - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint
   - eamodio.gitlens
