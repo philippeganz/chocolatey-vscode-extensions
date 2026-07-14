@@ -121,6 +121,7 @@ extensions:
   - ms-vscode.vscode-typescript-next
   - ms-vsliveshare.vsliveshare
   - ms-vsliveshare.vsliveshare-audio
+  - msjsdiag.debugger-for-chrome
   - oracle.mysql-shell-for-vs-code
   - oracle.oracle-java
   - oracle.oracledevtools
