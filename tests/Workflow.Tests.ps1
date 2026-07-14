@@ -190,8 +190,10 @@ extensions:
 
         It "Should test edge case parameters (PushUrl, ForcedPackages, MissingDir)" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
+            $oldEnv = $env:CHOCO_VSCODE_AUTOMATIC_DIR
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = "C:\Fake\Dir\Does\Not\Exist"
             { & $script -PushUrl "https://nexus.local" -ForcedPackages "test" } | Should -Throw
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $oldEnv
         }
     }
 
