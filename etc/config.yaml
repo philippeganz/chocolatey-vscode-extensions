@@ -124,6 +124,7 @@ extensions:
   - msjsdiag.debugger-for-chrome
   - msjsdiag.vscode-react-native
   - mtxr.sqltools
+  - naumovs.color-highlight
   - oracle.mysql-shell-for-vs-code
   - oracle.oracle-java
   - oracle.oracledevtools
