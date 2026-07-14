@@ -148,6 +148,7 @@ extensions:
   - rust-lang.rust-analyzer
   - shd101wyy.markdown-preview-enhanced
   - sidthesloth.html5-boilerplate
+  - streetsidesoftware.code-spell-checker
   - tim-koehler.helm-intellisense
   - timonwong.shellcheck
   - twxs.cmake
