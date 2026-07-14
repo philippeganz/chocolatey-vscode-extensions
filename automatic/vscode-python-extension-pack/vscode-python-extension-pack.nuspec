@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-python-extension-pack</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Python Extension Pack</title>
+    <authors>donjayamanne</authors>
+    <projectUrl>https://github.com/DonJayamanne/python-extension-pack.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://donjayamanne.gallerycdn.vsassets.io/extensions/donjayamanne/python-extension-pack/1.7.0/1636351018144/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-extension-pack</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Popular Visual Studio Code extensions for Python
+]]></description>
+    <summary>Popular Visual Studio Code extensions for Python</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-extension-pack#changelog</releaseNotes>
+    <tags>vscode extension python-extension-pack</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-autodocstring" />
+      <dependency id="vscode-python" />
+      <dependency id="vscode-jinja" />
+      <dependency id="vscode-django" />
+      <dependency id="vscode-vscodeintellicode" />
+      <dependency id="vscode-vsc-python-indent" />
+      <dependency id="vscode-python-environment-manager" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>

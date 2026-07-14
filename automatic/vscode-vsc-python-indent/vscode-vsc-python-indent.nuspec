@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-vsc-python-indent</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Python Indent</title>
+    <authors>KevinRose</authors>
+    <projectUrl>https://github.com/kbrose/vsc-python-indent.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://KevinRose.gallerycdn.vsassets.io/extensions/kevinrose/vsc-python-indent/1.21.0/1740610805059/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=kevinrose.vsc-python-indent</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Correct Python indentation
+]]></description>
+    <summary>Correct Python indentation</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=kevinrose.vsc-python-indent#changelog</releaseNotes>
+    <tags>vscode extension vsc-python-indent</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
