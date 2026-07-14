@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-intelephense-client</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - PHP Intelephense</title>
+    <authors>bmewburn</authors>
+    <projectUrl>https://github.com/bmewburn/vscode-intelephense.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://bmewburn.gallerycdn.vsassets.io/extensions/bmewburn/vscode-intelephense-client/1.18.5/1782002746717/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+PHP code intelligence for Visual Studio Code
+]]></description>
+    <summary>PHP code intelligence for Visual Studio Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client#changelog</releaseNotes>
+    <tags>vscode extension intelephense-client</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
