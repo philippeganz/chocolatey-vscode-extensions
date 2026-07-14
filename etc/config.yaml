@@ -145,6 +145,7 @@ extensions:
   - redhat.vscode-xml
   - redhat.vscode-yaml
   - ritwickdey.liveserver
+  - rust-lang.rust-analyzer
   - tim-koehler.helm-intellisense
   - timonwong.shellcheck
   - twxs.cmake
