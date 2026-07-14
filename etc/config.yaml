@@ -3,6 +3,7 @@ extensions:
   - aaron-bond.better-comments
   - abusaidm.html-snippets
   - akamud.vscode-theme-onedark
+  - alefragnani.project-manager
   - anthropic.claude-code
   - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint
