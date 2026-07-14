@@ -209,7 +209,7 @@ function Expand-VsCodePayload {
             $reader = New-Object System.IO.StreamReader($stream)
             $packageJsonContent = $reader.ReadToEnd()
             $reader.Close(); $stream.Close()
-            $packageJson = $packageJsonContent | ConvertFrom-Json
+            $packageJson = $packageJsonContent | ConvertFrom-Json -AsHashTable
         }
 
         if ($readmeEntry) {
