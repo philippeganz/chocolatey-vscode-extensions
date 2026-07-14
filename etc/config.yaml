@@ -60,6 +60,7 @@ extensions:
   - hookyqr.beautify
   - humao.rest-client
   - jeff-hykin.better-cpp-syntax
+  - kevinrose.vsc-python-indent
   - mechatroner.rainbow-csv
   - ms-azuretools.vscode-azureterraform
   - ms-azuretools.vscode-bicep
