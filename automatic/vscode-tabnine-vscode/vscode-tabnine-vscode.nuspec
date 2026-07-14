@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-tabnine-vscode</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - (Legacy) Tabnine</title>
+    <authors>TabNine</authors>
+    <projectUrl>https://github.com/codota/tabnine-vscode.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://TabNine.gallerycdn.vsassets.io/extensions/tabnine/tabnine-vscode/3.335.0/1767945228663/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=tabnine.tabnine-vscode</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Tabnine does not onboard new users to this plugin. For our enterprise solution please go here: https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode-self-hosted-updater
+]]></description>
+    <summary>Tabnine does not onboard new users to this plugin. For our enterprise solution please go here: https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode-self-hosted-updater</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=tabnine.tabnine-vscode#changelog</releaseNotes>
+    <tags>vscode extension tabnine-vscode</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>

@@ -149,6 +149,7 @@ extensions:
   - shd101wyy.markdown-preview-enhanced
   - sidthesloth.html5-boilerplate
   - streetsidesoftware.code-spell-checker
+  - tabnine.tabnine-vscode
   - tim-koehler.helm-intellisense
   - timonwong.shellcheck
   - twxs.cmake
