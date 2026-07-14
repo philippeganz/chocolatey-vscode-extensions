@@ -178,3 +178,4 @@ extensions:
   - xabikos.javascriptsnippets
   - xdebug.php-debug
   - xdebug.php-pack
+  - yzhang.markdown-all-in-one
