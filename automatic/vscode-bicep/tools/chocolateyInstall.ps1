@@ -1,4 +1,4 @@
-# -----------------------------------------------------------------------------
+﻿# -----------------------------------------------------------------------------
 # Chocolatey Installation Script
 #
 # This script is executed by Chocolatey when the package is installed.
@@ -10,7 +10,7 @@ $ErrorActionPreference = 'Stop'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 # The payload is entirely embedded in the package to guarantee Air-Gap compliance.
-$vsixPath = Join-Path $toolsDir "ms-azuretools.vscode-bicep-0.44.1.vsix"
+$vsixPath = Join-Path $toolsDir "ms-azuretools.vscode-bicep-0.45.15.vsix"
 
 # Install-VsCodeExtension is a specialized helper provided by the chocolatey-vscode.extension dependency.
 Install-VsCodeExtension -extensionId $vsixPath
