@@ -133,6 +133,7 @@ extensions:
   - oracle.oracle-java
   - oracle.oracledevtools
   - pkief.material-icon-theme
+  - platformio.platformio-ide
   - redhat.ansible
   - redhat.fabric8-analytics
   - redhat.java
