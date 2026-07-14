@@ -10,6 +10,7 @@ extensions:
   - bmewburn.vscode-intelephense-client
   - bradlc.vscode-tailwindcss
   - burkeholland.simple-react-snippets
+  - christian-kohler.npm-intellisense
   - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint
   - eamodio.gitlens
