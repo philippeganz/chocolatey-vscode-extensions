@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-rest-client</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - REST Client</title>
+    <authors>humao</authors>
+    <projectUrl>https://github.com/Huachao/vscode-restclient.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://humao.gallerycdn.vsassets.io/extensions/humao/rest-client/0.25.1/1660918934840/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=humao.rest-client</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+REST Client for Visual Studio Code
+]]></description>
+    <summary>REST Client for Visual Studio Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=humao.rest-client#changelog</releaseNotes>
+    <tags>vscode extension rest-client</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>

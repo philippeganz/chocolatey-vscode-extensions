@@ -58,6 +58,7 @@ extensions:
   - hashicorp.terraform
   - hbenl.vscode-test-explorer
   - hookyqr.beautify
+  - humao.rest-client
   - mechatroner.rainbow-csv
   - ms-azuretools.vscode-azureterraform
   - ms-azuretools.vscode-bicep
