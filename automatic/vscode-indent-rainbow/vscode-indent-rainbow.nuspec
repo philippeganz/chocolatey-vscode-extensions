@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-indent-rainbow</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - indent-rainbow</title>
+    <authors>oderwat</authors>
+    <projectUrl>https://github.com/oderwat/vscode-indent-rainbow.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://oderwat.gallerycdn.vsassets.io/extensions/oderwat/indent-rainbow/8.3.1/1649543509070/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Makes indentation easier to read
+]]></description>
+    <summary>Makes indentation easier to read</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow#changelog</releaseNotes>
+    <tags>vscode extension indent-rainbow</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>

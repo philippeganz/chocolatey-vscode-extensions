@@ -127,6 +127,7 @@ extensions:
   - naumovs.color-highlight
   - njpwerner.autodocstring
   - octref.vetur
+  - oderwat.indent-rainbow
   - oracle.mysql-shell-for-vs-code
   - oracle.oracle-java
   - oracle.oracledevtools
