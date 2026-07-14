@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-python-environment-manager</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Python Environment Manager (deprecated)</title>
+    <authors>donjayamanne</authors>
+    <projectUrl>https://github.com/DonJayamanne/vscode-python-manager.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl></iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+View and manage Python environments & packages.
+]]></description>
+    <summary>View and manage Python environments &amp; packages.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager#changelog</releaseNotes>
+    <tags>vscode extension python-environment-manager</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>

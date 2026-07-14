@@ -26,6 +26,7 @@ extensions:
   - devsense.phptools-vscode
   - devsense.profiler-php-vscode
   - donjayamanne.githistory
+  - donjayamanne.python-environment-manager
   - eamodio.gitlens
   - ecmel.vscode-html-css
   - esbenp.prettier-vscode
