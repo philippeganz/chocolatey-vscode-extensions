@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-azure-repos</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Azure Repos</title>
+    <authors>ms-vscode</authors>
+    <projectUrl>https://github.com/microsoft/vscode-remote-repositories-github.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/azure-repos/0.41.2026060101/1780305617097/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-repos</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Remotely browse and edit any Azure Repos
+]]></description>
+    <summary>Remotely browse and edit any Azure Repos</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-repos#changelog</releaseNotes>
+    <tags>vscode extension azure-repos</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-remote-repositories" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>

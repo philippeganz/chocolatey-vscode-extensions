@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-remotehub</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - GitHub Repositories</title>
+    <authors>GitHub</authors>
+    <projectUrl>https://github.com/microsoft/vscode-remote-repositories-github.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/remotehub/0.65.2026060101/1780305460809/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=github.remotehub</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Remotely browse and edit any GitHub repository
+]]></description>
+    <summary>Remotely browse and edit any GitHub repository</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=github.remotehub#changelog</releaseNotes>
+    <tags>vscode extension remotehub</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-remote-repositories" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
