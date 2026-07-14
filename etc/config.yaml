@@ -22,6 +22,7 @@ extensions:
   - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint
   - devsense.composer-php-vscode
+  - devsense.intelli-php-vscode
   - eamodio.gitlens
   - ecmel.vscode-html-css
   - esbenp.prettier-vscode

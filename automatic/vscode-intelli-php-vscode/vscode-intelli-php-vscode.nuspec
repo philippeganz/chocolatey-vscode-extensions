@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-intelli-php-vscode</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - IntelliPHP - AI Suggestions for PHP</title>
+    <authors>DEVSENSE</authors>
+    <projectUrl>https://github.com/DEVSENSE/phptools-docs.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://DEVSENSE.gallerycdn.vsassets.io/extensions/devsense/intelli-php-vscode/0.12.17700/1753717639068/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=devsense.intelli-php-vscode</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Offline AI-assisted development for PHP.
+]]></description>
+    <summary>Offline AI-assisted development for PHP.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=devsense.intelli-php-vscode#changelog</releaseNotes>
+    <tags>vscode extension intelli-php-vscode</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
