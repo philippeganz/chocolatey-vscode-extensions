@@ -51,6 +51,7 @@ extensions:
   - github.vscode-github-actions
   - github.vscode-pull-request-github
   - golang.go
+  - grapecity.gc-excelviewer
   - hashicorp.hcl
   - hashicorp.sentinel
   - hashicorp.terraform
