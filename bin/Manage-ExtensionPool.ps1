@@ -45,6 +45,9 @@ param (
     [Parameter(ParameterSetName = 'Add', Mandatory = $true)]
     [string[]]$Add,
 
+    [Parameter(ParameterSetName = 'Add', Mandatory = $false)]
+    [switch]$Force,
+
     [Parameter(ParameterSetName = 'Remove', Mandatory = $true)]
     [string[]]$Remove,
 
@@ -191,9 +194,12 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
         }
 
         if ($state.Extensions.Contains($cleanId)) {
-            Write-Skip "Extension '$cleanId' is already tracked in state."
-            # We still add it to validIds so the Factory can force a regenerate if requested
-            $validIds.Add($cleanId)
+            if ($Force) {
+                Write-Info "Extension '$cleanId' is already tracked, but -Force was requested. Regenerating..."
+                $validIds.Add($cleanId)
+            } else {
+                Write-Skip "Extension '$cleanId' is already tracked in state. Use -Force to regenerate."
+            }
             continue
         }
 
@@ -215,7 +221,7 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
         Write-Info "Invoking Factory API for scaffolding..."
         $factoryParams = @{
             ExtensionId = $validIds.ToArray()
-            Force       = $true
+            Force       = $Force.IsPresent
         }
         $factoryPath = Join-Path $PSScriptRoot "Invoke-VsCodeExtensionFactory.ps1"
         $processedIds = & $factoryPath @factoryParams

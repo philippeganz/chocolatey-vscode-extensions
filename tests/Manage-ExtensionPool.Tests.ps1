@@ -80,5 +80,37 @@ Describe "Manage-ExtensionPool CLI" {
             Remove-Item (Join-Path $mockAuto "vscode-missing") -Recurse -Force
         }
     }
+
+    Context "Add Mode" {
+        It "Should skip tracked extensions if -Force is not specified" {
+            $mockAuto = "$PSScriptRoot\..\automatic"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+            
+            Mock Test-Path -MockWith { return $true }
+            Mock Get-Content -MockWith { return "---`nextensions:`n  - test.tracked" }
+            
+            $factoryCalled = $false
+            Mock -CommandName "$PSScriptRoot\..\bin\Invoke-VsCodeExtensionFactory.ps1" -MockWith { $script:factoryCalled = $true }
+
+            { & $script:scriptPath -Add "test.tracked" } | Should -Not -Throw
+            $factoryCalled | Should -Be $false
+        }
+
+        It "Should invoke factory for tracked extensions if -Force is specified" {
+            $mockAuto = "$PSScriptRoot\..\automatic"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+
+            Mock Test-Path -MockWith { return $true }
+            Mock Get-Content -MockWith { return "---`nextensions:`n  - test.tracked" }
+            Mock Set-Content -MockWith {}
+            Mock Remove-Item -MockWith {}
+
+            $factoryCalled = $false
+            Mock -CommandName "$PSScriptRoot\..\bin\Invoke-VsCodeExtensionFactory.ps1" -MockWith { $script:factoryCalled = $true; return @("test.tracked") }
+
+            { & $script:scriptPath -Add "test.tracked" -Force } | Should -Not -Throw
+            $factoryCalled | Should -Be $true
+        }
+    }
 }
 
