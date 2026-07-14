@@ -153,12 +153,27 @@ extensions:
         }
     }
 
+    Context "4.7 Add edge cases (Manage-ExtensionPool.ps1)" {
+        It "Should gracefully handle Add exceptions" {
+            $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
+            # Invalid ID Format
+            & $script -Add "invalidformat"
+            # Already tracked
+            & $script -Add "mechatroner.rainbow-csv"
+            # Does not exist API
+            & $script -Add "fake.does-not-exist"
+        }
+    }
+
     Context "4.1 Moderation Repush (Invoke-AuUpdater.ps1)" {
         It "Should successfully run moderation repush bypass" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
             $outDir = Join-Path $script:realPackagesDir "out_artifacts_2"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
-            & $script -ModerationRepush "$script:packageName" -OutputDir $outDir
+            & $script -ModerationRepush $script:packageName -OutputDir $outDir
+
+            $nuspec = [xml](Get-Content (Join-Path $script:pkgDir "$script:packageName.nuspec"))
+            $nuspec.package.metadata.version | Should -Be "3.24.1"
         }
 
         It "Should successfully parse @version and build older specific version" {
@@ -171,6 +186,12 @@ extensions:
 
             $nuspec = [xml](Get-Content (Join-Path $script:pkgDir "$script:packageName.nuspec"))
             $nuspec.package.metadata.version | Should -Be "3.24.0"
+        }
+
+        It "Should test edge case parameters (PushUrl, ForcedPackages, MissingDir)" {
+            $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = "C:\Fake\Dir\Does\Not\Exist"
+            { & $script -PushUrl "https://nexus.local" -ForcedPackages "test" } | Should -Throw
         }
     }
 
