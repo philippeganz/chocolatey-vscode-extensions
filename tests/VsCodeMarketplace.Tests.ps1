@@ -183,7 +183,7 @@ Describe "VsCodeMarketplace API Wrapper" {
             try {
                 Update-NuspecDependency -NuspecXml $mockNuspec -PackageJson $mockPkgJson -ConfigPath $mockConfig -ErrorAction SilentlyContinue
             }
-            catch {}
+            catch { Write-Verbose $_ }
 
             $deps = $mockNuspec.package.metadata.dependencies.dependency
             $deps.Count | Should -Be 2
