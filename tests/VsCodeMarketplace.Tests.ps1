@@ -164,6 +164,34 @@ Describe "VsCodeMarketplace API Wrapper" {
             Remove-Item $tempAuto -Recurse -Force
             Remove-Item Env:\CHOCO_VSCODE_AUTOMATIC_DIR -ErrorAction SilentlyContinue
         }
+
+        It "Should process extensionPack arrays correctly" {
+            $mockNuspec = [xml]@"
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-pack</id>
+  </metadata>
+</package>
+"@
+            $mockPkgJson = @{
+                extensionPack = @("lukehoban.Go")
+            }
+            $mockConfig = Join-Path $PSScriptRoot "mock_config.yaml"
+            "---`nextensions:`n  - ms-python.python`n" | Set-Content $mockConfig
+
+            try {
+                Update-NuspecDependency -NuspecXml $mockNuspec -PackageJson $mockPkgJson -ConfigPath $mockConfig -ErrorAction SilentlyContinue
+            }
+            catch {}
+
+            $deps = $mockNuspec.package.metadata.dependencies.dependency
+            $deps.Count | Should -Be 2
+            $deps[0].id | Should -Be "chocolatey-vscode.extension"
+            $deps[1].id | Should -Be "vscode-go"
+
+            Remove-Item $mockConfig -Force
+        }
     }
 
     Context "Expand-VsCodePayload" {
