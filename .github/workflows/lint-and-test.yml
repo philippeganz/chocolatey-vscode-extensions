@@ -252,6 +252,7 @@ jobs:
           files: coverage.xml
           fail_ci_if_error: false
           verbose: false
+          branch: ${{ github.head_ref || github.ref_name }}
 
       - name: Upload test results to Codecov
         uses: codecov/codecov-action@v7
@@ -261,6 +262,7 @@ jobs:
           report_type: test_results
           fail_ci_if_error: false
           verbose: false
+          branch: ${{ github.head_ref || github.ref_name }}
 
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v3
