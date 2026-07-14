@@ -14,6 +14,7 @@ extensions:
   - christian-kohler.path-intellisense
   - codezombiech.gitignore
   - coenraads.bracket-pair-colorizer
+  - coenraads.bracket-pair-colorizer-2
   - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint
   - eamodio.gitlens

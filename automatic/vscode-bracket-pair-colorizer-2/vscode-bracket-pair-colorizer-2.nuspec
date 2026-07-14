@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-bracket-pair-colorizer-2</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - [Deprecated] Bracket Pair Colorizer 2</title>
+    <authors>CoenraadS</authors>
+    <projectUrl>https://github.com/CoenraadS/Bracket-Pair-Colorizer-2.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://CoenraadS.gallerycdn.vsassets.io/extensions/coenraads/bracket-pair-colorizer-2/0.2.4/1648139476572/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=coenraads.bracket-pair-colorizer-2</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+A customizable extension for colorizing matching brackets
+]]></description>
+    <summary>A customizable extension for colorizing matching brackets</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=coenraads.bracket-pair-colorizer-2#changelog</releaseNotes>
+    <tags>vscode extension bracket-pair-colorizer-2</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
