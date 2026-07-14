@@ -104,6 +104,7 @@ extensions:
   - ms-vscode-remote.remote-ssh-edit
   - ms-vscode-remote.remote-wsl
   - ms-vscode-remote.vscode-remote-extensionpack
+  - ms-vscode.azure-account
   - ms-vscode.cmake-tools
   - ms-vscode.cpp-devtools
   - ms-vscode.cpptools
