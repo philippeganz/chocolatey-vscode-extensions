@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-tailwindcss</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Tailwind CSS IntelliSense</title>
+    <authors>bradlc</authors>
+    <projectUrl>https://github.com/tailwindlabs/tailwindcss-intellisense.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://bradlc.gallerycdn.vsassets.io/extensions/bradlc/vscode-tailwindcss/0.15.7/1783610020860/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Intelligent Tailwind CSS tooling for VS Code
+]]></description>
+    <summary>Intelligent Tailwind CSS tooling for VS Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss#changelog</releaseNotes>
+    <tags>vscode extension tailwindcss</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>

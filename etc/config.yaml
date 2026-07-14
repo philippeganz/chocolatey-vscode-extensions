@@ -8,6 +8,7 @@ extensions:
   - anthropic.claude-code
   - batisteo.vscode-django
   - bmewburn.vscode-intelephense-client
+  - bradlc.vscode-tailwindcss
   - davidanson.vscode-markdownlint
   - dbaeumer.vscode-eslint
   - eamodio.gitlens
