@@ -56,6 +56,7 @@ extensions:
   - hashicorp.hcl
   - hashicorp.sentinel
   - hashicorp.terraform
+  - hbenl.vscode-test-explorer
   - mechatroner.rainbow-csv
   - ms-azuretools.vscode-azureterraform
   - ms-azuretools.vscode-bicep

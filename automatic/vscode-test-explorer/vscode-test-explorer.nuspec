@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-test-explorer</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Test Explorer UI</title>
+    <authors>hbenl</authors>
+    <projectUrl>https://github.com/hbenl/vscode-test-explorer.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://hbenl.gallerycdn.vsassets.io/extensions/hbenl/vscode-test-explorer/2.22.1/1726995403729/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Run your tests in the Sidebar of Visual Studio Code
+]]></description>
+    <summary>Run your tests in the Sidebar of Visual Studio Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer#changelog</releaseNotes>
+    <tags>vscode extension test-explorer</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-test-adapter-converter" />
+ </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
