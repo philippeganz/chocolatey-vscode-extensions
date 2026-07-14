@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-open-in-browser</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - open in browser</title>
+    <authors>techer</authors>
+    <projectUrl>https://github.com/SudoKillMe/vscode-extensions-open-in-browser</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://techer.gallerycdn.vsassets.io/extensions/techer/open-in-browser/2.0.0/1534049617896/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+This allows you to open the current file in your default browser or application.
+]]></description>
+    <summary>This allows you to open the current file in your default browser or application.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser#changelog</releaseNotes>
+    <tags>vscode extension open-in-browser</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
