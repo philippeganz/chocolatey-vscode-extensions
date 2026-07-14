@@ -154,6 +154,7 @@ extensions:
   - tht13.python
   - tim-koehler.helm-intellisense
   - timonwong.shellcheck
+  - tomoki1207.pdf
   - twxs.cmake
   - visualstudioexptteam.intellicode-api-usage-examples
   - visualstudioexptteam.vscodeintellicode
