@@ -14,6 +14,7 @@
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification='Write-Host is required for CI/CD logging and workflow orchestration')]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification='Global variables are required for AU configuration and workflow state')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification='Preference variable used by the PowerShell engine')]
 param()
 
 Import-Module au
@@ -23,6 +24,13 @@ Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -Force -Erro
 # We bypass the registry checks since these are portable VS Code extensions.
 # Push settings are natively inherited from the global orchestrator.
 $global:au_NoCheckRegistry = $true
+
+# WARNING: The Chocolatey AU module relies on legacy PowerShell 5.1 native command argument parsing.
+# When pushing packages, AU evaluates empty string flags ($force_push = ''). In PowerShell 7, 
+# empty strings are explicitly passed to choco.exe, causing choco to misinterpret the empty string 
+# as an invalid 'filePath' parameter. Reverting to Legacy argument passing inside the hook script
+# ensures that every Start-Job worker process inherits this fix.
+$global:PSNativeCommandArgumentPassing = 'Legacy'
 
 
 <#

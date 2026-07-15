@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     The core Orchestrator for the Chocolatey Automatic Updater (AU) Engine.
@@ -45,7 +45,7 @@ param(
 # When pushing packages, AU evaluates empty string flags ($force_push = ''). In PowerShell 7,
 # empty strings are explicitly passed to choco.exe, causing choco to misinterpret the empty string
 # as an invalid 'filePath' parameter. Reverting to Legacy argument passing resolves this.
-$PSNativeCommandArgumentPassing = 'Legacy'
+$global:PSNativeCommandArgumentPassing = 'Legacy'
 
 $ErrorActionPreference = 'Stop'
 Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -Force
