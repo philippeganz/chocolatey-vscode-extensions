@@ -18,6 +18,6 @@ Please note that this repository **only maintains the Chocolatey packaging scrip
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability within the AU scripts or templates in this repository, please **open a new GitHub Issue** and apply the `security` label. 
+If you discover a security vulnerability within the AU scripts or templates in this repository, please **open a new GitHub Issue** and apply the `security` label.
 
 As an open-source project maintained by an individual, there is no dedicated security team or private disclosure bounty program. Issues will generally be tracked and addressed openly in the issue tracker. *If you wish to privately disclose a critical infrastructure vulnerability before it is made public, you may use GitHub's native "Report a vulnerability" feature located under the repository's **Security** tab.*
