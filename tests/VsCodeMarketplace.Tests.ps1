@@ -152,7 +152,7 @@ Describe "VsCodeMarketplace API Wrapper" {
             try {
                 Update-NuspecDependency -NuspecXml $mockNuspec -PackageJson $mockPkgJson -ConfigPath $mockConfig -ErrorAction SilentlyContinue
             }
-            catch { Write-Verbose $PSItem }
+            catch { Write-Verbose "Expected failure from Update-NuspecDependency missing config dependencies: $_" }
 
             $deps = $mockNuspec.package.metadata.dependencies.dependency
             $deps.Count | Should -Be 3
@@ -183,7 +183,7 @@ Describe "VsCodeMarketplace API Wrapper" {
             try {
                 Update-NuspecDependency -NuspecXml $mockNuspec -PackageJson $mockPkgJson -ConfigPath $mockConfig -ErrorAction SilentlyContinue
             }
-            catch { Write-Verbose $_ }
+            catch { Write-Verbose "Expected failure from Update-NuspecDependency missing config dependencies: $_" }
 
             $deps = $mockNuspec.package.metadata.dependencies.dependency
             $deps.Count | Should -Be 2

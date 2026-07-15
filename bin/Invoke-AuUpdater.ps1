@@ -1,3 +1,4 @@
+﻿#Requires -Version 7.0
 <#
 .SYNOPSIS
     The core Orchestrator for the Chocolatey Automatic Updater (AU) Engine.

@@ -1,3 +1,4 @@
+﻿#Requires -Version 7.0
 <#
 .SYNOPSIS
 Centralized helper module for interacting with the Visual Studio Code Marketplace API.

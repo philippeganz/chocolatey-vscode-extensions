@@ -1,3 +1,4 @@
+﻿#Requires -Version 7.0
 <#
 .SYNOPSIS
     The robust, scriptable CLI for managing the VS Code Extension Pool.
@@ -405,7 +406,7 @@ elseif ($CheckStale) {
         }
         catch {
             # Ignore HTTP 404s for unpublished packages
-            Write-Verbose $_
+            Write-Verbose "Package '$pkg' could not be queried from Chocolatey API (likely unpublished). Error: $_"
         }
     }
 

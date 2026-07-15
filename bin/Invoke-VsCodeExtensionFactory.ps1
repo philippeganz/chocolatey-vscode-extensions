@@ -1,3 +1,4 @@
+﻿#Requires -Version 7.0
 <#
 .SYNOPSIS
     Automated Chocolatey Package Factory for Visual Studio Code Extensions.

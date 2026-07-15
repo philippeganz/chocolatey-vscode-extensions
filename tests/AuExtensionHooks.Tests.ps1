@@ -24,7 +24,7 @@ Describe "AuExtensionHooks" {
 
         try {
             . $script:hooksPath -ErrorAction SilentlyContinue
-        } catch { Write-Verbose $PSItem }
+        } catch { Write-Verbose "Expected failure sourcing AuExtensionHooks: $_" }
 
         Pop-Location
     }
@@ -76,7 +76,7 @@ Describe "AuExtensionHooks" {
             try {
                 au_BeforeUpdate
             } catch {
-                Write-Verbose $PSItem
+                Write-Verbose "Expected failure executing au_BeforeUpdate: $_"
                 # We expect an error because of missing payload JSONs, but it executes code!
             }
 

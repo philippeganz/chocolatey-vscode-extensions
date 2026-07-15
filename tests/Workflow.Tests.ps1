@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
 The primary end-to-end integration test suite for the Chocolatey VS Code Extension framework.
 
@@ -234,7 +234,7 @@ extensions:
             $oldApi = $env:api_key
             $env:CHOCO_API_KEY = $null
             $env:api_key = $null
-            try { & $script -ForcedPackages $script:packageName } catch { }
+            try { & $script -ForcedPackages $script:packageName } catch { Write-Verbose "Expected failure: $_" }
             $env:CHOCO_API_KEY = $oldKey
             $env:api_key = $oldApi
         }

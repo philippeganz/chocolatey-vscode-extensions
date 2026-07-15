@@ -34,17 +34,17 @@ jobs:
         run: choco install chocolatey-community-validation.extension -y --no-progress
 
       - name: Install Chocolatey AU Module
-        shell: powershell
+        shell: pwsh
         run: |
           Install-Module -Name au -Force -AcceptLicense
 
       - name: Install PowerShell-Yaml
-        shell: powershell
+        shell: pwsh
         run: |
           Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber
 
       - name: Run AU Updater
-        shell: powershell
+        shell: pwsh
         env:
           api_key: ${{ secrets.CHOCO_API_KEY }}
           github_user_repo: philippeganz/chocolatey-vscode-extensions
