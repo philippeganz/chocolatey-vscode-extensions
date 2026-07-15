@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-markdown-all-in-one</id>
-    <version>0.0.0</version>
+    <version>3.6.3</version>
     <title>Visual Studio Code Extension - Markdown All in One</title>
     <authors>yzhang</authors>
     <projectUrl>https://github.com/yzhang-gh/vscode-markdown.git</projectUrl>
@@ -11,13 +11,74 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-All you need to write Markdown (keyboard shortcuts, table of contents, auto preview and more)
+# Markdown Support for Visual Studio Code <!-- omit in toc -->
+
+[![version](https://img.shields.io/vscode-marketplace/v/yzhang.markdown-all-in-one.svg?style=flat-square&label=vscode%20marketplace)](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+[![installs](https://img.shields.io/vscode-marketplace/d/yzhang.markdown-all-in-one.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/yzhang-gh/vscode-markdown/main.yml?style=flat-square&branch=master)](https://github.com/yzhang-gh/vscode-markdown/actions)
+[![GitHub stars](https://img.shields.io/github/stars/yzhang-gh/vscode-markdown.svg?style=flat-square&label=github%20stars)](https://github.com/yzhang-gh/vscode-markdown)
+[![GitHub Contributors](https://img.shields.io/github/contributors/yzhang-gh/vscode-markdown.svg?style=flat-square)](https://github.com/yzhang-gh/vscode-markdown/graphs/contributors)
+
+All you need for Markdown (keyboard shortcuts, table of contents, auto preview and more).
+
+***Note***: VS Code has basic Markdown support out-of-the-box (e.g, **Markdown preview**), please see the [official documentation](https://code.visualstudio.com/docs/languages/markdown) for more information.
+
+**Table of Contents**
+
+- [Features](#features)
+  - [Keyboard shortcuts](#keyboard-shortcuts)
+  - [Table of contents](#table-of-contents)
+  - [List editing](#list-editing)
+  - [Print Markdown to HTML](#print-markdown-to-html)
+  - [GitHub Flavored Markdown](#github-flavored-markdown)
+  - [Math](#math)
+  - [Auto completions](#auto-completions)
+  - [Others](#others)
+- [Available Commands](#available-commands)
+- [Keyboard Shortcuts](#keyboard-shortcuts-1)
+- [Supported Settings](#supported-settings)
+- [FAQ](#faq)
+    - [Q: Error "command 'markdown.extension.onXXXKey' not found"](#q-error-command-markdownextensiononxxxkey-not-found)
+    - [Q: Which Markdown syntax is supported?](#q-which-markdown-syntax-is-supported)
+    - [Q: This extension has overridden some of my key bindings (e.g. <kbd>Ctrl</kbd> + <kbd>B</kbd>, <kbd>Alt</kbd> + <kbd>C</kbd>)](#q-this-extension-has-overridden-some-of-my-key-bindings-eg-ctrl--b-alt--c)
+    - [Q: The extension is unresponsive, causing lag etc. (performance issues)](#q-the-extension-is-unresponsive-causing-lag-etc-performance-issues)
+- [Changelog](#changelog)
+- [Latest Development Build](#latest-development-build)
+- [Contributing](#contributing)
+- [Related](#related)
+
+## Features
+
+### Keyboard shortcuts
+
+
+
+(Typo: multiple words)
+
+
+
+See full key binding list in the [keyboard shortcuts](#keyboard-shortcuts-1) section
+
+### Table of contents
+
+
+
+- Run command "**Create Table of Contents**" (in the [VS Code Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)) to insert a new table of contents.
+
+- The TOC is **automatically updated** on file save by default. To disable, please change the `toc.updateOnSave` option.
+
+- The **indentation type (tab or spaces)** of TOC can be configured per file. Find the setting in the right bottom corner of VS Code's status bar.
+
+  ***Note***: Be sure to also check the `list.indentationSize` option.
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) for full documentation]
 ]]></description>
     <summary>All you need to write Markdown (keyboard shortcuts, table of contents, auto preview and more)</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one#changelog</releaseNotes>
     <tags>vscode extension markdown-all-in-one</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

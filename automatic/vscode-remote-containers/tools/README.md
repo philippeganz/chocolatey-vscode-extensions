@@ -114,3 +114,4 @@ Visual Studio Code Dev Containers and related extensions collect telemetry data 
 ## License
 
 By downloading and using the Visual Studio Dev Containers extension and its related components, you agree to the product [license terms](https://go.microsoft.com/fwlink/?linkid=2077057) and [privacy statement](https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx).
+
