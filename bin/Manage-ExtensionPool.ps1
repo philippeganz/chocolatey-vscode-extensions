@@ -71,53 +71,8 @@ $ErrorActionPreference = 'Stop'
 # =============================================================================
 # 1. Initialization & Logging Helpers
 # =============================================================================
-$script:IsPS7 = $PSVersionTable.PSVersion.Major -ge 7
-
-<#
-.SYNOPSIS
-A cross-platform helper for rendering colorized, structured console messages.
-#>
-function Write-StyledMessage {
-    param(
-        [Parameter(Mandatory = $true)][string]$Prefix,
-        [Parameter(Mandatory = $true)][string]$Message,
-        [Parameter(Mandatory = $true)][ConsoleColor]$FallbackColor,
-        [string]$AnsiColor
-    )
-    if ($script:IsPS7 -and $PSStyle) {
-        Write-Host "$AnsiColor$Prefix$($PSStyle.Reset) $Message"
-    }
-    else {
-        Write-Host "$Prefix " -ForegroundColor $FallbackColor -NoNewline
-        Write-Host $Message
-    }
-}
-
-<#
-.SYNOPSIS
-Writes a green success message to the console.
-#>
-function Write-Success ([string]$msg) { Write-StyledMessage -Prefix "[SUCCESS]" -Message $msg -FallbackColor Green -AnsiColor "`e[32m" }
-
-<#
-.SYNOPSIS
-Writes a cyan info message to the console.
-#>
-function Write-Info    ([string]$msg) { Write-StyledMessage -Prefix "[INFO]"    -Message $msg -FallbackColor Cyan  -AnsiColor "`e[36m" }
-
-<#
-.SYNOPSIS
-Writes a yellow skip message to the console.
-#>
-function Write-Skip    ([string]$msg) { Write-StyledMessage -Prefix "[SKIP]"    -Message $msg -FallbackColor Yellow -AnsiColor "`e[33m" }
-
-<#
-.SYNOPSIS
-Writes a red error message to the console.
-#>
-function Write-Err     ([string]$msg) { Write-StyledMessage -Prefix "[ERROR]"   -Message $msg -FallbackColor Red   -AnsiColor "`e[31m" }
-
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Force
+Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -ErrorAction Stop
+Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -ErrorAction Stop
 
 # Load config.yaml safely
 $configPath = Resolve-Path "$PSScriptRoot\..\etc\config.yaml" -ErrorAction SilentlyContinue
@@ -173,12 +128,11 @@ function Save-ConfigState ([object]$yamlObj, [System.Collections.Generic.List[st
     }
     $yamlStr = ConvertTo-Yaml $orderedYaml
     $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -').TrimEnd() + "`n"
-    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-    [System.IO.File]::WriteAllText($configPath, $formattedYaml, $utf8NoBom)
+    Set-Content -Path $configPath -Value $formattedYaml
 
     $badgeJson = @{ schemaVersion = 1; label = "Extensions Tracked"; message = "$($sortedExtensions.Count)"; color = "blue" } | ConvertTo-Json -Compress
     $badgePath = Join-Path (Split-Path $configPath) "badge.json"
-    [System.IO.File]::WriteAllText($badgePath, $badgeJson, $utf8NoBom)
+    Set-Content -Path $badgePath -Value $badgeJson
 
     Write-Success "State saved to config.yaml ($($sortedExtensions.Count) total extensions tracked)."
 }
@@ -261,7 +215,7 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
                 if ($validIds.Count -eq 1) {
                     $msg = "Add new $($validIds[0]) extension"
                 }
-                git commit -m $msg | Out-Null
+                [void](git commit -m $msg)
                 Write-Success "Auto-Committed: '$msg'"
             }
         }
@@ -277,7 +231,7 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
     foreach ($id in $Remove) {
         $cleanId = $id.ToLower()
         if ($state.Extensions.Contains($cleanId)) {
-            $state.Extensions.Remove($cleanId) | Out-Null
+            [void]$state.Extensions.Remove($cleanId)
             $mutated = $true
             Write-Success "Removed '$cleanId' from config.yaml."
         }
@@ -326,7 +280,7 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
                 if ($Remove.Count -eq 1) {
                     $msg = "Remove $($Remove[0]) extension"
                 }
-                git commit -m $msg | Out-Null
+                [void](git commit -m $msg)
                 Write-Success "Auto-Committed: '$msg'"
             }
         }
@@ -381,7 +335,7 @@ elseif ($CheckStale) {
         $nuspecPath = Join-Path -Path (Join-Path -Path $autoDir -ChildPath $pkg) -ChildPath "$pkg.nuspec"
         $localVersion = "Unknown"
         if (Test-Path $nuspecPath) {
-            $xml = New-Object System.Xml.XmlDocument
+            $xml = [System.Xml.XmlDocument]::new()
             $xml.Load($nuspecPath)
             $localVersion = $xml.package.metadata.version
         }
@@ -449,11 +403,11 @@ elseif ($Audit) {
 
     if ($orphans.Count -gt 0) {
         Write-Err "Found $($orphans.Count) orphaned directories in /automatic that are NOT tracked in config.yaml:"
-        $orphans | ForEach-Object { Write-Host "    - $_" -ForegroundColor Red }
+        $orphans | ForEach-Object { Write-Red "    - $_" }
     }
     if ($missing.Count -gt 0) {
         Write-Err "Found $($missing.Count) tracked packages missing their /automatic directory scaffolds:"
-        $missing | ForEach-Object { Write-Host "    - $_" -ForegroundColor Red }
+        $missing | ForEach-Object { Write-Red "    - $_" }
     }
     if ($orphans.Count -eq 0 -and $missing.Count -eq 0) {
         Write-Success "Audit Complete! The config.yaml state perfectly matches the local directory scaffolds."

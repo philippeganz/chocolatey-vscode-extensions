@@ -7,8 +7,9 @@ and platform-specific payload ambiguities.
 #>
 
 [CmdletBinding()]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification='Write-Host is required for CI/CD logging and workflow orchestration')]
 param()
+
+Import-Module "$PSScriptRoot\CoreHelpers.psm1" -ErrorAction Stop
 
 <#
 .SYNOPSIS
@@ -69,7 +70,7 @@ function Get-VsCodeMarketplaceMetadata {
             $success = $true
         }
         catch {
-            Write-Host "    [WARNING] VS Code Marketplace API failed (Rate Limit/Network). Retrying in 5 seconds..." -ForegroundColor Yellow
+            Write-Yellow "    [WARNING] VS Code Marketplace API failed (Rate Limit/Network). Retrying in 5 seconds..."
             $retryCount++
             if ($retryCount -ge 5) { throw $_ }
             Start-Sleep -Seconds 5
@@ -119,7 +120,7 @@ function Get-VsCodeExtensionUrl {
     # Dynamic Platform Detection: Explicitly request the Windows binary if the extension is OS-specific
     $isPlatformSpecific = $ExtMeta.versions | Where-Object { $_.version -eq $ExtMeta.versions[0].version -and $_.targetPlatform -eq "win32-x64" }
     if ($isPlatformSpecific) {
-        Write-Host "    [INFO] Platform-specific extension detected. Targeting win32-x64 binary." -ForegroundColor Cyan
+        Write-Cyan "    [INFO] Platform-specific extension detected. Targeting win32-x64 binary."
         $vsixUrl = "$($vsixUrl)?targetPlatform=win32-x64"
     }
 
@@ -150,7 +151,7 @@ function Invoke-RobustDownload {
         [Parameter(Mandatory = $true)][string]$OutFile
     )
 
-    Write-Host "    Downloading VSIX Payload..."
+    Write-White "    Downloading VSIX Payload..."
     $retryCount = 0
     $success = $false
     while (-not $success -and $retryCount -lt 3) {
@@ -159,7 +160,7 @@ function Invoke-RobustDownload {
             $success = $true
         }
         catch {
-            Write-Host "    [WARNING] Download failed. Retrying in 5 seconds ($($retryCount + 1)/3)..." -ForegroundColor Yellow
+            Write-Yellow "    [WARNING] Download failed. Retrying in 5 seconds ($($retryCount + 1)/3)..."
             $retryCount++
             if ($retryCount -ge 3) { throw }
             Start-Sleep -Seconds 5
@@ -195,7 +196,7 @@ function Expand-VsCodePayload {
         [Parameter(Mandatory = $true)][string]$DestinationDir
     )
 
-    Write-Host "    Extracting Metadata from VSIX Archive..."
+    Write-White "    Extracting Metadata from VSIX Archive..."
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     $zip = [System.IO.Compression.ZipFile]::OpenRead($VsixPath)
     $packageJson = $null
@@ -207,7 +208,7 @@ function Expand-VsCodePayload {
 
         if ($packageJsonEntry) {
             $stream = $packageJsonEntry.Open()
-            $reader = New-Object System.IO.StreamReader($stream)
+            $reader = [System.IO.StreamReader]::new($stream)
             $packageJsonContent = $reader.ReadToEnd()
             $reader.Close(); $stream.Close()
             $packageJson = $packageJsonContent | ConvertFrom-Json -AsHashTable
@@ -274,8 +275,7 @@ function Expand-VsCodePayload {
             }
 
             # We save the FULL readme back to tools/README.md for the user, but we will return the $readmeRaw (which is truncated) for the nuspec
-            $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-            [System.IO.File]::WriteAllText($readmePath, $readmeFull, $utf8NoBom)
+            Set-Content -Path $readmePath -Value $readmeFull
         }
 
         if ($licenseEntry) {
@@ -359,24 +359,24 @@ function Update-NuspecDependency {
     $depsNode = $NuspecXml.package.metadata.dependencies
     if ($null -eq $depsNode) {
         $depsNode = $NuspecXml.CreateElement("dependencies", $ns)
-        $NuspecXml.package.metadata.AppendChild($depsNode) | Out-Null
+        [void]$NuspecXml.package.metadata.AppendChild($depsNode)
     }
     else {
         $depsNode.RemoveAll()
     }
 
-    $depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n      ")) | Out-Null
+    [void]$depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n      "))
     $baseDep = $NuspecXml.CreateElement("dependency", $ns)
     $baseDep.SetAttribute("id", "chocolatey-vscode.extension")
     $baseDep.SetAttribute("version", "[1.1.0, 2.0.0)")
-    $depsNode.AppendChild($baseDep) | Out-Null
+    [void]$depsNode.AppendChild($baseDep)
 
     if (-not (Get-Module -Name powershell-yaml)) {
         Import-Module powershell-yaml -ErrorAction Stop
     }
     $config = Get-Content $ConfigPath -Raw -Encoding UTF8 | ConvertFrom-Yaml
     $trackedExtensions = [System.Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
-    foreach ($ext in $config.extensions) { $trackedExtensions.Add($ext) | Out-Null }
+    foreach ($ext in $config.extensions) { [void]$trackedExtensions.Add($ext) }
 
     $processDep = {
         param($depRaw)
@@ -386,16 +386,16 @@ function Update-NuspecDependency {
         $depPackageName = if ($depName.StartsWith("vscode-")) { $depName } else { "vscode-$depName" }
 
         if ($depPackageName -ne $PackageName) {
-            $depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n      ")) | Out-Null
+            [void]$depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n      "))
             $depNode = $NuspecXml.CreateElement("dependency", $ns)
             $depNode.SetAttribute("id", $depPackageName)
-            $depsNode.AppendChild($depNode) | Out-Null
+            [void]$depsNode.AppendChild($depNode)
 
             if (-not $trackedExtensions.Contains($dep)) {
-                Write-Host "    [AUTO-DISCOVERY] Queuing missing dependency via Factory: $dep" -ForegroundColor Magenta
+                Write-Magenta "    [AUTO-DISCOVERY] Queuing missing dependency via Factory: $dep"
                 $factoryPath = "$PSScriptRoot\..\bin\Manage-ExtensionPool.ps1"
                 & $factoryPath -Add $dep
-                $trackedExtensions.Add($dep) | Out-Null
+                [void]$trackedExtensions.Add($dep)
                 $global:au_RequiresSecondRun = $true
             }
         }
@@ -408,7 +408,7 @@ function Update-NuspecDependency {
         foreach ($depRaw in $PackageJson.extensionPack) { & $processDep $depRaw }
     }
 
-    $depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n    ")) | Out-Null
+    [void]$depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n    "))
 }
 
 <#

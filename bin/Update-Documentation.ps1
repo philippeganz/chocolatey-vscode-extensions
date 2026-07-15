@@ -9,60 +9,61 @@ to natively extract all Comment-Based Help blocks (Synopsis, Description, Parame
 It then compiles these into standard Markdown files in the `/docs` directory.
 #>
 [CmdletBinding()]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification='Write-Host is required for CI/CD logging and workflow orchestration')]
 param()
+
+Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -ErrorAction Stop
 
 $ErrorActionPreference = 'Stop'
 
 # Ensure platyPS is installed
 if (-not (Get-Module -ListAvailable -Name platyPS)) {
-    Write-Host ">>> Installing platyPS module for documentation generation..." -ForegroundColor Cyan
+    Write-Cyan ">>> Installing platyPS module for documentation generation..."
     Install-Module -Name platyPS -Force -Scope CurrentUser -ErrorAction Stop
 }
 Import-Module platyPS -ErrorAction Stop
 
 $docsDir = "$PSScriptRoot\..\docs\reference"
 if (-not (Test-Path $docsDir)) {
-    New-Item -ItemType Directory -Path $docsDir -Force | Out-Null
+    [void](New-Item -ItemType Directory -Path $docsDir -Force)
 }
 
-Write-Host ">>> Generating Markdown Documentation from Comment-Based Help..." -ForegroundColor Cyan
+Write-Cyan ">>> Generating Markdown Documentation from Comment-Based Help..."
 
 $rootDir = "$PSScriptRoot\.."
 
-Write-Host ">>> Processing Scripts in bin/ ..." -ForegroundColor Cyan
+Write-Cyan ">>> Processing Scripts in bin/ ..."
 $binScripts = Get-ChildItem -Path (Join-Path $rootDir "bin") -Filter "*.ps1" -File
 foreach ($script in $binScripts) {
     if ($script.Name -eq "Update-Documentation.ps1") { continue }
-    Write-Host "    Generating docs for $($script.Name)"
+    Write-White "    Generating docs for $($script.Name)"
     try {
-        New-MarkdownHelp -Command $script.FullName -OutputFolder $docsDir -Force -ErrorAction SilentlyContinue | Out-Null
+        [void](New-MarkdownHelp -Command $script.FullName -OutputFolder $docsDir -Force -ErrorAction SilentlyContinue)
     }
     catch {
-        Write-Host "    [WARNING] Failed to generate docs for $($script.Name): $_" -ForegroundColor Yellow
+        Write-Yellow "    [WARNING] Failed to generate docs for $($script.Name): $_"
     }
 }
 
-Write-Host ">>> Processing Modules in lib/ ..." -ForegroundColor Cyan
+Write-Cyan ">>> Processing Modules in lib/ ..."
 if (Test-Path (Join-Path $rootDir "lib")) {
     $libModules = Get-ChildItem -Path (Join-Path $rootDir "lib") -Filter "*.psm1" -File
     foreach ($module in $libModules) {
-        Write-Host "    Importing and processing $($module.Name)"
+        Write-White "    Importing and processing $($module.Name)"
         try {
             Import-Module $module.FullName -Force
             $functions = Get-Command -Module $module.BaseName
             foreach ($func in $functions) {
-                Write-Host "      -> $($func.Name)"
-                New-MarkdownHelp -Command $func.Name -OutputFolder $docsDir -Force -ErrorAction SilentlyContinue | Out-Null
+                Write-White "      -> $($func.Name)"
+                [void](New-MarkdownHelp -Command $func.Name -OutputFolder $docsDir -Force -ErrorAction SilentlyContinue)
             }
         }
         catch {
-            Write-Host "    [WARNING] Failed to generate docs for $($module.Name): $_" -ForegroundColor Yellow
+            Write-Yellow "    [WARNING] Failed to generate docs for $($module.Name): $_"
         }
     }
 }
 
-Write-Host ">>> Scrubbing platyPS placeholders from documentation..." -ForegroundColor Cyan
+Write-Cyan ">>> Scrubbing platyPS placeholders from documentation..."
 Get-ChildItem -Path $docsDir -Filter "*.md" | ForEach-Object {
     $content = Get-Content $_.FullName -Raw
     $original = $content
@@ -72,9 +73,8 @@ Get-ChildItem -Path $docsDir -Filter "*.md" | ForEach-Object {
 
     # Sometimes platyPS leaves empty EXAMPLES or PARAMETERS blocks after scrubbing
     if ($original -ne $content) {
-        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-        [System.IO.File]::WriteAllText($_.FullName, $content, $utf8NoBom)
+        Set-Content -Path $_.FullName -Value $content
     }
 }
 
-Write-Host ">>> Documentation successfully compiled to $docsDir!" -ForegroundColor Green
+Write-Success "Documentation successfully compiled to $docsDir!"

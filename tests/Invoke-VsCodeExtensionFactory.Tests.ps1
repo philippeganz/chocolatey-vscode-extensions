@@ -3,7 +3,7 @@ Describe "Invoke-VsCodeExtensionFactory.ps1" {
         $script:scriptPath = "$PSScriptRoot\..\bin\Invoke-VsCodeExtensionFactory.ps1"
         $script:mockDir = "$PSScriptRoot\..\test_factory_mock"
         if (Test-Path $script:mockDir) { Remove-Item $script:mockDir -Recurse -Force }
-        New-Item -ItemType Directory -Path $script:mockDir | Out-Null
+        [void](New-Item -ItemType Directory -Path $script:mockDir)
 
         $script:mockConfig = Join-Path $script:mockDir "mock_config.yaml"
         Set-Content -Path $script:mockConfig -Value "---\nextensions:`n  - ms-python.python"
@@ -16,7 +16,7 @@ Describe "Invoke-VsCodeExtensionFactory.ps1" {
     BeforeEach {
         $env:CHOCO_VSCODE_AUTOMATIC_DIR = Join-Path $script:mockDir "automatic"
         if (Test-Path $env:CHOCO_VSCODE_AUTOMATIC_DIR) { Remove-Item $env:CHOCO_VSCODE_AUTOMATIC_DIR -Recurse -Force }
-        New-Item -ItemType Directory -Path $env:CHOCO_VSCODE_AUTOMATIC_DIR | Out-Null
+        [void](New-Item -ItemType Directory -Path $env:CHOCO_VSCODE_AUTOMATIC_DIR)
     }
 
     It "Should handle invalid extension ID format" {
@@ -35,7 +35,7 @@ Describe "Invoke-VsCodeExtensionFactory.ps1" {
         Mock Get-VsCodeNuspecMetadata -MockWith { return @{ Title = "T"; Authors = "A"; ProjectUrl = "U"; IconUrl = "I"; MarketplaceUrl = "M"; Description = "D"; Summary = "S" } }
 
         $pkgDir = Join-Path $env:CHOCO_VSCODE_AUTOMATIC_DIR "vscode-mock"
-        New-Item -ItemType Directory -Path $pkgDir | Out-Null
+        [void](New-Item -ItemType Directory -Path $pkgDir)
 
         $UpdateMetadata = $true
         Write-Verbose "$UpdateMetadata"

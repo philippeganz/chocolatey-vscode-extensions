@@ -221,7 +221,7 @@ if ($ModerationRepush) {
 
         if ($OutputDir) {
             Write-Host "    >>> Output Directory specified. Moving payload to $OutputDir..." -ForegroundColor Cyan
-            if (-not (Test-Path $OutputDir)) { New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null }
+            if (-not (Test-Path $OutputDir)) { [void](New-Item -ItemType Directory -Path $OutputDir -Force) }
             Move-Item "$pkg.$upstreamVersion.nupkg" -Destination $OutputDir -Force
         }
         elseif ($env:api_key) {
@@ -255,7 +255,7 @@ finally {
 
     if ($OutputDir) {
         Write-Host "`n>>> Consolidating compiled .nupkg artifacts into Output Directory: $OutputDir" -ForegroundColor Cyan
-        if (-not (Test-Path $OutputDir)) { New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null }
+        if (-not (Test-Path $OutputDir)) { [void](New-Item -ItemType Directory -Path $OutputDir -Force) }
         $payloads = Get-ChildItem -Path $packagesDir -Filter "*.nupkg" -Recurse
         if ($payloads) {
             $payloads | Move-Item -Destination $OutputDir -Force

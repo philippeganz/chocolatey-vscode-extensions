@@ -45,7 +45,7 @@ extensions:
         if (Test-Path $script:realPackagesDir) {
             Remove-Item $script:realPackagesDir -Recurse -Force
         }
-        New-Item -ItemType Directory -Path $script:realPackagesDir -Force | Out-Null
+        [void](New-Item -ItemType Directory -Path $script:realPackagesDir -Force)
     }
 
     AfterAll {

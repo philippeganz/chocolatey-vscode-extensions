@@ -15,8 +15,8 @@ Describe "Manage-ExtensionPool CLI" {
             $mockAuto = "$PSScriptRoot\..\automatic"
 
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
-            if (-not (Test-Path $mockAuto)) { New-Item -ItemType Directory -Path $mockAuto -Force | Out-Null }
-            New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-rainbow-csv") -Force | Out-Null
+            if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
+            [void](New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-rainbow-csv") -Force)
 
             # The test context in Workflow.Tests.ps1 already created a config.yaml for us in test_automatic or etc.
             # But we can mock it here if needed, or just let it run.
@@ -51,7 +51,7 @@ Describe "Manage-ExtensionPool CLI" {
             }
             Mock Invoke-RestMethod -MockWith { return $mockResponse }
 
-            & $script:scriptPath -Search "test-ext" | Out-Null
+            [void](& $script:scriptPath -Search "test-ext")
 
             Should -Invoke -CommandName Invoke-RestMethod -Times 1 -Exactly
         }
@@ -70,8 +70,8 @@ Describe "Manage-ExtensionPool CLI" {
         It "Should ignore unpublished packages correctly" {
             $mockAuto = "$PSScriptRoot\..\automatic"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
-            if (-not (Test-Path $mockAuto)) { New-Item -ItemType Directory -Path $mockAuto -Force | Out-Null }
-            New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-missing") -Force | Out-Null
+            if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
+            [void](New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-missing") -Force)
 
             Mock Invoke-WebRequest -MockWith { throw "404 Not Found" }
 
@@ -217,8 +217,8 @@ Describe "Manage-ExtensionPool CLI" {
         It "Should report stale packages in CheckStale Mode" {
             $mockAuto = "$PSScriptRoot\..\automatic"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
-            if (-not (Test-Path $mockAuto)) { New-Item -ItemType Directory -Path $mockAuto -Force | Out-Null }
-            New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-stale") -Force | Out-Null
+            if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
+            [void](New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-stale") -Force)
 
             Mock Test-Path -MockWith { return $true }
             Mock Get-Content -MockWith { return "$mockAuto\vscode-stale" } -ParameterFilter { $Path -match 'nuspec' }

@@ -11,7 +11,7 @@ Describe "AuExtensionHooks" {
         $script:mockRepo = Join-Path $PSScriptRoot "mock_repo"
 
         "---`nextensions:`n  - ms-python.python`n" | Set-Content $script:mockConfig -Encoding UTF8
-        New-Item -ItemType Directory -Path $script:mockRepo -Force | Out-Null
+        [void](New-Item -ItemType Directory -Path $script:mockRepo -Force)
         $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:mockRepo
 
         # AU runs 'update' upon dot-sourcing, which throws if no nuspec exists in the current directory.
@@ -42,7 +42,7 @@ Describe "AuExtensionHooks" {
 
             # Setup a fake package directory environment
             $fakePkgDir = Join-Path $script:mockRepo "vscode-rainbow-csv"
-            New-Item -ItemType Directory -Path $fakePkgDir -Force | Out-Null
+            [void](New-Item -ItemType Directory -Path $fakePkgDir -Force)
             Set-Location $fakePkgDir
 
             $result = au_GetLatest
@@ -57,7 +57,7 @@ Describe "AuExtensionHooks" {
     Context "au_BeforeUpdate" {
         It "Should run successfully when mocked" {
             $fakePkgDir = Join-Path $script:mockRepo "vscode-rainbow-csv"
-            New-Item -ItemType Directory -Path $fakePkgDir -Force | Out-Null
+            [void](New-Item -ItemType Directory -Path $fakePkgDir -Force)
             Set-Location $fakePkgDir
 
             # Mock dependencies
@@ -70,7 +70,7 @@ Describe "AuExtensionHooks" {
 
             # We must create a fake nuspec and tools dir
             "<?xml version='1.0'?><package><metadata></metadata></package>" | Set-Content "vscode-rainbow-csv.nuspec"
-            New-Item -ItemType Directory -Path "tools" -Force | Out-Null
+            [void](New-Item -ItemType Directory -Path "tools" -Force)
             "fake content" | Set-Content "tools\chocolateyInstall.ps1"
 
             try {

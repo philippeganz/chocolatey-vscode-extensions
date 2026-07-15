@@ -78,7 +78,7 @@ $OutputDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_
 if (-not $OutputDir) { $OutputDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" } }
 
 if (-not (Test-Path $OutputDir)) {
-    New-Item -ItemType Directory -Force -Path $OutputDir | Out-Null
+    [void](New-Item -ItemType Directory -Force -Path $OutputDir)
 }
 
 $extensionsList = [System.Collections.Generic.List[string]]::new()
@@ -183,11 +183,11 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
 
     # Scaffold Package Directory if it doesn't exist (e.g. not using -UpdateMetadata)
     if (-not (Test-Path $pkgDir)) {
-        New-Item -ItemType Directory -Force -Path $pkgDir | Out-Null
+        [void](New-Item -ItemType Directory -Force -Path $pkgDir)
     }
     $toolsDir = Join-Path $pkgDir "tools"
     if (-not (Test-Path $toolsDir)) {
-        New-Item -ItemType Directory -Force -Path $toolsDir | Out-Null
+        [void](New-Item -ItemType Directory -Force -Path $toolsDir)
     }
 
     # Download VSIX
@@ -297,24 +297,21 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $nuspecContent = $nuspecContent -replace '\{\{Description\}\}', $meta.Description
     $nuspecContent = $nuspecContent -replace '\{\{Summary\}\}', $meta.Summary
     $nuspecContent = $nuspecContent -replace '\{\{Dependencies\}\}', $dependenciesStr
-    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-    [System.IO.File]::WriteAllText($nuspecPath, $nuspecContent, $utf8NoBom)
+    Set-Content -Path $nuspecPath -Value $nuspecContent
 
     if (-not (Test-Path (Join-Path $toolsDir "chocolateyInstall.ps1"))) {
         $installContent = Get-Content (Join-Path $templatesDir "chocolateyInstall.ps1") -Raw -Encoding UTF8
         $installContent = $installContent -replace '\{\{Publisher\}\}', $publisher
         $installContent = $installContent -replace '\{\{ExtensionName\}\}', $extensionName
         $installContent = $installContent -replace '\{\{Version\}\}', $versionClean
-        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-        [System.IO.File]::WriteAllText((Join-Path $toolsDir "chocolateyInstall.ps1"), $installContent, $utf8NoBom)
+        Set-Content -Path (Join-Path $toolsDir "chocolateyInstall.ps1") -Value $installContent
     }
 
     if (-not (Test-Path (Join-Path $toolsDir "chocolateyUninstall.ps1"))) {
         $uninstallContent = Get-Content (Join-Path $templatesDir "chocolateyUninstall.ps1") -Raw -Encoding UTF8
         $uninstallContent = $uninstallContent -replace '\{\{Publisher\}\}', $publisher
         $uninstallContent = $uninstallContent -replace '\{\{ExtensionName\}\}', $extensionName
-        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-        [System.IO.File]::WriteAllText((Join-Path $toolsDir "chocolateyUninstall.ps1"), $uninstallContent, $utf8NoBom)
+        Set-Content -Path (Join-Path $toolsDir "chocolateyUninstall.ps1") -Value $uninstallContent
     }
 
     if (-not (Test-Path (Join-Path $pkgDir "update.ps1"))) {
@@ -325,8 +322,7 @@ param()
 `$ExtensionName = "$extensionName"
 . "`$PSScriptRoot\..\..\bin\AuExtensionHooks.ps1"
 "@
-        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-        [System.IO.File]::WriteAllText((Join-Path $pkgDir "update.ps1"), $updateContent, $utf8NoBom)
+        Set-Content -Path (Join-Path $pkgDir "update.ps1") -Value $updateContent
     }
 
     # Download Icon
@@ -355,12 +351,11 @@ if (-not $ExtensionId) {
     # Enforce standard YAML aesthetics (document separator and 2-space indented arrays)
     $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -').TrimEnd()
 
-    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-    [System.IO.File]::WriteAllText($ConfigFile, $formattedYaml, $utf8NoBom)
+    Set-Content -Path $ConfigFile -Value $formattedYaml
 
     $badgeJson = @{ schemaVersion = 1; label = "Extensions Tracked"; message = "$($sortedExtensions.Count)"; color = "blue" } | ConvertTo-Json -Compress
     $badgePath = Join-Path (Split-Path $ConfigFile) "badge.json"
-    [System.IO.File]::WriteAllText($badgePath, $badgeJson, $utf8NoBom)
+    Set-Content -Path $badgePath -Value $badgeJson
 
     Write-Host "    [SUCCESS] Resolved $($sortedExtensions.Count) total dependencies!" -ForegroundColor Green
 }

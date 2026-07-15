@@ -100,7 +100,7 @@ function global:au_BeforeUpdate {
     }
 
     $toolsDir = Join-Path $package.Path 'tools'
-    if (-not (Test-Path $toolsDir)) { New-Item -ItemType Directory -Path $toolsDir | Out-Null }
+    if (-not (Test-Path $toolsDir)) { [void](New-Item -ItemType Directory -Path $toolsDir) }
 
     $vsixPath = Join-Path $toolsDir "$ExtensionPublisher.$ExtensionName-$($Latest.Version).vsix"
 
@@ -124,7 +124,7 @@ function global:au_BeforeUpdate {
             if ($descNode) {
                 $descNode.RemoveAll()
                 $cdata = $package.NuspecXml.CreateCDataSection("`n" + $cdataSafe + "`n")
-                $descNode.AppendChild($cdata) | Out-Null
+                [void]$descNode.AppendChild($cdata)
             }
 
             # Dynamically resolve and inject missing dependencies
@@ -155,8 +155,7 @@ function global:au_BeforeUpdate {
                 $nuspecContent = $nuspecContent -replace '(?is)<authors>.*?</authors>', "<authors>$($meta.Authors)</authors>"
                 $nuspecContent = $nuspecContent -replace '(?is)<projectUrl>.*?</projectUrl>', "<projectUrl>$($meta.ProjectUrl)</projectUrl>"
             }
-            $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-            [System.IO.File]::WriteAllText($nuspecPath, $nuspecContent, $utf8NoBom)
+            Set-Content -Path $nuspecPath -Value $nuspecContent
         }
     }
 }
@@ -186,4 +185,4 @@ function global:au_SearchReplace {
     return $rules
 }
 
-update -ChecksumFor none
+Update-Package -ChecksumFor none

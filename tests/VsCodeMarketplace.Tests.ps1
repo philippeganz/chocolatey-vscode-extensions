@@ -119,7 +119,7 @@ Describe "VsCodeMarketplace API Wrapper" {
             # We don't want to actually sleep during tests
             Mock Start-Sleep -ModuleName VsCodeMarketplace -MockWith { return }
 
-            Invoke-RobustDownload -Url "https://fake.url" -OutFile "fake.vsix" | Out-Null
+            [void](Invoke-RobustDownload -Url "https://fake.url" -OutFile "fake.vsix")
 
             $script:failCount | Should -Be 3
             Should -Invoke -CommandName Invoke-WebRequest -ModuleName VsCodeMarketplace -Times 3 -Exactly
@@ -146,7 +146,7 @@ Describe "VsCodeMarketplace API Wrapper" {
 
             # Prevent pollution of the real automatic directory and ignore expected CLI errors
             $tempAuto = Join-Path $PSScriptRoot "temp_auto"
-            New-Item -ItemType Directory -Path $tempAuto -Force | Out-Null
+            [void](New-Item -ItemType Directory -Path $tempAuto -Force)
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $tempAuto
 
             try {
@@ -200,8 +200,8 @@ Describe "VsCodeMarketplace API Wrapper" {
             $extractDir = Join-Path $PSScriptRoot "temp_extract"
             $vsixPath = Join-Path $PSScriptRoot "fake.vsix"
 
-            New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
-            New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force | Out-Null
+            [void](New-Item -ItemType Directory -Path $tempDir -Force)
+            [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
 
             # Create a mock package.json
             '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
@@ -217,7 +217,7 @@ Contact me at test@example.com!
             Compress-Archive -Path (Join-Path $tempDir "*") -DestinationPath $vsixPath -Force
 
             # Expand-VsCodePayload expects the tools directory to exist
-            New-Item -ItemType Directory -Path (Join-Path $extractDir "tools") -Force | Out-Null
+            [void](New-Item -ItemType Directory -Path (Join-Path $extractDir "tools") -Force)
 
             # Run the extraction
             $result = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $extractDir
