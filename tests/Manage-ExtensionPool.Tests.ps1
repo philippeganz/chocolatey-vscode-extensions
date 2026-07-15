@@ -1,5 +1,5 @@
 [CmdletBinding()]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification='Global variables are required for AU configuration and workflow state')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
 param()
 
 $ErrorActionPreference = "Stop"
@@ -141,7 +141,7 @@ Describe "Manage-ExtensionPool CLI" {
                 return @{
                     PackageJson = @{
                         extensionDependencies = @()
-                        extensionPack = @()
+                        extensionPack         = @()
                     }
                 }
             }
@@ -179,63 +179,63 @@ Describe "Manage-ExtensionPool CLI" {
             Should -Invoke -CommandName git -Times 3
         }
 
-    Context "Additional Coverage" {
-        It "Should warn on invalid ID format in Add Mode" {
-            { & $script:scriptPath -Add "invalidformat" } | Should -Not -Throw
+        Context "Additional Coverage" {
+            It "Should warn on invalid ID format in Add Mode" {
+                { & $script:scriptPath -Add "invalidformat" } | Should -Not -Throw
+            }
+
+            It "Should warn when API rejects extension in Add Mode" {
+                Mock Get-VsCodeMarketplaceMetadata -MockWith { throw "404" }
+                Mock Test-Path -MockWith { return $true }
+                Mock Get-Content -MockWith { return "---`nextensions:`n  - other" }
+                { & $script:scriptPath -Add "publisher.invalidext" } | Should -Not -Throw
+            }
+
+            It "Should skip missing extension in Remove Mode" {
+                Mock Test-Path -MockWith { return $true }
+                Mock Remove-Item -MockWith {}
+                Mock Get-Content -MockWith { return "---`nextensions:`n  - test.other" }
+                { & $script:scriptPath -Remove "test.nottracked" } | Should -Not -Throw
+            }
+
+            It "Should report missing automatic scaffold in Audit Mode" {
+                Mock Test-Path -MockWith { if ($Path -match 'config.yaml') { return $true } else { return $false } }
+                Mock Get-Content -MockWith { return "---`nextensions:`n  - missing.ext" }
+                { & $script:scriptPath -Audit } | Should -Not -Throw
+            }
+
+            It "Should successfully audit when scaffolds match in Audit Mode" {
+                Mock Test-Path -MockWith { return $true }
+                Mock Get-Content -MockWith { return "---`nextensions:`n  - missing.ext" }
+                { & $script:scriptPath -Audit } | Should -Not -Throw
+            }
+
+            It "Should error if no operation is specified" {
+                { & $script:scriptPath } | Should -Not -Throw
+            }
+
+            It "Should report stale packages in CheckStale Mode" {
+                $mockAuto = "$PSScriptRoot\..\automatic"
+                $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+                if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
+                [void](New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-stale") -Force)
+
+                Mock Test-Path -MockWith { return $true }
+                Mock Get-Content -MockWith { return "$mockAuto\vscode-stale" } -ParameterFilter { $Path -match 'nuspec' }
+                Mock Get-Content -MockWith { return "---`nextensions:`n  - stale" } -ParameterFilter { $Path -match 'config' }
+
+                # Create dummy nuspec
+                $dummyNuspec = "<package><metadata><version>1.0.0</version></metadata></package>"
+                Set-Content (Join-Path $mockAuto "vscode-stale\vscode-stale.nuspec") $dummyNuspec
+
+                # Mock XML response with older published date and newer version
+                $dummyXml = "<feed><entry><m:properties><d:Version>1.1.0</d:Version><d:Published>2020-01-01T00:00:00Z</d:Published></m:properties></entry></feed>"
+                Mock Invoke-WebRequest -MockWith { return @{ Content = $dummyXml } }
+
+                { & $script:scriptPath -CheckStale } | Should -Not -Throw
+
+                Remove-Item (Join-Path $mockAuto "vscode-stale") -Recurse -Force
+            }
         }
-
-        It "Should warn when API rejects extension in Add Mode" {
-            Mock Get-VsCodeMarketplaceMetadata -MockWith { throw "404" }
-            Mock Test-Path -MockWith { return $true }
-            Mock Get-Content -MockWith { return "---`nextensions:`n  - other" }
-            { & $script:scriptPath -Add "publisher.invalidext" } | Should -Not -Throw
-        }
-
-        It "Should skip missing extension in Remove Mode" {
-            Mock Test-Path -MockWith { return $true }
-            Mock Remove-Item -MockWith {}
-            Mock Get-Content -MockWith { return "---`nextensions:`n  - test.other" }
-            { & $script:scriptPath -Remove "test.nottracked" } | Should -Not -Throw
-        }
-
-        It "Should report missing automatic scaffold in Audit Mode" {
-            Mock Test-Path -MockWith { if ($Path -match 'config.yaml') { return $true } else { return $false } }
-            Mock Get-Content -MockWith { return "---`nextensions:`n  - missing.ext" }
-            { & $script:scriptPath -Audit } | Should -Not -Throw
-        }
-
-        It "Should successfully audit when scaffolds match in Audit Mode" {
-            Mock Test-Path -MockWith { return $true }
-            Mock Get-Content -MockWith { return "---`nextensions:`n  - missing.ext" }
-            { & $script:scriptPath -Audit } | Should -Not -Throw
-        }
-
-        It "Should error if no operation is specified" {
-            { & $script:scriptPath } | Should -Not -Throw
-        }
-
-        It "Should report stale packages in CheckStale Mode" {
-            $mockAuto = "$PSScriptRoot\..\automatic"
-            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
-            if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
-            [void](New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-stale") -Force)
-
-            Mock Test-Path -MockWith { return $true }
-            Mock Get-Content -MockWith { return "$mockAuto\vscode-stale" } -ParameterFilter { $Path -match 'nuspec' }
-            Mock Get-Content -MockWith { return "---`nextensions:`n  - stale" } -ParameterFilter { $Path -match 'config' }
-
-            # Create dummy nuspec
-            $dummyNuspec = "<package><metadata><version>1.0.0</version></metadata></package>"
-            Set-Content (Join-Path $mockAuto "vscode-stale\vscode-stale.nuspec") $dummyNuspec
-
-            # Mock XML response with older published date and newer version
-            $dummyXml = "<feed><entry><m:properties><d:Version>1.1.0</d:Version><d:Published>2020-01-01T00:00:00Z</d:Published></m:properties></entry></feed>"
-            Mock Invoke-WebRequest -MockWith { return @{ Content = $dummyXml } }
-
-            { & $script:scriptPath -CheckStale } | Should -Not -Throw
-
-            Remove-Item (Join-Path $mockAuto "vscode-stale") -Recurse -Force
-        }
-    }
     }
 }

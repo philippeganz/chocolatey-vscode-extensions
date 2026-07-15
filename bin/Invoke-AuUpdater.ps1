@@ -31,9 +31,9 @@
     .\Invoke-AuUpdater.ps1 -ForcedPackages "vscode-python,vscode-docker" -OutputDir "C:\artifacts"
 #>
 [CmdletBinding()]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification='Global variables are required for AU configuration and workflow state')]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification='Write-Host is required for CI/CD logging and workflow orchestration')]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification='Preference variable used by the PowerShell engine')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Write-Host is required for CI/CD logging and workflow orchestration')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification = 'Preference variable used by the PowerShell engine')]
 param(
     [string]$ForcedPackages = '',
     [string]$PushUrl = '',
@@ -194,7 +194,8 @@ if ($ModerationRepush) {
 
         if ($versionOverrides.ContainsKey($pkg)) {
             $global:ExtensionVersion = $versionOverrides[$pkg]
-        } else {
+        }
+        else {
             $global:ExtensionVersion = $null
         }
 

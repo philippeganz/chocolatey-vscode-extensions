@@ -3,7 +3,7 @@
     Core utility functions and helpers used across the repository.
 #>
 
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification='Write-Host is required for cross-platform ANSI colored output in orchestration')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Write-Host is required for cross-platform ANSI colored output in orchestration')]
 param()
 
 

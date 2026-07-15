@@ -1,5 +1,5 @@
 [CmdletBinding()]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification='Global variables are required for AU configuration and workflow state')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
 param()
 
 $ErrorActionPreference = "Stop"
@@ -24,7 +24,8 @@ Describe "AuExtensionHooks" {
 
         try {
             . $script:hooksPath -ErrorAction SilentlyContinue
-        } catch { Write-Verbose "Expected failure sourcing AuExtensionHooks: $_" }
+        }
+        catch { Write-Verbose "Expected failure sourcing AuExtensionHooks: $_" }
 
         Pop-Location
     }
@@ -62,7 +63,7 @@ Describe "AuExtensionHooks" {
 
             # Mock dependencies
             Mock Get-VsCodeNuspecMetadata -ModuleName VsCodeMarketplace -MockWith {
-                return @{ Title="Fake"; Summary="Fake"; Authors="Fake"; ProjectUrl="Fake" }
+                return @{ Title = "Fake"; Summary = "Fake"; Authors = "Fake"; ProjectUrl = "Fake" }
             }
             Mock Invoke-RobustDownload -ModuleName VsCodeMarketplace -MockWith { return }
             Mock Expand-VsCodePayload -ModuleName VsCodeMarketplace -MockWith { return @{} }
@@ -75,7 +76,8 @@ Describe "AuExtensionHooks" {
 
             try {
                 au_BeforeUpdate
-            } catch {
+            }
+            catch {
                 Write-Verbose "Expected failure executing au_BeforeUpdate: $_"
                 # We expect an error because of missing payload JSONs, but it executes code!
             }

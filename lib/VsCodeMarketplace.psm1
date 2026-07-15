@@ -30,7 +30,7 @@ The canonical name of the extension (e.g. 'python').
 $extMeta = Get-VsCodeMarketplaceMetadata -Publisher "ms-python" -ExtensionName "python"
 #>
 function Get-VsCodeMarketplaceMetadata {
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification='Matching external API or established domain terminology')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Matching external API or established domain terminology')]
     param (
         [Parameter(Mandatory = $true)][string]$Publisher,
         [Parameter(Mandatory = $true)][string]$ExtensionName,
@@ -336,8 +336,8 @@ Update-NuspecDependency -NuspecXml $xml -PackageJson $json -ConfigPath "C:\etc\c
 #>
 function Update-NuspecDependency {
     [CmdletBinding()]
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Justification='Function manages external state where ShouldProcess is handled internally')]
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification='Global variables are required for AU configuration and workflow state')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Justification = 'Function manages external state where ShouldProcess is handled internally')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
     param(
         [Parameter(Mandatory = $true)][object]$NuspecXml,
         [Parameter(Mandatory = $true)][object]$PackageJson,
@@ -434,7 +434,7 @@ Optional pre-formatted Markdown description block to inject into the returned ob
 $nuspecMeta = Get-VsCodeNuspecMetadata -ExtMeta $extMeta -ExtensionPublisher "ms-python" -ExtensionName "python"
 #>
 function Get-VsCodeNuspecMetadata {
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification='Matching external API or established domain terminology')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Matching external API or established domain terminology')]
     param(
         [Parameter(Mandatory = $true)][object]$ExtMeta,
         [Parameter(Mandatory = $true)][string]$ExtensionPublisher,

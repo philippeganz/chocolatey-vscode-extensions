@@ -9,7 +9,7 @@ scaffolding, the AU Engine natively updates binaries and patches `package.json` 
 the pool manager perfectly manages state lifecycle (Add/Remove) without polluting local Git structures.
 #>
 [CmdletBinding()]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification='Global variables are required for AU configuration and workflow state')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
 param()
 $ErrorActionPreference = "Stop"
 
@@ -197,32 +197,12 @@ extensions:
         }
     }
 
-    Context "5. Check Stale Packages (Manage-ExtensionPool.ps1)" {
-        It "Should successfully check for stale packages" {
-            $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
-            & $script -CheckStale
-        }
-    }
-
-    Context "6. Remove the Package (Manage-ExtensionPool.ps1)" {
-        It "Should successfully remove the package from the pool" {
-            $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
-            & $script -Remove "$script:publisher.$script:extName"
-
-            $config = Get-Content $script:configPath -Raw
-            $config | Should -Not -Match "(?m)^\s*-\s*$script:publisher\.$script:extName$"
-        }
-
-        It "Should delete the package directory" {
-            Test-Path $script:pkgDir | Should -Be $false
-        }
-
     Context "4.2 Bulk Update Mode (Invoke-AuUpdater.ps1)" {
         It "Should run successfully when updating all packages" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
             $outDir = Join-Path $script:realPackagesDir "out_artifacts_bulk"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
-            { & $script -OutputDir $outDir  } | Should -Not -Throw
+            { & $script -OutputDir $outDir } | Should -Not -Throw
         }
     }
 
@@ -253,5 +233,25 @@ extensions:
             $env:api_key = $oldApi
         }
     }
+    Context "5. Check Stale Packages (Manage-ExtensionPool.ps1)" {
+        It "Should successfully check for stale packages" {
+            $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
+            & $script -CheckStale
+        }
+    }
+
+    Context "6. Remove the Package (Manage-ExtensionPool.ps1)" {
+        It "Should successfully remove the package from the pool" {
+            $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
+            & $script -Remove "$script:publisher.$script:extName"
+
+            $config = Get-Content $script:configPath -Raw
+            $config | Should -Not -Match "(?m)^\s*-\s*$script:publisher\.$script:extName$"
+        }
+
+        It "Should delete the package directory" {
+            Test-Path $script:pkgDir | Should -Be $false
+        }
+
     }
 }
