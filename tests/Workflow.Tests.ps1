@@ -9,7 +9,7 @@ scaffolding, the AU Engine natively updates binaries and patches `package.json` 
 the pool manager perfectly manages state lifecycle (Add/Remove) without polluting local Git structures.
 #>
 [CmdletBinding()]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification='Global variables are required for AU configuration and workflow state')]
 param()
 $ErrorActionPreference = "Stop"
 

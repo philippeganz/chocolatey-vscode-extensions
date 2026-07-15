@@ -31,14 +31,21 @@
     .\Invoke-AuUpdater.ps1 -ForcedPackages "vscode-python,vscode-docker" -OutputDir "C:\artifacts"
 #>
 [CmdletBinding()]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification='Global variables are required for AU configuration and workflow state')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification='Write-Host is required for CI/CD logging and workflow orchestration')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification='Preference variable used by the PowerShell engine')]
 param(
     [string]$ForcedPackages = '',
     [string]$PushUrl = '',
     [string]$ModerationRepush = '',
     [string]$OutputDir = ''
 )
+
+# WARNING: The Chocolatey AU module relies on legacy PowerShell 5.1 native command argument parsing.
+# When pushing packages, AU evaluates empty string flags ($force_push = ''). In PowerShell 7,
+# empty strings are explicitly passed to choco.exe, causing choco to misinterpret the empty string
+# as an invalid 'filePath' parameter. Reverting to Legacy argument passing resolves this.
+$PSNativeCommandArgumentPassing = 'Legacy'
 
 $ErrorActionPreference = 'Stop'
 Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -Force

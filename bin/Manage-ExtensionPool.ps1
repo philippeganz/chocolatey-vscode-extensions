@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     The robust, scriptable CLI for managing the VS Code Extension Pool.
@@ -40,7 +40,7 @@
 .EXAMPLE
     .\Manage-ExtensionPool.ps1 -Add "ms-python.python"
 #>
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification='Write-Host is required for CI/CD logging and workflow orchestration')]
 [CmdletBinding(DefaultParameterSetName = 'None')]
 param (
     [Parameter(ParameterSetName = 'Add', Mandatory = $true)]

@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     Automated Chocolatey Package Factory for Visual Studio Code Extensions.
@@ -40,7 +40,7 @@
     .\Invoke-VsCodeExtensionFactory.ps1 -ExtensionId "ms-python.python" -Force
 #>
 [CmdletBinding()]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification='Write-Host is required for CI/CD logging and workflow orchestration')]
 param (
     [Parameter(Mandatory = $false)]
     [string]$ConfigFile = "$PSScriptRoot\..\etc\config.yaml",
@@ -319,7 +319,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
 
     if (-not (Test-Path (Join-Path $pkgDir "update.ps1"))) {
         $updateContent = @"
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification='Variables are declared for AU hooks and module scope but not read within this script block')]
 param()
 `$ExtensionPublisher = "$publisher"
 `$ExtensionName = "$extensionName"

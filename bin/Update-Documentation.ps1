@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 <#
 .SYNOPSIS
 Auto-generates Markdown documentation for all scripts in the repository using platyPS.
@@ -9,7 +9,7 @@ to natively extract all Comment-Based Help blocks (Synopsis, Description, Parame
 It then compiles these into standard Markdown files in the `/docs` directory.
 #>
 [CmdletBinding()]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification='Write-Host is required for CI/CD logging and workflow orchestration')]
 param()
 
 $ErrorActionPreference = 'Stop'
