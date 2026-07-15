@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     The centralized Logic Engine for Chocolatey AU packages.
 
@@ -26,8 +26,8 @@ Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -Force -Erro
 $global:au_NoCheckRegistry = $true
 
 # WARNING: The Chocolatey AU module relies on legacy PowerShell 5.1 native command argument parsing.
-# When pushing packages, AU evaluates empty string flags ($force_push = ''). In PowerShell 7, 
-# empty strings are explicitly passed to choco.exe, causing choco to misinterpret the empty string 
+# When pushing packages, AU evaluates empty string flags ($force_push = ''). In PowerShell 7,
+# empty strings are explicitly passed to choco.exe, causing choco to misinterpret the empty string
 # as an invalid 'filePath' parameter. Reverting to Legacy argument passing inside the hook script
 # ensures that every Start-Job worker process inherits this fix.
 $global:PSNativeCommandArgumentPassing = 'Legacy'
