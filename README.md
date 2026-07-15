@@ -80,6 +80,9 @@ When you install an extension from this repository:
 
 This section is strictly for repository maintainers and contributors.
 
+> [!IMPORTANT]
+> **PowerShell 7 Requirement:** All factory orchestrator scripts (`Manage-ExtensionPool.ps1`, `Invoke-AuUpdater.ps1`, etc.) are heavily optimized for and strictly enforce **PowerShell 7+** (`pwsh`). If you attempt to run these scripts locally using the legacy Windows PowerShell 5.1 (`powershell.exe`), the execution will intentionally abort to prevent corruption.
+
 ### Repository Architecture
 
 For a deep dive into the engineering behind this mono-repo, including Mermaid diagrams of the Factory and AU Engine lifecycles, please see our dedicated [Architecture Documentation](docs/architecture.md).
