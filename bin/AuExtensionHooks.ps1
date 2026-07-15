@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     The centralized Logic Engine for Chocolatey AU packages.
 
@@ -12,9 +12,9 @@
     . $PSScriptRoot\..\..\bin\AuExtensionHooks.ps1
 #>
 [CmdletBinding()]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification='Write-Host is required for CI/CD logging and workflow orchestration')]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification='Global variables are required for AU configuration and workflow state')]
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification='Preference variable used by the PowerShell engine')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Write-Host is required for CI/CD logging and workflow orchestration')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification = 'Preference variable used by the PowerShell engine')]
 param()
 
 Import-Module au
@@ -45,7 +45,8 @@ of the extension, resolving icon URLs and download paths dynamically.
 function global:au_GetLatest {
     if ($global:ExtensionVersion) {
         $ext = Get-VsCodeMarketplaceMetadata -Publisher $ExtensionPublisher -ExtensionName $ExtensionName -IncludeAllVersions
-    } else {
+    }
+    else {
         $ext = Get-VsCodeMarketplaceMetadata -Publisher $ExtensionPublisher -ExtensionName $ExtensionName
     }
 
@@ -158,6 +159,25 @@ function global:au_BeforeUpdate {
             Set-Content -Path $nuspecPath -Value $nuspecContent
         }
     }
+
+    # Guarantee icon.png exists to prevent choco pack validation failures (every nuspec includes icon.png in <files>)
+    $localIconPath = Join-Path $package.Path "icon.png"
+    if (-not (Test-Path $localIconPath)) {
+        if ($Latest.IconUrl) {
+            try {
+                Invoke-WebRequest -Uri $Latest.IconUrl -OutFile $localIconPath -TimeoutSec 15 -ErrorAction Stop
+            }
+            catch {
+                Write-Verbose "Failed to download icon: $_"
+            }
+        }
+        if (-not (Test-Path $localIconPath)) {
+            Write-Warning "No icon.png found for package $($package.Name). Creating a placeholder icon.png to prevent packaging failure."
+            $dummyPngBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            $bytes = [System.Convert]::FromBase64String($dummyPngBase64)
+            [System.IO.File]::WriteAllBytes($localIconPath, $bytes)
+        }
+    }
 }
 
 <#
@@ -169,16 +189,14 @@ AU executes this function to natively update the hardcoded version strings
 inside our runtime scripts (like chocolateyInstall.ps1) so the new binaries are properly targeted.
 #>
 function global:au_SearchReplace {
-    # We conditionally build the replacement rules so we don't accidentally write empty icon URLs if the extension lacks one
+    $targetIconUrl = if ($Latest.IconUrl) { $Latest.IconUrl } else { "https://raw.githubusercontent.com/philippeganz/chocolatey-vscode-extensions/main/automatic/vscode-$ExtensionName/icon.png" }
+
     $rules = @{
         "tools\chocolateyInstall.ps1" = @{
             "(?i)($ExtensionPublisher\.$ExtensionName-)[\d\.]+(\.vsix)" = "`${1}$($Latest.Version)`${2}"
         }
-    }
-
-    if ($Latest.IconUrl) {
-        $rules["*.nuspec"] = @{
-            "(?is)<iconUrl>.*?</iconUrl>" = "<iconUrl>$($Latest.IconUrl)</iconUrl>"
+        "*.nuspec"                    = @{
+            "(?is)<iconUrl>.*?</iconUrl>" = "<iconUrl>$targetIconUrl</iconUrl>"
         }
     }
 
