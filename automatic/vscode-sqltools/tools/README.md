@@ -121,3 +121,4 @@ If you need help sooner, get in touch with the maintainers directly – we might
 George James Software has been providing innovative software solutions for over 35 years. We pride ourselves on the quality and maintainability of our code and we have built a number of tools to help developers achieve the same with their work. These are available as VS Code extensions [here](https://marketplace.visualstudio.com/publishers/georgejames).
 
 We also help other developers to build their own extensions. If there is a tool you need building please get in touch with us at [[email removed]](mailto:[email removed]).
+
