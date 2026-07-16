@@ -96,3 +96,4 @@ The GitHub Repositories extension collects telemetry data to help us build a bet
 ## License
 
 By downloading and using the GitHub Repositories extension and its related components, you agree to the product [license terms](https://marketplace.visualstudio.com/items/GitHub.remotehub/license) and [privacy statement](https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx).
+
