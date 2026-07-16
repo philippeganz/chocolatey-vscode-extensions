@@ -27,3 +27,4 @@ See [CHANGELOG.md](https://github.com/tomoki1207/vscode-pdfviewer/blob/HEAD/CHAN
 
 ## License
 Please see [LICENSE](https://github.com/tomoki1207/vscode-pdfviewer/blob/HEAD/LICENSE)
+
