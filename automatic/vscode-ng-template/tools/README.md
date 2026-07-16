@@ -151,3 +151,4 @@ All inlay hints settings are under `angular.inlayHints.*`:
 | `deferTriggerTypes`               | `false`  | Show `@defer` trigger types                                                   |
 
 To disable all Angular inlay hints, you can set `editor.inlayHints.enabled` to `"off"` in your VS Code settings.
+
