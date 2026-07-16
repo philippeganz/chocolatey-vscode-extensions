@@ -20,13 +20,15 @@ flowchart TD
 
     subgraph Day 1 to Infinity: The AU Engine (Maintenance)
         F -.->|6-hour Cron Job| G(Invoke-AuUpdater.ps1)
-        G --> H{au_BeforeUpdate Hook}
+        G -->|Bypasses Chocolatey API Check| H{au_BeforeUpdate Hook}
         H -->|Fetches latest payload| I[Extracts README.md & LICENSE]
-        H -->|Centralized Logic: Get-VsCodeNuspecMetadata| J[Overwrites Dynamic Metadata]
-        J -->|Bumps Version, Title, IconUrl, etc.| K[Packs .nupkg]
+        H -->|Centralized Logic| J[Overwrites Dynamic Metadata]
+        J -->|Bumps Version & IconUrl| K[Packs .nupkg]
         K --> L[Publishes to Chocolatey Gallery]
+        L -.->|If Local Changed| N(GitHub Action: Granular Git Commits)
+        N -->|Commits 1 by 1| O[Pushes natively to main via PAT]
     end
-    
+
     subgraph Auto-Discovery & Dependency Resolution
         H -.->|Detects missing nested dependency in package.json| M[Update-NuspecDependencies]
         M -->|Queues new dependency| B
@@ -35,7 +37,7 @@ flowchart TD
 
 ## Directory Structure
 
-- `.github/workflows/`: Contains the AU CI/CD pipelines (which natively run `Invoke-AuUpdater.ps1`), testing pipelines, and the MkDocs GitHub Pages deployment pipeline.
+- `.github/workflows/`: Contains the AU CI/CD pipelines (which natively run `Invoke-AuUpdater.ps1` and inject granular git commits), testing pipelines, and the MkDocs GitHub Pages deployment pipeline.
 - `automatic/`: Contains the AU templates for every managed extension. **(All packages use an optimized 3-line stub pattern instead of bloated scripts, pointing to a shared logic engine).**
 - `bin/`: Contains the core executable engineering scripts (Factory, Updater, Documentation Generators).
 - `lib/`: Contains shared PowerShell modules (e.g., `VsCodeMarketplace.psm1`) that power both the Factory and the AU Engine.
@@ -59,6 +61,9 @@ Responsible exclusively for **Day 0 Bootstrapping**.
 
 Responsible exclusively for **Day 1 Maintenance**.
 It sweeps the repository every 6 hours, triggering the native Chocolatey Automatic Updater (AU) framework for all existing packages in the `automatic/` directory.
+
+- **Source of Truth Enforcement:** By explicitly enabling `$global:au_NoCheckChocoVersion = $true`, the orchestrator completely ignores the Chocolatey Registry. It forces local versions to sync exclusively with the VS Code Marketplace.
+- **Granular Git Pipeline:** AU does not manage Git natively. The GitHub Action loops over `git status --porcelain` after AU finishes, executing individual commits for every modified package and pushing them natively via a repository PAT.
 
 ### 4. The Logic Engine: `AuExtensionHooks.ps1` & `VsCodeMarketplace.psm1`
 
