@@ -123,3 +123,4 @@ Use the following to embed a beautify shortcut in keybindings.json. Replace with
 ## Contributing
 
 For information on contributing see [Contributing.md](https://github.com/HookyQR/VSCodeBeautify/blob/master/.github/CONTRIBUTING.md)
+
