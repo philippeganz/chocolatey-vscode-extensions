@@ -117,3 +117,4 @@ This project's continued development is made possible by our generous sponsors:
 ## License
 
 [MIT](https://github.com/vuejs/language-tools/blob/master/LICENSE) License
+

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-volar</id>
-    <version>0.0.0</version>
+    <version>3.3.7</version>
     <title>Visual Studio Code Extension - Vue (Official)</title>
     <authors>Vue</authors>
     <projectUrl>https://github.com/vuejs/language-tools.git</projectUrl>
@@ -11,13 +11,91 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vue.volar</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Language Support for Vue
+# Vue (Official)
+
+
+  <a href="https://marketplace.visualstudio.com/items?itemName=Vue.volar"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=Vue.volar"></a>
+
+
+Vue language support extension for VSCode, providing a full development experience for Vue Single File Components (SFCs).
+
+## Features
+
+- **Syntax Highlighting** - Supports HTML, CSS, JavaScript, TypeScript, Pug, SCSS, Less, etc. in Vue SFCs
+- **Intelligent Completion** - Auto-completion for components, props, events, slots, and directives
+- **Type Checking** - Full TypeScript type inference, including expressions in templates
+- **Error Diagnostics** - Real-time display of Vue compiler errors
+- **Code Navigation** - Go to definition, find references
+- **Refactoring** - Rename, extract component
+- **Formatting** - Format SFCs by block
+
+## Installation
+
+Search for `Vue (Official)` or `Vue.volar` in the VSCode extension marketplace and click install.
+
+## Configuration
+
+### Editor Settings
+
+| Option | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `vue.editor.focusMode` | `boolean` | `false` | Enable focus mode |
+| `vue.editor.reactivityVisualization` | `boolean` | `true` | Show reactivity variable visualization |
+| `vue.editor.templateInterpolationDecorators` | `boolean` | `true` | Show template interpolation decorators |
+
+### Completion Settings
+
+| Option | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `vue.suggest.componentNameCasing` | `string` | `preferPascalCase` | Component name casing style (`preferKebabCase`, `preferPascalCase`, `alwaysKebabCase`, `alwaysPascalCase`) |
+| `vue.suggest.propNameCasing` | `string` | `preferCamelCase` | Prop name casing style (`preferKebabCase`, `preferCamelCase`, `alwaysKebabCase`, `alwaysCamelCase`) |
+| `vue.suggest.defineAssignment` | `boolean` | `true` | Suggest assignments for `defineProps`, etc. |
+
+### Auto-Insert Settings
+
+| Option | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `vue.autoInsert.dotValue` | `boolean` | `false` | Auto-insert `.value` |
+| `vue.autoInsert.bracketSpacing` | `boolean` | `true` | Auto-insert spaces in `{{ }}` |
+
+### Inlay Hints Settings
+
+| Option | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `vue.inlayHints.destructuredProps` | `boolean` | `false` | Show types for destructured props |
+| `vue.inlayHints.inlineHandlerLeading` | `boolean` | `false` | Show parameters for inline handlers |
+| `vue.inlayHints.missingProps` | `boolean` | `false` | Show missing required props |
+| `vue.inlayHints.optionsWrapper` | `boolean` | `false` | Show Options API wrapper |
+| `vue.inlayHints.vBindShorthand` | `boolean` | `false` | Show v-bind shorthand hints |
+
+### Formatting Settings
+
+| Option | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `vue.format.script.enabled` | `boolean` | `true` | Enable script block formatting |
+| `vue.format.template.enabled` | `boolean` | `true` | Enable template block formatting |
+| `vue.format.style.enabled` | `boolean` | `true` | Enable style block formatting |
+| `vue.format.wrapAttributes` | `string` | `auto` | Attribute wrapping style |
+
+### Server Settings
+
+| Option | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `vue.server.path` | `string` | - | Custom language server path |
+| `vue.server.includeLanguages` | `string[]` | `["vue"]` | Language IDs to process |
+| `vue.trace.server` | `string` | `off` | Server trace level |
+
+## Commands
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=Vue.volar) for full documentation]
 ]]></description>
     <summary>Language Support for Vue</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vue.volar#changelog</releaseNotes>
     <tags>vscode extension volar</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
