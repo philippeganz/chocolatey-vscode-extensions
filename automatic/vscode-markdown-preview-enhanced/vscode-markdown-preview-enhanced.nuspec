@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-markdown-preview-enhanced</id>
-    <version>0.0.0</version>
+    <version>0.8.30</version>
     <title>Visual Studio Code Extension - Markdown Preview Enhanced</title>
     <authors>shd101wyy</authors>
     <projectUrl>https://github.com/shd101wyy/vscode-markdown-preview-enhanced.git</projectUrl>
@@ -11,13 +11,54 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Markdown Preview Enhanced ported to vscode
+ Markdown Preview Enhanced 
+
+![intro](https://user-images.githubusercontent.com/1908863/28495106-30b3b15e-6f09-11e7-8eb6-ca4ca001ab15.png)
+
+
+
+[English](https://shd101wyy.github.io/markdown-preview-enhanced/#/) · [简体中文](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/) · [繁體中文](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-tw/) · [日本語](https://shd101wyy.github.io/markdown-preview-enhanced/#/ja-jp/) · [한국어](https://shd101wyy.github.io/markdown-preview-enhanced/#/ko-kr/) · [Français](https://shd101wyy.github.io/markdown-preview-enhanced/#/fr-fr/) · [Español](https://shd101wyy.github.io/markdown-preview-enhanced/#/es-es/) · [Português](https://shd101wyy.github.io/markdown-preview-enhanced/#/pt-br/) · [Nederlands](https://shd101wyy.github.io/markdown-preview-enhanced/#/nl-nl/) · [Türkçe](https://shd101wyy.github.io/markdown-preview-enhanced/#/tr-tr/)
+
+
+
+
+
+[VS Code](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) · [VS Code for the Web](https://vscode.dev)
+
+
+
+## Supporting this project
+
+Markdown Preview Enhanced is an open source project released under the [University of Illinois/NCSA Open Source License](https://github.com/shd101wyy/vscode-markdown-preview-enhanced/blob/HEAD/LICENSE.md). Its ongoing development is made possible thanks to the support by these awesome [backers](https://shd101wyy.github.io/markdown-preview-enhanced/#/backers). You can help make this project better by [supporting us on GitHub Sponsors](https://github.com/sponsors/shd101wyy), [PayPal](https://shd101wyy.github.io/markdown-preview-enhanced/#/paypal), or [微信支付 Wechat Pay](https://shd101wyy.github.io/markdown-preview-enhanced/#/wechat). Thank you!
+
+## Sponsors
+
+<a href="https://github.com/sponsors/shd101wyy">
+  </a>
+
+
+These [GitHub Sponsors](https://github.com/sponsors/shd101wyy#sponsors) and [Backers](https://shd101wyy.github.io/markdown-preview-enhanced/#/backers) help push this project forward 🎉.
+
+## Introduction
+
+Markdown Preview Enhanced is an extension that provides you with many useful functionalities such as automatic scroll sync, [math typesetting](https://shd101wyy.github.io/markdown-preview-enhanced/#/math), [mermaid](https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=mermaid), [PlantUML](https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=plantuml), [WebSequenceDiagrams](https://www.websequencediagrams.com), [pandoc](https://shd101wyy.github.io/markdown-preview-enhanced/#/pandoc), PDF export, [code chunk](https://shd101wyy.github.io/markdown-preview-enhanced/#/code-chunk), [presentation writer](https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html), etc. A lot of its ideas are inspired by [Markdown Preview Plus](https://github.com/atom-community/markdown-preview-plus) and [RStudio Markdown](http://rmarkdown.rstudio.com/).
+
+Feel free to ask questions, post issues, submit pull request, and request new features.
+
+For more information about this project and how to use this extension, please check out our documentation ⬇︎
+
+## Privacy
+
+**This extension does not collect, transmit, or share your data with any external service.** The core preview, scroll sync, math typesetting, diagram rendering, and all editor features run entirely on your local machine. No telemetry, no tracking, no phone-home.
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) for full documentation]
 ]]></description>
     <summary>Markdown Preview Enhanced ported to vscode</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced#changelog</releaseNotes>
     <tags>vscode extension markdown-preview-enhanced</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

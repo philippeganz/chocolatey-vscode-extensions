@@ -88,3 +88,4 @@ Please check the [Releases](https://github.com/shd101wyy/vscode-markdown-preview
 ## License
 
 [University of Illinois/NCSA Open Source License](https://github.com/shd101wyy/vscode-markdown-preview-enhanced/blob/HEAD/LICENSE.md)
+
