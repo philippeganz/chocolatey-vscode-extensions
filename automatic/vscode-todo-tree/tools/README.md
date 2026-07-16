@@ -600,3 +600,4 @@ Lots of the icons have now been updated by [johnletey](https://github.com/johnle
 #### Translations
 
 Simplified Chinese translation by [loniceras](https://github.com/loniceras).
+
