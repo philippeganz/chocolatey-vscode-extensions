@@ -127,3 +127,4 @@ This extension contributes the following commands to the Command palette.
 
  If you find that the file path is not clickable, set `todohighlight.toggleURI` to `true` to toggle the file pattern.
   
+
