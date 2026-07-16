@@ -18,3 +18,4 @@ This extension pack packages some of the most popular (and some of my favorite) 
 Open a PR and I'd be happy to take a look.
 
 **Enjoy!**
+
