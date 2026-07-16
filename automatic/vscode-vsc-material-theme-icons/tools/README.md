@@ -34,3 +34,4 @@ Vira Theme is the official successor of Material Theme, the most advanced and up
   <br />
   Copyright &copy; 2025 <br /> Vira Software
 </p>
+
