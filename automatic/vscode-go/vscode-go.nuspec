@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-go</id>
-    <version>0.55.0</version>
+    <version>0.56.0</version>
     <title>Visual Studio Code Extension - Go</title>
     <authors>golang</authors>
     <projectUrl>https://github.com/golang/vscode-go</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://golang.gallerycdn.vsassets.io/extensions/golang/go/0.55.0/1781121081416/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://golang.gallerycdn.vsassets.io/extensions/golang/go/0.56.0/1784153044306/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=golang.go</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
@@ -28,7 +28,8 @@ provides rich language support for the
 
 ## Quick Start
 
-Welcome! 👋🏻<br/>
+Welcome! 👋🏻
+
 Whether you are new to Go or an experienced Go developer, we hope this
 extension fits your needs and enhances your development experience.
 
@@ -45,11 +46,12 @@ extension fits your needs and enhances your development experience.
     try to install it. The :zap: sign next to the Go version indicates
     the language server is running, and you are ready to go.
 
-<p align="center">
-<img src="https://github.com/golang/vscode-go/raw/v0.55.0/docs/images/gettingstarted.gif" width=75%>
-<br/>
+
+
+
+
 <em>(Install Missing Tools)</em>
-</p>
+
 
 You are ready to Go :-) &nbsp;&nbsp; 🎉🎉🎉
 
@@ -90,11 +92,12 @@ application using VS Code Go.
 
 See the [full feature breakdown] for more details.
 
-<p align=center>
-<img src="https://github.com/golang/vscode-go/raw/v0.55.0/docs/images/completion-signature-help.gif" width=75%>
-<br/>
+
+
+
+
 <em>(Code completion and Signature Help)</em>
-</p>
+
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=golang.go) for full documentation]
 ]]></description>
@@ -102,7 +105,7 @@ See the [full feature breakdown] for more details.
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=golang.go#changelog</releaseNotes>
     <tags>vscode extension go</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>

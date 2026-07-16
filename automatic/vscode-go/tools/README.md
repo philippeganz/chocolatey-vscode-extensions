@@ -33,7 +33,7 @@ extension fits your needs and enhances your development experience.
     the language server is running, and you are ready to go.
 
 <p align="center">
-<img src="https://github.com/golang/vscode-go/raw/v0.55.0/docs/images/gettingstarted.gif" width=75%>
+<img src="https://github.com/golang/vscode-go/raw/v0.56.0/docs/images/gettingstarted.gif" width=75%>
 <br/>
 <em>(Install Missing Tools)</em>
 </p>
@@ -78,7 +78,7 @@ application using VS Code Go.
 See the [full feature breakdown] for more details.
 
 <p align=center>
-<img src="https://github.com/golang/vscode-go/raw/v0.55.0/docs/images/completion-signature-help.gif" width=75%>
+<img src="https://github.com/golang/vscode-go/raw/v0.56.0/docs/images/completion-signature-help.gif" width=75%>
 <br/>
 <em>(Code completion and Signature Help)</em>
 </p>
@@ -91,7 +91,7 @@ then typing in the command name. See the
 extension.
 
 <p align=center>
-<img src="https://github.com/golang/vscode-go/raw/v0.55.0/docs/images/toggletestfile.gif" width=75%>
+<img src="https://github.com/golang/vscode-go/raw/v0.56.0/docs/images/toggletestfile.gif" width=75%>
 <br/><em>(Toggle Test File)</em></p>
 
 **⚠️ Note**: the default syntax highlighting for Go files is provided by a
@@ -223,7 +223,7 @@ conduct-related issue, please mail [email removed].
 
 ## License
 
-[MIT](https://github.com/golang/vscode-go/raw/v0.55.0/LICENSE)
+[MIT](https://github.com/golang/vscode-go/raw/v0.56.0/LICENSE)
 
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/go+visual-studio-code
 [`gopls`]: https://golang.org/s/gopls
