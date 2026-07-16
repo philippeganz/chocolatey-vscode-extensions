@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-language-pack-tr</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Turkish Language Pack for Visual Studio Code</title>
+    <authors>MS-CEINTL</authors>
+    <projectUrl>https://github.com/Microsoft/vscode-loc.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://MS-CEINTL.gallerycdn.vsassets.io/extensions/ms-ceintl/vscode-language-pack-tr/1.129.2026071318/1783968479962/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-tr</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Language pack extension for Turkish
+]]></description>
+    <summary>Language pack extension for Turkish</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-tr#changelog</releaseNotes>
+    <tags>vscode extension language-pack-tr</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="icon.png" target="." />
+  </files>
+</package>
