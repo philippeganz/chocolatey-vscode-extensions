@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-java-test</id>
-    <version>0.46.0</version>
+    <version>0.46.2026071402</version>
     <title>Visual Studio Code Extension - Test Runner for Java</title>
     <authors>vscjava</authors>
     <projectUrl>https://github.com/Microsoft/vscode-java-test</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-test/0.46.0/1782452281424/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-test/0.46.2026071402/1783996680851/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
@@ -15,20 +15,20 @@
 
 > Run and debug Java test cases in Visual Studio Code
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/main/resources/logo.png" width="128" height="128" alt="">
-</p>
-<p align="center">
+
+  
+
+
   <a href="https://github.com/microsoft/vscode-java-test/actions/workflows/build.yml?query=branch%3Amain">
-    <img src="https://img.shields.io/github/actions/workflow/status/microsoft/vscode-java-test/build.yml?style=flat-square" alt="">
+    
   </a>
   <a href="https://gitter.im/microsoft/vscode-java-test">
-    <img src="https://img.shields.io/gitter/room/microsoft/vscode-java-test.svg?style=flat-square" alt="">
+    
   </a>
   <a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test">
-    <img src="https://img.shields.io/visual-studio-marketplace/d/vscjava.vscode-java-test.svg?style=flat-square" alt="">
+    
   </a>
-</p>
+
 
 ## Overview
 
@@ -58,9 +58,9 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 ## Features
 
 ### Run/Debug Test Cases
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/main/demo/editor-decoration.png" alt="Run/Debug Test Cases"/>
-</p>
+
+  
+
 
 - The extension will generate shortcuts (the green play button) on the left side of the class and method definition. To run the target test cases, simply click on the green play button. You can also right click on it to see more options.
 
@@ -68,18 +68,18 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 
 ### Test Explorer
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/main/demo/test_explorer.png" alt="Test Explorer"/>
-</p>
+
+  
+
 
 - The Test Explorer is the place to show all the test cases in your workspace. You can also run/debug your test cases from here.
 
 ---
 
 ### Customize Test Configurations
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/main/demo/configuration.png" alt="Customize Test Configurations"/>
-</p>
+
+  
+
 
 - Sometimes you may want to customize the configuration to run your test cases. To achieve this, you can add the configuration into your workspace settings under the section: `java.test.config`.
 
@@ -89,9 +89,9 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 
 ### View Test Result
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/main/demo/test_report.png" alt="View Test Result"/>
-</p>
+
+  
+
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) for full documentation]
 ]]></description>
@@ -100,7 +100,7 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
       https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test#changelog</releaseNotes>
     <tags>vscode extension java-test</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-java" />
       <dependency id="vscode-java-debug" />
     </dependencies>
