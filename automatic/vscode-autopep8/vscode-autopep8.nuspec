@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-autopep8</id>
-    <version>0.0.0</version>
+    <version>2026.5.11811007</version>
     <title>Visual Studio Code Extension - autopep8</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/vscode-autopep8.git</projectUrl>
@@ -11,14 +11,76 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Formatting support for Python files using the autopep8 formatter.
+# Formatter extension for Visual Studio Code using autopep8
+
+A Visual Studio Code extension with support for the autopep8 formatter. The extension ships with `autopep8=2.3.2`.
+
+> Note: The minimum supported version of autopep8 is `2.3.2`. If you have any issues with formatting with autopep8, please report it to [this issue tracker](https://github.com/hhatto/autopep8/issues) as this extension is just a wrapper around autopep8.
+
+This extension supports for all [actively supported versions](https://devguide.python.org/#status-of-python-branches) of the Python language.
+
+For more information on autopep8, see https://pypi.org/project/autopep8/.
+
+## Usage and Features
+
+The autopep8 extension for Visual Studio Code provides formatting support for your Python files. Check out the [Settings section](#settings) for more details on how to customize this extension.
+
+-   **Integrated formatting**: Once this extension is installed in VS Code, autopep8 will be automatically available as a formatter for Python. This is because the extension ships with a autopep8 binary. You can ensure VS Code uses autopep8 by default for all your Python files by setting the following in your User settings (**View** > **Command Palette...** and run **Preferences: Open User Settings (JSON)**):
+
+    ```json
+        "[python]": {
+          "editor.defaultFormatter": "ms-python.autopep8"
+        }
+    ```
+
+-   **Format on save**: Automatically format your Python files on save by setting the `editor.formatOnSave` setting to `true` and the `editor.defaultFormatter` setting to `ms-python.autopep8`. You can also enable format on save for Python files only by adding the following to your settings:
+
+    ```json
+      "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8",
+        "editor.formatOnSave": true
+      }
+    ```
+
+-   **Customize autopep8**: You can customize the behavior of autopep8 by setting the `autopep8.args` setting.
+
+### Disabling formatting with autopep8
+
+If you want to disable the autopep8 formatter, you can [disable this extension](https://code.visualstudio.com/docs/editor/extension-marketplace#_disable-an-extension) per workspace in Visual Studio Code.
+
+## Settings
+
+There are several settings you can configure to customize the behavior of this extension.
+
+<table>
+  <thead>
+    <tr>
+      <th>Settings</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>autopep8.args</td>
+      <td><code>[]</code></td>
+      <td>Arguments passed to autopep8 to format Python files. Each argument should be provided as a separate string in the array. Example: <code>"autopep8.args" = ["--config", "&lt;file&gt;"]</code></td>
+    </tr>
+    <tr>
+      <td>autopep8.cwd</td>
+      <td><code>${workspaceFolder}</code></td>
+      <td>Sets the current working directory used to format Python files with autopep8. By default, it uses the root directory of the workspace <code>${workspaceFolder}</code>. You can set it to <code>${fileDirname}</code> to use the parent folder of the file being formatted as the working directory for autopep8.</td>
+    </tr></tbody></table>
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8) for full documentation]
 ]]></description>
     <summary>Formatting support for Python files using the autopep8 formatter.</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8#changelog</releaseNotes>
     <tags>vscode extension autopep8</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-python" />
- </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-python" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

@@ -105,3 +105,4 @@ In this section, you will find some common issues you might encounter and how to
 
     -   Set the `autopep8.importStrategy` setting to `useBundled` and the `autopep8.path` setting to point to the custom binary of autopep8 you want to use; or
     -   Install autopep8 in the selected environment.
+
