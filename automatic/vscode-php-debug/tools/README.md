@@ -187,3 +187,4 @@ More on testing extensions can be found on https://code.visualstudio.com/api/wor
 Tests are written with Mocha and can be run with `npm test` or from `Terminal / Run Task... / npm: test`. When you submit a PR the tests will be run in CI on Linux, macOS and Windows against multiple PHP and Xdebug versions.
 
 Before submitting a PR also run `npm run lint` or `Terminal / Run Tasks... / npm: lint`.
+

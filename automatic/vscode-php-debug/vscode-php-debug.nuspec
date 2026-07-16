@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-php-debug</id>
-    <version>0.0.0</version>
+    <version>1.40.1</version>
     <title>Visual Studio Code Extension - PHP Debug</title>
     <authors>xdebug</authors>
     <projectUrl>https://github.com/xdebug/vscode-php-debug.git</projectUrl>
@@ -11,13 +11,59 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Debug support for PHP with Xdebug
+# PHP Debug Adapter for Visual Studio Code
+
+[![vs marketplace](https://img.shields.io/vscode-marketplace/v/xdebug.php-debug.svg?label=vs%20marketplace)](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug) [![downloads](https://img.shields.io/vscode-marketplace/d/xdebug.php-debug.svg)](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug) [![rating](https://img.shields.io/vscode-marketplace/r/xdebug.php-debug.svg)](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug) [![build status](https://img.shields.io/github/workflow/status/xdebug/vscode-php-debug/build/main?logo=github)](https://github.com/xdebug/vscode-php-debug/actions?query=branch%3Amain) [![codecov](https://codecov.io/gh/xdebug/vscode-php-debug/branch/main/graph/badge.svg)](https://codecov.io/gh/xdebug/vscode-php-debug) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
+![Demo GIF](https://github.com/xdebug/vscode-php-debug/raw/HEAD/images/demo.gif)
+
+### Sponsor PHP Debug Adapter for Visual Studio Code
+
+If you find this extension useful, if it helps you solve your problems and if you appreciate the support given here, consider sponsoring our work.
+
+## Installation
+
+Install the extension: Press `F1`, type `ext install php-debug`.
+
+This extension is a debug adapter between VS Code and [Xdebug](https://xdebug.org/) by Derick Rethans. Xdebug is a PHP extension (a `.so` file on Linux and a `.dll` on Windows) that needs to be installed on your server.
+
+1. [Install Xdebug](https://xdebug.org/docs/install)
+   **_I highly recommend you make a simple `test.php` file, put a `phpinfo();` statement in there, then copy the output and paste it into the [Xdebug installation wizard](https://xdebug.org/wizard.php). It will analyze it and give you tailored installation instructions for your environment._** In short:
+
+   - On Windows: [Download](https://xdebug.org/download.php) the appropriate precompiled DLL for your PHP version, architecture (64/32 Bit), thread safety (TS/NTS) and Visual Studio compiler version and place it in your PHP extension folder.
+   - On Linux: Either download the source code as a tarball or [clone it with git](https://xdebug.org/docs/install#source), then [compile it](https://xdebug.org/docs/install#compile). Or see if your distribution already offers prebuilt packages.
+
+2. [Configure PHP to use Xdebug](https://xdebug.org/docs/install#configure-php) by adding `zend_extension=path/to/xdebug` to your php.ini. The path of your php.ini is shown in your `phpinfo()` output under "Loaded Configuration File".
+
+3. Enable remote debugging in your `php.ini`:
+
+   For Xdebug v3.x.x:
+
+   ```ini
+   xdebug.mode = debug
+   xdebug.start_with_request = yes
+   ```
+
+   For Xdebug v2.x.x:
+
+   ```ini
+   xdebug.remote_enable = 1
+   xdebug.remote_autostart = 1
+   xdebug.remote_port = 9000
+   ```
+
+   There are other ways to tell Xdebug to connect to a remote debugger, like cookies, query parameters or browser extensions. I recommend `remote_autostart` (Xdebug v2)/`start_with_request` (Xdebug v3) because it "just works". There are also a variety of other options, like the port, please see the [Xdebug documentation on remote debugging](https://xdebug.org/docs/remote#starting) for more information. Please note that the default Xdebug port changed between Xdebug v2 to v3 from 9000 to 9003.
+
+4. If you are doing web development, don't forget to restart your webserver to reload the settings.
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug) for full documentation]
 ]]></description>
     <summary>Debug support for PHP with Xdebug</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug#changelog</releaseNotes>
     <tags>vscode extension php-debug</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
