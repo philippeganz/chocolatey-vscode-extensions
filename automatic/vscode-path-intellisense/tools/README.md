@@ -185,3 +185,4 @@ See changelog
 ## License
 
 This software is released under [MIT License](https://www.opensource.org/licenses/mit-license.php)
+
