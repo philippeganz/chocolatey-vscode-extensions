@@ -79,3 +79,4 @@ The loaded profiling result file is analyzed, and hot paths are highlighted dire
 ## Notes
 
 > The extension may send us (DEVSENSE s.r.o.) error telemetries, if enabled in VS Code (see [Telemetry settings](https://code.visualstudio.com/docs/getstarted/telemetry)). Data are anonymized, sampled, and destroyed after 30 days. This helps us to make the product stable and reliable. We do not provide the data to any 3rd party.
+
