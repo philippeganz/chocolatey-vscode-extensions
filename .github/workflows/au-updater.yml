@@ -2,8 +2,8 @@
 name: Chocolatey AU Updater
 
 on:
-  # schedule:
-  #   - cron: '0 0 * * *'  # Run daily at midnight
+  schedule:
+   - cron: '0 0 * * *'  # Run daily at midnight
   workflow_dispatch:
     inputs:
       forced_packages:
