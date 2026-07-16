@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-react-native</id>
-    <version>0.0.0</version>
+    <version>1.13.0</version>
     <title>Visual Studio Code Extension - React Native Tools</title>
     <authors>msjsdiag</authors>
     <projectUrl>https://github.com/microsoft/vscode-react-native.git</projectUrl>
@@ -11,14 +11,43 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=msjsdiag.vscode-react-native</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Debugging and integrated commands for React Native
+# React Native Tools
+
+[![Build Status](https://dev.azure.com/vscode-webdiag-extensions/VS%20Code%20WebDiag%20extensions/_apis/build/status/%5BUnit%20tests%5D%20vscode-react-native%20%5Bmaster%5D?branchName=master)](https://dev.azure.com/vscode-webdiag-extensions/VS%20Code%20WebDiag%20extensions/_build/latest?definitionId=60&branchName=master)
+
+Stable:
+![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/msjsdiag.vscode-react-native?color=deep%20green&label=Version)
+![Visual Studio Marketplace Rating (Stars)](https://img.shields.io/visual-studio-marketplace/stars/msjsdiag.vscode-react-native?label=Rating)
+
+Preview:
+![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/msjsdiag.vscode-react-native-preview?color=deep%20green&label=Version)
+![Visual Studio Marketplace Rating (Stars)](https://img.shields.io/visual-studio-marketplace/stars/msjsdiag.vscode-react-native-preview?label=Rating)
+
+## React Native Tools Preview
+
+The extension has a [nightly version](https://marketplace.visualstudio.com/items?itemName=msjsdiag.vscode-react-native-preview) which is released on a daily basis at 9 PM PST on each day that changes occur.
+To avoid conflicts, if both extensions are installed - only stable version will be activated. So to use the preview version it is needed to disable or remove the stable version and reload VS Code.
+
+## About the extension
+
+This VS Code extension provides a development environment for React Native projects.
+Using this extension, you can **debug your code and quickly run `react-native` commands** from the command palette.
+
+![React Native features](https://github.com/microsoft/vscode-react-native/raw/HEAD/resources/images/react-features.gif)
+
+<!-- TABLE OF CONTENTS -->
+
+# Table of Contents
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=msjsdiag.vscode-react-native) for full documentation]
 ]]></description>
     <summary>Debugging and integrated commands for React Native</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=msjsdiag.vscode-react-native#changelog</releaseNotes>
     <tags>vscode extension react-native</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-js-debug" />
- </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-js-debug" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
