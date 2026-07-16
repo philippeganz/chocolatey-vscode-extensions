@@ -72,3 +72,4 @@ Currently it supports the following languages (those are [language identifier](h
 
 ![](https://i.imgur.com/O7NjEUW.gif)
 ![](https://i.imgur.com/uyiXqMb.gif)
+
