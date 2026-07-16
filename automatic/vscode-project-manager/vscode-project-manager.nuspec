@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-project-manager</id>
-    <version>0.0.0</version>
+    <version>13.1.0</version>
     <title>Visual Studio Code Extension - Project Manager</title>
     <authors>alefragnani</authors>
     <projectUrl>https://github.com/alefragnani/vscode-project-manager.git</projectUrl>
@@ -11,13 +11,91 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Easily switch between projects
+[![](https://vsmarketplacebadges.dev/version-short/alefragnani.project-manager.svg)](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)
+[![](https://vsmarketplacebadges.dev/downloads-short/alefragnani.project-manager.svg)](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)
+[![](https://vsmarketplacebadges.dev/rating-short/alefragnani.project-manager.svg)](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)
+
+
+  
+
+  <a title="Learn more about Project Manager" href="http://github.com/alefragnani/vscode-project-manager"></a>
+
+
+# What's new in Project Manager 13.1
+
+* Improved **Tags** support
+* Improved **auto-detected projects** support
+* Fully Open Source again
+* Adds **Profile** support
+* Highlights the current project in the Side Bar
+* Published to **Open VSX**
+* Adds **Getting Started / Walkthrough**
+* Organize your projects with **Tags**
+* Adds **Virtual Workspaces** support
+* Adds **Workspace Trust** support
+
+# Support
+
+**Project Manager** is an extension created for **Visual Studio Code**. If you find it useful, please consider supporting it.
+
+<table align="center" width="60%" border="0">
+  <tr>
+    <td>
+      <a title="Paypal" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=EP57F3B6FXKTU&lc=US&item_name=Alessandro%20Fragnani&item_number=vscode%20extensions&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted"></a>
+    </td>
+    <td>
+      <a title="GitHub Sponsors" href="https://github.com/sponsors/alefragnani"></a>
+    </td>
+    <td>
+      <a title="Patreon" href="https://www.patreon.com/alefragnani"></a>
+    </td>
+  </tr>
+</table>
+
+# Project Manager
+
+It helps you to easily access your **projects**, no matter where they are located. _Don't miss those important projects anymore_. 
+
+You can define your own **Projects** (also called **Favorites**), or choose for auto-detect **Git**, **Mercurial** or **SVN** repositories, **VSCode** folders, or **any** other folder.
+
+Here are some of the features that **Project Manager** provides:
+
+* Save any folder or workspace as a **Project**
+* Auto-detect **Git**, **Mercurial** or **SVN** repositories
+* Organize your projects using **Tags**
+* Open projects in the same or new window
+* Identify _deleted/renamed_ projects
+* A **Status Bar** which identifies the current project
+* A dedicated **Side Bar**
+
+# Features
+
+## Available Commands
+
+* `Project Manager: Save Project` Save the current folder/workspace as a new project
+* `Project Manager: Edit Project` Edit your projects manually (`projects.json`)
+* `Project Manager: List Projects to Open` List all saved/detected projects and pick one
+* `Project Manager: List Projects to Open in New Window` List all saved/detected projects and pick one to be opened in New Window
+* `Project Manager: Filter Projects by Tag` Filter the Favorite projects by selected tags
+
+## Manage your projects
+
+### Save Project
+
+You can save the current folder/workspace as a **Project** at any time. You just need to type its name. 
+
+![Save](https://github.com/alefragnani/vscode-project-manager/raw/HEAD/images/project-manager-save.png)
+
+> It suggests a name to you _automatically_ :)
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) for full documentation]
 ]]></description>
     <summary>Easily switch between projects</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager#changelog</releaseNotes>
     <tags>vscode extension project-manager</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

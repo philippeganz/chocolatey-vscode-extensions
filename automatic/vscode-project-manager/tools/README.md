@@ -368,3 +368,4 @@ You should follow the official documentation to:
 # License
 
 [GPL-3.0](https://github.com/alefragnani/vscode-project-manager/blob/HEAD/LICENSE.md) &copy; Alessandro Fragnani
+
