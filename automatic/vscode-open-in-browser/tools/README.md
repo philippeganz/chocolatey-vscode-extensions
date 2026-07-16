@@ -46,3 +46,4 @@ see [changelog](https://github.com/SudoKillMe/vscode-extensions-open-in-browser/
 
 ## License
 [MIT](https://raw.githubusercontent.com/DonJayamanne/bowerVSCode/master/LICENSE)
+
