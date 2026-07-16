@@ -97,3 +97,4 @@ Press <kbd>F5</kbd> or click on Debug then Start (▶️) to launch the extensio
 Hack around
 
 Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F5</kbd> or 🔄 to reload.
+
