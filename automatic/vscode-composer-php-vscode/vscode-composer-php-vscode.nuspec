@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-composer-php-vscode</id>
-    <version>0.0.0</version>
+    <version>1.71.19071</version>
     <title>Visual Studio Code Extension - Composer</title>
     <authors>DEVSENSE</authors>
     <projectUrl>https://github.com/DEVSENSE/phptools-docs.git</projectUrl>
@@ -11,13 +11,81 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=devsense.composer-php-vscode</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-All-in-One composer integration, quick actions, commands, automatic installation, tasks, code lenses, diagnostics, and composer.json IntelliSense.
+# Composer for Visual Studio Code
+
+[![PHP Tools product page](https://img.shields.io/badge/%F0%9F%8C%8E-Home%20page-blue.svg)](https://www.devsense.com) 
+[![PHP Tools on Twitter](https://badgen.net/badge/@php4vs/twitter/blue?icon=twitter)](https://twitter.com/php4vs) 
+
+Composer _"All-in-One"_ provides complete integration of **composer** and **packagist** into Visual Studio Code. The extension provides quick `composer` commands, IntelliSense for `composer.json`, code lenses, code actions, schema validation, browsing and searching packages, checking abandoned packages, running user scripts, and it extends VS Code with `composer` tasks.
+
+To run commands and tasks, you only need `php` installed. The `composer` itself is downloaded automatically.
+
+## Composer.json Editor &amp; IntelliSense
+
+The `composer.json` editor is extended with smart actions, code lenses, tooltips, and IntelliSense to autocomplete packages and versions from _packagist.org_.
+
+### Completion of Package Names
+
+Code completion searches packages and lists their names with detailed information including downloads, favorites, abandoned information, and description. There are also quick links to the package _home page_, package _source_ code, and _packagist page_.
+
+![composer completion](https://raw.githubusercontent.com/DEVSENSE/phptools-docs/master/docs/vscode/imgs/composer-complete.gif)
+
+### Completion of Package Versions
+
+Available minor versions are fetched from packagist listed in code completion after the required package name:
+
+![complete package version](https://raw.githubusercontent.com/DEVSENSE/phptools-docs/master/docs/vscode/imgs/composer-complete-version.gif)
+
+### Tool-Tips
+
+Installed package details are displayed in the tooltips.
+
+![composer package tootip](https://raw.githubusercontent.com/DEVSENSE/phptools-docs/master/docs/vscode/imgs/composer-tooltip.png)
+
+### Code Actions
+
+Quickly `update` or `remove` package right from the editor, using the code actions:
+
+![composer code actions](https://raw.githubusercontent.com/DEVSENSE/phptools-docs/master/docs/vscode/imgs/composer-codeactions.png)
+
+### Installed Version Inlay
+
+Actual installed version is displayed conveniently next to the package required version:
+
+![installed package versions](https://raw.githubusercontent.com/DEVSENSE/phptools-docs/master/docs/vscode/imgs/composer-versions.png)
+
+### Run-Script CodeLens
+
+The `"scripts"` section of `composer.json` gets a small code-lens allowing to quickly run the corresponding script, right from the editor:
+
+![composer run-script codelens](https://raw.githubusercontent.com/DEVSENSE/phptools-docs/master/docs/vscode/imgs/composer-run-script-codelens.png)
+
+### Diagnostics &amp; Abandoned Packages
+
+The extension watches for installed packages and checks if any of them isn't abandoned. Abandoned packages are listed in VS Code's **problems** view, strikethrough, and the tooltip shows the corresponding abandoned message:
+
+![composer diagnostic for abandoned packages](https://raw.githubusercontent.com/DEVSENSE/phptools-docs/master/docs/vscode/imgs/composer-abandoned-diagnostic.png)
+
+## Commands
+
+Integrated commands work with the `composer.json` in the workspace root directory. If necessary, commands ask which workspace folder you're referring to. It allows quickly `require`, `remove`, or *search* for packages from packagist.org, and more.
+
+The following commands are usually executed as a VSCode task, using `php` executable as configured in the `Settings`, and `composer.phar` downloaded automatically when necessary (so it is not necessary to install it by yourself).
+    
+### `composer: install`
+
+Runs the `install` command.
+
+### `composer: update`
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=DEVSENSE.composer-php-vscode) for full documentation]
 ]]></description>
     <summary>All-in-One composer integration, quick actions, commands, automatic installation, tasks, code lenses, diagnostics, and composer.json IntelliSense.</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=devsense.composer-php-vscode#changelog</releaseNotes>
     <tags>vscode extension composer-php-vscode</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

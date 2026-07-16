@@ -170,3 +170,4 @@ The extension automatically downloads `composer.phar` latest snapshot, and uses 
 ## Acknowledgments
 
 - Referring to work by https://github.com/composer/composer, namely the JSON schema, and the part of the extension icon.
+
