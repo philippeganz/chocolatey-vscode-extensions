@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-pylance</id>
-    <version>2026.2.107</version>
+    <version>2026.2.108</version>
     <title>Visual Studio Code Extension - Pylance</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/pylance-release</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/vscode-pylance/2026.2.106/1782488767651/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/vscode-pylance/2026.2.108/1783618221725/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
@@ -47,6 +47,7 @@ Pylance provides some awesome features for Python 3, including:
 * Native multi-root workspace support
 * Jupyter Notebooks compatibility
 * Semantic highlighting
+* Toggle Block Comment command for Python (`Pylance: Toggle Block Comment`)
 * Copilot chat skills for fact-grounded Python help, Pylance docs, and refactoring workflows
 
 See the [changelog](https://github.com/microsoft/pylance-release/blob/main/CHANGELOG.md) for the latest release.
@@ -62,7 +63,7 @@ Pylance provides users with the ability to customize their Python language suppo
       https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance#changelog</releaseNotes>
     <tags>vscode extension pylance</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
