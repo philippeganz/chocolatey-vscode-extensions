@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-vim</id>
-    <version>0.0.0</version>
+    <version>1.32.4</version>
     <title>Visual Studio Code Extension - Vim</title>
     <authors>vscodevim</authors>
     <projectUrl>https://github.com/VSCodeVim/Vim.git</projectUrl>
@@ -11,13 +11,75 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscodevim.vim</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Vim emulation for Visual Studio Code
+
+VSCodeVim
+<strong>Vim emulation for Visual Studio Code</strong>
+
+<!-- TODO: use pgns or something; otherwise vsce won't package it
+[![](https://vsmarketplacebadge.apphb.com/version/vscodevim.vim.svg)](http://aka.ms/vscodevim)
+[![](https://vsmarketplacebadge.apphb.com/installs-short/vscodevim.vim.svg)](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
+[![](https://github.com/VSCodeVim/Vim/workflows/build/badge.svg?branch=master)](https://github.com/VSCodeVim/Vim/actions?query=workflow%3Abuild+branch%3Amaster)
+-->
+
+VSCodeVim is a Vim emulator for [Visual Studio Code](https://code.visualstudio.com/).
+
+- 📃 Our [change log](https://github.com/VSCodeVim/Vim/blob/HEAD/CHANGELOG.md) outlines the breaking/major/minor updates between releases.
+- Report missing features/bugs on [GitHub](https://github.com/VSCodeVim/Vim/issues).
+
+
+ <strong>Table of Contents</strong> (click to expand)
+
+- [💾 Installation](#-installation)
+  - [Mac](#mac)
+  - [Windows](#windows)
+- [⚙️ Settings](#️-settings)
+  - [Quick Example](#quick-example)
+  - [VSCodeVim settings](#vscodevim-settings)
+  - [Neovim Integration](#neovim-integration)
+  - [Key Remapping](#key-remapping)
+    - [`"vim.insertModeKeyBindings"`/`"vim.normalModeKeyBindings"`/`"vim.visualModeKeyBindings"`/`"vim.operatorPendingModeKeyBindings"`](#viminsertmodekeybindingsvimnormalmodekeybindingsvimvisualmodekeybindingsvimoperatorpendingmodekeybindings)
+    - [`"vim.insertModeKeyBindingsNonRecursive"`/`"normalModeKeyBindingsNonRecursive"`/`"visualModeKeyBindingsNonRecursive"`/`"operatorPendingModeKeyBindingsNonRecursive"`](#viminsertmodekeybindingsnonrecursivenormalmodekeybindingsnonrecursivevisualmodekeybindingsnonrecursiveoperatorpendingmodekeybindingsnonrecursive)
+    - [Debugging Remappings](#debugging-remappings)
+    - [Remapping more complex key combinations](#remapping-more-complex-key-combinations)
+  - [Vim modes](#vim-modes)
+  - [Vim settings](#vim-settings)
+- [.vimrc support](#vimrc-support)
+- [🖱️ Multi-Cursor Mode](#️-multi-cursor-mode)
+- [🔌 Emulated Plugins](#-emulated-plugins)
+  - [vim-airline](#vim-airline)
+  - [vim-easymotion](#vim-easymotion)
+  - [vim-surround](#vim-surround)
+  - [vim-commentary](#vim-commentary)
+  - [vim-indent-object](#vim-indent-object)
+  - [vim-sneak](#vim-sneak)
+  - [CamelCaseMotion](#camelcasemotion)
+  - [Input Method](#input-method)
+  - [ReplaceWithRegister](#replacewithregister)
+  - [vim-textobj-entire](#vim-textobj-entire)
+  - [vim-textobj-arguments](#vim-textobj-arguments)
+- [🎩 VSCodeVim tricks!](#-vscodevim-tricks)
+- [📚 F.A.Q.](#-faq)
+- [❤️ Contributing](#️-contributing)
+  - [Special shoutouts to:](#special-shoutouts-to)
+
+
+
+## 💾 Installation
+
+VSCodeVim can be installed via the VS Code [Marketplace](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) or the OpenVSX [Marketplace](https://open-vsx.org/extension/vscodevim/vim).
+
+### Mac
+
+To enable key-repeating, execute the following in your Terminal, log out and back in, and then restart VS Code:
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) for full documentation]
 ]]></description>
     <summary>Vim emulation for Visual Studio Code</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscodevim.vim#changelog</releaseNotes>
     <tags>vscode extension vim</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
