@@ -53,40 +53,25 @@ Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -Force
 # -----------------------------------------------------------------------------
 # AU ORCHESTRATOR CONFIGURATION
 # -----------------------------------------------------------------------------
-# The Chocolatey AU Engine evaluates parameters from the $global scope before it
-# falls back to its Options dictionary. Due to a known parsing bug with the 'Force'
-# parameter in Update-AUPackages, we explicitly inject our configurations globally.
+# We pass our configuration strictly via the $opts dictionary. The AU orchestrator
+# (Update-AUPackages) natively parses this dictionary and translates them into the
+# required global variables for the underlying worker scripts.
 #
-# $global:au_Push = $true -> Ensures the package is uploaded to the Community Gallery
-# $global:au_Force = $false -> Default state. When $true, it bypasses internal version math and forces AU to rebuild the package even if versions match.
-# $global:au_NoCheckRegistry = $true -> Prevents Test-Package from scanning the Windows Registry (Add/Remove Programs) since VS Code extensions don't write to it.
-# $global:au_NoCheckChocoVersion = $true -> Forces AU to decouple from the Chocolatey Community API. It natively compares local .nuspec versions directly against the VS Code Marketplace, ensuring the Git repository acts as the absolute source of truth and stays in sync even if upstream push phases fail.
+# Push: Ensures the package is uploaded to the Community Gallery
+# Force: Default state is $false. When $true, it bypasses internal version math and forces AU to rebuild.
+# NoCheckChocoVersion: Forces AU to decouple from the Chocolatey Community API and use local .nuspec versions.
 # -----------------------------------------------------------------------------
-$global:au_Push = $true
-$global:au_Force = $false
-$global:au_NoCheckRegistry = $true
-$global:au_NoCheckChocoVersion = $true
-
-if ($PushUrl) {
-    $global:au_PushUrl = $PushUrl
-    Write-Host ">>> Retargeting AU Push to Internal Repository: $PushUrl" -ForegroundColor Magenta
-}
-
-if ($ForcedPackages) {
-    # Bypasses the internal math that aborts updates when local and remote versions match.
-    $global:au_Force = $true
-}
-
-if ($OutputDir) {
-    Write-Host ">>> Output Directory specified: $OutputDir (Disabling native AU Push)" -ForegroundColor Magenta
-    $global:au_Push = $false
-}
 
 $opts = [ordered]@{
-    Push  = if ($OutputDir) { $false } else { $true }
-    Force = if ($ForcedPackages) { $true } else { $false }
+    Push                = if ($OutputDir) { Write-Host ">>> Output Directory specified: $OutputDir (Disabling native AU Push)" -ForegroundColor Magenta; $false } else { $true }
+    Force               = if ($ForcedPackages) { $true } else { $false }
+    NoCheckChocoVersion = $true
 }
 
+if ($PushUrl) {
+    $env:au_PushUrl = $PushUrl
+    Write-Host ">>> Retargeting AU Push to Internal Repository: $PushUrl" -ForegroundColor Magenta
+}
 
 $packagesDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" }
 
