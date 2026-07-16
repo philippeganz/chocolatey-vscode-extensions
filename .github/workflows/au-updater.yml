@@ -83,9 +83,18 @@ jobs:
           }
 
           foreach ($pkg in $modifiedPkgs) {
-              Write-Host "Committing updates for: $pkg"
+              $version = "unknown"
+              $nuspecPath = "automatic/$pkg/$pkg.nuspec"
+              if (Test-Path $nuspecPath) {
+                  $xml = [xml](Get-Content $nuspecPath -Encoding UTF8)
+                  if ($xml.package.metadata.version) {
+                      $version = $xml.package.metadata.version
+                  }
+              }
+
+              Write-Host "Committing updates for: $pkg (v$version)"
               git add "automatic/$pkg"
-              git commit -m "🤖 Auto-Update: $pkg [skip ci]"
+              git commit -m "🤖 Auto-Update: $pkg v$version [skip ci]"
           }
 
           Write-Host "Pushing all granular commits to main..."
