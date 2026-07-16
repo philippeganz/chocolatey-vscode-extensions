@@ -82,3 +82,4 @@ Intelephense uses the following open source libraries. Please see the following 
 * [node-html-to-text](https://github.com/html-to-text/node-html-to-text)
 * [semver](https://github.com/npm/node-semver)
 * [applicationinsights](https://github.com/microsoft/ApplicationInsights-node.js)
+
