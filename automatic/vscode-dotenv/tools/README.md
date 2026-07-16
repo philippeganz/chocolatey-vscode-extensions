@@ -8,3 +8,4 @@ A port of [DotENV](https://github.com/zaynali53/DotENV) for vscode.
 
 - [Zayn Ali](https://github.com/zaynali53) for [DotENV](https://github.com/zaynali53/DotENV)
 - [motdotla](https://github.com/motdotla/dotenv) for the logo
+
