@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-language-pack-en-gb</id>
-    <version>0.0.0</version>
+    <version>1.54.1</version>
     <title>Visual Studio Code Extension - English (United Kingdom) Language Pack for Visual Studio Code</title>
     <authors>MS-CEINTL</authors>
     <projectUrl>https://github.com/Microsoft/vscode-loc</projectUrl>
@@ -11,13 +11,47 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-en-gb</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Language pack extension for English (United Kingdom)
+# English (United Kingdom) Language Pack for VS Code
+
+English (United Kingdom) Language Pack provides localised UI experience for VS Code.
+
+## Usage
+
+Once installed, set `"locale": "en-gb"` in `locale.json` to load English (United Kingdom) Language Pack. To modify `locale.json` press `Ctrl+Shift+P` to bring up the **Command Palette**, start typing "config" to filter the list of available commands, then select the **Configure Language** command. See [Docs](https://go.microsoft.com/fwlink/?LinkId=761051) for more information.
+
+## Contributing
+
+The translation strings are maintained in "DevTools - VS Code" project in Microsoft Localization Community Platform (MLCP).
+
+If you'd like to participate in the effort either to contribue translation or improve translation, see [community localisation page](https://aka.ms/vscodeloc) for more information.
+
+## License
+
+The source code and strings are licensed under the [MIT](https://github.com/Microsoft/vscode-loc/blob/master/LICENSE.md) license.
+
+## Credits
+
+English (United Kingdom) Language Pack is brought to you through "By the community, for the community" community localisation effort.
+
+Special thanks to community contributors for making it available.
+
+**Top Contributors:**
+
+* Matthew John Cheetham
+
+**Contributors:**
+
+* Alexander Ogilvie
+
+**Enjoy!**
+
 ]]></description>
     <summary>Language pack extension for English (United Kingdom)</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-en-gb#changelog</releaseNotes>
     <tags>vscode extension language-pack-en-gb</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
