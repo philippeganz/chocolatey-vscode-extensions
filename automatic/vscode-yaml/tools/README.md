@@ -299,3 +299,4 @@ The `vscode-yaml` extension collects anonymous [usage data](https://github.com/r
 ## How to contribute
 
 The instructions are available in the [contribution guide](https://github.com/redhat-developer/vscode-yaml/blob/HEAD/CONTRIBUTING.md).
+

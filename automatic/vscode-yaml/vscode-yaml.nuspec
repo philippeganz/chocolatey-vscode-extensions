@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-yaml</id>
-    <version>1.25.2026070808</version>
+    <version>1.25.2026071508</version>
     <title>Visual Studio Code Extension - YAML</title>
     <authors>redhat</authors>
     <projectUrl>https://github.com/redhat-developer/vscode-yaml</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-yaml/1.24.2026062509/1782378729804/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-yaml/1.25.2026071508/1784105484565/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
@@ -55,7 +55,7 @@ Default YAML spec version is `1.2`, it can be changed with `yaml.yamlVersion` se
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml#changelog</releaseNotes>
     <tags>vscode extension yaml</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
