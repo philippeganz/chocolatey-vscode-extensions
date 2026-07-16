@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-vsc-python-indent</id>
-    <version>0.0.0</version>
+    <version>1.21.0</version>
     <title>Visual Studio Code Extension - Python Indent</title>
     <authors>KevinRose</authors>
     <projectUrl>https://github.com/kbrose/vsc-python-indent.git</projectUrl>
@@ -11,13 +11,108 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=kevinrose.vsc-python-indent</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Correct Python indentation
+# Python Indent
+
+Correct Python indentation in Visual Studio Code. See the extension on the [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=KevinRose.vsc-python-indent&ssr=true) and its source code on [GitHub](https://github.com/kbrose/vsc-python-indent).
+
+![](https://github.com/kbrose/vsc-python-indent/raw/HEAD/static/demo.gif)
+
+[![Build Status](https://github.com/kbrose/vsc-python-indent/actions/workflows/ci.yml/badge.svg)](https://github.com/kbrose/vsc-python-indent/actions?query=branch%3Amain)
+[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/KevinRose.vsc-python-indent)](https://marketplace.visualstudio.com/items?itemName=KevinRose.vsc-python-indent)
+
+## How it works
+
+When you press `Enter`, your Python code is parsed up to the cursor in order to find the correct indentation level of nearby lines. Because the "correct" indentation level can be an arbitrary number of spaces, the use of tabs (`\t`) is not supported.
+
+For more detailed explanation of the behavior, see the section "Detailed Behavior" below.
+
+## Settings
+
+There are three exposed settings.
+
+* `pythonIndent.useTabOnHangingIndent`
+* `pythonIndent.useTabOnHangingIndent`
+    * boolean, the default is false
+    * If true, after creating a hanging indent (see [footnote 1 of PEP8](https://peps.python.org/pep-0008/#fn-hi) for a definition of a hanging indent), you can use the tab key to leave the indented section and go to the ending bracket.
+* `pythonIndent.trimLinesWithOnlyWhitespace`
+    * boolean, the default is false
+    * If true, trims lines that contain only whitespace after pressing Enter on them. This behavior is similar to VS Code's default.
+* `pythonIndent.keepHangingBracketOnLine`
+    * boolean, the default is false
+    * If true, when creating a hanging indent, do not put the closing bracket on its own line.
+
+## Release notes
+
+See the [change log](https://github.com/kbrose/vsc-python-indent/blob/HEAD/CHANGELOG.md).
+
+## Detailed behavior
+
+There are three main cases when determining the correct indentation, described below.
+
+### Between bracket pairs
+
+In cases when you have your cursor between an open bracket (one of `[({`) and its closing bracket pair (the corresponding one of `})]`), this extension will keep subsequent lines indented just to the right of where it was opened:
+
+```python
+data = {'a': 0,
+        | # <- pressing enter should put your cursor at the "|"
+| # <- this is where default VS Code puts your cursor
+```
+
+Even heavily nested brackets are handled:
+
+```python
+data = {'a': 0,
+        'b': [[1, 2],
+              | # <- match the more recently opened [ instead of the {
+        | # <- default behavior of VS Code
+```
+
+```python
+data = {'a': 0,
+        'b': [[1, 2],
+              [3, 4]],
+        | # <- since the lists are all closed, go back to the { position
+              | # <- default behavior of VS Code
+```
+
+```python
+data = {'a': 0,
+        'b': [[1, 2],
+              [3, 4]],
+        'c': 5}
+| # <- go back to indentation level before any brackets were opened
+        | # <- default behavior of VS Code
+```
+
+In the full example below, default VS Code required nine extra key presses (three tabs, two spaces, and four backspaces) to match the *automatic* indentation of this extension.
+
+```python
+data = {'a': 0,
+        'b': [[1, 2],
+              [3, 4]],
+        'c': 5}
+done(data)
+```
+
+### Hanging indents
+
+When you have opened a bracket, but not yet inserted any content, pressing `Enter` will create a hanging indent, matching the base behavior of VS Code.
+
+```python
+result = my_func(
+    | # <- your cursor should end up here
+) # <- the closing bracket should end up here
+```
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=KevinRose.vsc-python-indent) for full documentation]
 ]]></description>
     <summary>Correct Python indentation</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=kevinrose.vsc-python-indent#changelog</releaseNotes>
     <tags>vscode extension vsc-python-indent</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

@@ -212,3 +212,4 @@ Known caveats are listed below.
 * The extension works by registering the `Enter` key as a keyboard shortcut. The conditions when the shortcut is triggered have been heavily restricted, but there may still be times this extension is unexpectedly overriding `Enter` behavior. Specifically, `vim` related plugins seem to require special attention. See the [`when`](https://code.visualstudio.com/api/references/when-clause-contexts) clause in [package.json](https://github.com/kbrose/vsc-python-indent/blob/HEAD/package.json).
 
 If you experience any problems, please submit an [issue](https://github.com/kbrose/vsc-python-indent/issues), or a [pull request](https://github.com/kbrose/vsc-python-indent/pulls).
+
