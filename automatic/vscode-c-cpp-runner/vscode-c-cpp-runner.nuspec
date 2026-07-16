@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-c-cpp-runner</id>
-    <version>0.0.0</version>
+    <version>9.5.0</version>
     <title>Visual Studio Code Extension - C/C++ Runner</title>
     <authors>franneck94</authors>
     <projectUrl>https://github.com/franneck94/vscode-c-cpp-runner.git</projectUrl>
@@ -11,15 +11,76 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=franneck94.c-cpp-runner</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-🚀 Compile, run and debug single or multiple C/C++ files with ease. 🚀
+# VSCode C/C++ Runner
+
+🚀 Compile, run and debug [**single**](#compile-a-single-file) or [**multiple**](#compile-all-files-in-one-folder) C/C++/Cuda files with ease. 🚀  
+You do not need to know about any compiler commands. 😎
+
+## Example
+
+![ExampleGif](https://github.com/franneck94/vscode-c-cpp-runner/raw/HEAD/media/ExecuteTasks.gif?raw=true)
+
+## Software Requirements
+
+- 🔧 Any GCC, Clang, MSVC or Cuda NVCC compiler
+
+Make sure that your GCC/Clang compiler is either in your [PATH](https://superuser.com/a/284351) or you have to manually set the **C/C++ Compiler** setting of this extension.  
+For Windows Users that want to use the [Visual Studio compiler](https://visualstudio.microsoft.com/) (called **MSVC**) see instructions [here](#using-the-msvc-compiler).  
+For Cuda code the **NVCC** Compiler will be automatically called.
+
+## The Extension automatically activates when
+
+- There is a C/C++ file in the **root** directory of your workspace
+- You open a C/C++ file in your workspace
+
+## Compile a single file
+
+1️⃣ Open the C/C++ file you want to compile (build).  
+2️⃣ Select either debug or release mode for building the binary (debug is the default case).  
+3️⃣ To build the binary press **ctrl+alt+b**.  
+4️⃣ To run the binary press **ctrl+alt+r**, or you can click on the play icon in the status bar down below.  
+5️⃣ To debug the binary press **ctrl+alt+d**, or you can click on the bug icon in the status bar down below.  
+
+## Compile all files in one folder
+
+1️⃣ Select the folder that contains the C/C++ files you want to compile.  
+You can select the folder by the quick pick menu from the status bar.  
+![TaskStatusBar](https://github.com/franneck94/vscode-c-cpp-runner/raw/HEAD/media/FolderStatusBar.png)  
+2️⃣ Optional: Select either debug or release mode for building the binary (debug is the default case).  
+![TaskStatusBar](https://github.com/franneck94/vscode-c-cpp-runner/raw/HEAD/media/ModeStatusBar.png)  
+3️⃣ Now you can build/run/debug the binary.  
+![TaskStatusBar](https://github.com/franneck94/vscode-c-cpp-runner/raw/HEAD/media/TaskStatusBar.png)
+
+- ⚙️ Build: This task will compile all C/C++ files in the selected folder and will link them into a binary.  
+- ▶️ Run*: This task will execute the built binary.  
+- 🗑️ Clean*: This helper task will delete all files in the build dir.
+- 🐞 Debug*: This task will start a debugging session for the binary.  
+
+*This task is a no-op if the build task was not executed previously.
+
+## Basic Features
+
+### Configuration
+
+The configuration settings will be stored **locally** in *".vscode/settings.json"*.  
+![FoundCompiler](https://github.com/franneck94/vscode-c-cpp-runner/raw/HEAD/media/Settings.png)  
+
+Based on that, the local *".vscode/c_cpp_properties.json"* file is created.  
+It will be used by [Microsoft's *C/C++*](https://code.visualstudio.com/docs/cpp/c-cpp-properties-schema-reference) extension for intellisense (auto-completion etc.).  
+Note: You **don't** have to edit the **c_cpp_properties.json** file.  
+
+### Basic settings
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=franneck94.c-cpp-runner) for full documentation]
 ]]></description>
     <summary>🚀 Compile, run and debug single or multiple C/C++ files with ease. 🚀</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=franneck94.c-cpp-runner#changelog</releaseNotes>
     <tags>vscode extension c-cpp-runner</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-cpptools" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-cpptools" />
       <dependency id="vscode-lldb" />
- </dependencies>
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

@@ -169,3 +169,4 @@ Feel free to donate, such that I have more time to work on my VSCode extension*s
 ![PayPal QR Code](https://github.com/franneck94/vscode-c-cpp-runner/raw/HEAD/media/QR-Code.png)
 
 Or use the Link: <https://www.paypal.com/donate/?hosted_button_id=3WDK6ET99ZQCU>
+
