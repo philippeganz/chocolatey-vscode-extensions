@@ -28,3 +28,4 @@ If you have any issues report them at [Issues](https://github.com/sidthesloth92/
 
 # Source
 [Github](https://github.com/sidthesloth92/vsc_html5_boilerplate)
+
