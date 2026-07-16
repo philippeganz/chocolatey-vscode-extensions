@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-azure-account</id>
-    <version>0.0.0</version>
+    <version>0.13.0</version>
     <title>Visual Studio Code Extension - Azure Account</title>
     <authors>ms-vscode</authors>
     <projectUrl>https://github.com/microsoft/vscode-azure-account.git</projectUrl>
@@ -11,14 +11,60 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-A common Sign In and Subscription management extension for VS Code.
+# (Deprecated) Azure Account and Sign In
+
+<!-- region exclude-from-marketplace -->
+
+[![Version](https://img.shields.io/visual-studio-marketplace/v/ms-vscode.azure-account.svg)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) [![Installs](https://img.shields.io/visual-studio-marketplace/i/ms-vscode.azure-account.svg)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) [![Build Status](https://dev.azure.com/ms-azuretools/AzCode/_apis/build/status/vscode-azure-account?branchName=main)](https://dev.azure.com/ms-azuretools/AzCode/_build/latest?definitionId=37&branchName=main)
+
+<!-- endregion exclude-from-marketplace -->
+
+⚠️ Attention extension authors! The Azure Account extension is deprecated (January 2025). If you own an Azure extension that relies on Azure Account, or are creating a new extension that needs authentication to Azure, please see the [deprecation announcement](https://github.com/microsoft/vscode-azure-account/issues/964) for guidance.
+
+The Azure Account extension provides a single Azure sign in and subscription filtering experience for all other Azure extensions. It makes Azure's Cloud Shell service available in VS Code's integrated terminal.
+
+## Signing In/Out
+
+There are multiple commands accessible via the [command palette](https://aka.ms/AAephuz) that may be used to sign into Azure.
+
+![Sign in commands in the command palette](https://github.com/microsoft/vscode-azure-account/raw/HEAD/resources/readme/signInCommands.png)
+
+Sign out of Azure using the `Azure: Sign Out` command.
+
+![The sign out command in the command palette](https://github.com/microsoft/vscode-azure-account/raw/HEAD/resources/readme/signOutCommand.png)
+
+## Azure Cloud Shell
+
+> Note: The Azure Cloud Shell feature has moved to the [Azure Resources extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups). Apart from moving codebases, the feature is the same from a users perspective. Authentication for the Cloud Shell feature is now handled by the VS Code built-in Microsoft authentication provider, which means you may have to login upon first use of the migrated feature.
+
+Azure Cloud Shell instances can be started via the terminal view in VS Code. To begin, click the
+dropdown arrow in the terminal view and select from either `Azure Cloud Shell (Bash)` or
+`Azure Cloud Shell (PowerShell)`.
+
+![VS Code terminal view with context menu](https://github.com/microsoft/vscode-azure-account/raw/HEAD/resources/readme/terminalViewWithMenu.png)
+
+If this is your first time using the Cloud Shell, the following notification will appear prompting
+you to set it up.
+
+!["Must setup cloud shell" notification](https://github.com/microsoft/vscode-azure-account/raw/HEAD/resources/readme/mustSetupCloudShell.png)
+
+The Cloud Shell will load in the terminal view once you've finished configuring it.
+
+![The Azure Cloud Shell in the terminal window](https://github.com/microsoft/vscode-azure-account/raw/HEAD/resources/readme/cloudShell.png)
+
+You may also upload to the Cloud Shell using the `Azure: Upload to Cloud Shell` command.
+
+## Commands
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) for full documentation]
 ]]></description>
     <summary>A common Sign In and Subscription management extension for VS Code.</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account#changelog</releaseNotes>
     <tags>vscode extension azure-account</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-azureresourcegroups" />
- </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-azureresourcegroups" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
