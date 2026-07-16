@@ -76,3 +76,4 @@ The last command will open the folder in VS Code. Hit `F5` to launch an Extensio
 For working on the language server, the easiest way is to replace the language server installation from composer in `vendor/felixfbecker/language-server` with a symlink to your local clone.
 
 **For guidance on how to work on the language server, please see the [language server repository](https://github.com/felixfbecker/php-language-server).**
+
