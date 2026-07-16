@@ -53,3 +53,4 @@ NOTE: The file for which the history is to be viewed, must already be opened.
 ## License
 
 [MIT](https://raw.githubusercontent.com/DonJayamanne/gitHistoryVSCode/main/LICENSE)
+
