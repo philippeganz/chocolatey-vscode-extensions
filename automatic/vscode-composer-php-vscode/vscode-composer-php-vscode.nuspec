@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-composer-php-vscode</id>
-    <version>1.71.19071</version>
+    <version>1.71.19076</version>
     <title>Visual Studio Code Extension - Composer</title>
     <authors>DEVSENSE</authors>
     <projectUrl>https://github.com/DEVSENSE/phptools-docs.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://DEVSENSE.gallerycdn.vsassets.io/extensions/devsense/composer-php-vscode/1.71.19071/1784032974183/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://DEVSENSE.gallerycdn.vsassets.io/extensions/devsense/composer-php-vscode/1.71.19076/1784209797297/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=devsense.composer-php-vscode</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
