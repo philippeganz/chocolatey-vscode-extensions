@@ -123,3 +123,4 @@ The Azure Functions extension for VS Code follows the [Modern Lifecycle Policy](
 ## License
 
 [MIT](https://github.com/Microsoft/vscode-azurefunctions/blob/main/LICENSE.md)
+
