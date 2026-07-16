@@ -97,6 +97,13 @@ This section describes major releases and their improvements. For a detailed lis
 
 From version 2.2.3 on forward odd minor or patch version numbers indicate an insider or pre-release. So versions `2.2.3`, `2.2.5` and `2.3.1` will all be pre-release versions. `2.2.10`, `2.4.10` and `3.0.0` will all be regular release versions.
 
+### Version 3.0.34 - release
+
+- add support for bulk suppression (see new settings eslint.bulkSuppression.*)
+- move to latest LSP libraries
+- [Bug fixes](https://github.com/microsoft/vscode-eslint/issues?q=is%3Aissue%20state%3Aclosed%20milestone%3A3.0.34)
+- [PRs](https://github.com/microsoft/vscode-eslint/pulls?q=is%3Apr+milestone%3A3.0.34+is%3Aclosed)
+
 ### Version 3.0.33 - pre-release
 
 - move to latest LSP libraries
@@ -559,4 +566,5 @@ As with JavaScript validating TypeScript in a mono repository requires that you 
 ## ESLint 6.x
 
 Migrating from ESLint 5.x to ESLint 6.x might need some adaption (see the [ESLint Migration Guide](https://eslint.org/docs/user-guide/migrating-to-6.0.0) for details). Before filing an issue against the VS Code ESLint extension please ensure that you can successfully validate your files in a terminal using the eslint command.
+
 
