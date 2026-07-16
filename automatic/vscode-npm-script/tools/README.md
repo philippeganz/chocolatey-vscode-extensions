@@ -72,3 +72,4 @@ If you prefer the old keybindings starting with `R` you can define the setting `
 [install-url]: https://vsmarketplacebadge.apphb.com/installs/eg2.vscode-npm-script.svg
 [rate-url]: https://vsmarketplacebadge.apphb.com/rating/eg2.vscode-npm-script.svg
 [license-url]: https://img.shields.io/github/license/microsoft/vscode-npm-scripts.svg
+
