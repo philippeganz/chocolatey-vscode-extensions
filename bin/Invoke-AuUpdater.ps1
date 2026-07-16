@@ -60,10 +60,12 @@ Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -Force
 # $global:au_Push = $true -> Ensures the package is uploaded to the Community Gallery
 # $global:au_Force = $false -> Default state. When $true, it bypasses internal version math and forces AU to rebuild the package even if versions match.
 # $global:au_NoCheckRegistry = $true -> Prevents Test-Package from scanning the Windows Registry (Add/Remove Programs) since VS Code extensions don't write to it.
+# $global:au_NoCheckChocoVersion = $true -> Forces AU to decouple from the Chocolatey Community API. It natively compares local .nuspec versions directly against the VS Code Marketplace, ensuring the Git repository acts as the absolute source of truth and stays in sync even if upstream push phases fail.
 # -----------------------------------------------------------------------------
 $global:au_Push = $true
 $global:au_Force = $false
 $global:au_NoCheckRegistry = $true
+$global:au_NoCheckChocoVersion = $true
 
 if ($PushUrl) {
     $global:au_PushUrl = $PushUrl
