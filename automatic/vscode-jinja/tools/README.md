@@ -27,3 +27,4 @@ If you have a previous release of the extension installed and you perform these 
 
 ## License
 [MIT](https://github.com/wholroyd/vscode-jinja/blob/master/LICENSE)
+
