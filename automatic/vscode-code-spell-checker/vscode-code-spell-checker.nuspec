@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-code-spell-checker</id>
-    <version>0.0.0</version>
+    <version>4.6.0</version>
     <title>Visual Studio Code Extension - Code Spell Checker</title>
     <authors>streetsidesoftware</authors>
     <projectUrl>https://github.com/streetsidesoftware/vscode-spell-checker.git</projectUrl>
@@ -11,13 +11,69 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Spelling checker for source code
+# Spelling Checker for Visual Studio Code
+
+A basic spell checker that works well with code and documents.
+
+The goal of this spell checker is to help catch common spelling errors while keeping the number of false positives low.
+
+## Support Further Development
+
+[![GitHub Sponsors](https://img.shields.io/badge/-Street_Side_Software-black?style=for-the-badge&logo=githubsponsors&label=GitHub%20Sponsor%3A)](https://github.com/sponsors/streetsidesoftware)
+
+[![PayPal](https://img.shields.io/badge/-Street_Side_Software-black?style=for-the-badge&logo=paypal&label=PayPal%20Donate%3A)](https://www.paypal.com/donate/?hosted_button_id=26LNBP2Q6MKCY)
+
+[![Open Collective](https://img.shields.io/badge/-Code_Spell_Checker-black?style=for-the-badge&logo=opencollective&label=Open%20Collective%3A)](https://opencollective.com/code-spell-checker)
+
+[![Street Side Software](https://img.shields.io/badge/Street_Side_Software-Sponsor-black.svg?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiBmaWxsPSJub25lIj48bWFzayBpZD0iYSIgbWFzay10eXBlPSJsdW1pbmFuY2UiPjxjaXJjbGUgY3g9IjUwJSIgY3k9IjUwJSIgcj0iOTkiIGZpbGw9IiNmZmYiLz48L21hc2s+PGNpcmNsZSBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiIGZpbGw9IiMwMDAiLz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZmIiBtYXNrPSJ1cmwoI2EpIi8+PHJlY3QgeD0iNzAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEyOCIgZmlsbD0iI2YzZWM0ZSIgbWFzaz0idXJsKCNhKSIvPjxyZWN0IHk9IjEyOCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2E2MmMxNyIgbWFzaz0idXJsKCNhKSIvPjxyZWN0IHg9IjYyIiB3aWR0aD0iMTQiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzAwMCIgbWFzaz0idXJsKCNhKSIvPjxyZWN0IHk9IjEyMSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTQiIGZpbGw9IiMwMDAiIG1hc2s9InVybCgjYSkiLz48L3N2Zz4=)](https://streetsidesoftware.com/sponsor/)
+
+## Functionality
+
+Load a TypeScript, JavaScript, Text, etc. file. Words not in the dictionary files will have
+a squiggly underline.
+
+### Example
+
+![Example](https://raw.githubusercontent.com/streetsidesoftware/vscode-spell-checker/main/images/example.gif)
+
+## Suggestions
+
+![Example](https://raw.githubusercontent.com/streetsidesoftware/vscode-spell-checker/main/images/suggestions.gif)
+
+To see the list of suggestions:
+
+After positioning the cursor in the word, any of the following should display the list of suggestions:
+
+- Click on the 💡 (lightbulb) in the left hand margin.
+- [`Quick Fix`](https://code.visualstudio.com/docs/getstarted/keybindings#_rich-languages-editing) Editor action command:
+    - Mac: `⌘`+`.` or `Cmd`+`.`
+    - PC: `Ctrl`+`.`
+
+## Install
+
+Open up VS Code and hit `F1` and type `ext` select install and type `code-spell-checker` hit enter and reload window to enable.
+
+## Supported Languages
+
+- English (US)
+- English (GB) - turn on by changing `"cSpell.language": "en"` to `"cSpell.language": "en-GB"`
+
+## Add-On Dictionaries
+
+<!--- cspell:disable --->
+
+<!--- @@inject: https://github.com/streetsidesoftware/vscode-cspell-dict-extensions/blob/main/static/generated/marketplace_language_extensions.md --->
+
+### Language Dictionaries
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) for full documentation]
 ]]></description>
     <summary>Spelling checker for source code</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker#changelog</releaseNotes>
     <tags>vscode extension code-spell-checker</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
