@@ -35,3 +35,4 @@ Another option is to give the data inspector a dedicated activity bar entry on t
 ## Known Issues
 
 To track existing issues or report a new one, please visit the GitHub Issues page at https://github.com/microsoft/vscode-hexeditor/issues
+
