@@ -380,3 +380,4 @@ command is executed on the entire document.
 ## Thank You! ❤️
 
 While I wrote the initial version of this extension, many people (too many to name) have helped make it what it is today. From providing TypeScript definitions to keeping up with changing API and best practices. If you are enjoying this extension, you have the great React community to thank.
+

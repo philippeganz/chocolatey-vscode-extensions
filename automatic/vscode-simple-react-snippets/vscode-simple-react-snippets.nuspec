@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-simple-react-snippets</id>
-    <version>0.0.0</version>
+    <version>1.2.8</version>
     <title>Visual Studio Code Extension - Simple React Snippets</title>
     <authors>burkeholland</authors>
     <projectUrl>https://github.com/burkeholland/simple-react-snippets.git</projectUrl>
@@ -11,13 +11,67 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=burkeholland.simple-react-snippets</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Dead simple React snippets you will actually use
+# Simple React Snippets
+
+The essential collection of React Snippets and commands.
+
+![snippets in action](https://github.com/burkeholland/simple-react-snippets/raw/HEAD/images/snippets-in-action.gif)
+
+## Features
+
+Only what you need and nothing more. **No Redux. No React Native.**
+
+Simply, simple React snippets.
+
+These snippets were selected carefully from my own day-to-day React use. Not
+everything in React is included here. This is a hand selected set of snippets
+that work the way that you would expect, not just a copy of the documentation.
+
+## Snippets
+
+| Snippet | Renders                                       |
+| ------- | --------------------------------------------- |
+| `ccc`   | Class Component With Constructor              |
+| `cc`    | Class Component                               |
+| `cdc`   | componentDidCatch                             |
+| `cdm`   | componentDidMount                             |
+| `cdu`   | componentDidUpdate                            |
+| `cp`    | Context Provider                              |
+| `cpf`   | Class Property Function                       |
+| `cpc`   | Class Pure Component                          |
+| `cwm`   | componentWillMount                            |
+| `cwrp`  | componentWillReceiveProps                     |
+| `cwu`   | componentWillUpdate                           |
+| `cwun`  | componentWillUnmount                          |
+| `ffc`   | Function Component                            |
+| `gds`   | getDerivedStateFromProps                      |
+| `gsbu`  | getSnapshotBeforeUpdate                       |
+| `hoc`   | Higher Order Component                        |
+| `impc`  | Import React / PureComponent                  |
+| `imrd`  | Import ReactDOM                               |
+| `imrc`  | Import React / Component                      |
+| `imr`   | Import React                                  |
+| `imrs`  | Import React / useState                       |
+| `imrse` | Import React / useState useEffect             |
+| `impt`  | Import PropTypes                              |
+| `ren`   | render                                        |
+| `rprop` | Render Prop                                   |
+| `scu`   | shouldComponentUpdate                         |
+| `sfc`   | Stateless Function Component (Arrow function) |
+| `ssf`   | Functional setState                           |
+| `ss`    | setState                                      |
+| `ucb`   | useCallback Hook                              |
+| `uef`   | useEffect Hook                                |
+| `usf`   | Declare a new state variable using State Hook |
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=burkeholland.simple-react-snippets) for full documentation]
 ]]></description>
     <summary>Dead simple React snippets you will actually use</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=burkeholland.simple-react-snippets#changelog</releaseNotes>
     <tags>vscode extension simple-react-snippets</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
