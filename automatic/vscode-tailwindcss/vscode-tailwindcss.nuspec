@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-tailwindcss</id>
-    <version>0.0.0</version>
+    <version>0.15.7</version>
     <title>Visual Studio Code Extension - Tailwind CSS IntelliSense</title>
     <authors>bradlc</authors>
     <projectUrl>https://github.com/tailwindlabs/tailwindcss-intellisense.git</projectUrl>
@@ -11,13 +11,98 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Intelligent Tailwind CSS tooling for VS Code
+
+
+Tailwind CSS IntelliSense enhances the Tailwind development experience by providing Visual Studio Code users with advanced features such as autocomplete, syntax highlighting, and linting.
+
+## Installation
+
+**[Install via the Visual Studio Code Marketplace →](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)**
+
+In order for the extension to activate you must have [`tailwindcss` installed](https://tailwindcss.com/docs/installation) and one of these:
+
+- For v4 and later, a `.css` file that imports a Tailwind CSS stylesheet (e.g. `@import "tailwindcss"`)
+- For v3 and earlier, a [Tailwind CSS config file](https://v3.tailwindcss.com/docs/configuration#creating-your-configuration-file) named `tailwind.config.{js,cjs,mjs,ts,cts,mts}` in your workspace.
+- For v3 and earlier, a stylesheet that points to a config file via `@config`
+
+## Features
+
+### Autocomplete
+
+Intelligent suggestions for class names, as well as [CSS functions and directives](https://tailwindcss.com/docs/functions-and-directives/).
+
+
+
+### Linting
+
+Highlights errors and potential bugs in both your CSS and your markup.
+
+
+
+### Hover Preview
+
+See the complete CSS for a Tailwind class name by hovering over it.
+
+
+
+### Tailwind CSS Language Mode
+
+An alternative to VS Code's built-in CSS language mode which maintains full CSS IntelliSense support even when using Tailwind-specific at-rules. Syntax definitions are also provided so that Tailwind-specific syntax is highlighted correctly in all CSS contexts.
+
+## Recommended VS Code Settings
+
+### `files.associations`
+
+Use the `files.associations` setting to tell VS Code to always open `.css` files in Tailwind CSS mode:
+
+```json
+"files.associations": {
+  "*.css": "tailwindcss"
+}
+```
+
+### `editor.quickSuggestions`
+
+By default VS Code will not trigger completions when editing "string" content, for example within JSX attribute values. Updating the `editor.quickSuggestions` setting may improve your experience:
+
+```json
+"editor.quickSuggestions": {
+  "strings": "on"
+}
+```
+
+## Extension Commands
+
+### `Tailwind CSS: Show Output`
+
+Reveal the language server log panel. This command is only available when there is an active language server instance.
+
+### `Tailwind CSS: Sort Selection` (pre-release)
+
+When a list of CSS classes is selected this command can be used to sort them in [the same order that Tailwind orders them in your CSS](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted). This command is only available when the current document belongs to an active Tailwind project and the `tailwindcss` version is `3.0.0` or greater.
+
+## Extension Settings
+
+### `tailwindCSS.includeLanguages`
+
+This setting allows you to add additional language support. The key of each entry is the new language ID and the value is any one of the extensions [built-in languages](https://github.com/tailwindlabs/tailwindcss-intellisense/blob/main/packages/tailwindcss-language-service/src/util/languages.ts), depending on how you want the new language to be treated (e.g. `html`, `css`, or `javascript`):
+
+```json
+{
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html"
+  }
+}
+```
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) for full documentation]
 ]]></description>
     <summary>Intelligent Tailwind CSS tooling for VS Code</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss#changelog</releaseNotes>
     <tags>vscode extension tailwindcss</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
