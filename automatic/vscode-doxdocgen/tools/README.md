@@ -255,3 +255,4 @@ Each of them can be configured with its own custom text and you can decide if th
 ## What's to come
 
 [See open features](https://github.com/cschlosser/doxdocgen/labels/enhancement)
+
