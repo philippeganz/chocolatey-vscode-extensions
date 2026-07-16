@@ -135,3 +135,4 @@ Contributions are greatly appreciated. Please fork the repository and submit a p
 ## 1.0.0
 
 - Shamelessly copied code from [https://github.com/abierbaum/vscode-file-peek](https://github.com/abierbaum/vscode-file-peek)
+
