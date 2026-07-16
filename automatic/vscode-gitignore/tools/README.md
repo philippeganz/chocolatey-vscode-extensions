@@ -57,3 +57,4 @@ See [LICENSE](https://github.com/CodeZombieCH/vscode-gitignore/blob/HEAD/LICENSE
 ## Credits
 
 Icon based on the Git logo by Jason Long
+
