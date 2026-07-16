@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-debugger-for-chrome</id>
-    <version>0.0.0</version>
+    <version>4.13.0</version>
     <title>Visual Studio Code Extension - [Deprecated] Debugger for Chrome</title>
     <authors>msjsdiag</authors>
     <projectUrl>https://github.com/Microsoft/vscode-chrome-debug</projectUrl>
@@ -11,13 +11,77 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Debug your JavaScript code in the Chrome browser, or any other target that supports the Chrome Debugger protocol.
+## :rotating_light: Important
+
+This extension has been deprecated as Visual Studio Code now has a [bundled JavaScript Debugger](https://github.com/microsoft/vscode-js-debug) that covers the same functionality. It is a debugger that debugs Node.js, Chrome, Edge, WebView2, VS Code extensions, and more. You can safely un-install this extension and you will still be able to have the functionality you need.
+
+Please file any issues you encounter in [that repository](https://github.com/microsoft/vscode-js-debug).
+
+---
+
+
+  
+
+    
+  
+
+  VS Code - Debugger for Chrome
+  
+
+  
+
+
+
+Debug your JavaScript code running in Google Chrome from VS Code.
+
+
+  <a href="https://vscode.visualstudio.com/1e32b5a6-a974-467b-9d5f-f47e49589c5e/_build/definition?definitionId=9"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome"></a>
+    <a href="https://gitter.im/Microsoft/vscode-chrome-debug?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"></a>
+
+
+
+A VS Code extension to debug your JavaScript code in the Google Chrome browser, or other targets that support the [Chrome DevTools Protocol](https://chromedevtools.github.io/debugger-protocol-viewer/).
+
+![Demo](https://github.com/Microsoft/vscode-chrome-debug/blob/master/images/demo.gif?raw=true)
+
+**Supported features**
+* Setting breakpoints, including in source files when source maps are enabled
+* Stepping, including with the buttons on the Chrome page
+* The Locals pane
+* Debugging eval scripts, script tags, and scripts that are added dynamically
+* Watches
+* Console
+
+**Unsupported scenarios**
+* Debugging web workers
+* Debugging Chrome extensions
+* Any features that aren't script debugging
+
+## Getting Started
+1. [Install the extension](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+2. Open the folder containing the project you want to work on.
+
+## Using the debugger
+
+When your launch config is set up, you can debug your project. Pick a launch config from the dropdown on the Debug pane in Code. Press the play button or F5 to start.
+
+### Configuration
+
+The extension operates in two modes - it can launch an instance of Chrome navigated to your app, or it can attach to a running instance of Chrome. Both modes requires you to be serving your web application from local web server, which is started from either a VS Code task or from your command-line. Using the `url` parameter you simply tell VS Code which URL to either open or launch in Chrome.
+
+Just like when using the Node debugger, you configure these modes with a `.vscode/launch.json` file in the root directory of your project. You can create this file manually, or Code will create one for you if you try to run your project, and it doesn't exist yet.
+
+> **Tip**: See recipes for debugging different frameworks here: https://github.com/Microsoft/vscode-recipes
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) for full documentation]
 ]]></description>
     <summary>Debug your JavaScript code in the Chrome browser, or any other target that supports the Chrome Debugger protocol.</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome#changelog</releaseNotes>
     <tags>vscode extension debugger-for-chrome</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

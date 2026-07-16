@@ -275,3 +275,4 @@ If you are wondering what a script is, for example, that 'eval' script, you can 
 ---
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [[email removed]](https://github.com/Microsoft/vscode-chrome-debug/blob/master/mailto:[email removed]) with any additional questions or comments.
+
