@@ -112,3 +112,4 @@ npm run vscode:prepublish
 ```
 
 Running `npm run compile` makes the compiler recompile on file change.
+
