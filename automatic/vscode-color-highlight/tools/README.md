@@ -20,3 +20,4 @@ Please answer the questions in this questionnaire. Your feedback is very valuabl
 - [lochstar](https://github.com/lochstar) - Styling modes for the marker
 
 Feel free to contribute!
+
