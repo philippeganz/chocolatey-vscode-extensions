@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-c-cpp-compile-run</id>
-    <version>0.0.0</version>
+    <version>1.0.92</version>
     <title>Visual Studio Code Extension - C/C++ Compile Run</title>
     <authors>danielpinto8zz6</authors>
     <projectUrl>https://github.com/danielpinto8zz6/c-cpp-compile-run.git</projectUrl>
@@ -11,13 +11,57 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=danielpinto8zz6.c-cpp-compile-run</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Easily compile, run, and debug single C/C++ files in VS Code.
+![Logo](https://github.com/danielpinto8zz6/c-cpp-compile-run/raw/HEAD/resources/logo.png)
+
+# C/C++ Compile Run Extension
+
+<a href="https://www.buymeacoffee.com/danielpinto8zz6" target="_blank"></a>
+[![Support via PayPal](https://github.com/danielpinto8zz6/c-cpp-compile-run/raw/HEAD/resources/paypal-donate-button.png)](https://www.paypal.me/danielpinto8zz6/)
+
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/danielpinto8zz6.c-cpp-compile-run)](https://marketplace.visualstudio.com/items?itemName=danielpinto8zz6.c-cpp-compile-run)
+[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/danielpinto8zz6.c-cpp-compile-run)](https://marketplace.visualstudio.com/items?itemName=danielpinto8zz6.c-cpp-compile-run)
+[![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/danielpinto8zz6.c-cpp-compile-run)](https://marketplace.visualstudio.com/items?itemName=danielpinto8zz6.c-cpp-compile-run&ssr=false#review-details)
+[![Open VSX Version](https://img.shields.io/open-vsx/v/danielpinto8zz6/c-cpp-compile-run)](https://open-vsx.org/extension/danielpinto8zz6/c-cpp-compile-run)
+[![Open VSX Downloads](https://img.shields.io/open-vsx/dt/danielpinto8zz6/c-cpp-compile-run)](https://open-vsx.org/extension/danielpinto8zz6/c-cpp-compile-run)
+[![Open VSX Rating](https://img.shields.io/open-vsx/rating/danielpinto8zz6/c-cpp-compile-run)](https://open-vsx.org/extension/danielpinto8zz6/c-cpp-compile-run/reviews)
+
+A Visual Studio Code extension to **compile, run, and debug** single C/C++ files easily.
+
+![Extension Screenshot](https://github.com/danielpinto8zz6/c-cpp-compile-run/raw/HEAD/resources/extension.png)
+
+## Features
+
+- Compile, run, and debug C/C++ files directly from the command palette, status bar, or menu icons.
+- Quick access via keybindings: `F6`, `F7`, `F5`, and more.
+- Supports custom compiler paths, flags, and run arguments.
+- Option to run in an external terminal.
+
+## Requirements
+
+- **Linux:** Install `gcc` ([setup instructions](https://github.com/danielpinto8zz6/c-cpp-compile-run/blob/HEAD/docs/COMPILER_SETUP.md#Linux))
+- **Windows:** Install `tdm-gcc` ([setup instructions](https://github.com/danielpinto8zz6/c-cpp-compile-run/blob/HEAD/docs/COMPILER_SETUP.md#Windows))
+- **macOS:** Install `clang` or `gcc` ([setup instructions](https://github.com/danielpinto8zz6/c-cpp-compile-run/blob/HEAD/docs/COMPILER_SETUP.md#MacOS))
+
+## Getting Started
+
+1. Open a `.c` or `.cpp` file in VS Code.
+2. Press **F6** to compile and run the file with default settings.
+3. Press **F7** to specify custom arguments before running.
+4. Press **F5** to debug (includes compilation).
+5. Use the status bar or menu icons for quick access.
+
+> **Tip:** You can configure compiler paths, flags, and other options in the extension settings. Enable "Save Before Compile" to automatically save files before building.
+
+## Configuration
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=danielpinto8zz6.c-cpp-compile-run) for full documentation]
 ]]></description>
     <summary>Easily compile, run, and debug single C/C++ files in VS Code.</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=danielpinto8zz6.c-cpp-compile-run#changelog</releaseNotes>
     <tags>vscode extension c-cpp-compile-run</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
