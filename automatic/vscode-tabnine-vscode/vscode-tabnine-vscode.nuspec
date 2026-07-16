@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-tabnine-vscode</id>
-    <version>0.0.0</version>
+    <version>3.335.0</version>
     <title>Visual Studio Code Extension - (Legacy) Tabnine</title>
     <authors>TabNine</authors>
     <projectUrl>https://github.com/codota/tabnine-vscode.git</projectUrl>
@@ -11,13 +11,15 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=tabnine.tabnine-vscode</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Tabnine does not onboard new users to this plugin. For our enterprise solution please go here: https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode-self-hosted-updater
+Tabnine does not onboard new users to this plugin. If you are interested in our enterprise solution, please contact [email removed]
+
 ]]></description>
     <summary>Tabnine does not onboard new users to this plugin. For our enterprise solution please go here: https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode-self-hosted-updater</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=tabnine.tabnine-vscode#changelog</releaseNotes>
     <tags>vscode extension tabnine-vscode</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
