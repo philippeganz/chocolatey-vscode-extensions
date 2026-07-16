@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-test-explorer</id>
-    <version>0.0.0</version>
+    <version>2.22.1</version>
     <title>Visual Studio Code Extension - Test Explorer UI</title>
     <authors>hbenl</authors>
     <projectUrl>https://github.com/hbenl/vscode-test-explorer.git</projectUrl>
@@ -11,14 +11,72 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Run your tests in the Sidebar of Visual Studio Code
+# Test Explorer for Visual Studio Code
+
+This extension provides an extensible user interface for running your tests in VS Code.
+It can be used with any testing framework if there is a corresponding [Test Adapter extension](#test-adapters).
+
+Other extensions can get full access to the Test Adapters by acting as [Test Controllers](#test-controllers).
+
+The Test Explorer can also be used in [VS Live Share](https://aka.ms/vsls) sessions by installing the [Test Explorer Live Share](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer-liveshare) extension.
+
+This extension will be automatically installed when you install one of the Test Adapters,
+so there is usually no need to install this extension manually.
+
+## Migrating to native testing
+
+In version 1.59, VS Code added an official API and UI for running tests, which provides all the functionality of this extension and more.
+Therefore this extension is now deprecated. I will keep maintaining it so it will remain usable but I don't plan to add any major new features to it.
+
+### Changes for users
+
+Since version 2.22.0, this extension defaults to using VS Code's official testing UI. You can get the old Test Explorer UI back by setting `testExplorer.useNativeTesting` to `false` in your VS Code settings.
+
+### Changes for extension authors
+
+If you plan to write a new testing extension for VS Code, I recommend you use the native testing API as it's more flexible and has more features
+than this extension's Test Adapter API. [Here](https://code.visualstudio.com/api/extension-guides/testing)'s the official guide for the native testing API.
+
+If you're maintaining an extension that uses the Test Adapter API, [here](https://github.com/microsoft/vscode-docs/blob/vnext/api/extension-guides/testing.md#migrating-from-the-test-explorer-ui) is a short guide how to migrate your Test Adapter to the native API.
+The migration isn't strictly necessary because this extension will remain usable and your users can switch to the native testing UI using the
+`testExplorer.useNativeTesting` setting anyway, but you might find the additional flexibility of the native testing API useful in the future.
+
+## Test Adapters
+
+Currently the following Test Adapters are available:
+
+### Javascript
+
+* [Mocha Test Explorer](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter)
+* [Jasmine Test Explorer](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-jasmine-test-adapter)
+* [Angular/Karma Test Explorer](https://marketplace.visualstudio.com/items?itemName=raagh.angular-karma-test-explorer)
+* [Jest Test Explorer](https://marketplace.visualstudio.com/items?itemName=kavod-io.vscode-jest-test-adapter)
+* [AVA Test Explorer](https://marketplace.visualstudio.com/items?itemName=gwenio.vscode-ava-test-adapter)
+* [TestyTs Test Explorer](https://marketplace.visualstudio.com/items?itemName=Testy.vscode-testyts-test-adapter)
+* [React-scripts Test Adapter](https://marketplace.visualstudio.com/items?itemName=smarschollek.vscode-react-scripts-test-adapter)
+
+### ABAP
+
+* [ABAP remote filesystem](https://marketplace.visualstudio.com/items?itemName=murbani.vscode-abap-remote-fs)
+  
+### C
+
+* [Ceedling Test Explorer](https://marketplace.visualstudio.com/items?itemName=numaru.vscode-ceedling-test-adapter)
+* [CppUTest Test Explorer](https://marketplace.visualstudio.com/items?itemName=bneumann.cpputest-test-adapter)
+* [Unity Framework for C Test Explorer](https://marketplace.visualstudio.com/items?itemName=fpopescu.vscode-unity-test-adapter)
+* [Acutest Test Explorer](https://marketplace.visualstudio.com/items?itemName=Moosecasa.vscode-acutest-test-adapter)
+
+### C++
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer) for full documentation]
 ]]></description>
     <summary>Run your tests in the Sidebar of Visual Studio Code</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer#changelog</releaseNotes>
     <tags>vscode extension test-explorer</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-test-adapter-converter" />
- </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-test-adapter-converter" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

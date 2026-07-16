@@ -168,3 +168,4 @@ ID                                   | Command
 `test-explorer.debug-test-at-cursor` | Debug the test at the current cursor position
 `test-explorer.redebug`              | Repeat the last test run in the debugger
 `test-explorer.cancel`               | Cancel running tests
+
