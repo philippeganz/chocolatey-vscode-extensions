@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-phptools-vscode</id>
-    <version>0.0.0</version>
+    <version>1.71.19071</version>
     <title>Visual Studio Code Extension - PHP</title>
     <authors>DEVSENSE</authors>
     <projectUrl>https://github.com/DEVSENSE/phptools-docs.git</projectUrl>
@@ -11,16 +11,57 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=devsense.phptools-vscode</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-All-in-One PHP support - IntelliSense, Debug, Formatter, Code Lenses, Code Fixes, Linting, Refactoring, PHPUnit Tests, Web Server, and more.
+# PHP Tools for Visual Studio Code
+
+[![Home page](https://img.shields.io/badge/%F0%9F%8C%8E-Home%20page-blue.svg)](https://www.devsense.com) 
+[![PHP Tools on Twitter](https://badgen.net/badge/@php4vs/twitter/blue?icon=twitter)](https://twitter.com/php4vs) 
+[![PHP Tools Changelog](https://img.shields.io/badge/platform-MacOS%20%7C%20Linux%20%7C%20Win-green.svg)](https://www.devsense.com/download#vscode) 
+![Supported PHP Versions](https://img.shields.io/badge/php-5.4%20--%205.6%20%7C%207.0%20--%208.5-8892BF.svg?logo=php) 
+
+**PHP Tools for VS Code** is a full development integration for the PHP language. The features are provided respecting conventions, stability, simple use, and performance. Please see the product page for more details on [devsense.com](https://www.devsense.com/features#vscode).
+
+This package extends VS Code with fast code completion, advanced editor features, code fixes, code lenses, code generators, debugger, built-in development web server, test explorer, tests debugger, and workspace-wide code analysis.
+
+### Editor
+
+- **fast code completion** with context-aware resolution, automatic import, and detailed informational tooltips.
+- **starred suggestions:** ([premium](https://www.devsense.com/features#vscode)) most probable completions are marked with a star and shown at the top of the list.
+- **generics**, **PHPStan** and **Psalm** integrated with the entire IntelliSense functionality.
+- **@mixin** support and other annotations natively included.
+- **signature help** guides through the function's parameters and PHP 8 named arguments.
+- **auto-import** corresponding aliases upon completion automatically.
+- **navigation** for workspace-wide go-to-definition, references, and implementations.
+- **symbol search** to quickly list declarations across the workspace.
+- **go to Implementations** lists all derived classes, implemented interfaces, traits, and overridden functions.
+- **PHAR** files and their content can be inspected, navigated into, and used seamlessly.
+- **PHPDoc** generator when `/**` is typed, automatic completion of keywords, diagnostics, and quick fixes.
+- **PHPStorm metadata** notation is automatically processed.
+- **PHP manual** in all major languages is seamlessly integrated into the editor.
+- **code formatting** for ranges, documents, and blocks. Formats contained HTML/JS/CSS as well.
+- **detailed tooltips** revealing localized descriptions, colored headers, and URLs to the documentation.
+- **highlighting occurrences** of a symbol under the cursor.
+- **breadcrumbs and outlines** for fast and easy navigation within a file.
+- **PHP/HTML/JS/CSS** mixed codes are colored and editable together with code completion.
+- **Laravel Blade** full colorization, formatting, and IntelliSense, with PHP IntelliSense, Code Actions, and Hovers. ([link](https://docs.devsense.com/vscode/frameworks/laravel/))
+- **code folding** for code blocks, declarations, comments, and user regions.
+- **unnecessary import check** dims unused `use` and provides a Quick Fix to clean it up.
+- **type hierarchy** visualizing type structure of expressions, classes, interfaces, and traits.
+- **highlight to-do** in your code, in Documentary Comments, and Single-Line comments.
+- **composer.json** IntelliSense, diagnostics, commands, and code actions through [**Composer**](https://marketplace.visualstudio.com/items?itemName=DEVSENSE.composer-php-vscode) extension.
+- **code actions** ([premium](https://www.devsense.com/features#vscode)) for namespace resolution, getters/setters, adding `use`, or implementing interfaces.
+- **code fixes** ([premium](https://www.devsense.com/features#vscode)) to resolve common issues, refactor expressions, and more.
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=DEVSENSE.phptools-vscode) for full documentation]
 ]]></description>
     <summary>All-in-One PHP support - IntelliSense, Debug, Formatter, Code Lenses, Code Fixes, Linting, Refactoring, PHPUnit Tests, Web Server, and more.</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=devsense.phptools-vscode#changelog</releaseNotes>
     <tags>vscode extension phptools-vscode</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />       <dependency id="vscode-intelli-php-vscode" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-intelli-php-vscode" />
       <dependency id="vscode-composer-php-vscode" />
       <dependency id="vscode-profiler-php-vscode" />
- </dependencies>
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
