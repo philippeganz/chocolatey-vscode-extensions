@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-better-cpp-syntax</id>
-    <version>0.0.0</version>
+    <version>1.27.1</version>
     <title>Visual Studio Code Extension - Better C++ Syntax</title>
     <authors>jeff-hykin</authors>
     <projectUrl>https://github.com/jeff-hykin/better-cpp-syntax.git</projectUrl>
@@ -11,13 +11,72 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=jeff-hykin.better-cpp-syntax</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-The bleeding edge of the C++ syntax
+
+    
+
+
+# Sponsors
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                <a href="https://bit.ly/3BdYRfu">
+                    
+                </a>
+            </th>
+            <th>
+                
+                    Easy pair programming with any IDE. Duckly enables you to talk, share your code in real-time, server and terminal with people using different IDEs.
+                    
+
+                    <a href="https://bit.ly/3BdYRfu">Try it out for free</a>
+                
+            </th>
+        </tr>
+    </thead>
+</table>
+
+<!--  -->
+
+
+
+
+# What does this extension do?
+This will get you the bleeding-edge syntax highlighting for C++. Which means your theme will be able to color your code better. This used to be a fix, but then VS Code starting using it as the official source for C and C++ highlighting.
+
+NOTE: The default VS Code theme does not color much. Switch to the Dark+ theme (installed by default) or use a theme like one of the following to benefit from the changes:
+- [XD Theme](https://marketplace.visualstudio.com/items?itemName=jeff-hykin.xd-theme)
+- [Noctis](https://marketplace.visualstudio.com/items?itemName=liviuschera.noctis)
+- [Kary Pro Colors](https://marketplace.visualstudio.com/items?itemName=karyfoundation.theme-karyfoundation-themes)
+- [Material Theme](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme)
+- [One Monokai Theme](https://marketplace.visualstudio.com/items?itemName=azemoh.one-monokai)
+- [Winteriscoming](https://marketplace.visualstudio.com/items?itemName=johnpapa.winteriscoming)
+- [Popping and Locking](https://marketplace.visualstudio.com/items?itemName=hedinne.popping-and-locking-vscode)
+- [Syntax Highlight Theme](https://marketplace.visualstudio.com/items?itemName=peaceshi.syntax-highlight)
+- [Default Theme Enhanced](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-themes)
+
+## How do I use the extension?
+Just install the VS Code extension and the changes will automatically be applied to all relevant files.
+
+Link: https://marketplace.visualstudio.com/items?itemName=jeff-hykin.better-cpp-syntax
+
+# Comparison (Material Theme)
+
+
+## How do I use the grammar? (as an upstream for my non-vs code editor)
+
+1. Watch the the "Major Changes" thread [here](https://github.com/jeff-hykin/better-cpp-syntax/issues/64) to know when I change licenses, the codebase structure, or just major highlighting changes.
+2. I support non-VS Code usecases. E.g. yes, you are welcome to open issues [like this one](https://github.com/jeff-hykin/better-cpp-syntax/issues/653) that don't affect VS Code.
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=jeff-hykin.better-cpp-syntax) for full documentation]
 ]]></description>
     <summary>The bleeding edge of the C++ syntax</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=jeff-hykin.better-cpp-syntax#changelog</releaseNotes>
     <tags>vscode extension better-cpp-syntax</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
