@@ -50,3 +50,4 @@ Copyright (C) 2017-present PlatformIO <[email removed]>
 
 The PlatformIO IDE for VSCode is licensed under the permissive Apache 2.0 license,
 so you can use it in both commercial and personal projects with confidence.
+
