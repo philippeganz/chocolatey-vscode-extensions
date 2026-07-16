@@ -264,3 +264,4 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/onedark-pro#sponsor" target="_blank">
 <img src="https://opencollective.com/onedark-pro/sponsor.svg?width=890">
 </a>
+

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-material-theme</id>
-    <version>0.0.0</version>
+    <version>3.19.0</version>
     <title>Visual Studio Code Extension - One Dark Pro</title>
     <authors>zhuangtongfa</authors>
     <projectUrl>https://github.com/Binaryify/OneDark-Pro.git</projectUrl>
@@ -11,13 +11,126 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.material-theme</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Atom's iconic One Dark theme for Visual Studio Code
+# [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)
+
+## [GitHub Repo](https://github.com/Binaryify/OneDark-Pro) 
+
+Atom's iconic One Dark theme, and one of the most installed [themes](https://marketplace.visualstudio.com/search?target=VSCode&category=Themes&sortBy=Installs) for VS Code! 
+
+
+
+[![Preview in vscode.dev](https://img.shields.io/badge/preview%20in-vscode.dev-blue)](https://vscode.dev/theme/zhuangtongfa.Material-theme) [![Version](https://vsmarketplacebadges.dev/version/zhuangtongfa.Material-theme.png)](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme) [![Installs](https://vsmarketplacebadges.dev/installs/zhuangtongfa.Material-theme.png)](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)
+
+
+## SPONSORS
+
+<a href="https://plugins.jetbrains.com/plugin/22655-mysql-proxy" target="__blank"  style="display:inline-flex;align-items:center;">
+MySQL Proxy
+</a>
+
+
+[A plugin for IDEA](https://plugins.jetbrains.com/plugin/22655-mysql-proxy) that records code CRUD operations, helping you identify potential issues in SQL and providing optimization suggestions.  
+
+一个记录代码 CRUD 操作的 IDEA 插件，帮助您识别潜在问题的SQL并提供优化建议。
+
+
+
+## SCREENSHOT
+
+![ScreenShot](https://cdn.jsdelivr.net/gh/binaryify/onedark-pro/screenshots/normal.png)
+
+### Italic
+
+![ScreenShot](https://cdn.jsdelivr.net/gh/binaryify/onedark-pro/screenshots/italic.png)
+
+### Default theme
+
+![ScreenShot](https://cdn.jsdelivr.net/gh/binaryify/onedark-pro/screenshots/editor1.png)
+
+### Flat theme
+
+![ScreenShot](https://cdn.jsdelivr.net/gh/binaryify/onedark-pro/screenshots/editorflat.png)
+
+### Darker theme
+
+![ScreenShot](https://github.com/Binaryify/OneDark-Pro/raw/HEAD/screenshots/editordarker.png)
+
+### Night Flat theme
+
+![ScreenShot](https://github.com/Binaryify/OneDark-Pro/raw/HEAD/screenshots/editornightflat.png)
+
+### Retro theme
+
+![ScreenShot](https://github.com/Binaryify/OneDark-Pro/raw/HEAD/screenshots/retro.png)
+
+### Gnome theme
+
+![ScreenShot](https://github.com/Binaryify/OneDark-Pro/raw/HEAD/screenshots/gnome.png)
+
+### Terminal
+
+![ScreenShot](https://cdn.jsdelivr.net/gh/binaryify/onedark-pro/screenshots/terminal.png) 
+
+
+## Donation
+
+If you like this extension, you could donate via **[PayPal](https://www.paypal.me/binaryify)** It will encourage me to make this extension better and better!
+
+Thanks List:
+- Andreas Georgiadis
+
+
+### Setting
+
+![ScreenShot](https://cdn.jsdelivr.net/gh/binaryify/onedark-pro/screenshots/setting.png)
+
+### Built in themes
+
+![built-in themes](https://cdn.jsdelivr.net/gh/binaryify/onedark-pro/screenshots/built-in-themes.png)
+
+### Notice
+
+Setting only support default theme(One Dark Pro).
+
+## Markdown preview style
+
+![Markdown](https://cdn.jsdelivr.net/gh/binaryify/onedark-pro/screenshots/markdown.png)
+You can toggle whether to use markdown style in vscode setting (default use)
+
+
+### Suggest Editor Settings
+```
+ "editor.fontSize": 20,
+ "editor.lineHeight": 30,
+ "editor.fontFamily": "JetBrains Mono",
+```
+JetBrains Mono Download: https://www.jetbrains.com/lp/mono
+
+### Tweaks & theming
+
+If you want to play around with new colors, use the setting
+`workbench.colorCustomizations` to customize the currently selected theme. For
+example, you can add this snippet in your "settings.json" file:
+
+```json
+"workbench.colorCustomizations": {
+  "tab.activeBackground": "#282c34",
+  "activityBar.background": "#282c34",
+  "sideBar.background": "#282c34",
+  "tab.activeBorder": "#d19a66",
+}
+```
+
+or use the setting `editor.tokenColorCustomizations`
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.material-theme) for full documentation]
 ]]></description>
-    <summary>Atom&apos;s iconic One Dark theme for Visual Studio Code</summary>
+    <summary>Atom's iconic One Dark theme for Visual Studio Code</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.material-theme#changelog</releaseNotes>
     <tags>vscode extension material-theme</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
