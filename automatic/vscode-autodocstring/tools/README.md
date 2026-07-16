@@ -138,3 +138,4 @@ The source code for this extension is hosted on [GitHub](https://github.com/Nils
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/NilsJPWerner/autoDocstring/blob/HEAD/LICENSE) file for details
+
