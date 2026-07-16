@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-auto-close-tag</id>
-    <version>0.0.0</version>
+    <version>0.5.15</version>
     <title>Visual Studio Code Extension - Auto Close Tag</title>
     <authors>formulahendry</authors>
     <projectUrl>https://github.com/formulahendry/vscode-auto-close-tag.git</projectUrl>
@@ -11,13 +11,84 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Automatically add HTML/XML close tag, same as Visual Studio IDE or Sublime Text
+# Auto Close Tag
+
+[![CI](https://github.com/formulahendry/vscode-auto-close-tag/actions/workflows/main.yml/badge.svg)](https://github.com/formulahendry/vscode-auto-close-tag/actions/workflows/main.yml)
+
+Automatically add HTML/XML close tag, same as Visual Studio IDE or Sublime Text does.
+
+## Book for VS Code
+
+[《Visual Studio Code 权威指南》](https://union-click.jd.com/jdc?e=jdext-1261348777639735296-0&p=AyIGZRhbHQsWAVIaXxEyEgRdG1sRBxU3EUQDS10iXhBeGlcJDBkNXg9JHUlSSkkFSRwSBF0bWxEHFRgMXgdIMkRxFAUJD1RQZT0cBnwKDE4%2BaDpgB2ILWStbHAIQD1QaWxIBIgdUGlsRBxEEUxprJQIXNwd1g6O0yqLkB4%2B%2FjcePwitaJQIWD1cfWhwKGwVSG1wlAhoDZc31gdeauIyr%2FsOovNLYq46cqca50ytrJQEiXABPElAeEgRSG1kQCxQBUxxZHQQQA1YTXAkDIgdUGlscChECXRs1FGwSD1UbWRALFwRWK1slASJZOxoLRlUXU1NONU9QEkdXWRlJbBUDVB9TFgAVN1caWhcA)：带你深入浅出 VS Code！
+
+![Book](https://github.com/formulahendry/vscode-auto-close-tag/raw/HEAD/images/book.jpg)
+
+## Note
+
+From VS Code 1.16, it has [built-in close tag support](https://code.visualstudio.com/updates/v1_16#_html-close-tags) for HTML, Handlebars and Razor files. This extension is enabled for other languages like XML, PHP, Vue, JavaScript, TypeScript, JSX, TSX and so on. It is configurable.
+
+## Features
+
+* Automatically add closing tag when you type in the closing bracket of the opening tag
+* After closing tag is inserted, the cursor is between the opening and closing tag
+* Set the tag list that would not be auto closed
+* Automatically close self-closing tag
+* Support auto close tag as Sublime Text 3
+* Use Keyboard Shortcut or Command Palette to add close tag manually
+
+## Usages
+
+After typing in the closing bracket of the opening tag, the closing tag will be inserted automatically.
+
+![Usage](https://github.com/formulahendry/vscode-auto-close-tag/raw/HEAD/images/usage.gif)
+
+To add close tag manually, use shortcut `Alt+.` (`Command+Alt+.` for Mac), or press `F1` and then select/type `Close Tag`
+
+![Usage](https://github.com/formulahendry/vscode-auto-close-tag/raw/HEAD/images/close-tag.gif)
+
+## Sublime Text 3 Mode
+
+To automatically add close tag when `</` is typed (same as Sublime Text 3 does), set the below config as `true`:
+```json
+{
+    "auto-close-tag.SublimeText3Mode": true
+}
+```
+The setting is `false` by default.
+
+![Sublime Text 3](https://github.com/formulahendry/vscode-auto-close-tag/raw/HEAD/images/st3.gif)
+
+## Configuration
+
+Use `auto-close-tag.enableAutoCloseTag` to set whether to insert close tag automatically (it is `true` by default):
+```json
+{
+    "auto-close-tag.enableAutoCloseTag": true
+}
+```
+
+To set whether to close self-closing tag automatically (e.g. type `<br`, then type `/`, `>` will be added automatically) (it is `true` by default):
+```json
+{
+    "auto-close-tag.enableAutoCloseSelfClosingTag": true
+}
+```
+
+Whether to insert a space before the forward slash in a self-closing tag (it is `false` by default):
+```json
+{
+    "auto-close-tag.insertSpaceBeforeSelfClosingTag": false
+}
+```
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag) for full documentation]
 ]]></description>
     <summary>Automatically add HTML/XML close tag, same as Visual Studio IDE or Sublime Text</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag#changelog</releaseNotes>
     <tags>vscode extension auto-close-tag</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
