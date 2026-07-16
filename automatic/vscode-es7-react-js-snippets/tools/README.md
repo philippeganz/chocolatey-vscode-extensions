@@ -85,3 +85,4 @@ Here is direct link to marketplace [ES7 React/Redux/React-Native/JS Snippets](ht
 <br>
 
 ## [Snippets](https://github.com/dsznajder/vscode-es7-javascript-react-snippets/blob/HEAD/docs/Snippets.md)
+
