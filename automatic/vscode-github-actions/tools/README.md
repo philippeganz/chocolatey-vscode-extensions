@@ -64,3 +64,4 @@ See [CONTRIBUTING.md](https://github.com/github/vscode-github-actions/blob/HEAD/
 ## License
 
 This project is licensed under the terms of the MIT open source license. Please refer to [MIT](https://github.com/github/vscode-github-actions/blob/HEAD/LICENSE) for the full terms.
+

@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-github-actions</id>
-    <version>0.32.1</version>
+    <version>0.32.3</version>
     <title>Visual Studio Code Extension - GitHub Actions</title>
     <authors>github</authors>
     <projectUrl>https://github.com/github/vscode-github-actions</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-github-actions/0.32.1/1782498285743/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-github-actions/0.32.3/1784139132081/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
@@ -66,7 +66,7 @@ Be more confident when authoring and modifying workflows. Find errors before com
 Unfortunately, at this time we are not able to support the extension with [remote repositories](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories) (including [github.dev](https://github.dev/) and [vscode.dev](https://vscode.dev/)), so please use the extension with locally downloaded GitHub repositories for the best experience. Please check back here for updates in the future!
 
 We have enabled experimental functionality to support GitHub Enterprise Server, but this feature is an experimental beta and currently unsupported. To try this out, enable the `use-enterprise` setting to authenticate with your `GitHub Enterprise Server Authentication Provider` settings
-<img width="975" alt="Use-enterprise setting checkbox" src="https://github.com/github/vscode-github-actions/assets/34719884/be76adc6-64af-47ed-84d0-627786cc4eea">
+
 
 We currently do not have the capability to support Operating System (OS) certificates or enterprise proxies (we plan to support pulling from the VS Code proxy settings), but we have plans for it in the future and it is on our backlog! 
 
@@ -79,7 +79,7 @@ We currently do not have the capability to support Operating System (OS) certifi
       https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions#changelog</releaseNotes>
     <tags>vscode extension github-actions</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>

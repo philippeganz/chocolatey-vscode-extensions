@@ -1,4 +1,4 @@
-# -----------------------------------------------------------------------------
+﻿# -----------------------------------------------------------------------------
 # Chocolatey Installation Script
 #
 # This script is executed by Chocolatey when the package is installed.
@@ -10,7 +10,7 @@ $ErrorActionPreference = 'Stop'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 # The payload is entirely embedded in the package to guarantee Air-Gap compliance.
-$vsixPath = Join-Path $toolsDir "GitHub.vscode-pull-request-github-0.157.2026070910.vsix"
+$vsixPath = Join-Path $toolsDir "GitHub.vscode-pull-request-github-0.159.2026071604.vsix"
 
 # Install-VsCodeExtension is a specialized helper provided by the chocolatey-vscode.extension dependency.
 Install-VsCodeExtension -extensionId $vsixPath

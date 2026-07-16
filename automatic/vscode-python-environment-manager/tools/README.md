@@ -50,3 +50,4 @@ A [Visual Studio Code](https://code.visualstudio.com/) [extension](https://marke
 ### Manage Packages (install, update, and uninstall)
 
 <video src="https://github.com/DonJayamanne/vscode-python-manager/raw/main/images/managePackages.mp4" autoplay loop controls muted width="600px" title="Manage Packages (install, update, and uninstall)"></video>
+

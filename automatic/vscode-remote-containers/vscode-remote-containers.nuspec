@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-remote-containers</id>
-    <version>0.465.0</version>
+    <version>0.467.0</version>
     <title>Visual Studio Code Extension - Dev Containers</title>
     <authors>ms-vscode-remote</authors>
     <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-containers/0.465.0/1783591394507/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-containers/0.467.0/1784099536064/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -69,7 +69,7 @@ To get started, follow these steps:
       https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers#changelog</releaseNotes>
     <tags>vscode extension remote-containers</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>

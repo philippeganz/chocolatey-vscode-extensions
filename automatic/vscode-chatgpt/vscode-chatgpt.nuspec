@@ -2,22 +2,44 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-chatgpt</id>
-    <version>0.0.0</version>
+    <version>26.5707.91948</version>
     <title>Visual Studio Code Extension - Codex – OpenAI’s coding agent</title>
     <authors>openai</authors>
     <projectUrl>https://marketplace.visualstudio.com/items?itemName=openai.chatgpt</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://openai.gallerycdn.vsassets.io/extensions/openai/chatgpt/26.5707.71524/1783987920489/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://openai.gallerycdn.vsassets.io/extensions/openai/chatgpt/26.5707.91948/1784174631617/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=openai.chatgpt</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Codex is a coding agent that works with you everywhere you code — included in ChatGPT Plus, Pro, Business, Edu, and Enterprise plans.
+Codex is OpenAI’s coding agent that helps you write, review, and ship code faster. Use it side-by-side in your IDE or delegate larger tasks to the cloud.
+
+# Pair with Codex
+
+Add Codex as a panel in VS Code to chat, edit, and preview changes seamlessly. With context from opened files and selected code, you can write shorter prompts and get faster, more relevant results. (Tip: many users like moving the Codex panel to the right side of the editor.)
+
+# Delegate to Codex in the cloud
+
+Offload bigger jobs to Codex in the cloud, then track progress and review results without leaving your IDE. For finishing touches, open cloud tasks locally. Codex keeps the context consistent.
+
+# Sign in with your ChatGPT account
+
+Codex works with Plus, Pro, Business, Edu, and Enterprise ChatGPT plans. Learn what’s included in your plan at the Help Center.
+
+# Learn more about Codex
+
+See the docs at https://developers.openai.com/codex/ide.
+
+# (MacOS only) Work with the ChatGPT macOS app
+
+The OpenAI Codex extension also supports connecting the ChatGPT macOS app to VS Code so ChatGPT can answer questions or make simple edits. To use this feature, launch the ChatGPT macOS and select “Work with VS Code”.
+
 ]]></description>
     <summary>Codex is a coding agent that works with you everywhere you code — included in ChatGPT Plus, Pro, Business, Edu, and Enterprise plans.</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=openai.chatgpt#changelog</releaseNotes>
     <tags>vscode extension chatgpt</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
