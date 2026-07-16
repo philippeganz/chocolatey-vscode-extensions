@@ -163,3 +163,4 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
 ## License
 
 [MIT](https://github.com/Microsoft/vscode-azureresourcegroups/blob/main/LICENSE.md)
+
