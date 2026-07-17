@@ -1,3 +1,8 @@
+enum SerializationOptions {
+    Roundtrip
+    JsonCompatible
+}
+Import-Module powershell-yaml -Force -ErrorAction SilentlyContinue
 BeforeAll {
     $modulePath = Resolve-Path "$PSScriptRoot\..\lib\ConfigHelpers.psm1"
     Import-Module $modulePath.Path -Force
@@ -35,14 +40,14 @@ Describe 'ConfigHelpers' {
             Mock Split-Path { return 'C:\fake' } -ModuleName ConfigHelpers
             Mock Join-Path { return 'C:\fake\badge.json' }
             Mock Join-Path { return 'C:\fake\badge.json' } -ModuleName ConfigHelpers
-            Mock ConvertTo-Yaml { return "extensions:`n  - a.ext`n  - z.ext" } -ModuleName ConfigHelpers
+            Mock ConvertTo-Yaml { return "extensions:`n  - a.ext`n  - z.ext" }
             Mock ConvertTo-Json { return "{}" } -ModuleName ConfigHelpers
 
             $extensions = @('z.ext', 'a.ext', 'a.ext')
             Save-ConfigState -ConfigPath 'C:\fake\config.yaml' -ExtensionsList $extensions
 
-            Assert-MockCalled Set-Content -ModuleName ConfigHelpers -Times 2 -Exactly
-            Assert-MockCalled Write-Success -ModuleName ConfigHelpers -Times 1 -Exactly
+            Should -Invoke -CommandName Set-Content -ModuleName ConfigHelpers -Times 2 -Exactly
+            Should -Invoke -CommandName Write-Success -ModuleName ConfigHelpers -Times 1 -Exactly
         }
     }
 

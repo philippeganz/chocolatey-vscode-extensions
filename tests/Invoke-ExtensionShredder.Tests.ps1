@@ -35,7 +35,7 @@ Describe 'Invoke-ExtensionShredder' {
         Mock Write-Skip {}
         Mock Import-Module {}
 
-        $baseAuto = Join-Path $TestDrive 'automatic'
+        $baseAuto = Join-Path $TestDrive "automatic_$(New-Guid)"
         New-Item -ItemType Directory -Path $baseAuto -Force | Out-Null
 
         $configFile = Join-Path $TestDrive 'config.yaml'
@@ -53,7 +53,7 @@ Describe 'Invoke-ExtensionShredder' {
 
         $mockState.Extensions.Contains('publisher.ext') | Should -BeFalse
         Test-Path $pkgDir | Should -BeFalse
-        Assert-MockCalled Save-ConfigState -Times 1 -Exactly
+        Should -Invoke -CommandName Save-ConfigState -Times 1 -Exactly
     }
 
     It 'performs reverse lookup when short package name is provided' {
@@ -95,7 +95,7 @@ Describe 'Invoke-ExtensionShredder' {
 
         $mockState.Extensions.Contains('publisher.ext') | Should -BeTrue
         Test-Path $pkgDir | Should -BeTrue
-        Assert-MockCalled Write-Err -Times 2
+        Should -Invoke -CommandName Write-Err -Times 2
     }
 
     It 'removes the extension if -Force is used, even if it is a dependency' {
@@ -124,7 +124,7 @@ Describe 'Invoke-ExtensionShredder' {
 
         $mockState.Extensions.Contains('publisher.ext') | Should -BeFalse
         Test-Path $pkgDir | Should -BeFalse
-        Assert-MockCalled Write-Warning -Times 1
+        Should -Invoke -CommandName Write-Warning -Times 1
     }
 
     It 'does not mutate config if the extension is not found in the config' {
@@ -135,8 +135,8 @@ Describe 'Invoke-ExtensionShredder' {
         & $scriptPath -ExtensionId 'publisher.ext' -ConfigFile $configFile
 
         Test-Path $pkgDir | Should -BeFalse
-        Assert-MockCalled Save-ConfigState -Times 0 -Exactly
-        Assert-MockCalled Write-Skip -Times 1
+        Should -Invoke -CommandName Save-ConfigState -Times 0 -Exactly
+        Should -Invoke -CommandName Write-Skip -Times 1
     }
 
     It 'does not fail if package directory does not exist' {
@@ -145,6 +145,6 @@ Describe 'Invoke-ExtensionShredder' {
         & $scriptPath -ExtensionId 'publisher.ext' -ConfigFile $configFile
 
         $mockState.Extensions.Contains('publisher.ext') | Should -BeFalse
-        Assert-MockCalled Save-ConfigState -Times 1 -Exactly
+        Should -Invoke -CommandName Save-ConfigState -Times 1 -Exactly
     }
 }

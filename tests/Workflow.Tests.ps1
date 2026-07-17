@@ -94,9 +94,11 @@ extensions:
             $nuspec.package.metadata.version | Should -Match "^\d+\.\d+\.\d+"
         }
 
-        It "Should populate the tools directory with metadata files" {
+        It "Should populate the package directory with metadata files" {
             $toolsDir = Join-Path $script:pkgDir "tools"
-            Test-Path (Join-Path $toolsDir "README.md") | Should -Be $true
+            Test-Path (Join-Path $script:pkgDir "update.ps1") | Should -Be $true
+            Test-Path (Join-Path $toolsDir "chocolateyInstall.ps1") | Should -Be $true
+            Test-Path (Join-Path $toolsDir "chocolateyUninstall.ps1") | Should -Be $true
         }
     }
 
