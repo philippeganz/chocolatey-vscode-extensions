@@ -3,7 +3,7 @@ name: Manage VS Code Extension Pool
 
 on:
   issues:
-    types: [opened]
+    types: [opened, labeled, reopened]
 
 jobs:
   scaffold-extension:
