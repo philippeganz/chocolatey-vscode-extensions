@@ -135,6 +135,8 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
         $factoryPath = Join-Path $PSScriptRoot "Invoke-ExtensionFactory.ps1"
         & $factoryPath @factoryParams
 
+        # Save state
+        Save-ConfigState -ConfigPath $configPath -ExtensionsList $state.Extensions
 
         if ($AutoCommit) {
             Write-Info "Evaluating git state for auto-commit..."
