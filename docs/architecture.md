@@ -8,14 +8,24 @@ Our pipeline is built on a hyper-DRY paradigm and strict separation of concerns,
 
 ```mermaid
 flowchart TD
+    subgraph The CLI Orchestrator
+        A[User invokes CLI] --> B(Manage-ExtensionPool.ps1)
+        B -->|Add new extension| C{Invoke-ExtensionFactory.ps1}
+        B -->|Remove extension| Z{Invoke-ExtensionShredder.ps1}
+    end
+
     subgraph Day 0: The Factory (Bootstrapping)
-        A[User modifies config.yaml] -->|Add new extension| B(Manage-ExtensionPool.ps1)
-        B --> C{Invoke-VsCodeExtensionFactory.ps1}
         C -->|Scrapes VS Code Marketplace| D[Extracts Initial Metadata]
         D -->|Validates & Deep-Scans VSIX| E[Generates Scaffolding]
         E -->|Drops template.nuspec with 0.0.0| F[automatic/vscode-new-extension]
         E -->|Generates update.ps1 stub| F
         E -->|Generates chocolateyInstall.ps1| F
+    end
+
+    subgraph Day 0: The Shredder (Teardown)
+        Z -->|Validates Dependencies| Y[Checks local .nuspecs]
+        Y -->|Safe to remove| X[Wipes package directory]
+        X -->|Cleans State| W[Updates config.yaml]
     end
 
     subgraph Day 1 to Infinity: The AU Engine (Maintenance)
@@ -45,19 +55,30 @@ flowchart TD
 
 ## Core Modules
 
-### 1. The State Manager: `Manage-ExtensionPool.ps1`
+### 1. The Master Orchestrator: `Manage-ExtensionPool.ps1`
 
-The single entry point for modifying the state of the repository. It edits the flattened `config.yaml` array and triggers the Factory.
+The single CLI entry point for humans and CI/CD pipelines to modify the state of the repository. It acts as a master router, abstracting away the complex engineering modules.
 
-### 2. The Scaffolder: `Invoke-VsCodeExtensionFactory.ps1`
+- **`-Add`**: Routes the parameters to the Factory for package creation.
+- **`-Remove`**: Routes the parameters to the Shredder for package dismantling.
+- **`-AutoCommit`**: Evaluates the Git diff after the child scripts finish and commits the changes.
 
-Responsible exclusively for **Day 0 Bootstrapping**.
+### 2. The Scaffolder: `Invoke-ExtensionFactory.ps1`
+
+Responsible exclusively for **Day 0 Bootstrapping (Creation)**.
 
 - It auto-discovers dependencies, extracts ZIP payloads for documentation, and generates the baseline packages.
 - **Smart CI Bootstrapping:** Extensions are explicitly scaffolded with `<version>0.0.0</version>` in their `.nuspec`. This inherently triggers the AU Engine to push the pristine upstream version on its first run without requiring manual intervention.
 - **Deep Recursive Auto-Discovery:** If the extension has internal dependencies (like Extension Packs), the Factory natively unrolls them, dynamically scaffolds the complete missing dependency tree, and employs **Cyclic Dependency Protection**.
 
-### 3. The Orchestrator: `Invoke-AuUpdater.ps1`
+### 3. The Destroyer: `Invoke-ExtensionShredder.ps1`
+
+Responsible exclusively for **Day 0 Teardown (Removal)**.
+
+- **Dependency Validation**: Scans all local `.nuspec` files to ensure the package you are trying to remove is not actively required by another package in the pool. It blocks removal to prevent silent breakages unless explicitly overridden via `-Force`.
+- **State De-sync**: Neatly deletes the physical `automatic/` directory and updates the flat `config.yaml` to ensure the package is purged from both the local disk and the pool registry.
+
+### 4. The Maintainer: `Invoke-AuUpdater.ps1`
 
 Responsible exclusively for **Day 1 Maintenance**.
 It sweeps the repository every 6 hours, triggering the native Chocolatey Automatic Updater (AU) framework for all existing packages in the `automatic/` directory.
@@ -65,14 +86,14 @@ It sweeps the repository every 6 hours, triggering the native Chocolatey Automat
 - **Source of Truth Enforcement:** By explicitly enabling `$global:au_NoCheckChocoVersion = $true`, the orchestrator completely ignores the Chocolatey Registry. It forces local versions to sync exclusively with the VS Code Marketplace.
 - **Granular Git Pipeline:** AU does not manage Git natively. The GitHub Action loops over `git status --porcelain` after AU finishes, executing individual commits for every modified package and pushing them natively via a repository PAT.
 
-### 4. The Logic Engine: `AuExtensionHooks.ps1` & `VsCodeMarketplace.psm1`
+### 5. The Logic Engine: `AuExtensionHooks.ps1` & `VsCodeMarketplace.psm1`
 
 This is where the magic happens. Rather than duplicating logic, both the Factory and the AU hooks pull from a centralized data-driven helper (`Get-VsCodeNuspecMetadata`).
 
 - During an update, `au_BeforeUpdate` dynamically rips the newest `README.md` and `package.json` from the payload.
 - It overwrites structural metadata (`Title`, `Summary`, `IconUrl`, `ProjectUrl`, `Authors`) dynamically, achieving **Zero Maintenance** synchronization with the VS Code Marketplace.
 
-### 5. The Documentation Engine: `Update-Documentation.ps1`
+### 6. The Documentation Engine: `Update-Documentation.ps1`
 
 Responsible exclusively for generating the internal API reference.
 

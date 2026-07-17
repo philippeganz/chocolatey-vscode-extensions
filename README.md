@@ -23,6 +23,7 @@ This repository is the central Automatic Updater (AU) Mono-Repo for Visual Studi
 - [Development](#development)
   - [Repository Architecture](#repository-architecture)
   - [How to Add a New Extension](#how-to-add-a-new-extension)
+  - [How to Remove an Extension](#how-to-remove-an-extension)
 - [Support & Feedback](#support--feedback)
 - [Contributing](#contributing)
 - [License](#license)
@@ -113,6 +114,33 @@ If you want to scaffold the package yourself:
 
 4. The script will automatically pull the binaries, update the configuration, and drop the fully generated package into the `automatic/` directory.
 5. Commit the resulting changes and open a Pull Request!
+
+### How to Remove an Extension
+
+To deprecate or completely remove an extension from the pool, you have two options:
+
+**Option A: The Fast Route (Open an Issue)**
+Simply open a **Package Removal Request** issue using our templates.
+
+1. Provide the **Unique Identifier** (e.g., `publisher.extension`) OR the internal Chocolatey package name (e.g., `vscode-extension`).
+2. Our maintainers will trigger the automated Shredder.
+
+**Option B: The Contributor Route (Pull Request)**
+If you want to shred the package yourself locally:
+
+1. Use the Pool Manager to dynamically shred the package:
+
+   ```powershell
+   .\bin\Manage-ExtensionPool.ps1 -Remove "Publisher.ExtensionName"
+   ```
+
+   *(Note: You can also pass the internal package name like `vscode-extensionname` and the Pool Manager will automatically resolve it!)*
+
+2. The orchestrator will invoke the **Shredder** to:
+   - Perform dependency validation (blocking removal if another package depends on it).
+   - Delete the physical package directory.
+   - Desync the extension from `config.yaml`.
+3. Commit the resulting changes and open a Pull Request!
 
 Once an extension is merged into the `main` branch, the `au-updater.yml` GitHub Action takes over. Every 6 hours, it crawls the repository and automatically builds and pushes updates to the Chocolatey Gallery.
 
