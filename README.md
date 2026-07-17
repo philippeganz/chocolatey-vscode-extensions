@@ -90,16 +90,23 @@ For a deep dive into the engineering behind this mono-repo, including Mermaid di
 
 For a complete breakdown of the PowerShell scripts, modules, and internal functions, please visit our auto-generated [GitHub Pages API Reference Site](https://philippeganz.github.io/chocolatey-vscode-extensions/).
 
+Key orchestration scripts:
+
+- **`bin/Manage-ExtensionPool.ps1`**: The primary CLI entry point for adding, removing, and auditing extensions.
+- **`bin/Invoke-ExtensionFactory.ps1`**: The Factory engine that dynamically scaffolds new extension packages.
+- **`bin/Invoke-AuUpdater.ps1`**: The global update engine that wraps the Chocolatey AU module for parallel processing and offline support.
+- **`bin/AuExtensionHooks.ps1`**: The centralized logic engine dot-sourced by all packages' `update.ps1` scripts, injecting AU hooks like `au_GetLatest` and `au_BeforeUpdate`.
+
 ### How to Add a New Extension
 
 We welcome community contributions! Because we use an automated factory, adding a new extension requires zero manual templating. You have two options:
 
 **Option A: The Fast Route (Open an Issue)**
-If you don't want to mess with code, simply open a **New Package Request** issue.
+If you don't want to mess with code, simply open a **New Package Request** issue using our provided template.
 
 1. Go to the VS Code Marketplace and find your extension.
 2. Look for the **Unique Identifier** (e.g., `ms-python.python`) on the right sidebar.
-3. Open an issue with that identifier. Our maintainers will trigger the Factory and roll out the package for you!
+3. Open a "Request Extension" issue and provide that identifier. Our maintainers will trigger the Factory and roll out the package for you!
 
 **Option B: The Contributor Route (Pull Request)**
 If you want to scaffold the package yourself:
