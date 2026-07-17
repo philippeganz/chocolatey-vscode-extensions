@@ -43,22 +43,23 @@ jobs:
             exit 1
           }
 
+          $splat = @{}
           if ($labels -contains 'extension-removal') {
               $action = 'Remove'
               $emoji = '🗑️'
               $verb = 'Remove'
               $desc = "removed from"
-              $actionFlag = "-Remove"
+              $splat["Remove"] = $extId
           } else {
               $action = 'Add'
               $emoji = '🚀'
               $verb = 'Add new'
               $desc = "added to"
-              $actionFlag = "-Add"
+              $splat["Add"] = $extId
           }
 
           Write-Host "Triggering Factory Engine for: $extId ($action)" -ForegroundColor Cyan
-          ./bin/Manage-ExtensionPool.ps1 $actionFlag $extId
+          ./bin/Manage-ExtensionPool.ps1 @splat
 
           # Export variables for downstream steps
           echo "EXT_ID=$extId" >> $env:GITHUB_OUTPUT
