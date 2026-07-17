@@ -73,8 +73,8 @@ if ($PushUrl) {
     Write-Host ">>> Retargeting AU Push to Internal Repository: $PushUrl" -ForegroundColor Magenta
 }
 
-$packagesDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" }
-
+Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -ErrorAction Stop
+$packagesDir = Get-AutomaticDirectory
 if (-not (Test-Path $packagesDir)) {
     throw "Configured packages directory not found: $packagesDir"
 }

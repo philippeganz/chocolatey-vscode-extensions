@@ -47,6 +47,7 @@ param (
     [string[]]$Add,
 
     [Parameter(ParameterSetName = 'Add', Mandatory = $false)]
+    [Parameter(ParameterSetName = 'Remove', Mandatory = $false)]
     [switch]$Force,
 
     [Parameter(ParameterSetName = 'Remove', Mandatory = $true)]
@@ -72,6 +73,7 @@ $ErrorActionPreference = 'Stop'
 # 1. Initialization & Logging Helpers
 # =============================================================================
 Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -ErrorAction Stop
+Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -ErrorAction Stop
 Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -ErrorAction Stop
 
 # Load config.yaml safely
@@ -82,67 +84,13 @@ if (-not $configPath) {
 else {
     $configPath = $configPath.Path
 }
-if (-not (Get-Module -ListAvailable powershell-yaml)) {
-    Write-Info "Installing required powershell-yaml module..."
-    Install-Module powershell-yaml -Force -Scope CurrentUser
-}
-Import-Module powershell-yaml
-
-# =============================================================================
-# 2. State Management Helpers
-# =============================================================================
-
-<#
-.SYNOPSIS
-Reads and parses the config.yaml state tracker.
-
-.OUTPUTS
-A hashtable containing the raw parsed YAML and a populated List of tracked extensions.
-#>
-function Get-ConfigState {
-    if (-not (Test-Path $configPath)) { throw "config.yaml not found at $($configPath)" }
-    $yamlObj = Get-Content $configPath -Raw -Encoding UTF8 | ConvertFrom-Yaml
-    $extensions = [System.Collections.Generic.List[string]]::new()
-    if ($yamlObj.extensions) {
-        foreach ($ext in $yamlObj.extensions) {
-            $extensions.Add([string]$ext.ToLower())
-        }
-    }
-    return @{ Raw = $yamlObj; Extensions = $extensions }
-}
-
-<#
-.SYNOPSIS
-Saves the modified extension pool back to config.yaml safely.
-
-.PARAMETER yamlObj
-The original YAML object to preserve structure.
-
-.PARAMETER extensionsList
-The updated System.Collections.Generic.List of active extensions.
-#>
-function Save-ConfigState ([object]$yamlObj, [System.Collections.Generic.List[string]]$extensionsList) {
-    $sortedExtensions = $extensionsList | Sort-Object -Unique
-    $orderedYaml = [ordered]@{
-        extensions = @($sortedExtensions)
-    }
-    $yamlStr = ConvertTo-Yaml $orderedYaml
-    $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -').TrimEnd() + "`n"
-    Set-Content -Path $configPath -Value $formattedYaml -NoNewline
-
-    $badgeJson = [ordered]@{ schemaVersion = 1; label = "Extensions Tracked"; message = "$($sortedExtensions.Count)"; color = "blue" } | ConvertTo-Json -Compress
-    $badgePath = Join-Path (Split-Path $configPath) "badge.json"
-    Set-Content -Path $badgePath -Value $badgeJson
-
-    Write-Success "State saved to config.yaml ($($sortedExtensions.Count) total extensions tracked)."
-}
 
 # =============================================================================
 # 3. Execution Logic
 # =============================================================================
 if ($PSCmdlet.ParameterSetName -eq 'Add') {
     Write-Info "Executing Pre-flight Checks for Add Operation..."
-    $state = Get-ConfigState
+    $state = Get-ConfigState -ConfigPath $configPath
     $validIds = [System.Collections.Generic.List[string]]::new()
 
     foreach ($id in $Add) {
@@ -184,25 +132,17 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
             ExtensionId = $validIds.ToArray()
             Force       = $Force.IsPresent
         }
-        $factoryPath = Join-Path $PSScriptRoot "Invoke-VsCodeExtensionFactory.ps1"
+        $factoryPath = Join-Path $PSScriptRoot "Invoke-ExtensionFactory.ps1"
         & $factoryPath @factoryParams
 
-        # Save state
-        $state.Raw.extensions = @($state.Extensions)
-        $yamlStr = ConvertTo-Yaml $state.Raw
-        $yamlStr = $yamlStr -replace '`r`n', "`n" -replace "`r", "`n"
-        $yamlStr | Set-Content $configPath -NoNewline -Encoding UTF8
-        Write-Success "State saved to config.yaml ($($state.Extensions.Count) total extensions tracked)."
 
         if ($AutoCommit) {
             Write-Info "Evaluating git state for auto-commit..."
             git add "etc/config.yaml"
-            $baseAuto = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" }
+            $baseAuto = Get-AutomaticDirectory
 
             foreach ($p in $validIds) {
-                $pkgName = ($p -split '\.')[1]
-                if (-not $pkgName) { $pkgName = $p }
-                if (-not $pkgName.StartsWith("vscode-")) { $pkgName = "vscode-$pkgName" }
+                $pkgName = Get-ChocoPackageName $p
                 git add (Join-Path $baseAuto $pkgName)
             }
 
@@ -225,64 +165,39 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
     }
 }
 elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
-    $state = Get-ConfigState
-    $mutated = $false
+    Write-Info "Invoking Shredder for removal..."
+    $shredderParams = @{
+        ExtensionId = $Remove
+        Force       = $Force.IsPresent
+    }
+    $shredderPath = Join-Path $PSScriptRoot "Invoke-ExtensionShredder.ps1"
+    & $shredderPath @shredderParams
 
-    foreach ($id in $Remove) {
-        $cleanId = $id.ToLower()
-        if ($state.Extensions.Contains($cleanId)) {
-            [void]$state.Extensions.Remove($cleanId)
-            $mutated = $true
-            Write-Success "Removed '$cleanId' from config.yaml."
+    if ($AutoCommit) {
+        Write-Info "Evaluating git state for auto-commit..."
+        git add "etc/config.yaml"
+        $baseAuto = Get-AutomaticDirectory
+
+        foreach ($id in $Remove) {
+            $cleanId = $id.ToLower()
+            $pkgName = Get-ChocoPackageName $cleanId
+            if ($pkgName) {
+                # Suppress errors in case the package wasn't scaffolded or tracked in git
+                git add --all (Join-Path $baseAuto $pkgName) 2>$null
+            }
+        }
+
+        $staged = git diff --name-only --cached
+        if (-not $staged) {
+            Write-Skip "No git changes detected. Skipping auto-commit."
         }
         else {
-            Write-Skip "'$cleanId' was not found in config.yaml."
-        }
-
-        $parts = $cleanId -split '\.'
-        if ($parts.Count -eq 2) {
-            $pkgName = $parts[1]
-            if (-not $pkgName.StartsWith("vscode-")) { $pkgName = "vscode-$pkgName" }
-            $baseAuto = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" }
-            $pkgDir = Join-Path $baseAuto $pkgName
-            if (Test-Path $pkgDir) {
-                Remove-Item -Path $pkgDir -Recurse -Force
-                Write-Success "Deleted local package directory: $(Split-Path $baseAuto -Leaf)\$pkgName"
+            $msg = "Remove extensions: $($Remove -join ', ')"
+            if ($Remove.Count -eq 1) {
+                $msg = "Remove $($Remove[0]) extension"
             }
-        }
-    }
-
-    if ($mutated) {
-        Save-ConfigState $state.Raw $state.Extensions
-
-        if ($AutoCommit) {
-            Write-Info "Evaluating git state for auto-commit..."
-            git add "etc/config.yaml"
-            $baseAuto = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" }
-
-            foreach ($id in $Remove) {
-                $cleanId = $id.ToLower()
-                $parts = $cleanId -split '\.'
-                if ($parts.Count -eq 2) {
-                    $pkgName = $parts[1]
-                    if (-not $pkgName.StartsWith("vscode-")) { $pkgName = "vscode-$pkgName" }
-                    # Suppress errors in case the package wasn't scaffolded or tracked in git
-                    git add --all (Join-Path $baseAuto $pkgName) 2>$null
-                }
-            }
-
-            $staged = git diff --name-only --cached
-            if (-not $staged) {
-                Write-Skip "No git changes detected. Skipping auto-commit."
-            }
-            else {
-                $msg = "Remove extensions: $($Remove -join ', ')"
-                if ($Remove.Count -eq 1) {
-                    $msg = "Remove $($Remove[0]) extension"
-                }
-                [void](git commit -m $msg)
-                Write-Success "Auto-Committed: '$msg'"
-            }
+            [void](git commit -m $msg)
+            Write-Success "Auto-Committed: '$msg'"
         }
     }
 }
@@ -323,7 +238,7 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Search') {
 }
 elseif ($CheckStale) {
     Write-Info "Scanning Chocolatey Community API for stale packages (> 3 months old)..."
-    $autoDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" }
+    $autoDir = Get-AutomaticDirectory
     if (-not (Test-Path $autoDir)) { throw "Automatic directory not found." }
     $packages = (Get-ChildItem -Path $autoDir -Directory).Name
 
@@ -373,16 +288,14 @@ elseif ($CheckStale) {
 }
 elseif ($Audit) {
     Write-Info "Auditing state configuration against local directory structures..."
-    $state = Get-ConfigState
-    $autoDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" }
+    $state = Get-ConfigState -ConfigPath $configPath
+    $autoDir = Get-AutomaticDirectory
     $directories = if (Test-Path $autoDir) { (Get-ChildItem -Path $autoDir -Directory).Name } else { @() }
 
     $expectedDirs = [System.Collections.Generic.List[string]]::new()
     foreach ($id in $state.Extensions) {
-        $parts = $id -split '\.'
-        if ($parts.Count -eq 2) {
-            $pkgName = $parts[1]
-            if (-not $pkgName.StartsWith("vscode-")) { $pkgName = "vscode-$pkgName" }
+        $pkgName = Get-ChocoPackageName $id
+        if ($pkgName) {
             $expectedDirs.Add($pkgName)
         }
     }
