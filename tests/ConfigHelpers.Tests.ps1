@@ -26,13 +26,6 @@ Describe 'ConfigHelpers' {
     }
 
     Context 'Save-ConfigState' {
-        BeforeAll {
-            $m = Get-Module ConfigHelpers
-            & $m {
-                function ConvertTo-Yaml { return "extensions:`n  - a.ext`n  - z.ext" }
-                function ConvertTo-Json { return "{}" }
-            }
-        }
         It 'sorts extensions, saves to YAML and generates a badge' {
             Mock Set-Content {}
             Mock Set-Content {} -ModuleName ConfigHelpers
@@ -42,6 +35,8 @@ Describe 'ConfigHelpers' {
             Mock Split-Path { return 'C:\fake' } -ModuleName ConfigHelpers
             Mock Join-Path { return 'C:\fake\badge.json' }
             Mock Join-Path { return 'C:\fake\badge.json' } -ModuleName ConfigHelpers
+            Mock ConvertTo-Yaml { return "extensions:`n  - a.ext`n  - z.ext" } -ModuleName ConfigHelpers
+            Mock ConvertTo-Json { return "{}" } -ModuleName ConfigHelpers
 
             $extensions = @('z.ext', 'a.ext', 'a.ext')
             Save-ConfigState -ConfigPath 'C:\fake\config.yaml' -ExtensionsList $extensions
