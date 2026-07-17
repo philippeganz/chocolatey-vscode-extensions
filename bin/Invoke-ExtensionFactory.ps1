@@ -34,10 +34,10 @@
     and forces a clean regeneration of all templates. Resets the version to 0.0.0.
 
 .EXAMPLE
-    .\Invoke-VsCodeExtensionFactory.ps1 -ExtensionId "ms-python.python"
+    .\Invoke-ExtensionFactory.ps1 -ExtensionId "ms-python.python"
 
 .EXAMPLE
-    .\Invoke-VsCodeExtensionFactory.ps1 -ExtensionId "ms-python.python" -Force
+    .\Invoke-ExtensionFactory.ps1 -ExtensionId "ms-python.python" -Force
 #>
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Write-Host is required for CI/CD logging and workflow orchestration')]
@@ -58,24 +58,18 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 # =============================================================================
 # 1. Configuration & Scaffolding
 # =============================================================================
+Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1"
+Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1"
 Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1"
 
 # We parse the config.yaml to determine which extensions the Factory should
 # track. The output directory defaults to 'automatic/' where the generated
 # Chocolatey packages will be placed.
-if (-not (Test-Path $ConfigFile)) { throw "Configuration file not found: $ConfigFile" }
 
-if (-not (Get-Module -ListAvailable powershell-yaml)) {
-    Write-Host "Installing required powershell-yaml module..." -ForegroundColor Yellow
-    Install-Module powershell-yaml -Force -Scope CurrentUser
-}
-Import-Module powershell-yaml
-
-$yamlObj = Get-Content $ConfigFile -Raw -Encoding UTF8 | ConvertFrom-Yaml
+$state = Get-ConfigState -ConfigPath $ConfigFile
 
 # Factory only outputs to the automatic/ directory at the root
-$OutputDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { Resolve-Path "$PSScriptRoot\..\automatic" -ErrorAction SilentlyContinue }
-if (-not $OutputDir) { $OutputDir = if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) { $env:CHOCO_VSCODE_AUTOMATIC_DIR } else { "$PSScriptRoot\..\automatic" } }
+$OutputDir = Get-AutomaticDirectory
 
 if (-not (Test-Path $OutputDir)) {
     [void](New-Item -ItemType Directory -Force -Path $OutputDir)
@@ -83,11 +77,13 @@ if (-not (Test-Path $OutputDir)) {
 
 $extensionsList = [System.Collections.Generic.List[string]]::new()
 if ($ExtensionId) {
-    $extensionsList.Add($ExtensionId.ToLower())
+    foreach ($id in $ExtensionId) {
+        $extensionsList.Add($id.ToLower())
+    }
 }
 else {
-    foreach ($ext in $yamlObj.extensions) {
-        $extensionsList.Add(([string]$ext).ToLower())
+    foreach ($ext in $state.Extensions) {
+        $extensionsList.Add($ext)
     }
 }
 
@@ -133,10 +129,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $publisher = $parts[0]
     $extensionName = $parts[1]
 
-    $packageName = $extensionName.ToLower()
-    if (-not $packageName.StartsWith("vscode-")) {
-        $packageName = "vscode-$packageName"
-    }
+    $packageName = Get-ChocoPackageName $extId
 
     $pkgDir = Join-Path $OutputDir $packageName
     if (Test-Path $pkgDir) {
@@ -220,8 +213,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
             }
             $dep = if ($dependencyAliases.ContainsKey($depRaw)) { $dependencyAliases[$depRaw] } else { $depRaw }
 
-            $depName = ($dep -split '\.')[1].ToLower()
-            $depPackageName = if ($depName.StartsWith("vscode-")) { $depName } else { "vscode-$depName" }
+            $depPackageName = Get-ChocoPackageName $dep
             if ($depPackageName -ne $packageName) {
                 $dependenciesStr += "      <dependency id=`"$depPackageName`" />`n"
                 $discoveredDeps.Add($depPackageName)
@@ -244,8 +236,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
             }
             $dep = if ($dependencyAliases.ContainsKey($depRaw)) { $dependencyAliases[$depRaw] } else { $depRaw }
 
-            $depName = ($dep -split '\.')[1].ToLower()
-            $depPackageName = if ($depName.StartsWith("vscode-")) { $depName } else { "vscode-$depName" }
+            $depPackageName = Get-ChocoPackageName $dep
             if ($depPackageName -ne $packageName) {
                 $dependenciesStr += "      <dependency id=`"$depPackageName`" />`n"
                 $discoveredDeps.Add($depPackageName)
@@ -340,24 +331,7 @@ param()
 # the config.yaml file to permanently track the fully resolved hierarchy as flat peers.
 if (-not $ExtensionId) {
     Write-Host "`n>>> Finalizing and Syncing config.yaml..." -ForegroundColor Cyan
-    $sortedExtensions = $extensionsList | Sort-Object -Unique
-
-    $orderedYaml = [ordered]@{
-        extensions = @($sortedExtensions)
-    }
-
-    $yamlStr = ConvertTo-Yaml $orderedYaml
-
-    # Enforce standard YAML aesthetics (document separator and 2-space indented arrays)
-    $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -').TrimEnd()
-
-    Set-Content -Path $ConfigFile -Value $formattedYaml
-
-    $badgeJson = @{ schemaVersion = 1; label = "Extensions Tracked"; message = "$($sortedExtensions.Count)"; color = "blue" } | ConvertTo-Json -Compress
-    $badgePath = Join-Path (Split-Path $ConfigFile) "badge.json"
-    Set-Content -Path $badgePath -Value $badgeJson
-
-    Write-Host "    [SUCCESS] Resolved $($sortedExtensions.Count) total dependencies!" -ForegroundColor Green
+    Save-ConfigState -ConfigPath $ConfigFile -ExtensionsList $extensionsList
 }
 
 Write-Host "`n>>> Factory Run Complete!" -ForegroundColor Cyan

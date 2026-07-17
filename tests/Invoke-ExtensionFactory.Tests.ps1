@@ -1,6 +1,6 @@
-Describe "Invoke-VsCodeExtensionFactory.ps1" {
+Describe "Invoke-ExtensionFactory.ps1" {
     BeforeAll {
-        $script:scriptPath = "$PSScriptRoot\..\bin\Invoke-VsCodeExtensionFactory.ps1"
+        $script:scriptPath = "$PSScriptRoot\..\bin\Invoke-ExtensionFactory.ps1"
         $script:mockDir = "$PSScriptRoot\..\test_factory_mock"
         if (Test-Path $script:mockDir) { Remove-Item $script:mockDir -Recurse -Force }
         [void](New-Item -ItemType Directory -Path $script:mockDir)
