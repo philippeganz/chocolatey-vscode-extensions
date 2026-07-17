@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-go</id>
-    <version>0.56.0</version>
+    <version>0.57.0</version>
     <title>Visual Studio Code Extension - Go</title>
     <authors>golang</authors>
     <projectUrl>https://github.com/golang/vscode-go</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://golang.gallerycdn.vsassets.io/extensions/golang/go/0.56.0/1784153044306/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://golang.gallerycdn.vsassets.io/extensions/golang/go/0.57.0/1784220821586/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=golang.go</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
