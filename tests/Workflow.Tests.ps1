@@ -102,7 +102,7 @@ extensions:
 
     Context "2.5. Re-run Factory with -Force" {
         It "Should execute factory with Force without errors" {
-            $script = Join-Path $script:binDir "Invoke-VsCodeExtensionFactory.ps1"
+            $script = Join-Path $script:binDir "Invoke-ExtensionFactory.ps1"
             # Set CHOCO_VSCODE_AUTOMATIC_DIR to redirect scaffolding to test_automatic
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
             & $script -ExtensionId "$script:publisher.$script:extName" -Force

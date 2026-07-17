@@ -90,7 +90,7 @@ Describe "Manage-ExtensionPool CLI" {
             Mock Get-Content -MockWith { return "---`nextensions:`n  - test.tracked" }
 
             $factoryCalled = $false
-            $factoryPath = (Resolve-Path "$PSScriptRoot\..\bin\Invoke-VsCodeExtensionFactory.ps1").Path
+            $factoryPath = (Resolve-Path "$PSScriptRoot\..\bin\Invoke-ExtensionFactory.ps1").Path
             Mock -CommandName $factoryPath -MockWith { $script:factoryCalled = $true }
 
             { & $script:scriptPath -Add "test.tracked" } | Should -Not -Throw
@@ -147,7 +147,7 @@ Describe "Manage-ExtensionPool CLI" {
             }
             Mock Select-String -MockWith { return $null } -ParameterFilter { $Path -match 'vsix' }
 
-            $factoryPath = (Resolve-Path "$PSScriptRoot\..\bin\Invoke-VsCodeExtensionFactory.ps1").Path
+            $factoryPath = (Resolve-Path "$PSScriptRoot\..\bin\Invoke-ExtensionFactory.ps1").Path
             Mock -CommandName $factoryPath -MockWith { return @("test.autocommit") }
 
             Mock git -MockWith {
@@ -166,10 +166,8 @@ Describe "Manage-ExtensionPool CLI" {
             $mockAuto = "$PSScriptRoot\..\automatic"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
-            Mock Test-Path -MockWith { return $true }
-            Mock Get-Content -MockWith { return "---`nextensions:`n  - test.removeme" }
-            Mock Set-Content -MockWith {}
-            Mock Remove-Item -MockWith {}
+            $shredderPath = (Resolve-Path "$PSScriptRoot\..\bin\Invoke-ExtensionShredder.ps1").Path
+            Mock -CommandName $shredderPath -MockWith {}
 
             Mock git -MockWith {
                 if ($args[0] -eq 'diff') { return "config.yaml" }
@@ -177,6 +175,7 @@ Describe "Manage-ExtensionPool CLI" {
 
             { & $script:scriptPath -Remove "test.removeme" -AutoCommit } | Should -Not -Throw
             Should -Invoke -CommandName git -Times 3
+            Should -Invoke -CommandName $shredderPath -Times 1
         }
 
         Context "Additional Coverage" {
