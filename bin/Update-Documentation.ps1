@@ -35,6 +35,31 @@ Write-Cyan ">>> Processing Scripts in bin/ ..."
 $binScripts = Get-ChildItem -Path (Join-Path $rootDir "bin") -Filter "*.ps1" -File
 foreach ($script in $binScripts) {
     if ($script.Name -eq "Update-Documentation.ps1") { continue }
+    
+    if ($script.Name -eq "AuExtensionHooks.ps1") {
+        Write-White "    Extracting internal functions for $($script.Name)"
+        $tempModule = Join-Path $env:TEMP "AuExtensionHooks.psm1"
+        $content = Get-Content $script.FullName -Raw
+        $content = $content -replace '(?im)^Update-Package.*$', ''
+        $content = $content -replace '(?im)^Import-Module au.*$', ''
+        $content = $content -replace '\$PSScriptRoot', (Split-Path $script.FullName)
+        Set-Content -Path $tempModule -Value $content -Encoding UTF8
+        try {
+            Import-Module $tempModule -Force
+            foreach ($func in @('au_GetLatest', 'au_BeforeUpdate', 'au_SearchReplace')) {
+                Write-White "      -> $func"
+                [void](New-MarkdownHelp -Command $func -OutputFolder $docsDir -Force -ErrorAction SilentlyContinue)
+            }
+        }
+        catch {
+            Write-Yellow "    [WARNING] Failed to extract functions from $($script.Name): $_"
+        }
+        finally {
+            Remove-Module AuExtensionHooks -ErrorAction SilentlyContinue
+            Remove-Item $tempModule -Force -ErrorAction SilentlyContinue
+        }
+    }
+    
     Write-White "    Generating docs for $($script.Name)"
     try {
         [void](New-MarkdownHelp -Command $script.FullName -OutputFolder $docsDir -Force -ErrorAction SilentlyContinue)
