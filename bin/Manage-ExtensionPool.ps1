@@ -128,7 +128,7 @@ function Save-ConfigState ([object]$yamlObj, [System.Collections.Generic.List[st
     }
     $yamlStr = ConvertTo-Yaml $orderedYaml
     $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -').TrimEnd() + "`n"
-    Set-Content -Path $configPath -Value $formattedYaml
+    Set-Content -Path $configPath -Value $formattedYaml -NoNewline
 
     $badgeJson = @{ schemaVersion = 1; label = "Extensions Tracked"; message = "$($sortedExtensions.Count)"; color = "blue" } | ConvertTo-Json -Compress
     $badgePath = Join-Path (Split-Path $configPath) "badge.json"
