@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-rust-analyzer</id>
-    <version>0.4.2977</version>
+    <version>0.4.2978</version>
     <title>Visual Studio Code Extension - rust-analyzer</title>
     <authors>rust-lang</authors>
     <projectUrl>https://github.com/rust-lang/rust-analyzer.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://rust-lang.gallerycdn.vsassets.io/extensions/rust-lang/rust-analyzer/0.4.2977/1784250617821/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://rust-lang.gallerycdn.vsassets.io/extensions/rust-lang/rust-analyzer/0.4.2978/1784336739270/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
