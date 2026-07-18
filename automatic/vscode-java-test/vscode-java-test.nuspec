@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-java-test</id>
-    <version>0.46.2026071402</version>
+    <version>0.46.2026071702</version>
     <title>Visual Studio Code Extension - Test Runner for Java</title>
     <authors>vscjava</authors>
     <projectUrl>https://github.com/Microsoft/vscode-java-test</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-test/0.46.2026071402/1783996680851/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-test/0.46.2026071702/1784256983238/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
