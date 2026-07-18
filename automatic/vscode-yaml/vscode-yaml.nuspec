@@ -2,52 +2,57 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-yaml</id>
-    <version>1.25.2026071508</version>
+    <version>1.25.2026071708</version>
     <title>Visual Studio Code Extension - YAML</title>
     <authors>redhat</authors>
     <projectUrl>https://github.com/redhat-developer/vscode-yaml</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-yaml/1.25.2026071508/1784105484565/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-yaml/1.25.2026071708/1784278086408/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/redhat.vscode-yaml?style=for-the-badge&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/redhat.vscode-yaml?style=for-the-badge&logo=microsoft)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+[![Visual Studio Marketplace](https://img.shields.io/badge/Visual%20Studio%20Marketplace-Available-blue?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/redhat-developer/vscode-yaml/CI.yaml?branch=main&style=for-the-badge&logo=github)](https://github.com/redhat-developer/vscode-yaml/actions?query=workflow:CI)
-[![License](https://img.shields.io/github/license/redhat-developer/vscode-yaml?style=for-the-badge)](https://github.com/redhat-developer/vscode-yaml/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/redhat-developer/vscode-yaml?style=for-the-badge)](https://github.com/redhat-developer/vscode-yaml/blob/main/LICENSE)
 [![OpenVSX Registry](https://img.shields.io/open-vsx/dt/redhat/vscode-yaml?color=purple&label=OpenVSX%20Downloads&style=for-the-badge)](https://open-vsx.org/extension/redhat/vscode-yaml)
 
 # YAML Language Support by Red Hat
-Provides comprehensive YAML Language support to [Visual Studio Code](https://code.visualstudio.com/), via the [yaml-language-server](https://github.com/redhat-developer/yaml-language-server), with built-in Kubernetes syntax support.
+
+Provides comprehensive YAML language support for [Visual Studio Code](https://code.visualstudio.com/) through [yaml-language-server](https://github.com/redhat-developer/yaml-language-server), with built-in Kubernetes schema support.
+
+Starting from version `1.0.0`, the language server uses [eemeli/yaml](https://github.com/eemeli/yaml) as its YAML parser, which strictly enforces the specified YAML spec version. The default YAML spec version is `1.2`. Set `yaml.yamlVersion` to `1.1` for compatibility with older YAML files.
+
+Schema validation supports JSON Schema `draft-04`, `draft-07`, `2019-09`, and `2020-12`.
 
 ## Features
 ![screencast](https://raw.githubusercontent.com/redhat-developer/vscode-yaml/main/images/demo.gif)
 
-1. YAML validation:
-    * Detects whether the entire file is valid yaml
-    * Detects errors such as:
+1. **YAML validation**:
+    * Detects whether the entire file is valid YAML
+    * Reports diagnostics such as:
         * Node is not found
         * Node has an invalid key node type
         * Node has an invalid type
         * Node is not a valid child node
-2. Document Outlining (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd>):
-    * Provides the document outlining of all completed nodes in the file
-3. Auto completion (<kbd>Ctrl</kbd> + <kbd>Space</kbd>):
-    * Auto completes on all commands
-    * Scalar nodes autocomplete to schema's defaults if they exist
-4. Hover support:
-    * Hovering over a node shows description *if provided by schema*
-5. Formatter:
-   * Allows for formatting the current file
-   * On type formatting auto indent for array items
+        * Node is an additional property of its parent
+2. **Document outlining** (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd>):
+    * Shows YAML nodes hierarchically in the **Outline view** and makes them available through **Go to Symbol**
+3. **Auto completion** (<kbd>Ctrl</kbd> + <kbd>Space</kbd>):
+    * Auto completes YAML keys, values, and structure based on the associated schema
+    * Auto completes scalar nodes with schema defaults when defaults are available
+4. **Hover**:
+    * Shows schema descriptions for YAML nodes when descriptions are available
+    * Shows anchor information when `yaml.hoverAnchor` is enabled
+    * Shows schema source information when `yaml.hoverSchemaSource` is enabled
+5. **Formatting**:
+   * Formats YAML documents
+   * Supports on-type formatting on newline, including automatic indentation for mappings and array items
 
-*Auto completion and hover support are provided by the schema. Please refer to Language Server Settings to setup a schema*
+*Auto completion and hover content are schema-driven. See [Associating schemas](#associating-schemas) for configuration details.*
 
-## YAML version support
-Starting from `1.0.0` the extension uses [eemeli/yaml](https://github.com/eemeli/yaml) as the new YAML parser, which strictly enforces the specified YAML spec version.
-Default YAML spec version is `1.2`, it can be changed with `yaml.yamlVersion` setting.
+## Extension settings
 
-## Extension Settings
+The following settings are supported:
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for full documentation]
 ]]></description>
