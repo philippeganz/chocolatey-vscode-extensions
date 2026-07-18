@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-tailwindcss</id>
-    <version>0.15.8</version>
+    <version>0.16.0</version>
     <title>Visual Studio Code Extension - Tailwind CSS IntelliSense</title>
     <authors>bradlc</authors>
     <projectUrl>https://github.com/tailwindlabs/tailwindcss-intellisense.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://bradlc.gallerycdn.vsassets.io/extensions/bradlc/vscode-tailwindcss/0.15.8/1784225322033/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://bradlc.gallerycdn.vsassets.io/extensions/bradlc/vscode-tailwindcss/0.16.0/1784302162859/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
