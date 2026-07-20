@@ -14,7 +14,7 @@ BeforeAll {
     function Write-Skip {}
 }
 
-Describe 'Invoke-ExtensionShredder' {
+Describe 'Invoke-ExtensionShredder' -Tag "Integration", 'Invoke-ExtensionShredder' {
     BeforeEach {
         $mockState = [PSCustomObject]@{
             Extensions = [System.Collections.Generic.List[string]]::new()

@@ -4,7 +4,7 @@ param()
 
 $ErrorActionPreference = "Stop"
 
-Describe "AuExtensionHooks" {
+Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
     BeforeAll {
         $script:hooksPath = "$PSScriptRoot\..\bin\AuExtensionHooks.ps1"
         $script:mockConfig = Join-Path $PSScriptRoot "mock_config.yaml"

@@ -7,7 +7,7 @@ function global:Invoke-MockShredder { return @("test.removeme") }
 
 $ErrorActionPreference = "Stop"
 
-Describe "Manage-ExtensionPool CLI" {
+Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
     BeforeAll {
         Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -Force
         Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -Force

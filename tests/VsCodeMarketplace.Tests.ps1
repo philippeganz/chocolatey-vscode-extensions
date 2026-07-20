@@ -7,7 +7,7 @@ $ErrorActionPreference = "Stop"
 $script:modulePath = "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1"
 Import-Module $script:modulePath -Force
 
-Describe "VsCodeMarketplace API Wrapper" {
+Describe "VsCodeMarketplace API Wrapper" -Tag "Unit", 'VsCodeMarketplace' {
 
     Context "Get-VsCodeNuspecMetadata" {
         It "Should correctly map JSON properties to Nuspec properties" {

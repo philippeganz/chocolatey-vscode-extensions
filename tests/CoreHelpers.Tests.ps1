@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 
-Describe "CoreHelpers Module" {
+Describe "CoreHelpers Module" -Tag "Unit", 'CoreHelpers' {
     BeforeAll {
         $script:modulePath = Join-Path $PSScriptRoot "..\lib\CoreHelpers.psm1"
         Import-Module $script:modulePath -Force

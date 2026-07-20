@@ -9,7 +9,7 @@ BeforeAll {
     function Write-Success {}
 }
 
-Describe 'ConfigHelpers' {
+Describe 'ConfigHelpers' -Tag "Unit", 'ConfigHelpers' {
     Context 'Get-ConfigState' {
         It 'throws if config.yaml does not exist' {
             Mock Test-Path { return $false } -ModuleName ConfigHelpers

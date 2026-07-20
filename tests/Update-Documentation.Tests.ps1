@@ -3,7 +3,7 @@ param()
 
 $ErrorActionPreference = "Stop"
 
-Describe "Update-Documentation.ps1" {
+Describe "Update-Documentation.ps1" -Tag "Integration", 'Update-Documentation' {
     It "Should successfully execute and generate Markdown files" {
         $scriptPath = "$PSScriptRoot\..\bin\Update-Documentation.ps1"
         $docsDir = "$PSScriptRoot\..\docs\reference"

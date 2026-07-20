@@ -13,7 +13,7 @@ the pool manager perfectly manages state lifecycle (Add/Remove) without pollutin
 param()
 $ErrorActionPreference = "Stop"
 
-Describe "VSCode Extensions Chocolatey Workflow" {
+Describe "VSCode Extensions Chocolatey Workflow" -Tag "E2E", 'Workflow' {
 
     BeforeAll {
         # Resolve repo root dynamically (agnostic to local vs CI)

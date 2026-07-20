@@ -1,4 +1,4 @@
-Describe "Invoke-ExtensionFactory.ps1" {
+Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFactory' {
     BeforeAll {
         $script:scriptPath = "$PSScriptRoot\..\bin\Invoke-ExtensionFactory.ps1"
         $script:mockDir = "$PSScriptRoot\..\test_factory_mock"
