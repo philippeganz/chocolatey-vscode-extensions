@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 <#
 .SYNOPSIS
     The robust, scriptable CLI for managing the VS Code Extension Pool.
@@ -305,7 +305,7 @@ elseif ($CheckAge) {
     $cutoff = (Get-Date).AddYears(-3)
 
     $results = [System.Collections.Generic.List[PSCustomObject]]::new()
-    
+
     # Query Marketplace API in chunks of 50
     $chunkSize = 50
     $total = $state.Extensions.Count
