@@ -156,6 +156,7 @@ extensions:
   - ritwickdey.liveserver
   - rust-lang.rust-analyzer
   - shd101wyy.markdown-preview-enhanced
+  - shopify.ruby-lsp
   - sidthesloth.html5-boilerplate
   - streetsidesoftware.code-spell-checker
   - tabnine.tabnine-vscode
