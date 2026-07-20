@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     The Execution Engine for safely removing VS Code extensions from the pool.
@@ -116,8 +116,14 @@ foreach ($cleanId in $removeIds) {
         }
 
         if (Test-Path $pkgDir) {
-            Remove-Item -Path $pkgDir -Recurse -Force
-            Write-Success "Deleted local package directory: $(Split-Path $baseAuto -Leaf)\$pkgName"
+            $sharedOwners = $state.Extensions | Where-Object { (Get-ChocoPackageName $_) -eq $pkgName }
+            if ($sharedOwners.Count -gt 0) {
+                Write-Warning "Skipping directory deletion for '$pkgName'. It is still owned by: $($sharedOwners -join ', ')."
+            }
+            else {
+                Remove-Item -Path $pkgDir -Recurse -Force
+                Write-Success "Deleted local package directory: $(Split-Path $baseAuto -Leaf)\$pkgName"
+            }
         }
     }
 }
