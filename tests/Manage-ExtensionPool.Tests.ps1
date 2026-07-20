@@ -17,6 +17,9 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
     BeforeEach {
         Mock Import-Module -MockWith {} -ParameterFilter { $Name -match 'ConfigHelpers' -or $Name -match 'CoreHelpers' -or $Name -match 'VsCodeMarketplace' }
     }
+    AfterAll {
+        Remove-Item Env:\CHOCO_VSCODE_AUTOMATIC_DIR -ErrorAction SilentlyContinue
+    }
 
     Context "Audit Mode" {
         It "Should succeed when config matches directories" {
@@ -212,6 +215,39 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
                 Mock Test-Path -MockWith { return $true }
                 Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('other')) } }
                 { & $script:scriptPath -Add "publisher.invalidext" } | Should -Not -Throw
+            }
+
+            It "Should abort when extension is deprecated and -Force is not specified" {
+                Import-Module (Join-Path $PSScriptRoot "..\lib\VsCodeMarketplace.psm1") -Force
+                Mock Get-VsCodeMarketplaceMetadata -MockWith { return @{ displayName = "[Deprecated] Old Ext"; shortDescription = "Testing" } }
+                Mock Test-Path -MockWith { return $false }
+                Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new() } }
+
+                Mock Join-Path -MockWith {
+                    if ($ChildPath -eq 'Invoke-ExtensionFactory.ps1') { return 'Invoke-MockFactory' }
+                    return [System.IO.Path]::Combine($Path, $ChildPath)
+                }
+                Mock Invoke-MockFactory -MockWith { }
+
+                { & $script:scriptPath -Add "publisher.deprecated" } | Should -Not -Throw
+                Should -Not -Invoke -CommandName Invoke-MockFactory
+            }
+
+            It "Should proceed when extension is deprecated but -Force is specified" {
+                Import-Module (Join-Path $PSScriptRoot "..\lib\VsCodeMarketplace.psm1") -Force
+                Mock Get-VsCodeMarketplaceMetadata -MockWith { return @{ displayName = "[Deprecated] Old Ext"; shortDescription = "Testing" } }
+                Mock Test-Path -MockWith { return $false }
+                Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new() } }
+
+                Mock Join-Path -MockWith {
+                    if ($ChildPath -eq 'Invoke-ExtensionFactory.ps1') { return 'Invoke-MockFactory' }
+                    return [System.IO.Path]::Combine($Path, $ChildPath)
+                }
+                Mock Invoke-MockFactory -MockWith { }
+                Mock Save-ConfigState -MockWith {}
+
+                { & $script:scriptPath -Add "publisher.deprecated" -Force } | Should -Not -Throw
+                Should -Invoke -CommandName Invoke-MockFactory -Times 1
             }
 
             It "Should skip missing extension in Remove Mode" {
