@@ -1,22 +1,15 @@
 Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFactory' {
     BeforeAll {
         $script:scriptPath = "$PSScriptRoot\..\bin\Invoke-ExtensionFactory.ps1"
-        $script:mockDir = "$PSScriptRoot\..\test_factory_mock"
-        if (Test-Path $script:mockDir) { Remove-Item $script:mockDir -Recurse -Force }
-        [void](New-Item -ItemType Directory -Path $script:mockDir)
-
-        $script:mockConfig = Join-Path $script:mockDir "mock_config.yaml"
+        $script:mockConfig = Join-Path $TestDrive "mock_config.yaml"
         Set-Content -Path $script:mockConfig -Value "---\nextensions:`n  - ms-python.python"
     }
 
-    AfterAll {
-        if (Test-Path $script:mockDir) { Remove-Item $script:mockDir -Recurse -Force }
-    }
-
     BeforeEach {
-        $env:CHOCO_VSCODE_AUTOMATIC_DIR = Join-Path $script:mockDir "automatic"
-        if (Test-Path $env:CHOCO_VSCODE_AUTOMATIC_DIR) { Remove-Item $env:CHOCO_VSCODE_AUTOMATIC_DIR -Recurse -Force }
-        [void](New-Item -ItemType Directory -Path $env:CHOCO_VSCODE_AUTOMATIC_DIR)
+        $env:CHOCO_VSCODE_AUTOMATIC_DIR = Join-Path $TestDrive "automatic"
+        if (-not (Test-Path $env:CHOCO_VSCODE_AUTOMATIC_DIR)) {
+            [void](New-Item -ItemType Directory -Path $env:CHOCO_VSCODE_AUTOMATIC_DIR)
+        }
     }
 
     It "Should handle invalid extension ID format" {
@@ -115,7 +108,7 @@ Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFact
     }
 
     It "Should throw if no extensions are found and no ExtensionId is provided" {
-        $emptyConfig = Join-Path $script:mockDir "empty_config.yaml"
+        $emptyConfig = Join-Path $TestDrive "empty_config.yaml"
         Set-Content -Path $emptyConfig -Value "---\nextensions: []"
         { & $script:scriptPath -ConfigFile $emptyConfig } | Should -Throw "No extensions found in $emptyConfig, and no -ExtensionId was provided."
     }
@@ -129,7 +122,7 @@ Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFact
         Mock Expand-VsCodePayload -MockWith { return @{} }
         Mock Get-VsCodeNuspecMetadata -MockWith { return @{ Title = "T"; Authors = "A"; ProjectUrl = "U"; IconUrl = "I"; MarketplaceUrl = "M"; Description = "D"; Summary = "S" } }
 
-        $testConfig = Join-Path $script:mockDir "test_config.yaml"
+        $testConfig = Join-Path $TestDrive "test_config.yaml"
         $yamlContent = @"
 ---
 extensions:
