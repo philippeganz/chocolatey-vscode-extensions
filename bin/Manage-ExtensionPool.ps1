@@ -63,6 +63,9 @@ param (
     [Parameter(ParameterSetName = 'CheckStale', Mandatory = $true)]
     [switch]$CheckStale,
 
+    [Parameter(ParameterSetName = 'CheckAge', Mandatory = $true)]
+    [switch]$CheckAge,
+
     [Parameter(ParameterSetName = 'Audit', Mandatory = $true)]
     [switch]$Audit
 )
@@ -296,6 +299,66 @@ elseif ($CheckStale) {
         Write-Success "All packages are perfectly up to date with the Community Feed!"
     }
 }
+elseif ($CheckAge) {
+    Write-Info "Scanning VS Code Marketplace for abandoned extensions (> 3 years old)..."
+    $state = Get-ConfigState -ConfigPath $configPath
+    $cutoff = (Get-Date).AddYears(-3)
+
+    $results = [System.Collections.Generic.List[PSCustomObject]]::new()
+    
+    # Query Marketplace API in chunks of 50
+    $chunkSize = 50
+    $total = $state.Extensions.Count
+    $url = "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
+    $headers = @{
+        "Accept"       = "application/json;api-version=3.0-preview.1"
+        "Content-Type" = "application/json"
+    }
+
+    for ($i = 0; $i -lt $total; $i += $chunkSize) {
+        $chunk = $state.Extensions | Select-Object -Skip $i -First $chunkSize
+        $criteria = @()
+        foreach ($ext in $chunk) {
+            $criteria += @{ filterType = 7; value = $ext }
+        }
+
+        $bodyObj = @{
+            filters = @( @{ criteria = $criteria } )
+            flags   = 914
+        }
+        $bodyStr = $bodyObj | ConvertTo-Json -Depth 10 -Compress
+
+        try {
+            $response = Invoke-RestMethod -Method POST -Uri $url -Headers $headers -Body $bodyStr -ErrorAction Stop
+            if ($response.results -and $response.results[0].extensions) {
+                foreach ($extData in $response.results[0].extensions) {
+                    $lastUpdatedStr = $extData.versions[0].lastUpdated
+                    if ($lastUpdatedStr) {
+                        $lastUpdated = [datetime]$lastUpdatedStr
+                        if ($lastUpdated -lt $cutoff) {
+                            $results.Add([PSCustomObject]@{
+                                Extension   = "$($extData.publisher.publisherName).$($extData.extensionName)"
+                                DisplayName = $extData.displayName
+                                LastUpdated = $lastUpdated.ToString("yyyy-MM-dd")
+                                YearsOld    = [math]::Round(((Get-Date) - $lastUpdated).TotalDays / 365.25, 1)
+                            })
+                        }
+                    }
+                }
+            }
+        }
+        catch {
+            Write-Warning "Failed to query a chunk of extensions from the Marketplace API: $_"
+        }
+    }
+
+    if ($results.Count -gt 0) {
+        $results | Sort-Object YearsOld -Descending | Format-Table -AutoSize
+    }
+    else {
+        Write-Success "All extensions have been updated within the last 3 years!"
+    }
+}
 elseif ($Audit) {
     Write-Info "Auditing state configuration against local directory structures..."
     $state = Get-ConfigState -ConfigPath $configPath
@@ -337,5 +400,5 @@ elseif ($Audit) {
     }
 }
 else {
-    Write-Err "Please specify a valid operation: -Add, -Remove, -Search, -CheckStale, or -Audit"
+    Write-Err "Please specify a valid operation: -Add, -Remove, -Search, -CheckStale, -CheckAge, or -Audit"
 }

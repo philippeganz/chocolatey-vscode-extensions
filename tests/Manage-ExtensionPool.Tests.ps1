@@ -91,6 +91,47 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
         }
     }
 
+    Context "CheckAge Mode" {
+        It "Should report abandoned extensions in CheckAge Mode" {
+            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+
+            Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('test.old')) } }
+
+            $mockResponse = [PSCustomObject]@{
+                results = @(
+                    [PSCustomObject]@{
+                        extensions = @(
+                            [PSCustomObject]@{
+                                publisher = [PSCustomObject]@{ publisherName = "test" }
+                                extensionName = "old"
+                                displayName = "Old Extension"
+                                versions = @(
+                                    [PSCustomObject]@{
+                                        lastUpdated = "2020-01-01T00:00:00Z"
+                                    }
+                                )
+                            }
+                        )
+                    }
+                )
+            }
+            Mock Invoke-RestMethod -MockWith { return $mockResponse }
+
+            { & $script:scriptPath -CheckAge } | Should -Not -Throw
+        }
+
+        It "Should ignore failed marketplace queries gracefully" {
+            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+
+            Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('test.error')) } }
+            Mock Invoke-RestMethod -MockWith { throw "500 Internal Server Error" }
+
+            { & $script:scriptPath -CheckAge } | Should -Not -Throw
+        }
+    }
+
     Context "Add Mode" {
         It "Should skip tracked extensions if -Force is not specified" {
             $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
