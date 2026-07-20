@@ -1,53 +1,58 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-material-icon-theme</id>
-    <version>5.36.1</version>
+    <version>5.37.0</version>
     <title>Visual Studio Code Extension - Material Icon Theme</title>
     <authors>PKief</authors>
     <projectUrl>git+https://github.com/material-extensions/vscode-material-icon-theme.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://PKief.gallerycdn.vsassets.io/extensions/pkief/material-icon-theme/5.36.1/1782238809254/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://PKief.gallerycdn.vsassets.io/extensions/pkief/material-icon-theme/5.37.0/1784456141964/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 <!-- markdownlint-disable -->
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/logo.png" alt="logo" width="120">
-</p>
 
-<h1 align="center">Material Icon Theme</h1>
-
-<p align="center"><em>Material Design icons for Visual Studio Code</em></p>
-
-<p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"><img src="https://img.shields.io/npm/v/material-icon-theme?style=for-the-badge&colorA=263238&colorB=4CAF50&label=VERSION" alt="NPM Version"></a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"><img src="https://img.shields.io/badge/Rating-4.9%2F5-43A047?style=for-the-badge&colorA=263238&colorB=43A047" alt="Rating"></a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"><img src="https://img.shields.io/badge/Installations-%3E30M-43A047?style=for-the-badge&colorA=263238&colorB=43A047" alt="Installations"></a>
-</p>
-
-<br />
+  
 
 
-<p align="center">Enjoying Material Icon Theme? Support the project by starring it or becoming a sponsor!</p>
+Material Icon Theme
 
-<p align="center">
-  <a href="https://github.com/sponsors/material-extensions"><img src="https://img.shields.io/badge/Sponsor-GitHub-blue?logo=github-sponsors&style=for-the-badge&colorA=263238&colorB=EC407A" alt="Sponsor on GitHub"></a>
-  <a href="https://github.com/material-extensions/vscode-material-icon-theme"><img src="https://img.shields.io/github/stars/material-extensions/vscode-material-icon-theme?style=for-the-badge&label=Star%20on%20GitHub&colorA=263238&colorB=1976D2" alt="Star on GitHub"></a>
-</p>
+<em>Material Design icons for Visual Studio Code</em>
 
-<br />
+
+  <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"></a>
+
+
+
+
+
+
+Enjoying Material Icon Theme? Support the project by starring it or becoming a sponsor!
+
+
+  <a href="https://github.com/sponsors/material-extensions"></a>
+  <a href="https://github.com/material-extensions/vscode-material-icon-theme"></a>
+
+
+
+
 
 ### File icons
 
-<details><summary>🏞️ <b>Show all available file icons</b></summary><br/><img src="https://raw.githubusercontent.com/material-extensions/vscode-material-icon-theme/main/images/fileIcons.png" alt="file icons"></details>
+🏞️ <b>Show all available file icons</b>
+
 
 ### Folder icons
 
-<details><summary>🏞️ <b>Show all available folder icons</b></summary><br/><img src="https://raw.githubusercontent.com/material-extensions/vscode-material-icon-theme/main/images/folderIcons.png" alt="folder icons"></details>
+🏞️ <b>Show all available folder icons</b>
 
-<br />
+
+
+
 
 ## Table of Contents
 
@@ -70,13 +75,16 @@
 
 ## Getting Started
 
-1. **Install the extension**<br>
+1. **Install the extension**
+
   [![Install in VS Code](https://img.shields.io/badge/Install%20in%20VS%20Code-Click%20to%20Install-4CAF50?style=for-the-badge&logo=visualstudiocode&logoColor=white&colorA=263238&colorB=4CAF50)](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
 
-2. **Activate the icon theme**<br>
+2. **Activate the icon theme**
+
   Open the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS), type `Material Icons: Activate Icon Theme`, and select it.
 
-3. **Enjoy your new icons**<br>
+3. **Enjoy your new icons**
+
   Your editor will now display beautiful, customizable Material Design icons for files and folders.
 
 ## Customization
@@ -98,7 +106,7 @@ or via user settings:
       https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme#changelog</releaseNotes>
     <tags>vscode extension material-icon-theme</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
