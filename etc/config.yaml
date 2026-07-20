@@ -59,6 +59,7 @@ extensions:
   - hbenl.vscode-test-explorer
   - hookyqr.beautify
   - humao.rest-client
+  - jbockle.jbockle-format-files
   - jeff-hykin.better-cpp-syntax
   - kevinrose.vsc-python-indent
   - mechatroner.rainbow-csv
