@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     The robust, scriptable CLI for managing the VS Code Extension Pool.
@@ -114,6 +114,16 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
             Write-Info "Pinging Marketplace API for $cleanId..."
             $meta = Get-VsCodeMarketplaceMetadata -Publisher $parts[0] -ExtensionName $parts[1]
             if ($meta) {
+                if (($meta.displayName -match '(?i)deprecated') -or ($meta.shortDescription -match '(?i)deprecated')) {
+                    if (-not $Force) {
+                        Write-Err "Extension '$cleanId' is marked as deprecated by the author. Aborting. Use -Force to add it anyway."
+                        continue
+                    }
+                    else {
+                        Write-Yellow "Extension '$cleanId' is deprecated, but -Force was specified. Proceeding."
+                    }
+                }
+
                 Write-Success "Verified '$cleanId' exists on the VS Code Marketplace!"
 
                 $baseAuto = Get-AutomaticDirectory
