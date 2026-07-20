@@ -141,6 +141,7 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
         if ($AutoCommit) {
             Write-Info "Evaluating git state for auto-commit..."
             git add "etc/config.yaml"
+            git add "etc/badge.json"
             $baseAuto = Get-AutomaticDirectory
 
             foreach ($p in $validIds) {
@@ -178,6 +179,7 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
     if ($AutoCommit) {
         Write-Info "Evaluating git state for auto-commit..."
         git add "etc/config.yaml"
+        git add "etc/badge.json"
         $baseAuto = Get-AutomaticDirectory
 
         foreach ($id in $Remove) {
