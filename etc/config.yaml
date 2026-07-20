@@ -143,6 +143,7 @@ extensions:
   - pkief.material-icon-theme
   - platformio.platformio-ide
   - pranaygp.vscode-css-peek
+  - puppet.puppet-vscode
   - rangav.vscode-thunder-client
   - redhat.ansible
   - redhat.fabric8-analytics
