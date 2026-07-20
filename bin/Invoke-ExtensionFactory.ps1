@@ -288,21 +288,24 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $nuspecContent = $nuspecContent -replace '\{\{Description\}\}', $meta.Description
     $nuspecContent = $nuspecContent -replace '\{\{Summary\}\}', $meta.Summary
     $nuspecContent = $nuspecContent -replace '\{\{Dependencies\}\}', $dependenciesStr
-    Set-Content -Path $nuspecPath -Value $nuspecContent
+    $nuspecContent = $nuspecContent.Replace("`r`n", "`n")
+    [System.IO.File]::WriteAllText($nuspecPath, $nuspecContent, [System.Text.UTF8Encoding]::new($false))
 
     if (-not (Test-Path (Join-Path $toolsDir "chocolateyInstall.ps1"))) {
         $installContent = Get-Content (Join-Path $templatesDir "chocolateyInstall.ps1") -Raw -Encoding UTF8
         $installContent = $installContent -replace '\{\{Publisher\}\}', $publisher
         $installContent = $installContent -replace '\{\{ExtensionName\}\}', $extensionName
         $installContent = $installContent -replace '\{\{Version\}\}', $versionClean
-        Set-Content -Path (Join-Path $toolsDir "chocolateyInstall.ps1") -Value $installContent
+        $installContent = $installContent.Replace("`r`n", "`n")
+        [System.IO.File]::WriteAllText((Join-Path $toolsDir "chocolateyInstall.ps1"), $installContent, [System.Text.UTF8Encoding]::new($false))
     }
 
     if (-not (Test-Path (Join-Path $toolsDir "chocolateyUninstall.ps1"))) {
         $uninstallContent = Get-Content (Join-Path $templatesDir "chocolateyUninstall.ps1") -Raw -Encoding UTF8
         $uninstallContent = $uninstallContent -replace '\{\{Publisher\}\}', $publisher
         $uninstallContent = $uninstallContent -replace '\{\{ExtensionName\}\}', $extensionName
-        Set-Content -Path (Join-Path $toolsDir "chocolateyUninstall.ps1") -Value $uninstallContent
+        $uninstallContent = $uninstallContent.Replace("`r`n", "`n")
+        [System.IO.File]::WriteAllText((Join-Path $toolsDir "chocolateyUninstall.ps1"), $uninstallContent, [System.Text.UTF8Encoding]::new($false))
     }
 
     if (-not (Test-Path (Join-Path $pkgDir "update.ps1"))) {
@@ -313,7 +316,8 @@ param()
 `$ExtensionName = "$extensionName"
 . "`$PSScriptRoot\..\..\bin\AuExtensionHooks.ps1"
 "@
-        Set-Content -Path (Join-Path $pkgDir "update.ps1") -Value $updateContent
+        $updateContent = $updateContent.Replace("`r`n", "`n")
+        [System.IO.File]::WriteAllText((Join-Path $pkgDir "update.ps1"), $updateContent, [System.Text.UTF8Encoding]::new($false))
     }
 
     # Download Icon

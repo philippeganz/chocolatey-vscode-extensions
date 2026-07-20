@@ -275,7 +275,8 @@ function Expand-VsCodePayload {
             }
 
             # We save the FULL readme back to tools/README.md for the user, but we will return the $readmeRaw (which is truncated) for the nuspec
-            Set-Content -Path $readmePath -Value $readmeFull
+            $readmeFull = $readmeFull.Replace("`r`n", "`n")
+            [System.IO.File]::WriteAllText($readmePath, $readmeFull, [System.Text.UTF8Encoding]::new($false))
         }
 
         if ($licenseEntry) {

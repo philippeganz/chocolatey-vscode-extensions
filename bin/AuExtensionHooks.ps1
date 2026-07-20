@@ -156,7 +156,8 @@ function global:au_BeforeUpdate {
                 $nuspecContent = $nuspecContent -replace '(?is)<authors>.*?</authors>', "<authors>$($meta.Authors)</authors>"
                 $nuspecContent = $nuspecContent -replace '(?is)<projectUrl>.*?</projectUrl>', "<projectUrl>$($meta.ProjectUrl)</projectUrl>"
             }
-            Set-Content -Path $nuspecPath -Value $nuspecContent
+            $nuspecContent = $nuspecContent.Replace("`r`n", "`n")
+            [System.IO.File]::WriteAllText($nuspecPath, $nuspecContent, [System.Text.UTF8Encoding]::new($false))
         }
     }
 

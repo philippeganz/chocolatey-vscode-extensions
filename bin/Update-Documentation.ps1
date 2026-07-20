@@ -43,7 +43,8 @@ foreach ($script in $binScripts) {
         $content = $content -replace '(?im)^Update-Package.*$', ''
         $content = $content -replace '(?im)^Import-Module au.*$', ''
         $content = $content -replace '\$PSScriptRoot', (Split-Path $script.FullName)
-        Set-Content -Path $tempModule -Value $content -Encoding UTF8
+        $content = $content.Replace("`r`n", "`n")
+        [System.IO.File]::WriteAllText($tempModule, $content, [System.Text.UTF8Encoding]::new($false))
         try {
             Import-Module $tempModule -Force
             foreach ($func in @('au_GetLatest', 'au_BeforeUpdate', 'au_SearchReplace')) {
@@ -98,7 +99,8 @@ Get-ChildItem -Path $docsDir -Filter "*.md" | ForEach-Object {
 
     # Sometimes platyPS leaves empty EXAMPLES or PARAMETERS blocks after scrubbing
     if ($original -ne $content) {
-        Set-Content -Path $_.FullName -Value $content
+        $content = $content.Replace("`r`n", "`n")
+        [System.IO.File]::WriteAllText($_.FullName, $content, [System.Text.UTF8Encoding]::new($false))
     }
 }
 
