@@ -9,13 +9,19 @@ $ErrorActionPreference = "Stop"
 
 Describe "Manage-ExtensionPool CLI" {
     BeforeAll {
+        Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -Force
+        Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -Force
+        Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Force
         $script:scriptPath = "$PSScriptRoot\..\bin\Manage-ExtensionPool.ps1"
+    }
+    BeforeEach {
+        Mock Import-Module -MockWith {} -ParameterFilter { $Name -match 'ConfigHelpers' -or $Name -match 'CoreHelpers' -or $Name -match 'VsCodeMarketplace' }
     }
 
     Context "Audit Mode" {
         It "Should succeed when config matches directories" {
 
-            $mockAuto = "$PSScriptRoot\..\automatic"
+            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
 
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
             if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
@@ -26,9 +32,7 @@ Describe "Manage-ExtensionPool CLI" {
 
             # Mock Get-Content to return a fake config.yaml
             Mock Test-Path -MockWith { return $true }
-            Mock Get-Content -MockWith {
-                return "---`nextensions:`n  - mechatroner.rainbow-csv"
-            }
+            Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('mechatroner.rainbow-csv')) } }
 
             { & $script:scriptPath -Audit } | Should -Not -Throw
 
@@ -71,7 +75,7 @@ Describe "Manage-ExtensionPool CLI" {
 
     Context "CheckStale Mode" {
         It "Should ignore unpublished packages correctly" {
-            $mockAuto = "$PSScriptRoot\..\automatic"
+            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
             if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
             [void](New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-missing") -Force)
@@ -86,11 +90,11 @@ Describe "Manage-ExtensionPool CLI" {
 
     Context "Add Mode" {
         It "Should skip tracked extensions if -Force is not specified" {
-            $mockAuto = "$PSScriptRoot\..\automatic"
+            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
             Mock Test-Path -MockWith { return $true }
-            Mock Get-Content -MockWith { return "---`nextensions:`n  - test.tracked" }
+            Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('test.tracked')) } }
 
             $factoryCalled = $false
             Mock Join-Path -MockWith {
@@ -104,25 +108,25 @@ Describe "Manage-ExtensionPool CLI" {
         }
 
         It "Should invoke factory for tracked extensions if -Force is specified" {
-            $mockAuto = "$PSScriptRoot\..\automatic"
+            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
             Mock Test-Path -MockWith { return $true }
-            Mock Get-Content -MockWith { return "---`nextensions:`n  - test.tracked" }
-            Mock Set-Content -MockWith {}
+            Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('test.tracked')) } }
+            Mock Save-ConfigState -MockWith {}
             Mock Remove-Item -MockWith {}
 
             { & $script:scriptPath -Add "test.tracked" -Force } | Should -Not -Throw
         }
 
         It "Should auto-commit new extensions if -AutoCommit is specified" {
-            $mockAuto = "$PSScriptRoot\..\automatic"
+            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
             Mock Test-Path -MockWith { return $false } -ParameterFilter { $Path -match 'autocommit' }
             Mock Test-Path -MockWith { return $true }
-            Mock Get-Content -MockWith { return "---`nextensions:`n  - other.ext" }
-            Mock Set-Content -MockWith {}
+            Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('other.ext')) } }
+            Mock Save-ConfigState -MockWith {}
             Import-Module (Join-Path $PSScriptRoot "..\lib\VsCodeMarketplace.psm1") -Force
             Mock Join-Path -MockWith {
                 if ($ChildPath -eq 'Invoke-ExtensionFactory.ps1') { return 'Invoke-MockFactory' }
@@ -176,7 +180,7 @@ Describe "Manage-ExtensionPool CLI" {
 
     Context "Remove Mode" {
         It "Should remove extension and auto-commit if -AutoCommit is specified" {
-            $mockAuto = "$PSScriptRoot\..\automatic"
+            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
             $shredderPath = (Resolve-Path "$PSScriptRoot\..\bin\Invoke-ExtensionShredder.ps1").Path
@@ -206,26 +210,26 @@ Describe "Manage-ExtensionPool CLI" {
 
                 Mock Get-VsCodeMarketplaceMetadata -MockWith { throw "404" }
                 Mock Test-Path -MockWith { return $true }
-                Mock Get-Content -MockWith { return "---`nextensions:`n  - other" }
+                Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('other')) } }
                 { & $script:scriptPath -Add "publisher.invalidext" } | Should -Not -Throw
             }
 
             It "Should skip missing extension in Remove Mode" {
                 Mock Test-Path -MockWith { return $true }
                 Mock Remove-Item -MockWith {}
-                Mock Get-Content -MockWith { return "---`nextensions:`n  - test.other" }
+                Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('test.other')) } }
                 { & $script:scriptPath -Remove "test.nottracked" } | Should -Not -Throw
             }
 
             It "Should report missing automatic scaffold in Audit Mode" {
                 Mock Test-Path -MockWith { if ($Path -match 'config.yaml') { return $true } else { return $false } }
-                Mock Get-Content -MockWith { return "---`nextensions:`n  - missing.ext" }
+                Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('missing.ext')) } }
                 { & $script:scriptPath -Audit } | Should -Not -Throw
             }
 
             It "Should successfully audit when scaffolds match in Audit Mode" {
                 Mock Test-Path -MockWith { return $true }
-                Mock Get-Content -MockWith { return "---`nextensions:`n  - missing.ext" }
+                Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('missing.ext')) } }
                 { & $script:scriptPath -Audit } | Should -Not -Throw
             }
 
@@ -234,14 +238,14 @@ Describe "Manage-ExtensionPool CLI" {
             }
 
             It "Should report stale packages in CheckStale Mode" {
-                $mockAuto = "$PSScriptRoot\..\automatic"
+                $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
                 $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
                 if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
                 [void](New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-stale") -Force)
 
                 Mock Test-Path -MockWith { return $true }
-                Mock Get-Content -MockWith { return "$mockAuto\vscode-stale" } -ParameterFilter { $Path -match 'nuspec' }
-                Mock Get-Content -MockWith { return "---`nextensions:`n  - stale" } -ParameterFilter { $Path -match 'config' }
+                Mock Get-Content -MockWith { return \"$mockAuto\vscode-stale\" } -ParameterFilter { $Path -match 'nuspec' }
+                Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('stale')) } }
 
                 # Create dummy nuspec
                 $dummyNuspec = "<package><metadata><version>1.0.0</version></metadata></package>"

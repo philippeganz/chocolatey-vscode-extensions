@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 <#
 .SYNOPSIS
     The robust, scriptable CLI for managing the VS Code Extension Pool.
@@ -91,7 +91,6 @@ else {
 if ($PSCmdlet.ParameterSetName -eq 'Add') {
     Write-Info "Executing Pre-flight Checks for Add Operation..."
     $state = Get-ConfigState -ConfigPath $configPath
-    $validIds = [System.Collections.Generic.List[string]]::new()
 
     foreach ($id in $Add) {
         $cleanId = $id.ToLower()
@@ -104,12 +103,11 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
         if ($state.Extensions.Contains($cleanId)) {
             if ($Force) {
                 Write-Info "Extension '$cleanId' is already tracked, but -Force was requested. Regenerating..."
-                $validIds.Add($cleanId)
             }
             else {
                 Write-Skip "Extension '$cleanId' is already tracked in state. Use -Force to regenerate."
+                continue
             }
-            continue
         }
 
         try {
@@ -117,91 +115,89 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
             $meta = Get-VsCodeMarketplaceMetadata -Publisher $parts[0] -ExtensionName $parts[1]
             if ($meta) {
                 Write-Success "Verified '$cleanId' exists on the VS Code Marketplace!"
-                $state.Extensions.Add($cleanId)
-                $validIds.Add($cleanId)
+
+                $baseAuto = Get-AutomaticDirectory
+                $pkgName = Get-ChocoPackageName $cleanId
+                if ((Test-Path (Join-Path $baseAuto $pkgName)) -and (-not $Force)) {
+                    Write-Err "Package directory '$pkgName' already exists but is not tracked. Aborting to prevent adoption of unverified files. Use -Force to overwrite."
+                    continue
+                }
+
+                if (-not $state.Extensions.Contains($cleanId)) {
+                    $state.Extensions.Add($cleanId)
+                }
+
+                Write-Info "Invoking Factory API for scaffolding $cleanId..."
+                $factoryParams = @{
+                    ExtensionId = @($cleanId)
+                    Force       = $Force.IsPresent
+                }
+                $factoryPath = Join-Path $PSScriptRoot "Invoke-ExtensionFactory.ps1"
+                & $factoryPath @factoryParams
+
+                # Save state
+                Save-ConfigState -ConfigPath $configPath -ExtensionsList $state.Extensions
+
+                if ($AutoCommit) {
+                    Write-Info "Evaluating git state for auto-commit of $cleanId..."
+                    git add "etc/config.yaml"
+                    git add "etc/badge.json"
+                    $baseAuto = Get-AutomaticDirectory
+                    $pkgName = Get-ChocoPackageName $cleanId
+
+                    if (Test-Path (Join-Path $baseAuto $pkgName)) {
+                        git add (Join-Path $baseAuto $pkgName)
+                    }
+
+                    $staged = git diff --name-only --cached
+                    if (-not $staged) {
+                        Write-Skip "No git changes detected for $cleanId. Skipping auto-commit."
+                    }
+                    else {
+                        $msg = "Add new $cleanId extension"
+                        [void](git commit -m $msg)
+                        Write-Success "Auto-Committed: '$msg'"
+                    }
+                }
             }
         }
         catch {
             Write-Err "Marketplace API rejected '$cleanId' (404 Not Found or Invalid). Skipping."
         }
     }
-
-    if ($validIds.Count -gt 0) {
-        Write-Info "Invoking Factory API for scaffolding..."
-        $factoryParams = @{
-            ExtensionId = $validIds.ToArray()
+}
+elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
+    foreach ($id in $Remove) {
+        $cleanId = $id.ToLower()
+        Write-Info "Invoking Shredder for removal of $cleanId..."
+        $shredderParams = @{
+            ExtensionId = @($cleanId)
             Force       = $Force.IsPresent
         }
-        $factoryPath = Join-Path $PSScriptRoot "Invoke-ExtensionFactory.ps1"
-        & $factoryPath @factoryParams
-
-        # Save state
-        Save-ConfigState -ConfigPath $configPath -ExtensionsList $state.Extensions
+        $shredderPath = Join-Path $PSScriptRoot "Invoke-ExtensionShredder.ps1"
+        & $shredderPath @shredderParams
 
         if ($AutoCommit) {
-            Write-Info "Evaluating git state for auto-commit..."
+            Write-Info "Evaluating git state for auto-commit of $cleanId..."
             git add "etc/config.yaml"
             git add "etc/badge.json"
             $baseAuto = Get-AutomaticDirectory
 
-            foreach ($p in $validIds) {
-                $pkgName = Get-ChocoPackageName $p
-                git add (Join-Path $baseAuto $pkgName)
-            }
-
-            $staged = git diff --name-only --cached
-            if (-not $staged) {
-                Write-Skip "No git changes detected. Skipping auto-commit."
-            }
-            else {
-                $msg = "Add new extensions: $($validIds -join ', ')"
-                if ($validIds.Count -eq 1) {
-                    $msg = "Add new $($validIds[0]) extension"
-                }
-                [void](git commit -m $msg)
-                Write-Success "Auto-Committed: '$msg'"
-            }
-        }
-    }
-    else {
-        Write-Skip "No valid packages were queued for the Factory."
-    }
-}
-elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
-    Write-Info "Invoking Shredder for removal..."
-    $shredderParams = @{
-        ExtensionId = $Remove
-        Force       = $Force.IsPresent
-    }
-    $shredderPath = Join-Path $PSScriptRoot "Invoke-ExtensionShredder.ps1"
-    & $shredderPath @shredderParams
-
-    if ($AutoCommit) {
-        Write-Info "Evaluating git state for auto-commit..."
-        git add "etc/config.yaml"
-        git add "etc/badge.json"
-        $baseAuto = Get-AutomaticDirectory
-
-        foreach ($id in $Remove) {
-            $cleanId = $id.ToLower()
             $pkgName = Get-ChocoPackageName $cleanId
             if ($pkgName) {
                 # Suppress errors in case the package wasn't scaffolded or tracked in git
                 git add --all (Join-Path $baseAuto $pkgName) 2>$null
             }
-        }
 
-        $staged = git diff --name-only --cached
-        if (-not $staged) {
-            Write-Skip "No git changes detected. Skipping auto-commit."
-        }
-        else {
-            $msg = "Remove extensions: $($Remove -join ', ')"
-            if ($Remove.Count -eq 1) {
-                $msg = "Remove $($Remove[0]) extension"
+            $staged = git diff --name-only --cached
+            if (-not $staged) {
+                Write-Skip "No git changes detected for $cleanId. Skipping auto-commit."
             }
-            [void](git commit -m $msg)
-            Write-Success "Auto-Committed: '$msg'"
+            else {
+                $msg = "Remove $cleanId extension"
+                [void](git commit -m $msg)
+                Write-Success "Auto-Committed: '$msg'"
+            }
         }
     }
 }
