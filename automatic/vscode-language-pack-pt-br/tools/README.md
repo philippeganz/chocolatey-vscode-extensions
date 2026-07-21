@@ -154,4 +154,3 @@ Special thanks to community contributors for making it available.
 * leonardosnt
 
 **Enjoy!**
-
