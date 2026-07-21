@@ -478,4 +478,3 @@ To configure indexing, pass a JSON hash as part of the Ruby LSP configuration, f
   },
 }
 ```
-
