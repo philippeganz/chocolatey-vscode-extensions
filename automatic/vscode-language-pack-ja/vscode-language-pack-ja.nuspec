@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-language-pack-ja</id>
-    <version>1.129.2026071318</version>
+    <version>1.130.2026072017</version>
     <title>Visual Studio Code Extension - Japanese Language Pack for Visual Studio Code</title>
     <authors>MS-CEINTL</authors>
     <projectUrl>https://github.com/Microsoft/vscode-loc.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://MS-CEINTL.gallerycdn.vsassets.io/extensions/ms-ceintl/vscode-language-pack-ja/1.129.2026071318/1783967929477/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://MS-CEINTL.gallerycdn.vsassets.io/extensions/ms-ceintl/vscode-language-pack-ja/1.130.2026072017/1784568921937/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-ja</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
