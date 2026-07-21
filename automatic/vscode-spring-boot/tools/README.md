@@ -144,4 +144,3 @@ open vscode, press `CTRL-SHIFT-P` and search for VSIX, then select `Extension: I
 
 
 *Version: 2.3.0-PRE-RELEASE*
-
