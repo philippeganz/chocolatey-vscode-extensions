@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-cpp-devtools</id>
-    <version>0.6.9</version>
+    <version>0.6.10</version>
     <title>Visual Studio Code Extension - C/C++ DevTools</title>
     <authors>ms-vscode</authors>
     <projectUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpp-devtools/0.6.7/1782275319406/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpp-devtools/0.6.10/1784607938765/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
@@ -62,7 +62,7 @@ This extension collects usage data and sends it to Microsoft to help improve our
       https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools#changelog</releaseNotes>
     <tags>vscode extension cpp-devtools</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
