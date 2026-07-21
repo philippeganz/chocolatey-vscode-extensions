@@ -46,4 +46,3 @@ The translation strings are maintained in Microsoft Localization Platform. Chang
 The source code and strings are licensed under the [MIT](https://github.com/Microsoft/vscode-loc/blob/master/LICENSE.md) license.
 
 **Enjoy!**
-
