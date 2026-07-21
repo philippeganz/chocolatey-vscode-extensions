@@ -159,4 +159,3 @@ This extension collects telemetry data to help us build a better experience for 
 ## License
 
 This extension is [licensed under the Apache-2.0 License](https://github.com/puppetlabs/puppet-vscode/blob/HEAD/LICENSE.txt).
-

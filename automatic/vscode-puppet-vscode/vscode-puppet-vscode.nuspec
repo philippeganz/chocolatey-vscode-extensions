@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-puppet-vscode</id>
-    <version>0.0.0</version>
+    <version>1.5.7</version>
     <title>Visual Studio Code Extension - Puppet</title>
     <authors>puppet</authors>
     <projectUrl>https://github.com/puppetlabs/puppet-vscode.git</projectUrl>
@@ -11,13 +11,31 @@
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=puppet.puppet-vscode</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-Official Puppet VSCode extension. Provides full Puppet DSL intellisense, syntax highlighting, Puppet command support, Puppet node graphs, and much more
+# [Puppet](https://www.puppet.com) Visual Studio Code Extension
+
+[![Version](https://vsmarketplacebadges.dev/version-short/puppet.puppet-vscode.jpg)](https://marketplace.visualstudio.com/items?itemName=puppet.puppet-vscode)
+[![Installs](https://vsmarketplacebadges.dev/installs/puppet.puppet-vscode.jpg)](https://marketplace.visualstudio.com/items?itemName=puppet.puppet-vscode)
+
+The Puppet VSCode website [https://puppet-vscode.github.io/](https://puppet-vscode.github.io) contains all of the documentation previously held in this README, simplified and organized. There is also new content that shows off all the current features in greater detail, as well as new ways to use the Puppet VSCode Extension with other technologies like the [Microsoft Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). This README retains some quick information on how to get started and where to get help if things go wrong.
+
+## Quick start
+
+> For a more detailed walkthrough see the [official documentation](https://puppet-vscode.github.io/docs/getting-started/)
+
+- Step 1: Install a supported version of the Puppet Development Kit on your system (see [Requirements](#requirements) for more information).
+- Step 2: Install the Puppet [extension](https://marketplace.visualstudio.com/items?itemName=puppet.puppet-vscode) for Visual Studio Code.
+- Step 3: Open or create a Puppet manifest file (a file with a `.pp` or `.epp` extension or named `Puppetfile`) and start automating!
+
+## Table of Contents
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=puppet.puppet-vscode) for full documentation]
 ]]></description>
     <summary>Official Puppet VSCode extension. Provides full Puppet DSL intellisense, syntax highlighting, Puppet command support, Puppet node graphs, and much more</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=puppet.puppet-vscode#changelog</releaseNotes>
     <tags>vscode extension puppet-vscode</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />  </dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
