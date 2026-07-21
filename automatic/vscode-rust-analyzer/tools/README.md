@@ -50,4 +50,3 @@ For usage and troubleshooting requests, please use the ["IDEs and Editors" categ
 ## Documentation
 
 See [rust-analyzer.github.io](https://rust-analyzer.github.io/) for more information.
-
