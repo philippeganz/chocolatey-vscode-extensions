@@ -463,4 +463,3 @@ This repository contains both OSS-licensed and non-OSS-licensed files.
 All files in or under any directory named "plus" fall under LICENSE.plus.
 
 The remaining files fall under the MIT license.
-
