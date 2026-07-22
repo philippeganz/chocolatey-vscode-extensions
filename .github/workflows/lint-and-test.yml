@@ -181,6 +181,18 @@ jobs:
               $xml.Save((Join-Path $PWD 'test-results.xml'))
           }
 
+          # Codecov Component Mapping strictly requires POSIX relative paths in Cobertura XML
+          if (Test-Path 'coverage.xml') {
+              [xml]$cov = Get-Content 'coverage.xml' -Raw
+              if ($cov.coverage.sources.source) {
+                  $cov.coverage.sources.source = '.'
+              }
+              foreach ($class in $cov.SelectNodes("//class")) {
+                  $class.filename = $class.filename -replace '\\', '/'
+              }
+              $cov.Save((Join-Path $PWD 'coverage.xml'))
+          }
+
           if ($result.FailedCount -gt 0) {
               Write-Error "Pester tests failed!"
               exit 1
@@ -191,7 +203,6 @@ jobs:
         if: always()
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          override_commit: ${{ github.event.pull_request.head.sha || github.sha }}
           files: coverage.xml
           fail_ci_if_error: false
           verbose: false
@@ -201,7 +212,6 @@ jobs:
         if: always()
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          override_commit: ${{ github.event.pull_request.head.sha || github.sha }}
           files: test-results.xml
           report_type: test_results
           fail_ci_if_error: false
