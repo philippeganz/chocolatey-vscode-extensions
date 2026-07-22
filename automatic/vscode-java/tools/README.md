@@ -319,4 +319,3 @@ Feedback
 License
 ===============
 EPL 2.0, See [LICENSE](https://github.com/redhat-developer/vscode-java/blob/HEAD/LICENSE) for more information.
-
