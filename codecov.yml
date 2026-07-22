@@ -11,18 +11,18 @@ component_management:
     - component_id: core-libraries
       name: Core Libraries
       paths:
-        - 'lib/**'
+        - '**/lib/**'
     - component_id: factory-shredder
       name: Factory & Shredder Engines
       paths:
-        - 'bin/Invoke-ExtensionFactory.ps1'
-        - 'bin/Invoke-ExtensionShredder.ps1'
-        - 'bin/AuExtensionHooks.ps1'
+        - '**/bin/Invoke-ExtensionFactory.ps1'
+        - '**/bin/Invoke-ExtensionShredder.ps1'
+        - '**/bin/AuExtensionHooks.ps1'
     - component_id: pool-orchestrator
       name: Pool Orchestrator
       paths:
-        - 'bin/Manage-ExtensionPool.ps1'
+        - '**/bin/Manage-ExtensionPool.ps1'
     - component_id: documentation
       name: Documentation Generator
       paths:
-        - 'bin/Update-Documentation.ps1'
+        - '**/bin/Update-Documentation.ps1'

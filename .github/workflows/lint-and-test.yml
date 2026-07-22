@@ -181,22 +181,38 @@ jobs:
               $xml.Save((Join-Path $PWD 'test-results.xml'))
           }
 
-          # Codecov Component Mapping strictly requires POSIX relative paths in Cobertura XML
-          if (Test-Path 'coverage.xml') {
-              [xml]$cov = Get-Content 'coverage.xml' -Raw
-              if ($cov.coverage.sources.source) {
-                  $cov.coverage.sources.source = '.'
-              }
-              foreach ($class in $cov.SelectNodes("//class")) {
-                  $class.filename = $class.filename -replace '\\', '/'
-              }
-              $cov.Save((Join-Path $PWD 'coverage.xml'))
-          }
-
           if ($result.FailedCount -gt 0) {
               Write-Error "Pester tests failed!"
               exit 1
           }
+
+      - name: Upload Test and Coverage Artifacts
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: pester-artifacts
+          path: '*.xml'
+
+  publish-reports:
+    name: Publish Reports
+    needs: pester-workflow-tests
+    runs-on: ubuntu-latest
+    if: always() && needs.pester-workflow-tests.result != 'skipped'
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: pester-artifacts
+
+      - name: Normalize Coverage Paths
+        run: |
+          sed -i -E "s|<source>.*</source>|<source>${{ github.workspace }}</source>|g" coverage.xml
+          sed -i 's|\\|/|g' coverage.xml
 
       - name: Publish Coverage Reports (CodeCov)
         uses: codecov/codecov-action@v7
@@ -218,7 +234,7 @@ jobs:
           verbose: false
 
       - name: Publish Test Results (GitHub)
-        uses: EnricoMi/publish-unit-test-result-action/windows@v2
+        uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
           files: 'test-results.xml'
