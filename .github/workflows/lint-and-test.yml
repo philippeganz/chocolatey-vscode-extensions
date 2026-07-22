@@ -186,12 +186,34 @@ jobs:
               exit 1
           }
 
+      - name: Upload Test and Coverage Artifacts
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: pester-artifacts
+          path: '*.xml'
+
+  publish-reports:
+    name: Publish Reports
+    needs: pester-workflow-tests
+    runs-on: ubuntu-latest
+    if: always() && needs.pester-workflow-tests.result != 'skipped'
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: pester-artifacts
+
       - name: Publish Coverage Reports (CodeCov)
         uses: codecov/codecov-action@v7
         if: always()
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          override_commit: ${{ github.event.pull_request.head.sha || github.sha }}
           files: coverage.xml
           fail_ci_if_error: false
           verbose: false
@@ -201,14 +223,13 @@ jobs:
         if: always()
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          override_commit: ${{ github.event.pull_request.head.sha || github.sha }}
           files: test-results.xml
           report_type: test_results
           fail_ci_if_error: false
           verbose: false
 
       - name: Publish Test Results (GitHub)
-        uses: EnricoMi/publish-unit-test-result-action/windows@v2
+        uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
           files: 'test-results.xml'
