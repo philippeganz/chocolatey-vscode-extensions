@@ -16,6 +16,16 @@ Describe "CoreHelpers Module" -Tag "Unit", 'CoreHelpers' {
                 $Object -match '\[TEST\]' -and $Object -match 'Test message'
             }
         }
+
+        It "should omit the prefix space when Prefix is empty" {
+            Mock Write-Host {} -ModuleName CoreHelpers
+
+            Write-StyledMessage -Message "Bare message" -Color Magenta
+
+            Should -Invoke -CommandName Write-Host -ModuleName CoreHelpers -Times 1 -ParameterFilter {
+                $Object -match 'Bare message'
+            }
+        }
     }
 
     Context "Helper Wrapper Functions" {
