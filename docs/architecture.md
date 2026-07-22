@@ -9,38 +9,38 @@ Our pipeline is built on a hyper-DRY paradigm and strict separation of concerns,
 ```mermaid
 flowchart TD
     subgraph The CLI Orchestrator
-        A[User invokes CLI] --> B(Manage-ExtensionPool.ps1)
-        B -->|Add new extension| C{Invoke-ExtensionFactory.ps1}
-        B -->|Remove extension| Z{Invoke-ExtensionShredder.ps1}
+        A["User invokes CLI"] --> B("Manage-ExtensionPool.ps1")
+        B -->|Add new extension| C{"Invoke-ExtensionFactory.ps1"}
+        B -->|Remove extension| Z{"Invoke-ExtensionShredder.ps1"}
     end
 
     subgraph Day 0: The Factory (Bootstrapping)
-        C -->|Scrapes VS Code Marketplace| D[Extracts Initial Metadata]
-        D -->|Validates & Deep-Scans VSIX| E[Generates Scaffolding]
-        E -->|Drops template.nuspec with 0.0.0| F[automatic/vscode-new-extension]
+        C -->|Scrapes VS Code Marketplace| D["Extracts Initial Metadata"]
+        D -->|Validates & Deep-Scans VSIX| E["Generates Scaffolding"]
+        E -->|Drops template.nuspec with 0.0.0| F["automatic/vscode-new-extension"]
         E -->|Generates update.ps1 stub| F
         E -->|Generates chocolateyInstall.ps1| F
     end
 
     subgraph Day 0: The Shredder (Teardown)
-        Z -->|Validates Dependencies| Y[Checks local .nuspecs]
-        Y -->|Safe to remove| X[Wipes package directory]
-        X -->|Cleans State| W[Updates config.yaml]
+        Z -->|Validates Dependencies| Y["Checks local .nuspecs"]
+        Y -->|Safe to remove| X["Wipes package directory"]
+        X -->|Cleans State| W["Updates config.yaml"]
     end
 
     subgraph Day 1 to Infinity: The AU Engine (Maintenance)
-        F -.->|6-hour Cron Job| G(Invoke-AuUpdater.ps1)
-        G -->|Bypasses Chocolatey API Check| H{au_BeforeUpdate Hook}
-        H -->|Fetches latest payload| I[Extracts README.md & LICENSE]
-        H -->|Centralized Logic| J[Overwrites Dynamic Metadata]
-        J -->|Bumps Version & IconUrl| K[Packs .nupkg]
-        K --> L[Publishes to Chocolatey Gallery]
-        L -.->|If Local Changed| N(GitHub Action: Granular Git Commits)
-        N -->|Commits 1 by 1| O[Pushes natively to main via PAT]
+        F -.->|6-hour Cron Job| G("Invoke-AuUpdater.ps1")
+        G -->|Bypasses Chocolatey API Check| H{"au_BeforeUpdate Hook"}
+        H -->|Fetches latest payload| I["Extracts README.md & LICENSE"]
+        H -->|Centralized Logic| J["Overwrites Dynamic Metadata"]
+        J -->|Bumps Version & IconUrl| K["Packs .nupkg"]
+        K --> L["Publishes to Chocolatey Gallery"]
+        L -.->|If Local Changed| N("GitHub Action: Granular Git Commits")
+        N -->|Commits 1 by 1| O["Pushes natively to main via PAT"]
     end
 
     subgraph Auto-Discovery & Dependency Resolution
-        H -.->|Detects missing nested dependency in package.json| M[Update-NuspecDependencies]
+        H -.->|Detects missing nested dependency in package.json| M["Update-NuspecDependencies"]
         M -->|Queues new dependency| B
     end
 ```

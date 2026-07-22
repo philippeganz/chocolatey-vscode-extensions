@@ -33,9 +33,9 @@ theme:
 nav:
   - Home: index.md
   - Architecture: architecture.md
-  - API Reference: reference/
   - Support: SUPPORT.md
   - Contributing: CONTRIBUTING.md
+  - API Reference: reference/
 
 markdown_extensions:
   - admonition

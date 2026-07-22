@@ -77,11 +77,28 @@ if (Test-Path (Join-Path $rootDir "lib")) {
         Write-White "    Importing and processing $($module.Name)"
         try {
             Import-Module $module.FullName -Force
-            $functions = Get-Command -Module $module.BaseName
+            $functions = (Get-Command -Module $module.BaseName) | Sort-Object Name
+            $moduleDocPath = Join-Path $docsDir "$($module.BaseName).md"
+            "# $($module.BaseName)`n`nThis document contains the API reference for all functions inside the `$($module.Name)` module.`n`n" | Out-File $moduleDocPath -Encoding UTF8
+
+            $tempDir = Join-Path ([System.IO.Path]::GetTempPath()) "platyPS_temp"
+            [void](New-Item -ItemType Directory -Path $tempDir -Force)
+
             foreach ($func in $functions) {
                 Write-White "      -> $($func.Name)"
-                [void](New-MarkdownHelp -Command $func.Name -OutputFolder $docsDir -Force -ErrorAction SilentlyContinue)
+                [void](New-MarkdownHelp -Command $func.Name -OutputFolder $tempDir -Force -ErrorAction SilentlyContinue)
+                $tempDoc = Join-Path $tempDir "$($func.Name).md"
+                if (Test-Path $tempDoc) {
+                    $funcContent = Get-Content $tempDoc -Raw
+                    # Shift headings down by 1 level so they nest nicely under the Module title
+                    $funcContent = $funcContent -replace '(?m)^#### ', '##### '
+                    $funcContent = $funcContent -replace '(?m)^### ', '#### '
+                    $funcContent = $funcContent -replace '(?m)^## ', '### '
+                    $funcContent = $funcContent -replace '(?m)^# ', '## '
+                    $funcContent | Out-File $moduleDocPath -Append -Encoding UTF8
+                }
             }
+            Remove-Item $tempDir -Recurse -Force
         }
         catch {
             Write-Yellow "    [WARNING] Failed to generate docs for $($module.Name): $_"
