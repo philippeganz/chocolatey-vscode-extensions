@@ -174,8 +174,8 @@ jobs:
           # Codecov Coverage requires relative paths to map Cobertura files correctly across OS runners
           if (Test-Path 'coverage.xml') {
               $cov = (Get-Content 'coverage.xml' -Raw) -ireplace $pwdStr, '' -ireplace $pwdStrUnix, '' -replace '\\', '/'
-              # Remove the entire <sources> block so Codecov doesn't prepend absolute paths to filenames
-              $cov = $cov -replace '(?s)<sources>.*?</sources>', ''
+              # Set the sources block to relative so Codecov resolves filenames natively
+              $cov = $cov -replace '(?s)<sources>.*?</sources>', '<sources><source>.</source></sources>'
               [System.IO.File]::WriteAllText((Join-Path $PWD 'coverage.xml'), $cov, $utf8NoBom)
           }
 
