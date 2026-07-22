@@ -38,6 +38,17 @@
 
 .EXAMPLE
     .\Invoke-ExtensionFactory.ps1 -ExtensionId "ms-python.python" -Force
+
+.INPUTS
+    [System.String]
+    Accepts pipeline input for the ExtensionId parameter.
+
+.OUTPUTS
+    None
+
+.NOTES
+    The script relies on `VsCodeMarketplace.psm1` for handling all API requests to Microsoft.
+    It generates an `automatic/$ExtensionId` directory fully populated with the required AU scaffolding.
 #>
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Write-Host is required for CI/CD logging and workflow orchestration')]

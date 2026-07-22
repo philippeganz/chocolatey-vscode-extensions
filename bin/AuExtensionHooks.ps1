@@ -35,12 +35,31 @@ $global:PSNativeCommandArgumentPassing = 'Legacy'
 
 <#
 .SYNOPSIS
-The Metadata Resolver hook for Chocolatey AU.
+    The Metadata Resolver hook for Chocolatey AU.
 
 .DESCRIPTION
-AU executes this function on a schedule. It sends a REST API POST request to the
-Visual Studio Code Marketplace to natively query the absolute latest version
-of the extension, resolving icon URLs and download paths dynamically.
+    AU executes this function on a schedule. It sends a REST API POST request to the
+    Visual Studio Code Marketplace to natively query the absolute latest version
+    of the extension, resolving icon URLs and download paths dynamically.
+
+    This function intercepts the normal version check and injects the proper upstream
+    version into AU's internal state mechanism.
+
+.EXAMPLE
+    # This function is not meant to be called directly. It is invoked natively by AU:
+    Update-Package -ChecksumFor none
+
+.INPUTS
+    None
+
+.OUTPUTS
+    [System.Collections.Hashtable]
+    Returns a hashtable containing the parsed Version, download URLs (URL32, URL64),
+    IconUrl, and the raw metadata object (RawMeta) for injection into downstream hooks.
+
+.NOTES
+    This relies on the `VsCodeMarketplace` module for robust rate-limit handling.
+    If `$global:ExtensionVersion` is defined, it forces moderation overrides.
 #>
 function global:au_GetLatest {
     if ($global:ExtensionVersion) {
@@ -79,16 +98,33 @@ function global:au_GetLatest {
 
 <#
 .SYNOPSIS
-The Payload Downloader hook for Chocolatey AU.
+    The Payload Downloader hook for Chocolatey AU.
 
 .DESCRIPTION
-If AU detects that the version returned by au_GetLatest is newer than the
-current package (or is forced), it triggers this hook. This downloads the actual
-VSIX binary, extracts the metadata and LICENSE, dynamically injects dependencies,
-and algorithmically truncates the README to update the nuspec.
+    If AU detects that the version returned by au_GetLatest is newer than the
+    current package (or is forced), it triggers this hook. This downloads the actual
+    VSIX binary, extracts the metadata and LICENSE, dynamically injects dependencies,
+    and algorithmically truncates the README to update the nuspec.
+
+    This function is strictly responsible for fulfilling the Air-Gap mandate by
+    physically embedding the upstream .vsix payload into the package directory.
 
 .PARAMETER package
-The AU package object representing the current context.
+    The AU package object representing the current context, containing properties like
+    Path, Name, and NuspecXml.
+
+.EXAMPLE
+    # This function is not meant to be called directly. It is invoked natively by AU.
+
+.INPUTS
+    [System.Management.Automation.PSCustomObject]
+
+.OUTPUTS
+    None
+
+.NOTES
+    It utilizes the `$Latest` global variable injected by AU to access metadata returned
+    by `au_GetLatest`.
 #>
 function global:au_BeforeUpdate {
     param($package)
@@ -183,11 +219,24 @@ function global:au_BeforeUpdate {
 
 <#
 .SYNOPSIS
-The String Replacer hook for Chocolatey AU.
+    The String Replacer hook for Chocolatey AU.
 
 .DESCRIPTION
-AU executes this function to natively update the hardcoded version strings
-inside our runtime scripts (like chocolateyInstall.ps1) so the new binaries are properly targeted.
+    AU executes this function to natively update the hardcoded version strings
+    inside our runtime scripts (like chocolateyInstall.ps1) so the new binaries are properly targeted.
+
+    It constructs a dictionary of RegEx rules that AU applies directly to the file paths
+    specified in the dictionary keys.
+
+.EXAMPLE
+    # This function is not meant to be called directly. It is invoked natively by AU.
+
+.INPUTS
+    None
+
+.OUTPUTS
+    [System.Collections.Hashtable]
+    Returns a hashtable mapping file paths to their respective RegEx replacement rules.
 #>
 function global:au_SearchReplace {
     $targetIconUrl = if ($Latest.IconUrl) { $Latest.IconUrl } else { "https://raw.githubusercontent.com/philippeganz/chocolatey-vscode-extensions/main/automatic/vscode-$ExtensionName/icon.png" }

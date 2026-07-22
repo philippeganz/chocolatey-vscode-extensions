@@ -1,12 +1,26 @@
 #Requires -Version 7.0
 <#
 .SYNOPSIS
-Auto-generates Markdown documentation for all scripts in the repository using platyPS.
+    Auto-generates Markdown documentation for all scripts in the repository using platyPS.
 
 .DESCRIPTION
-This script scans all `.ps1` and `.psm1` files in the repository and utilizes the `platyPS` module
-to natively extract all Comment-Based Help blocks (Synopsis, Description, Parameters, Examples).
-It then compiles these into standard Markdown files in the `/docs` directory.
+    This script scans all `.ps1` and `.psm1` files in the repository and utilizes the `platyPS` module
+    to natively extract all Comment-Based Help blocks (Synopsis, Description, Parameters, Examples).
+    It then compiles these into standard Markdown files in the `/docs` directory.
+
+.EXAMPLE
+    .\Update-Documentation.ps1
+
+.INPUTS
+    None
+
+.OUTPUTS
+    None
+
+.NOTES
+    This script will install the `platyPS` module natively if it is not already available.
+    It automatically sanitizes and formats the extracted documentation for optimal rendering
+    within MkDocs Material.
 #>
 [CmdletBinding()]
 param()

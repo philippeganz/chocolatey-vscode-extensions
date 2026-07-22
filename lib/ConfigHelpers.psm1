@@ -16,13 +16,27 @@ Import-Module powershell-yaml
 
 <#
 .SYNOPSIS
-Reads and parses the config.yaml state tracker.
+    Reads and parses the config.yaml state tracker.
+
+.DESCRIPTION
+    Uses the powershell-yaml module to read the raw `config.yaml` state file into an
+    object model, extracting the list of active extensions for pool management.
 
 .PARAMETER ConfigPath
-The path to the config.yaml file.
+    The path to the config.yaml file.
+
+.EXAMPLE
+    $config = Get-ConfigState -ConfigPath "C:\etc\config.yaml"
+
+.INPUTS
+    None
 
 .OUTPUTS
-A hashtable containing the raw parsed YAML and a populated List of tracked extensions.
+    [System.Collections.Hashtable]
+    A hashtable containing the raw parsed YAML and a populated List of tracked extensions.
+
+.NOTES
+    Throws a terminating error if powershell-yaml is not installed.
 #>
 function Get-ConfigState ([string]$ConfigPath) {
     if (-not (Test-Path $ConfigPath)) { throw "config.yaml not found at $($ConfigPath)" }
@@ -38,13 +52,29 @@ function Get-ConfigState ([string]$ConfigPath) {
 
 <#
 .SYNOPSIS
-Saves the modified extension pool back to config.yaml safely.
+    Saves the modified extension pool back to config.yaml safely.
+
+.DESCRIPTION
+    Takes an array of extension IDs, sorts them alphabetically for consistency, and
+    serializes them back to the `config.yaml` state file using powershell-yaml.
 
 .PARAMETER ConfigPath
-The path to the config.yaml file.
+    The path to the config.yaml file.
 
 .PARAMETER ExtensionsList
-The updated list or array of active extensions.
+    The updated list or array of active extensions.
+
+.EXAMPLE
+    Save-ConfigState -ConfigPath "C:\etc\config.yaml" -ExtensionsList @("foo.bar", "ms-python.python")
+
+.INPUTS
+    None
+
+.OUTPUTS
+    None
+
+.NOTES
+    Ensures that the resulting YAML structure uses standard array formatting.
 #>
 function Save-ConfigState ([string]$ConfigPath, [string[]]$ExtensionsList) {
     $sortedExtensions = $ExtensionsList | Sort-Object -Unique
@@ -66,7 +96,23 @@ function Save-ConfigState ([string]$ConfigPath, [string[]]$ExtensionsList) {
 
 <#
 .SYNOPSIS
-Resolves the canonical name of the Chocolatey package based on the VS Code extension ID.
+    Resolves the canonical name of the Chocolatey package based on the VS Code extension ID.
+
+.DESCRIPTION
+    Replaces the period separator (e.g., `ms-python.python`) with a hyphen and prefixes
+    `vscode-` to produce the canonical Chocolatey package ID (e.g., `vscode-python`).
+
+.EXAMPLE
+    $pkgName = Get-ChocoPackageName -ExtensionId "ms-python.python"
+
+.INPUTS
+    [System.String]
+
+.OUTPUTS
+    [System.String]
+
+.NOTES
+    This is the standard naming convention adopted across the Chocolatey ecosystem.
 #>
 function Get-ChocoPackageName ([string]$ExtensionId) {
     if (-not $ExtensionId) { return "" }
@@ -81,7 +127,23 @@ function Get-ChocoPackageName ([string]$ExtensionId) {
 
 <#
 .SYNOPSIS
-Resolves the absolute path to the 'automatic' directory where packages are scaffolded.
+    Resolves the absolute path to the 'automatic' directory where packages are scaffolded.
+
+.DESCRIPTION
+    Dynamically navigates up from the current module path to find the repository root,
+    then constructs the absolute path to the `automatic/` directory.
+
+.EXAMPLE
+    $autoDir = Get-AutomaticDirectory
+
+.INPUTS
+    None
+
+.OUTPUTS
+    [System.String]
+
+.NOTES
+    Designed to work regardless of where the repository is checked out.
 #>
 function Get-AutomaticDirectory {
     if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) {

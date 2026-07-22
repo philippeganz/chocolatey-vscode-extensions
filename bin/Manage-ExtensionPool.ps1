@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     The robust, scriptable CLI for managing the VS Code Extension Pool.
@@ -39,6 +39,16 @@
 
 .EXAMPLE
     .\Manage-ExtensionPool.ps1 -Add "ms-python.python"
+
+.INPUTS
+    None
+
+.OUTPUTS
+    None
+
+.NOTES
+    This script is the human-facing orchestrator. It safely bridges the gap between the
+    Factory (`Invoke-ExtensionFactory.ps1`) and the Shredder (`Invoke-ExtensionShredder.ps1`).
 #>
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Write-Host is required for CI/CD logging and workflow orchestration')]
 [CmdletBinding(DefaultParameterSetName = 'None')]

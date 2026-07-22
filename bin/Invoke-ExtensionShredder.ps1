@@ -12,6 +12,20 @@
 
 .PARAMETER Force
     Overrides dependency protection if the extension is required by another package.
+
+.EXAMPLE
+    .\Invoke-ExtensionShredder.ps1 -ExtensionId "ms-python.python"
+
+.INPUTS
+    [System.String[]]
+    Accepts pipeline input for the ExtensionId parameter.
+
+.OUTPUTS
+    None
+
+.NOTES
+    This script is designed to be destructive. It wipes the package from the local filesystem
+    and from the configuration tracker. Ensure you have run dependency validation before using -Force.
 #>
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Write-Host is required for CI/CD logging and workflow orchestration')]

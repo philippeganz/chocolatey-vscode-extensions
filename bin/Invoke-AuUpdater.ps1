@@ -29,6 +29,17 @@
 
 .EXAMPLE
     .\Invoke-AuUpdater.ps1 -ForcedPackages "vscode-python,vscode-docker" -OutputDir "C:\artifacts"
+
+.INPUTS
+    None
+
+.OUTPUTS
+    None
+
+.NOTES
+    This is the main entry point for the Day 1 to Infinity maintenance cycle.
+    It seamlessly injects `AuExtensionHooks.ps1` to execute complex VSIX payload
+    downloads without duplicating logic across individual package directories.
 #>
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
