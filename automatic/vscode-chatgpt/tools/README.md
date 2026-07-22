@@ -19,4 +19,3 @@ See the docs at https://developers.openai.com/codex/ide.
 # (MacOS only) Work with the ChatGPT macOS app
 
 The OpenAI Codex extension also supports connecting the ChatGPT macOS app to VS Code so ChatGPT can answer questions or make simple edits. To use this feature, launch the ChatGPT macOS and select “Work with VS Code”.
-
