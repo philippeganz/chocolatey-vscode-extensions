@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-claude-code</id>
-    <version>2.1.216</version>
+    <version>2.1.217</version>
     <title>Visual Studio Code Extension - Claude Code for VS Code</title>
     <authors>anthropic</authors>
     <projectUrl>https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://anthropic.gallerycdn.vsassets.io/extensions/anthropic/claude-code/2.1.216/1784585746654/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://anthropic.gallerycdn.vsassets.io/extensions/anthropic/claude-code/2.1.217/1784669784912/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
