@@ -387,4 +387,3 @@ Use the `redhat.telemetry.enabled` setting to enable or disable telemetry. The e
 ## How to contribute
 
 The instructions are available in the [contribution guide](https://github.com/redhat-developer/vscode-yaml/blob/HEAD/CONTRIBUTING.md).
-

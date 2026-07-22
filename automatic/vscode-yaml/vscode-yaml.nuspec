@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-yaml</id>
-    <version>1.25.2026071808</version>
+    <version>1.25.2026072108</version>
     <title>Visual Studio Code Extension - YAML</title>
     <authors>redhat</authors>
     <projectUrl>https://github.com/redhat-developer/vscode-yaml</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-yaml/1.25.2026071808/1784363918813/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-yaml/1.25.2026072108/1784624304616/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
