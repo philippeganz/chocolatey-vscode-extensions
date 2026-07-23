@@ -167,10 +167,8 @@ function global:au_BeforeUpdate {
             # Dynamically resolve and inject missing dependencies
             if ($payloadResult.PackageJson) {
                 # Path to config.yaml is one level up from bin
-                $configPath = Resolve-Path "$PSScriptRoot\..\etc\config.yaml" -ErrorAction SilentlyContinue
-                if (-not $configPath) { $configPath = "$PSScriptRoot\..\etc\config.yaml" }
-                $resolvedPath = if ($configPath -is [string]) { $configPath } else { $configPath.Path }
-                Update-NuspecDependency -NuspecXml $package.NuspecXml -PackageJson $payloadResult.PackageJson -ConfigPath $resolvedPath
+                $configPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\var\state\config.yaml"))
+                Update-NuspecDependency -NuspecXml $package.NuspecXml -PackageJson $payloadResult.PackageJson -ConfigPath $configPath
             }
         }
 

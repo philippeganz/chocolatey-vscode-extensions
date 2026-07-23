@@ -90,13 +90,7 @@ Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -ErrorAction Stop
 Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -ErrorAction Stop
 
 # Load config.yaml safely
-$configPath = Resolve-Path "$PSScriptRoot\..\etc\config.yaml" -ErrorAction SilentlyContinue
-if (-not $configPath) {
-    $configPath = "$PSScriptRoot\..\etc\config.yaml"
-}
-else {
-    $configPath = $configPath.Path
-}
+$configPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\var\state\config.yaml"))
 
 # =============================================================================
 # 3. Execution Logic
@@ -163,8 +157,7 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
 
                 if ($AutoCommit) {
                     Write-Info "Evaluating git state for auto-commit of $cleanId..."
-                    git add "etc/config.yaml"
-                    git add "etc/badge.json"
+                    git add "var/state/config.yaml"
                     $baseAuto = Get-AutomaticDirectory
                     $pkgName = Get-ChocoPackageName $cleanId
 
@@ -202,8 +195,7 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
 
         if ($AutoCommit) {
             Write-Info "Evaluating git state for auto-commit of $cleanId..."
-            git add "etc/config.yaml"
-            git add "etc/badge.json"
+            git add "var/state/config.yaml"
             $baseAuto = Get-AutomaticDirectory
 
             $pkgName = Get-ChocoPackageName $cleanId

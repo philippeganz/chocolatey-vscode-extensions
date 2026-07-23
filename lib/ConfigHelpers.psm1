@@ -26,7 +26,7 @@ Import-Module powershell-yaml
     The path to the config.yaml file.
 
 .EXAMPLE
-    $config = Get-ConfigState -ConfigPath "C:\etc\config.yaml"
+    $config = Get-ConfigState -ConfigPath "C:\var\state\config.yaml"
 
 .INPUTS
     None
@@ -65,7 +65,7 @@ function Get-ConfigState ([string]$ConfigPath) {
     The updated list or array of active extensions.
 
 .EXAMPLE
-    Save-ConfigState -ConfigPath "C:\etc\config.yaml" -ExtensionsList @("foo.bar", "ms-python.python")
+    Save-ConfigState -ConfigPath "C:\var\state\config.yaml" -ExtensionsList @("foo.bar", "ms-python.python")
 
 .INPUTS
     None
@@ -85,11 +85,6 @@ function Save-ConfigState ([string]$ConfigPath, [string[]]$ExtensionsList) {
     $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -').TrimEnd() + "`n"
     $formattedYaml = $formattedYaml.Replace("`r`n", "`n")
     [System.IO.File]::WriteAllText($ConfigPath, $formattedYaml, [System.Text.UTF8Encoding]::new($false))
-
-    $badgeJson = [ordered]@{ schemaVersion = 1; label = "Extensions Tracked"; message = "$($sortedExtensions.Count)"; color = "blue" } | ConvertTo-Json -Compress
-    $badgePath = Join-Path (Split-Path $ConfigPath) "badge.json"
-    $badgeJson = $badgeJson.Replace("`r`n", "`n")
-    [System.IO.File]::WriteAllText($badgePath, $badgeJson, [System.Text.UTF8Encoding]::new($false))
 
     Write-Success "State saved to config.yaml ($($sortedExtensions.Count) total extensions tracked)."
 }
@@ -149,9 +144,7 @@ function Get-AutomaticDirectory {
     if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) {
         return $env:CHOCO_VSCODE_AUTOMATIC_DIR
     }
-    $resolved = Resolve-Path "$PSScriptRoot\..\automatic" -ErrorAction SilentlyContinue
-    if ($resolved) { return $resolved.Path }
-    return "$PSScriptRoot\..\automatic"
+    return [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\automatic"))
 }
 
 Export-ModuleMember -Function Get-ConfigState, Save-ConfigState, Get-ChocoPackageName, Get-AutomaticDirectory

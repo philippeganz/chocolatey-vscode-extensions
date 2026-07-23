@@ -27,7 +27,7 @@
     (e.g., 'ms-python.python'). When provided, the Factory scaffolds this single package.
 
 .PARAMETER ConfigFile
-    The absolute or relative path to the YAML configuration file that contains the list of extensions to track. Defaults to 'etc/config.yaml'.
+    The absolute or relative path to the YAML configuration file that contains the list of extensions to track. Defaults to 'var/state/config.yaml'.
 
 .PARAMETER Force
     If specified, completely nukes the existing package directory in 'automatic/'
@@ -54,7 +54,7 @@
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Write-Host is required for CI/CD logging and workflow orchestration')]
 param (
     [Parameter(Mandatory = $false)]
-    [string]$ConfigFile = "$PSScriptRoot\..\etc\config.yaml",
+    [string]$ConfigFile = "$PSScriptRoot\..\var\state\config.yaml",
 
     [Parameter(Mandatory = $false)]
     [string[]]$ExtensionId,

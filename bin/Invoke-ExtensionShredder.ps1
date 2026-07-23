@@ -37,7 +37,7 @@ param (
     [switch]$Force,
 
     [Parameter(Mandatory = $false)]
-    [string]$ConfigFile = "$PSScriptRoot\..\etc\config.yaml"
+    [string]$ConfigFile = "$PSScriptRoot\..\var\state\config.yaml"
 )
 
 $ErrorActionPreference = 'Stop'

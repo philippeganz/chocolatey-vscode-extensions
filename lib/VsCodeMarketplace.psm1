@@ -370,7 +370,7 @@ function Expand-VsCodePayload {
     The absolute path to the config.yaml tracker.
 
 .EXAMPLE
-    Update-NuspecDependency -NuspecXml $xml -PackageJson $json -ConfigPath "C:\etc\config.yaml"
+    Update-NuspecDependency -NuspecXml $xml -PackageJson $json -ConfigPath "C:\var\state\config.yaml"
 
 .INPUTS
     None
