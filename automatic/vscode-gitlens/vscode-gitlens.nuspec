@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-gitlens</id>
-    <version>2026.7.210552</version>
+    <version>2026.7.220551</version>
     <title>Visual Studio Code Extension - GitLens — Git supercharged</title>
     <authors>eamodio</authors>
     <projectUrl>https://github.com/gitkraken/vscode-gitlens.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://eamodio.gallerycdn.vsassets.io/extensions/eamodio/gitlens/2026.7.210552/1784627610001/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://eamodio.gallerycdn.vsassets.io/extensions/eamodio/gitlens/2026.7.220551/1784713963623/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
