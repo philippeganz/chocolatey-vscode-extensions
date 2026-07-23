@@ -141,16 +141,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v7
 
-      - name: Install dependencies
-        run: |
-          choco upgrade chocolatey -y
+      - name: Upgrade Chocolatey
+        run: choco upgrade chocolatey -y
 
       - name: Install PowerShell Modules
         shell: pwsh
         run: |
-          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber
+          Set-PSRepository PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber -AcceptLicense
           Install-Module -Name au -Force -Scope CurrentUser -AllowClobber -AcceptLicense
-          Install-Module -Name Pester -MinimumVersion 6.0.0 -Force -Scope CurrentUser -AllowClobber -SkipPublisherCheck
+          Install-Module -Name platyPS -Force -Scope CurrentUser -AllowClobber -AcceptLicense
+          Install-Module -Name Pester -MinimumVersion 6.0.0 -Force -Scope CurrentUser -AllowClobber -AcceptLicense -SkipPublisherCheck
 
       - name: Run Pester Tests
         shell: pwsh

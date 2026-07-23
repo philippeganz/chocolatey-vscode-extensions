@@ -35,15 +35,12 @@ jobs:
       - name: Install Chocolatey Community Validation Extension
         run: choco install chocolatey-community-validation.extension -y --no-progress
 
-      - name: Install Chocolatey AU Module
+      - name: Install PowerShell Modules
         shell: pwsh
         run: |
-          Install-Module -Name au -Force -AcceptLicense
-
-      - name: Install PowerShell-Yaml
-        shell: pwsh
-        run: |
-          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber
+          Set-PSRepository PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+          Install-Module -Name au -Force -Scope CurrentUser -AllowClobber -AcceptLicense
+          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber -AcceptLicense
 
       - name: Run AU Updater
         shell: pwsh

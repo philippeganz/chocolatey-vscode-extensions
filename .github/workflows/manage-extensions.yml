@@ -20,6 +20,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install PowerShell Modules
+        shell: pwsh
+        run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber -AcceptLicense
+
       - name: Parse Issue and Execute Factory
         id: factory
         shell: pwsh
@@ -27,7 +33,6 @@ jobs:
           ISSUE_BODY: ${{ github.event.issue.body }}
           LABELS: ${{ toJSON(github.event.issue.labels.*.name) }}
         run: |
-          Set-PSRepository PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
 
           # The GitHub Issue Form markdown injects responses below the headers
           $issueBody = $env:ISSUE_BODY
