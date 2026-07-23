@@ -29,10 +29,12 @@ jobs:
         uses: tj-actions/changed-files@v47
         with:
           files: |
+            .github/workflows/lint-and-test.yml
             bin/**
+            etc/**
             lib/**
             tests/**
-            .github/workflows/lint-and-test.yml
+            codecov.yml
 
   powershell-lint:
     name: PSScriptAnalyzer
@@ -167,19 +169,26 @@ jobs:
 
           $result = Invoke-Pester -Configuration $config
 
-          $pwdStr = [regex]::Escape($PWD.Path + [IO.Path]::DirectorySeparatorChar)
-          $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-          if (Test-Path 'coverage.xml') {
-              $cov = (Get-Content 'coverage.xml' -Raw) -ireplace $pwdStr, '' -replace '\\', '/'
-              [System.IO.File]::WriteAllText((Join-Path $PWD 'coverage.xml'), $cov, $utf8NoBom)
-          }
-
           # Codecov Test Analytics requires relative paths to map tests correctly
           if (Test-Path 'test-results.xml') {
-              [xml]$xml = (Get-Content 'test-results.xml' -Raw) -ireplace $pwdStr, '' -replace '\\', '/'
+              [xml]$xml = Get-Content 'test-results.xml' -Raw
+              $basePath = $PWD.Path + [IO.Path]::DirectorySeparatorChar
+
               foreach ($suite in @($xml.testsuites.testsuite)) {
                   foreach ($case in @($suite.testcase)) {
-                      $case.SetAttribute('file', $case.classname)
+                      $absolutePath = $case.classname
+
+                      # Safely trim the absolute path prefix if it exists
+                      if ($absolutePath.StartsWith($basePath, [StringComparison]::OrdinalIgnoreCase)) {
+                          $relativePath = $absolutePath.Substring($basePath.Length)
+                      } else {
+                          $relativePath = $absolutePath
+                      }
+
+                      # Flip slashes strictly for the path string
+                      $posixPath = $relativePath -replace '\\', '/'
+
+                      $case.SetAttribute('file', $posixPath)
                       $case.classname = [System.IO.Path]::GetFileNameWithoutExtension($case.classname)
                   }
               }
