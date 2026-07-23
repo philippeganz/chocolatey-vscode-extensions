@@ -41,17 +41,15 @@ Describe 'ConfigHelpers' -Tag "Unit", 'ConfigHelpers' {
     }
 
     Context 'Save-ConfigState' {
-        It 'sorts extensions, saves to YAML and generates a badge' {
+        It 'sorts extensions and saves to YAML' {
             Mock Write-Success {} -ModuleName ConfigHelpers
             Mock ConvertTo-Yaml { return "extensions:`n  - a.ext`n  - z.ext" }
-            Mock ConvertTo-Json { return "{}" } -ModuleName ConfigHelpers
 
             $extensions = @('z.ext', 'a.ext', 'a.ext')
             Save-ConfigState -ConfigPath "$TestDrive\config.yaml" -ExtensionsList $extensions
 
             Should -Invoke -CommandName Write-Success -ModuleName ConfigHelpers -Times 1 -Exactly
             Test-Path "$TestDrive\config.yaml" | Should -Be $true
-            Test-Path "$TestDrive\badge.json" | Should -Be $true
         }
     }
 
