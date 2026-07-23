@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-pull-request-github</id>
-    <version>0.159.2026072004</version>
+    <version>0.161.2026072213</version>
     <title>Visual Studio Code Extension - GitHub Pull Requests</title>
     <authors>GitHub</authors>
     <projectUrl>https://github.com/Microsoft/vscode-pull-request-github</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-pull-request-github/0.159.2026072004/1784520983598/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-pull-request-github/0.161.2026072213/1784728159908/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
