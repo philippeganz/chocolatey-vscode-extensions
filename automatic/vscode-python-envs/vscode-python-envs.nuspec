@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-python-envs</id>
-    <version>1.37.2026070201</version>
+    <version>1.37.2026072201</version>
     <title>Visual Studio Code Extension - Python Environments</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/vscode-python-environments.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/vscode-python-envs/1.37.2026070201/1782989186625/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/vscode-python-envs/1.37.2026072201/1784716863751/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
@@ -34,13 +34,13 @@ The "Python Projects" fold shows you all of the projects that are currently in y
 
 The "Environment Managers" fold shows you all of the environment managers that are available on your machine with all related environments nested below. From this view, you can create new environments, delete old environments, and manage packages.
 
-<img src="https://raw.githubusercontent.com/microsoft/vscode-python-environments/main/images/python-envs-overview.gif" width=734 height=413>
+
 
 ### Environment Management
 
 The Python Environments panel provides an interface to create, delete and manage environments.
 
-<img src="https://raw.githubusercontent.com/microsoft/vscode-python-environments/main/images/environment-managers-quick-start.png" width=734 height=413>
+
 
 To simplify the environment creation process, you can use "Quick Create" to automatically create a new virtual environment using:
 
@@ -59,7 +59,7 @@ The following environment managers are supported out of the box:
       https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs#changelog</releaseNotes>
     <tags>vscode extension python-envs</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
