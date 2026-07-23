@@ -97,5 +97,11 @@ jobs:
               git commit -m "🤖 Auto-Update: $pkg v$version [skip ci]"
           }
 
+          if ($status -match 'var/state/config.yaml') {
+              Write-Host "Committing newly discovered dependencies to config.yaml..."
+              git add "var/state/config.yaml"
+              git commit -m "🤖 Auto-Update: Register newly discovered dependencies in config.yaml [skip ci]"
+          }
+
           Write-Host "Pushing all granular commits to main..."
           git push origin main
