@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-black-formatter</id>
-    <version>2026.7.11891015</version>
+    <version>2026.7.12031008</version>
     <title>Visual Studio Code Extension - Black Formatter</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/vscode-black-formatter.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/black-formatter/2026.7.11891015/1783506268441/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/black-formatter/2026.7.12031008/1784716531853/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
@@ -84,7 +84,7 @@ There are several settings you can configure to customize the behavior of this e
       https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter#changelog</releaseNotes>
     <tags>vscode extension black-formatter</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-python" />
     </dependencies>
   </metadata>
