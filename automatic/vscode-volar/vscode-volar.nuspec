@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-volar</id>
-    <version>3.3.7</version>
+    <version>3.3.8</version>
     <title>Visual Studio Code Extension - Vue (Official)</title>
     <authors>Vue</authors>
     <projectUrl>https://github.com/vuejs/language-tools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://Vue.gallerycdn.vsassets.io/extensions/vue/volar/3.3.7/1783482698924/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://Vue.gallerycdn.vsassets.io/extensions/vue/volar/3.3.8/1784735664003/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vue.volar</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
