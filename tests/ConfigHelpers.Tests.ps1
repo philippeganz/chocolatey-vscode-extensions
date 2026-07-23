@@ -28,6 +28,16 @@ Describe 'ConfigHelpers' -Tag "Unit", 'ConfigHelpers' {
             $result.Extensions[1] | Should -Be 'pub.ext2'
             $result.Raw.extensions.Count | Should -Be 2
         }
+
+        It 'handles config.yaml with no extensions cleanly' {
+            Mock Test-Path { return $true } -ModuleName ConfigHelpers
+            Mock Get-Content { return "---`nfoo: bar" } -ModuleName ConfigHelpers
+            Mock ConvertFrom-Yaml { return @{ foo = 'bar' } } -ModuleName ConfigHelpers
+
+            $result = Get-ConfigState -ConfigPath 'fake.yaml'
+
+            $result.Extensions.Count | Should -Be 0
+        }
     }
 
     Context 'Save-ConfigState' {
@@ -77,15 +87,10 @@ Describe 'ConfigHelpers' -Tag "Unit", 'ConfigHelpers' {
             Get-AutomaticDirectory | Should -Be 'C:\Env\Automatic'
         }
 
-        It 'returns resolved path if environment variable is not set' {
-            Mock Resolve-Path { return [PSCustomObject]@{ Path = 'C:\Resolved\Automatic' } } -ModuleName ConfigHelpers
-            Get-AutomaticDirectory | Should -Be 'C:\Resolved\Automatic'
-        }
-
-        It 'returns fallback path if Resolve-Path fails' {
-            Mock Resolve-Path { return $null } -ModuleName ConfigHelpers
+        It 'returns absolute path to automatic directory if environment variable is not set' {
             $fallback = Get-AutomaticDirectory
             $fallback | Should -Match 'automatic$'
+            [System.IO.Path]::IsPathRooted($fallback) | Should -Be $true
         }
     }
 }

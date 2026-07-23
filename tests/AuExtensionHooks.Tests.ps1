@@ -61,28 +61,51 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
             [void](New-Item -ItemType Directory -Path $fakePkgDir -Force)
             Set-Location $fakePkgDir
 
+            $fakeNuspecData = [xml]"<?xml version='1.0'?><package><metadata><description></description><iconUrl></iconUrl><title></title><summary></summary><authors></authors><projectUrl></projectUrl></metadata></package>"
+
             # Mock dependencies
             Mock Get-VsCodeNuspecMetadata -ModuleName VsCodeMarketplace -MockWith {
                 return @{ Title = "Fake"; Summary = "Fake"; Authors = "Fake"; ProjectUrl = "Fake" }
             }
-            Mock Invoke-RobustDownload -ModuleName VsCodeMarketplace -MockWith { return }
-            Mock Expand-VsCodePayload -ModuleName VsCodeMarketplace -MockWith { return @{} }
+            Mock Invoke-RobustDownload -MockWith { return }
+            Mock Expand-VsCodePayload -MockWith {
+                return @{
+                    TruncatedReadme = "Hello <world>"
+                    PackageJson = @{ extensionDependencies = @() }
+                }
+            }
             Mock Update-NuspecDependency -ModuleName VsCodeMarketplace -MockWith { return }
+            Mock Invoke-WebRequest -MockWith { return }
 
             # We must create a fake nuspec and tools dir
-            "<?xml version='1.0'?><package><metadata></metadata></package>" | Set-Content "vscode-rainbow-csv.nuspec"
+            $fakeNuspecData.Save((Join-Path (Get-Location).Path "vscode-rainbow-csv.nuspec"))
             [void](New-Item -ItemType Directory -Path "tools" -Force)
             "fake content" | Set-Content "tools\chocolateyInstall.ps1"
 
+            $global:Latest = @{ Version = "1.0.0"; URL64 = "fake"; IconUrl = "http://fake" }
+            $fakePackage = @{ Path = (Get-Location).Path; Name = "vscode-rainbow-csv"; NuspecXml = $fakeNuspecData }
+
             try {
-                au_BeforeUpdate
+                au_BeforeUpdate -package $fakePackage
             }
             catch {
                 Write-Verbose "Expected failure executing au_BeforeUpdate: $_"
-                # We expect an error because of missing payload JSONs, but it executes code!
             }
 
             Set-Location $PSScriptRoot
+        }
+    }
+
+    Context "au_SearchReplace" {
+        It "Should generate the regex replacements" {
+            $global:Latest = @{ Version = "9.9.9"; IconUrl = "http://fakeicon" }
+            $global:ExtensionPublisher = "test"
+            $global:ExtensionName = "ext"
+
+            $rules = au_SearchReplace
+            $rules.Keys -contains "*.nuspec" | Should -Be $true
+            $rules["*.nuspec"]["(?is)<iconUrl>.*?</iconUrl>"] | Should -Be "<iconUrl>http://fakeicon</iconUrl>"
+            $rules.Keys -contains "tools\chocolateyInstall.ps1" | Should -Be $true
         }
     }
 }

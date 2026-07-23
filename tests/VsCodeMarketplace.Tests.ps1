@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
 param()
 
@@ -78,6 +78,33 @@ Describe "VsCodeMarketplace API Wrapper" -Tag "Unit", 'VsCodeMarketplace' {
             Mock Invoke-RestMethod -ModuleName VsCodeMarketplace -MockWith { return $mockResponse }
 
             { Get-VsCodeMarketplaceMetadata -Publisher "mechatroner" -ExtensionName "missing" } | Should -Throw "Extension not found on Marketplace: mechatroner.missing"
+        }
+
+        It "Should automatically retry Get-VsCodeMarketplaceMetadata on transient API failures" {
+            $script:failCount = 0
+            Mock Invoke-RestMethod -ModuleName VsCodeMarketplace -MockWith {
+                $script:failCount++
+                if ($script:failCount -lt 3) {
+                    throw "Transient Network Error"
+                }
+                return @{ results = @( @{ extensions = @( @{ extensionName = "test" } ) } ) }
+            }
+            Mock Start-Sleep -ModuleName VsCodeMarketplace -MockWith { return }
+            Mock Write-Yellow -ModuleName VsCodeMarketplace -MockWith { return }
+
+            [void](Get-VsCodeMarketplaceMetadata -Publisher "test" -ExtensionName "test")
+
+            $script:failCount | Should -Be 3
+            Should -Invoke -CommandName Invoke-RestMethod -ModuleName VsCodeMarketplace -Times 3 -Exactly
+        }
+
+        It "Should throw a terminating error after 5 retries in Get-VsCodeMarketplaceMetadata" {
+            Mock Invoke-RestMethod -ModuleName VsCodeMarketplace -MockWith { throw "Permanent Error" }
+            Mock Start-Sleep -ModuleName VsCodeMarketplace -MockWith { return }
+            Mock Write-Yellow -ModuleName VsCodeMarketplace -MockWith { return }
+
+            { Get-VsCodeMarketplaceMetadata -Publisher "test" -ExtensionName "test" } | Should -Throw "Permanent Error"
+            Should -Invoke -CommandName Invoke-RestMethod -ModuleName VsCodeMarketplace -Times 5 -Exactly
         }
     }
 
