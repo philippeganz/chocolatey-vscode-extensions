@@ -1,4 +1,5 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
+#Requires -Module powershell-yaml
 <#
 .SYNOPSIS
     The Execution Engine for safely removing VS Code extensions from the pool.
@@ -43,11 +44,14 @@ param (
 $ErrorActionPreference = 'Stop'
 
 # =============================================================================
-# Initialization
+# Import Modules
 # =============================================================================
 Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -ErrorAction Stop
 Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -ErrorAction Stop
 
+# =============================================================================
+# 1. State Initialization
+# =============================================================================
 Write-Host ">>> Starting VS Code Extension Shredder" -ForegroundColor Cyan
 Write-Host "    Target Configuration: $ConfigFile"
 Write-Host "    Extensions to Process: $($ExtensionId.Count)"
@@ -55,7 +59,9 @@ Write-Host "    Extensions to Process: $($ExtensionId.Count)"
 $state = Get-ConfigState -ConfigPath $ConfigFile
 $mutated = $false
 
-# Pre-process Remove list for reverse-lookup and dependency tracking
+# =============================================================================
+# 2. Reverse Lookup & Pre-Processing
+# =============================================================================
 $removePackageNames = [System.Collections.Generic.List[string]]::new()
 $removeIds = [System.Collections.Generic.List[string]]::new()
 
@@ -79,6 +85,9 @@ foreach ($id in $ExtensionId) {
     if ($pkgName) { $removePackageNames.Add($pkgName) }
 }
 
+# =============================================================================
+# 3. Dependency Validation & Shredding
+# =============================================================================
 foreach ($cleanId in $removeIds) {
     Write-Host "`n----------------------------------------" -ForegroundColor DarkGray
     Write-Host "Shredding: $cleanId" -ForegroundColor Cyan
@@ -148,3 +157,5 @@ if ($mutated) {
 }
 
 Write-Host "`n>>> Shredder Run Complete!" -ForegroundColor Cyan
+
+

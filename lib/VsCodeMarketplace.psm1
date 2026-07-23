@@ -1,4 +1,5 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
+#Requires -Module powershell-yaml
 <#
 .SYNOPSIS
 Centralized helper module for interacting with the Visual Studio Code Marketplace API.
@@ -391,6 +392,8 @@ function Update-NuspecDependency {
         [Parameter(Mandatory = $true)][string]$ConfigPath
     )
 
+    Import-Module powershell-yaml -ErrorAction Stop
+
     $dependencyAliases = @{
         "vscode.docker"               = "ms-azuretools.vscode-docker"
         "PeterJausovec.vscode-docker" = "ms-azuretools.vscode-docker"
@@ -418,9 +421,6 @@ function Update-NuspecDependency {
     $baseDep.SetAttribute("version", "[1.1.0, 2.0.0)")
     [void]$depsNode.AppendChild($baseDep)
 
-    if (-not (Get-Module -Name powershell-yaml)) {
-        Import-Module powershell-yaml -ErrorAction Stop
-    }
     $config = Get-Content $ConfigPath -Raw -Encoding UTF8 | ConvertFrom-Yaml
     $trackedExtensions = [System.Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
     foreach ($ext in $config.extensions) { [void]$trackedExtensions.Add($ext) }

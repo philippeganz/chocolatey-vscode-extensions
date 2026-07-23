@@ -1,3 +1,5 @@
+﻿#Requires -Version 7.0
+#Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 [CmdletBinding()]
 param()
 

@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Auto-generated uninstall script for Chocolatey.
 

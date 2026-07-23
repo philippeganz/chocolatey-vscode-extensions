@@ -1,3 +1,5 @@
+﻿#Requires -Version 7.0
+#Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 <#
 .SYNOPSIS
 The primary end-to-end integration test suite for the Chocolatey VS Code Extension framework.

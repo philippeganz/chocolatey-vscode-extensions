@@ -1,4 +1,6 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
+#Requires -Module au
+#Requires -Module powershell-yaml
 <#
 .SYNOPSIS
     The core Orchestrator for the Chocolatey Automatic Updater (AU) Engine.
@@ -59,7 +61,13 @@ param(
 $global:PSNativeCommandArgumentPassing = 'Legacy'
 
 $ErrorActionPreference = 'Stop'
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -Force
+
+# =============================================================================
+# Import Modules
+# =============================================================================
+Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -ErrorAction Stop
+Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -ErrorAction Stop
+Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -ErrorAction Stop
 
 # -----------------------------------------------------------------------------
 # AU ORCHESTRATOR CONFIGURATION
@@ -84,7 +92,6 @@ if ($PushUrl) {
     Write-Host ">>> Retargeting AU Push to Internal Repository: $PushUrl" -ForegroundColor Magenta
 }
 
-Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -ErrorAction Stop
 $packagesDir = Get-AutomaticDirectory
 if (-not (Test-Path $packagesDir)) {
     throw "Configured packages directory not found: $packagesDir"

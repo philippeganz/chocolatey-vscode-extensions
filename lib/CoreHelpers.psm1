@@ -1,4 +1,5 @@
-﻿<#
+﻿#Requires -Version 7.0
+<#
 .SYNOPSIS
     Core utility functions and helpers used across the repository.
 #>

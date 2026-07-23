@@ -1,3 +1,5 @@
+﻿#Requires -Version 7.0
+#Requires -Module au
 <#
 .SYNOPSIS
     The centralized Logic Engine for Chocolatey AU packages.
@@ -17,9 +19,12 @@
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification = 'Preference variable used by the PowerShell engine')]
 param()
 
+# =============================================================================
+# Import Modules
+# =============================================================================
 Import-Module au
 # We need access to the module for some of the shared functions
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -Force -ErrorAction Stop
+Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -ErrorAction Stop
 
 # We bypass the registry checks since these are portable VS Code extensions.
 # Push settings are natively inherited from the global orchestrator.
@@ -252,3 +257,4 @@ function global:au_SearchReplace {
 }
 
 Update-Package -ChecksumFor none
+

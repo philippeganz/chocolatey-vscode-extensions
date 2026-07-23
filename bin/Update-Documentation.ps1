@@ -1,4 +1,5 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
+#Requires -Module platyPS
 <#
 .SYNOPSIS
     Auto-generates Markdown documentation for all scripts in the repository using platyPS.
@@ -18,22 +19,19 @@
     None
 
 .NOTES
-    This script will install the `platyPS` module natively if it is not already available.
     It automatically sanitizes and formats the extracted documentation for optimal rendering
     within MkDocs Material.
 #>
 [CmdletBinding()]
 param()
 
+# =============================================================================
+# Import Modules
+# =============================================================================
 Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -ErrorAction Stop
 
 $ErrorActionPreference = 'Stop'
 
-# Ensure platyPS is installed
-if (-not (Get-Module -ListAvailable -Name platyPS)) {
-    Write-Cyan ">>> Installing platyPS module for documentation generation..."
-    Install-Module -Name platyPS -Force -Scope CurrentUser -ErrorAction Stop
-}
 Import-Module platyPS -ErrorAction Stop
 
 $docsDir = "$PSScriptRoot\..\docs\reference"

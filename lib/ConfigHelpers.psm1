@@ -1,3 +1,5 @@
+﻿#Requires -Version 7.0
+#Requires -Module powershell-yaml
 <#
 .SYNOPSIS
     Centralized utility functions for managing the config.yaml and badge state.
@@ -7,12 +9,7 @@
 param()
 
 Import-Module "$PSScriptRoot\CoreHelpers.psm1" -ErrorAction SilentlyContinue
-
-if (-not (Get-Module -ListAvailable powershell-yaml)) {
-    Write-Host "Installing required powershell-yaml module..." -ForegroundColor Yellow
-    Install-Module powershell-yaml -Force -Scope CurrentUser
-}
-Import-Module powershell-yaml
+Import-Module powershell-yaml -ErrorAction Stop
 
 <#
 .SYNOPSIS

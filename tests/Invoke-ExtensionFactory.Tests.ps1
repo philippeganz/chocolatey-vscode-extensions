@@ -1,3 +1,5 @@
+﻿#Requires -Version 7.0
+#Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFactory' {
     BeforeAll {
         $script:scriptPath = "$PSScriptRoot\..\bin\Invoke-ExtensionFactory.ps1"

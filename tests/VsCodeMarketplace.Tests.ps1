@@ -1,4 +1,6 @@
-﻿[CmdletBinding()]
+﻿#Requires -Version 7.0
+#Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
+[CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
 param()
 

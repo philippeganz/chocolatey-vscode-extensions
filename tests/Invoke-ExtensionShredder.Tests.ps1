@@ -1,7 +1,10 @@
+﻿#Requires -Version 7.0
+#Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 BeforeAll {
-    $scriptPath = Resolve-Path "$PSScriptRoot\..\bin\Invoke-ExtensionShredder.ps1" -ErrorAction SilentlyContinue
-    if (-not $scriptPath) {
-        $scriptPath = Join-Path $PSScriptRoot "..\bin\Invoke-ExtensionShredder.ps1"
+    $scriptPath = "$PSScriptRoot\..\bin\Invoke-ExtensionShredder.ps1"
+
+    if (-not (Test-Path $scriptPath)) {
+        throw "Cannot find script at: $scriptPath"
     }
 
     function Get-ConfigState {}

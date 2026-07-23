@@ -1,4 +1,5 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
+#Requires -Module powershell-yaml
 <#
 .SYNOPSIS
     Automated Chocolatey Package Factory for Visual Studio Code Extensions.
@@ -67,12 +68,15 @@ $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
 # =============================================================================
+# Import Modules
+# =============================================================================
+Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -ErrorAction Stop
+Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -ErrorAction Stop
+Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -ErrorAction Stop
+
+# =============================================================================
 # 1. Configuration & Scaffolding
 # =============================================================================
-Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1"
-Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1"
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1"
-
 # We parse the config.yaml to determine which extensions the Factory should
 # track. The output directory defaults to 'automatic/' where the generated
 # Chocolatey packages will be placed.
@@ -158,7 +162,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     }
 
     # =========================================================================
-    # 2. Query VS Code Marketplace API
+    # 3. Query VS Code Marketplace API
     # =========================================================================
     try {
         $extMeta = Get-VsCodeMarketplaceMetadata -Publisher $publisher -ExtensionName $extensionName
@@ -202,13 +206,13 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     Invoke-RobustDownload -Url $vsixUrl -OutFile $vsixPath
 
     # =========================================================================
-    # 3. Payload Extraction (Air-Gap Compliance)
+    # 4. Payload Extraction (Air-Gap Compliance)
     # =========================================================================
     $payloadData = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
     $packageJson = $payloadData.PackageJson
 
     # =========================================================================
-    # 4. Generate Core Package Files
+    # 5. Generate Core Package Files
     # =========================================================================
     # If the VS Code extension declares internal dependencies (e.g., Extension Packs),
     # we dynamically translate those into Chocolatey package dependencies.
@@ -263,7 +267,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     }
 
     # =========================================================================
-    # 5. Security Validation
+    # 6. Security Validation
     # =========================================================================
     # We scan the raw binary payload to look for forbidden runtime commands
     # that might attempt to break out of an offline/air-gapped network.
@@ -274,7 +278,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     }
 
     # =========================================================================
-    # 6. Template Rendering
+    # 7. Template Rendering
     # =========================================================================
     # We take the static scaffolding templates from etc/templates and inject
     # the dynamically resolved metadata to finalize the AU package structure.
@@ -350,5 +354,7 @@ if (-not $ExtensionId) {
 }
 
 Write-Host "`n>>> Factory Run Complete!" -ForegroundColor Cyan
+
+
 
 

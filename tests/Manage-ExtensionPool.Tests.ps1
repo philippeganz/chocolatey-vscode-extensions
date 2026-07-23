@@ -1,3 +1,5 @@
+﻿#Requires -Version 7.0
+#Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
 param()
@@ -208,7 +210,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
             }
             Mock Select-String -MockWith { return $null } -ParameterFilter { $Path -match 'vsix' }
 
-            $factoryPath = (Resolve-Path "$PSScriptRoot\..\bin\Invoke-ExtensionFactory.ps1").Path
+            $factoryPath = "$PSScriptRoot\..\bin\Invoke-ExtensionFactory.ps1"
             Mock -CommandName $factoryPath -MockWith { return @("test.autocommit") }
 
             Mock git -MockWith {
@@ -227,7 +229,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
             $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
-            $shredderPath = (Resolve-Path "$PSScriptRoot\..\bin\Invoke-ExtensionShredder.ps1").Path
+            $shredderPath = "$PSScriptRoot\..\bin\Invoke-ExtensionShredder.ps1"
             Mock -CommandName $shredderPath -MockWith {}
 
             Mock git -MockWith {

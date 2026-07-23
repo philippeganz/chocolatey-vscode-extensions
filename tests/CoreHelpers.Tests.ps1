@@ -1,3 +1,5 @@
+﻿#Requires -Version 7.0
+#Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 $ErrorActionPreference = 'Stop'
 
 Describe "CoreHelpers Module" -Tag "Unit", 'CoreHelpers' {

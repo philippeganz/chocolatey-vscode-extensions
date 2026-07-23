@@ -1,4 +1,5 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
+#Requires -Module powershell-yaml
 <#
 .SYNOPSIS
     The robust, scriptable CLI for managing the VS Code Extension Pool.
@@ -83,17 +84,20 @@ param (
 $ErrorActionPreference = 'Stop'
 
 # =============================================================================
-# 1. Initialization & Logging Helpers
+# Import Modules
 # =============================================================================
 Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -ErrorAction Stop
 Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -ErrorAction Stop
 Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -ErrorAction Stop
 
+# =============================================================================
+# 1. State Initialization
+# =============================================================================
 # Load config.yaml safely
 $configPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\var\state\config.yaml"))
 
 # =============================================================================
-# 3. Execution Logic
+# 2. Execution Logic
 # =============================================================================
 if ($PSCmdlet.ParameterSetName -eq 'Add') {
     Write-Info "Executing Pre-flight Checks for Add Operation..."
@@ -404,3 +408,5 @@ elseif ($Audit) {
 else {
     Write-Err "Please specify a valid operation: -Add, -Remove, -Search, -CheckStale, -CheckAge, or -Audit"
 }
+
+

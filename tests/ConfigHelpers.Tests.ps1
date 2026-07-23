@@ -1,11 +1,7 @@
-enum SerializationOptions {
-    Roundtrip
-    JsonCompatible
-}
-Import-Module powershell-yaml -Force -ErrorAction SilentlyContinue
+﻿#Requires -Version 7.0
+#Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 BeforeAll {
-    $modulePath = Resolve-Path "$PSScriptRoot\..\lib\ConfigHelpers.psm1"
-    Import-Module $modulePath.Path -Force
+    Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -Force
     function Write-Success {}
 }
 
