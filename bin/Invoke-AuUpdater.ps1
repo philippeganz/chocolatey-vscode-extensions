@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 #Requires -Module au
 <#
 .SYNOPSIS
@@ -211,6 +211,11 @@ if ($ModerationRepush) {
         }
 
         # 1. Scrape exact upstream version from Marketplace using local update.ps1
+        if (-not (Test-Path "update.ps1")) {
+            Write-Host "    [WARNING] No update.ps1 found in $pkg. Skipping." -ForegroundColor Yellow
+            Pop-Location
+            continue
+        }
         . .\update.ps1
         $latestMeta = au_GetLatest
         $upstreamVersion = $latestMeta.Version
