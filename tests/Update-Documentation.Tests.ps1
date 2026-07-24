@@ -18,4 +18,10 @@ Describe "Update-Documentation.ps1" -Tag "Integration", 'Update-Documentation' {
         $mdFiles = Get-ChildItem $docsDir -Filter "*.md"
         $mdFiles.Count | Should -BeGreaterThan 0
     }
+
+    It "Should cover catch blocks gracefully" {
+        $scriptPath = "$PSScriptRoot\..\bin\Update-Documentation.ps1"
+        Mock New-MarkdownHelp -MockWith { throw "Simulated platyPS exception" }
+        { & $scriptPath } | Should -Not -Throw
+    }
 }

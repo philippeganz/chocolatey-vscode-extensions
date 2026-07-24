@@ -120,7 +120,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
             $fakeNuspecData = [xml]"<?xml version='1.0'?><package><metadata><description></description><iconUrl></iconUrl><title></title><summary></summary><authors></authors><projectUrl></projectUrl></metadata></package>"
 
             Mock Get-VsCodeNuspecMetadata -ModuleName VsCodeMarketplace -MockWith {
-                return @{ Title = "Fake"; Summary = "Fake"; Authors = "Fake"; ProjectUrl = "Fake" }
+                return @{ Title = "Fake"; Summary = "Fake"; Authors = "Fake"; ProjectUrl = "Fake"; IconUrl = "https://fake.icon" }
             }
             Mock Invoke-RobustDownload -MockWith { return }
             Mock Expand-VsCodePayload -MockWith {
