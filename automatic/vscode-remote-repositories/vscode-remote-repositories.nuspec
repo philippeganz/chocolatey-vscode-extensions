@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-remote-repositories</id>
-    <version>0.43.2026060101</version>
+    <version>0.43.2026072301</version>
     <title>Visual Studio Code Extension - Remote Repositories</title>
     <authors>ms-vscode</authors>
     <projectUrl>https://github.com/microsoft/vscode-remote-repositories-github.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/remote-repositories/0.43.2026060101/1780305374280/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/remote-repositories/0.43.2026072301/1784798632157/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
