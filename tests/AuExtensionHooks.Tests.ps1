@@ -114,6 +114,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
 
         It "Should handle icon download failure gracefully" {
             $fakePkgDir = Join-Path $script:mockRepo "vscode-rainbow-csv"
+            if (Test-Path $fakePkgDir) { Remove-Item $fakePkgDir -Recurse -Force }
             [void](New-Item -ItemType Directory -Path $fakePkgDir -Force)
             Set-Location $fakePkgDir
 
