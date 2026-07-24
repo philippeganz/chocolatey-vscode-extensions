@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module powershell-yaml
 <#
 .SYNOPSIS
@@ -6,11 +6,21 @@ Centralized helper module for interacting with the Visual Studio Code Marketplac
 Contains robust, self-healing functions to abstract away API quirks, rate limits,
 and platform-specific payload ambiguities.
 #>
-
 [CmdletBinding()]
 param()
 
-Import-Module "$PSScriptRoot\CoreHelpers.psm1" -ErrorAction Stop
+# =============================================================================
+# Global Error Handling
+# =============================================================================
+# Enforce strict fail-fast behavior across this entire script/module.
+# Any cmdlet or module import failure will immediately throw a terminating error.
+# Override locally with -ErrorAction SilentlyContinue when needed.
+$ErrorActionPreference = 'Stop'
+
+# =============================================================================
+# Import Modules
+# =============================================================================
+Import-Module "$PSScriptRoot\CoreHelpers.psm1"
 
 <#
 .SYNOPSIS
@@ -77,7 +87,7 @@ function Get-VsCodeMarketplaceMetadata {
 
     while (-not $success -and $retryCount -lt 5) {
         try {
-            $res = Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers -ErrorAction Stop
+            $res = Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers
             $success = $true
         }
         catch {
@@ -187,7 +197,7 @@ function Invoke-RobustDownload {
     $success = $false
     while (-not $success -and $retryCount -lt 3) {
         try {
-            Invoke-WebRequest -Uri $Url -OutFile $OutFile -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600 -ErrorAction Stop
+            Invoke-WebRequest -Uri $Url -OutFile $OutFile -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600
             $success = $true
         }
         catch {
@@ -235,6 +245,7 @@ function Expand-VsCodePayload {
     )
 
     Write-White "    Extracting Metadata from VSIX Archive..."
+    # Load the .NET Compression framework into the AppDomain to enable [System.IO.Compression.ZipFile] for parsing VSIX archive streams.
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     $zip = [System.IO.Compression.ZipFile]::OpenRead($VsixPath)
     $packageJson = $null
@@ -392,7 +403,7 @@ function Update-NuspecDependency {
         [Parameter(Mandatory = $true)][string]$ConfigPath
     )
 
-    Import-Module powershell-yaml -ErrorAction Stop
+    Import-Module powershell-yaml
 
     $dependencyAliases = @{
         "vscode.docker"               = "ms-azuretools.vscode-docker"

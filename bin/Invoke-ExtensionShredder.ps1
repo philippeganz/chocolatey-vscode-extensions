@@ -1,5 +1,4 @@
-﻿#Requires -Version 7.0
-#Requires -Module powershell-yaml
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     The Execution Engine for safely removing VS Code extensions from the pool.
@@ -41,13 +40,19 @@ param (
     [string]$ConfigFile = "$PSScriptRoot\..\var\state\config.yaml"
 )
 
+# =============================================================================
+# Global Error Handling
+# =============================================================================
+# Enforce strict fail-fast behavior across this entire script/module.
+# Any cmdlet or module import failure will immediately throw a terminating error.
+# Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
 
 # =============================================================================
 # Import Modules
 # =============================================================================
-Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -ErrorAction Stop
-Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -ErrorAction Stop
+Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1"
+Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1"
 
 # =============================================================================
 # 1. State Initialization
@@ -157,5 +162,3 @@ if ($mutated) {
 }
 
 Write-Host "`n>>> Shredder Run Complete!" -ForegroundColor Cyan
-
-

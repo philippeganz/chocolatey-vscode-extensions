@@ -1,15 +1,25 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module powershell-yaml
 <#
 .SYNOPSIS
     Centralized utility functions for managing the config.yaml and badge state.
 #>
-
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Write-Host is required for cross-platform ANSI colored output in orchestration')]
 param()
 
+# =============================================================================
+# Global Error Handling
+# =============================================================================
+# Enforce strict fail-fast behavior across this entire script/module.
+# Any cmdlet or module import failure will immediately throw a terminating error.
+# Override locally with -ErrorAction SilentlyContinue when needed.
+$ErrorActionPreference = 'Stop'
+
+# =============================================================================
+# Import Modules
+# =============================================================================
 Import-Module "$PSScriptRoot\CoreHelpers.psm1" -ErrorAction SilentlyContinue
-Import-Module powershell-yaml -ErrorAction Stop
+Import-Module powershell-yaml
 
 <#
 .SYNOPSIS

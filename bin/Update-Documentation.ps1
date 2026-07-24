@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module platyPS
 <#
 .SYNOPSIS
@@ -26,13 +26,18 @@
 param()
 
 # =============================================================================
-# Import Modules
+# Global Error Handling
 # =============================================================================
-Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -ErrorAction Stop
-
+# Enforce strict fail-fast behavior across this entire script/module.
+# Any cmdlet or module import failure will immediately throw a terminating error.
+# Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
 
-Import-Module platyPS -ErrorAction Stop
+# =============================================================================
+# Import Modules
+# =============================================================================
+Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1"
+Import-Module platyPS
 
 $docsDir = "$PSScriptRoot\..\docs\reference"
 if (-not (Test-Path $docsDir)) {
