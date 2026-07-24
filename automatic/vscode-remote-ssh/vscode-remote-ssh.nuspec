@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-remote-ssh</id>
-    <version>0.125.2026062315</version>
+    <version>0.125.2026072315</version>
     <title>Visual Studio Code Extension - Remote - SSH</title>
     <authors>ms-vscode-remote</authors>
     <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-ssh/0.125.2026062315/1782228190072/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-ssh/0.125.2026072315/1784820552471/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
@@ -65,7 +65,7 @@ Using Remote-SSH opens a connection between your local machine and the remote. O
       https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh#changelog</releaseNotes>
     <tags>vscode extension remote-ssh</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-remote-ssh-edit" />
       <dependency id="vscode-remote-explorer" />
     </dependencies>
