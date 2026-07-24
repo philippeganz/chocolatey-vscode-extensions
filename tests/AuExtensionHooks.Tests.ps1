@@ -141,7 +141,9 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
             $global:Latest = @{ Version = "1.0.0"; URL64 = "fake"; IconUrl = "http://fake" }
             $fakePackage = @{ Path = (Get-Location).Path; Name = "vscode-rainbow-csv"; NuspecXml = $fakeNuspecData }
 
+            $VerbosePreference = 'Continue'
             { au_BeforeUpdate -package $fakePackage } | Should -Not -Throw
+            $VerbosePreference = 'SilentlyContinue'
 
             Set-Location $PSScriptRoot
         }
