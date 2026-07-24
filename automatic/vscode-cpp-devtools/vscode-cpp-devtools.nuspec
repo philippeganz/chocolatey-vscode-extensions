@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-cpp-devtools</id>
-    <version>0.6.11</version>
+    <version>0.6.12</version>
     <title>Visual Studio Code Extension - C/C++ DevTools</title>
     <authors>ms-vscode</authors>
     <projectUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpp-devtools/0.6.11/1784694328298/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpp-devtools/0.6.12/1784780611752/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
