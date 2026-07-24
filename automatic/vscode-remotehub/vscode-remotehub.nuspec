@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-remotehub</id>
-    <version>0.65.2026060101</version>
+    <version>0.65.2026072301</version>
     <title>Visual Studio Code Extension - GitHub Repositories</title>
     <authors>GitHub</authors>
     <projectUrl>https://github.com/microsoft/vscode-remote-repositories-github.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/remotehub/0.65.2026060101/1780305460809/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/remotehub/0.65.2026072301/1784798685142/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=github.remotehub</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
