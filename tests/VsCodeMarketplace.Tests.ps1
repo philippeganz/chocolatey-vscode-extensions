@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
@@ -259,6 +259,126 @@ Contact me at test@example.com!
             $strippedReadme | Should -Match "\[email removed\]"
 
             # Clean up
+            Remove-Item $tempDir -Recurse -Force
+            Remove-Item $extractDir -Recurse -Force
+            Remove-Item $vsixPath -Force
+        }
+
+        It "Should truncate README at the last HTML block tag or double newline" {
+            $tempDir = Join-Path $PSScriptRoot "temp_vsix_1"
+            $extractDir = Join-Path $PSScriptRoot "temp_extract_1"
+            $vsixPath = Join-Path $PSScriptRoot "fake1.vsix"
+            [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
+            '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
+
+            $readmeContent = ("A" * 2000) + "</p>" + ("B" * 1800)
+            $readmeContent | Set-Content (Join-Path $tempDir "extension\README.md")
+            Compress-Archive -Path (Join-Path $tempDir "*") -DestinationPath $vsixPath -Force
+            [void](New-Item -ItemType Directory -Path (Join-Path $extractDir "tools") -Force)
+
+            $result = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $extractDir
+            $result.TruncatedReadme.Length | Should -Be 2160
+
+            Remove-Item $tempDir -Recurse -Force
+            Remove-Item $extractDir -Recurse -Force
+            Remove-Item $vsixPath -Force
+        }
+
+        It "Should truncate README at the last sentence period if no HTML blocks exist" {
+            $tempDir = Join-Path $PSScriptRoot "temp_vsix_2"
+            $extractDir = Join-Path $PSScriptRoot "temp_extract_2"
+            $vsixPath = Join-Path $PSScriptRoot "fake2.vsix"
+            [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
+            '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
+
+            $readmeContent = ("A" * 2000) + ". " + ("B" * 1800)
+            $readmeContent | Set-Content (Join-Path $tempDir "extension\README.md")
+            Compress-Archive -Path (Join-Path $tempDir "*") -DestinationPath $vsixPath -Force
+            [void](New-Item -ItemType Directory -Path (Join-Path $extractDir "tools") -Force)
+
+            $result = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $extractDir
+            $result.TruncatedReadme.Length | Should -Be 2161
+
+            Remove-Item $tempDir -Recurse -Force
+            Remove-Item $extractDir -Recurse -Force
+            Remove-Item $vsixPath -Force
+        }
+
+        It "Should truncate README at the last newline if no periods exist" {
+            $tempDir = Join-Path $PSScriptRoot "temp_vsix_3"
+            $extractDir = Join-Path $PSScriptRoot "temp_extract_3"
+            $vsixPath = Join-Path $PSScriptRoot "fake3.vsix"
+            [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
+            '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
+
+            $readmeContent = ("A" * 2000) + "`n" + ("B" * 1800)
+            $readmeContent | Set-Content (Join-Path $tempDir "extension\README.md")
+            Compress-Archive -Path (Join-Path $tempDir "*") -DestinationPath $vsixPath -Force
+            [void](New-Item -ItemType Directory -Path (Join-Path $extractDir "tools") -Force)
+
+            $result = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $extractDir
+            $result.TruncatedReadme.Length | Should -Be 2160
+
+            Remove-Item $tempDir -Recurse -Force
+            Remove-Item $extractDir -Recurse -Force
+            Remove-Item $vsixPath -Force
+        }
+
+        It "Should truncate README at the last space if no newlines exist" {
+            $tempDir = Join-Path $PSScriptRoot "temp_vsix_4"
+            $extractDir = Join-Path $PSScriptRoot "temp_extract_4"
+            $vsixPath = Join-Path $PSScriptRoot "fake4.vsix"
+            [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
+            '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
+
+            $readmeContent = ("A" * 2000) + " " + ("B" * 1800)
+            $readmeContent | Set-Content (Join-Path $tempDir "extension\README.md")
+            Compress-Archive -Path (Join-Path $tempDir "*") -DestinationPath $vsixPath -Force
+            [void](New-Item -ItemType Directory -Path (Join-Path $extractDir "tools") -Force)
+
+            $result = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $extractDir
+            $result.TruncatedReadme.Length | Should -Be 2160
+
+            Remove-Item $tempDir -Recurse -Force
+            Remove-Item $extractDir -Recurse -Force
+            Remove-Item $vsixPath -Force
+        }
+
+        It "Should hard truncate README if no spaces exist" {
+            $tempDir = Join-Path $PSScriptRoot "temp_vsix_5"
+            $extractDir = Join-Path $PSScriptRoot "temp_extract_5"
+            $vsixPath = Join-Path $PSScriptRoot "fake5.vsix"
+            [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
+            '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
+
+            $readmeContent = ("A" * 4000)
+            $readmeContent | Set-Content (Join-Path $tempDir "extension\README.md")
+            Compress-Archive -Path (Join-Path $tempDir "*") -DestinationPath $vsixPath -Force
+            [void](New-Item -ItemType Directory -Path (Join-Path $extractDir "tools") -Force)
+
+            $result = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $extractDir
+            $result.TruncatedReadme.Length | Should -Be 3910
+
+            Remove-Item $tempDir -Recurse -Force
+            Remove-Item $extractDir -Recurse -Force
+            Remove-Item $vsixPath -Force
+        }
+
+        It "Should auto-close unbalanced HTML tags in truncated README" {
+            $tempDir = Join-Path $PSScriptRoot "temp_vsix_6"
+            $extractDir = Join-Path $PSScriptRoot "temp_extract_6"
+            $vsixPath = Join-Path $PSScriptRoot "fake6.vsix"
+            [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
+            '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
+
+            $readmeContent = ("A" * 2000) + "<table>" + ("B" * 2000)
+            $readmeContent | Set-Content (Join-Path $tempDir "extension\README.md")
+            Compress-Archive -Path (Join-Path $tempDir "*") -DestinationPath $vsixPath -Force
+            [void](New-Item -ItemType Directory -Path (Join-Path $extractDir "tools") -Force)
+
+            $result = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $extractDir
+            $result.TruncatedReadme | Should -Match "</table>"
+
             Remove-Item $tempDir -Recurse -Force
             Remove-Item $extractDir -Recurse -Force
             Remove-Item $vsixPath -Force

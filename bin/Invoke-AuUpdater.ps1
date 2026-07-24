@@ -1,6 +1,5 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module au
-#Requires -Module powershell-yaml
 <#
 .SYNOPSIS
     The core Orchestrator for the Chocolatey Automatic Updater (AU) Engine.
@@ -60,14 +59,22 @@ param(
 # as an invalid 'filePath' parameter. Reverting to Legacy argument passing resolves this.
 $global:PSNativeCommandArgumentPassing = 'Legacy'
 
+
+# =============================================================================
+# Global Error Handling
+# =============================================================================
+# Enforce strict fail-fast behavior across this entire script/module.
+# Any cmdlet or module import failure will immediately throw a terminating error.
+# Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
 
 # =============================================================================
 # Import Modules
 # =============================================================================
-Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -ErrorAction Stop
-Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -ErrorAction Stop
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -ErrorAction Stop
+Import-Module au
+Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1"
+Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1"
+Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global
 
 # -----------------------------------------------------------------------------
 # AU ORCHESTRATOR CONFIGURATION
@@ -80,7 +87,6 @@ Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -ErrorAction
 # Force: Default state is $false. When $true, it bypasses internal version math and forces AU to rebuild.
 # NoCheckChocoVersion: Forces AU to decouple from the Chocolatey Community API and use local .nuspec versions.
 # -----------------------------------------------------------------------------
-
 $opts = [ordered]@{
     Push                = if ($OutputDir) { Write-Host ">>> Output Directory specified: $OutputDir (Disabling native AU Push)" -ForegroundColor Magenta; $false } else { $true }
     Force               = if ($ForcedPackages) { $true } else { $false }

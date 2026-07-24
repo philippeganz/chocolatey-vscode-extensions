@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 BeforeAll {
     $scriptPath = "$PSScriptRoot\..\bin\Invoke-ExtensionShredder.ps1"
@@ -149,5 +149,23 @@ Describe 'Invoke-ExtensionShredder' -Tag "Integration", 'Invoke-ExtensionShredde
 
         $mockState.Extensions.Contains('publisher.ext') | Should -BeFalse
         Should -Invoke -CommandName Save-ConfigState -Times 1 -Exactly
+    }
+
+    It 'skips directory deletion if the package is still owned by another tracked extension' {
+        $mockState.Extensions.Add('publisher.ext1')
+        $mockState.Extensions.Add('publisher.ext2')
+
+        Mock Get-ChocoPackageName { return 'sharedpkgname' }
+
+        $pkgDir = Join-Path $baseAuto 'sharedpkgname'
+        New-Item -ItemType Directory -Path $pkgDir -Force | Out-Null
+
+        & $scriptPath -ExtensionId 'publisher.ext1' -ConfigFile $configFile
+
+        $mockState.Extensions.Contains('publisher.ext1') | Should -BeFalse
+        $mockState.Extensions.Contains('publisher.ext2') | Should -BeTrue
+
+        Test-Path $pkgDir | Should -BeTrue
+        Should -Invoke -CommandName Write-Warning -Times 1 -ParameterFilter { $Message -match "Skipping directory deletion" }
     }
 }

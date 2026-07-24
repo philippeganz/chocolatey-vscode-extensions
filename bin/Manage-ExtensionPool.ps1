@@ -1,5 +1,4 @@
-﻿#Requires -Version 7.0
-#Requires -Module powershell-yaml
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     The robust, scriptable CLI for managing the VS Code Extension Pool.
@@ -81,14 +80,20 @@ param (
     [switch]$Audit
 )
 
+# =============================================================================
+# Global Error Handling
+# =============================================================================
+# Enforce strict fail-fast behavior across this entire script/module.
+# Any cmdlet or module import failure will immediately throw a terminating error.
+# Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
 
 # =============================================================================
 # Import Modules
 # =============================================================================
-Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -ErrorAction Stop
-Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -ErrorAction Stop
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -ErrorAction Stop
+Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1"
+Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1"
+Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1"
 
 # =============================================================================
 # 1. State Initialization
@@ -158,26 +163,8 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
 
                 # Save state
                 Save-ConfigState -ConfigPath $configPath -ExtensionsList $state.Extensions
-
                 if ($AutoCommit) {
-                    Write-Info "Evaluating git state for auto-commit of $cleanId..."
-                    git add "var/state/config.yaml"
-                    $baseAuto = Get-AutomaticDirectory
-                    $pkgName = Get-ChocoPackageName $cleanId
-
-                    if (Test-Path (Join-Path $baseAuto $pkgName)) {
-                        git add (Join-Path $baseAuto $pkgName)
-                    }
-
-                    $staged = git diff --name-only --cached
-                    if (-not $staged) {
-                        Write-Skip "No git changes detected for $cleanId. Skipping auto-commit."
-                    }
-                    else {
-                        $msg = "Add new $cleanId extension"
-                        [void](git commit -m $msg)
-                        Write-Success "Auto-Committed: '$msg'"
-                    }
+                    Invoke-GitAutoCommit -ExtensionId $cleanId -CommitMessage "Add new $cleanId extension"
                 }
             }
         }
@@ -196,27 +183,8 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
         }
         $shredderPath = Join-Path $PSScriptRoot "Invoke-ExtensionShredder.ps1"
         & $shredderPath @shredderParams
-
         if ($AutoCommit) {
-            Write-Info "Evaluating git state for auto-commit of $cleanId..."
-            git add "var/state/config.yaml"
-            $baseAuto = Get-AutomaticDirectory
-
-            $pkgName = Get-ChocoPackageName $cleanId
-            if ($pkgName) {
-                # Suppress errors in case the package wasn't scaffolded or tracked in git
-                git add --all (Join-Path $baseAuto $pkgName) 2>$null
-            }
-
-            $staged = git diff --name-only --cached
-            if (-not $staged) {
-                Write-Skip "No git changes detected for $cleanId. Skipping auto-commit."
-            }
-            else {
-                $msg = "Remove $cleanId extension"
-                [void](git commit -m $msg)
-                Write-Success "Auto-Committed: '$msg'"
-            }
+            Invoke-GitAutoCommit -ExtensionId $cleanId -CommitMessage "Remove $cleanId extension"
         }
     }
 }
@@ -235,7 +203,7 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Search') {
         "Content-Type" = "application/json"
     }
 
-    $response = Invoke-RestMethod -Method POST -Uri $url -Headers $headers -Body $bodyStr -ErrorAction Stop
+    $response = Invoke-RestMethod -Method POST -Uri $url -Headers $headers -Body $bodyStr
     $results = [System.Collections.Generic.List[PSCustomObject]]::new()
 
     foreach ($ext in $response.results[0].extensions) {
@@ -276,7 +244,7 @@ elseif ($CheckStale) {
 
         $url = "https://community.chocolatey.org/api/v2/Packages()?`$filter=Id eq '$pkg' and IsLatestVersion eq true"
         try {
-            $c = (Invoke-WebRequest -Uri $url -UserAgent $ua -UseBasicParsing -ErrorAction Stop).Content
+            $c = (Invoke-WebRequest -Uri $url -UserAgent $ua -UseBasicParsing).Content
             if ($c -match '<d:Version[^>]*>(.*?)</d:Version>') {
                 $remoteVersion = $matches[1]
                 if ($c -match '<d:Published[^>]*>(.*?)</d:Published>') {
@@ -335,7 +303,7 @@ elseif ($CheckAge) {
         $bodyStr = $bodyObj | ConvertTo-Json -Depth 10 -Compress
 
         try {
-            $response = Invoke-RestMethod -Method POST -Uri $url -Headers $headers -Body $bodyStr -ErrorAction Stop
+            $response = Invoke-RestMethod -Method POST -Uri $url -Headers $headers -Body $bodyStr
             if ($response.results -and $response.results[0].extensions) {
                 foreach ($extData in $response.results[0].extensions) {
                     $lastUpdatedStr = $extData.versions[0].lastUpdated
@@ -343,11 +311,11 @@ elseif ($CheckAge) {
                         $lastUpdated = [datetime]$lastUpdatedStr
                         if ($lastUpdated -lt $cutoff) {
                             $results.Add([PSCustomObject]@{
-                                Extension   = "$($extData.publisher.publisherName).$($extData.extensionName)"
-                                DisplayName = $extData.displayName
-                                LastUpdated = $lastUpdated.ToString("yyyy-MM-dd")
-                                YearsOld    = [math]::Round(((Get-Date) - $lastUpdated).TotalDays / 365.25, 1)
-                            })
+                                    Extension   = "$($extData.publisher.publisherName).$($extData.extensionName)"
+                                    DisplayName = $extData.displayName
+                                    LastUpdated = $lastUpdated.ToString("yyyy-MM-dd")
+                                    YearsOld    = [math]::Round(((Get-Date) - $lastUpdated).TotalDays / 365.25, 1)
+                                })
                         }
                     }
                 }
@@ -408,5 +376,3 @@ elseif ($Audit) {
 else {
     Write-Err "Please specify a valid operation: -Add, -Remove, -Search, -CheckStale, -CheckAge, or -Audit"
 }
-
-

@@ -1,5 +1,4 @@
-﻿#Requires -Version 7.0
-#Requires -Module powershell-yaml
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     Automated Chocolatey Package Factory for Visual Studio Code Extensions.
@@ -64,15 +63,23 @@ param (
     [switch]$Force
 )
 
+# =============================================================================
+# Global Error Handling
+# =============================================================================
+# Enforce strict fail-fast behavior across this entire script/module.
+# Any cmdlet or module import failure will immediately throw a terminating error.
+# Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
+
+# Load the .NET Compression framework into the AppDomain to enable [System.IO.Compression.ZipFile] for parsing VSIX archive streams.
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
 # =============================================================================
 # Import Modules
 # =============================================================================
-Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1" -ErrorAction Stop
-Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -ErrorAction Stop
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -ErrorAction Stop
+Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1"
+Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1"
+Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1"
 
 # =============================================================================
 # 1. Configuration & Scaffolding
@@ -80,7 +87,6 @@ Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -ErrorAction Stop
 # We parse the config.yaml to determine which extensions the Factory should
 # track. The output directory defaults to 'automatic/' where the generated
 # Chocolatey packages will be placed.
-
 $state = Get-ConfigState -ConfigPath $ConfigFile
 
 # Factory only outputs to the automatic/ directory at the root
@@ -110,7 +116,9 @@ Write-Host ">>> Starting VS Code Extension Factory" -ForegroundColor Cyan
 Write-Host "    Target Output Directory: $OutputDir"
 Write-Host "    Initial Extensions to Process: $($extensionsList.Count)"
 
+# =============================================================================
 # 2. Main Factory Loop
+# =============================================================================
 # We use a standard for-loop so we can dynamically append discovered dependencies to the end of the list
 $processed = @{}
 
@@ -354,7 +362,3 @@ if (-not $ExtensionId) {
 }
 
 Write-Host "`n>>> Factory Run Complete!" -ForegroundColor Cyan
-
-
-
-

@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
@@ -55,6 +55,21 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
 
             Set-Location $PSScriptRoot
         }
+
+        It "Should log a warning if global:ExtensionVersion is not found on Marketplace" {
+            $global:au_NoCheckChocoVersion = $true
+            $fakePkgDir = Join-Path $script:mockRepo "vscode-rainbow-csv"
+            [void](New-Item -ItemType Directory -Path $fakePkgDir -Force)
+            Set-Location $fakePkgDir
+
+            $global:ExtensionVersion = "99.99.99"
+
+            $result = au_GetLatest
+            $result | Should -Not -BeNullOrEmpty
+
+            $global:ExtensionVersion = $null
+            Set-Location $PSScriptRoot
+        }
     }
 
     Context "au_BeforeUpdate" {
@@ -93,6 +108,40 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
             catch {
                 Write-Verbose "Expected failure executing au_BeforeUpdate: $_"
             }
+
+            Set-Location $PSScriptRoot
+        }
+
+        It "Should handle icon download failure gracefully" {
+            $fakePkgDir = Join-Path $script:mockRepo "vscode-rainbow-csv"
+            [void](New-Item -ItemType Directory -Path $fakePkgDir -Force)
+            Set-Location $fakePkgDir
+
+            $fakeNuspecData = [xml]"<?xml version='1.0'?><package><metadata><description></description><iconUrl></iconUrl><title></title><summary></summary><authors></authors><projectUrl></projectUrl></metadata></package>"
+
+            Mock Get-VsCodeNuspecMetadata -ModuleName VsCodeMarketplace -MockWith {
+                return @{ Title = "Fake"; Summary = "Fake"; Authors = "Fake"; ProjectUrl = "Fake" }
+            }
+            Mock Invoke-RobustDownload -MockWith { return }
+            Mock Expand-VsCodePayload -MockWith {
+                return @{
+                    TruncatedReadme = "Hello <world>"
+                    PackageJson = @{ extensionDependencies = @() }
+                }
+            }
+            Mock Update-NuspecDependency -ModuleName VsCodeMarketplace -MockWith { return }
+
+            # Make the web request throw to hit the catch block at line 211
+            Mock Invoke-WebRequest -MockWith { throw "Network error" }
+
+            $fakeNuspecData.Save((Join-Path (Get-Location).Path "vscode-rainbow-csv.nuspec"))
+            [void](New-Item -ItemType Directory -Path "tools" -Force)
+            "fake content" | Set-Content "tools\chocolateyInstall.ps1"
+
+            $global:Latest = @{ Version = "1.0.0"; URL64 = "fake"; IconUrl = "http://fake" }
+            $fakePackage = @{ Path = (Get-Location).Path; Name = "vscode-rainbow-csv"; NuspecXml = $fakeNuspecData }
+
+            { au_BeforeUpdate -package $fakePackage } | Should -Not -Throw
 
             Set-Location $PSScriptRoot
         }

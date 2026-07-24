@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module au
 <#
 .SYNOPSIS
@@ -20,11 +20,18 @@
 param()
 
 # =============================================================================
+# Global Error Handling
+# =============================================================================
+# Enforce strict fail-fast behavior across this entire script/module.
+# Any cmdlet or module import failure will immediately throw a terminating error.
+# Override locally with -ErrorAction SilentlyContinue when needed.
+$ErrorActionPreference = 'Stop'
+
+# =============================================================================
 # Import Modules
 # =============================================================================
 Import-Module au
-# We need access to the module for some of the shared functions
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global -ErrorAction Stop
+Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global
 
 # We bypass the registry checks since these are portable VS Code extensions.
 # Push settings are natively inherited from the global orchestrator.
@@ -205,7 +212,7 @@ function global:au_BeforeUpdate {
     if (-not (Test-Path $localIconPath)) {
         if ($Latest.IconUrl) {
             try {
-                Invoke-WebRequest -Uri $Latest.IconUrl -OutFile $localIconPath -TimeoutSec 15 -ErrorAction Stop
+                Invoke-WebRequest -Uri $Latest.IconUrl -OutFile $localIconPath -TimeoutSec 15
             }
             catch {
                 Write-Verbose "Failed to download icon: $_"
@@ -257,4 +264,3 @@ function global:au_SearchReplace {
 }
 
 Update-Package -ChecksumFor none
-

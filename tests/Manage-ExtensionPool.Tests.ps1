@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
@@ -105,10 +105,10 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
                     [PSCustomObject]@{
                         extensions = @(
                             [PSCustomObject]@{
-                                publisher = [PSCustomObject]@{ publisherName = "test" }
+                                publisher     = [PSCustomObject]@{ publisherName = "test" }
                                 extensionName = "old"
-                                displayName = "Old Extension"
-                                versions = @(
+                                displayName   = "Old Extension"
+                                versions      = @(
                                     [PSCustomObject]@{
                                         lastUpdated = "2020-01-01T00:00:00Z"
                                     }
@@ -213,14 +213,37 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
             $factoryPath = "$PSScriptRoot\..\bin\Invoke-ExtensionFactory.ps1"
             Mock -CommandName $factoryPath -MockWith { return @("test.autocommit") }
 
-            Mock git -MockWith {
+            Mock git -ModuleName CoreHelpers -MockWith {
                 if ($args[0] -eq 'diff') { return "config.yaml" }
             }
 
             { & $script:scriptPath -Add "test.autocommit" -AutoCommit } | Should -Not -Throw
-            Should -Invoke -CommandName git -Times 3
+            Should -Invoke -CommandName git -ModuleName CoreHelpers -Times 3
 
             Remove-Item (Join-Path $mockAuto "vscode-autocommit") -Recurse -Force -ErrorAction SilentlyContinue
+        }
+
+        It "Should skip auto-commit in Add Mode if no changes are detected" {
+            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+
+            Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new() } }
+            Mock Save-ConfigState -MockWith {}
+            Mock Get-VsCodeMarketplaceMetadata -MockWith { return @{ displayName = "Valid"; shortDescription = "Testing" } }
+            Import-Module (Join-Path $PSScriptRoot "..\lib\VsCodeMarketplace.psm1") -Force
+            Mock Invoke-RobustDownload -MockWith { }
+            Mock Expand-VsCodePayload -MockWith { return @{ PackageJson = @{} } }
+            Mock Select-String -MockWith { return $null }
+
+            $factoryPath = "$PSScriptRoot\..\bin\Invoke-ExtensionFactory.ps1"
+            Mock -CommandName $factoryPath -MockWith { }
+
+            # Mock git diff to return $null to trigger Write-Skip
+            Mock git -ModuleName CoreHelpers -MockWith {
+                if ($args[0] -eq 'diff') { return $null }
+            }
+
+            { & $script:scriptPath -Add "test.nocommits" -AutoCommit } | Should -Not -Throw
         }
     }
 
@@ -232,16 +255,47 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
             $shredderPath = "$PSScriptRoot\..\bin\Invoke-ExtensionShredder.ps1"
             Mock -CommandName $shredderPath -MockWith {}
 
-            Mock git -MockWith {
+            Mock git -ModuleName CoreHelpers -MockWith {
                 if ($args[0] -eq 'diff') { return "config.yaml" }
             }
 
             { & $script:scriptPath -Remove "test.removeme" -AutoCommit } | Should -Not -Throw
-            Should -Invoke -CommandName git -Times 3
+            Should -Invoke -CommandName git -ModuleName CoreHelpers -Times 3
 
         }
 
+        It "Should skip auto-commit in Remove Mode if no changes are detected" {
+            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+
+            $shredderPath = "$PSScriptRoot\..\bin\Invoke-ExtensionShredder.ps1"
+            Mock -CommandName $shredderPath -MockWith {}
+
+            Mock git -ModuleName CoreHelpers -MockWith {
+                if ($args[0] -eq 'diff') { return $null }
+            }
+
+            { & $script:scriptPath -Remove "test.removeme" -AutoCommit } | Should -Not -Throw
+        }
+
         Context "Additional Coverage" {
+            It "Should abort if package directory already exists in Add Mode and -Force is not used" {
+                Import-Module (Join-Path $PSScriptRoot "..\lib\VsCodeMarketplace.psm1") -Force
+                Mock Get-VsCodeMarketplaceMetadata -MockWith { return @{ displayName = "Valid"; shortDescription = "Testing" } }
+
+                Mock Test-Path -MockWith { return $true }
+
+                Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new() } }
+
+                Mock Join-Path -MockWith {
+                    if ($ChildPath -eq 'Invoke-ExtensionFactory.ps1') { return 'Invoke-MockFactory' }
+                    return [System.IO.Path]::Combine($Path, $ChildPath)
+                }
+                Mock Invoke-MockFactory -MockWith { }
+
+                { & $script:scriptPath -Add "publisher.untracked" } | Should -Not -Throw
+                Should -Not -Invoke -CommandName Invoke-MockFactory
+            }
             It "Should warn on invalid ID format in Add Mode" {
                 { & $script:scriptPath -Add "invalidformat" } | Should -Not -Throw
             }

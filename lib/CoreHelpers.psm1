@@ -1,12 +1,18 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     Core utility functions and helpers used across the repository.
 #>
-
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Write-Host is required for cross-platform ANSI colored output in orchestration')]
 param()
 
+# =============================================================================
+# Global Error Handling
+# =============================================================================
+# Enforce strict fail-fast behavior across this entire script/module.
+# Any cmdlet or module import failure will immediately throw a terminating error.
+# Override locally with `-ErrorAction SilentlyContinue` when needed.
+$ErrorActionPreference = 'Stop'
 
 <#
 .SYNOPSIS
@@ -107,3 +113,49 @@ function Write-White   ([string]$msg) { Write-StyledMessage -Message $msg -Color
 
 
 Export-ModuleMember -Function Write-StyledMessage, Write-Success, Write-Info, Write-Skip, Write-Err, Write-Red, Write-Cyan, Write-Yellow, Write-Green, Write-Gray, Write-Magenta, Write-White
+
+<#
+.SYNOPSIS
+Evaluates the git state for the given extension and performs an auto-commit if changes exist.
+
+.DESCRIPTION
+This helper consolidates the git operations for both adding and removing extensions.
+It automatically stages changes to the `var/state/config.yaml` state file and the specific
+package directory inside the `automatic` folder. It uses `git diff --cached` to evaluate
+if any actual modifications occurred, cleanly skipping the commit if no changes are detected.
+
+.PARAMETER ExtensionId
+The raw publisher.extension identifier (e.g. 'mechatroner.rainbow-csv').
+
+.PARAMETER CommitMessage
+The message to use for the automated commit.
+#>
+function Invoke-GitAutoCommit {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$ExtensionId,
+
+        [Parameter(Mandatory = $true)]
+        [string]$CommitMessage
+    )
+
+    Write-Info "Evaluating git state for auto-commit of $ExtensionId..."
+    git add "var/state/config.yaml"
+    $baseAuto = Get-AutomaticDirectory
+    $pkgName = Get-ChocoPackageName $ExtensionId
+
+    if ($pkgName) {
+        # Using --all gracefully handles both added and deleted files/directories
+        git add --all (Join-Path $baseAuto $pkgName) 2>$null
+    }
+
+    $staged = git diff --name-only --cached
+    if (-not $staged) {
+        Write-Skip "No git changes detected for $ExtensionId. Skipping auto-commit."
+    }
+    else {
+        [void](git commit -m $CommitMessage)
+        Write-Success "Auto-Committed: '$CommitMessage'"
+    }
+}
+Export-ModuleMember -Function Invoke-GitAutoCommit

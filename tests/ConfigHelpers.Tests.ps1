@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 BeforeAll {
     Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -Force
