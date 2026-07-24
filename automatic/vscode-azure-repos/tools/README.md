@@ -79,4 +79,3 @@ The Azure Repos extension collects telemetry data to help us build a better expe
 ## License
 
 By downloading and using the Azure Repos extension and its related components, you agree to the product [license terms](https://marketplace.visualstudio.com/items/ms-vscode.azure-repos/license) and [privacy statement](https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx).
-
