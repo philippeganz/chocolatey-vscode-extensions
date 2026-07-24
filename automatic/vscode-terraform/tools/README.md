@@ -1,6 +1,6 @@
 # Terraform Extension for Visual Studio Code
 
-The HashiCorp [Terraform Extension for Visual Studio Code (VS Code)](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform) with the [Terraform Language Server](https://github.com/hashicorp/terraform-ls) adds editing features for [Terraform](https://www.terraform.io), Terraform Stacks, Terraform Search files such as syntax highlighting, IntelliSense, code navigation, code formatting, module explorer and much more!
+The HashiCorp [Terraform Extension for Visual Studio Code (VS Code)](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform) with the [Terraform Language Server](https://github.com/hashicorp/terraform-ls) adds editing features for [Terraform](https://www.terraform.io), Terraform Stacks, Terraform Search, Terraform Policy files such as syntax highlighting, IntelliSense, code navigation, code formatting, module explorer and much more!
 
 ## Quick Start
 
@@ -10,7 +10,7 @@ Get started writing Terraform configurations with VS Code in three steps:
 
 - **Step 2:** Install the [Terraform Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform).
 
-- **Step 3:** To activate the extension, open any folder or VS Code workspace containing Terraform, Terraform Stacks, Terraform Search files. Once activated, the Terraform language indicator will appear in the bottom right corner of the window.
+- **Step 3:** To activate the extension, open any folder or VS Code workspace containing Terraform, Terraform Stacks, Terraform Search, Terraform Policy files. Once activated, the Terraform language indicator will appear in the bottom right corner of the window.
 
 New to Terraform? Read the [Terraform Learning guides](https://learn.hashicorp.com/terraform)
 
@@ -20,11 +20,11 @@ Read the [Troubleshooting Guide](#troubleshooting) for answers to common questio
 
 ## Features
 
-This extension provides Terraform, Terraform Stacks, Terraform Search language features. For most features Terraform Stacks, Terraform Search support is implied, specific functionality is called out where approprite.
+This extension provides Terraform, Terraform Stacks, Terraform Search, Terraform Policy language features. For most features Terraform Stacks, Terraform Search, Terraform Policy support is implied, specific functionality is called out where approprite.
 
 - [IntelliSense](#intellisense-and-autocomplete) Edit your code with auto-completion of providers, resource names, data sources, attributes, components and more
 - [Syntax validation](#syntax-validation) Provides inline diagnostics for invalid configurations as you type
-- [Syntax highlighting](#syntax-highlighting) Highlighting syntax for Terraform 0.12 to 1.X, Terraform Stacks, Terraform Search
+- [Syntax highlighting](#syntax-highlighting) Highlighting syntax for Terraform 0.12 to 1.X, Terraform Stacks, Terraform Search, Terraform Policy
 - [Code Navigation](#code-navigation) Navigate through your codebase with Go to Definition and Symbol support
 - [Code Formatting](#code-formatting) Format your code with `terraform fmt` automatically
 - [Code Snippets](#code-snippets) Shortcuts for common snippets like `for_each` and `variable`
@@ -34,7 +34,7 @@ This extension provides Terraform, Terraform Stacks, Terraform Search language f
 
 ### IntelliSense and Autocomplete
 
-The Terraform Extension for VS Code provides IntelliSense support for Terraform, Terraform Stacks, Terraform Search.
+The Terraform Extension for VS Code provides IntelliSense support for Terraform, Terraform Stacks, Terraform Search, Terraform Policy.
 
 IntelliSense is a general term for a variety of code editing features including: code completion, parameter info, quick info, and member lists. IntelliSense features are sometimes called by other names such as autocomplete, code completion, and code hinting.
 
@@ -44,8 +44,10 @@ For Terraform Stacks constructs like component and resource, blocks and attribut
 
 For Terraform Search files, the extension provides auto-completion for search specific blocks and attributes, helping you build effective queries to find resources and configurations across your Terraform codebase.
 
+For Terraform Policy files, the extension provides auto-completion for policy specific blocks and attributes in `*.policy.hcl` and `*.policytest.hcl` files, helping you author policies and policy tests more efficiently.
 
-This means that you can benefit from auto-completion, parameter info, quick info, and member lists when working with Terraform, Terraform Stacks, Terraform Search files. Whether you're defining stacks, resources, variables, search queries the extension will provide context-specific completions to help you write your code more efficiently.
+
+This means that you can benefit from auto-completion, parameter info, quick info, and member lists when working with Terraform, Terraform Stacks, Terraform Search, Terraform Policy files. Whether you're defining stacks, resources, variables, search queries, policies the extension will provide context-specific completions to help you write your code more efficiently.
 
 
 > **Note:** If there are syntax errors present in the document upon opening, intellisense may not provide all completions. Please fix the errors and reload the document and intellisense will return. See [hcl-lang#57](https://github.com/hashicorp/hcl-lang/issues/57) for more information.
@@ -54,33 +56,33 @@ Invoking intellisense is performed through the [keyboard combination](https://co
 
 If the cursor is at the beginning of a line and no other characters are present, then a list of constructs like `data`, `provider`, `resource`, etc are shown.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/intellisense1.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/intellisense1.png)
 
 If inside a set of quotes or inside a block, the extension provides context specific completions appropriate for the location. For example, inside a `resource` block attributes for a given provider are listed.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/intellisense2.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/intellisense2.png)
 
 Combining `editor.suggest.preview` with the [pre-fill required fields](#code-completion) setting will provide inline snippet suggestions for blocks of code:
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/intellisense3.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/intellisense3.png)
 
 Completing the snippet allows you to tab complete through each attribute and block.
 
 ### Syntax Validation
 
-Terraform, Terraform Stacks, Terraform Search configuration files are validated when opened and on change, and invalid code is marked with diagnostics.
+Terraform, Terraform Stacks, Terraform Search, Terraform Policy configuration files are validated when opened and on change, and invalid code is marked with diagnostics.
 
 HCL syntax is checked for e.g. missing control characters like `}`, `"` or others in the wrong place.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/validation-rule-hcl.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/validation-rule-hcl.png)
 
-Enhanced validation of selected Terraform language constructs in both `*.tf` and `*.tfvars` files based on detected Terraform version and provider versions is also provided. This validation also extends to language constructs for Terraform Search (`*.tfquery.hcl`), Terraform Stacks (`*.tfcomponent.hcl` and `*.tfdeploy.hcl`).
+Enhanced validation of selected Terraform language constructs in both `*.tf`, `*.tfvars` files based on detected Terraform version and provider versions is also provided. This validation also extends to language constructs for Terraform Search (`*.tfquery.hcl`), Terraform Stacks (`*.tfcomponent.hcl` and `*.tfdeploy.hcl`),  Terraform Policy (`*.policy.hcl` and `*.policytest.hcl`).
 
 This can highlight deprecations, missing required attributes or blocks, references to undeclared variables and more, [as documented](https://github.com/hashicorp/terraform-ls/blob/main/docs/validation.md#enhanced-validation).
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/validation-rule-missing-attribute.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/validation-rule-missing-attribute.png)
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/validation-rule-invalid-ref.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/validation-rule-invalid-ref.png)
 
 The enhanced validation feature is enabled by default but can be disabled using the following setting:
 
@@ -90,9 +92,9 @@ The enhanced validation feature is enabled by default but can be disabled using 
 
 The extension also provides validation through [`terraform validate`](https://www.terraform.io/cli/commands/validate). This can be triggered via command palette. Unlike the other validation methods, this one requires the Terraform CLI installed and a previous successful run of `terraform init` (i.e. local installation of all providers and modules) to function correctly. It is the slowest method, but the most thorough - i.e. it will catch the most mistakes.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/validation-cli-command.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/validation-cli-command.png)
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/validation-cli-diagnostic.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/validation-cli-diagnostic.png)
 
 ### Syntax Highlighting
 
@@ -102,13 +104,15 @@ Terraform Stacks syntax highlighting recognizes language constructs from Terrafo
 
 Terraform Search syntax highlighting recognizes language constructs from Terraform version 1.14 to 1.X.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/syntax.png)
+Terraform Policy syntax highlighting recognizes language constructs from Terraform version 1.16 to 1.X.
+
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/syntax.png)
 
 Some language constructs will highlight differently for older versions of Terraform that are incompatible with newer ways of expressing Terraform code. In these cases we lean toward ensuring the latest version of Terraform displays correctly and do our best with older versions.
 
 ### Code Navigation
 
-While editing, you can right-click different identifiers in Terraform, Terraform Stacks, Terraform Search files to take advantage of several convenient commands:
+While editing, you can right-click different identifiers in Terraform, Terraform Stacks, Terraform Search, Terraform Policy files to take advantage of several convenient commands:
 
 - `Go to Definition` (`F12`) navigates to the code that defines the construct where your cursor is. This command is helpful when you're working with Terraform modules and variables defined in other files than the currently opened document.
 - `Peek Definition` (`Alt+F12`) displays the relevant code snippet for the construct where your cursor is directly in the current editor instead of navigating to another file.
@@ -119,7 +123,7 @@ While editing, you can right-click different identifiers in Terraform, Terraform
 
 This extension utilizes [`terraform fmt`](https://www.terraform.io/cli/commands/fmt) to rewrite an open document to a canonical format and style. This command applies a subset of the [Terraform language style conventions](https://www.terraform.io/language/syntax/style), along with other minor adjustments for readability.
 
-This works for Terraform, Terraform Stacks, Terraform Search files.
+This works for Terraform, Terraform Stacks, Terraform Search, Terraform Policy files.
 
 See the [Formatting](#formatting) Configuration section for information on how to configure this feature.
 
@@ -137,27 +141,27 @@ The HCP Terraform Visual Studio Code integration improves user experience by all
 
 To start using HCP Terraform with VS Code, open the new HCP Terraform sidebar and click "Login to HCP Terraform". You can login using a stored token from the Terraform CLI, an existing token you provide, or open the HCP Terraform website to generate a new token.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/tfc/login_view.gif)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/tfc/login_view.gif)
 
 Once logged in, you are prompted to choose which Organization to view workspaces in.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/tfc/choose_org_view.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/tfc/choose_org_view.png)
 
 Now that your Organization is chosen, the Workspace view populates with all workspaces your token has permission to view. At a glance, you can see the last run status of each Workspace. Hovering over a workspace shows detailed information about each workspace.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/tfc/workspace_view.gif)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/tfc/workspace_view.gif)
 
 Selecting a workspace populates the Run view with a list of runs for that workspace. At a glance, you can see the status of each Run, and hover over each for more detailed information.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/tfc/workspace_run_view.gif)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/tfc/workspace_run_view.gif)
 
 If a Run has been Planned or Applied, you can view the raw log for each by expanding the Run then selecting the 'View Raw Log' button for either the Plan or Apply.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/tfc/plan_apply_view.gif)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/tfc/plan_apply_view.gif)
 
 To sign out or log out of your HCP Terraform session, click the Accounts icon next to the Settings icon in the Activity Bar and select "Sign Out":
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/tfc/log_out.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/tfc/log_out.png)
 
 This will clear the currently saved token and allow you to login using a different token.
 
@@ -167,15 +171,15 @@ List Terraform modules used in the current open document in the Explorer Pane, o
 
 Each item shows an icon indicating where the module comes from (local filesystem, git repository, or Terraform Registry).
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/module_calls.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/module_calls.png)
 
 If the module comes from the Terraform Registry, a link to open the documentation in a browser is provided.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/module_calls_doc_link.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/module_calls_doc_link.png)
 
 List Terraform providers used in the current open document in the Explorer Pane, or drag to the Side Bar pane for an expanded view.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/module_providers.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/module_providers.png)
 
 ### Terraform MCP Server Integration
 
@@ -202,7 +206,7 @@ The extension automatically detects available container runtimes on your system 
 
 When enabled, the MCP server runs as a container (`hashicorp/terraform-mcp-server`), providing your AI assistant with contextual knowledge about Terraform providers, modules, and best practices. The extension automatically manages the server lifecycle, starting it when needed for AI interactions.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/hashicorp-terraform-mcp-server.gif)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/hashicorp-terraform-mcp-server.gif)
 
 ### Terraform Commands
 
@@ -284,11 +288,11 @@ An experimental option can be enabled to prefill required fields when completing
 
 For example, choosing `aws_alb_listener` in the following block inserts a snippet in the current line with the `resource` block entirely filled out, containing tab stops to fill in the required values.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/pre-fill.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/pre-fill.png)
 
 Combine this with `editor.suggest.preview` and the editor will provide inline snippet suggestions for blocks of code:
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/intellisense3.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/intellisense3.png)
 
 Completing the snippet allows you to tab complete through each attribute and block.
 
@@ -300,7 +304,7 @@ Display reference counts above top level blocks and attributes
 "terraform.codelens.referenceCount": true
 ```
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/code_lens.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/code_lens.png)
 
 > **Note:** This feature impacts extension performance when opening folders with many modules present. If you experience slowness or high CPU utilization, open a smaller set of folders or disable this setting.
 
@@ -340,6 +344,16 @@ To enable automatic formatting, it is recommended that the following be added to
   "editor.formatOnSaveMode": "file"
 },
 "[terraform-search]": {
+  "editor.defaultFormatter": "hashicorp.terraform",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file"
+},
+"[terraform-policy]": {
+  "editor.defaultFormatter": "hashicorp.terraform",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file"
+},
+"[terraform-policytest]": {
   "editor.defaultFormatter": "hashicorp.terraform",
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file"
@@ -397,6 +411,20 @@ If you want to use `editor.codeActionsOnSave` with `editor.formatOnSave` to auto
   },
 },
 "[terraform-search]": {
+  "editor.defaultFormatter": "hashicorp.terraform",
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.formatAll.terraform": true
+  },
+},
+"[terraform-policy]": {
+  "editor.defaultFormatter": "hashicorp.terraform",
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.formatAll.terraform": true
+  },
+},
+"[terraform-policytest]": {
   "editor.defaultFormatter": "hashicorp.terraform",
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
@@ -498,11 +526,11 @@ The configuration has changed from 1.4.0 to v2.X. If you are having issues with 
 - If you come across a problem with the extension, please file an [issue](https://github.com/hashicorp/vscode-terraform/issues/new/choose).
 - If someone has already filed an issue that encompasses your feedback, please leave a 👍/👎 reaction on the issue
 - Contributions are always welcome! Please see our [contributing guide](https://github.com/hashicorp/vscode-terraform/issues/new?assignees=&labels=enhancement&template=feature_request.md) for more details
-- If you're interested in the development of the extension, you can read about our [development process](https://github.com/hashicorp/vscode-terraform/blob/pre-release/DEVELOPMENT.md)
+- If you're interested in the development of the extension, you can read about our [development process](https://github.com/hashicorp/vscode-terraform/blob/HEAD/DEVELOPMENT.md)
 
 ### Settings Migration
 
-Read more about [changes in settings options introduced in v2.24.0](https://github.com/hashicorp/vscode-terraform/blob/pre-release/docs/settings-migration.md).
+Read more about [changes in settings options introduced in v2.24.0](https://github.com/hashicorp/vscode-terraform/blob/HEAD/docs/settings-migration.md).
 
 ### Generate a bug report
 
@@ -518,7 +546,7 @@ You can reload the Terraform extension by opening the command palette and starti
 
 If you wish to install a specific version of the extension, you can choose 'Install Another version' option in the Extensions pane. This will bring up a list of prior versions for the selected extension. Choose the version you want to install from the list.
 
-![](https://github.com/hashicorp/vscode-terraform/raw/pre-release/docs/pin_version.png)
+![](https://github.com/hashicorp/vscode-terraform/raw/HEAD/docs/pin_version.png)
 
 ## Code of Conduct
 
@@ -528,7 +556,7 @@ Please read the full text at https://www.hashicorp.com/community-guidelines
 
 ## Contributing
 
-We are an open source project on GitHub and would enjoy your contributions! Consult our [development guide](https://github.com/hashicorp/vscode-terraform/blob/pre-release/DEVELOPMENT.md) for steps on how to get started. Please [open a new issue](https://github.com/hashicorp/vscode-terraform/issues) before working on a PR that requires significant effort. This will allow us to make sure the work is in line with the project's goals.
+We are an open source project on GitHub and would enjoy your contributions! Consult our [development guide](https://github.com/hashicorp/vscode-terraform/blob/HEAD/DEVELOPMENT.md) for steps on how to get started. Please [open a new issue](https://github.com/hashicorp/vscode-terraform/issues) before working on a PR that requires significant effort. This will allow us to make sure the work is in line with the project's goals.
 
 ## Release History
 
@@ -545,4 +573,3 @@ See the [CHANGELOG](https://github.com/hashicorp/vscode-terraform/blob/main/CHAN
 ## Credits
 
 - [Mikael Olenfalk](https://github.com/mauve) - creating and supporting the [vscode-terraform](https://github.com/mauve/vscode-terraform) extension, which was used as a starting point and inspiration for this extension.
-

@@ -2,18 +2,18 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-terraform</id>
-    <version>2.39.2026071014</version>
+    <version>2.40.0</version>
     <title>Visual Studio Code Extension - HashiCorp Terraform</title>
     <authors>hashicorp</authors>
     <projectUrl>https://github.com/hashicorp/vscode-terraform.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://HashiCorp.gallerycdn.vsassets.io/extensions/hashicorp/terraform/2.39.2026071014/1783674265431/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://HashiCorp.gallerycdn.vsassets.io/extensions/hashicorp/terraform/2.40.0/1784807207310/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Terraform Extension for Visual Studio Code
 
-The HashiCorp [Terraform Extension for Visual Studio Code (VS Code)](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform) with the [Terraform Language Server](https://github.com/hashicorp/terraform-ls) adds editing features for [Terraform](https://www.terraform.io), Terraform Stacks, Terraform Search files such as syntax highlighting, IntelliSense, code navigation, code formatting, module explorer and much more!
+The HashiCorp [Terraform Extension for Visual Studio Code (VS Code)](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform) with the [Terraform Language Server](https://github.com/hashicorp/terraform-ls) adds editing features for [Terraform](https://www.terraform.io), Terraform Stacks, Terraform Search, Terraform Policy files such as syntax highlighting, IntelliSense, code navigation, code formatting, module explorer and much more!
 
 ## Quick Start
 
@@ -23,7 +23,7 @@ Get started writing Terraform configurations with VS Code in three steps:
 
 - **Step 2:** Install the [Terraform Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform).
 
-- **Step 3:** To activate the extension, open any folder or VS Code workspace containing Terraform, Terraform Stacks, Terraform Search files. Once activated, the Terraform language indicator will appear in the bottom right corner of the window.
+- **Step 3:** To activate the extension, open any folder or VS Code workspace containing Terraform, Terraform Stacks, Terraform Search, Terraform Policy files. Once activated, the Terraform language indicator will appear in the bottom right corner of the window.
 
 New to Terraform? Read the [Terraform Learning guides](https://learn.hashicorp.com/terraform)
 
@@ -33,11 +33,11 @@ Read the [Troubleshooting Guide](#troubleshooting) for answers to common questio
 
 ## Features
 
-This extension provides Terraform, Terraform Stacks, Terraform Search language features. For most features Terraform Stacks, Terraform Search support is implied, specific functionality is called out where approprite.
+This extension provides Terraform, Terraform Stacks, Terraform Search, Terraform Policy language features. For most features Terraform Stacks, Terraform Search, Terraform Policy support is implied, specific functionality is called out where approprite.
 
 - [IntelliSense](#intellisense-and-autocomplete) Edit your code with auto-completion of providers, resource names, data sources, attributes, components and more
 - [Syntax validation](#syntax-validation) Provides inline diagnostics for invalid configurations as you type
-- [Syntax highlighting](#syntax-highlighting) Highlighting syntax for Terraform 0.12 to 1.X, Terraform Stacks, Terraform Search
+- [Syntax highlighting](#syntax-highlighting) Highlighting syntax for Terraform 0.12 to 1.X, Terraform Stacks, Terraform Search, Terraform Policy
 - [Code Navigation](#code-navigation) Navigate through your codebase with Go to Definition and Symbol support
 - [Code Formatting](#code-formatting) Format your code with `terraform fmt` automatically
 - [Code Snippets](#code-snippets) Shortcuts for common snippets like `for_each` and `variable`
@@ -47,7 +47,7 @@ This extension provides Terraform, Terraform Stacks, Terraform Search language f
 
 ### IntelliSense and Autocomplete
 
-The Terraform Extension for VS Code provides IntelliSense support for Terraform, Terraform Stacks, Terraform Search.
+The Terraform Extension for VS Code provides IntelliSense support for Terraform, Terraform Stacks, Terraform Search, Terraform Policy.
 
 IntelliSense is a general term for a variety of code editing features including: code completion, parameter info, quick info, and member lists. IntelliSense features are sometimes called by other names such as autocomplete, code completion, and code hinting.
 
