@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-autopep8</id>
-    <version>2026.5.12031008</version>
+    <version>2026.5.12041008</version>
     <title>Visual Studio Code Extension - autopep8</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/vscode-autopep8.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/autopep8/2026.5.12031008/1784716593234/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/autopep8/2026.5.12041008/1784802876543/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
