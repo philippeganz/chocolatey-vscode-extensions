@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-kubernetes-tools</id>
-    <version>1.4.0</version>
+    <version>1.4.1</version>
     <title>Visual Studio Code Extension - Kubernetes</title>
     <authors>ms-kubernetes-tools</authors>
     <projectUrl>https://github.com/vscode-kubernetes-tools/vscode-kubernetes-tools</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-kubernetes-tools.gallerycdn.vsassets.io/extensions/ms-kubernetes-tools/vscode-kubernetes-tools/1.4.0/1780010813118/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-kubernetes-tools.gallerycdn.vsassets.io/extensions/ms-kubernetes-tools/vscode-kubernetes-tools/1.4.1/1784851830851/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -96,7 +96,7 @@ where `<your-image-prefix-here>` is something like `docker.io/brendanburns`.
       https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools#changelog</releaseNotes>
     <tags>vscode extension kubernetes-tools</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-yaml" />
     </dependencies>
   </metadata>
