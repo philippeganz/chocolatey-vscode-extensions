@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-black-formatter</id>
-    <version>2026.7.12031008</version>
+    <version>2026.7.12041005</version>
     <title>Visual Studio Code Extension - Black Formatter</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/vscode-black-formatter.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/black-formatter/2026.7.12031008/1784716531853/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/black-formatter/2026.7.12041005/1784802700404/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
