@@ -131,7 +131,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
             }
             Mock Update-NuspecDependency -ModuleName VsCodeMarketplace -MockWith { return }
 
-            # Make the web request throw to hit the catch block at line 211
+            # Make the web request throw to hit the catch block
             Mock Invoke-WebRequest -MockWith { throw "Network error" }
 
             $fakeNuspecData.Save((Join-Path (Get-Location).Path "vscode-rainbow-csv.nuspec"))

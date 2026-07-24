@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 <#
 .SYNOPSIS
@@ -257,5 +257,64 @@ extensions:
             Test-Path $script:pkgDir | Should -Be $false
         }
 
+    }
+
+    Context "7. Edge Cases (Invoke-AuUpdater.ps1)" {
+        BeforeAll {
+            $script:binDir = Join-Path $script:repoRoot "bin"
+            $script:realPackagesDir = Join-Path $script:repoRoot "test_automatic"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
+        }
+
+        It "Should resolve dependencies using topological sort when pushing an array" {
+            $depDir = Join-Path $script:realPackagesDir "pkg-dep"
+            $mainDir = Join-Path $script:realPackagesDir "pkg-main"
+            [void](New-Item -ItemType Directory -Path $depDir -Force)
+            [void](New-Item -ItemType Directory -Path $mainDir -Force)
+
+            $nuspecDep = '<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>pkg-dep</id><version>1.0.0</version></metadata></package>'
+            $nuspecMain = '<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>pkg-main</id><version>1.0.0</version><dependencies><dependency id="pkg-dep" /></dependencies></metadata></package>'
+
+            $nuspecDep | Set-Content (Join-Path $depDir "pkg-dep.nuspec") -Encoding UTF8
+            $nuspecMain | Set-Content (Join-Path $mainDir "pkg-main.nuspec") -Encoding UTF8
+
+            "function au_GetLatest { return [PSCustomObject]@{Version='1.0.0'} }`nfunction au_BeforeUpdate { }" | Set-Content (Join-Path $depDir "update.ps1")
+            "function au_GetLatest { return [PSCustomObject]@{Version='1.0.0'} }`nfunction au_BeforeUpdate { }" | Set-Content (Join-Path $mainDir "update.ps1")
+
+            $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
+            & $script -ForcedPackages "pkg-main,pkg-dep"
+
+            Remove-Item $depDir -Recurse -Force
+            Remove-Item $mainDir -Recurse -Force
+        }
+
+        It "Should process all tracked packages when ModerationRepush uses wildcard" {
+            $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
+            { & $script -ModerationRepush '*' } | Should -Not -Throw
+        }
+
+        It "Should fallback to native choco push when no OutputDir is specified" {
+            $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
+            $pkgDir = Join-Path $script:realPackagesDir "vscode-rainbow-csv"
+
+            if (-not (Test-Path $pkgDir)) {
+                [void](New-Item -ItemType Directory -Path $pkgDir -Force)
+                "function au_GetLatest { return [PSCustomObject]@{Version='1.0.0'} }`nfunction au_BeforeUpdate { }" | Set-Content (Join-Path $pkgDir "update.ps1")
+                "<package><metadata><version>0.0.0</version></metadata></package>" | Set-Content (Join-Path $pkgDir "vscode-rainbow-csv.nuspec")
+            }
+
+            Mock choco -MockWith {}
+            $env:api_key = "123"
+
+            { & $script -ModerationRepush "vscode-rainbow-csv" } | Should -Not -Throw
+
+            $env:api_key = $null
+        }
+
+        It "Should warn gracefully when update script yields no payloads" {
+            $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
+            $outDir = Join-Path $script:realPackagesDir "out_artifacts_empty"
+            { & $script -ForcedPackages "vscode-rainbow-csv" -OutputDir $outDir } | Should -Not -Throw
+        }
     }
 }

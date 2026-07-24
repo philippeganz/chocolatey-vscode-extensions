@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFactory' {
     BeforeAll {
@@ -18,6 +18,17 @@ Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFact
         { & $script:scriptPath -ConfigFile $script:mockConfig -ExtensionId "invalidformat" } | Should -Not -Throw
         # It just skips
         Test-Path (Join-Path $env:CHOCO_VSCODE_AUTOMATIC_DIR "invalidformat") | Should -Be $false
+    }
+
+    It "Should create OutputDir if it does not exist" {
+        if (Test-Path $env:CHOCO_VSCODE_AUTOMATIC_DIR) {
+            Remove-Item $env:CHOCO_VSCODE_AUTOMATIC_DIR -Recurse -Force
+        }
+
+        Mock Get-VsCodeMarketplaceMetadata -MockWith { throw "Stop Early" }
+        { & $script:scriptPath -ConfigFile $script:mockConfig -ExtensionId "test.mock" } | Should -Not -Throw
+
+        Test-Path $env:CHOCO_VSCODE_AUTOMATIC_DIR | Should -Be $true
     }
 
     It "Should just log if package exists and UpdateMetadata is specified" {
@@ -55,7 +66,7 @@ Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFact
             Set-Content -Path $OutFile -Value "fake payload"
         }
         Mock Expand-VsCodePayload -MockWith {
-            $jsonStr = '{ "extensionDependencies": ["vscode.built-in", "vscode.yaml", "some.other-dep", "test.deps"], "extensionPack": ["peterjausovec.vscode-docker", "unknown.dependency"] }'
+            $jsonStr = '{ "extensionDependencies": ["vscode.built-in", "vscode.yaml", "some.other-dep", "test.deps"], "extensionPack": ["peterjausovec.vscode-docker", "unknown.dependency", "vscode.built-in-pack"] }'
             return [PSCustomObject]@{
                 PackageJson = $jsonStr | ConvertFrom-Json
                 TruncatedReadme = "Test"
