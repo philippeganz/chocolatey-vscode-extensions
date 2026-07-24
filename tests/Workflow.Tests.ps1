@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 <#
 .SYNOPSIS
@@ -314,7 +314,7 @@ extensions:
         It "Should warn gracefully when update script yields no payloads" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
             $outDir = Join-Path $script:realPackagesDir "out_artifacts_empty"
-            
+
             # pkg-dep just has a dummy update.ps1 that generates no .nupkg
             { & $script -ForcedPackages "pkg-dep" -OutputDir $outDir } | Should -Not -Throw
         }
