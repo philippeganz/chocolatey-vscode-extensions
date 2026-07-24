@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-isort</id>
-    <version>2026.7.12031009</version>
+    <version>2026.7.12041004</version>
     <title>Visual Studio Code Extension - isort</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/vscode-isort.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/isort/2026.7.12031009/1784716485874/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/isort/2026.7.12041004/1784802646206/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.isort</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

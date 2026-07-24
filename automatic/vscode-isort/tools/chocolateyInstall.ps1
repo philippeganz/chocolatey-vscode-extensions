@@ -10,7 +10,7 @@ $ErrorActionPreference = 'Stop'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 # The payload is entirely embedded in the package to guarantee Air-Gap compliance.
-$vsixPath = Join-Path $toolsDir "ms-python.isort-2026.7.12031009.vsix"
+$vsixPath = Join-Path $toolsDir "ms-python.isort-2026.7.12041004.vsix"
 
 # Install-VsCodeExtension is a specialized helper provided by the chocolatey-vscode.extension dependency.
 Install-VsCodeExtension -extensionId $vsixPath
