@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-live-server</id>
-    <version>0.5.2026070201</version>
+    <version>0.5.2026072301</version>
     <title>Visual Studio Code Extension - Live Preview</title>
     <authors>ms-vscode</authors>
     <projectUrl>https://github.com/microsoft/vscode-livepreview.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/live-server/0.5.2026070201/1782984345631/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/live-server/0.5.2026072301/1784798667637/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

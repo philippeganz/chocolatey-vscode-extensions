@@ -127,4 +127,3 @@ Please file issues against the [VS Code Live Preview repository](https://github.
 
 ## Changelog
 See the project's changelog [here](https://github.com/microsoft/vscode-livepreview/blob/main/CHANGELOG.md).
-
