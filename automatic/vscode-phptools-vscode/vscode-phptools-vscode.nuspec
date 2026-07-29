@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-phptools-vscode</id>
-    <version>1.71.19119</version>
+    <version>1.72.19127</version>
     <title>Visual Studio Code Extension - PHP</title>
     <authors>DEVSENSE</authors>
     <projectUrl>https://github.com/DEVSENSE/phptools-docs.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://DEVSENSE.gallerycdn.vsassets.io/extensions/devsense/phptools-vscode/1.71.19119/1785101792992/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://DEVSENSE.gallerycdn.vsassets.io/extensions/devsense/phptools-vscode/1.72.19127/1785268526249/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=devsense.phptools-vscode</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
