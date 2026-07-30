@@ -2,18 +2,16 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-python-envs</id>
-    <version>1.37.2026072401</version>
+    <version>1.37.2026072901</version>
     <title>Visual Studio Code Extension - Python Environments</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/vscode-python-environments.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/vscode-python-envs/1.37.2026072401/1784890959288/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/vscode-python-envs/1.37.2026072901/1785321747398/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-# Python Environments (preview)
-
-> **Note:** The Python Environments icon may no longer appear in the Activity Bar due to the ongoing rollout of the Python Environments extension. To restore the extension, add `"python.useEnvironmentsExtension": true` to your User settings. This setting is temporarily necessary until the rollout is complete!
+# Python Environments
 
 ## Overview
 
@@ -23,8 +21,6 @@ The Python Environments extension for VS Code helps you manage Python environmen
 -   📦 Install and uninstall packages within the selected environment
 -   ✅ Create activated terminals
 -   🖌️ Add and create new Python projects
-
-> **Note:** This extension is in preview, and its APIs and features are subject to change as the project evolves.
 
 > **Important:** This extension requires version `2024.23`, or later, of the Python extension (`ms-python.python`).
 
