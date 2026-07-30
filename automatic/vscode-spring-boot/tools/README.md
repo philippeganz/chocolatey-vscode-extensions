@@ -143,4 +143,4 @@ open vscode, press `CTRL-SHIFT-P` and search for VSIX, then select `Extension: I
 [java-navigation]: https://github.com/spring-projects/spring-tools/raw/facac2003191bc29bf79049aa02a091457ffbe47/vscode-extensions/vscode-spring-boot/readme-imgs/java-navigation.png
 
 
-*Version: 2.3.0-PRE-RELEASE*
+*Version: 2.4.0-PRE-RELEASE*
