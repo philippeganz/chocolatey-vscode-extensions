@@ -456,4 +456,3 @@ The [Microsoft Enterprise and Developer Privacy Statement](https://go.microsoft.
 ## License
 
 This extension is [licensed under the MIT License](https://github.com/Microsoft/vscode-mssql/blob/main/mssql/LICENSE.txt). Please see the [third-party notices](https://github.com/Microsoft/vscode-mssql/blob/main/mssql/ThirdPartyNotices.txt) file for additional copyright notices and license terms applicable to portions of the software.
-
