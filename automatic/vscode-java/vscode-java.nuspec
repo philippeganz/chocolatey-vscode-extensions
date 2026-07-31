@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-java</id>
-    <version>1.56.2026072408</version>
+    <version>1.56.2026073008</version>
     <title>Visual Studio Code Extension - Language Support for Java(TM) by Red Hat</title>
     <authors>redhat</authors>
     <projectUrl>https://github.com/redhat-developer/vscode-java</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/java/1.56.2026072408/1784883513573/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/java/1.56.2026073008/1785402221563/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.java</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
