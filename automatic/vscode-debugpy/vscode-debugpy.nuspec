@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-debugpy</id>
-    <version>2026.7.12081015</version>
+    <version>2026.7.12111009</version>
     <title>Visual Studio Code Extension - Python Debugger</title>
     <authors>ms-python</authors>
     <projectUrl>https://github.com/microsoft/vscode-python-debugger.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/debugpy/2026.7.12081015/1785150056164/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/debugpy/2026.7.12111009/1785409118731/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
