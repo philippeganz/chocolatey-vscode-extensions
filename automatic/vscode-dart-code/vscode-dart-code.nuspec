@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-dart-code</id>
-    <version>3.139.20260716</version>
+    <version>3.139.20260730</version>
     <title>Visual Studio Code Extension - Dart</title>
     <authors>Dart-Code</authors>
     <projectUrl>https://github.com/Dart-Code/Dart-Code.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://Dart-Code.gallerycdn.vsassets.io/extensions/dart-code/dart-code/3.139.20260716/1784197121019/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://Dart-Code.gallerycdn.vsassets.io/extensions/dart-code/dart-code/3.139.20260730/1785418371228/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=dart-code.dart-code</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
