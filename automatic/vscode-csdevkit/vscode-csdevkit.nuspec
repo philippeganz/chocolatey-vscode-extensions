@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-csdevkit</id>
-    <version>3.27.196</version>
+    <version>3.27.234</version>
     <title>Visual Studio Code Extension - C# Dev Kit</title>
     <authors>ms-dotnettools</authors>
     <projectUrl> https://devdiv.visualstudio.com/DevDiv/_git/vs-green</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-dotnettools.gallerycdn.vsassets.io/extensions/ms-dotnettools/csdevkit/3.27.196/1783434180901/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-dotnettools.gallerycdn.vsassets.io/extensions/ms-dotnettools/csdevkit/3.27.234/1785514309733/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
