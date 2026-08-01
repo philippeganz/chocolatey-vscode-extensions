@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-bicep</id>
-    <version>0.45.15</version>
+    <version>0.46.1</version>
     <title>Visual Studio Code Extension - Bicep</title>
     <authors>ms-azuretools</authors>
     <projectUrl>https://github.com/Azure/bicep</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-bicep/0.45.15/1783986784787/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-bicep/0.46.1/1785506794350/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
