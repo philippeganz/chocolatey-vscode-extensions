@@ -2,21 +2,23 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-volar</id>
-    <version>3.3.8</version>
+    <version>3.3.9</version>
     <title>Visual Studio Code Extension - Vue (Official)</title>
     <authors>Vue</authors>
     <projectUrl>https://github.com/vuejs/language-tools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://Vue.gallerycdn.vsassets.io/extensions/vue/volar/3.3.8/1784735664003/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://Vue.gallerycdn.vsassets.io/extensions/vue/volar/3.3.9/1785482425309/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vue.volar</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Vue (Official)
 
+<!-- https://github.com/badges/shields/pull/11792
 
   <a href="https://marketplace.visualstudio.com/items?itemName=Vue.volar"></a>
   <a href="https://marketplace.visualstudio.com/items?itemName=Vue.volar"></a>
 
+-->
 
 Vue language support extension for VSCode, providing a full development experience for Vue Single File Components (SFCs).
 
@@ -85,8 +87,6 @@ Search for `Vue (Official)` or `Vue.volar` in the VSCode extension marketplace a
 | `vue.server.path` | `string` | - | Custom language server path |
 | `vue.server.includeLanguages` | `string[]` | `["vue"]` | Language IDs to process |
 | `vue.trace.server` | `string` | `off` | Server trace level |
-
-## Commands
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=Vue.volar) for full documentation]
 ]]></description>
