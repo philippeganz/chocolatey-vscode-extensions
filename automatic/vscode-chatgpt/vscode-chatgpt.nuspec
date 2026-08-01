@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-chatgpt</id>
-    <version>26.5727.40816</version>
+    <version>26.5727.51351</version>
     <title>Visual Studio Code Extension - Codex – OpenAI’s coding agent</title>
     <authors>openai</authors>
     <projectUrl>https://marketplace.visualstudio.com/items?itemName=openai.chatgpt</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://openai.gallerycdn.vsassets.io/extensions/openai/chatgpt/26.5727.40816/1785440210756/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://openai.gallerycdn.vsassets.io/extensions/openai/chatgpt/26.5727.51351/1785544534236/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items?itemName=openai.chatgpt</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
