@@ -5,10 +5,11 @@
     <version>1.27.1</version>
     <title>Visual Studio Code Extension - Better C++ Syntax</title>
     <authors>jeff-hykin</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/jeff-hykin/better-cpp-syntax.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://jeff-hykin.gallerycdn.vsassets.io/extensions/jeff-hykin/better-cpp-syntax/1.27.1/1720820193197/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=jeff-hykin.better-cpp-syntax</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-better-cpp-syntax/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/jeff-hykin.better-cpp-syntax/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 
@@ -80,6 +81,6 @@ Link: https://marketplace.visualstudio.com/items?itemName=jeff-hykin.better-cpp-
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

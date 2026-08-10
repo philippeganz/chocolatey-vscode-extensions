@@ -5,9 +5,10 @@
     <version>1.6.2</version>
     <title>Visual Studio Code Extension - SQL Database Projects</title>
     <authors>ms-mssql</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-mssql.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-mssql.gallerycdn.vsassets.io/extensions/ms-mssql/sql-database-projects-vscode/1.6.2/1784136772936/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-sql-database-projects-vscode/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-mssql.sql-database-projects-vscode</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -63,6 +64,6 @@ CREATE TABLE [dbo].[Product] (
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

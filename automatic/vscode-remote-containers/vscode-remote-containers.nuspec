@@ -5,9 +5,10 @@
     <version>0.467.0</version>
     <title>Visual Studio Code Extension - Dev Containers</title>
     <authors>ms-vscode-remote</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-containers/0.467.0/1784099536064/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-remote-containers/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -74,6 +75,6 @@ To get started, follow these steps:
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

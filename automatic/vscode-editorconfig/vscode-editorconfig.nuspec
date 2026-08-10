@@ -5,10 +5,11 @@
     <version>0.18.2</version>
     <title>Visual Studio Code Extension - EditorConfig</title>
     <authors>EditorConfig</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/editorconfig/editorconfig-vscode.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://EditorConfig.gallerycdn.vsassets.io/extensions/editorconfig/editorconfig/0.18.2/1775654237423/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-editorconfig/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/editorconfig.editorconfig/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # [EditorConfig][] for [Visual Studio Code][]
@@ -89,6 +90,6 @@ menu by right-clicking in the folder where you'd like it to be and selecting
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

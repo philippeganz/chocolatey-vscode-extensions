@@ -5,10 +5,11 @@
     <version>1.13.0</version>
     <title>Visual Studio Code Extension - React Native Tools</title>
     <authors>msjsdiag</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/vscode-react-native.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://msjsdiag.gallerycdn.vsassets.io/extensions/msjsdiag/vscode-react-native/1.13.0/1711327727854/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=msjsdiag.vscode-react-native</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-react-native/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/msjsdiag.vscode-react-native/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # React Native Tools
@@ -51,6 +52,6 @@ Using this extension, you can **debug your code and quickly run `react-native` c
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

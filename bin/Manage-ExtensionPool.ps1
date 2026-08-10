@@ -197,7 +197,8 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Search') {
         flags   = 914
     }
     $bodyStr = $bodyObj | ConvertTo-Json -Depth 10 -Compress
-    $url = "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
+    $marketplaceBaseUrl = "https://marketplace.visualstudio.com"
+    $url = "$marketplaceBaseUrl/_apis/public/gallery/extensionquery"
     $headers = @{
         "Accept"       = "application/json;api-version=3.0-preview.1"
         "Content-Type" = "application/json"
@@ -283,7 +284,8 @@ elseif ($CheckAge) {
     # Query Marketplace API in chunks of 50
     $chunkSize = 50
     $total = $state.Extensions.Count
-    $url = "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
+    $marketplaceBaseUrl = "https://marketplace.visualstudio.com"
+    $url = "$marketplaceBaseUrl/_apis/public/gallery/extensionquery"
     $headers = @{
         "Accept"       = "application/json;api-version=3.0-preview.1"
         "Content-Type" = "application/json"

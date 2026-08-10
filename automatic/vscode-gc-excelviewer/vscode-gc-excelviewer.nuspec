@@ -5,10 +5,11 @@
     <version>4.2.66</version>
     <title>Visual Studio Code Extension - Spreadsheet Viewer</title>
     <authors>GrapeCity</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/wijmo/gc-excelviewer.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://GrapeCity.gallerycdn.vsassets.io/extensions/grapecity/gc-excelviewer/4.2.66/1780672856775/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=grapecity.gc-excelviewer</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-gc-excelviewer/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/grapecity.gc-excelviewer/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Spreadsheet Viewer for VSCode
@@ -62,6 +63,6 @@ The extension adapts its display to the current Visual Studio Code theme. For be
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

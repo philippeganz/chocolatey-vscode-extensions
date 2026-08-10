@@ -5,10 +5,11 @@
     <version>0.65.2026072301</version>
     <title>Visual Studio Code Extension - GitHub Repositories</title>
     <authors>GitHub</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/vscode-remote-repositories-github.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/remotehub/0.65.2026072301/1784798685142/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=github.remotehub</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-remotehub/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/github.remotehub/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 > **This is the pre-release edition of GitHub Repositories for early feedback and testing. It works best with [VS Code Insiders](https://code.visualstudio.com/insiders).**
@@ -61,6 +62,6 @@ This extension provides the following support for GitHub repositories:
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

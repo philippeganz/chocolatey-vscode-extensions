@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-redhat-account</id>
     <version>0.2.0</version>
     <title>Visual Studio Code Extension - Red Hat Authentication</title>
     <authors>redhat</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/redhat-developer/vscode-redhat-account</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-redhat-account/0.2.0/1712252352544/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-redhat-account</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-redhat-account/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-redhat-account/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/redhat.vscode-redhat-account?style=for-the-badge&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-redhat-account)
@@ -76,6 +77,6 @@ Licensed under the [MIT](https://github.com/redhat-developer/vscode-redhat-accou
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

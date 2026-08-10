@@ -5,10 +5,11 @@
     <version>3.139.20260630</version>
     <title>Visual Studio Code Extension - Flutter</title>
     <authors>Dart-Code</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Dart-Code/Flutter.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://Dart-Code.gallerycdn.vsassets.io/extensions/dart-code/flutter/3.139.20260630/1782825117243/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=dart-code.flutter</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-flutter/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/dart-code.flutter/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 ## Introduction
@@ -44,6 +45,6 @@ Issues for both Dart and Flutter extensions should be reported in the [Dart-Code
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

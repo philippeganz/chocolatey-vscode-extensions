@@ -5,10 +5,11 @@
     <version>1.32.4</version>
     <title>Visual Studio Code Extension - Vim</title>
     <authors>vscodevim</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/VSCodeVim/Vim.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://vscodevim.gallerycdn.vsassets.io/extensions/vscodevim/vim/1.32.4/1765753483040/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscodevim.vim</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vim/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/vscodevim.vim/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 
@@ -83,6 +84,6 @@ To enable key-repeating, execute the following in your Terminal, log out and bac
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

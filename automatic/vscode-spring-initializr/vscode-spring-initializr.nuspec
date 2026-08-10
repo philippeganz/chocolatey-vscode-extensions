@@ -5,10 +5,11 @@
     <version>0.12.0</version>
     <title>Visual Studio Code Extension - Spring Initializr Java Support</title>
     <authors>vscjava</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-spring-initializr.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-spring-initializr/0.12.0/1763086464475/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-spring-initializr/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/vscjava.vscode-spring-initializr/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 
@@ -93,6 +94,6 @@ This extension is licensed under [MIT License](https://github.com/Microsoft/vsco
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

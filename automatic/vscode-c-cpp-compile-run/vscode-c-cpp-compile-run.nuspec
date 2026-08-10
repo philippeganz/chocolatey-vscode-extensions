@@ -5,10 +5,11 @@
     <version>1.0.92</version>
     <title>Visual Studio Code Extension - C/C++ Compile Run</title>
     <authors>danielpinto8zz6</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/danielpinto8zz6/c-cpp-compile-run.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://danielpinto8zz6.gallerycdn.vsassets.io/extensions/danielpinto8zz6/c-cpp-compile-run/1.0.92/1775266333375/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=danielpinto8zz6.c-cpp-compile-run</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-c-cpp-compile-run/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/danielpinto8zz6.c-cpp-compile-run/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 ![Logo](https://github.com/danielpinto8zz6/c-cpp-compile-run/raw/HEAD/resources/logo.png)
@@ -65,6 +66,6 @@ A Visual Studio Code extension to **compile, run, and debug** single C/C++ files
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

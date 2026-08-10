@@ -5,10 +5,11 @@
     <version>2.40.0</version>
     <title>Visual Studio Code Extension - HashiCorp Terraform</title>
     <authors>hashicorp</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/hashicorp/vscode-terraform.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://HashiCorp.gallerycdn.vsassets.io/extensions/hashicorp/terraform/2.40.0/1784807207310/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-terraform/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/hashicorp.terraform/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Terraform Extension for Visual Studio Code
@@ -66,6 +67,6 @@ For Terraform Stacks constructs like component and resource, blocks and attribut
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

@@ -5,10 +5,11 @@
     <version>2.25.1</version>
     <title>Visual Studio Code Extension - Dracula Theme Official</title>
     <authors>dracula-theme</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/dracula/visual-studio-code.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://dracula-theme.gallerycdn.vsassets.io/extensions/dracula-theme/theme-dracula/2.25.1/1721220788613/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-theme-dracula/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/dracula-theme.theme-dracula/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Dracula for [Visual Studio Code](http://code.visualstudio.com)
@@ -56,6 +57,6 @@ If you'd like to contribute to this theme, please read the [contributing guideli
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

@@ -1,13 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-openshift-connector</id>
     <version>1.21.1</version>
     <title>Visual Studio Code Extension - OpenShift Toolkit</title>
     <authors>redhat</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/redhat-developer/vscode-openshift-tools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-openshift-connector/1.21.1/1762258372564/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-openshift-connector/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=redhat.vscode-openshift-connector</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -65,6 +66,6 @@ The OpenShift Toolkit extension provides multiple views to the user once it is l
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

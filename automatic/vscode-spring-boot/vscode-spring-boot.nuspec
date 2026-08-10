@@ -5,10 +5,11 @@
     <version>2.4.2026080100</version>
     <title>Visual Studio Code Extension - Spring Boot Tools</title>
     <authors>vmware</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/spring-projects/spring-tools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://vmware.gallerycdn.vsassets.io/extensions/vmware/vscode-spring-boot/2.4.2026080100/1785546172325/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-spring-boot/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/vmware.vscode-spring-boot/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # VS Code Language Server for Spring Boot
@@ -92,6 +93,6 @@ If there are multiple instances of the app running on your machine, the live dat
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

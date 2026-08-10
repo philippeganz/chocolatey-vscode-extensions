@@ -5,10 +5,11 @@
     <version>1.72.19127</version>
     <title>Visual Studio Code Extension - PHP Profiler</title>
     <authors>DEVSENSE</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/DEVSENSE/phptools-docs.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://DEVSENSE.gallerycdn.vsassets.io/extensions/devsense/profiler-php-vscode/1.72.19127/1785268577051/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=devsense.profiler-php-vscode</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-profiler-php-vscode/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/devsense.profiler-php-vscode/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # PHP Profiler for Visual Studio Code
@@ -94,6 +95,6 @@ The loaded profiling result file is analyzed, and hot paths are highlighted dire
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

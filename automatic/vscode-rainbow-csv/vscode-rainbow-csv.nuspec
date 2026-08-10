@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-rainbow-csv</id>
     <version>3.24.1</version>
     <title>Visual Studio Code Extension - Rainbow CSV</title>
     <authors>mechatroner</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/mechatroner/vscode_rainbow_csv</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://mechatroner.gallerycdn.vsassets.io/extensions/mechatroner/rainbow-csv/3.24.1/1768618250211/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-rainbow-csv/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/mechatroner.rainbow-csv/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Rainbow CSV
@@ -93,6 +94,6 @@ To recheck a CSV file, click the "CSVLint" button in the status bar.
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

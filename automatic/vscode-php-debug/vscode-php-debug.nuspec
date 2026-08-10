@@ -5,10 +5,11 @@
     <version>1.40.1</version>
     <title>Visual Studio Code Extension - PHP Debug</title>
     <authors>xdebug</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/xdebug/vscode-php-debug.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://xdebug.gallerycdn.vsassets.io/extensions/xdebug/php-debug/1.40.1/1775571930745/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-php-debug/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/xdebug.php-debug/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # PHP Debug Adapter for Visual Studio Code
@@ -67,6 +68,6 @@ This extension is a debug adapter between VS Code and [Xdebug](https://xdebug.or
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

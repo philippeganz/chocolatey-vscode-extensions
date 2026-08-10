@@ -5,10 +5,11 @@
     <version>0.57.0</version>
     <title>Visual Studio Code Extension - Go</title>
     <authors>golang</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/golang/vscode-go</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://golang.gallerycdn.vsassets.io/extensions/golang/go/0.57.0/1784220821586/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=golang.go</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-go/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/golang.go/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Go for Visual Studio Code
@@ -110,6 +111,6 @@ See the [full feature breakdown] for more details.
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

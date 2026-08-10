@@ -5,10 +5,11 @@
     <version>2.41.0</version>
     <title>Visual Studio Code Extension - Thunder Client</title>
     <authors>rangav</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/thunderclient/thunder-client-support.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://rangav.gallerycdn.vsassets.io/extensions/rangav/vscode-thunder-client/2.41.0/1782398500056/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-thunder-client/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/rangav.vscode-thunder-client/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Thunder Client
@@ -75,6 +76,6 @@ Thunder Client is a lightweight Rest API Client Extension for VS Code, hand-craf
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

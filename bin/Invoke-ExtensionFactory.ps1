@@ -214,6 +214,11 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     Invoke-RobustDownload -Url $vsixUrl -OutFile $vsixPath
 
     # =========================================================================
+    # Generate VERIFICATION.txt (Chocolatey Requirements)
+    # =========================================================================
+    New-VerificationFile -VsixPath $vsixPath -PackageDir $pkgDir -Publisher $publisher -ExtensionName $extensionName
+
+    # =========================================================================
     # 4. Payload Extraction (Air-Gap Compliance)
     # =========================================================================
     $payloadData = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
@@ -306,7 +311,8 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $nuspecContent = $nuspecContent -replace '\{\{Title\}\}', $meta.Title
     $nuspecContent = $nuspecContent -replace '\{\{Authors\}\}', $meta.Authors
     $nuspecContent = $nuspecContent -replace '\{\{ProjectUrl\}\}', $meta.ProjectUrl
-    $nuspecContent = $nuspecContent -replace '\{\{IconUrl\}\}', $meta.IconUrl
+    $nuspecContent = $nuspecContent -replace '\{\{IconUrl\}\}', "https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/$packageName/icon.png"
+    $nuspecContent = $nuspecContent -replace '\{\{LicenseUrl\}\}', $meta.LicenseUrl
     $nuspecContent = $nuspecContent -replace '\{\{MarketplaceUrl\}\}', $meta.MarketplaceUrl
     $nuspecContent = $nuspecContent -replace '\{\{Description\}\}', $meta.Description
     $nuspecContent = $nuspecContent -replace '\{\{Summary\}\}', $meta.Summary

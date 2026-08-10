@@ -5,10 +5,11 @@
     <version>1.4.5</version>
     <title>Visual Studio Code Extension - npm Intellisense</title>
     <authors>christian-kohler</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/ChristianKohler/NpmIntellisense.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://christian-kohler.gallerycdn.vsassets.io/extensions/christian-kohler/npm-intellisense/1.4.5/1696702951497/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-npm-intellisense/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/christian-kohler.npm-intellisense/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Npm Intellisense
@@ -112,6 +113,6 @@ This software is released under [MIT License](http://www.opensource.org/licenses
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

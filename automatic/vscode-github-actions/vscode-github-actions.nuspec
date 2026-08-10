@@ -5,10 +5,11 @@
     <version>0.32.3</version>
     <title>Visual Studio Code Extension - GitHub Actions</title>
     <authors>github</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/github/vscode-github-actions</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-github-actions/0.32.3/1784139132081/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-github-actions/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/github.vscode-github-actions/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # GitHub Actions for VS Code
@@ -84,6 +85,6 @@ We currently do not have the capability to support Operating System (OS) certifi
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

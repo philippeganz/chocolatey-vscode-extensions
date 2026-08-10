@@ -5,10 +5,11 @@
     <version>0.12.17700</version>
     <title>Visual Studio Code Extension - IntelliPHP - AI Suggestions for PHP</title>
     <authors>DEVSENSE</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/DEVSENSE/phptools-docs.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://DEVSENSE.gallerycdn.vsassets.io/extensions/devsense/intelli-php-vscode/0.12.17700/1753717639068/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=devsense.intelli-php-vscode</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-intelli-php-vscode/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/devsense.intelli-php-vscode/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # IntelliPHP for Visual Studio Code
@@ -63,6 +64,6 @@ IntelliPHP supports ARM and x64 versions of Windows and Mac OS X, as well as x64
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

@@ -5,10 +5,11 @@
     <version>0.8.30</version>
     <title>Visual Studio Code Extension - Markdown Preview Enhanced</title>
     <authors>shd101wyy</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/shd101wyy/vscode-markdown-preview-enhanced.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://shd101wyy.gallerycdn.vsassets.io/extensions/shd101wyy/markdown-preview-enhanced/0.8.30/1780889482604/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-markdown-preview-enhanced/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/shd101wyy.markdown-preview-enhanced/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
  Markdown Preview Enhanced 
@@ -62,6 +63,6 @@ For more information about this project and how to use this extension, please ch
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

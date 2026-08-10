@@ -1,13 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-intellicode-api-usage-examples</id>
     <version>0.2.9</version>
     <title>Visual Studio Code Extension - IntelliCode API Usage Examples</title>
     <authors>VisualStudioExptTeam</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/MicrosoftDocs/intellicode</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://VisualStudioExptTeam.gallerycdn.vsassets.io/extensions/visualstudioexptteam/intellicode-api-usage-examples/0.2.9/1729726308726/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-intellicode-api-usage-examples/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=visualstudioexptteam.intellicode-api-usage-examples</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -42,6 +43,6 @@ It uses a scan of public GitHub repositories, which creates a mapping from funct
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

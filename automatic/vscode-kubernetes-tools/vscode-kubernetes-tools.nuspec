@@ -5,9 +5,10 @@
     <version>1.4.1</version>
     <title>Visual Studio Code Extension - Kubernetes</title>
     <authors>ms-kubernetes-tools</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/vscode-kubernetes-tools/vscode-kubernetes-tools</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-kubernetes-tools.gallerycdn.vsassets.io/extensions/ms-kubernetes-tools/vscode-kubernetes-tools/1.4.1/1784851830851/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-kubernetes-tools/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -102,6 +103,6 @@ where `<your-image-prefix-here>` is something like `docker.io/brendanburns`.
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

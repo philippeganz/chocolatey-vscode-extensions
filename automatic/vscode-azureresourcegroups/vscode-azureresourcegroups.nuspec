@@ -5,10 +5,11 @@
     <version>0.12.7</version>
     <title>Visual Studio Code Extension - Azure Resources</title>
     <authors>ms-azuretools</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-azureresourcegroups.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-azureresourcegroups/0.12.7/1781209805226/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azureresourcegroups/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureresourcegroups/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Azure Resources for Visual Studio Code (Preview)
@@ -84,6 +85,6 @@ Within the tenants view you can now Sign In to a specific tenant by checking an 
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

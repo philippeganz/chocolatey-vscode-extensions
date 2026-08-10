@@ -5,10 +5,11 @@
     <version>0.5.15</version>
     <title>Visual Studio Code Extension - Auto Close Tag</title>
     <authors>formulahendry</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/formulahendry/vscode-auto-close-tag.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://formulahendry.gallerycdn.vsassets.io/extensions/formulahendry/auto-close-tag/0.5.15/1702959502562/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-auto-close-tag/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/formulahendry.auto-close-tag/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Auto Close Tag
@@ -92,6 +93,6 @@ Whether to insert a space before the forward slash in a self-closing tag (it is 
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

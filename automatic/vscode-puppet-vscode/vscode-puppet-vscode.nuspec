@@ -5,10 +5,11 @@
     <version>1.5.7</version>
     <title>Visual Studio Code Extension - Puppet</title>
     <authors>puppet</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/puppetlabs/puppet-vscode.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://puppet.gallerycdn.vsassets.io/extensions/puppet/puppet-vscode/1.5.7/1780487930457/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=puppet.puppet-vscode</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-puppet-vscode/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/puppet.puppet-vscode/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # [Puppet](https://www.puppet.com) Visual Studio Code Extension
@@ -39,6 +40,6 @@ The Puppet VSCode website [https://puppet-vscode.github.io/](https://puppet-vsco
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

@@ -1,13 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-jupyter-cell-tags</id>
     <version>0.1.9</version>
     <title>Visual Studio Code Extension - Jupyter Cell Tags</title>
     <authors>ms-toolsai</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-jupyter-cell-tags</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-toolsai.gallerycdn.vsassets.io/extensions/ms-toolsai/vscode-jupyter-cell-tags/0.1.9/1712108263073/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-jupyter-cell-tags/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-jupyter-cell-tags</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -56,6 +57,6 @@ Any use of third-party trademarks or logos are subject to those third-party's po
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

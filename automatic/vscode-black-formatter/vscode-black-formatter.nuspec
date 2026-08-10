@@ -5,10 +5,11 @@
     <version>2026.7.12041005</version>
     <title>Visual Studio Code Extension - Black Formatter</title>
     <authors>ms-python</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/vscode-black-formatter.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/black-formatter/2026.7.12041005/1784802700404/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-black-formatter/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-python.black-formatter/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Formatter extension for Visual Studio Code using the Black formatter
@@ -90,6 +91,6 @@ There are several settings you can configure to customize the behavior of this e
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

@@ -5,10 +5,11 @@
     <version>1.18.5</version>
     <title>Visual Studio Code Extension - PHP Intelephense</title>
     <authors>bmewburn</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/bmewburn/vscode-intelephense.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://bmewburn.gallerycdn.vsassets.io/extensions/bmewburn/vscode-intelephense-client/1.18.5/1782002746717/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-intelephense-client/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/bmewburn.vscode-intelephense-client/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Intelephense
@@ -67,6 +68,6 @@ The language server (intelephense) is proprietary. Please see [here](https://git
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

@@ -5,10 +5,11 @@
     <version>0.125.2026072315</version>
     <title>Visual Studio Code Extension - Remote - SSH</title>
     <authors>ms-vscode-remote</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/remote-ssh/0.125.2026072315/1784820552471/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-remote-ssh/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 > **This is a pre-release version of this extension for early feedback and testing. This extension works best with [VS Code Insiders](https://code.visualstudio.com/insiders)**
@@ -72,6 +73,6 @@ Using Remote-SSH opens a connection between your local machine and the remote. O
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

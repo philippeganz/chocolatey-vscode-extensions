@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-oracle-java</id>
     <version>26.0.0</version>
     <title>Visual Studio Code Extension - Java</title>
     <authors>Oracle</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/oracle/javavscode</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://Oracle.gallerycdn.vsassets.io/extensions/oracle/oracle-java/26.0.0/1780905052521/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=Oracle.oracle-java</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-oracle-java/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/Oracle.oracle-java/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 <!--
@@ -71,6 +72,6 @@ Java Platform extension from Oracle brings full-featured development support (ed
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-icons</id>
     <version>12.19.0</version>
     <title>Visual Studio Code Extension - vscode-icons</title>
     <authors>vscode-icons-team</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/vscode-icons/vscode-icons</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://vscode-icons-team.gallerycdn.vsassets.io/extensions/vscode-icons-team/vscode-icons/12.19.0/1782585231472/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-icons/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/vscode-icons-team.vscode-icons/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 <div align="center">
@@ -133,6 +134,6 @@ Branded icons are licensed under their copyright license.
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

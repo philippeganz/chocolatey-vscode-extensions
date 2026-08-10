@@ -5,10 +5,11 @@
     <version>1.131.2026072717</version>
     <title>Visual Studio Code Extension - Chinese (Traditional) Language Pack for Visual Studio Code</title>
     <authors>MS-CEINTL</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-loc.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://MS-CEINTL.gallerycdn.vsassets.io/extensions/ms-ceintl/vscode-language-pack-zh-hant/1.131.2026072717/1785173720242/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-zh-hant</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-language-pack-zh-hant/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-ceintl.vscode-language-pack-zh-hant/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 #  VS Code 的中文 (繁體) 語言套件
@@ -128,6 +129,6 @@ Special thanks to community contributors for making it available.
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

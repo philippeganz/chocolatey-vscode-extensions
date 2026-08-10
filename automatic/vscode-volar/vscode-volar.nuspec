@@ -5,10 +5,11 @@
     <version>3.3.9</version>
     <title>Visual Studio Code Extension - Vue (Official)</title>
     <authors>Vue</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/vuejs/language-tools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://Vue.gallerycdn.vsassets.io/extensions/vue/volar/3.3.9/1785482425309/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vue.volar</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-volar/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/vue.volar/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Vue (Official)
@@ -99,6 +100,6 @@ Search for `Vue (Official)` or `Vue.volar` in the VSCode extension marketplace a
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

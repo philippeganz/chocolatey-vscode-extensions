@@ -5,10 +5,11 @@
     <version>3.335.0</version>
     <title>Visual Studio Code Extension - (Legacy) Tabnine</title>
     <authors>TabNine</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/codota/tabnine-vscode.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://TabNine.gallerycdn.vsassets.io/extensions/tabnine/tabnine-vscode/3.335.0/1767945228663/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=tabnine.tabnine-vscode</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-tabnine-vscode/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/tabnine.tabnine-vscode/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 Tabnine does not onboard new users to this plugin. If you are interested in our enterprise solution, please contact [email removed]
@@ -23,6 +24,6 @@ Tabnine does not onboard new users to this plugin. If you are interested in our 
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

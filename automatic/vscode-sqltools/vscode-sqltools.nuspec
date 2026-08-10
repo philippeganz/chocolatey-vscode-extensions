@@ -5,10 +5,11 @@
     <version>0.28.6</version>
     <title>Visual Studio Code Extension - SQLTools</title>
     <authors>mtxr</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/mtxr/vscode-sqltools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://mtxr.gallerycdn.vsassets.io/extensions/mtxr/sqltools/0.28.6/1783357234287/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-sqltools/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/mtxr.sqltools/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # SQLTools database management
@@ -77,6 +78,6 @@ Psst… we’re always on the lookout for maintainers for the official drivers, 
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

@@ -5,10 +5,11 @@
     <version>1.56.2026073109</version>
     <title>Visual Studio Code Extension - Language Support for Java(TM) by Red Hat</title>
     <authors>redhat</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/redhat-developer/vscode-java</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/java/1.56.2026073109/1785488927605/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.java</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-java/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.java/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 Language support for Java &trade; for Visual Studio Code
@@ -78,6 +79,6 @@ See the [changelog](https://github.com/redhat-developer/vscode-java/blob/HEAD/CH
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>
