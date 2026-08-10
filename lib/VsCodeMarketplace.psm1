@@ -334,8 +334,9 @@ function Expand-VsCodePayload {
         if ($licenseEntry) {
             $legalDir = Join-Path $DestinationDir "legal"
             if (-not (Test-Path $legalDir)) { [void](New-Item -ItemType Directory -Force -Path $legalDir) }
-            $licenseFileName = $licenseEntry.Name
-            [System.IO.Compression.ZipFileExtensions]::ExtractToFile($licenseEntry, (Join-Path $legalDir $licenseFileName), $true)
+
+            # Standardize the license filename to simply "LICENSE.txt" across the entire repository
+            [System.IO.Compression.ZipFileExtensions]::ExtractToFile($licenseEntry, (Join-Path $legalDir "LICENSE.txt"), $true)
         }
     }
     finally {
