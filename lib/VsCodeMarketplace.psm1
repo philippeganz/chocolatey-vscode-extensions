@@ -583,14 +583,16 @@ function New-VerificationFile {
     )
 
     $legalDir = Join-Path $PackageDir "legal"
-    if (-not (Test-Path $legalDir)) { [void](New-Item -ItemType Directory -Force -Path $legalDir) }
 
-    $hash = (Get-FileHash -Path $VsixPath -Algorithm SHA256).Hash
-    $marketplaceUrl = "$script:MarketplaceBaseUrl/items?itemName=$Publisher.$ExtensionName"
-    $licenseUrl = "$script:MarketplaceBaseUrl/items/$Publisher.$ExtensionName/license"
-    $vsixName = Split-Path $VsixPath -Leaf
+    if ($PSCmdlet.ShouldProcess((Join-Path $legalDir "VERIFICATION.txt"), "Create VERIFICATION.txt file")) {
+        if (-not (Test-Path $legalDir)) { [void](New-Item -ItemType Directory -Force -Path $legalDir) }
 
-    $verificationContent = @"
+        $hash = (Get-FileHash -Path $VsixPath -Algorithm SHA256).Hash
+        $marketplaceUrl = "$script:MarketplaceBaseUrl/items?itemName=$Publisher.$ExtensionName"
+        $licenseUrl = "$script:MarketplaceBaseUrl/items/$Publisher.$ExtensionName/license"
+        $vsixName = Split-Path $VsixPath -Leaf
+
+        $verificationContent = @"
 1. Download the official extension binary directly from the VS Code Marketplace:
    Marketplace URL: $marketplaceUrl
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
@@ -606,8 +608,9 @@ SOFTWARE LICENSE:
 The software license can be found at:
 $licenseUrl
 "@
-    $verificationContent = $verificationContent.Replace("`r`n", "`n")
-    [System.IO.File]::WriteAllText((Join-Path $legalDir "VERIFICATION.txt"), $verificationContent, [System.Text.UTF8Encoding]::new($false))
+        $verificationContent = $verificationContent.Replace("`r`n", "`n")
+        [System.IO.File]::WriteAllText((Join-Path $legalDir "VERIFICATION.txt"), $verificationContent, [System.Text.UTF8Encoding]::new($false))
+    }
 }
 
 Export-ModuleMember -Function Get-VsCodeMarketplaceMetadata, Get-VsCodeExtensionUrl, Invoke-RobustDownload, Expand-VsCodePayload, Update-NuspecDependency, Get-VsCodeNuspecMetadata, New-VerificationFile
