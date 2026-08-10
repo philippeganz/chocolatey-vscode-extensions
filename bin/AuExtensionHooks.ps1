@@ -100,11 +100,11 @@ function global:au_GetLatest {
     $iconUrl = $ext.versions[0].files | Where-Object { $_.assetType -eq "Microsoft.VisualStudio.Services.Icons.Default" } | Select-Object -ExpandProperty source
 
     return @{
-        Version = $version
-        URL32   = $vsixUrl
-        URL64   = $vsixUrl
-        IconUrl = $iconUrl
-        RawMeta = $ext
+        Version            = $version
+        URL32              = $vsixUrl
+        URL64              = $vsixUrl
+        MarketplaceIconUrl = $iconUrl
+        RawMeta            = $ext
     }
 }
 
@@ -195,10 +195,6 @@ function global:au_BeforeUpdate {
         if (Test-Path $nuspecPath) {
             $nuspecContent = Get-Content $nuspecPath -Raw -Encoding UTF8
             $nuspecContent = $nuspecContent -replace '(?is)<description>.*?</description>', "<description>$descriptionEscaped</description>"
-            if ($Latest.IconUrl) {
-                $nuspecContent = $nuspecContent -replace '(?is)<iconUrl>.*?</iconUrl>', "<iconUrl>$($Latest.IconUrl)</iconUrl>"
-            }
-
             if ($Latest.RawMeta) {
                 $meta = Get-VsCodeNuspecMetadata -ExtMeta $Latest.RawMeta -ExtensionPublisher $ExtensionPublisher -ExtensionName $ExtensionName
 
@@ -215,9 +211,9 @@ function global:au_BeforeUpdate {
     # Guarantee icon.png exists to prevent choco pack validation failures (every nuspec includes icon.png in <files>)
     $localIconPath = Join-Path $package.Path "icon.png"
     if (-not (Test-Path $localIconPath)) {
-        if ($Latest.IconUrl) {
+        if ($Latest.MarketplaceIconUrl) {
             try {
-                Invoke-WebRequest -Uri $Latest.IconUrl -OutFile $localIconPath -TimeoutSec 15
+                Invoke-WebRequest -Uri $Latest.MarketplaceIconUrl -OutFile $localIconPath -TimeoutSec 15
             }
             catch {
                 Write-Verbose "Failed to download icon: $_"

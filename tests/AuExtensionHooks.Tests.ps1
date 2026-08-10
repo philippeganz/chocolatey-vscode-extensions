@@ -88,7 +88,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
             Mock Expand-VsCodePayload -MockWith {
                 return @{
                     TruncatedReadme = "Hello <world>"
-                    PackageJson = @{ extensionDependencies = @() }
+                    PackageJson     = @{ extensionDependencies = @() }
                 }
             }
             Mock Update-NuspecDependency -ModuleName VsCodeMarketplace -MockWith { return }
@@ -99,7 +99,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
             [void](New-Item -ItemType Directory -Path "tools" -Force)
             "fake content" | Set-Content "tools\chocolateyInstall.ps1"
 
-            $global:Latest = @{ Version = "1.0.0"; URL64 = "fake"; IconUrl = "http://fake" }
+            $global:Latest = @{ Version = "1.0.0"; URL64 = "fake"; MarketplaceIconUrl = "http://fake" }
             $fakePackage = @{ Path = (Get-Location).Path; Name = "vscode-rainbow-csv"; NuspecXml = $fakeNuspecData }
 
             try {
@@ -127,7 +127,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
             Mock Expand-VsCodePayload -MockWith {
                 return @{
                     TruncatedReadme = "Hello <world>"
-                    PackageJson = @{ extensionDependencies = @() }
+                    PackageJson     = @{ extensionDependencies = @() }
                 }
             }
             Mock Update-NuspecDependency -ModuleName VsCodeMarketplace -MockWith { return }
@@ -140,7 +140,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
             [void](New-Item -ItemType Directory -Path "tools" -Force)
             "fake content" | Set-Content "tools\chocolateyInstall.ps1"
 
-            $global:Latest = @{ Version = "1.0.0"; URL64 = "fake"; IconUrl = "http://fake" }
+            $global:Latest = @{ Version = "1.0.0"; URL64 = "fake"; MarketplaceIconUrl = "http://fake" }
             $fakePackage = @{ Path = (Get-Location).Path; Name = "vscode-rainbow-csv"; NuspecXml = $fakeNuspecData }
 
             Mock New-VerificationFile -ModuleName VsCodeMarketplace -MockWith { return }
@@ -155,7 +155,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
 
     Context "au_SearchReplace" {
         It "Should generate the regex replacements" {
-            $global:Latest = @{ Version = "9.9.9"; IconUrl = "http://fakeicon" }
+            $global:Latest = @{ Version = "9.9.9"; MarketplaceIconUrl = "http://fakeicon" }
             $global:ExtensionPublisher = "test"
             $global:ExtensionName = "ext"
 
