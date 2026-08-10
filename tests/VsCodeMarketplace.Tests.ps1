@@ -254,7 +254,7 @@ Contact me at test@example.com!
             $result.PackageJson.name | Should -Be "fake"
 
             # Verify the email scrubbing
-            $strippedReadme = Get-Content (Join-Path $extractDir "tools\README.md") -Raw
+            $strippedReadme = Get-Content (Join-Path $extractDir "README.md") -Raw
             $strippedReadme | Should -Not -Match "test@example.com"
             $strippedReadme | Should -Match "\[email removed\]"
 

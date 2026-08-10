@@ -84,7 +84,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
             Mock Get-VsCodeNuspecMetadata -ModuleName VsCodeMarketplace -MockWith {
                 return @{ Title = "Fake"; Summary = "Fake"; Authors = "Fake"; ProjectUrl = "Fake" }
             }
-            Mock Invoke-RobustDownload -MockWith { return }
+            Mock Invoke-RobustDownload -MockWith { "fake" | Set-Content $OutFile }
             Mock Expand-VsCodePayload -MockWith {
                 return @{
                     TruncatedReadme = "Hello <world>"
@@ -123,7 +123,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
             Mock Get-VsCodeNuspecMetadata -ModuleName VsCodeMarketplace -MockWith {
                 return @{ Title = "Fake"; Summary = "Fake"; Authors = "Fake"; ProjectUrl = "Fake"; IconUrl = "https://fake.icon" }
             }
-            Mock Invoke-RobustDownload -MockWith { return }
+            Mock Invoke-RobustDownload -MockWith { "fake" | Set-Content $OutFile }
             Mock Expand-VsCodePayload -MockWith {
                 return @{
                     TruncatedReadme = "Hello <world>"
@@ -131,6 +131,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
                 }
             }
             Mock Update-NuspecDependency -ModuleName VsCodeMarketplace -MockWith { return }
+            Mock New-VerificationFile -ModuleName VsCodeMarketplace -MockWith { return }
 
             # Make the web request throw to hit the catch block
             Mock Invoke-WebRequest -MockWith { throw "Network error" }
@@ -141,6 +142,8 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
 
             $global:Latest = @{ Version = "1.0.0"; URL64 = "fake"; IconUrl = "http://fake" }
             $fakePackage = @{ Path = (Get-Location).Path; Name = "vscode-rainbow-csv"; NuspecXml = $fakeNuspecData }
+
+            Mock New-VerificationFile -ModuleName VsCodeMarketplace -MockWith { return }
 
             $VerbosePreference = 'Continue'
             { au_BeforeUpdate -package $fakePackage } | Should -Not -Throw
@@ -158,7 +161,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
 
             $rules = au_SearchReplace
             $rules.Keys -contains "*.nuspec" | Should -Be $true
-            $rules["*.nuspec"]["(?is)<iconUrl>.*?</iconUrl>"] | Should -Be "<iconUrl>http://fakeicon</iconUrl>"
+            $rules["*.nuspec"]["(?is)<iconUrl>.*?</iconUrl>"] | Should -Be "<iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-ext/icon.png</iconUrl>"
             $rules.Keys -contains "tools\chocolateyInstall.ps1" | Should -Be $true
         }
     }
