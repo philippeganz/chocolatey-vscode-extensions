@@ -5,10 +5,11 @@
     <version>0.4.2994</version>
     <title>Visual Studio Code Extension - rust-analyzer</title>
     <authors>rust-lang</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/rust-lang/rust-analyzer.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://rust-lang.gallerycdn.vsassets.io/extensions/rust-lang/rust-analyzer/0.4.2994/1785546572203/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-rust-analyzer/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/rust-lang.rust-analyzer/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # rust-analyzer
@@ -74,6 +75,6 @@ See [rust-analyzer.github.io](https://rust-analyzer.github.io/) for more informa
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

@@ -5,10 +5,11 @@
     <version>1.24.25</version>
     <title>Visual Studio Code Extension - CMake Tools</title>
     <authors>ms-vscode</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/vscode-cmake-tools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cmake-tools/1.24.25/1784781369985/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-cmake-tools/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.cmake-tools/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
   CMake Tools 
@@ -77,6 +78,6 @@ Enhancing CMake development in VS Code.
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

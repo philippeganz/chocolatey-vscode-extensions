@@ -5,10 +5,11 @@
     <version>0.2.1</version>
     <title>Visual Studio Code Extension - Test Adapter Converter</title>
     <authors>ms-vscode</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/vscode-test-adapter-converter.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://raw.githubusercontent.com/philippeganz/chocolatey-vscode-extensions/main/automatic/vscode-test-adapter-converter/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.test-adapter-converter</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-test-adapter-converter/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.test-adapter-converter/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # vscode-test-adapter-converter
@@ -47,6 +48,6 @@ Any use of third-party trademarks or logos are subject to those third-party's po
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

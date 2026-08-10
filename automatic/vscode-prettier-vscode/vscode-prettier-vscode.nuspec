@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-prettier-vscode</id>
     <version>12.4.0</version>
     <title>Visual Studio Code Extension - Prettier - Code formatter</title>
     <authors>esbenp</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/prettier/prettier-vscode.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://esbenp.gallerycdn.vsassets.io/extensions/esbenp/prettier-vscode/12.4.0/1773688466128/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-prettier-vscode/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/esbenp.prettier-vscode/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Prettier Formatter for Visual Studio Code
@@ -151,6 +152,6 @@ Additionally, you can disable format on save for specific languages if you don't
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

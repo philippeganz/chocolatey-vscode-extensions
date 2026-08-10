@@ -1,13 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-jupyter-slideshow</id>
     <version>0.1.6</version>
     <title>Visual Studio Code Extension - Jupyter Slide Show</title>
     <authors>ms-toolsai</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-jupyter-slideshow</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-toolsai.gallerycdn.vsassets.io/extensions/ms-toolsai/vscode-jupyter-slideshow/0.1.6/1712108538685/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-jupyter-slideshow/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-jupyter-slideshow</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -62,6 +63,6 @@ Any use of third-party trademarks or logos are subject to those third-party's po
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

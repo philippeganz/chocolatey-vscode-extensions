@@ -5,10 +5,11 @@
     <version>4.6.0</version>
     <title>Visual Studio Code Extension - Code Spell Checker</title>
     <authors>streetsidesoftware</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/streetsidesoftware/vscode-spell-checker.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://streetsidesoftware.gallerycdn.vsassets.io/extensions/streetsidesoftware/code-spell-checker/4.6.0/1771920915715/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-code-spell-checker/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/streetsidesoftware.code-spell-checker/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Spelling Checker for Visual Studio Code
@@ -77,6 +78,6 @@ Open up VS Code and hit `F1` and type `ext` select install and type `code-spell-
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

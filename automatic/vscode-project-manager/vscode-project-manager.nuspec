@@ -5,10 +5,11 @@
     <version>13.1.0</version>
     <title>Visual Studio Code Extension - Project Manager</title>
     <authors>alefragnani</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/alefragnani/vscode-project-manager.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://alefragnani.gallerycdn.vsassets.io/extensions/alefragnani/project-manager/13.1.0/1774962525497/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-project-manager/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/alefragnani.project-manager/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 [![](https://vsmarketplacebadges.dev/version-short/alefragnani.project-manager.svg)](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)
@@ -99,6 +100,6 @@ You can save the current folder/workspace as a **Project** at any time. You just
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

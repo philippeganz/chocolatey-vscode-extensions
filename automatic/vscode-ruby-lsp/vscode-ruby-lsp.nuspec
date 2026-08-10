@@ -5,10 +5,11 @@
     <version>0.10.6</version>
     <title>Visual Studio Code Extension - Ruby LSP</title>
     <authors>Shopify</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Shopify/ruby-lsp.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://Shopify.gallerycdn.vsassets.io/extensions/shopify/ruby-lsp/0.10.6/1785334426496/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=shopify.ruby-lsp</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-ruby-lsp/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/shopify.ruby-lsp/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Ruby LSP
@@ -90,6 +91,6 @@ palette (Default hotkey: CMD + SHIFT + P).
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

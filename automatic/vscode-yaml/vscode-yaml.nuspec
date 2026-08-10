@@ -5,10 +5,11 @@
     <version>1.25.2026073109</version>
     <title>Visual Studio Code Extension - YAML</title>
     <authors>redhat</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/redhat-developer/vscode-yaml</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-yaml/1.25.2026073109/1785488726990/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-yaml/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-yaml/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 [![Visual Studio Marketplace](https://img.shields.io/badge/Visual%20Studio%20Marketplace-Available-blue?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
@@ -65,6 +66,6 @@ The following settings are supported:
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

@@ -5,10 +5,11 @@
     <version>1.11.1</version>
     <title>Visual Studio Code Extension - Hex Editor</title>
     <authors>ms-vscode</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/vscode-hexeditor.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/hexeditor/1.11.1/1730650070908/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-hexeditor/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.hexeditor/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 A custom editor extension for Visual Studio Code which provides a hex editor for viewing and manipulating files in their raw hexadecimal representation.
@@ -59,6 +60,6 @@ To track existing issues or report a new one, please visit the GitHub Issues pag
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

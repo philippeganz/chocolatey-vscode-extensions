@@ -5,10 +5,11 @@
     <version>1.2.8</version>
     <title>Visual Studio Code Extension - Simple React Snippets</title>
     <authors>burkeholland</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/burkeholland/simple-react-snippets.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://burkeholland.gallerycdn.vsassets.io/extensions/burkeholland/simple-react-snippets/1.2.8/1712588315749/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=burkeholland.simple-react-snippets</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-simple-react-snippets/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/burkeholland.simple-react-snippets/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Simple React Snippets
@@ -75,6 +76,6 @@ that work the way that you would expect, not just a copy of the documentation.
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

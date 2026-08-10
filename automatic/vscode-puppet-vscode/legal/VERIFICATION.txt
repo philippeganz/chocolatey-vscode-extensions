@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=puppet.puppet-vscode
+   (Navigate to 'Version History' and download the exact version)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\puppet.puppet-vscode-1.5.7.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: 09F161AFC5CB574F32AB8336B2FBDED8F631C9E87C21AA376D8D38150F9D1C6D
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items?itemName=puppet.puppet-vscode

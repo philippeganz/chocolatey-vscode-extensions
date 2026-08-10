@@ -5,10 +5,11 @@
     <version>0.29.2026073109</version>
     <title>Visual Studio Code Extension - XML</title>
     <authors>redhat</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/redhat-developer/vscode-xml.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://redhat.gallerycdn.vsassets.io/extensions/redhat/vscode-xml/0.29.2026073109/1785488985826/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-xml/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-xml/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # XML Language Support by Red Hat
@@ -43,6 +44,6 @@ This VS Code extension provides support for creating and editing XML documents, 
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

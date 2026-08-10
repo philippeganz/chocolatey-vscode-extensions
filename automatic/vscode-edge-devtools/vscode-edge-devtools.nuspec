@@ -5,10 +5,11 @@
     <version>2.1.10</version>
     <title>Visual Studio Code Extension - Microsoft Edge Tools for VS Code</title>
     <authors>ms-edgedevtools</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-edge-devtools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-edgedevtools.gallerycdn.vsassets.io/extensions/ms-edgedevtools/vscode-edge-devtools/2.1.10/1762989527589/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-edge-devtools/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-edgedevtools.vscode-edge-devtools/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Microsoft Edge Developer Tools for Visual Studio Code
@@ -66,6 +67,6 @@ the [Security TechCenter](https://technet.microsoft.com/security/default).
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

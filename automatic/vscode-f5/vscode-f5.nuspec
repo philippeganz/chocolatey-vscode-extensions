@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-f5</id>
     <version>3.19.0</version>
     <title>Visual Studio Code Extension - The F5 Extension</title>
     <authors>F5DevCentral</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/f5devcentral/vscode-f5.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://F5DevCentral.gallerycdn.vsassets.io/extensions/f5devcentral/vscode-f5/3.19.0/1772248236015/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=f5devcentral.vscode-f5</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-f5/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/f5devcentral.vscode-f5/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # The F5 VSCode Extension
@@ -112,6 +113,6 @@ HTTP/422 responses - Can happen for a handful of reasons:
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

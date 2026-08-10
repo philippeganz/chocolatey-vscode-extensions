@@ -5,10 +5,11 @@
     <version>1.2.2</version>
     <title>Visual Studio Code Extension - vscode-pdf</title>
     <authors>tomoki1207</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/tomoki1207/vscode-pdfviewer.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://tomoki1207.gallerycdn.vsassets.io/extensions/tomoki1207/pdf/1.2.2/1736559861315/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-pdf/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/tomoki1207.pdf/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # pdf
@@ -51,6 +52,6 @@ Please see [LICENSE](https://github.com/tomoki1207/vscode-pdfviewer/blob/HEAD/LI
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

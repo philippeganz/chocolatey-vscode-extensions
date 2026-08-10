@@ -5,10 +5,11 @@
     <version>1.15.0</version>
     <title>Visual Studio Code Extension - Django</title>
     <authors>batisteo</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/vscode-django/vscode-django.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://batisteo.gallerycdn.vsassets.io/extensions/batisteo/vscode-django/1.15.0/1703694028504/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-django/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/batisteo.vscode-django/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Django extension for Visual Studio Code
@@ -121,6 +122,6 @@ Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F5</kbd> or 🔄 to reload.
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

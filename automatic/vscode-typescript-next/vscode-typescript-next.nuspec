@@ -5,10 +5,11 @@
     <version>6.0.20260416</version>
     <title>Visual Studio Code Extension - JavaScript and TypeScript Nightly</title>
     <authors>ms-vscode</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/vscode-typescript-next.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/vscode-typescript-next/6.0.20260416/1776384649981/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-typescript-next/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.vscode-typescript-next/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # JavaScript and TypeScript Nightly
@@ -43,6 +44,6 @@ Note that this extension also includes the [latest JavaScript and TypeScript gra
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

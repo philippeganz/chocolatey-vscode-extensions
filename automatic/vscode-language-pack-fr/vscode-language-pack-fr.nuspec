@@ -5,10 +5,11 @@
     <version>1.131.2026072717</version>
     <title>Visual Studio Code Extension - French Language Pack for Visual Studio Code</title>
     <authors>MS-CEINTL</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-loc.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://MS-CEINTL.gallerycdn.vsassets.io/extensions/ms-ceintl/vscode-language-pack-fr/1.131.2026072717/1785173397616/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-fr</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-language-pack-fr/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-ceintl.vscode-language-pack-fr/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Module linguistique français pour VS Code
@@ -107,6 +108,6 @@ French Language Pack had received contribution through "By the community, for th
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

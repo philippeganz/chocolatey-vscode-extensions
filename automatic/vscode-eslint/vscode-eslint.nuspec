@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-eslint</id>
     <version>3.0.34</version>
     <title>Visual Studio Code Extension - ESLint</title>
     <authors>dbaeumer</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-eslint.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://dbaeumer.gallerycdn.vsassets.io/extensions/dbaeumer/vscode-eslint/3.0.34/1784203161508/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-eslint/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # VS Code ESLint extension
@@ -147,6 +148,6 @@ From version 2.2.3 on forward odd minor or patch version numbers indicate an ins
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

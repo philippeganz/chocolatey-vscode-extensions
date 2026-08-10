@@ -5,10 +5,11 @@
     <version>6.3.5</version>
     <title>Visual Studio Code Extension - GitHub Theme</title>
     <authors>GitHub</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/primer/github-vscode-theme.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/github-vscode-theme/6.3.5/1727933603062/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=github.github-vscode-theme</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-github-vscode-theme/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/github.github-vscode-theme/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # GitHub's VS Code themes
@@ -69,6 +70,6 @@ This repo uses [changesets](https://github.com/atlassian/changesets) to automati
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

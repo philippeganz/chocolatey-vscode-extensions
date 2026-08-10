@@ -1,13 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-remote-extensionpack</id>
     <version>0.26.0</version>
     <title>Visual Studio Code Extension - Remote Development</title>
     <authors>ms-vscode-remote</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode-remote.gallerycdn.vsassets.io/extensions/ms-vscode-remote/vscode-remote-extensionpack/0.26.0/1729778338986/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-remote-extensionpack/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -68,6 +69,6 @@ Some extensions installed on ARMv7l (AArch32) and ARMv8l (AArch64) devices may n
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

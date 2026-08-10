@@ -5,10 +5,11 @@
     <version>3.139.20260731</version>
     <title>Visual Studio Code Extension - Dart</title>
     <authors>Dart-Code</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Dart-Code/Dart-Code.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://Dart-Code.gallerycdn.vsassets.io/extensions/dart-code/dart-code/3.139.20260731/1785490532869/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=dart-code.dart-code</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-dart-code/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/dart-code.dart-code/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 [![Discord Chat](https://img.shields.io/badge/chat-discord-blue.svg)](https://discord.gg/xSTPEqm)
@@ -77,6 +78,6 @@ If you have any issues using Dart Code, please file issues on GitHub at [https:/
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

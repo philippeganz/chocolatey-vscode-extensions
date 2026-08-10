@@ -5,9 +5,10 @@
     <version>0.163.2026073104</version>
     <title>Visual Studio Code Extension - GitHub Pull Requests</title>
     <authors>GitHub</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-pull-request-github</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/vscode-pull-request-github/0.163.2026073104/1785471919993/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-pull-request-github/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -103,6 +104,6 @@ See our [wiki](https://github.com/Microsoft/vscode-pull-request-github/wiki) for
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-powershell</id>
     <version>2026.1.2</version>
     <title>Visual Studio Code Extension - PowerShell</title>
     <authors>ms-vscode</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/PowerShell/vscode-powershell.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/powershell/2026.1.2/1782428179629/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.powershell</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-powershell/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.powershell/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # PowerShell for Visual Studio Code
@@ -79,6 +80,6 @@ The extension should work everywhere [Visual Studio Code](https://code.visualstu
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

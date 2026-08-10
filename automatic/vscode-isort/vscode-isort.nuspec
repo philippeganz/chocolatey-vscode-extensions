@@ -5,10 +5,11 @@
     <version>2026.7.12041004</version>
     <title>Visual Studio Code Extension - isort</title>
     <authors>ms-python</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/vscode-isort.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/isort/2026.7.12041004/1784802646206/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.isort</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-isort/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-python.isort/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Import sorting extension for Visual Studio Code using isort
@@ -68,6 +69,6 @@ If you want to disable isort for your entire workspace or globally, you can [dis
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

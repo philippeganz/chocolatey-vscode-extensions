@@ -5,10 +5,11 @@
     <version>0.16.0</version>
     <title>Visual Studio Code Extension - Tailwind CSS IntelliSense</title>
     <authors>bradlc</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/tailwindlabs/tailwindcss-intellisense.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://bradlc.gallerycdn.vsassets.io/extensions/bradlc/vscode-tailwindcss/0.16.0/1784302162859/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-tailwindcss/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/bradlc.vscode-tailwindcss/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 
@@ -106,6 +107,6 @@ This setting allows you to add additional language support. The key of each entr
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

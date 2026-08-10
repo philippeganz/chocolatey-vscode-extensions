@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=shopify.ruby-lsp
+   (Navigate to 'Version History' and download the exact version)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\shopify.ruby-lsp-0.10.4.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: 7E89C06D9DA7BC2DC3CFFF63E09DB7862889FF1813F33FCB2351D861087ABBDC
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items?itemName=shopify.ruby-lsp

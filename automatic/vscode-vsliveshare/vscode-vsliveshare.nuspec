@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-vsliveshare</id>
     <version>1.1.122</version>
     <title>Visual Studio Code Extension - Live Share</title>
     <authors>ms-vsliveshare</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/MicrosoftDocs/live-share</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://MS-vsliveshare.gallerycdn.vsassets.io/extensions/ms-vsliveshare/vsliveshare/1.1.122/1775530401653/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vsliveshare/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Microsoft Visual Studio Live Share
@@ -58,6 +59,6 @@ After installing VS Live Share, it only takes a few steps to instantly share you
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

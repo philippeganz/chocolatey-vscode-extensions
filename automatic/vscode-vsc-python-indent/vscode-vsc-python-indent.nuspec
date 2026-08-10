@@ -5,10 +5,11 @@
     <version>1.21.0</version>
     <title>Visual Studio Code Extension - Python Indent</title>
     <authors>KevinRose</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/kbrose/vsc-python-indent.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://KevinRose.gallerycdn.vsassets.io/extensions/kevinrose/vsc-python-indent/1.21.0/1740610805059/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=kevinrose.vsc-python-indent</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vsc-python-indent/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/kevinrose.vsc-python-indent/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Python Indent
@@ -116,6 +117,6 @@ result = my_func(
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

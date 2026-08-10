@@ -1,13 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-cpptools-extension-pack</id>
     <version>1.5.1</version>
     <title>Visual Studio Code Extension - C/C++ Extension Pack</title>
     <authors>ms-vscode</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/vscode-cpptools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpptools-extension-pack/1.5.1/1771540600646/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-cpptools-extension-pack/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -35,6 +36,6 @@ This extension pack includes a set of popular extensions for C++ development in 
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

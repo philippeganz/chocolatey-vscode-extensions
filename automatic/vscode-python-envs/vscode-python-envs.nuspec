@@ -5,10 +5,11 @@
     <version>1.37.2026073101</version>
     <title>Visual Studio Code Extension - Python Environments</title>
     <authors>ms-python</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/vscode-python-environments.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/vscode-python-envs/1.37.2026073101/1785494706223/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-python-envs/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-python.vscode-python-envs/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Python Environments
@@ -60,6 +61,6 @@ The following environment managers are supported out of the box:
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

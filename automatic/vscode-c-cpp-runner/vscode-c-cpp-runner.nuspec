@@ -5,10 +5,11 @@
     <version>9.5.0</version>
     <title>Visual Studio Code Extension - C/C++ Runner</title>
     <authors>franneck94</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/franneck94/vscode-c-cpp-runner.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://franneck94.gallerycdn.vsassets.io/extensions/franneck94/c-cpp-runner/9.5.0/1759302917040/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=franneck94.c-cpp-runner</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-c-cpp-runner/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/franneck94.c-cpp-runner/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # VSCode C/C++ Runner
@@ -84,6 +85,6 @@ Note: You **don't** have to edit the **c_cpp_properties.json** file.
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

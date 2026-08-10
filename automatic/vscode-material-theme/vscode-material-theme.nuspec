@@ -5,10 +5,11 @@
     <version>3.19.0</version>
     <title>Visual Studio Code Extension - One Dark Pro</title>
     <authors>zhuangtongfa</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Binaryify/OneDark-Pro.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://zhuangtongfa.gallerycdn.vsassets.io/extensions/zhuangtongfa/material-theme/3.19.0/1739115961196/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.material-theme</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-material-theme/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/zhuangtongfa.material-theme/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)
@@ -134,6 +135,6 @@ or use the setting `editor.tokenColorCustomizations`
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

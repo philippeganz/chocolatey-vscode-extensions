@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-gitlens</id>
     <version>2026.7.310556</version>
     <title>Visual Studio Code Extension - GitLens — Git supercharged</title>
     <authors>eamodio</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/gitkraken/vscode-gitlens.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://eamodio.gallerycdn.vsassets.io/extensions/eamodio/gitlens/2026.7.310556/1785491862799/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-gitlens/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/eamodio.gitlens/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # GitLens &mdash; Supercharge Git in VS Code
@@ -65,6 +66,6 @@ You can [try GitLens Pro for free](https://gitkraken.dev/register?product=gitlen
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

@@ -5,10 +5,11 @@
     <version>1.12.2</version>
     <title>Visual Studio Code Extension - CodeLLDB</title>
     <authors>vadimcn</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/vadimcn/codelldb.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://vadimcn.gallerycdn.vsassets.io/extensions/vadimcn/vscode-lldb/1.12.2/1776741759935/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-lldb/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/vadimcn.vscode-lldb/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Features
@@ -80,6 +81,6 @@ Rust debugging:
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

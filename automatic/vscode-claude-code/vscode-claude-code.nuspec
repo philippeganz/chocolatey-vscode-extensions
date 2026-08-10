@@ -5,10 +5,11 @@
     <version>2.1.220</version>
     <title>Visual Studio Code Extension - Claude Code for VS Code</title>
     <authors>anthropic</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://anthropic.gallerycdn.vsassets.io/extensions/anthropic/claude-code/2.1.220/1784943435126/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-claude-code/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/anthropic.claude-code/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Claude Code for VS Code
@@ -46,6 +47,6 @@ See our [documentation](https://code.claude.com/docs/en/vs-code) for more inform
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

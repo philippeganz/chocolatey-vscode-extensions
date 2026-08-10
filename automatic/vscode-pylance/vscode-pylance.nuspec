@@ -5,10 +5,11 @@
     <version>2026.3.1</version>
     <title>Visual Studio Code Extension - Pylance</title>
     <authors>ms-python</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/pylance-release</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/vscode-pylance/2026.3.1/1784661006973/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-pylance/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-python.vscode-pylance/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 Pylance
@@ -68,6 +69,6 @@ Pylance provides users with the ability to customize their Python language suppo
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

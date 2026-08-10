@@ -5,10 +5,11 @@
     <version>4.4.3</version>
     <title>Visual Studio Code Extension - CSS Peek</title>
     <authors>pranaygp</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/pranaygp/vscode-css-peek.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://pranaygp.gallerycdn.vsassets.io/extensions/pranaygp/vscode-css-peek/4.4.3/1741158075184/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-css-peek/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/pranaygp.vscode-css-peek/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 ![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/pranaygp.vscode-css-peek?logo=visualstudiocode)
@@ -109,6 +110,6 @@ Contributions are greatly appreciated. Please fork the repository and submit a p
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

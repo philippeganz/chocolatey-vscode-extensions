@@ -5,10 +5,11 @@
     <version>1.44.1</version>
     <title>Visual Studio Code Extension - SQL Server (mssql)</title>
     <authors>ms-mssql</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-mssql.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-mssql.gallerycdn.vsassets.io/extensions/ms-mssql/mssql/1.44.1/1785349225314/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-mssql/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-mssql.mssql/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 [![Roadmap 2026](https://img.shields.io/badge/Roadmap%202026-green?logo=github)](https://aka.ms/vscode-mssql-roadmap#2026)
@@ -53,6 +54,6 @@ The MSSQL extension provides a rich set of capabilities for SQL development. Eac
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

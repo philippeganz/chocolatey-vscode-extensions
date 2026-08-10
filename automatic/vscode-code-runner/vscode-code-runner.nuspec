@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-code-runner</id>
     <version>0.12.2</version>
     <title>Visual Studio Code Extension - Code Runner</title>
     <authors>formulahendry</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/formulahendry/vscode-code-runner.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://formulahendry.gallerycdn.vsassets.io/extensions/formulahendry/code-runner/0.12.2/1712309175692/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-code-runner/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/formulahendry.code-runner/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Code Runner
@@ -81,6 +82,6 @@ If you like this extension, you could become a backer or sponsor via **[Patreon]
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

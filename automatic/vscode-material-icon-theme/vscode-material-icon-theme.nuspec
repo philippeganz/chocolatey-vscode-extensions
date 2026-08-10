@@ -5,10 +5,11 @@
     <version>5.37.0</version>
     <title>Visual Studio Code Extension - Material Icon Theme</title>
     <authors>PKief</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>git+https://github.com/material-extensions/vscode-material-icon-theme.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://PKief.gallerycdn.vsassets.io/extensions/pkief/material-icon-theme/5.37.0/1784456141964/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-material-icon-theme/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/PKief.material-icon-theme/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 <!-- markdownlint-disable -->
@@ -111,6 +112,6 @@ or via user settings:
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

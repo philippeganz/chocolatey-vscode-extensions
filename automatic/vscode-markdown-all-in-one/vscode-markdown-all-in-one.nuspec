@@ -5,10 +5,11 @@
     <version>3.6.3</version>
     <title>Visual Studio Code Extension - Markdown All in One</title>
     <authors>yzhang</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/yzhang-gh/vscode-markdown.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://yzhang.gallerycdn.vsassets.io/extensions/yzhang/markdown-all-in-one/3.6.3/1741534224980/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-markdown-all-in-one/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/yzhang.markdown-all-in-one/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Markdown Support for Visual Studio Code <!-- omit in toc -->
@@ -82,6 +83,6 @@ See full key binding list in the [keyboard shortcuts](#keyboard-shortcuts-1) sec
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

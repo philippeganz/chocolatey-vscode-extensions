@@ -5,10 +5,11 @@
     <version>26.5727.51351</version>
     <title>Visual Studio Code Extension - Codex – OpenAI’s coding agent</title>
     <authors>openai</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://marketplace.visualstudio.com/items?itemName=openai.chatgpt</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://openai.gallerycdn.vsassets.io/extensions/openai/chatgpt/26.5727.51351/1785544534236/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=openai.chatgpt</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-chatgpt/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/openai.chatgpt/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 Codex is OpenAI’s coding agent that helps you write, review, and ship code faster. Use it side-by-side in your IDE or delegate larger tasks to the cloud.
@@ -43,6 +44,6 @@ The OpenAI Codex extension also supports connecting the ChatGPT macOS app to VS 
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

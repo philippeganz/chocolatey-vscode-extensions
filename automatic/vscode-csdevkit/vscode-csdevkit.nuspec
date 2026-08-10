@@ -5,10 +5,11 @@
     <version>3.27.234</version>
     <title>Visual Studio Code Extension - C# Dev Kit</title>
     <authors>ms-dotnettools</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl> https://devdiv.visualstudio.com/DevDiv/_git/vs-green</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-dotnettools.gallerycdn.vsassets.io/extensions/ms-dotnettools/csdevkit/3.27.234/1785514309733/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-csdevkit/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-dotnettools.csdevkit/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # C# Dev Kit for Visual Studio Code
@@ -77,6 +78,6 @@ With C# Dev Kit, your tests in XUnit, NUnit, MSTest and bUnit will be discovered
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

@@ -5,10 +5,11 @@
     <version>3.3.4</version>
     <title>Visual Studio Code Extension - PlatformIO IDE</title>
     <authors>platformio</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/platformio/platformio-vscode-ide.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://platformio.gallerycdn.vsassets.io/extensions/platformio/platformio-ide/3.3.4/1736607344047/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-platformio-ide/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/platformio.platformio-ide/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # PlatformIO IDE for VSCode
@@ -75,6 +76,6 @@ so you can use it in both commercial and personal projects with confidence.
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

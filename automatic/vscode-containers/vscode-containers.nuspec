@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-containers</id>
     <version>2.4.5</version>
     <title>Visual Studio Code Extension - Container Tools</title>
     <authors>ms-azuretools</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/vscode-containers</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://ms-azuretools.gallerycdn.vsassets.io/extensions/ms-azuretools/vscode-containers/2.4.5/1780056837253/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-containers/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-containers/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 ## Container Tools for Visual Studio Code
@@ -68,6 +69,6 @@ The right-click menu provides access to commonly used commands for each type of 
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

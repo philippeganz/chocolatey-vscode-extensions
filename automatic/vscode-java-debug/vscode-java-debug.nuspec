@@ -5,10 +5,11 @@
     <version>0.59.2026072407</version>
     <title>Visual Studio Code Extension - Debugger for Java</title>
     <authors>vscjava</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-java-debug.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-debug/0.59.2026072407/1785123424235/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-java-debug/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Debugger for Java
@@ -104,6 +105,6 @@ See [Language Model Tool Documentation](https://github.com/Microsoft/vscode-java
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>
