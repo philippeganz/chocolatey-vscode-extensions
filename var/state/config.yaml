@@ -40,7 +40,6 @@ extensions:
   - hashicorp.hcl
   - hashicorp.sentinel
   - hashicorp.terraform
-  - hbenl.vscode-test-explorer
   - jeff-hykin.better-cpp-syntax
   - kevinrose.vsc-python-indent
   - mechatroner.rainbow-csv
