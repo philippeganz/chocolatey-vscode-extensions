@@ -22,6 +22,9 @@ $ErrorActionPreference = 'Stop'
 # =============================================================================
 Import-Module "$PSScriptRoot\CoreHelpers.psm1"
 
+$script:MarketplaceBaseUrl = "https://marketplace.visualstudio.com"
+
+
 <#
 .SYNOPSIS
     Fetches the raw JSON metadata payload for a specific extension from the VS Code Marketplace API.
@@ -58,7 +61,7 @@ function Get-VsCodeMarketplaceMetadata {
         [switch]$IncludeAllVersions
     )
 
-    $marketplaceUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
+    $marketplaceUrl = "$script:MarketplaceBaseUrl/_apis/public/gallery/extensionquery"
 
     # Flag 914 includes 512 (IncludeLatestVersionOnly). 402 excludes it, fetching the full version history.
     $queryFlags = if ($IncludeAllVersions) { 402 } else { 914 }
@@ -147,7 +150,7 @@ function Get-VsCodeExtensionUrl {
         [Parameter(Mandatory = $true)][object]$ExtMeta
     )
 
-    $vsixUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/$Publisher/vsextensions/$ExtensionName/$Version/vspackage"
+    $vsixUrl = "$script:MarketplaceBaseUrl/_apis/public/gallery/publishers/$Publisher/vsextensions/$ExtensionName/$Version/vspackage"
 
     # Dynamic Platform Detection: Explicitly request the Windows binary if the extension is OS-specific
     $isPlatformSpecific = $ExtMeta.versions | Where-Object { $_.version -eq $ExtMeta.versions[0].version -and $_.targetPlatform -eq "win32-x64" }
@@ -319,7 +322,7 @@ function Expand-VsCodePayload {
                     }
                 }
 
-                $marketplaceUrl = "https://marketplace.visualstudio.com/items?itemName=$($packageJson.publisher).$($packageJson.name)"
+                $marketplaceUrl = "$script:MarketplaceBaseUrl/items?itemName=$($packageJson.publisher).$($packageJson.name)"
                 $readmeRaw = $truncated + "`n`n... [Truncated due to Chocolatey character limits. See [extension page]($marketplaceUrl) for full documentation]"
             }
 
@@ -525,7 +528,7 @@ function Get-VsCodeNuspecMetadata {
     $author = ConvertTo-XmlSafeString $authorRaw
 
     $extId = "$ExtensionPublisher.$ExtensionName"
-    $repoUrl = "https://marketplace.visualstudio.com/items?itemName=$extId"
+    $repoUrl = "$script:MarketplaceBaseUrl/items?itemName=$extId"
     $links = $ExtMeta.versions[0].properties | Where-Object { $_.key -eq "Microsoft.VisualStudio.Services.Links.Source" }
     if ($links) {
         $repoUrl = $links.value
@@ -539,7 +542,8 @@ function Get-VsCodeNuspecMetadata {
         Summary        = $summaryEscaped
         Authors        = $author
         ProjectUrl     = ConvertTo-XmlSafeString $repoUrl
-        MarketplaceUrl = ConvertTo-XmlSafeString "https://marketplace.visualstudio.com/items?itemName=$extId"
+        MarketplaceUrl = ConvertTo-XmlSafeString "$script:MarketplaceBaseUrl/items?itemName=$extId"
+        LicenseUrl     = ConvertTo-XmlSafeString "$script:MarketplaceBaseUrl/items/$extId/license"
         IconUrl        = ConvertTo-XmlSafeString $iconUrl
         Description    = $Description
     }
