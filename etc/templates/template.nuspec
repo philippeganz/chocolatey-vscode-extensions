@@ -9,7 +9,7 @@
     <projectUrl>{{ProjectUrl}}</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
     <iconUrl>{{IconUrl}}</iconUrl>
-    <licenseUrl>{{MarketplaceUrl}}</licenseUrl>
+    <licenseUrl>{{LicenseUrl}}</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>{{Description}}</description>
     <summary>{{Summary}}</summary>
@@ -20,6 +20,6 @@
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
-    <file src="icon.png" target="." />
+    <file src="legal\**" target="legal" />
   </files>
 </package>

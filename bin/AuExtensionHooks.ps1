@@ -159,6 +159,11 @@ function global:au_BeforeUpdate {
     # Download the new payload
     Invoke-RobustDownload -Url $Latest.URL64 -OutFile $vsixPath
 
+    # =========================================================================
+    # Generate VERIFICATION.txt (Chocolatey Requirements)
+    # =========================================================================
+    New-VerificationFile -VsixPath $vsixPath -PackageDir $package.Path -Publisher $ExtensionPublisher -ExtensionName $ExtensionName
+
     # Automatically extract the newest README.md and LICENSE from the ZIP payload
     # so AU can natively inject the updated documentation into the Chocolatey package.
     $payloadResult = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $package.Path
@@ -249,7 +254,7 @@ function global:au_BeforeUpdate {
     Returns a hashtable mapping file paths to their respective RegEx replacement rules.
 #>
 function global:au_SearchReplace {
-    $targetIconUrl = if ($Latest.IconUrl) { $Latest.IconUrl } else { "https://raw.githubusercontent.com/philippeganz/chocolatey-vscode-extensions/main/automatic/vscode-$ExtensionName/icon.png" }
+    $targetIconUrl = "https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-$ExtensionName/icon.png"
 
     $rules = @{
         "tools\chocolateyInstall.ps1" = @{
