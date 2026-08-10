@@ -8,7 +8,7 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/primer/github-vscode-theme.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://GitHub.gallerycdn.vsassets.io/extensions/github/github-vscode-theme/6.3.5/1727933603062/Microsoft.VisualStudio.Services.Icons.Default</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-github-vscode-theme/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/github.github-vscode-theme/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
@@ -36,7 +36,7 @@ Additionally, there are also two older themes. **Note**: They might not get upda
 
 ## Override this theme
 
-To override this (or any other) theme in your personal config file, please follow the guide in the [color theme](https://code.visualstudio.com/api/extension-guides/color-theme) documentation. This is handy for small tweaks to the theme without having to fork and maintain your own theme. 
+To override this (or any other) theme in your personal config file, please follow the guide in the [color theme](https://code.visualstudio.com/api/extension-guides/color-theme) documentation. This is handy for small tweaks to the theme without having to fork and maintain your own theme.
 
 ## Contribute
 
@@ -62,7 +62,8 @@ This repo uses [changesets](https://github.com/atlassian/changesets) to automati
 
 ]]></description>
     <summary>GitHub theme for VS Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=github.github-vscode-theme#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=github.github-vscode-theme#changelog</releaseNotes>
     <tags>vscode extension github-theme</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
