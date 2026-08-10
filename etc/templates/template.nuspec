@@ -5,6 +5,7 @@
     <version>{{Version}}</version>
     <title>{{Title}}</title>
     <authors>{{Authors}}</authors>
+    <owners>philippe.ganz</owners>
     <projectUrl>{{ProjectUrl}}</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
     <iconUrl>{{IconUrl}}</iconUrl>
