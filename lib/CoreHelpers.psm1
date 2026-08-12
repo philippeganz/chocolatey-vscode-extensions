@@ -1,4 +1,5 @@
 #Requires -Version 7.0
+
 <#
 .SYNOPSIS
     Core utility functions and helpers used across the repository.
@@ -17,6 +18,9 @@ $ErrorActionPreference = 'Stop'
 <#
 .SYNOPSIS
 A cross-platform helper for rendering colorized, structured console messages using PS7 ANSI strings.
+
+.EXAMPLE
+    Write-StyledMessage -Message "Deploying" -Color Green -Prefix "[OK]"
 #>
 function Write-StyledMessage {
     param(
@@ -43,24 +47,36 @@ function Write-StyledMessage {
 <#
 .SYNOPSIS
 Writes a green success message to the console.
+
+.EXAMPLE
+    Write-Success "Operation complete"
 #>
 function Write-Success ([string]$msg) { Write-StyledMessage -Prefix "[SUCCESS]" -Message $msg -Color Green }
 
 <#
 .SYNOPSIS
 Writes a cyan info message to the console.
+
+.EXAMPLE
+    Write-Info "Operation complete"
 #>
 function Write-Info    ([string]$msg) { Write-StyledMessage -Prefix "[INFO]"    -Message $msg -Color Cyan }
 
 <#
 .SYNOPSIS
 Writes a yellow skip message to the console.
+
+.EXAMPLE
+    Write-Skip "Operation complete"
 #>
 function Write-Skip    ([string]$msg) { Write-StyledMessage -Prefix "[SKIP]"    -Message $msg -Color Yellow }
 
 <#
 .SYNOPSIS
 Writes a red error message to the console.
+
+.EXAMPLE
+    Write-Err "Operation complete"
 #>
 function Write-Err     ([string]$msg) { Write-StyledMessage -Prefix "[ERROR]"   -Message $msg -Color Red }
 
@@ -72,42 +88,63 @@ function Write-Err     ([string]$msg) { Write-StyledMessage -Prefix "[ERROR]"   
 <#
 .SYNOPSIS
 Writes a raw red message to the console without a semantic prefix.
+
+.EXAMPLE
+    Write-Red "Operation complete"
 #>
 function Write-Red     ([string]$msg) { Write-StyledMessage -Message $msg -Color Red }
 
 <#
 .SYNOPSIS
 Writes a raw cyan message to the console without a semantic prefix.
+
+.EXAMPLE
+    Write-Cyan "Operation complete"
 #>
 function Write-Cyan    ([string]$msg) { Write-StyledMessage -Message $msg -Color Cyan }
 
 <#
 .SYNOPSIS
 Writes a raw yellow message to the console without a semantic prefix.
+
+.EXAMPLE
+    Write-Yellow "Operation complete"
 #>
 function Write-Yellow  ([string]$msg) { Write-StyledMessage -Message $msg -Color Yellow }
 
 <#
 .SYNOPSIS
 Writes a raw green message to the console without a semantic prefix.
+
+.EXAMPLE
+    Write-Green "Operation complete"
 #>
 function Write-Green   ([string]$msg) { Write-StyledMessage -Message $msg -Color Green }
 
 <#
 .SYNOPSIS
 Writes a raw gray message to the console without a semantic prefix.
+
+.EXAMPLE
+    Write-Gray "Operation complete"
 #>
 function Write-Gray    ([string]$msg) { Write-StyledMessage -Message $msg -Color Gray }
 
 <#
 .SYNOPSIS
 Writes a raw magenta message to the console without a semantic prefix.
+
+.EXAMPLE
+    Write-Magenta "Operation complete"
 #>
 function Write-Magenta ([string]$msg) { Write-StyledMessage -Message $msg -Color Magenta }
 
 <#
 .SYNOPSIS
 Writes a raw white message to the console without a semantic prefix.
+
+.EXAMPLE
+    Write-White "Operation complete"
 #>
 function Write-White   ([string]$msg) { Write-StyledMessage -Message $msg -Color White }
 
@@ -129,6 +166,9 @@ The raw publisher.extension identifier (e.g. 'mechatroner.rainbow-csv').
 
 .PARAMETER CommitMessage
 The message to use for the automated commit.
+
+.EXAMPLE
+    Invoke-GitAutoCommit -ExtensionId "mechatroner.rainbow-csv" -CommitMessage "Update package"
 #>
 function Invoke-GitAutoCommit {
     param (

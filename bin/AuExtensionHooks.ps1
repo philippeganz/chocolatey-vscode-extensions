@@ -1,5 +1,6 @@
 #Requires -Version 7.0
 #Requires -Module au
+
 <#
 .SYNOPSIS
     The centralized Logic Engine for Chocolatey AU packages.
@@ -141,6 +142,9 @@ function global:au_GetLatest {
 function global:au_BeforeUpdate {
     param($package)
 
+    # =========================================================================
+    # Step 1. Pre-Load CI Dependencies
+    # =========================================================================
     # Intelligent CI Bootstrapper: Only install VS Code test dependencies if an update is actively happening
     if (-not (Get-Command code -ErrorAction SilentlyContinue) -and -not $script:VsCodeDependenciesLoaded) {
         Write-Host ">>> Pre-loading Test Dependencies for CI Environment..." -ForegroundColor Cyan
@@ -153,79 +157,54 @@ function global:au_BeforeUpdate {
 
     $vsixPath = Join-Path $toolsDir "$ExtensionPublisher.$ExtensionName-$($Latest.Version).vsix"
 
+    # =========================================================================
+    # Step 2. Download and Verify Payload (Air-Gap Mandate)
+    # =========================================================================
     # Purge any old VSIX payloads to prevent package bloat
     Get-ChildItem -Path $toolsDir -Filter "*.vsix" | Remove-Item -Force
 
-    # Download the new payload
+    # Download the new upstream VSIX payload directly into the tools folder
     Invoke-RobustDownload -Url $Latest.URL64 -OutFile $vsixPath
 
-    # =========================================================================
-    # Generate VERIFICATION.txt (Chocolatey Requirements)
-    # =========================================================================
+    # Compute checksums and generate the VERIFICATION.txt file required by Chocolatey
     New-VerificationFile -VsixPath $vsixPath -PackageDir $package.Path -Publisher $ExtensionPublisher -ExtensionName $ExtensionName
 
-    # Automatically extract the newest README.md and LICENSE from the ZIP payload
+    # =========================================================================
+    # Step 3. Extract Payload Metadata
+    # =========================================================================
+    # Automatically rip the newest README.md, LICENSE, and package.json from the ZIP payload
     # so AU can natively inject the updated documentation into the Chocolatey package.
     $payloadResult = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $package.Path
 
-    # Inject the semantically truncated CDATA description into the nuspec
-    if ($payloadResult.TruncatedReadme) {
-        $cdataSafe = $payloadResult.TruncatedReadme -replace '\]\]>', ']]]]><![CDATA[>'
+    # =========================================================================
+    # Step 4. Update In-Memory String (Pre-DOM)
+    # =========================================================================
+    # Update the raw text template with Title, Authors, Summary, etc. via regex
+    # before converting to a native XML DOM object.
+    $nuspecPath = Join-Path $package.Path "$($package.Name).nuspec"
+    $nuspecContent = Get-Content $nuspecPath -Raw -Encoding UTF8
+    $meta = Get-VsCodeNuspecMetadata -ExtMeta $Latest.RawMeta -ExtensionPublisher $ExtensionPublisher -ExtensionName $ExtensionName
+    $nuspecContent = Update-VsCodeNuspecMetadata -NuspecContent $nuspecContent -Meta $meta
+    $package.NuspecXml = [xml]$nuspecContent
 
-        # Update AU's in-memory XML DOM so it doesn't overwrite our changes later
-        if ($package -and $package.NuspecXml) {
-            $descNode = $package.NuspecXml.SelectSingleNode("//*[local-name()='description']")
-            if ($descNode) {
-                $descNode.RemoveAll()
-                $cdata = $package.NuspecXml.CreateCDataSection("`n" + $cdataSafe + "`n")
-                [void]$descNode.AppendChild($cdata)
-            }
+    # =========================================================================
+    # Step 5. Update XML DOM (AU State) & Physical Templates
+    # =========================================================================
+    # We must inject the CDataSafeReadme natively as a pure CDataSection
+    # so that PowerShell's XML parser doesn't incorrectly escape the payload when saving.
+    Update-NuspecCDataDescription -NuspecXml $package.NuspecXml -CDataSafeReadme $payloadResult.CDataSafeReadme -ShortDescription $Latest.RawMeta.shortDescription
 
-            # Dynamically resolve and inject missing dependencies
-            if ($payloadResult.PackageJson) {
-                # Path to config.yaml is one level up from bin
-                $configPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\var\state\config.yaml"))
-                Update-NuspecDependency -NuspecXml $package.NuspecXml -PackageJson $payloadResult.PackageJson -ConfigPath $configPath
-            }
-        }
+    # Dynamically discover missing dependencies (e.g. extension packs) and auto-queue them to the Factory
+    $configPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\var\state\config.yaml"))
+    Update-NuspecDependency -NuspecXml $package.NuspecXml -PackageJson $payloadResult.PackageJson -ConfigPath $configPath
 
-        # Update the physical file on disk for immediate tools
-        $descriptionEscaped = "<![CDATA[`n" + $cdataSafe + "`n]]>"
-        $nuspecPath = Join-Path $package.Path "$($package.Name).nuspec"
-        if (Test-Path $nuspecPath) {
-            $nuspecContent = Get-Content $nuspecPath -Raw -Encoding UTF8
-            $nuspecContent = $nuspecContent -replace '(?is)<description>.*?</description>', "<description>$descriptionEscaped</description>"
-            if ($Latest.RawMeta) {
-                $meta = Get-VsCodeNuspecMetadata -ExtMeta $Latest.RawMeta -ExtensionPublisher $ExtensionPublisher -ExtensionName $ExtensionName
+    Save-NuspecXml -NuspecXml $package.NuspecXml -NuspecPath $nuspecPath
 
-                $nuspecContent = $nuspecContent -replace '(?is)<title>.*?</title>', "<title>$($meta.Title)</title>"
-                $nuspecContent = $nuspecContent -replace '(?is)<summary>.*?</summary>', "<summary>$($meta.Summary)</summary>"
-                $nuspecContent = $nuspecContent -replace '(?is)<authors>.*?</authors>', "<authors>$($meta.Authors)</authors>"
-                $nuspecContent = $nuspecContent -replace '(?is)<projectUrl>.*?</projectUrl>', "<projectUrl>$($meta.ProjectUrl)</projectUrl>"
-            }
-            $nuspecContent = $nuspecContent.Replace("`r`n", "`n")
-            [System.IO.File]::WriteAllText($nuspecPath, $nuspecContent, [System.Text.UTF8Encoding]::new($false))
-        }
-    }
-
+    # =========================================================================
+    # Step 6. Validate Required Assets
+    # =========================================================================
     # Guarantee icon.png exists to prevent choco pack validation failures (every nuspec includes icon.png in <files>)
-    $localIconPath = Join-Path $package.Path "icon.png"
-    if (-not (Test-Path $localIconPath)) {
-        if ($Latest.MarketplaceIconUrl) {
-            try {
-                Invoke-WebRequest -Uri $Latest.MarketplaceIconUrl -OutFile $localIconPath -TimeoutSec 15
-            }
-            catch {
-                Write-Verbose "Failed to download icon: $_"
-            }
-        }
-        if (-not (Test-Path $localIconPath)) {
-            Write-Warning "No icon.png found for package $($package.Name). Creating a placeholder icon.png to prevent packaging failure."
-            $dummyPngBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-            $bytes = [System.Convert]::FromBase64String($dummyPngBase64)
-            [System.IO.File]::WriteAllBytes($localIconPath, $bytes)
-        }
-    }
+    Save-VsCodeIcon -IconUrl $Latest.MarketplaceIconUrl -PackageDir $package.Path -PackageName $package.Name
 }
 
 <#

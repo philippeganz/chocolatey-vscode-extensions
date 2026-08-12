@@ -1,4 +1,5 @@
 #Requires -Version 7.0
+
 <#
 .SYNOPSIS
     The Execution Engine for safely removing VS Code extensions from the pool.

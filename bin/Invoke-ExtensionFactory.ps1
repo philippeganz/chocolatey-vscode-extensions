@@ -1,4 +1,5 @@
 #Requires -Version 7.0
+
 <#
 .SYNOPSIS
     Automated Chocolatey Package Factory for Visual Studio Code Extensions.
@@ -122,19 +123,6 @@ Write-Host "    Initial Extensions to Process: $($extensionsList.Count)"
 # We use a standard for-loop so we can dynamically append discovered dependencies to the end of the list
 $processed = @{}
 
-# Legacy extensions often declare dependencies using outdated aliases instead of canonical publisher IDs.
-# We intercept and translate them here to prevent 404 API crashes during Auto-Discovery.
-$dependencyAliases = @{
-    "vscode.docker"               = "ms-azuretools.vscode-docker"
-    "PeterJausovec.vscode-docker" = "ms-azuretools.vscode-docker"
-    "vscode.yaml"                 = "redhat.vscode-yaml"
-    "donjayamanne.python"         = "ms-python.python"
-    "lukehoban.Go"                = "golang.Go"
-    "ms-vscode.Go"                = "golang.Go"
-    "ms-vscode.csharp"            = "ms-dotnettools.csharp"
-    "eg2.tslint"                  = "ms-vscode.vscode-typescript-tslint-plugin"
-}
-
 for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $extId = $extensionsList[$i]
 
@@ -184,16 +172,11 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $versionClean = $version -replace '[^\d\.-]', ''
     $descriptionRaw = $extMeta.shortDescription
     $descriptionRaw = $descriptionRaw -replace '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', '[email removed]'
-
-    $descriptionEscaped = [System.Security.SecurityElement]::Escape($descriptionRaw)
-
     $summaryRaw = $descriptionRaw
     if ($summaryRaw.Length -gt 4000) { $summaryRaw = $summaryRaw.Substring(0, 3996) + "..." }
 
     $summaryEscaped = $summaryRaw
     if ($summaryEscaped.Length -gt 4000) { $summaryEscaped = $summaryEscaped.Substring(0, 3996) + "..." }
-
-    $iconUrl = $extMeta.versions[0].files | Where-Object { $_.assetType -eq "Microsoft.VisualStudio.Services.Icons.Default" } | Select-Object -ExpandProperty source
 
     Write-Host "    Version: $versionClean"
 
@@ -211,6 +194,13 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $vsixName = "$publisher.$extensionName-$versionClean.vsix"
     $vsixPath = Join-Path $toolsDir $vsixName
 
+    # Download icon if it doesn't exist
+    $iconUrl = $null
+    if ($extMeta.versions[0].files | Where-Object { $_.assetType -eq "Microsoft.VisualStudio.Services.Icons.Default" }) {
+        $iconUrl = ($extMeta.versions[0].files | Where-Object { $_.assetType -eq "Microsoft.VisualStudio.Services.Icons.Default" }).source
+    }
+    Save-VsCodeIcon -IconUrl $iconUrl -PackageDir $pkgDir -PackageName $packageName
+
     Invoke-RobustDownload -Url $vsixUrl -OutFile $vsixPath
 
     # =========================================================================
@@ -221,66 +211,12 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     # =========================================================================
     # 4. Payload Extraction (Air-Gap Compliance)
     # =========================================================================
-    $payloadData = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
-    $packageJson = $payloadData.PackageJson
+    $payloadResult = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
+    $packageJson = $payloadResult.PackageJson
+
 
     # =========================================================================
-    # 5. Generate Core Package Files
-    # =========================================================================
-    # If the VS Code extension declares internal dependencies (e.g., Extension Packs),
-    # we dynamically translate those into Chocolatey package dependencies.
-    $dependenciesStr = ""
-    $discoveredDeps = [System.Collections.Generic.List[string]]::new()
-
-    if ($packageJson.extensionDependencies) {
-        Write-Host "    Found Extension Dependencies!" -ForegroundColor Yellow
-        foreach ($depRaw in $packageJson.extensionDependencies) {
-            if ($depRaw.ToLower().StartsWith("vscode.")) {
-                Write-Host "    [SKIP] Ignoring built-in dependency: $depRaw" -ForegroundColor DarkGray
-                continue
-            }
-            $dep = if ($dependencyAliases.ContainsKey($depRaw)) { $dependencyAliases[$depRaw] } else { $depRaw }
-
-            $depPackageName = Get-ChocoPackageName $dep
-            if ($depPackageName -ne $packageName) {
-                $dependenciesStr += "      <dependency id=`"$depPackageName`" />`n"
-                $discoveredDeps.Add($depPackageName)
-
-                # Auto-Discovery: Queue the dependency for scaffolding if we aren't already tracking it
-                $depLower = $dep.ToLower()
-                if (-not $extensionsList.Contains($depLower)) {
-                    Write-Host "    [AUTO-DISCOVERY] Queuing missing dependency: $depLower" -ForegroundColor Magenta
-                    $extensionsList.Add($depLower)
-                }
-            }
-        }
-    }
-    if ($packageJson.extensionPack) {
-        Write-Host "    Found Extension Pack Bundles!" -ForegroundColor Yellow
-        foreach ($depRaw in $packageJson.extensionPack) {
-            if ($depRaw.ToLower().StartsWith("vscode.")) {
-                Write-Host "    [SKIP] Ignoring built-in dependency: $depRaw" -ForegroundColor DarkGray
-                continue
-            }
-            $dep = if ($dependencyAliases.ContainsKey($depRaw)) { $dependencyAliases[$depRaw] } else { $depRaw }
-
-            $depPackageName = Get-ChocoPackageName $dep
-            if ($depPackageName -ne $packageName) {
-                $dependenciesStr += "      <dependency id=`"$depPackageName`" />`n"
-                $discoveredDeps.Add($depPackageName)
-
-                # Auto-Discovery: Queue the dependency for scaffolding if we aren't already tracking it
-                $depLower = $dep.ToLower()
-                if (-not $extensionsList.Contains($depLower)) {
-                    Write-Host "    [AUTO-DISCOVERY] Queuing missing dependency: $depLower" -ForegroundColor Magenta
-                    $extensionsList.Add($depLower)
-                }
-            }
-        }
-    }
-
-    # =========================================================================
-    # 6. Security Validation
+    # 5. Security Validation
     # =========================================================================
     # We scan the raw binary payload to look for forbidden runtime commands
     # that might attempt to break out of an offline/air-gapped network.
@@ -291,7 +227,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     }
 
     # =========================================================================
-    # 7. Template Rendering
+    # 6. Template Rendering
     # =========================================================================
     # We take the static scaffolding templates from etc/templates and inject
     # the dynamically resolved metadata to finalize the AU package structure.
@@ -299,26 +235,24 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $templatesDir = "$PSScriptRoot\..\etc\templates"
 
     $nuspecPath = Join-Path $pkgDir "$packageName.nuspec"
-    $cdataSafe = $descriptionRaw -replace ']]>', ']]]]><![CDATA[>'
-    $descriptionEscaped = "<![CDATA[`n" + $cdataSafe + "`n]]>"
 
-    $meta = Get-VsCodeNuspecMetadata -ExtMeta $extMeta -ExtensionPublisher $publisher -ExtensionName $extensionName -Description $descriptionEscaped
+    $meta = Get-VsCodeNuspecMetadata -ExtMeta $extMeta -ExtensionPublisher $publisher -ExtensionName $extensionName
 
     $nuspecContent = Get-Content (Join-Path $templatesDir "template.nuspec") -Raw -Encoding UTF8
-    $nuspecContent = $nuspecContent -replace '\{\{ExtensionNameLowerCase\}\}', $packageName.Replace("vscode-", "")
 
+    $nuspecContent = Update-VsCodeNuspecMetadata -NuspecContent $nuspecContent -Meta $meta
+
+    $nuspecContent = $nuspecContent -replace '\{\{ExtensionNameLowerCase\}\}', $packageName.Replace("vscode-", "")
     $nuspecContent = $nuspecContent -replace '\{\{Version\}\}', '0.0.0'
-    $nuspecContent = $nuspecContent -replace '\{\{Title\}\}', $meta.Title
-    $nuspecContent = $nuspecContent -replace '\{\{Authors\}\}', $meta.Authors
-    $nuspecContent = $nuspecContent -replace '\{\{ProjectUrl\}\}', $meta.ProjectUrl
     $nuspecContent = $nuspecContent -replace '\{\{IconUrl\}\}', "https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/$packageName/icon.png"
-    $nuspecContent = $nuspecContent -replace '\{\{LicenseUrl\}\}', $meta.LicenseUrl
-    $nuspecContent = $nuspecContent -replace '\{\{MarketplaceUrl\}\}', $meta.MarketplaceUrl
-    $nuspecContent = $nuspecContent -replace '\{\{Description\}\}', $meta.Description
-    $nuspecContent = $nuspecContent -replace '\{\{Summary\}\}', $meta.Summary
-    $nuspecContent = $nuspecContent -replace '\{\{Dependencies\}\}', $dependenciesStr
-    $nuspecContent = $nuspecContent.Replace("`r`n", "`n")
-    [System.IO.File]::WriteAllText($nuspecPath, $nuspecContent, [System.Text.UTF8Encoding]::new($false))
+    $nuspecContent = $nuspecContent -replace '\{\{Dependencies\}\}', ''
+
+    $nuspecXml = [xml]$nuspecContent
+
+    Update-NuspecCDataDescription -NuspecXml $nuspecXml -CDataSafeReadme $payloadResult.CDataSafeReadme -ShortDescription $extMeta.shortDescription
+    Update-NuspecDependency -NuspecXml $nuspecXml -PackageJson $packageJson -ConfigPath $ConfigFile
+
+    Save-NuspecXml -NuspecXml $nuspecXml -NuspecPath $nuspecPath
 
     if (-not (Test-Path (Join-Path $toolsDir "chocolateyInstall.ps1"))) {
         $installContent = Get-Content (Join-Path $templatesDir "chocolateyInstall.ps1") -Raw -Encoding UTF8

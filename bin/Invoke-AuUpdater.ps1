@@ -1,5 +1,6 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module au
+
 <#
 .SYNOPSIS
     The core Orchestrator for the Chocolatey Automatic Updater (AU) Engine.
@@ -118,6 +119,9 @@ An array of package names to resolve.
 
 .OUTPUTS
 An ordered array of package names optimized for dependency-first execution.
+
+.EXAMPLE
+    $ordered = Resolve-PackageDependency -Packages @("vscode-python", "vscode-python-envs")
 #>
 function Resolve-PackageDependency {
     param([string[]]$Packages)
@@ -149,6 +153,9 @@ function Resolve-PackageDependency {
 
     .PARAMETER node
     The current node/package being visited in the graph.
+
+.EXAMPLE
+    Visit "vscode-python"
     #>
     function Visit($node) {
         if ($tempMark[$node]) { return } # Cycle detected, gracefully break

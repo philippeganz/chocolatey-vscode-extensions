@@ -108,9 +108,11 @@ It sweeps the repository daily, triggering the native Chocolatey Automatic Updat
 
 ### 5. The Logic Engine: `AuExtensionHooks.ps1` & `VsCodeMarketplace.psm1`
 
-This is where the magic happens. Rather than duplicating logic, both the Factory and the AU hooks pull from a centralized data-driven helper (`Get-VsCodeNuspecMetadata`).
+This is where the magic happens. Rather than duplicating logic, both the Factory and the AU hooks pull from a suite of centralized data-driven helpers in `VsCodeMarketplace.psm1` (specifically `Expand-VsCodePayload`, `Get-VsCodeNuspecMetadata`, `Update-NuspecCDataDescription`, `Update-NuspecDependency`, `Save-NuspecXml`, and `Save-VsCodeIcon`).
 
 - During an update, `au_BeforeUpdate` dynamically rips the newest `README.md` and `package.json` from the payload.
+- It safely truncates massive READMEs and relies on `Update-NuspecCDataDescription` to isolate the HTML inside native XML CDATA wrappers.
+- It completely unrolls dependencies and natively triggers `Manage-ExtensionPool.ps1` for Auto-Discovery, completely preventing redundant logic across the Factory and AU.
 - It overwrites structural metadata (`Title`, `Summary`, `IconUrl`, `ProjectUrl`, `Authors`) dynamically, achieving **Zero Maintenance** synchronization with the VS Code Marketplace.
 
 ### 6. The Documentation Engine: `Update-Documentation.ps1`

@@ -1,5 +1,6 @@
 #Requires -Version 7.0
 #Requires -Module powershell-yaml
+
 <#
 .SYNOPSIS
 Centralized helper module for interacting with the Visual Studio Code Marketplace API.
@@ -360,9 +361,18 @@ function Expand-VsCodePayload {
         $readmeRaw = $readmeRaw -replace '(?i)<br\s*/?>', "`n"
     }
 
+    $cdataSafe = ""
+    if ($readmeRaw) {
+        # XML parsers will crash if they encounter the string "]]>" inside a CDATA section.
+        # To safely embed READMEs containing "]]>", we must terminate the current CDATA section
+        # and immediately open a new one by replacing "]]>" with "]]]]><![CDATA[>".
+        $cdataSafe = $readmeRaw -replace '\]\]>', ']]]]><![CDATA[>'
+    }
+
     return [PSCustomObject]@{
         PackageJson     = $packageJson
         TruncatedReadme = $readmeRaw
+        CDataSafeReadme = $cdataSafe
     }
 }
 
@@ -405,7 +415,9 @@ function Update-NuspecDependency {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
     param(
         [Parameter(Mandatory = $true)][object]$NuspecXml,
-        [Parameter(Mandatory = $true)][object]$PackageJson,
+        [Parameter(Mandatory = $true)]
+        [AllowNull()]
+        [object]$PackageJson,
         [Parameter(Mandatory = $true)][string]$ConfigPath
     )
 
@@ -510,10 +522,11 @@ function Update-NuspecDependency {
 function Get-VsCodeNuspecMetadata {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Matching external API or established domain terminology')]
     param(
-        [Parameter(Mandatory = $true)][object]$ExtMeta,
+        [Parameter(Mandatory = $true)]
+        [AllowNull()]
+        [object]$ExtMeta,
         [Parameter(Mandatory = $true)][string]$ExtensionPublisher,
-        [Parameter(Mandatory = $true)][string]$ExtensionName,
-        [Parameter(Mandatory = $false)][string]$Description = ''
+        [Parameter(Mandatory = $true)][string]$ExtensionName
     )
 
     function ConvertTo-XmlSafeString([string]$text) {
@@ -532,23 +545,65 @@ function Get-VsCodeNuspecMetadata {
 
     $extId = "$ExtensionPublisher.$ExtensionName"
     $repoUrl = "$script:MarketplaceBaseUrl/items?itemName=$extId"
-    $links = $ExtMeta.versions[0].properties | Where-Object { $_.key -eq "Microsoft.VisualStudio.Services.Links.Source" }
-    if ($links) {
-        $repoUrl = $links.value
+
+    $sourceLink = $null
+    $supportLink = $null
+    $learnLink = $null
+
+    if ($ExtMeta.versions -and $ExtMeta.versions.Count -gt 0) {
+        $sourceLink = $ExtMeta.versions[0].properties | Where-Object { $_.key -eq "Microsoft.VisualStudio.Services.Links.Source" }
+        $supportLink = $ExtMeta.versions[0].properties | Where-Object { $_.key -eq "Microsoft.VisualStudio.Services.Links.Support" }
+        $learnLink = $ExtMeta.versions[0].properties | Where-Object { $_.key -eq "Microsoft.VisualStudio.Services.Links.Learn" }
     }
 
-    $iconUrl = $ExtMeta.versions[0].files | Where-Object { $_.assetType -eq "Microsoft.VisualStudio.Services.Icons.Default" } | Select-Object -ExpandProperty source
-    if (-not $iconUrl) { $iconUrl = "" }
+    $projectSourceUrl = ""
+    if ($sourceLink) {
+        $repoUrl = $sourceLink.value
+        $projectSourceUrl = $sourceLink.value -replace '\.git$', ''
+    }
+
+    $bugTrackerUrl = ""
+    if ($supportLink) {
+        $bugTrackerUrl = $supportLink.value
+    }
+
+    $docsUrl = ""
+    if ($learnLink) {
+        $docsUrl = $learnLink.value
+    }
+
+    $baseTags = @("vscode", "extension", $ExtensionName.ToLower())
+    if ($ExtMeta.tags) {
+        # Filter and sanitize marketplace tags
+        $mpTags = $ExtMeta.tags | Where-Object { $_ -notmatch '^\s*$' } | ForEach-Object {
+            $cleaned = $_ -replace '[^\w\.-]+', '-' -replace '^-+|-+$', ''
+            if ($cleaned) { $cleaned.ToLower() }
+        }
+        $baseTags += $mpTags
+    }
+    # Ensure unique tags and join with spaces
+    $finalTags = ($baseTags | Select-Object -Unique) -join " "
+
+    $iconUrl = ""
+    if ($ExtMeta.versions -and $ExtMeta.versions.Count -gt 0) {
+        $iconUrlNode = $ExtMeta.versions[0].files | Where-Object { $_.assetType -eq "Microsoft.VisualStudio.Services.Icons.Default" }
+        if ($iconUrlNode) {
+            $iconUrl = $iconUrlNode.source
+        }
+    }
 
     return @{
-        Title          = $title
-        Summary        = $summaryEscaped
-        Authors        = $author
-        ProjectUrl     = ConvertTo-XmlSafeString $repoUrl
-        MarketplaceUrl = ConvertTo-XmlSafeString "$script:MarketplaceBaseUrl/items?itemName=$extId"
-        LicenseUrl     = ConvertTo-XmlSafeString "$script:MarketplaceBaseUrl/items/$extId/license"
-        IconUrl        = ConvertTo-XmlSafeString $iconUrl
-        Description    = $Description
+        Title            = $title
+        Summary          = $summaryEscaped
+        Authors          = $author
+        ProjectUrl       = ConvertTo-XmlSafeString $repoUrl
+        ProjectSourceUrl = ConvertTo-XmlSafeString $projectSourceUrl
+        BugTrackerUrl    = ConvertTo-XmlSafeString $bugTrackerUrl
+        DocsUrl          = ConvertTo-XmlSafeString $docsUrl
+        Tags             = ConvertTo-XmlSafeString $finalTags
+        MarketplaceUrl   = ConvertTo-XmlSafeString "$script:MarketplaceBaseUrl/items?itemName=$extId"
+        LicenseUrl       = ConvertTo-XmlSafeString "$script:MarketplaceBaseUrl/items/$extId/license"
+        IconUrl          = ConvertTo-XmlSafeString $iconUrl
     }
 }
 
@@ -572,6 +627,9 @@ function Get-VsCodeNuspecMetadata {
 
 .PARAMETER ExtensionName
     The canonical extension name.
+
+.EXAMPLE
+    New-VerificationFile
 #>
 function New-VerificationFile {
     [CmdletBinding(SupportsShouldProcess)]
@@ -613,4 +671,248 @@ $licenseUrl
     }
 }
 
-Export-ModuleMember -Function Get-VsCodeMarketplaceMetadata, Get-VsCodeExtensionUrl, Invoke-RobustDownload, Expand-VsCodePayload, Update-NuspecDependency, Get-VsCodeNuspecMetadata, New-VerificationFile
+<#
+.SYNOPSIS
+    Harmonizes and applies metadata string replacements into a raw Chocolatey .nuspec string.
+
+.DESCRIPTION
+    The Update-VsCodeNuspecMetadata function injects standardized metadata extracted from the VS Code Marketplace
+    into a raw string representation of a Chocolatey .nuspec file.
+
+    It uses regular expressions to securely replace mandatory NuGet fields (such as <title>, <summary>, and <authors>)
+    while fully preserving the rest of the XML file's physical layout and structure. Additionally, it conditionally injects
+    optional metadata like <docsUrl>, <projectSourceUrl>, and <tags> based on the provided metadata object.
+
+.PARAMETER NuspecContent
+    The raw text content of the .nuspec file (usually read via Get-Content -Raw).
+
+.PARAMETER Meta
+    A hashtable containing the resolved metadata properties (usually generated by Get-VsCodeNuspecMetadata).
+    Expected keys include: Title, Summary, Authors, ProjectUrl, LicenseUrl, MarketplaceUrl,
+    Description, DocsUrl, BugTrackerUrl, ProjectSourceUrl, and Tags.
+
+.EXAMPLE
+    $nuspecContent = Get-Content "package.nuspec" -Raw
+    $meta = Get-VsCodeNuspecMetadata -ExtMeta $rawMeta -ExtensionPublisher "ms-vscode" -ExtensionName "cpptools"
+    $updatedContent = Update-VsCodeNuspecMetadata -NuspecContent $nuspecContent -Meta $meta
+
+.INPUTS
+    None
+
+.OUTPUTS
+    [string]
+    The updated text string representing the injected .nuspec file content, ready to be written back to disk.
+#>
+function Update-VsCodeNuspecMetadata {
+    [CmdletBinding()]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Justification = 'Function only performs string manipulation in memory')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Matching external API or established domain terminology')]
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$NuspecContent,
+
+        [Parameter(Mandatory = $true)]
+        [hashtable]$Meta
+    )
+
+    $NuspecContent = $NuspecContent -replace '(?is)<title>.*?</title>', "<title>$($Meta.Title)</title>"
+    $NuspecContent = $NuspecContent -replace '(?is)<summary>.*?</summary>', "<summary>$($Meta.Summary)</summary>"
+    $NuspecContent = $NuspecContent -replace '(?is)<authors>.*?</authors>', "<authors>$($Meta.Authors)</authors>"
+    $NuspecContent = $NuspecContent -replace '(?is)<projectUrl>.*?</projectUrl>', "<projectUrl>$($Meta.ProjectUrl)</projectUrl>"
+    $NuspecContent = $NuspecContent -replace '(?is)<licenseUrl>.*?</licenseUrl>', "<licenseUrl>$($Meta.LicenseUrl)</licenseUrl>"
+    $NuspecContent = $NuspecContent -replace '(?is)<releaseNotes>.*?</releaseNotes>', "<releaseNotes>$($Meta.MarketplaceUrl)#changelog</releaseNotes>"
+
+    if ($Meta.ProjectSourceUrl) {
+        if ($NuspecContent -match '(?is)<projectSourceUrl>.*?</projectSourceUrl>') {
+            $NuspecContent = $NuspecContent -replace '(?is)<projectSourceUrl>.*?</projectSourceUrl>', "<projectSourceUrl>$($Meta.ProjectSourceUrl)</projectSourceUrl>"
+        }
+        else {
+            $NuspecContent = $NuspecContent -replace '(?i)(</packageSourceUrl>)', "`$1`n    <projectSourceUrl>$($Meta.ProjectSourceUrl)</projectSourceUrl>"
+        }
+    }
+    if ($Meta.BugTrackerUrl) {
+        if ($NuspecContent -match '(?is)<bugTrackerUrl>.*?</bugTrackerUrl>') {
+            $NuspecContent = $NuspecContent -replace '(?is)<bugTrackerUrl>.*?</bugTrackerUrl>', "<bugTrackerUrl>$($Meta.BugTrackerUrl)</bugTrackerUrl>"
+        }
+        else {
+            if ($NuspecContent -match '(?is)</projectSourceUrl>') {
+                $NuspecContent = $NuspecContent -replace '(?i)(</projectSourceUrl>)', "`$1`n    <bugTrackerUrl>$($Meta.BugTrackerUrl)</bugTrackerUrl>"
+            }
+            else {
+                $NuspecContent = $NuspecContent -replace '(?i)(</packageSourceUrl>)', "`$1`n    <bugTrackerUrl>$($Meta.BugTrackerUrl)</bugTrackerUrl>"
+            }
+        }
+    }
+    if ($Meta.DocsUrl) {
+        if ($NuspecContent -match '(?is)<docsUrl>.*?</docsUrl>') {
+            $NuspecContent = $NuspecContent -replace '(?is)<docsUrl>.*?</docsUrl>', "<docsUrl>$($Meta.DocsUrl)</docsUrl>"
+        }
+        else {
+            if ($NuspecContent -match '(?is)</bugTrackerUrl>') {
+                $NuspecContent = $NuspecContent -replace '(?i)(</bugTrackerUrl>)', "`$1`n    <docsUrl>$($Meta.DocsUrl)</docsUrl>"
+            }
+            elseif ($NuspecContent -match '(?is)</projectSourceUrl>') {
+                $NuspecContent = $NuspecContent -replace '(?i)(</projectSourceUrl>)', "`$1`n    <docsUrl>$($Meta.DocsUrl)</docsUrl>"
+            }
+            else {
+                $NuspecContent = $NuspecContent -replace '(?i)(</packageSourceUrl>)', "`$1`n    <docsUrl>$($Meta.DocsUrl)</docsUrl>"
+            }
+        }
+    }
+    if ($Meta.Tags) {
+        $NuspecContent = $NuspecContent -replace '(?is)<tags>.*?</tags>', "<tags>$($Meta.Tags)</tags>"
+    }
+
+    return $NuspecContent
+}
+
+<#
+.SYNOPSIS
+    Downloads and guarantees an icon.png file for the package.
+
+.DESCRIPTION
+    Chocolatey highly recommends an icon.png file inside the package folder.
+    This function downloads the icon from the VS Code Marketplace URL.
+    If the download fails or the icon doesn't exist, it generates a 1x1 transparent
+    dummy base64 PNG to prevent packaging schema errors.
+
+.PARAMETER IconUrl
+    The URL of the icon to download. Can be null if the marketplace has no icon.
+
+.PARAMETER PackageDir
+    The absolute path to the package directory where icon.png will be saved.
+
+.PARAMETER PackageName
+    The name of the package (used for logging warnings).
+
+.EXAMPLE
+    Save-VsCodeIcon -IconUrl "https://cdn.example.com/icon.png" -PackageDir "C:\temp\pkg" -PackageName "vscode-test"
+
+.INPUTS
+    None
+
+.OUTPUTS
+    None
+#>
+function Save-VsCodeIcon {
+    [CmdletBinding()]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Justification = 'Internal utility for downloading files')]
+    param(
+        [Parameter(Mandatory = $false)]
+        [AllowNull()]
+        [AllowEmptyString()]
+        [string]$IconUrl,
+        [Parameter(Mandatory = $true)][string]$PackageDir,
+        [Parameter(Mandatory = $true)][string]$PackageName
+    )
+
+    $localIconPath = Join-Path $PackageDir "icon.png"
+    if (-not (Test-Path $localIconPath)) {
+        if ($IconUrl) {
+            try {
+                Invoke-RobustDownload -Url $IconUrl -OutFile $localIconPath
+            }
+            catch {
+                Write-Verbose "Failed to download icon from $($IconUrl): $_"
+            }
+        }
+        if (-not (Test-Path $localIconPath)) {
+            Write-Warning "No icon.png found for package $PackageName. Creating a placeholder icon.png to prevent packaging failure."
+            $dummyPngBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            $bytes = [System.Convert]::FromBase64String($dummyPngBase64)
+            [System.IO.File]::WriteAllBytes($localIconPath, $bytes)
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+    Injects the CDATA description into the nuspec XML DOM.
+
+.DESCRIPTION
+    Dynamically injects the Markdown README as a CDATA block into the <description> node of the DOM.
+    If the README is empty, it gracefully falls back to the Marketplace shortDescription.
+
+.PARAMETER NuspecXml
+    An [xml] object representing the parsed .nuspec file.
+
+.PARAMETER CDataSafeReadme
+    The raw text content of the README.md, formatted safely for CDATA blocks.
+
+.PARAMETER ShortDescription
+    The short description string provided by the Marketplace API.
+
+.EXAMPLE
+    $nuspecXml = [xml](Get-Content -Path .\package.nuspec -Raw)
+    Update-NuspecCDataDescription -NuspecXml $nuspecXml -CDataSafeReadme $readme -ShortDescription "Fallback description"
+
+.INPUTS
+    None
+
+.OUTPUTS
+    None
+#>
+function Update-NuspecCDataDescription {
+    [CmdletBinding()]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Justification = 'Internal DOM manipulation')]
+    param(
+        [Parameter(Mandatory = $true)][object]$NuspecXml,
+        [Parameter(Mandatory = $true)]
+        [AllowEmptyString()]
+        [string]$CDataSafeReadme,
+        [Parameter(Mandatory = $true)]
+        [AllowEmptyString()]
+        [string]$ShortDescription
+    )
+
+    $descNode = $NuspecXml.SelectSingleNode("//*[local-name()='description']")
+    if ($descNode) {
+        $descNode.RemoveAll()
+        $readmeContent = $CDataSafeReadme
+        if ($readmeContent -eq "") {
+            $readmeContent = $ShortDescription
+        }
+        $cdata = $NuspecXml.CreateCDataSection("`n" + $readmeContent + "`n")
+        [void]$descNode.AppendChild($cdata)
+    }
+}
+
+<#
+.SYNOPSIS
+    Saves an XML DOM to disk with strictly enforced LF line endings.
+
+.DESCRIPTION
+    Natively saves the .NET XML DOM object, then performs a raw string normalization pass
+    to convert any CRLF line endings to LF before persisting to disk using UTF8 no-BOM.
+
+.PARAMETER NuspecXml
+    An [xml] object representing the parsed .nuspec file.
+
+.PARAMETER NuspecPath
+    The absolute path to the physical .nuspec file on disk to save to.
+
+.EXAMPLE
+    $nuspecXml = [xml](Get-Content -Path .\package.nuspec -Raw)
+    Save-NuspecXml -NuspecXml $nuspecXml -NuspecPath "C:\temp\pkg\package.nuspec"
+
+.INPUTS
+    None
+
+.OUTPUTS
+    None
+#>
+function Save-NuspecXml {
+    [CmdletBinding()]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Justification = 'Internal utility for saving files')]
+    param(
+        [Parameter(Mandatory = $true)][object]$NuspecXml,
+        [Parameter(Mandatory = $true)][string]$NuspecPath
+    )
+
+    $NuspecXml.Save($NuspecPath)
+    $finalNuspecContent = Get-Content $NuspecPath -Raw -Encoding UTF8
+    $finalNuspecContent = $finalNuspecContent.Replace("`r`n", "`n")
+    [System.IO.File]::WriteAllText($NuspecPath, $finalNuspecContent, [System.Text.UTF8Encoding]::new($false))
+}
+
+Export-ModuleMember -Function Get-VsCodeMarketplaceMetadata, Get-VsCodeExtensionUrl, Invoke-RobustDownload, Expand-VsCodePayload, Update-NuspecDependency, Get-VsCodeNuspecMetadata, New-VerificationFile, Update-VsCodeNuspecMetadata, Save-VsCodeIcon, Update-NuspecCDataDescription, Save-NuspecXml

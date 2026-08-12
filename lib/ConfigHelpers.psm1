@@ -1,5 +1,6 @@
 #Requires -Version 7.0
 #Requires -Module powershell-yaml
+
 <#
 .SYNOPSIS
     Centralized utility functions for managing the config.yaml and badge state.

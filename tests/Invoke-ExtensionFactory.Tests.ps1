@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFactory' {
     BeforeAll {
@@ -38,7 +38,7 @@ Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFact
         Mock Get-VsCodeExtensionUrl -MockWith { return "http://vsix" }
         Mock Invoke-RobustDownload -MockWith { Set-Content -Path $OutFile -Value "fake payload" }
         Mock Expand-VsCodePayload -MockWith { return @{} }
-        Mock Get-VsCodeNuspecMetadata -MockWith { return @{ Title = "T"; Authors = "A"; ProjectUrl = "U"; IconUrl = "I"; MarketplaceUrl = "M"; Description = "D"; Summary = "S" } }
+        Mock Get-VsCodeNuspecMetadata -MockWith { return @{ Title = "T"; Authors = "A"; ProjectUrl = "U"; ProjectSourceUrl = "U"; BugTrackerUrl = "B"; DocsUrl = "W"; Tags = "t1 t2"; IconUrl = "I"; MarketplaceUrl = "M"; Description = "D"; Summary = "S" } }
 
         $pkgDir = Join-Path $env:CHOCO_VSCODE_AUTOMATIC_DIR "vscode-mock"
         [void](New-Item -ItemType Directory -Path $pkgDir)
@@ -68,19 +68,23 @@ Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFact
         Mock Expand-VsCodePayload -MockWith {
             $jsonStr = '{ "extensionDependencies": ["vscode.built-in", "vscode.yaml", "some.other-dep", "test.deps"], "extensionPack": ["peterjausovec.vscode-docker", "unknown.dependency", "vscode.built-in-pack"] }'
             return [PSCustomObject]@{
-                PackageJson = $jsonStr | ConvertFrom-Json
+                PackageJson     = $jsonStr | ConvertFrom-Json
                 TruncatedReadme = "Test"
             }
         }
         Mock Get-VsCodeNuspecMetadata -MockWith {
             return @{
-                Title          = "Title"
-                Authors        = "Authors"
-                ProjectUrl     = "http://project"
-                IconUrl        = "http://icon"
-                MarketplaceUrl = "http://marketplace"
-                Description    = "Desc"
-                Summary        = "Summary"
+                Title            = "T"
+                Authors          = "A"
+                ProjectUrl       = "U"
+                ProjectSourceUrl = "U"
+                BugTrackerUrl    = "B"
+                DocsUrl          = "W"
+                Tags             = "t1 t2"
+                IconUrl          = "http://icon"
+                MarketplaceUrl   = "M"
+                Description      = "D"
+                Summary          = "S"
             }
         }
         Mock Invoke-WebRequest -MockWith { return $true }
@@ -115,7 +119,7 @@ Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFact
             Set-Content -Path $OutFile -Value "wget http://bad"
         }
         Mock Expand-VsCodePayload -MockWith { return @{} }
-        Mock Get-VsCodeNuspecMetadata -MockWith { return @{ Title = "T"; Authors = "A"; ProjectUrl = "U"; IconUrl = "I"; MarketplaceUrl = "M"; Description = "D"; Summary = "S" } }
+        Mock Get-VsCodeNuspecMetadata -MockWith { return @{ Title = "T"; Authors = "A"; ProjectUrl = "U"; ProjectSourceUrl = "U"; BugTrackerUrl = "B"; DocsUrl = "W"; Tags = "t1 t2"; IconUrl = "I"; MarketplaceUrl = "M"; Description = "D"; Summary = "S" } }
 
         & $script:scriptPath -ConfigFile $script:mockConfig -ExtensionId "test.dangerous"
     }
@@ -133,7 +137,7 @@ Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFact
         Mock Get-VsCodeExtensionUrl -MockWith { return "http://vsix" }
         Mock Invoke-RobustDownload -MockWith { Set-Content -Path $OutFile -Value "fake payload" }
         Mock Expand-VsCodePayload -MockWith { return @{} }
-        Mock Get-VsCodeNuspecMetadata -MockWith { return @{ Title = "T"; Authors = "A"; ProjectUrl = "U"; IconUrl = "I"; MarketplaceUrl = "M"; Description = "D"; Summary = "S" } }
+        Mock Get-VsCodeNuspecMetadata -MockWith { return @{ Title = "T"; Authors = "A"; ProjectUrl = "U"; ProjectSourceUrl = "U"; BugTrackerUrl = "B"; DocsUrl = "W"; Tags = "t1 t2"; IconUrl = "I"; MarketplaceUrl = "M"; Description = "D"; Summary = "S" } }
 
         $testConfig = Join-Path $TestDrive "test_config.yaml"
         $yamlContent = @"
@@ -157,7 +161,7 @@ extensions:
         Mock Get-VsCodeExtensionUrl -MockWith { return "http://vsix" }
         Mock Invoke-RobustDownload -MockWith { Set-Content -Path $OutFile -Value "fake payload" }
         Mock Expand-VsCodePayload -MockWith { return @{} }
-        Mock Get-VsCodeNuspecMetadata -MockWith { return @{ Title = "T"; Authors = "A"; ProjectUrl = "U"; IconUrl = "I"; MarketplaceUrl = "M"; Description = "D"; Summary = "S" } }
+        Mock Get-VsCodeNuspecMetadata -MockWith { return @{ Title = "T"; Authors = "A"; ProjectUrl = "U"; ProjectSourceUrl = "U"; BugTrackerUrl = "B"; DocsUrl = "W"; Tags = "t1 t2"; IconUrl = "I"; MarketplaceUrl = "M"; Description = "D"; Summary = "S" } }
 
         & $script:scriptPath -ConfigFile $script:mockConfig -ExtensionId "test.longdesc"
     }

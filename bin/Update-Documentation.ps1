@@ -1,5 +1,6 @@
 #Requires -Version 7.0
 #Requires -Module platyPS
+
 <#
 .SYNOPSIS
     Auto-generates Markdown documentation for all scripts in the repository using platyPS.

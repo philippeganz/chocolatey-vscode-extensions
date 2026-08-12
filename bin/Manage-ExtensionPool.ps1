@@ -1,4 +1,5 @@
 #Requires -Version 7.0
+
 <#
 .SYNOPSIS
     The robust, scriptable CLI for managing the VS Code Extension Pool.

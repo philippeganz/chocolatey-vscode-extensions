@@ -19,7 +19,7 @@ Describe "VsCodeMarketplace API Wrapper" -Tag "Unit", 'VsCodeMarketplace' {
                 "publisher": { "publisherName": "mechatroner" },
                 "statistics": [ { "statisticName": "install", "value": 1000000 } ],
                 "tags": ["csv", "tsv", "highlight"],
-                "versions": [ { "properties": [ { "key": "Microsoft.VisualStudio.Services.Links.Source", "value": "https://github.com/mechatroner/vscode_rainbow_csv" } ], "files": [] } ]
+                "versions": [ { "properties": [ { "key": "Microsoft.VisualStudio.Services.Links.Source", "value": "https://github.com/mechatroner/vscode_rainbow_csv" }, { "key": "Microsoft.VisualStudio.Services.Links.Support", "value": "https://github.com/mechatroner/vscode_rainbow_csv/issues" }, { "key": "Microsoft.VisualStudio.Services.Links.Learn", "value": "https://github.com/mechatroner/vscode_rainbow_csv/wiki" } ], "files": [] } ]
             }' | ConvertFrom-Json
 
             $result = Get-VsCodeNuspecMetadata -ExtMeta $mockMeta -ExtensionPublisher "mechatroner" -ExtensionName "rainbow-csv"
@@ -28,6 +28,10 @@ Describe "VsCodeMarketplace API Wrapper" -Tag "Unit", 'VsCodeMarketplace' {
             $result.Summary | Should -Be "Highlight CSV and TSV files"
             $result.Authors | Should -Be "mechatroner"
             $result.ProjectUrl | Should -Be "https://github.com/mechatroner/vscode_rainbow_csv"
+            $result.ProjectSourceUrl | Should -Be "https://github.com/mechatroner/vscode_rainbow_csv"
+            $result.BugTrackerUrl | Should -Be "https://github.com/mechatroner/vscode_rainbow_csv/issues"
+            $result.DocsUrl | Should -Be "https://github.com/mechatroner/vscode_rainbow_csv/wiki"
+            $result.Tags | Should -Be "vscode extension rainbow-csv csv tsv highlight"
         }
 
         It "Should safely escape XML characters in description and title" {
@@ -382,6 +386,49 @@ Contact me at test@example.com!
             Remove-Item $tempDir -Recurse -Force
             Remove-Item $extractDir -Recurse -Force
             Remove-Item $vsixPath -Force
+        }
+    }
+    Context "Save-VsCodeIcon" {
+        It "should download icon or create dummy" {
+            $tempDir = Join-Path $PSScriptRoot "temp_icon"
+            [void](New-Item -ItemType Directory -Path $tempDir -Force)
+
+            Mock Invoke-RobustDownload -ModuleName VsCodeMarketplace -MockWith { }
+            Save-VsCodeIcon -IconUrl "https://fake" -PackageDir $tempDir -PackageName "test"
+            Should -Invoke -CommandName Invoke-RobustDownload -ModuleName VsCodeMarketplace -Times 1 -Exactly
+
+            # Since mock doesn't create file, it should create dummy
+            Test-Path (Join-Path $tempDir "icon.png") | Should -Be $true
+
+            Remove-Item $tempDir -Recurse -Force
+        }
+    }
+
+    Context "Update-NuspecCDataDescription" {
+        It "should inject CDATA into description node" {
+            $mockNuspec = [xml]@"
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <description>old</description>
+  </metadata>
+</package>
+"@
+            Update-NuspecCDataDescription -NuspecXml $mockNuspec -CDataSafeReadme "new-readme" -ShortDescription "short"
+            $mockNuspec.package.metadata.description.InnerText | Should -Be "`nnew-readme`n"
+        }
+
+        It "should fallback to short description if readme is empty" {
+            $mockNuspec = [xml]@"
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <description>old</description>
+  </metadata>
+</package>
+"@
+            Update-NuspecCDataDescription -NuspecXml $mockNuspec -CDataSafeReadme "" -ShortDescription "short-fallback"
+            $mockNuspec.package.metadata.description.InnerText | Should -Be "`nshort-fallback`n"
         }
     }
 }
