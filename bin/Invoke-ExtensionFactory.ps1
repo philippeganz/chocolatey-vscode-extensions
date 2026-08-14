@@ -75,12 +75,14 @@ $ErrorActionPreference = 'Stop'
 # Load the .NET Compression framework into the AppDomain to enable [System.IO.Compression.ZipFile] for parsing VSIX archive streams.
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
+$ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
+
 # =============================================================================
 # Import Modules
 # =============================================================================
-Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1"
-Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1"
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1"
+Import-Module "$ProjectRoot\lib\CoreHelpers.psm1"
+Import-Module "$ProjectRoot\lib\ConfigHelpers.psm1"
+Import-Module "$ProjectRoot\lib\VsCodeMarketplace.psm1"
 
 # =============================================================================
 # 1. Configuration & Scaffolding
@@ -232,7 +234,7 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     # We take the static scaffolding templates from etc/templates and inject
     # the dynamically resolved metadata to finalize the AU package structure.
     Write-Host "    Rendering AU Templates..."
-    $templatesDir = "$PSScriptRoot\..\etc\templates"
+    $templatesDir = "$ProjectRoot\etc\templates"
 
     $nuspecPath = Join-Path $pkgDir "$packageName.nuspec"
 

@@ -12,7 +12,7 @@
     knows how to update the package.
 
 .EXAMPLE
-    . $PSScriptRoot\..\..\bin\AuExtensionHooks.ps1
+    . \bin\AuExtensionHooks.ps1
 #>
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Write-Host is required for CI/CD logging and workflow orchestration')]
@@ -28,11 +28,13 @@ param()
 # Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
 
+$ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
+
 # =============================================================================
 # Import Modules
 # =============================================================================
 Import-Module au
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global
+Import-Module "$ProjectRoot\lib\VsCodeMarketplace.psm1" -Global
 
 # We bypass the registry checks since these are portable VS Code extensions.
 # Push settings are natively inherited from the global orchestrator.
@@ -195,7 +197,7 @@ function global:au_BeforeUpdate {
     Update-NuspecCDataDescription -NuspecXml $package.NuspecXml -CDataSafeReadme $payloadResult.CDataSafeReadme -ShortDescription $Latest.RawMeta.shortDescription
 
     # Dynamically discover missing dependencies (e.g. extension packs) and auto-queue them to the Factory
-    $configPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\var\state\config.yaml"))
+    $configPath = [System.IO.Path]::GetFullPath((Join-Path $ProjectRoot "var\state\config.yaml"))
     Update-NuspecDependency -NuspecXml $package.NuspecXml -PackageJson $payloadResult.PackageJson -ConfigPath $configPath
 
     Save-NuspecXml -NuspecXml $package.NuspecXml -NuspecPath $nuspecPath

@@ -89,18 +89,20 @@ param (
 # Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
 
+$ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
+
 # =============================================================================
 # Import Modules
 # =============================================================================
-Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1"
-Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1"
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1"
+Import-Module "$ProjectRoot\lib\CoreHelpers.psm1"
+Import-Module "$ProjectRoot\lib\ConfigHelpers.psm1"
+Import-Module "$ProjectRoot\lib\VsCodeMarketplace.psm1"
 
 # =============================================================================
 # 1. State Initialization
 # =============================================================================
 # Load config.yaml safely
-$configPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\var\state\config.yaml"))
+$configPath = [System.IO.Path]::GetFullPath((Join-Path $ProjectRoot "var\state\config.yaml"))
 
 # =============================================================================
 # 2. Execution Logic

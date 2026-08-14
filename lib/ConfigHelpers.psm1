@@ -16,6 +16,8 @@ param()
 # Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
 
+$script:ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
+
 # =============================================================================
 # Import Modules
 # =============================================================================
@@ -152,7 +154,7 @@ function Get-AutomaticDirectory {
     if ($env:CHOCO_VSCODE_AUTOMATIC_DIR) {
         return $env:CHOCO_VSCODE_AUTOMATIC_DIR
     }
-    return [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\automatic"))
+    return [System.IO.Path]::GetFullPath((Join-Path $script:ProjectRoot "automatic"))
 }
 
 Export-ModuleMember -Function Get-ConfigState, Save-ConfigState, Get-ChocoPackageName, Get-AutomaticDirectory

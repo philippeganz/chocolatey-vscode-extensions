@@ -69,13 +69,15 @@ $global:PSNativeCommandArgumentPassing = 'Legacy'
 # Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
 
+$ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
+
 # =============================================================================
 # Import Modules
 # =============================================================================
 Import-Module au
-Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1"
-Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1"
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global
+Import-Module "$ProjectRoot\lib\CoreHelpers.psm1"
+Import-Module "$ProjectRoot\lib\ConfigHelpers.psm1"
+Import-Module "$ProjectRoot\lib\VsCodeMarketplace.psm1" -Global
 
 # -----------------------------------------------------------------------------
 # AU ORCHESTRATOR CONFIGURATION
@@ -154,7 +156,7 @@ function Resolve-PackageDependency {
     .PARAMETER node
     The current node/package being visited in the graph.
 
-.EXAMPLE
+    .EXAMPLE
     Visit "vscode-python"
     #>
     function Visit($node) {
