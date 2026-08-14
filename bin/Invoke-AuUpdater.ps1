@@ -1,5 +1,6 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module au
+
 <#
 .SYNOPSIS
     The core Orchestrator for the Chocolatey Automatic Updater (AU) Engine.
@@ -68,13 +69,14 @@ $global:PSNativeCommandArgumentPassing = 'Legacy'
 # Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
 
+$ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
+
 # =============================================================================
 # Import Modules
 # =============================================================================
-Import-Module au
-Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1"
-Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1"
-Import-Module "$PSScriptRoot\..\lib\VsCodeMarketplace.psm1" -Global
+Import-Module "$ProjectRoot\lib\CoreHelpers.psm1"
+Import-Module "$ProjectRoot\lib\ConfigHelpers.psm1"
+Import-Module "$ProjectRoot\lib\VsCodeMarketplace.psm1" -Global
 
 # -----------------------------------------------------------------------------
 # AU ORCHESTRATOR CONFIGURATION
@@ -118,6 +120,9 @@ An array of package names to resolve.
 
 .OUTPUTS
 An ordered array of package names optimized for dependency-first execution.
+
+.EXAMPLE
+    $ordered = Resolve-PackageDependency -Packages @("vscode-python", "vscode-python-envs")
 #>
 function Resolve-PackageDependency {
     param([string[]]$Packages)
@@ -149,6 +154,9 @@ function Resolve-PackageDependency {
 
     .PARAMETER node
     The current node/package being visited in the graph.
+
+    .EXAMPLE
+    Visit "vscode-python"
     #>
     function Visit($node) {
         if ($tempMark[$node]) { return } # Cycle detected, gracefully break

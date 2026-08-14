@@ -1,4 +1,5 @@
 #Requires -Version 7.0
+
 <#
 .SYNOPSIS
     The Execution Engine for safely removing VS Code extensions from the pool.
@@ -48,11 +49,13 @@ param (
 # Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
 
+$ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
+
 # =============================================================================
 # Import Modules
 # =============================================================================
-Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1"
-Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1"
+Import-Module "$ProjectRoot\lib\CoreHelpers.psm1"
+Import-Module "$ProjectRoot\lib\ConfigHelpers.psm1"
 
 # =============================================================================
 # 1. State Initialization

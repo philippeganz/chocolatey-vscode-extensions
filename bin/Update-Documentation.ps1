@@ -1,5 +1,6 @@
 #Requires -Version 7.0
 #Requires -Module platyPS
+
 <#
 .SYNOPSIS
     Auto-generates Markdown documentation for all scripts in the repository using platyPS.
@@ -33,13 +34,15 @@ param()
 # Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
 
+$ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
+
 # =============================================================================
 # Import Modules
 # =============================================================================
-Import-Module "$PSScriptRoot\..\lib\CoreHelpers.psm1"
+Import-Module "$ProjectRoot\lib\CoreHelpers.psm1"
 Import-Module platyPS
 
-$docsDir = "$PSScriptRoot\..\docs\reference"
+$docsDir = "$ProjectRoot\docs\reference"
 if (-not (Test-Path $docsDir)) {
     [void](New-Item -ItemType Directory -Path $docsDir -Force)
 }

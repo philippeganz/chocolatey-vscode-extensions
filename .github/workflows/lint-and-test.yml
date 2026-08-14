@@ -166,7 +166,7 @@ jobs:
 
           # Enable Code Coverage Profiling
           $config.CodeCoverage.Enabled = $true
-          $config.CodeCoverage.Path = @('./bin/*.ps1', './lib/*.psm1')
+          $config.CodeCoverage.Path = @('./bin/*.ps1', './lib/*.psm1', './lib/VsCodeMarketplace/*/*.ps1')
           $config.CodeCoverage.OutputFormat = 'Cobertura'
           $config.CodeCoverage.OutputPath = Join-Path $PWD 'coverage.xml'
 
