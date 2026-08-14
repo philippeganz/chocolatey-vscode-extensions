@@ -1,5 +1,6 @@
 ---
 extensions:
+  - alefragnani.bookmarks
   - alefragnani.project-manager
   - angular.ng-template
   - anthropic.claude-code

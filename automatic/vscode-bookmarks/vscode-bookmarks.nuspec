@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-bookmarks</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Bookmarks</title>
+    <authors>alefragnani</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/alefragnani/vscode-bookmarks.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/alefragnani/vscode-bookmarks</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/alefragnani/vscode-bookmarks/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/alefragnani/vscode-bookmarks/blob/master/README.md</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-bookmarks/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/alefragnani.bookmarks/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+
+  
+
+  <a title="Learn more about Bookmarks" href="http://github.com/alefragnani/vscode-bookmarks"></a>
+
+
+# What's new in Bookmarks 14.1
+
+* Adds **Export** support
+* Improved **Side Bar**
+* Improved **Labeled Bookmark**
+* Fully Open Source again
+* Adds **Persian**, **French**, **Hindi** and **Polish** translations
+* Setting to customize overview ruler lane
+* Published to **Open VSX**
+
+# Support
+
+**Bookmarks** is an extension created for **Visual Studio Code**. If you find it useful, please consider supporting it.
+
+<table align="center" width="60%" border="0">
+  <tr>
+    <td>
+      <a title="Paypal" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=EP57F3B6FXKTU&lc=US&item_name=Alessandro%20Fragnani&item_number=vscode%20extensions&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted"></a>
+    </td>
+    <td>
+      <a title="GitHub Sponsors" href="https://github.com/sponsors/alefragnani"></a>
+    </td>
+    <td>
+      <a title="Patreon" href="https://www.patreon.com/alefragnani"></a>
+    </td>
+  </tr>
+</table>
+
+# Bookmarks
+
+It helps you to navigate in your code, moving between important positions easily and quickly. _No more need to search for code._ It also supports a set of **selection** commands, which allows you to select bookmarked lines and regions between bookmarked lines. It's really useful for log file analysis.
+
+Here are some of the features that **Bookmarks** provides:
+
+* **Mark/unmark positions** in your code
+* Mark positions in your code and **give it name**
+* **Jump** forward and backward between bookmarks
+* Icons in **gutter** and **overview ruler**
+* See a list of all Bookmarks in one **file** and **project**
+* **Select lines** and **regions** with bookmarks
+* A dedicated **Side Bar**
+
+# Features
+
+## Available commands
+
+* `Bookmarks: Toggle` Mark/unmark positions with bookmarks
+* `Bookmarks: Toggle Labeled` Mark labeled bookmarks
+* `Bookmarks: Jump to Next` Move the cursor forward, to the bookmark below
+* `Bookmarks: Jump to Previous` Move the cursor backward, to the bookmark above
+* `Bookmarks: List` List all bookmarks in the current file
+* `Bookmarks: List from All Files` List all bookmarks from all files
+* `Bookmarks: Clear` remove all bookmarks in the current file
+* `Bookmarks: Clear from All Files` remove all bookmarks from all files
+* `Bookmarks: Export` Export all bookmarks to a Markdown document with customizable format
+* `Bookmarks (Selection): Select Lines` Select all lines that contains bookmarks
+* `Bookmarks (Selection): Expand Selection to Next` Expand the selected text to the next bookmark
+* `Bookmarks (Selection): Expand Selection to Previous` Expand the selected text to the previous bookmark
+* `Bookmarks (Selection): Shrink Selection` Shrink the select text to the Previous/Next bookmark
+
+## Manage your bookmarks
+
+### Toggle / Toggle Labeled
+
+You can easily Mark/Unmark bookmarks on any position. You can even define **Labels** for each bookmark.
+
+![Toggle](https://github.com/alefragnani/vscode-bookmarks/raw/HEAD/images/printscreen-toggle.png)
+
+## Navigation
+
+### Jump to Next / Previous
+
+Quicky move between bookmarks backward and forward, even if located outside the active file.
+
+### List / List from All Files
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks) for full documentation]
+]]></description>
+    <summary>Mark lines and jump to them</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=alefragnani.bookmarks#changelog</releaseNotes>
+    <tags>vscode extension bookmarks</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
