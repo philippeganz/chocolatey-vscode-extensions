@@ -431,4 +431,25 @@ Contact me at test@example.com!
             $mockNuspec.package.metadata.description.InnerText | Should -Be "`nshort-fallback`n"
         }
     }
+
+    Context "Update-VsCodeNuspecMetadata edge cases" {
+        It "should fallback to packageSourceUrl when inserting BugTrackerUrl and DocsUrl" {
+            $mockNuspec = "<?xml version='1.0'?><package><metadata><packageSourceUrl>test</packageSourceUrl></metadata></package>"
+            $mockMeta = @{
+                BugTrackerUrl = "https://bug.url"
+                DocsUrl       = "https://doc.url"
+            }
+            $result = Update-VsCodeNuspecMetadata -NuspecContent $mockNuspec -Meta $mockMeta
+            $result | Should -Match "<bugTrackerUrl>https://bug.url</bugTrackerUrl>"
+            $result | Should -Match "<docsUrl>https://doc.url</docsUrl>"
+        }
+        It "should fallback to projectSourceUrl when inserting DocsUrl" {
+            $mockNuspec = "<?xml version='1.0'?><package><metadata><projectSourceUrl>test</projectSourceUrl></metadata></package>"
+            $mockMeta = @{
+                DocsUrl = "https://doc.url"
+            }
+            $result = Update-VsCodeNuspecMetadata -NuspecContent $mockNuspec -Meta $mockMeta
+            $result | Should -Match "<docsUrl>https://doc.url</docsUrl>"
+        }
+    }
 }
