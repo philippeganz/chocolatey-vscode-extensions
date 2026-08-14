@@ -112,6 +112,7 @@ extensions:
   - msjsdiag.vscode-react-native
   - mtxr.sqltools
   - naumovs.color-highlight
+  - onecentlin.laravel-blade
   - openai.chatgpt
   - oracle.mysql-shell-for-vs-code
   - oracle.oracle-java
