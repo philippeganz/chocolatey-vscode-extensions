@@ -68,7 +68,7 @@ flowchart TD
 - `.github/workflows/`: Contains the AU CI/CD pipelines (which natively run `Invoke-AuUpdater.ps1` and inject granular git commits), testing pipelines, and the MkDocs GitHub Pages deployment pipeline.
 - `automatic/`: Contains the AU templates for every managed extension. **(All packages use an optimized 3-line stub pattern instead of bloated scripts, pointing to a shared logic engine).**
 - `bin/`: Contains the core executable engineering scripts (Factory, Updater, Documentation Generators).
-- `lib/`: Contains shared PowerShell modules (e.g., `VsCodeMarketplace.psm1`) that power both the Factory and the AU Engine.
+- `lib/`: Contains shared PowerShell modules (e.g., the `VsCodeMarketplace` library) that power both the Factory and the AU Engine.
 - `docs/`: Houses the MkDocs Material site and the auto-generated PlatyPS Markdown reference documentation.
 - `tests/`: Holds the comprehensive Pester 6 test suites that validate the entire lifecycle engine during CI/CD execution.
 - `var/state/`: Embraces the Linux FHS (Filesystem Hierarchy Standard) convention to cleanly separate dynamic runtime state and tracking files from the underlying execution logic.
@@ -106,9 +106,9 @@ It sweeps the repository daily, triggering the native Chocolatey Automatic Updat
 - **Source of Truth Enforcement:** By explicitly enabling `$global:au_NoCheckChocoVersion = $true`, the orchestrator completely ignores the Chocolatey Registry. It forces local versions to sync exclusively with the VS Code Marketplace.
 - **Granular Git Pipeline:** AU does not manage Git natively. The GitHub Action loops over `git status --porcelain` after AU finishes, executing individual commits for every modified package and pushing them natively via a repository PAT.
 
-### 5. The Logic Engine: `AuExtensionHooks.ps1` & `VsCodeMarketplace.psm1`
+### 5. The Logic Engine: `AuExtensionHooks.ps1` & the `VsCodeMarketplace` Library
 
-This is where the magic happens. Rather than duplicating logic, both the Factory and the AU hooks pull from a suite of centralized data-driven helpers in `VsCodeMarketplace.psm1` (specifically `Expand-VsCodePayload`, `Get-VsCodeNuspecMetadata`, `Update-NuspecCDataDescription`, `Update-NuspecDependency`, `Save-NuspecXml`, and `Save-VsCodeIcon`).
+This is where the magic happens. Rather than duplicating logic, both the Factory and the AU hooks pull from a suite of centralized, modularized data-driven helpers in the `VsCodeMarketplace` library (specifically `Expand-VsCodePayload`, `Get-VsCodeNuspecMetadata`, `Update-NuspecCDataDescription`, `Update-NuspecDependency`, `Save-NuspecXml`, and `Save-VsCodeIcon`).
 
 - During an update, `au_BeforeUpdate` dynamically rips the newest `README.md` and `package.json` from the payload.
 - It safely truncates massive READMEs and relies on `Update-NuspecCDataDescription` to isolate the HTML inside native XML CDATA wrappers.
