@@ -451,5 +451,13 @@ Contact me at test@example.com!
             $result = Update-VsCodeNuspecMetadata -NuspecContent $mockNuspec -Meta $mockMeta
             $result | Should -Match "<docsUrl>https://doc.url</docsUrl>"
         }
+        It "should fallback to packageSourceUrl when inserting DocsUrl only" {
+            $mockNuspec = "<?xml version='1.0'?><package><metadata><packageSourceUrl>test</packageSourceUrl></metadata></package>"
+            $mockMeta = @{
+                DocsUrl = "https://doc.url"
+            }
+            $result = Update-VsCodeNuspecMetadata -NuspecContent $mockNuspec -Meta $mockMeta
+            $result | Should -Match "<docsUrl>https://doc.url</docsUrl>"
+        }
     }
 }
