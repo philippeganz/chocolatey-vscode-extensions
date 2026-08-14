@@ -45,6 +45,7 @@ extensions:
   - hashicorp.hcl
   - hashicorp.sentinel
   - hashicorp.terraform
+  - james-yu.latex-workshop
   - jeff-hykin.better-cpp-syntax
   - johnpapa.angular2
   - kevinrose.vsc-python-indent
