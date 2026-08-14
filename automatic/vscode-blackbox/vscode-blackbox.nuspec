@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-blackbox</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - BLACKBOXAI #1 AI Coding Agent and Coding Copilot</title>
+    <authors>Blackboxapp</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://marketplace.visualstudio.com/items?itemName=blackboxapp.blackbox</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <bugTrackerUrl>https://www.useblackbox.io/</bugTrackerUrl>
+    <docsUrl>https://www.useblackbox.io/</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-blackbox/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/blackboxapp.blackbox/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# BLACKBOX AI for VS Code
+
+## Claude Code, Codex, Gemini, Blackbox. All Agents in One.
+
+Blackbox unifies every major AI agent into one powerful platform. One subscription. One workflow. Unlimited possibilities. Join +30M builders on BLACKBOX.
+
+---
+
+- **All agents, one place:** Run Claude Code, Codex, Gemini, Goose, OpenCode, and 15+ coding agents from a single interface — no tab switching, no separate subscriptions
+- **Judge layer picks the best result:** Dispatch your task to every agent simultaneously. BLACKBOX evaluates every output and selects the highest-quality implementation automatically
+- **Autonomous end-to-end execution:** The agent reads your codebase, writes code, runs terminal commands, reads the output, and self-corrects until it ships working software
+- **300+ models:** Claude Sonnet 4.6, GPT-5.4, Gemini 3.1 Pro, Minimax-M2.5, Kimi-K2.5, GLM-5, and more — all accessible from one extension
+- **15+ coding agents:** Claude Code, Codex, Gemini, Goose, OpenCode, and more — orchestrated together or run head-to-head
+- **Orchestration:** Multiple agents work concurrently on different parts of your codebase — one writes, another reviews, another optimizes — results merged automatically
+- **Browser Tool:** The agent launches a real browser, navigates your app, clicks elements, captures screenshots, and verifies its own implementation in real time
+- **Blackbox Skills:** Reusable, shareable expert workflows packaged as Skills — version-controlled in your repo, invoked autonomously by the agent
+- **Controllable autonomy:** Granular per-operation approval controls for file edits, file creation, command execution, and file reads
+- **Free. No credit card.** Connect your BLACKBOX AI account and start coding in under 30 seconds
+
+---
+
+## WHAT IS BLACKBOX AI?
+
+Every major AI lab is building its own coding agent. Claude Code. Codex. Gemini. Goose. OpenCode. Each one powerful. Each one isolated. Each requiring its own subscription and workflow.
+
+BLACKBOX AI is the orchestration layer that brings them all together. Not another agent — **the platform that makes all agents better.**
+
+Run every agent on the same task simultaneously. A judge layer evaluates every output and selects the best result. Or design sequential pipelines where agents collaborate step-by-step — one writes, another reviews, another optimizes. The result: software shipped faster, cheaper, and at 10X the quality of any single agent alone.
+
+---
+
+## ORCHESTRATION
+
+[![](https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/intro-demo.gif)]()
+
+Dispatch your task to Claude Code, Codex, Gemini, Goose, OpenCode, and BLACKBOX simultaneously. Each agent implements it differently. The judge layer evaluates every result and selects the best implementation for you. You get the output of every major agent for the effort of 1 prompt.
+
+---
+
+## FILE SELECTION
+
+[![](https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/file-selection.png)]()
+
+Add files, folders, Git commits, web URLs, and screenshots directly into your conversation. BLACKBOX AI understands your entire project — not just the file you have open.
+
+---
+
+## MODEL SELECTION
+
+[![](https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/model-selection.png)]()
+
+Switch between 300+ models in one click. Claude Sonnet 4.6, GPT-5.4, Gemini 3.1 Pro, Minimax-M2.5, Kimi-K2.5, GLM-5 — use the right model for every job, or let the judge layer decide.
+
+---
+
+## RUN COMMANDS
+
+[![](https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/run-command.png)]()
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=Blackboxapp.blackbox) for full documentation]
+]]></description>
+    <summary>BLACKBOX AI is an AI coding assistant that helps developers  by providing real-time code completion, documentation, and debugging suggestions. BLACKBOX AI is also integrated with a variety of developer tools such as Github Gitlab among others, making it easy to use within your existing workflow.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=blackboxapp.blackbox#changelog</releaseNotes>
+    <tags>vscode extension blackbox</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

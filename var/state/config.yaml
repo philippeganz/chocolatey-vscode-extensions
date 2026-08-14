@@ -4,6 +4,7 @@ extensions:
   - angular.ng-template
   - anthropic.claude-code
   - batisteo.vscode-django
+  - blackboxapp.blackbox
   - bmewburn.vscode-intelephense-client
   - bradlc.vscode-tailwindcss
   - burkeholland.simple-react-snippets
