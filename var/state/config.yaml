@@ -2,6 +2,7 @@
 extensions:
   - alefragnani.bookmarks
   - alefragnani.project-manager
+  - amazonwebservices.aws-toolkit-vscode
   - angular.ng-template
   - anthropic.claude-code
   - batisteo.vscode-django

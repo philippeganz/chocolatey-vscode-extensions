@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=amazonwebservices.aws-toolkit-vscode
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\amazonwebservices.aws-toolkit-vscode-4.13.0.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: 4A4D6F428EDA29B20557CC0F03B192B299DC9FDFAD0BB902826EF25A41AEE2B3
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/amazonwebservices.aws-toolkit-vscode/license
