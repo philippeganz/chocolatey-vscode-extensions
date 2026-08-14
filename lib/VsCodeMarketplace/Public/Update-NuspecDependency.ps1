@@ -1,3 +1,5 @@
+#Requires -Module powershell-yaml
+
 <#
 .SYNOPSIS
     Dynamically updates the Chocolatey .nuspec XML to append discovered extension dependencies.
@@ -41,8 +43,6 @@ function Update-NuspecDependency {
         [object]$PackageJson,
         [Parameter(Mandatory = $true)][string]$ConfigPath
     )
-
-    Import-Module powershell-yaml
 
     $dependencyAliases = @{
         "vscode.docker"               = "ms-azuretools.vscode-docker"

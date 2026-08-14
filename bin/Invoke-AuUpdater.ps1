@@ -74,7 +74,6 @@ $ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
 # =============================================================================
 # Import Modules
 # =============================================================================
-Import-Module au
 Import-Module "$ProjectRoot\lib\CoreHelpers.psm1"
 Import-Module "$ProjectRoot\lib\ConfigHelpers.psm1"
 Import-Module "$ProjectRoot\lib\VsCodeMarketplace.psm1" -Global

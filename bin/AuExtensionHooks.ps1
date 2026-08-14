@@ -33,7 +33,6 @@ $ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
 # =============================================================================
 # Import Modules
 # =============================================================================
-Import-Module au
 Import-Module "$ProjectRoot\lib\VsCodeMarketplace.psm1" -Global
 
 # We bypass the registry checks since these are portable VS Code extensions.

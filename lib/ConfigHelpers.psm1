@@ -22,7 +22,6 @@ $script:ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
 # Import Modules
 # =============================================================================
 Import-Module "$PSScriptRoot\CoreHelpers.psm1" -ErrorAction SilentlyContinue
-Import-Module powershell-yaml
 
 <#
 .SYNOPSIS
