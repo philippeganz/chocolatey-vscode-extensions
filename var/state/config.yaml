@@ -129,6 +129,7 @@ extensions:
   - redhat.vscode-yaml
   - ritwickdey.liveserver
   - rust-lang.rust-analyzer
+  - saoudrizwan.claude-dev
   - shd101wyy.markdown-preview-enhanced
   - shopify.ruby-lsp
   - streetsidesoftware.code-spell-checker
