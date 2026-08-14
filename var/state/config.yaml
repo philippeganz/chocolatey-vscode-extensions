@@ -41,6 +41,7 @@ extensions:
   - hashicorp.sentinel
   - hashicorp.terraform
   - jeff-hykin.better-cpp-syntax
+  - johnpapa.angular2
   - kevinrose.vsc-python-indent
   - mechatroner.rainbow-csv
   - ms-azuretools.vscode-azurefunctions

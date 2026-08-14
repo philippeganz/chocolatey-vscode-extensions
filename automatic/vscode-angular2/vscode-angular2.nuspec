@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-angular2</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Angular Snippets (Version 22)</title>
+    <authors>johnpapa</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/johnpapa/vscode-angular-snippets.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/johnpapa/vscode-angular-snippets</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/johnpapa/vscode-angular-snippets/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/johnpapa/vscode-angular-snippets#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-angular2/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/johnpapa.angular2/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Angular TypeScript Snippets for VS Code
+
+[AI Ready project](https://github.com/johnpapa/ai-ready)
+
+**Updated for Angular 22 release**
+
+This extension for Visual Studio Code adds snippets for Angular for TypeScript and HTML.
+
+![Use Extension](https://github.com/johnpapa/vscode-angular-snippets/raw/HEAD/images/use-extension.gif)
+
+See the [CHANGELOG](https://github.com/johnpapa/vscode-angular-snippets/blob/HEAD/CHANGELOG.md) for the latest changes
+
+## Angular Essentials
+
+Check out the [Angular Essentials extension](https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials&WT.mc_id=javascript-0000-jopapa) for more great extensions for developing with JavaScript and Angular.
+
+## Usage
+
+Type part of a snippet, press `enter`, and the snippet unfolds.
+
+Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to activate snippets from within the editor.
+
+### TypeScript Angular Snippets
+
+| Snippet                      | Purpose                                                              |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `a-component`                | component                                                            |
+| `a-component-standalone`     | standalone component                                                 |
+| `a-component-inline`         | component with inline template                                       |
+| `a-component-root`           | root app component                                                   |
+| `a-ctor-skip-self`           | angular `NgModule`'s `skipself` constructor                          |
+| `a-directive`                | directive                                                            |
+| `a-guard-can-activate`       | `CanActivateFn` guard                                                |
+| `a-guard-can-activate-child` | `CanActivateChildFn` guard                                             |
+| `a-guard-can-deactivate`     | `CanDeactivate` guard                                                |
+| `a-guard-can-match`          | `CanMatch` guard                                                     |
+| `a-httpclient-get`           | `httpClient.get` with Rx Observable                                  |
+| `a-http-interceptor`         | Empty Angular `HttpInterceptor` for `HttpClient`                     |
+| `a-http-interceptor-headers` | Angular `HttpInterceptor` that sets headers for `HttpClient`         |
+| `a-http-interceptor-logging` | Angular `HttpInterceptor` that logs traffic for `HttpClient`         |
+| `a-module`                   | module                                                               |
+| `a-module-root`              | root app module                                                      |
+| `a-output-event`             | `@Output` event and emitter                                          |
+| `a-pipe`                     | pipe                                                                 |
+| `a-preload-opt-in-strategy`  | custom preload strategy that allows choosing which routes to preload |
+| `a-preload-network-strategy` | custom preload strategy that preloads based on network connectivity  |
+| `a-resolver`                 | resolver                                                             |
+| `a-routes`                   | Route definition file                                                |
+| `a-rxjs-import`              | import RxJs features                                                 |
+| `a-rxjs-operator-import`     | import RxJs operators                                                |
+| `a-route-path-404`           | 404 route path                                                       |
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2) for full documentation]
+]]></description>
+    <summary>Angular version 22 snippets by John Papa</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=johnpapa.angular2#changelog</releaseNotes>
+    <tags>vscode extension angular2</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
