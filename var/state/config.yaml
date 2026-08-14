@@ -39,6 +39,7 @@ extensions:
   - github.vscode-github-actions
   - github.vscode-pull-request-github
   - golang.go
+  - google.geminicodeassist
   - grapecity.gc-excelviewer
   - hashicorp.hcl
   - hashicorp.sentinel
