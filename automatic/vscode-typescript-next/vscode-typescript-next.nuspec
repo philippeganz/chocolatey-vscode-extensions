@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-typescript-next</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/vscode-typescript-next.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/microsoft/vscode-typescript-next</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/microsoft/vscode-typescript-next/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/microsoft/vscode-typescript-next#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-typescript-next/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.vscode-typescript-next/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -37,7 +40,7 @@ Note that this extension also includes the [latest JavaScript and TypeScript gra
 ]]></description>
     <summary>Enables typescript@next to power VS Code's built-in JavaScript and TypeScript support</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next#changelog</releaseNotes>
-    <tags>vscode extension typescript-next</tags>
+    <tags>vscode extension vscode-typescript-next</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>

@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\ms-vscode.vscode-typescript-next-6.0.20260416.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: FE5BCFDDAD882783E1C1386FC7427CC0371C876B5ED84CECF2FD0B87D0396E98
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/ms-vscode.vscode-typescript-next/license

@@ -19,4 +19,3 @@ To make sure you are using `typescript@next`:
 1. Make sure you have `Use VS Code's version` selected
 
 Note that this extension also includes the [latest JavaScript and TypeScript grammar](https://github.com/microsoft/TypeScript-TmLanguage).
-
