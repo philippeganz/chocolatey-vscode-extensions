@@ -36,11 +36,4 @@ if (Test-Path $publicDir) {
     }
 }
 
-$privateDir = Join-Path $PSScriptRoot "VsCodeMarketplace\Private"
-if (Test-Path $privateDir) {
-    Get-ChildItem -Path $privateDir -Filter "*.ps1" | ForEach-Object {
-        . $_.FullName
-    }
-}
-
 Export-ModuleMember -Function Get-VsCodeMarketplaceMetadata, Get-VsCodeExtensionUrl, Invoke-RobustDownload, Expand-VsCodePayload, Update-NuspecDependency, Get-VsCodeNuspecMetadata, New-VerificationFile, Update-VsCodeNuspecMetadata, Save-VsCodeIcon, Update-NuspecCDataDescription, Save-NuspecXml
