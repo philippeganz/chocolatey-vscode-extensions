@@ -1,10 +1,11 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 Describe "Invoke-ExtensionFactory.ps1" -Tag "Integration", 'Invoke-ExtensionFactory' {
     BeforeAll {
         $script:scriptPath = "$PSScriptRoot\..\bin\Invoke-ExtensionFactory.ps1"
         $script:mockConfig = Join-Path $TestDrive "mock_config.yaml"
         Set-Content -Path $script:mockConfig -Value "---\nextensions:`n  - ms-python.python"
+        $env:CHOCO_VSCODE_MAX_RETRIES = 1
     }
 
     BeforeEach {
@@ -164,5 +165,9 @@ extensions:
         Mock Get-VsCodeNuspecMetadata -MockWith { return @{ Title = "T"; Authors = "A"; ProjectUrl = "U"; ProjectSourceUrl = "U"; BugTrackerUrl = "B"; DocsUrl = "W"; Tags = "t1 t2"; IconUrl = "I"; MarketplaceUrl = "M"; Description = "D"; Summary = "S" } }
 
         & $script:scriptPath -ConfigFile $script:mockConfig -ExtensionId "test.longdesc"
+    }
+
+    AfterAll {
+        Remove-Item Env:\CHOCO_VSCODE_MAX_RETRIES -ErrorAction SilentlyContinue
     }
 }

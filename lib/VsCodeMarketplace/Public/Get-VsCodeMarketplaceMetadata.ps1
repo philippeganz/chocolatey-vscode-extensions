@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Fetches the raw JSON metadata payload for a specific extension from the VS Code Marketplace API.
 
@@ -61,7 +61,7 @@ function Get-VsCodeMarketplaceMetadata {
     $success = $false
     $res = $null
 
-    $maxRetries = 5
+    $maxRetries = if ($env:CHOCO_VSCODE_MAX_RETRIES) { [int]$env:CHOCO_VSCODE_MAX_RETRIES } else { 5 }
     while (-not $success -and $retryCount -lt $maxRetries) {
         try {
             $res = Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers

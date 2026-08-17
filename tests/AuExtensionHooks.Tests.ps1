@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
@@ -11,6 +11,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
         $script:hooksPath = "$PSScriptRoot\..\bin\AuExtensionHooks.ps1"
         $script:mockConfig = Join-Path $PSScriptRoot "mock_config.yaml"
         $script:mockRepo = Join-Path $PSScriptRoot "mock_repo"
+        $env:CHOCO_VSCODE_MAX_RETRIES = 1
 
         "---`nextensions:`n  - ms-python.python`n" | Set-Content $script:mockConfig -Encoding UTF8
         [void](New-Item -ItemType Directory -Path $script:mockRepo -Force)
@@ -36,6 +37,7 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
         Remove-Item $script:mockConfig -Force -ErrorAction SilentlyContinue
         Remove-Item $script:mockRepo -Recurse -Force -ErrorAction SilentlyContinue
         Remove-Item Env:\CHOCO_VSCODE_AUTOMATIC_DIR -ErrorAction SilentlyContinue
+        Remove-Item Env:\CHOCO_VSCODE_MAX_RETRIES -ErrorAction SilentlyContinue
     }
 
     Context "au_GetLatest" {

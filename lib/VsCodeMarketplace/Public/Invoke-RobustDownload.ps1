@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Wraps Invoke-WebRequest with robust, auto-healing retry logic to survive CDN rate-limits and timeouts.
 
@@ -34,7 +34,7 @@ function Invoke-RobustDownload {
     Write-White "    Downloading VSIX Payload..."
     $retryCount = 0
     $success = $false
-    $maxRetries = 5
+    $maxRetries = if ($env:CHOCO_VSCODE_MAX_RETRIES) { [int]$env:CHOCO_VSCODE_MAX_RETRIES } else { 5 }
     while (-not $success -and $retryCount -lt $maxRetries) {
         try {
             Invoke-WebRequest -Uri $Url -OutFile $OutFile -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600
