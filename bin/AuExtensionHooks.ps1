@@ -207,6 +207,24 @@ function global:au_BeforeUpdate {
     # =========================================================================
     # Guarantee icon.png exists to prevent choco pack validation failures (every nuspec includes icon.png in <files>)
     Save-VsCodeIcon -IconUrl $Latest.MarketplaceIconUrl -PackageDir $package.Path -PackageName $package.Name
+
+    # Temporarily hide README.md so AU doesn't dynamically inject it into the nuspec description
+    # and bypass our 4000-character truncation logic. We restore it in au_AfterUpdate.
+    $readmePath = Join-Path $package.Path "README.md"
+    $hiddenReadmePath = Join-Path $package.Path "README.md.bak"
+    if (Test-Path $readmePath) {
+        Move-Item $readmePath $hiddenReadmePath -Force
+    }
+}
+
+function global:au_AfterUpdate {
+    param($package)
+    # Restore the README.md after AU has safely finished generating the .nuspec
+    $readmePath = Join-Path $package.Path "README.md"
+    $hiddenReadmePath = Join-Path $package.Path "README.md.bak"
+    if (Test-Path $hiddenReadmePath) {
+        Move-Item $hiddenReadmePath $readmePath -Force
+    }
 }
 
 <#
