@@ -136,7 +136,6 @@ extensions:
   - shd101wyy.markdown-preview-enhanced
   - shopify.ruby-lsp
   - streetsidesoftware.code-spell-checker
-  - tabnine.tabnine-vscode
   - tim-koehler.helm-intellisense
   - timonwong.shellcheck
   - tomoki1207.pdf
