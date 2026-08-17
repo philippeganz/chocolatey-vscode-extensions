@@ -35,10 +35,6 @@ $ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
 # =============================================================================
 Import-Module "$ProjectRoot\lib\VsCodeMarketplace.psm1" -Global
 
-# We bypass the registry checks since these are portable VS Code extensions.
-# Push settings are natively inherited from the global orchestrator.
-$global:au_NoCheckRegistry = $true
-
 # WARNING: The Chocolatey AU module relies on legacy PowerShell 5.1 native command argument parsing.
 # When pushing packages, AU evaluates empty string flags ($force_push = ''). In PowerShell 7,
 # empty strings are explicitly passed to choco.exe, causing choco to misinterpret the empty string
@@ -107,6 +103,11 @@ function global:au_GetLatest {
         URL64              = $vsixUrl
         MarketplaceIconUrl = $iconUrl
         RawMeta            = $ext
+        Options            = @{
+            NoCheckUrl          = $true
+            NoCheckRegistry     = $true
+            NoCheckChocoVersion = $true
+        }
     }
 }
 

@@ -99,12 +99,6 @@ $opts = [ordered]@{
     NoCheckChocoVersion = $true
 }
 
-# Disable AU's primitive `.NET` URL pre-check. The VS Code Marketplace heavily throttles
-# basic automated HTTP requests, which causes AU to crash with a `503 Service Unavailable`
-# before the update even begins. We disable this because our `Invoke-RobustDownload`
-# function handles payload acquisition using properly spoofed VS Code telemetry headers.
-$global:au_NoCheckURL = $true
-
 
 if ($PushUrl) {
     $env:au_PushUrl = $PushUrl
