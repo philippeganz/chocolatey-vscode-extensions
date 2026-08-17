@@ -23,9 +23,9 @@ Describe "VSCode Extensions Chocolatey Workflow" -Tag "E2E", 'Workflow' {
 
         $script:binDir = Join-Path $script:repoRoot "bin"
         $script:configPath = Join-Path $script:repoRoot "var\state\config.yaml"
-        $script:publisher = "mechatroner"
-        $script:extName = "rainbow-csv"
-        $script:packageName = "vscode-rainbow-csv"
+        $script:publisher = "johnpapa"
+        $script:extName = "angular2"
+        $script:packageName = "vscode-angular2"
 
         # Isolate the Packages Directory to a temp folder parallel to bin so relative paths in AU templates still work
         $script:realPackagesDir = Join-Path $script:repoRoot "test_automatic"
@@ -61,6 +61,9 @@ extensions:
             Remove-Item $script:realPackagesDir -Recurse -Force
         }
         Remove-Item Env:\CHOCO_VSCODE_AUTOMATIC_DIR -ErrorAction SilentlyContinue
+
+        # 3. Cleanup Artifacts
+        Get-ChildItem -Path $script:repoRoot -Filter "out_artifacts*" -Directory | Remove-Item -Recurse -Force
     }
 
     Context "1. Add a Package (Manage-ExtensionPool.ps1)" {
@@ -86,7 +89,7 @@ extensions:
     Context "2. Update the Package (Invoke-AuUpdater.ps1)" {
         It "Should run the AU updater and update metadata/binaries" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
-            $outDir = Join-Path $script:realPackagesDir "out_artifacts"
+            $outDir = Join-Path $script:repoRoot "out_artifacts"
             & $script -ForcedPackages $script:packageName -OutputDir $outDir
         }
 
@@ -118,7 +121,7 @@ extensions:
     Context "3. Search for an Extension (Manage-ExtensionPool.ps1)" {
         It "Should successfully search the VS Code Marketplace API" {
             $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
-            $output = & $script -Search "mechatroner.rainbow-csv"
+            $output = & $script -Search "johnpapa.angular2"
             $output | Should -Not -BeNullOrEmpty
         }
     }
@@ -153,7 +156,7 @@ extensions:
     Context "4.6 Search for a package (Manage-ExtensionPool.ps1)" {
         It "Should successfully search the marketplace" {
             $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
-            & $script -Search "rainbow-csv"
+            & $script -Search "angular2"
         }
     }
 
@@ -163,7 +166,7 @@ extensions:
             # Invalid ID Format
             & $script -Add "invalidformat"
             # Already tracked
-            & $script -Add "mechatroner.rainbow-csv"
+            & $script -Add "johnpapa.angular2"
             # Does not exist API
             & $script -Add "fake.does-not-exist"
         }
@@ -172,7 +175,7 @@ extensions:
     Context "4.1 Moderation Repush (Invoke-AuUpdater.ps1)" {
         It "Should successfully run moderation repush bypass" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
-            $outDir = Join-Path $script:realPackagesDir "out_artifacts_2"
+            $outDir = Join-Path $script:repoRoot "out_artifacts_2"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
             & $script -ModerationRepush $script:packageName -OutputDir $outDir
 
@@ -182,14 +185,14 @@ extensions:
 
         It "Should successfully parse @version and build older specific version" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
-            $outDir = Join-Path $script:realPackagesDir "out_artifacts_3"
+            $outDir = Join-Path $script:repoRoot "out_artifacts_3"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
 
-            # Using an older specific version of rainbow-csv to test override functionality
-            & $script -ModerationRepush "$script:packageName@3.24.0" -OutputDir $outDir
+            # Using a specific version of angular2 to test override functionality
+            & $script -ModerationRepush "$script:packageName@22.0.0" -OutputDir $outDir
 
             $nuspec = [xml](Get-Content (Join-Path $script:pkgDir "$script:packageName.nuspec"))
-            $nuspec.package.metadata.version | Should -Be "3.24.0"
+            $nuspec.package.metadata.version | Should -Be "22.0.0"
         }
 
         It "Should test edge case parameters (PushUrl, ForcedPackages, MissingDir)" {
@@ -204,7 +207,7 @@ extensions:
     Context "4.2 Bulk Update Mode (Invoke-AuUpdater.ps1)" {
         It "Should run successfully when updating all packages" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
-            $outDir = Join-Path $script:realPackagesDir "out_artifacts_bulk"
+            $outDir = Join-Path $script:repoRoot "out_artifacts_bulk"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
             { & $script -OutputDir $outDir } | Should -Not -Throw
         }
@@ -313,7 +316,7 @@ extensions:
 
         It "Should warn gracefully when update script yields no payloads" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
-            $outDir = Join-Path $script:realPackagesDir "out_artifacts_empty"
+            $outDir = Join-Path $script:repoRoot "out_artifacts_empty"
 
             # Clean up any leftover .nupkg files from previous tests to ensure a true 0-payload state
             Get-ChildItem -Path $script:realPackagesDir -Filter "*.nupkg" -Recurse | Remove-Item -Force
