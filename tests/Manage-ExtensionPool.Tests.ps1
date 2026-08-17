@@ -43,6 +43,27 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
 
             Remove-Item (Join-Path $mockAuto "vscode-rainbow-csv") -Recurse -Force
         }
+
+        It "Should report orphaned directories" {
+            $mockAuto = Join-Path $TestDrive "mockAuto"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+            if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
+            [void](New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-rainbow-csv") -Force)
+            [void](New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-orphan-ext") -Force)
+
+            Mock Test-Path -MockWith { return $true }
+            Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('mechatroner.rainbow-csv')) } }
+            Mock Write-Err -MockWith { }
+            Mock Write-Red -MockWith { }
+
+            & $script:scriptPath -Audit
+
+            Should -Invoke -CommandName Write-Err -Times 1 -ParameterFilter { $msg -match "orphaned directories" }
+            Should -Invoke -CommandName Write-Red -Times 1 -ParameterFilter { $msg -match "vscode-orphan-ext" }
+
+            Remove-Item (Join-Path $mockAuto "vscode-rainbow-csv") -Recurse -Force
+            Remove-Item (Join-Path $mockAuto "vscode-orphan-ext") -Recurse -Force
+        }
     }
 
     Context "Search Mode" {

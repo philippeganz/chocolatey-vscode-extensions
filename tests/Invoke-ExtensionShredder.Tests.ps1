@@ -209,4 +209,40 @@ Describe 'Invoke-ExtensionShredder' -Tag "Integration", 'Invoke-ExtensionShredde
         $global:failCount | Should -Be 2
         Should -Invoke -CommandName Start-Sleep -Times 1 -Exactly
     }
+
+    It 'throws if removing the directory exhausts retries' {
+        $mockState.Extensions.Add('publisher.fail')
+        $pkgName = 'publisherfail'
+
+        $pkgDir = Join-Path $baseAuto $pkgName
+        New-Item -ItemType Directory -Path $pkgDir -Force | Out-Null
+
+        $global:failCount = 0
+        function global:Remove-Item {
+            [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Justification = 'Dummy mock function parameters are structurally required but not used')]
+            [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseProcessBlockForPipelineCommand', '', Justification = 'Dummy mock function does not need a process block to throw an error')]
+            [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Required to persist failCount state across Pester scopes for file locking mock')]
+            [CmdletBinding()]
+            param(
+                [Parameter(ValueFromPipelineByPropertyName = $true, Position = 0)]
+                [string[]]$Path,
+                [switch]$Recurse,
+                [switch]$Force
+            )
+            $global:failCount++
+            throw "File locking error"
+        }
+
+        Mock Start-Sleep {}
+
+        try {
+            { & $scriptPath -ExtensionId 'publisher.fail' -ConfigFile $configFile } | Should -Throw "File locking error"
+        }
+        finally {
+            Microsoft.PowerShell.Management\Remove-Item -Path "Function:\Remove-Item" -Force -ErrorAction SilentlyContinue
+        }
+
+        $global:failCount | Should -Be 3
+        Should -Invoke -CommandName Start-Sleep -Times 2 -Exactly
+    }
 }
