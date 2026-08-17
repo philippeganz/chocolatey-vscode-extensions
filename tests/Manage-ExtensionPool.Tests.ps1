@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
@@ -250,7 +250,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
             $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
             Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new() } }
-            
+
             Mock Get-VsCodeMarketplaceMetadata -MockWith { throw "Marketplace API rejected (404 Not Found)" }
             { & $script:scriptPath -Add "fake.404" } | Should -Not -Throw
 
