@@ -23,12 +23,17 @@ Describe "VSCode Extensions Chocolatey Workflow" -Tag "E2E", 'Workflow' {
 
         $script:binDir = Join-Path $script:repoRoot "bin"
         $script:configPath = Join-Path $script:repoRoot "var\state\config.yaml"
-        $script:publisher = "johnpapa"
-        $script:extName = "angular2"
-        $script:packageName = "vscode-angular2"
+        $script:publisher = "mechatroner"
+        $script:extName = "rainbow-csv"
+        $script:packageName = "vscode-rainbow-csv"
 
         # Isolate the Packages Directory to a temp folder parallel to bin so relative paths in AU templates still work
         $script:realPackagesDir = Join-Path $script:repoRoot "test_automatic"
+        if (Test-Path $script:realPackagesDir) {
+            Remove-Item $script:realPackagesDir -Recurse -Force
+        }
+        New-Item -ItemType Directory -Path $script:realPackagesDir | Out-Null
+        
         $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
         $script:pkgDir = Join-Path $script:realPackagesDir $script:packageName
 
@@ -121,7 +126,7 @@ extensions:
     Context "3. Search for an Extension (Manage-ExtensionPool.ps1)" {
         It "Should successfully search the VS Code Marketplace API" {
             $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
-            $output = & $script -Search "johnpapa.angular2"
+            $output = & $script -Search $script:extName
             $output | Should -Not -BeNullOrEmpty
         }
     }
@@ -156,7 +161,7 @@ extensions:
     Context "4.6 Search for a package (Manage-ExtensionPool.ps1)" {
         It "Should successfully search the marketplace" {
             $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
-            & $script -Search "angular2"
+            & $script -Search $script:extName
         }
     }
 
@@ -166,7 +171,7 @@ extensions:
             # Invalid ID Format
             & $script -Add "invalidformat"
             # Already tracked
-            & $script -Add "johnpapa.angular2"
+            & $script -Add "$script:publisher.$script:extName"
             # Does not exist API
             & $script -Add "fake.does-not-exist"
         }
@@ -181,6 +186,7 @@ extensions:
 
             $nuspec = [xml](Get-Content (Join-Path $script:pkgDir "$script:packageName.nuspec"))
             $nuspec.package.metadata.version | Should -Be "3.24.1"
+            $nuspec.package.metadata.description.Length | Should -BeLessThan 4000
         }
 
         It "Should successfully parse @version and build older specific version" {
@@ -188,11 +194,11 @@ extensions:
             $outDir = Join-Path $script:repoRoot "out_artifacts_3"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
 
-            # Using a specific version of angular2 to test override functionality
-            & $script -ModerationRepush "$script:packageName@22.0.0" -OutputDir $outDir
+            # Using a specific version of rainbow-csv to test override functionality
+            & $script -ModerationRepush "$script:packageName@3.24.0" -OutputDir $outDir
 
             $nuspec = [xml](Get-Content (Join-Path $script:pkgDir "$script:packageName.nuspec"))
-            $nuspec.package.metadata.version | Should -Be "22.0.0"
+            $nuspec.package.metadata.version | Should -Be "3.24.0"
         }
 
         It "Should test edge case parameters (PushUrl, ForcedPackages, MissingDir)" {
