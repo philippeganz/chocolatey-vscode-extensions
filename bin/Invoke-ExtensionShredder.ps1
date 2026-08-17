@@ -152,7 +152,24 @@ foreach ($cleanId in $removeIds) {
                 Write-Warning "Skipping directory deletion for '$pkgName'. It is still owned by: $($sharedOwners -join ', ')."
             }
             else {
-                Remove-Item -Path $pkgDir -Recurse -Force
+                $maxRetries = 3
+                $retryCount = 0
+                $removed = $false
+                while (-not $removed -and $retryCount -lt $maxRetries) {
+                    try {
+                        Remove-Item -Path $pkgDir -Recurse -Force -ErrorAction Stop
+                        $removed = $true
+                    }
+                    catch {
+                        $retryCount++
+                        if ($retryCount -lt $maxRetries) {
+                            Start-Sleep -Milliseconds 500
+                        }
+                        else {
+                            throw $_
+                        }
+                    }
+                }
                 Write-Success "Deleted local package directory: $(Split-Path $baseAuto -Leaf)\$pkgName"
             }
         }
