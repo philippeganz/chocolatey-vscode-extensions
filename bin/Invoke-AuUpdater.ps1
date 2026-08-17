@@ -81,6 +81,10 @@ Import-Module "$ProjectRoot\lib\VsCodeMarketplace.psm1" -Global
 # -----------------------------------------------------------------------------
 # AU ORCHESTRATOR CONFIGURATION
 # -----------------------------------------------------------------------------
+# Prevent Chocolatey AU from forcefully injecting the full README.md into the
+# .nuspec description, which bypasses our 4000 character truncation logic.
+function global:Set-DescriptionFromReadme { Write-Host "    [INFO] Bypassing native AU README injection." -ForegroundColor Cyan }
+
 # We pass our configuration strictly via the $opts dictionary. The AU orchestrator
 # (Update-AUPackages) natively parses this dictionary and translates them into the
 # required global variables for the underlying worker scripts.
