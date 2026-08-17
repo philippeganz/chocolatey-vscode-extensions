@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 <#
 .SYNOPSIS
@@ -35,6 +35,7 @@ Describe "VSCode Extensions Chocolatey Workflow" -Tag "E2E", 'Workflow' {
         New-Item -ItemType Directory -Path $script:realPackagesDir | Out-Null
 
         $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
+        $env:CHOCO_VSCODE_MAX_RETRIES = 3
         $script:pkgDir = Join-Path $script:realPackagesDir $script:packageName
 
         # 1. Backup Config
@@ -66,6 +67,7 @@ extensions:
             Remove-Item $script:realPackagesDir -Recurse -Force
         }
         Remove-Item Env:\CHOCO_VSCODE_AUTOMATIC_DIR -ErrorAction SilentlyContinue
+        Remove-Item Env:\CHOCO_VSCODE_MAX_RETRIES -ErrorAction SilentlyContinue
 
         # 3. Cleanup Artifacts
         Get-ChildItem -Path $script:repoRoot -Filter "out_artifacts*" -Directory | Remove-Item -Recurse -Force
