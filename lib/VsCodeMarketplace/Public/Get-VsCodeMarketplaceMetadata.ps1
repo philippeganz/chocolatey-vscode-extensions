@@ -57,33 +57,9 @@ function Get-VsCodeMarketplaceMetadata {
         "Content-Type" = "application/json"
     }
 
-    $retryCount = 0
-    $success = $false
-    $res = $null
-
-    $maxRetries = if ($env:CHOCO_VSCODE_MAX_RETRIES) { [int]$env:CHOCO_VSCODE_MAX_RETRIES } else { 5 }
-    while (-not $success -and $retryCount -lt $maxRetries) {
-        try {
-            $res = Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers
-            $success = $true
-        }
-        catch {
-            $errMessage = $_.Exception.Message
-            $isThrottling = ($errMessage -match '503|429|CircuitBreakerExceededConcurrencyException|Service Unavailable')
-
-            $retryCount++
-            if ($retryCount -ge $maxRetries) {
-                if ($isThrottling) {
-                    throw "MarketplaceThrottlingError: VS Code Marketplace API rate limit reached after $maxRetries retries. ($errMessage)"
-                }
-                throw $_
-            }
-
-            $sleepSeconds = [Math]::Pow(2, $retryCount)
-            Write-Yellow "    [WARNING] VS Code Marketplace API failed. Retrying in $sleepSeconds seconds ($retryCount/$maxRetries)..."
-            Start-Sleep -Seconds $sleepSeconds
-        }
-    }
+    $res = Invoke-WithMarketplaceRetry -Action {
+        Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers
+    } -ErrorMessage "VS Code Marketplace API failed"
 
     $ext = $res.results[0].extensions[0]
     if (-not $ext) { throw "Extension not found on Marketplace: $Publisher.$ExtensionName" }

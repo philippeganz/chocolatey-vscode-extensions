@@ -270,15 +270,16 @@ if ($ModerationRepush) {
 }
 
 try {
+    $packagesToUpdate = $null
     if ($ForcedPackages) {
-        $targetPackages = Resolve-PackageDependency -Packages ($ForcedPackages -split ',')
-        Update-AUPackages -Name $targetPackages -Options $opts
+        $packagesToUpdate = Resolve-PackageDependency -Packages ($ForcedPackages -split ',')
     }
     else {
         $allPackages = Get-ChildItem $packagesDir -Directory | Select-Object -ExpandProperty Name
-        $sortedPackages = Resolve-PackageDependency -Packages $allPackages
-        Update-AUPackages -Name $sortedPackages -Options $opts
+        $packagesToUpdate = Resolve-PackageDependency -Packages $allPackages
     }
+
+    Update-AUPackages -Name $packagesToUpdate -Options $opts
 }
 finally {
     Pop-Location

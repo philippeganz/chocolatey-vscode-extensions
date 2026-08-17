@@ -32,29 +32,7 @@ function Invoke-RobustDownload {
     )
 
     Write-White "    Downloading VSIX Payload..."
-    $retryCount = 0
-    $success = $false
-    $maxRetries = if ($env:CHOCO_VSCODE_MAX_RETRIES) { [int]$env:CHOCO_VSCODE_MAX_RETRIES } else { 5 }
-    while (-not $success -and $retryCount -lt $maxRetries) {
-        try {
-            Invoke-WebRequest -Uri $Url -OutFile $OutFile -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600
-            $success = $true
-        }
-        catch {
-            $errMessage = $_.Exception.Message
-            $isThrottling = ($errMessage -match '503|429|CircuitBreakerExceededConcurrencyException|Service Unavailable')
-
-            $retryCount++
-            if ($retryCount -ge $maxRetries) {
-                if ($isThrottling) {
-                    throw "MarketplaceThrottlingError: VS Code Marketplace API rate limit reached after $maxRetries retries. ($errMessage)"
-                }
-                throw $_
-            }
-
-            $sleepSeconds = [Math]::Pow(2, $retryCount)
-            Write-Yellow "    [WARNING] Download failed. Retrying in $sleepSeconds seconds ($retryCount/$maxRetries)..."
-            Start-Sleep -Seconds $sleepSeconds
-        }
-    }
+    Invoke-WithMarketplaceRetry -Action {
+        Invoke-WebRequest -Uri $Url -OutFile $OutFile -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600
+    } -ErrorMessage "Download failed"
 }
