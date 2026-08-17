@@ -1,6 +1,6 @@
 #Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', Justification = 'Required to persist failCount state across Pester scopes for file locking mock')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Required to persist failCount state across Pester scopes for file locking mock')]
 param()
 
 BeforeAll {
@@ -181,9 +181,9 @@ Describe 'Invoke-ExtensionShredder' -Tag "Integration", 'Invoke-ExtensionShredde
 
         $global:failCount = 0
         function global:Remove-Item {
-            [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', Justification = 'Dummy mock function parameters are structurally required but not used')]
-            [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseProcessBlockForPipelineCommand', Justification = 'Dummy mock function does not need a process block to throw an error')]
-            [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', Justification = 'Required to persist failCount state across Pester scopes for file locking mock')]
+            [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Justification = 'Dummy mock function parameters are structurally required but not used')]
+            [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseProcessBlockForPipelineCommand', '', Justification = 'Dummy mock function does not need a process block to throw an error')]
+            [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Required to persist failCount state across Pester scopes for file locking mock')]
             [CmdletBinding()]
             param(
                 [Parameter(ValueFromPipelineByPropertyName = $true, Position = 0)]
