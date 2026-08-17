@@ -95,7 +95,6 @@ $opts = [ordered]@{
     NoCheckChocoVersion = $true
 }
 
-
 if ($PushUrl) {
     $env:au_PushUrl = $PushUrl
     Write-Host ">>> Retargeting AU Push to Internal Repository: $PushUrl" -ForegroundColor Magenta

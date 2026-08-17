@@ -210,6 +210,22 @@ extensions:
             { & $script -PushUrl "https://nexus.local" -ForcedPackages "test" } | Should -Throw
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $oldEnv
         }
+
+        It "Should skip gracefully if update.ps1 is missing in Moderation Repush" {
+            $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
+            $outDir = Join-Path $script:repoRoot "out_artifacts_missing_update"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
+
+            # Temporarily rename update.ps1
+            $updatePath = Join-Path $script:pkgDir "update.ps1"
+            $backupPath = Join-Path $script:pkgDir "update.ps1.bak"
+            Rename-Item $updatePath -NewName "update.ps1.bak"
+
+            { & $script -ModerationRepush $script:packageName -OutputDir $outDir } | Should -Not -Throw
+
+            # Restore
+            Rename-Item $backupPath -NewName "update.ps1"
+        }
     }
 
     Context "4.2 Bulk Update Mode (Invoke-AuUpdater.ps1)" {

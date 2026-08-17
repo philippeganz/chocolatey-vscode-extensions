@@ -114,6 +114,21 @@ Describe "VsCodeMarketplace API Wrapper" -Tag "Unit", 'VsCodeMarketplace' {
         }
     }
 
+    Context "Invoke-WithMarketplaceRetry" {
+        It "Should instantly throw without retrying on a 404 error" {
+            $script:failCount = 0
+            $action = {
+                $script:failCount++
+                throw "HTTP Error 404 Not Found"
+            }
+            Mock Start-Sleep -ModuleName VsCodeMarketplace -MockWith { return }
+            Mock Write-Yellow -ModuleName VsCodeMarketplace -MockWith { return }
+
+            { Invoke-WithMarketplaceRetry -Action $action } | Should -Throw "*404*"
+            $script:failCount | Should -Be 1
+        }
+    }
+
     Context "Get-VsCodeExtensionUrl" {
         It "Should extract the win32-x64 target platform if it exists" {
             $mockMeta = '{

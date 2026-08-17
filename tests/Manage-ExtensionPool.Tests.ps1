@@ -245,6 +245,18 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
 
             { & $script:scriptPath -Add "test.nocommits" -AutoCommit } | Should -Not -Throw
         }
+
+        It "Should gracefully skip 404s but instantly abort on MarketplaceThrottlingError" {
+            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+            Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new() } }
+            
+            Mock Get-VsCodeMarketplaceMetadata -MockWith { throw "Marketplace API rejected (404 Not Found)" }
+            { & $script:scriptPath -Add "fake.404" } | Should -Not -Throw
+
+            Mock Get-VsCodeMarketplaceMetadata -MockWith { throw "MarketplaceThrottlingError: rate limit reached" }
+            { & $script:scriptPath -Add "fake.throttled" } | Should -Throw "*MarketplaceThrottlingError*"
+        }
     }
 
     Context "Remove Mode" {

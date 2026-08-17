@@ -168,4 +168,39 @@ Describe 'Invoke-ExtensionShredder' -Tag "Integration", 'Invoke-ExtensionShredde
         Test-Path $pkgDir | Should -BeTrue
         Should -Invoke -CommandName Write-Warning -Times 1 -ParameterFilter { $Message -match "Skipping directory deletion" }
     }
+
+    It 'retries removing the directory upon failure' {
+        $mockState.Extensions.Add('publisher.ext')
+        $pkgName = 'publisherext'
+
+        $pkgDir = Join-Path $baseAuto $pkgName
+        New-Item -ItemType Directory -Path $pkgDir -Force | Out-Null
+
+        $global:failCount = 0
+        function global:Remove-Item {
+            [CmdletBinding()]
+            param(
+                [Parameter(ValueFromPipelineByPropertyName=$true, Position=0)]
+                [string[]]$Path,
+                [switch]$Recurse, 
+                [switch]$Force
+            )
+            $global:failCount++
+            if ($global:failCount -lt 2) {
+                throw "File locking error"
+            }
+        }
+        
+        Mock Start-Sleep {}
+
+        try {
+            & $scriptPath -ExtensionId 'publisher.ext' -ConfigFile $configFile
+        }
+        finally {
+            Microsoft.PowerShell.Management\Remove-Item -Path "Function:\global:Remove-Item" -Force -ErrorAction SilentlyContinue
+        }
+
+        $global:failCount | Should -Be 2
+        Should -Invoke -CommandName Start-Sleep -Times 1 -Exactly
+    }
 }

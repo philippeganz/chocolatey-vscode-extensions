@@ -26,6 +26,7 @@
     Deliberately sets the UserAgent to emulate a standard browser, avoiding silent blocks.
 #>
 function Invoke-RobustDownload {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Justification = 'Variables are consumed dynamically inside the dot-sourced ScriptBlock')]
     param (
         [Parameter(Mandatory = $true)][string]$Url,
         [Parameter(Mandatory = $true)][string]$OutFile
