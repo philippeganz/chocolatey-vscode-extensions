@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Wraps Invoke-WebRequest with robust, auto-healing retry logic to survive CDN rate-limits and timeouts.
 
@@ -34,16 +34,27 @@ function Invoke-RobustDownload {
     Write-White "    Downloading VSIX Payload..."
     $retryCount = 0
     $success = $false
-    while (-not $success -and $retryCount -lt 3) {
+    $maxRetries = 5
+    while (-not $success -and $retryCount -lt $maxRetries) {
         try {
             Invoke-WebRequest -Uri $Url -OutFile $OutFile -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600
             $success = $true
         }
         catch {
-            Write-Yellow "    [WARNING] Download failed. Retrying in 5 seconds ($($retryCount + 1)/3)..."
+            $errMessage = $_.Exception.Message
+            $isThrottling = ($errMessage -match '503|429|CircuitBreakerExceededConcurrencyException|Service Unavailable')
+
             $retryCount++
-            if ($retryCount -ge 3) { throw }
-            Start-Sleep -Seconds 5
+            if ($retryCount -ge $maxRetries) {
+                if ($isThrottling) {
+                    throw "MarketplaceThrottlingError: VS Code Marketplace API rate limit reached after $maxRetries retries. ($errMessage)"
+                }
+                throw $_
+            }
+
+            $sleepSeconds = [Math]::Pow(2, $retryCount)
+            Write-Yellow "    [WARNING] Download failed. Retrying in $sleepSeconds seconds ($retryCount/$maxRetries)..."
+            Start-Sleep -Seconds $sleepSeconds
         }
     }
 }

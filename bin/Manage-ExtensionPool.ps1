@@ -172,7 +172,12 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
             }
         }
         catch {
-            Write-Err "Marketplace API rejected '$cleanId' (404 Not Found or Invalid). Skipping."
+            $errMessage = $_.Exception.Message
+            if ($errMessage -match 'MarketplaceThrottlingError') {
+                Write-Err "ABORTING: VS Code Marketplace is throttling requests. This is a rate-limit error, not a 404."
+                throw $_
+            }
+            Write-Err "Marketplace API rejected '$cleanId' (404 Not Found or Invalid). Skipping. Details: $errMessage"
         }
     }
 }

@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 <#
 .SYNOPSIS
@@ -33,7 +33,7 @@ Describe "VSCode Extensions Chocolatey Workflow" -Tag "E2E", 'Workflow' {
             Remove-Item $script:realPackagesDir -Recurse -Force
         }
         New-Item -ItemType Directory -Path $script:realPackagesDir | Out-Null
-        
+
         $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
         $script:pkgDir = Join-Path $script:realPackagesDir $script:packageName
 

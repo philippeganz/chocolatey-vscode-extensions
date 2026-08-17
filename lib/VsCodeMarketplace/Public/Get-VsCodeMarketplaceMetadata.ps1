@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Fetches the raw JSON metadata payload for a specific extension from the VS Code Marketplace API.
 
@@ -61,16 +61,27 @@ function Get-VsCodeMarketplaceMetadata {
     $success = $false
     $res = $null
 
-    while (-not $success -and $retryCount -lt 5) {
+    $maxRetries = 5
+    while (-not $success -and $retryCount -lt $maxRetries) {
         try {
             $res = Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers
             $success = $true
         }
         catch {
-            Write-Yellow "    [WARNING] VS Code Marketplace API failed (Rate Limit/Network). Retrying in 5 seconds..."
+            $errMessage = $_.Exception.Message
+            $isThrottling = ($errMessage -match '503|429|CircuitBreakerExceededConcurrencyException|Service Unavailable')
+
             $retryCount++
-            if ($retryCount -ge 5) { throw $_ }
-            Start-Sleep -Seconds 5
+            if ($retryCount -ge $maxRetries) {
+                if ($isThrottling) {
+                    throw "MarketplaceThrottlingError: VS Code Marketplace API rate limit reached after $maxRetries retries. ($errMessage)"
+                }
+                throw $_
+            }
+
+            $sleepSeconds = [Math]::Pow(2, $retryCount)
+            Write-Yellow "    [WARNING] VS Code Marketplace API failed. Retrying in $sleepSeconds seconds ($retryCount/$maxRetries)..."
+            Start-Sleep -Seconds $sleepSeconds
         }
     }
 
