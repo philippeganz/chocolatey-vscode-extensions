@@ -189,11 +189,11 @@ Describe "VsCodeMarketplace API Wrapper" -Tag "Unit", 'VsCodeMarketplace' {
             }
 
             # Create a mock config.yaml
-            $mockConfig = Join-Path $PSScriptRoot "mock_config.yaml"
+            $mockConfig = Join-Path $TestDrive "mock_config.yaml"
             "---`nextensions:`n  - ms-python.python`n" | Set-Content $mockConfig
 
             # Prevent pollution of the real automatic directory and ignore expected CLI errors
-            $tempAuto = Join-Path $PSScriptRoot "temp_auto"
+            $tempAuto = Join-Path $TestDrive "temp_auto"
             [void](New-Item -ItemType Directory -Path $tempAuto -Force)
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $tempAuto
 
@@ -225,7 +225,7 @@ Describe "VsCodeMarketplace API Wrapper" -Tag "Unit", 'VsCodeMarketplace' {
             $mockPkgJson = @{
                 extensionPack = @("lukehoban.Go")
             }
-            $mockConfig = Join-Path $PSScriptRoot "mock_config.yaml"
+            $mockConfig = Join-Path $TestDrive "mock_config.yaml"
             "---`nextensions:`n  - ms-python.python`n" | Set-Content $mockConfig
 
             try {
@@ -244,9 +244,9 @@ Describe "VsCodeMarketplace API Wrapper" -Tag "Unit", 'VsCodeMarketplace' {
 
     Context "Expand-VsCodePayload" {
         It "Should extract package.json and cleanly scrub emails from README.md" {
-            $tempDir = Join-Path $PSScriptRoot "temp_vsix"
-            $extractDir = Join-Path $PSScriptRoot "temp_extract"
-            $vsixPath = Join-Path $PSScriptRoot "fake.vsix"
+            $tempDir = Join-Path $TestDrive "temp_vsix"
+            $extractDir = Join-Path $TestDrive "temp_extract"
+            $vsixPath = Join-Path $TestDrive "fake.vsix"
 
             [void](New-Item -ItemType Directory -Path $tempDir -Force)
             [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
@@ -284,9 +284,9 @@ Contact me at test@example.com!
         }
 
         It "Should truncate README at the last HTML block tag or double newline" {
-            $tempDir = Join-Path $PSScriptRoot "temp_vsix_1"
-            $extractDir = Join-Path $PSScriptRoot "temp_extract_1"
-            $vsixPath = Join-Path $PSScriptRoot "fake1.vsix"
+            $tempDir = Join-Path $TestDrive "temp_vsix_1"
+            $extractDir = Join-Path $TestDrive "temp_extract_1"
+            $vsixPath = Join-Path $TestDrive "fake1.vsix"
             [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
             '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
 
@@ -304,9 +304,9 @@ Contact me at test@example.com!
         }
 
         It "Should truncate README at the last sentence period if no HTML blocks exist" {
-            $tempDir = Join-Path $PSScriptRoot "temp_vsix_2"
-            $extractDir = Join-Path $PSScriptRoot "temp_extract_2"
-            $vsixPath = Join-Path $PSScriptRoot "fake2.vsix"
+            $tempDir = Join-Path $TestDrive "temp_vsix_2"
+            $extractDir = Join-Path $TestDrive "temp_extract_2"
+            $vsixPath = Join-Path $TestDrive "fake2.vsix"
             [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
             '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
 
@@ -324,9 +324,9 @@ Contact me at test@example.com!
         }
 
         It "Should truncate README at the last newline if no periods exist" {
-            $tempDir = Join-Path $PSScriptRoot "temp_vsix_3"
-            $extractDir = Join-Path $PSScriptRoot "temp_extract_3"
-            $vsixPath = Join-Path $PSScriptRoot "fake3.vsix"
+            $tempDir = Join-Path $TestDrive "temp_vsix_3"
+            $extractDir = Join-Path $TestDrive "temp_extract_3"
+            $vsixPath = Join-Path $TestDrive "fake3.vsix"
             [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
             '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
 
@@ -344,9 +344,9 @@ Contact me at test@example.com!
         }
 
         It "Should truncate README at the last space if no newlines exist" {
-            $tempDir = Join-Path $PSScriptRoot "temp_vsix_4"
-            $extractDir = Join-Path $PSScriptRoot "temp_extract_4"
-            $vsixPath = Join-Path $PSScriptRoot "fake4.vsix"
+            $tempDir = Join-Path $TestDrive "temp_vsix_4"
+            $extractDir = Join-Path $TestDrive "temp_extract_4"
+            $vsixPath = Join-Path $TestDrive "fake4.vsix"
             [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
             '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
 
@@ -364,9 +364,9 @@ Contact me at test@example.com!
         }
 
         It "Should hard truncate README if no spaces exist" {
-            $tempDir = Join-Path $PSScriptRoot "temp_vsix_5"
-            $extractDir = Join-Path $PSScriptRoot "temp_extract_5"
-            $vsixPath = Join-Path $PSScriptRoot "fake5.vsix"
+            $tempDir = Join-Path $TestDrive "temp_vsix_5"
+            $extractDir = Join-Path $TestDrive "temp_extract_5"
+            $vsixPath = Join-Path $TestDrive "fake5.vsix"
             [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
             '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
 
@@ -384,9 +384,9 @@ Contact me at test@example.com!
         }
 
         It "Should auto-close unbalanced HTML tags in truncated README" {
-            $tempDir = Join-Path $PSScriptRoot "temp_vsix_6"
-            $extractDir = Join-Path $PSScriptRoot "temp_extract_6"
-            $vsixPath = Join-Path $PSScriptRoot "fake6.vsix"
+            $tempDir = Join-Path $TestDrive "temp_vsix_6"
+            $extractDir = Join-Path $TestDrive "temp_extract_6"
+            $vsixPath = Join-Path $TestDrive "fake6.vsix"
             [void](New-Item -ItemType Directory -Path (Join-Path $tempDir "extension") -Force)
             '{ "name": "fake", "publisher": "test" }' | Set-Content (Join-Path $tempDir "extension\package.json")
 
@@ -405,7 +405,7 @@ Contact me at test@example.com!
     }
     Context "Save-VsCodeIcon" {
         It "should download icon or create dummy" {
-            $tempDir = Join-Path $PSScriptRoot "temp_icon"
+            $tempDir = Join-Path $TestDrive "temp_icon"
             [void](New-Item -ItemType Directory -Path $tempDir -Force)
 
             Mock Invoke-RobustDownload -ModuleName VsCodeMarketplace -MockWith { }
@@ -414,8 +414,6 @@ Contact me at test@example.com!
 
             # Since mock doesn't create file, it should create dummy
             Test-Path (Join-Path $tempDir "icon.png") | Should -Be $true
-
-            Remove-Item $tempDir -Recurse -Force
         }
     }
 

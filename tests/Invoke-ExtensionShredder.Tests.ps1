@@ -203,7 +203,7 @@ Describe 'Invoke-ExtensionShredder' -Tag "Integration", 'Invoke-ExtensionShredde
             & $scriptPath -ExtensionId 'publisher.ext' -ConfigFile $configFile
         }
         finally {
-            Microsoft.PowerShell.Management\Remove-Item -Path "Function:\global:Remove-Item" -Force -ErrorAction SilentlyContinue
+            Microsoft.PowerShell.Management\Remove-Item -Path "Function:\Remove-Item" -Force -ErrorAction SilentlyContinue
         }
 
         $global:failCount | Should -Be 2
