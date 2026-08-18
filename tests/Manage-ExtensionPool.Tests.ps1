@@ -1,10 +1,10 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
 param()
 
-function global:Invoke-MockFactory { $script:factoryCalled = $true }
+function global:Invoke-MockFactory { $global:factoryCalled = $true }
 function global:Invoke-MockShredder { return @("test.removeme") }
 
 $ErrorActionPreference = "Stop"
@@ -163,15 +163,47 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
             Mock Test-Path -MockWith { return $true }
             Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('test.tracked')) } }
 
-            $factoryCalled = $false
+            $global:factoryCalled = $false
             Mock Join-Path -MockWith {
                 if ($ChildPath -eq 'Invoke-ExtensionFactory.ps1') { return 'Invoke-MockFactory' }
                 return [System.IO.Path]::Combine($Path, $ChildPath)
             }
-            Mock Invoke-MockFactory -MockWith { $script:factoryCalled = $true }
+            Mock Invoke-MockFactory -MockWith { $global:factoryCalled = $true }
 
             { & $script:scriptPath -Add "test.tracked" } | Should -Not -Throw
-            $factoryCalled | Should -Be $false
+            $global:factoryCalled | Should -Be $false
+        }
+
+        It "Should dynamically queue dependencies returned by the factory" {
+            $mockAuto = Join-Path $TestDrive "mockAuto"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+
+            Mock Test-Path -MockWith { return $false }
+            Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@()) } }
+            Mock Save-ConfigState -MockWith {}
+            Mock Get-VsCodeMarketplaceMetadata -MockWith { return [PSCustomObject]@{ publisher = [PSCustomObject]@{ publisherName = "test" }; extensionName = "parent" } }
+
+            Mock Join-Path -MockWith {
+                if ($ChildPath -eq 'Invoke-ExtensionFactory.ps1') { return 'Invoke-MockFactory' }
+                return [System.IO.Path]::Combine($Path, $ChildPath)
+            }
+
+            $global:callCount = 0
+            $global:depsScaffolded = $false
+            function global:Invoke-MockFactory {}
+            Mock Invoke-MockFactory -MockWith {
+                $global:callCount++
+                if ($global:callCount -eq 1) {
+                    return [System.Collections.Generic.List[string]]::new([string[]]@('test.child'))
+                }
+                if ($global:callCount -eq 2) {
+                    $global:depsScaffolded = $true
+                }
+            }
+
+            { & $script:scriptPath -Add "test.parent" } | Should -Not -Throw
+            $global:callCount | Should -Be 2
+            $global:depsScaffolded | Should -Be $true
         }
 
         It "Should invoke factory for tracked extensions if -Force is specified" {
@@ -199,7 +231,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
                 if ($ChildPath -eq 'Invoke-ExtensionFactory.ps1') { return 'Invoke-MockFactory' }
                 return [System.IO.Path]::Combine($Path, $ChildPath)
             }
-            Mock Invoke-MockFactory -MockWith { $script:factoryCalled = $true }
+            Mock Invoke-MockFactory -MockWith { $global:factoryCalled = $true }
 
             Mock Get-VsCodeMarketplaceMetadata -MockWith {
                 return [PSCustomObject]@{
@@ -339,7 +371,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
                     if ($ChildPath -eq 'Invoke-ExtensionFactory.ps1') { return 'Invoke-MockFactory' }
                     return [System.IO.Path]::Combine($Path, $ChildPath)
                 }
-                Mock Invoke-MockFactory -MockWith { $script:factoryCalled = $true }
+                Mock Invoke-MockFactory -MockWith { $global:factoryCalled = $true }
 
                 Mock Get-VsCodeMarketplaceMetadata -MockWith { throw "404" }
                 Mock Test-Path -MockWith { return $true }

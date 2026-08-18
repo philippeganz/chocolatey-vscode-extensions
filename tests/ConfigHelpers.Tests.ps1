@@ -1,11 +1,11 @@
 #Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
-BeforeAll {
-    Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -Force
-    function Write-Success {}
-}
-
 Describe 'ConfigHelpers' -Tag "Unit", 'ConfigHelpers' {
+    BeforeAll {
+        Import-Module "$PSScriptRoot\..\lib\ConfigHelpers.psm1" -Force
+        function Write-Success {}
+    }
+
     Context 'Get-ConfigState' {
         It 'throws if config.yaml does not exist' {
             Mock Test-Path { return $false } -ModuleName ConfigHelpers
