@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-azurelogicapps</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Azure Logic Apps (Standard)</title>
+    <authors>ms-azuretools</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/Azure/LogicAppsUX.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Azure/LogicAppsUX</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Azure/LogicAppsUX/issues</bugTrackerUrl>
+    <docsUrl>https://azure.microsoft.com/services/logic-apps/</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azurelogicapps/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azurelogicapps/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Azure Logic Apps for Visual Studio Code (Standard)
+
+In Visual Studio Code, you can use the Azure Logic Apps (Standard) extension to quickly create, debug, manage, and deploy logic apps directly to Azure. For requirements and more information, see [Create a Standard logic app workflow using Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=2222287).
+
+> Sign up today for your free Azure account and receive 12 months of free popular services, $200 free credit and 25+ always free services 👉 [Start Free](https://azure.microsoft.com/free/open-source).
+
+## Azure Logic Apps - Create unit tests from Standard workflows
+
+Starting with version 5.58.8, the Azure Logic Apps (Standard) extension for Visual Studio Code provides the capability to create unit test from a workflow run or a workflow saved definition, that can be edited and executed locally. For more information, see [Create unit tests from Standard workflows in Azure Logic Apps with Visual Studio Code (Preview)](https://go.microsoft.com/fwlink/?linkid=2316916).
+
+## Azure Logic Apps - Create Standard logic app projects from Azure portal export
+
+Starting with version 5.18.7, the Azure Logic Apps (Standard) extension for Visual Studio Code provides the capability to create Standard logic app projects from a logic app exported from the Azure portal. For more information, see [Export Standard logic apps from Azure portal to Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=2304930).
+
+## Azure Logic Apps - Introducing the Azure Logic Apps Hybrid deployment model (preview)
+
+Starting with version 4.107.2, the Azure Logic Apps (Standard) extension for Visual Studio Code introduces the Azure Logic Apps Hybrid deployment model, a new feature that gives you more flexibility and control over your infrastructure. This offering lets you build and deploy workflows that run on customer-managed infrastructure, providing you with the option to run Standard logic apps on premises, in a private cloud, or even in a non-Microsoft public cloud. For more information, see [Introducing the Logic Apps Hybrid Deployment Model (Public Preview)](https://go.microsoft.com/fwlink/?linkid=2293544).
+
+## Azure Logic Apps - Automatic Regeneration of Connection ACL keys
+
+Starting with version 4.57.0, the Azure Logic Apps (Standard) extension for Visual Studio Code will automatically regenerate  the keys required to allow the extension to access Azure Managed Connections. This will allow the same Azure Managed Connection to be used for projects for longer than 7 days without any user intervention. For more information, see [Regeneration Azure Managed Connection ACL for Local Development](https://go.microsoft.com/fwlink/?linkid=2283427).
+
+## Azure Logic Apps - Introducing Azure Logic Apps Rules Engine
+
+Starting with version 4.25.1, the Azure Logic Apps (Standard) extension for Visual Studio Code introduces the Rules Engine, a decision management inference engine. This engine allows customers to build Standard workflows in Azure Logic Apps and integrate readable, declarative, and semantically rich rules that operate on multiple data sources. Currently, the native data sources available for the Rules Engine are XML and .NET objects. For more information, see [Decision management and business logic integration using the Azure Logic Apps Rules Engine (Preview)](https://go.microsoft.com/fwlink/?linkid=2279508).
+
+## Azure Logic Apps - Introducing .NET 8 Custom Code support (preview)
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps) for full documentation]
+]]></description>
+    <summary>Visual Studio Code extension for Azure Logic Apps (Standard)</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps#changelog</releaseNotes>
+    <tags>vscode extension vscode-azurelogicapps</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-azurefunctions" />
+      <dependency id="vscode-azurite" />
+      <dependency id="vscode-azureresourcegroups" />
+      <dependency id="vscode-csharp" />
+      <dependency id="vscode-csdevkit" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

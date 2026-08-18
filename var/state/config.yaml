@@ -65,6 +65,7 @@ extensions:
   - ms-azuretools.vscode-azureappservice
   - ms-azuretools.vscode-azurecontainerapps
   - ms-azuretools.vscode-azurefunctions
+  - ms-azuretools.vscode-azurelogicapps
   - ms-azuretools.vscode-azureresourcegroups
   - ms-azuretools.vscode-azurestaticwebapps
   - ms-azuretools.vscode-azurestorage
