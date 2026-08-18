@@ -145,6 +145,7 @@ extensions:
   - ms-vscode.remote-explorer
   - ms-vscode.remote-repositories
   - ms-vscode.remote-server
+  - ms-vscode.vscode-copilot-vision
   - ms-vscode.vscode-js-profile-flame
   - ms-vscode.vscode-node-azure-pack
   - ms-vscode.vscode-typescript-next
