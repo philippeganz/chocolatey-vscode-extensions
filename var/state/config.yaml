@@ -93,6 +93,7 @@ extensions:
   - ms-dotnettools.csharp
   - ms-dotnettools.dotnet-interactive-vscode
   - ms-dotnettools.dotnet-maui
+  - ms-dotnettools.upgrade-agent
   - ms-dotnettools.vscode-dotnet-modernize
   - ms-dotnettools.vscode-dotnet-runtime
   - ms-dynamics-smb.al
