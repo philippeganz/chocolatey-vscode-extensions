@@ -88,6 +88,7 @@ extensions:
   - ms-ceintl.vscode-language-pack-tr
   - ms-ceintl.vscode-language-pack-zh-hans
   - ms-ceintl.vscode-language-pack-zh-hant
+  - ms-copilotstudio.vscode-copilotstudio
   - ms-dotnettools.csdevkit
   - ms-dotnettools.csharp
   - ms-dotnettools.dotnet-interactive-vscode
