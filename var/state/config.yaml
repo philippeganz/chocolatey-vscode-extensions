@@ -124,6 +124,7 @@ extensions:
   - ms-vscode.remote-explorer
   - ms-vscode.remote-repositories
   - ms-vscode.remote-server
+  - ms-vscode.vscode-node-azure-pack
   - ms-vscode.vscode-typescript-next
   - ms-vsliveshare.vsliveshare
   - msjsdiag.vscode-react-native
