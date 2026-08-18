@@ -150,7 +150,6 @@ extensions:
   - shopify.ruby-lsp
   - sonarsource.sonarlint-vscode
   - streetsidesoftware.code-spell-checker
-  - tabnine.tabnine-vscode
   - tim-koehler.helm-intellisense
   - timonwong.shellcheck
   - tomoki1207.pdf
