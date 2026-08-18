@@ -46,6 +46,7 @@ extensions:
   - golang.go
   - google.geminicodeassist
   - grapecity.gc-excelviewer
+  - graphql.vscode-graphql
   - hashicorp.hcl
   - hashicorp.sentinel
   - hashicorp.terraform

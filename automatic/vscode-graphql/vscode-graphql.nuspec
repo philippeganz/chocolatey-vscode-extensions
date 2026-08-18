@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-graphql</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - GraphQL: Language Feature Support</title>
+    <authors>GraphQL</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/graphql/graphiql.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/graphql/graphiql</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/graphql/graphiql/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql/README.md</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-graphql/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/graphql.vscode-graphql/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+[Changelog](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql/CHANGELOG.md)
+| [Discord Channel](https://discord.gg/r4BxrAG6fN) |
+[LSP Server Docs](https://github.com/graphql/graphiql/blob/main/packages/graphql-language-service-server/README.md)
+
+GraphQL extension for VSCode built with the aim to tightly integrate the GraphQL
+Ecosystem with VSCode for an awesome developer experience.
+
+![](https://camo.githubusercontent.com/97dc1080d5e6883c4eec3eaa6b7d0f29802e6b4b/687474703a2f2f672e7265636f726469742e636f2f497379504655484e5a342e676966)
+
+### `.graphql`, `.gql` file extension support and `gql`/`graphql` tagged template literal support for tsx, jsx, ts, js
+
+- syntax highlighting (provided by `vscode-graphql-syntax`)
+- autocomplete suggestions
+- validation against schema
+- snippets (interface, type, input, enum, union)
+- hover support
+- go to definition support (input, enum, type)
+- outline support
+
+## Getting Started
+
+> **This extension requires a graphql-config file**.
+
+To support language features like completion and "go-to definition" across multiple files,
+please include `documents` in the `graphql-config` file default or per-project
+
+### Simplest Config Example
+
+```yaml
+# .graphqlrc.yml or graphql.config.yml
+schema: 'schema.graphql'
+documents: 'src/**/*.{graphql,js,ts,jsx,tsx}'
+```
+
+`package.json`:
+
+```json
+"graphql": {
+  "schema": "https://localhost:3001/graphql",
+  "documents": "**/*.{graphql,js,ts,jsx,tsx}"
+},
+```
+
+```ts
+// .graphqlrc.ts or graphql.config.ts
+export default {
+  schema: 'schema.graphql',
+  documents: '**/*.{graphql,js,ts,jsx,tsx}',
+};
+```
+
+same for .json, .toml, etc
+
+## Additional Features
+
+- Loads the LSP server upon detecting a `graphql-config` file at root level or in a
+  parent level directory, or a `package.json` file with `graphql` config
+- Loads `.graphql`, `.gql` files, and detects `gql`, `graphql` tags and `/** GraphQL */` and `#graphql` comments in js, ts, jsx, tsx, vue files
+- pre-load schema and fragment definitions
+- Support [`graphql-config`](https://graphql-config.com/) files with one or multiple projects (multi-root workspaces are not yet supported)
+- the language service re-starts on saved changes to vscode settings and/or graphql config!
+
+## Configuration
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql) for full documentation]
+]]></description>
+    <summary>GraphQL LSP extension that adds autocompletion, validation, go to definition, hover, outline and more.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=graphql.vscode-graphql#changelog</releaseNotes>
+    <tags>vscode extension vscode-graphql</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-graphql-syntax" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
