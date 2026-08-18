@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-mypy-type-checker</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Mypy Type Checker</title>
+    <authors>ms-python</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/microsoft/vscode-mypy.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/microsoft/vscode-mypy</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/microsoft/vscode-mypy/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/microsoft/vscode-mypy</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-mypy-type-checker/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-python.mypy-type-checker/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Mypy extension for Visual Studio Code
+
+A Visual Studio Code extension with support for the Mypy type checker. This extension ships with `mypy=1.15.0`.
+
+> **Note**: The minimum version of Mypy this extension supports is `1.15.0`. If you have any issues with Mypy, please report it to [this issue tracker](https://github.com/python/mypy/issues) as this extension is just a wrapper around Mypy.
+
+This extension supports all [actively supported versions](https://devguide.python.org/#status-of-python-branches) of the Python language.
+
+For more information on Mypy, see <https://www.mypy-lang.org/>
+
+## Usage and Features
+
+The Mypy extension provides a series of features to help your productivity while working with Python code in Visual Studio Code. Check out the [Settings section](#settings) for more details on how to customize the extension.
+
+-   **Integrated type checking**: Once this extension is installed in Visual Studio Code, Mypy will be automatically executed when you open a Python file, reporting any errors or warnings in the "Problems" window.
+-   **Customizable Mypy version**: By default, this extension uses the version of Mypy that is shipped with the extension. However, you can configure it to use a different binary installed in your environment through the `mypy-type-checker.importStrategy` setting, or set it to a custom Mypy executable through the `mypy-type-checker.path` settings.
+-   **Workspace-wide type checking**: By default, this extension will only report errors and warnings for files open in the editor. However, you can configure it to report errors and warnings for the entire workspace through the `mypy-type-checker.reportingScope` setting.
+-   **Mono repo support**: If you are working with a mono repo, you can configure the extension to offer type checking for Python files in subfolders of the workspace root folder by setting the `mypy-type-checker.cwd` setting to `${fileDirname}`. You can also set it to ignore/skip type checking for certain files or folder paths by specifying a glob pattern to the `mypy-type-checker.ignorePatterns` setting.
+-   **Customizable linting rules**: You can customize the severity of specific Mypy error codes through the `mypy-type-checker.severity` setting.
+-   **Mypy Daemon support**: This extension supports the Mypy daemon (`dmypy`) for faster type checking when the reporting scope is set to the entire workspace. To enable it, set the `mypy-type-checker.preferDaemon` setting to `true`.
+
+### Disabling Mypy
+
+You can skip type checking with Mypy for specific files or directories by setting the `mypy-type-checker.ignorePatterns` setting.
+
+If you wish to disable Mypy for your entire workspace or globally, you can [disable this extension](https://code.visualstudio.com/docs/editor/extension-marketplace#_disable-an-extension) in Visual Studio Code.
+
+## Settings
+
+There are several settings you can configure to customize the behavior of this extension.
+
+<table>
+  <thead style="text-align:center; font-weight:bold;">
+    <tr>
+      <td>Settings</td>
+      <td>Default</td>
+      <td>Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mypy-type-checker.args</td>
+      <td><code>[]</code></td>
+      <td>Arguments passed to Mypy to enable type checking on Python files. Each argument should be provided as a separate string in the array. 
+ Example: 
+<code>"mypy-type-checker.args" = ["--config-file=&lt;file&gt;"]</code>
+      </td>
+    </tr></tbody></table>
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker) for full documentation]
+]]></description>
+    <summary>Type checking support for Python files using Mypy.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker#changelog</releaseNotes>
+    <tags>vscode extension mypy-type-checker</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-python" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
