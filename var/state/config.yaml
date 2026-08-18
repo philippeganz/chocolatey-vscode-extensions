@@ -50,6 +50,7 @@ extensions:
   - jeff-hykin.better-cpp-syntax
   - johnpapa.angular2
   - johnpapa.vscode-peacock
+  - johnpapa.winteriscoming
   - kevinrose.vsc-python-indent
   - mechatroner.rainbow-csv
   - monokai.theme-monokai-pro-vscode
