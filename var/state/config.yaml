@@ -151,6 +151,7 @@ extensions:
   - redhat.fabric8-analytics
   - redhat.java
   - redhat.vscode-community-server-connector
+  - redhat.vscode-microprofile
   - redhat.vscode-openshift-connector
   - redhat.vscode-redhat-account
   - redhat.vscode-xml

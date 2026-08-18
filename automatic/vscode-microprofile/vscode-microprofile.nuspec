@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-microprofile</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Tools for MicroProfile</title>
+    <authors>redhat</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/redhat-developer/vscode-microprofile.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/redhat-developer/vscode-microprofile</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/redhat-developer/vscode-microprofile/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/redhat-developer/vscode-microprofile#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-microprofile/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-microprofile/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Tools for MicroProfile
+
+[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/redhat.vscode-microprofile?style=for-the-badge&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-microprofile)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/redhat.vscode-microprofile?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-microprofile)
+[![Chat](https://img.shields.io/gitter/room/redhat-developer/vscode-microprofile?style=for-the-badge&logo=gitter)](https://gitter.im/redhat-developer/vscode-microprofile)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/redhat-developer/vscode-microprofile/tests.yml?branch=master&style=for-the-badge&logo=github)](https://github.com/redhat-developer/vscode-microprofile/actions?query=branch%3Amaster)
+[![License](https://img.shields.io/github/license/redhat-developer/vscode-microprofile?style=for-the-badge)](https://github.com/redhat-developer/vscode-microprofile/blob/master/LICENSE)
+
+## Description
+
+This Visual Studio Code extension provides support for the development of [MicroProfile®](https://microprofile.io/)-based applications, via the [LSP4MP project](https://github.com/eclipse/lsp4mp), which consists of:
+
+ * a [language server for MicroProfile](https://github.com/eclipse/lsp4mp/tree/master/microprofile.ls).
+ * a [jdt.ls extension for MicroProfile](https://github.com/eclipse/lsp4mp/tree/master/microprofile.jdt).
+
+![](https://github.com/redhat-developer/vscode-microprofile/raw/HEAD/images/propertiesSupport.png)
+
+## MicroProfile `properties` Features
+
+In `microprofile-config.properties` files, you will benefit with:
+
+  * [Completion support for MicroProfile properties](https://github.com/redhat-developer/vscode-microprofile/blob/HEAD/docs/PropertiesFeatures.md#completion-support)
+  * [Hover support for MicroProfile properties](https://github.com/redhat-developer/vscode-microprofile/blob/HEAD/docs/PropertiesFeatures.md#hover-support)
+  * [Definition support for MicroProfile properties](https://github.com/redhat-developer/vscode-microprofile/blob/HEAD/docs/PropertiesFeatures.md#definition-support)
+  * [Format support for MicroProfile properties](https://github.com/redhat-developer/vscode-microprofile/blob/HEAD/docs/PropertiesFeatures.md#format-support)
+  * [Validation and Quick Fix support for MicroProfile properties](https://github.com/redhat-developer/vscode-microprofile/blob/HEAD/docs/PropertiesFeatures.md#validation-and-quick-fix-support)
+  * [Outline support (flat or tree view)](https://github.com/redhat-developer/vscode-microprofile/blob/HEAD/docs/PropertiesFeatures.md#outline-support)
+
+## MicroProfile `Java` Features
+
+In `Java` files, you will benefit with:
+
+  * [Completion support for MicroProfile](https://github.com/redhat-developer/vscode-microprofile/blob/HEAD/docs/JavaFeatures.md#completion-support)
+  * [Hover support for MicroProfile](https://github.com/redhat-developer/vscode-microprofile/blob/HEAD/docs/JavaFeatures.md#hover-support)
+  * [Validation and Quick Fix support for MicroProfile](https://github.com/redhat-developer/vscode-microprofile/blob/HEAD/docs/JavaFeatures.md#validation-and-quick-fix-support)
+  * [Code Lens support for MicroProfile](https://github.com/redhat-developer/vscode-microprofile/blob/HEAD/docs/JavaFeatures.md#codelens-support)
+  * [Workspace symbols](https://github.com/redhat-developer/vscode-microprofile/blob/HEAD/docs/JavaFeatures.md#workspace-symbols-support)
+  * [Code snippets](https://github.com/redhat-developer/vscode-microprofile/blob/HEAD/docs/JavaFeatures.md#snippets-support)
+
+## Requirements
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-microprofile) for full documentation]
+]]></description>
+    <summary>Language Support for Eclipse MicroProfile</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-microprofile#changelog</releaseNotes>
+    <tags>vscode extension vscode-microprofile</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-java" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
