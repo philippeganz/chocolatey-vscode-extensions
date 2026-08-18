@@ -108,6 +108,8 @@ It sweeps the repository daily, triggering the native Chocolatey Automatic Updat
 
 This is where the magic happens. Rather than duplicating logic, both the Factory and the AU hooks pull from a suite of centralized, modularized data-driven helpers in the `VsCodeMarketplace` library (specifically `Expand-VsCodePayload`, `Get-VsCodeNuspecMetadata`, `Update-NuspecCDataDescription`, `Update-NuspecDependency`, `Save-NuspecXml`, and `Save-VsCodeIcon`).
 
+- **AU Fail & Defer Strategy**: If an extension update suddenly introduces new untracked dependencies, `au_BeforeUpdate` spawns the Factory asynchronously to scaffold them. It then intentionally fails the update of the parent package. This ensures the DAG remains consistent and prevents publishing broken packages. The parent will simply be picked up successfully on the next AU cron cycle once its new dependencies have been published.
+
 - During an update, `au_BeforeUpdate` dynamically rips the newest `README.md` and `package.json` from the payload.
 - It safely truncates massive READMEs and relies on `Update-NuspecCDataDescription` to isolate the HTML inside native XML CDATA wrappers.
 - It completely unrolls dependencies and natively triggers `Manage-ExtensionPool.ps1` for Auto-Discovery, completely preventing redundant logic across the Factory and AU.

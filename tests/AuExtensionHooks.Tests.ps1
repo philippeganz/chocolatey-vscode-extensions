@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module @{ModuleName='Pester'; ModuleVersion='6.0.0'}
 [CmdletBinding()]
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
@@ -199,6 +199,55 @@ Describe "AuExtensionHooks" -Tag "Unit", 'AuExtensionHooks' {
 
                 # Verify Start-Process was called to scaffold the dependency
                 Should -Invoke -CommandName Start-Process -Times 1 -Exactly
+            } finally {
+                Set-Location $PSScriptRoot
+            }
+        }
+
+        It "Should emit a warning when iterative dependency scaffolding fails" {
+            $fakePkgDir = Join-Path $script:mockRepo "vscode-rainbow-csv-fail"
+            if (Test-Path $fakePkgDir) { Remove-Item $fakePkgDir -Recurse -Force }
+            [void](New-Item -ItemType Directory -Path $fakePkgDir -Force)
+            Set-Location $fakePkgDir
+
+            $fakeNuspecData = [xml]"<?xml version='1.0'?><package><metadata><description></description><iconUrl></iconUrl><title></title><summary></summary><authors></authors><projectUrl></projectUrl></metadata></package>"
+
+            Mock Get-VsCodeNuspecMetadata -ModuleName VsCodeMarketplace -MockWith {
+                return @{ Title = "Fake"; Summary = "Fake"; Authors = "Fake"; ProjectUrl = "Fake"; IconUrl = "https://fake.icon" }
+            }
+            Mock Invoke-RobustDownload -MockWith { "fake" | Set-Content $OutFile }
+            Mock Expand-VsCodePayload -MockWith {
+                return @{
+                    TruncatedReadme = "Hello <world>"
+                    PackageJson     = @{ extensionDependencies = @() }
+                }
+            }
+            Mock New-VerificationFile -ModuleName VsCodeMarketplace -MockWith { return }
+
+            # Make Update-NuspecDependency return an array of missing dependencies
+            Mock Update-NuspecDependency -MockWith {
+                return [System.Collections.Generic.List[string]]::new([string[]]@('test.missing-dep-fail'))
+            }
+
+            # Mock Start-Process to return a non-zero exit code to trigger the warning
+            Mock Start-Process -MockWith {
+                return [PSCustomObject]@{ ExitCode = 1 }
+            }
+            Mock Write-Magenta -MockWith { }
+            Mock Write-Warning -MockWith { }
+
+            try {
+                $fakeNuspecData.Save((Join-Path (Get-Location).Path "vscode-rainbow-csv-fail.nuspec"))
+                [void](New-Item -ItemType Directory -Path "tools" -Force)
+                "fake content" | Set-Content "tools\chocolateyInstall.ps1"
+
+                $global:Latest = @{ Version = "1.0.0"; URL64 = "fake"; MarketplaceIconUrl = "http://fake" }
+                $fakePackage = @{ Path = (Get-Location).Path; Name = "vscode-rainbow-csv-fail"; NuspecXml = $fakeNuspecData }
+
+                { au_BeforeUpdate -package $fakePackage } | Should -Throw -ExpectedMessage '*DependencyResolutionPending*'
+
+                # Verify warning was emitted
+                Should -Invoke -CommandName Write-Warning -Times 1 -ParameterFilter { $Message -like "*Factory scaffold failed*" }
             } finally {
                 Set-Location $PSScriptRoot
             }

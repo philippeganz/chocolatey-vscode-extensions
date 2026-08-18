@@ -119,7 +119,7 @@ If you want to scaffold the package yourself:
    .\bin\Manage-ExtensionPool.ps1 -Add "Publisher.ExtensionName"
    ```
 
-4. The script will automatically pull the binaries, update the configuration, and drop the fully generated package into the `automatic/` directory.
+4. The script will automatically pull the binaries, discover and dynamically scaffold any required dependencies, update the configuration, and drop the fully generated packages into the `automatic/` directory.
 5. Commit the resulting changes and open a Pull Request!
 
 ### How to Remove an Extension
