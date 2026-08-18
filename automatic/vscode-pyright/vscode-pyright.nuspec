@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-pyright</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Pyright</title>
+    <authors>ms-pyright</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/Microsoft/pyright.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/pyright</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/pyright/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/pyright#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-pyright/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-pyright.pyright/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Static Type Checker for Python
+
+Pyright is a full-featured, standards-based static type checker for Python. It is designed for high performance and can be used with large Python source bases.
+
+Pyright includes both a [command-line tool](https://github.com/Microsoft/pyright/blob/HEAD/docs/command-line.md) and an [extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-pyright.pyright).
+
+For most VS Code users, we recommend using the Pylance extension rather than Pyright. Pylance incorporates the Pyright type checker but features additional capabilities such as semantic token highlighting and symbol indexing. When Pylance is installed, the Pyright extension will disable itself.
+
+## Documentation
+
+Refer to [the documentation](https://microsoft.github.io/pyright) for installation, configuration, and usage details.
+
+]]></description>
+    <summary>VS Code static type checking for Python</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-pyright.pyright#changelog</releaseNotes>
+    <tags>vscode extension pyright</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

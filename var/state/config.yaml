@@ -99,6 +99,7 @@ extensions:
   - ms-mssql.sql-database-projects-vscode
   - ms-ossdata.vscode-pgsql
   - ms-playwright.playwright
+  - ms-pyright.pyright
   - ms-python.anaconda-extension-pack
   - ms-python.autopep8
   - ms-python.black-formatter
