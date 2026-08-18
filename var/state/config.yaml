@@ -142,6 +142,7 @@ extensions:
   - saoudrizwan.claude-dev
   - shd101wyy.markdown-preview-enhanced
   - shopify.ruby-lsp
+  - sonarsource.sonarlint-vscode
   - streetsidesoftware.code-spell-checker
   - tabnine.tabnine-vscode
   - tim-koehler.helm-intellisense
