@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-javac</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Java Language Support</title>
+    <authors>georgewfraser</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/georgewfraser/java-language-server.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/georgewfraser/java-language-server</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/georgewfraser/java-language-server/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/georgewfraser/java-language-server#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-javac/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/georgewfraser.vscode-javac/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Language Server for Java using the [Java compiler API](https://docs.oracle.com/javase/10/docs/api/jdk.compiler-summary.html)
+
+A Java [language server](https://github.com/Microsoft/vscode-languageserver-protocol) based on v3.0 of the protocol and implemented using the Java compiler API.
+
+## Installation (VS Code)
+
+[Install from the VS Code marketplace](https://marketplace.visualstudio.com/items?itemName=georgewfraser.vscode-javac)
+
+## Installation (other editors)
+
+### Vim (with vim-lsc)
+
+- Checkout this repository
+- Run `./scripts/download_{linux|mac|windows}_jdk.sh`
+- Run `./scripts/link_{linux|mac|windows}.sh`
+- Run `mvn package -DskipTests`
+- Add the vim plugin [natebosch/vim-lsc](https://github.com/natebosch/vim-lsc) to your vimrc
+- Add vim-lsc configuration:
+  ```vimrc
+  let g:lsc_server_commands = {'java': '/java-language-server/dist/lang_server_{linux|mac|windows}.sh'}
+  ```
+- See the [vim-lsc README](https://github.com/natebosch/vim-lsc/blob/master/README.md) for other configuration options.
+
+Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrestha/vim-lsp) as it only supports LSPv2.0.
+
+### Emacs (with Eglot)
+
+- Checkout this repository
+- Run `./scripts/download_{linux|mac|windows}.sh`
+- Run `./scripts/link_{linux|mac|windows}.sh`
+- Run `mvn package -DskipTests`
+- In Emacs 29+, Eglot is built-in, otherwise you can install it with `M-x package-install eglot`
+- Add this configuration to your Emacs init file:
+  ```emacs-lisp
+  (add-hook 'java-mode-hook #'eglot-ensure)
+  ```
+- For older Eglot versions (<= 1.12.29), you'll also need:
+  ```emacs-lisp
+  (add-to-list 'eglot-server-programs '(java-mode . ("/dist/lang_server_{linux|mac|windows}.sh")))
+  ```
+  
+  Alternatively, for newer versions (>= 1.19), it is sufficient to have a script called `java-language-server` in your `PATH` that launches the actual server. In Linux, this can be done for instance by creating a script in `/usr/local/bin`:
+  ```bash
+  sudo bash -c 'cat << EOF > /usr/local/bin/java-language-server
+  #! /bin/sh
+  
+  /dist/lang_server_linux.sh
+  EOF'
+  
+  sudo chmod +x /usr/local/bin/java-language-server
+  ```
+  MacOS and Windows should work similarly.
+
+
+### KDE Kate
+
+- Checkout this repository
+- Run `./scripts/download_{linux|mac|windows}.sh`
+- Run `./scripts/link_{linux|mac|windows}.sh`
+- Run `mvn package -DskipTests`
+- Open your Kate editor
+- Go to Settings > Configure Kate... > LSP Client > User Server Settings
+- Add this lines to your User Server Settings:
+```json
+{
+    "servers":
+    {
+        "java":
+        {
+            "command": ["bash","/java-language-server/dist/lang_server_{linux|mac|windows}.sh"],
+            "url": "https://github.com/georgewfraser/java-language-server",
+            "highlightingModeRegex": "^Java$"
+        }
+    }
+}
+```
+
+
+### Sublime 3 (with LSP)
+
+- Checkout this repository
+- Run `./scripts/download_{linux|mac|windows}.sh`
+- Run `./scripts/link_{linux|mac|windows}.sh`
+- Run `mvn package -DskipTests`
+- Open your Sublime 3
+- Install Package Control (if missing)
+- Install the [LSP Package](https://packagecontrol.io/packages/LSP) (if missing)
+- In Sublime, go to Preferences > Package Settings > LSP > Settings
+- Add this lines to your LSP Settings:
+```json
+{
+    "clients":
+    {
+        "jls":
+        {
+            "enabled": true,
+            "command": ["bash", "/java-language-server/dist/lang_server_{linux|mac|windows}.sh"],
+            "scopes": ["source.java"],
+            "syntaxes": ["Packages/Java/Java.sublime-syntax"],
+            "languageId": "java"
+        }
+    }
+}
+```
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=georgewfraser.vscode-javac) for full documentation]
+]]></description>
+    <summary>Java support using the Java Compiler API</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=georgewfraser.vscode-javac#changelog</releaseNotes>
+    <tags>vscode extension vscode-javac</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

@@ -33,6 +33,7 @@ extensions:
   - formulahendry.auto-close-tag
   - formulahendry.code-runner
   - franneck94.c-cpp-runner
+  - georgewfraser.vscode-javac
   - github.codespaces
   - github.copilot
   - github.copilot-chat
