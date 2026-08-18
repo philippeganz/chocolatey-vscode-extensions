@@ -171,6 +171,7 @@ extensions:
   - platformio.platformio-ide
   - pranaygp.vscode-css-peek
   - prisma.prisma
+  - prisma.prisma-insider
   - puppet.puppet-vscode
   - rangav.vscode-thunder-client
   - redhat.ansible
