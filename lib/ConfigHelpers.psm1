@@ -86,9 +86,13 @@ function Get-ConfigState ([string]$ConfigPath) {
     Ensures that the resulting YAML structure uses standard array formatting.
 #>
 function Save-ConfigState ([string]$ConfigPath, [string[]]$ExtensionsList) {
-    $sortedExtensions = $ExtensionsList | Sort-Object -Unique
+    $sortedExtensions = @()
+    if ($ExtensionsList -and $ExtensionsList.Count -gt 0) {
+        $sortedExtensions = @($ExtensionsList | Sort-Object -Unique)
+    }
+
     $orderedYaml = [ordered]@{
-        extensions = @($sortedExtensions)
+        extensions = $sortedExtensions
     }
     $yamlStr = ConvertTo-Yaml $orderedYaml
     $formattedYaml = "---`n" + ($yamlStr -replace '(?m)^-', '  -').TrimEnd() + "`n"

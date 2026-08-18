@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 
 <#
 .SYNOPSIS
@@ -111,8 +111,15 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
     Write-Info "Executing Pre-flight Checks for Add Operation..."
     $state = Get-ConfigState -ConfigPath $configPath
 
-    foreach ($id in $Add) {
+    $addList = [System.Collections.Generic.List[string]]::new($Add)
+    for ($i = 0; $i -lt $addList.Count; $i++) {
+        $id = $addList[$i]
         $cleanId = $id.ToLower()
+
+        Write-Cyan "`n================================================================================"
+        Write-Cyan " QUEUED: $cleanId"
+        Write-Cyan "================================================================================"
+
         $parts = $cleanId -split '\.'
         if ($parts.Count -ne 2) {
             Write-Err "Invalid ID format for '$cleanId'. Must be 'publisher.extension'."
@@ -162,12 +169,23 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
                     Force       = $Force.IsPresent
                 }
                 $factoryPath = Join-Path $PSScriptRoot "Invoke-ExtensionFactory.ps1"
-                & $factoryPath @factoryParams
+                $discoveredDeps = & $factoryPath @factoryParams
 
                 # Save state
                 Save-ConfigState -ConfigPath $configPath -ExtensionsList $state.Extensions
                 if ($AutoCommit) {
                     Invoke-GitAutoCommit -ExtensionId $cleanId -CommitMessage "Add new $cleanId extension"
+                }
+
+                # Dynamically append any newly discovered dependencies to the pool manager's queue
+                if ($discoveredDeps) {
+                    foreach ($dep in $discoveredDeps) {
+                        $depLower = $dep.ToLower()
+                        if (-not $addList.Contains($depLower)) {
+                            Write-Magenta "`n    [POOL] Discovered untracked dependency '$depLower'. Queueing..."
+                            $addList.Add($depLower)
+                        }
+                    }
                 }
             }
         }

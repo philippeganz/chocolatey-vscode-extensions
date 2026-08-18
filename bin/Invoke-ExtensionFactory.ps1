@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 
 <#
 .SYNOPSIS
@@ -115,6 +115,8 @@ if ($extensionsList.Count -eq 0) {
     throw "No extensions found in $ConfigFile, and no -ExtensionId was provided."
 }
 
+$missingDepsOutput = [System.Collections.Generic.List[string]]::new()
+
 Write-Host ">>> Starting VS Code Extension Factory" -ForegroundColor Cyan
 Write-Host "    Target Output Directory: $OutputDir"
 Write-Host "    Initial Extensions to Process: $($extensionsList.Count)"
@@ -131,8 +133,9 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     if ($processed[$extId]) { continue }
     $processed[$extId] = $true
 
-    Write-Host "`n----------------------------------------" -ForegroundColor DarkGray
-    Write-Host "Processing: $extId" -ForegroundColor Cyan
+    Write-Host "`n================================================================================" -ForegroundColor Cyan
+    Write-Host " PROCESSING: $extId" -ForegroundColor Cyan
+    Write-Host "================================================================================`n" -ForegroundColor Cyan
 
     $parts = $extId -split '\.'
     if ($parts.Count -ne 2) {
@@ -252,7 +255,16 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $nuspecXml = [xml]$nuspecContent
 
     Update-NuspecCDataDescription -NuspecXml $nuspecXml -CDataSafeReadme $payloadResult.CDataSafeReadme -ShortDescription $extMeta.shortDescription
-    Update-NuspecDependency -NuspecXml $nuspecXml -PackageJson $packageJson -ConfigPath $ConfigFile
+    $newDeps = Update-NuspecDependency -NuspecXml $nuspecXml -PackageJson $packageJson -ConfigPath $ConfigFile
+
+    if ($newDeps) {
+        foreach ($d in $newDeps) {
+            $dLower = $d.ToLower()
+            if (-not $missingDepsOutput.Contains($dLower)) {
+                $missingDepsOutput.Add($dLower)
+            }
+        }
+    }
 
     Save-NuspecXml -NuspecXml $nuspecXml -NuspecPath $nuspecPath
 
@@ -285,10 +297,7 @@ param()
         [System.IO.File]::WriteAllText((Join-Path $pkgDir "update.ps1"), $updateContent, [System.Text.UTF8Encoding]::new($false))
     }
 
-    # Download Icon
-    if ($iconUrl) {
-        Invoke-WebRequest -Uri $iconUrl -OutFile (Join-Path $pkgDir "icon.png") -ErrorAction SilentlyContinue
-    }
+
 
     Write-Host "    [SUCCESS] Scaffolded at: $pkgDir" -ForegroundColor Green
 }
@@ -304,3 +313,7 @@ if (-not $ExtensionId) {
 }
 
 Write-Host "`n>>> Factory Run Complete!" -ForegroundColor Cyan
+
+if ($missingDepsOutput.Count -gt 0) {
+    Write-Output $missingDepsOutput.ToArray()
+}

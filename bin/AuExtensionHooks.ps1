@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 #Requires -Module au
 
 <#
@@ -196,9 +196,31 @@ function global:au_BeforeUpdate {
     # so that PowerShell's XML parser doesn't incorrectly escape the payload when saving.
     Update-NuspecCDataDescription -NuspecXml $package.NuspecXml -CDataSafeReadme $payloadResult.CDataSafeReadme -ShortDescription $Latest.RawMeta.shortDescription
 
-    # Dynamically discover missing dependencies (e.g. extension packs) and auto-queue them to the Factory
     $configPath = [System.IO.Path]::GetFullPath((Join-Path $ProjectRoot "var\state\config.yaml"))
-    Update-NuspecDependency -NuspecXml $package.NuspecXml -PackageJson $payloadResult.PackageJson -ConfigPath $configPath
+    $newDeps = Update-NuspecDependency -NuspecXml $package.NuspecXml -PackageJson $payloadResult.PackageJson -ConfigPath $configPath
+    if ($newDeps) {
+        $factoryPath = Join-Path $ProjectRoot "bin\Manage-ExtensionPool.ps1"
+        foreach ($dep in $newDeps) {
+            Write-Magenta "    [AU] Spawning Factory in fresh runspace for missing dependency: $dep"
+
+            $procParams = @{
+                FilePath = "pwsh"
+                ArgumentList = @("-NoProfile", "-NonInteractive", "-Command", "& '$factoryPath' -Add $dep")
+                Wait = $true
+                NoNewWindow = $true
+            }
+            $proc = Start-Process @procParams -PassThru
+            if ($proc.ExitCode -ne 0) {
+                Write-Warning "    [AU] Factory scaffold failed for dependency '$dep'."
+            }
+        }
+
+        # Intentionally fail the parent package update. The DAG has already been evaluated for this run,
+        # so AU cannot process the newly scaffolded dependency right now.
+        # By failing here, we allow the next scheduled AU cron run to pick up the dependency,
+        # process it first via the DAG, and then successfully process this parent package.
+        throw "DependencyResolutionPending: Scaffolding new dependencies. Failing parent package to defer to next AU run."
+    }
 
     Save-NuspecXml -NuspecXml $package.NuspecXml -NuspecPath $nuspecPath
 

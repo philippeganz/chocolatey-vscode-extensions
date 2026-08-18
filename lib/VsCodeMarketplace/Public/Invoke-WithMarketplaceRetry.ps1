@@ -56,14 +56,15 @@ function Invoke-WithMarketplaceRetry {
 
             $retryCount++
             if ($retryCount -ge $maxRetries) {
+                Write-Red "    [FATAL] $ErrorMessage. Exhausted all $maxRetries attempts."
                 if ($isThrottling) {
-                    throw "MarketplaceThrottlingError: VS Code Marketplace API rate limit reached after $maxRetries retries. ($errMessage)"
+                    throw "MarketplaceThrottlingError: VS Code Marketplace API rate limit reached after $maxRetries attempts. ($errMessage)"
                 }
                 throw $_
             }
 
             $sleepSeconds = [Math]::Pow(2, $retryCount)
-            Write-Yellow "    [WARNING] $ErrorMessage. Retrying in $sleepSeconds seconds ($retryCount/$maxRetries)..."
+            Write-Yellow "    [WARNING] $ErrorMessage. Retry attempt $retryCount of $($maxRetries - 1) in $sleepSeconds seconds..."
             Start-Sleep -Seconds $sleepSeconds
         }
     }
