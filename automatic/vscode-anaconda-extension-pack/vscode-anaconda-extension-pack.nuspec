@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-anaconda-extension-pack</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Anaconda Extension Pack</title>
+    <authors>ms-python</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/Microsoft/vscode-anaconda-extension-pack</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/vscode-anaconda-extension-pack</projectSourceUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-anaconda-extension-pack/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-python.anaconda-extension-pack/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+The Anaconda Extension Pack is a set of extensions that enhance the
+experience of [Anaconda](https://www.anaconda.com/distribution/)
+customers using Visual Studio Code. It includes the following set of
+Visual Studio Code extensions:
+
+* [Microsoft Python Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+
+![Microsoft Python Extension for Visual Studio Code](https://raw.githubusercontent.com/microsoft/vscode-python/master/images/general.gif)
+
+
+* [YAML Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+
+![YAML Support by Red Hat](https://raw.githubusercontent.com/redhat-developer/vscode-yaml/master/images/demo.gif)
+
+]]></description>
+    <summary>The Anaconda Extension Pack is a set of extensions that enhance the experience of Anaconda customers using Visual Studio Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.anaconda-extension-pack#changelog</releaseNotes>
+    <tags>vscode extension anaconda-extension-pack</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-python" />
+      <dependency id="vscode-yaml" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
