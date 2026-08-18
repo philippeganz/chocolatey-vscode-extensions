@@ -6,7 +6,6 @@ extensions:
   - angular.ng-template
   - anthropic.claude-code
   - batisteo.vscode-django
-  - bierner.markdown-mermaid
   - blackboxapp.blackbox
   - bmewburn.vscode-intelephense-client
   - bradlc.vscode-tailwindcss
