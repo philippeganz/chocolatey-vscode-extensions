@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-continue</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Continue - open-source AI code agent</title>
+    <authors>Continue</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/continuedev/continue.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/continuedev/continue</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/continuedev/continue/issues</bugTrackerUrl>
+    <docsUrl>https://continue.dev</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-continue/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/continue.continue/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+
+
+![Continue logo](https://github.com/continuedev/continue/raw/HEAD/media/readme.png)
+
+
+
+<a target="_blank" href="https://opensource.org/licenses/Apache-2.0" style="background:none">
+    
+</a>
+<a target="_blank" href="https://docs.continue.dev" style="background:none">
+    
+</a>
+
+
+
+
+
+Continue
+
+
+
+**[Source-controlled AI checks, enforceable in CI](https://docs.continue.dev)**
+
+
+
+## VS Code Agent
+
+[Agent](https://docs.continue.dev/ide-extensions/agent/quick-start) to work on development tasks together with AI
+
+![agent](https://github.com/continuedev/continue/raw/HEAD/docs/images/agent.gif)
+
+## VS Code Chat
+
+[Chat](https://docs.continue.dev/ide-extensions/chat/quick-start) to ask general questions and clarify code sections
+
+![chat](https://github.com/continuedev/continue/raw/HEAD/docs/images/chat.gif)
+
+## VS Code Edit
+
+[Edit](https://docs.continue.dev/ide-extensions/edit/quick-start) to modify a code section without leaving your current file
+
+![edit](https://github.com/continuedev/continue/raw/HEAD/docs/images/edit.gif)
+
+## VS Code Autocomplete
+
+[Autocomplete](https://docs.continue.dev/ide-extensions/autocomplete/quick-start) to receive inline code suggestions as you type
+
+![autocomplete](https://github.com/continuedev/continue/raw/HEAD/docs/images/autocomplete.gif)
+
+
+
+## License
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=Continue.continue) for full documentation]
+]]></description>
+    <summary>The leading open-source AI code agent</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=continue.continue#changelog</releaseNotes>
+    <tags>vscode extension continue</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

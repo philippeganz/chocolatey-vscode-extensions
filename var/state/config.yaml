@@ -14,6 +14,7 @@ extensions:
   - christian-kohler.npm-intellisense
   - christian-kohler.path-intellisense
   - codezombiech.gitignore
+  - continue.continue
   - danielpinto8zz6.c-cpp-compile-run
   - dart-code.dart-code
   - dart-code.flutter
