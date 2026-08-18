@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-dotnet-interactive-vscode</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Polyglot Notebooks</title>
+    <authors>ms-dotnettools</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/dotnet/interactive.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/dotnet/interactive</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/dotnet/interactive/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/dotnet/interactive#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-dotnet-interactive-vscode/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-dotnettools.dotnet-interactive-vscode/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Polyglot Notebooks
+
+## 🚨Polyglot Notebooks will be deprecated March 27th, 2026. For more information on Polyglot Notebooks and .NET Interactive, please read the [announcement](https://github.com/dotnet/interactive/issues/4163).
+
+## **The following paths are no longer supported.**
+
+- src/polyglot-notebooks
+- src/polyglot-notebooks-browser
+- src/polyglot-notebooks-ui-components
+- src/polyglot-notebooks-vscode
+- src/polyglot-notebooks-vscode-common
+- src/polyglot-notebooks-vscode-insiders
+
+The [Polyglot Notebooks extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode), powered by [.NET Interactive](https://github.com/dotnet/interactive), brings support for multi-language notebooks to Visual Studio Code. Classic notebook software typically supports notebooks that use only one language at a time. With Polyglot Notebooks, features such as completions, documentation, syntax highlighting, and diagnostics are available for many languages in one notebook. In addition, different cells in the same notebook can run in separate processes or on different machines, allowing a notebook to span local and cloud environments in one combined workflow.
+
+## Fully Interoperable with Jupyter
+
+Polyglot Notebooks are fully interoperable with Jupyter and support the `.ipynb` file extension. You don't need to choose between the capabilities of Polyglot Notebooks and the rich Jupyter ecosystem. If your notebook is saved in the `.ipynb` format, you can open it in Jupyter and the cell languages will still be recognized. When working in Jupyter using the .NET Interactive kernel, you can switch cell languages using magic commands.
+
+## Supported Languages
+
+The following languages are supported by Polyglot Notebooks:
+
+| Language                      | Variable sharing |
+|-------------------------------|------------------|
+| C#                            |        ✅       |
+| F#                            |        ✅       |
+| PowerShell                    |        ✅       |
+| JavaScript                    |        ✅       |
+| SQL                           |        ✅       |
+| KQL ([Kusto Query Language](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/))    |        ✅       |
+| [Python](https://github.com/dotnet/interactive/blob/HEAD/docs/jupyter-in-polyglot-notebooks.md)  |        ✅       |
+| [R](https://github.com/dotnet/interactive/blob/HEAD/docs/jupyter-in-polyglot-notebooks.md)       |        ✅       |
+| HTML                         |        ⛔         |
+| HTTP                         |        ✅         |
+| [Mermaid](https://mermaid.js.org/intro/)         |        ⛔       |
+
+## Features
+
+- Run and execute code for all featured languages
+- Share variables between languages
+- Connect to and query Microsoft SQL Server
+- Connect to and query Kusto clusters
+- Language server support such as completions, syntax highlighting, signature help, and diagnostics for each language
+- See the state of all variables using the Variables View
+- Create detailed diagrams and visualizations using [Mermaid](https://mermaid-js.github.io/mermaid/#/)
+- Integrate with your favorite VS Code extensions such as [VIM](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) and [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- Notebook-friendly diffing tool that makes it easy to visually compare inputs, outputs, and metadata
+- Navigate via Outline View
+- Customizable notebook layout
+- Connect to Python (3.7+) and R Jupyter kernels installed locally or remotely and share variables between them.
+
+## Getting Started
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) for full documentation]
+]]></description>
+    <summary>Polyglot Notebooks for VS Code. Use multiple languages in one notebook with full language server support for each language and share variables between them.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode#changelog</releaseNotes>
+    <tags>vscode extension dotnet-interactive-vscode</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-jupyter" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

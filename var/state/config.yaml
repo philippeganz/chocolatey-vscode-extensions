@@ -89,6 +89,7 @@ extensions:
   - ms-ceintl.vscode-language-pack-zh-hant
   - ms-dotnettools.csdevkit
   - ms-dotnettools.csharp
+  - ms-dotnettools.dotnet-interactive-vscode
   - ms-dotnettools.vscode-dotnet-runtime
   - ms-edgedevtools.vscode-edge-devtools
   - ms-kubernetes-tools.vscode-kubernetes-tools
