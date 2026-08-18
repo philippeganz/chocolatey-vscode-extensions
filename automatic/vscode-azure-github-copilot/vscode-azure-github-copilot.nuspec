@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-azure-github-copilot</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - GitHub Copilot for Azure</title>
+    <authors>ms-azuretools</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azure-github-copilot/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azure-github-copilot/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# What's GitHub Copilot for Azure?
+
+GitHub Copilot for Azure is a Visual Studio Code extension that includes a set of Azure skills for specialized domain knowledge, and integrates support for GitHub Copilot agent and ask modes. Use Azure skills for deep, service-specific guidance, leverage Azure tools in agent mode to automatically complete Azure tasks, or chat with @azure in ask mode to get help with Azure services, development for Azure, and Azure DevOps tasks. Go to the [release notes](https://aka.ms/azcode/copilot/changelog) for details on the latest updates.
+
+**Azure Skills**
+![image](https://github.com/microsoft/GitHub-Copilot-for-Azure/raw/HEAD/resources/readme/azureSkillsIntroEdited.gif)
+
+**Agent mode**
+![image](https://github.com/microsoft/GitHub-Copilot-for-Azure/raw/HEAD/resources/readme/agentModeIntro.gif)
+
+**Ask mode**
+![image](https://github.com/microsoft/GitHub-Copilot-for-Azure/raw/HEAD/resources/readme/intro.gif)
+
+> **Note:** GitHub Copilot for Azure currently only supports Windows x64, Windows ARM64, macOS x64, macOS ARM64 and Linux x64.
+
+## Azure Skills
+
+GitHub Copilot for Azure includes a set of Azure skills that provide specialized domain knowledge and workflows for Azure services. Skills can be easily installed using the built-in commands and work with agent mode.
+
+Core skills for deploying applications to Azure include:
+
+- **azure-prepare** – Prepares your application for Azure deployment by generating infrastructure-as-code (Bicep or Terraform), azure.yaml, and Dockerfiles. Use this skill to create, modernize, or set up applications for Azure hosting.
+- **azure-validate** – Validates your deployment configuration and infrastructure files to catch issues before deploying, ensuring your application is ready for Azure.
+- **azure-deploy** – Executes Azure deployments for prepared applications using `azd up`, `azd deploy`, `terraform apply`, or `az deployment` commands with built-in error recovery.
+
+View the full list of available skills at [github.com/microsoft/azure-skills](https://github.com/microsoft/azure-skills).
+
+### Installation
+
+Github Copilot for Azure installs skills at activation. At that point, you may see a toast like the following:
+
+![image](https://github.com/microsoft/GitHub-Copilot-for-Azure/raw/HEAD/resources/readme/skillsToastPic.png)
+
+If you don't see the toast notification, you can manually install them either globally or locally using the commands listed below. To remove local skills, delete the corresponding files from `.agents/skills/`. Uninstalling the extension will uninstall the Azure Skills globally.
+
+- **`@azure: Install Azure Skills Globally`** – Installs Azure skills into the global (home directory) location, making them available across all workspaces.
+- **`@azure: Uninstall Azure Skills Globally`** – Removes all globally installed Azure skills.
+- **`@azure: Install Azure Skills Locally`** – Installs Azure skills into the current workspace directory (under `.agents/skills/`).
+
+## Agent mode
+
+Agent mode can help you complete Azure-related tasks by automatically using tools from GitHub Copilot for Azure. You can let agent mode decide on those tools, or you can guide the process by choosing particular tools from the GitHub Copilot for Azure toolset.
+GitHub Copilot for Azure tools include:
+
+### General
+
+- **`#azure_dotnet_template_tags`:** Gets the list of tags that can be used to filter the available dotnet templates.
+- **`#azure_get_dotnet_templates_for_tag`:** Gets the list of dotnet project templates available for `dotnet new` commands that match the given tag.
+
+### Resource Information
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) for full documentation]
+]]></description>
+    <summary>GitHub Copilot for Azure is the @azure extension. It's designed to help streamline the process of developing for Azure. You can ask @azure questions about Azure services or get help with tasks related to Azure and developing for Azure, all from within Visual Studio Code.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot#changelog</releaseNotes>
+    <tags>vscode extension vscode-azure-github-copilot</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-azureresourcegroups" />
+      <dependency id="vscode-azure-mcp-server" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

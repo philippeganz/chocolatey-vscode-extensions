@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\ms-azuretools.vscode-azure-github-copilot-1.0.231.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: 2FC0083FD30ED101D09B257B67CCC098E03B3C0C9AE5DD83F98DBF866612F89C
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azure-github-copilot/license
