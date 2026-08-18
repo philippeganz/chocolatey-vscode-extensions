@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-flake8</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Flake8</title>
+    <authors>ms-python</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/microsoft/vscode-flake8.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/microsoft/vscode-flake8</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/vscode-flake8/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/vscode-flake8</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-flake8/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-python.flake8/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Flake8 extension for Visual Studio Code 
+
+A Visual Studio Code extension with support for the Flake8 linter. The extension ships with `flake8==7.3.0`.
+
+> **Note**: The minimum version of Flake8 this extension supports is 7.0.0. If you are having issues with Flake8, please report it to [this issue tracker](https://github.com/PyCQA/flake8/issues) as this extension is just a wrapper around Flake8.
+
+This extension supports all [actively supported versions](https://devguide.python.org/versions/#status-of-python-versions) of the Python language.
+
+For more information on Flake8, see https://flake8.pycqa.org/
+
+-   Minimum supported version of `flake8` is `7.0.0`.
+
+## Usage and Features
+
+The Flake8 extension provides features to improve your productivity while working on Python code in Visual Studio Code. Check out the [Settings section](#settings) below for more details on how to customize the extension.
+
+-   **Integrated Linting**: Once this extension is installed in Visual Studio Code, Flake8 is automatically executed when you open a Python file, providing immediate feedback on your code quality.
+-   **Customizable Flake8 Version**: By default, this extension uses the version of Flake8 that is shipped with the extension. However, you can configure it to use a different binary installed in your environment through the `flake8.importStrategy` setting, or set it to a custom Flake8 executable through the `flake8.path` settings.
+-   **Mono repo support**: If you are working with a mono repo, you can configure the extension to lint Python files in subfolders of the workspace root folder by setting the `flake8.cwd` setting to `${fileDirname}`. You can also set it to ignore/skip linting for certain files or folder paths by specifying a glob pattern to the `flake8.ignorePatterns` setting.
+-   **Customizable Linting Rules**: You can customize the severity of specific Flake8 error codes through the `flake8.severity` setting.
+
+### Disabling Flake8
+
+You can skip linting with Flake8 for specific files or directories by setting the `flake8.ignorePatterns` setting.
+
+If you wish to disable linting with Flake8 for your entire workspace or globally, you can [disable this extension](https://code.visualstudio.com/docs/editor/extension-marketplace#_disable-an-extension) in Visual Studio Code. Alternatively, you can also disable Flake8 for your entire workspace by setting `"flake8.enabled" : false` in your `settings.json` file.
+
+## Settings
+
+There are several settings you can configure to customize the behavior of this extension.
+
+<table>
+    <thead>
+        <tr>
+            <th>Settings</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>flake8.args</td>
+            <td><code>[]</code></td>
+            <td>Arguments passed to Flake8 for linting Python files. Each argument should be provided as a separate string in the array. 
+ Example: <code>"flake8.args": ["--config=<file>"] </code></td>
+        </tr>
+        <tr>
+            <td>flake8.cwd</td>
+            <td><code>${workspaceFolder}</code></td>
+            <td>Sets the current working directory used to lint Python files with Flake8. By default, it uses the root directory of the workspace <code>${workspaceFolder}</code>. You can set it to <code>${fileDirname}</code> to use the parent folder of the file being linted as the working directory for Flake8.</td>
+        </tr></tbody></table>
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-python.flake8) for full documentation]
+]]></description>
+    <summary>Linting support for Python files using Flake8.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.flake8#changelog</releaseNotes>
+    <tags>vscode extension flake8</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-python" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
