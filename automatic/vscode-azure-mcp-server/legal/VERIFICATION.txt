@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\ms-azuretools.vscode-azure-mcp-server-3.0.35.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: CC4428E103BADF93DFBA8D392C7077E1DA032C129CE7AE54951DE50C5B4EFA37
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azure-mcp-server/license

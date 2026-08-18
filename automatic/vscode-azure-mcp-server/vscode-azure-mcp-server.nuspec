@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-azure-mcp-server</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Azure MCP Server</title>
+    <authors>ms-azuretools</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/microsoft/mcp.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/microsoft/mcp</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/microsoft/mcp/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/microsoft/mcp#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azure-mcp-server/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azure-mcp-server/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Azure MCP Server Extension for Visual Studio Code
+
+
+All Azure MCP tools in a single server. The Azure MCP Server implements the [MCP specification](https://modelcontextprotocol.io) to create a seamless connection between AI agents and Azure services. Azure MCP Server can be used alone or with the [GitHub Copilot for Azure extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) in VS Code.
+## Table of Contents
+- [Overview](#overview)
+- [Local Setup](#local-setup)
+- [Remote Setup](#remote-setup)
+- [Usage](#usage)
+    - [Getting Started](#getting-started)
+    - [Sovereign Cloud Support](#sovereign-cloud-support)
+    - [What can you do with the Azure MCP Server?](#what-can-you-do-with-the-azure-mcp-server)
+    - [Complete List of Supported Azure Services](#complete-list-of-supported-azure-services)
+- [Support and Reference](#support-and-reference)
+    - [Documentation](#documentation)
+    - [Feedback and Support](#feedback-and-support)
+    - [Security](#security)
+    - [Permissions and Risk](#permissions-and-risk)
+    - [Data Collection](#data-collection)
+    - [Compliance Responsibility](#compliance-responsibility)
+    - [Third Party Components](#third-party-components)
+    - [Export Control](#export-control)
+    - [No Warranty / Limitation of Liability](#no-warranty--limitation-of-liability)
+    - [Contributing](#contributing)
+    - [Code of Conduct](#code-of-conduct)
+
+# Overview
+
+**Azure MCP Server** supercharges your agents with Azure context across **40+ different Azure services**.
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server) for full documentation]
+]]></description>
+    <summary>Provides Model Context Protocol (MCP) integration and tooling for Azure in Visual Studio Code.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server#changelog</releaseNotes>
+    <tags>vscode extension vscode-azure-mcp-server</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-azure-github-copilot" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

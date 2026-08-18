@@ -51,6 +51,7 @@ extensions:
   - kevinrose.vsc-python-indent
   - mechatroner.rainbow-csv
   - ms-azuretools.vscode-azure-github-copilot
+  - ms-azuretools.vscode-azure-mcp-server
   - ms-azuretools.vscode-azureappservice
   - ms-azuretools.vscode-azurecontainerapps
   - ms-azuretools.vscode-azurefunctions
