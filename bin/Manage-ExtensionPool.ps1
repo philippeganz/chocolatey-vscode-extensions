@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 
 <#
 .SYNOPSIS
@@ -177,7 +177,16 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
                     Invoke-GitAutoCommit -ExtensionId $cleanId -CommitMessage "Add new $cleanId extension"
                 }
 
-                # Dynamically append any newly discovered dependencies to the pool manager's queue
+                # --------------------------------------------------------------------------------
+                # Dependency DAG Resolution (Add Mode)
+                # --------------------------------------------------------------------------------
+                # Instead of recursively spawning new Factory processes (which loses visibility
+                # and complicates error handling), the Factory simply returns a list of any
+                # untracked dependencies it discovered during scaffolding.
+                # We dynamically append them to our local $addList queue. Since the main loop
+                # iterates over $addList, these new dependencies will be natively processed
+                # in subsequent iterations within this exact same runspace.
+                # --------------------------------------------------------------------------------
                 if ($discoveredDeps) {
                     foreach ($dep in $discoveredDeps) {
                         $depLower = $dep.ToLower()

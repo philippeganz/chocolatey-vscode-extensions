@@ -109,6 +109,9 @@ function Update-NuspecDependency {
 
     [void]$depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n    "))
 
+    # Return the strongly-typed List[string] of missing dependencies so that
+    # the calling scope (Manage-ExtensionPool or AuExtensionHooks) can handle
+    # the orchestration (dynamic queueing or Fail/Defer strategy) appropriately.
     return $missingDeps
 }
 

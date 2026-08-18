@@ -215,10 +215,21 @@ function global:au_BeforeUpdate {
             }
         }
 
-        # Intentionally fail the parent package update. The DAG has already been evaluated for this run,
-        # so AU cannot process the newly scaffolded dependency right now.
-        # By failing here, we allow the next scheduled AU cron run to pick up the dependency,
-        # process it first via the DAG, and then successfully process this parent package.
+        # --------------------------------------------------------------------------------
+        # Dependency DAG Resolution (AU Mode)
+        # --------------------------------------------------------------------------------
+        # When AU processes an update for an extension, it evaluates the DAG strictly before
+        # starting the updates. If this package suddenly introduces a new dependency that we
+        # do not track yet, AU cannot dynamically inject it into the currently running DAG.
+        #
+        # Strategy (Fail & Defer):
+        # 1. We spawn the Factory asynchronously (above) to scaffold the missing dependencies.
+        # 2. We intentionally throw an exception to forcefully FAIL the update of this parent.
+        # 3. This guarantees that we never push a parent package to Chocolatey before its
+        #    dependencies are published.
+        # 4. On the NEXT scheduled AU cron run, the DAG will see the newly scaffolded
+        #    dependencies, process them FIRST, and finally process this parent package.
+        # --------------------------------------------------------------------------------
         throw "DependencyResolutionPending: Scaffolding new dependencies. Failing parent package to defer to next AU run."
     }
 

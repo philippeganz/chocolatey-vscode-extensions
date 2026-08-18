@@ -219,7 +219,6 @@ for ($i = 0; $i -lt $extensionsList.Count; $i++) {
     $payloadResult = Expand-VsCodePayload -VsixPath $vsixPath -DestinationDir $pkgDir
     $packageJson = $payloadResult.PackageJson
 
-
     # =========================================================================
     # 5. Security Validation
     # =========================================================================
@@ -296,8 +295,6 @@ param()
         $updateContent = $updateContent.Replace("`r`n", "`n")
         [System.IO.File]::WriteAllText((Join-Path $pkgDir "update.ps1"), $updateContent, [System.Text.UTF8Encoding]::new($false))
     }
-
-
 
     Write-Host "    [SUCCESS] Scaffolded at: $pkgDir" -ForegroundColor Green
 }

@@ -50,16 +50,14 @@ flowchart TD
         J -->|Centralized Logic| K["Overwrites Dynamic Metadata"]
         K -->|Bumps Version & IconUrl| L["Packs .nupkg"]
         L --> M["Publishes to Chocolatey Gallery"]
-        M --> Q{"Are new dependencies queued?"}
-        Q -->|Yes: Flush State & Rerun| G
-        Q -->|No| N("GitHub Action: Granular Git Commits")
+        M --> N("GitHub Action: Granular Git Commits")
         N -->|Commits 1 by 1| O["Pushes natively to main via PAT"]
     end
 
     subgraph "Auto-Discovery & Dependency Resolution"
         I -.->|Detects missing nested dependency in package.json| P["Update-NuspecDependencies"]
-        P -->|Queues new dependency| B("Manage-ExtensionPool.ps1")
-        B -.->|Flags pending dependencies| Q
+        P -->|Yields untracked dependency list| B("Manage-ExtensionPool.ps1")
+        B -.->|Scaffolds dependency and defers parent to next AU cron via DAG| N
     end
 ```
 
@@ -89,7 +87,7 @@ Responsible exclusively for **Day 0 Bootstrapping (Creation)**.
 
 - It auto-discovers dependencies, extracts ZIP payloads for documentation, and generates the baseline packages.
 - **Smart CI Bootstrapping:** Extensions are explicitly scaffolded with `<version>0.0.0</version>` in their `.nuspec`. This inherently triggers the AU Engine to push the pristine upstream version on its first run without requiring manual intervention.
-- **Deep Recursive Auto-Discovery:** If the extension has internal dependencies (like Extension Packs), the Factory natively unrolls them, dynamically scaffolds the complete missing dependency tree, and employs **Cyclic Dependency Protection**.
+- **Iterative Auto-Discovery:** If the extension has internal dependencies (like Extension Packs), the Factory yields a list of untracked dependencies back to the orchestrator (`Manage-ExtensionPool.ps1`). The orchestrator dynamically queues and scaffolds them iteratively within the same run, cleanly unrolling the dependency tree without recursion or nested process spawning.
 
 ### 3. The Destroyer: `Invoke-ExtensionShredder.ps1`
 
