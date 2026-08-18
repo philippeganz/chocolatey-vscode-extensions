@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-peacock</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Peacock</title>
+    <authors>johnpapa</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/johnpapa/vscode-peacock.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/johnpapa/vscode-peacock</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/johnpapa/vscode-peacock/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/johnpapa/vscode-peacock/blob/main/README.md</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-peacock/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/johnpapa.vscode-peacock/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Peacock for Visual Studio Code
+
+![Peacock Icon](https://raw.githubusercontent.com/johnpapa/vscode-peacock/main/resources/peacock-icon-small.png 'Peacock')
+
+Subtly change the color of your Visual Studio Code workspace. Ideal when you have multiple VS Code instances, use VS Live Share, or use VS Code's Remote features, and you want to quickly identify your editor.
+
+Read the extensive [documentation here](https://johnpapa.github.io/vscode-peacock/) which includes a guide on how to use Peacock and a [changelog](https://johnpapa.github.io/vscode-peacock/#/changelog/)
+
+## Install
+
+1. Open **Extensions** sideBar panel in Visual Studio Code and choose the menu options for **View → Extensions**
+1. Search for `Peacock`
+1. Click **Install**
+1. Click **Reload**, if required
+
+## Documentation
+
+Read the extensive [documentation here](https://johnpapa.github.io/vscode-peacock/) which includes a guide on how to use Peacock and a [changelog](https://johnpapa.github.io/vscode-peacock/#/changelog/)
+
+## Quick Usage
+
+Let's see Peacock in action!
+
+1. Create/Open a VSCode Workspace ([Peacock only works in a Workspace](https://johnpapa.github.io/vscode-peacock/#/guide/?id=peacock-commands-are-not-appearing))
+1. Press `F1` to open the command palette
+1. Type `Peacock`
+1. Choose `Peacock: Change to a favorite color`
+1. Choose one of the pre-defined colors and see how it changes your editor
+
+Now enjoy exploring the rest of the features explained in the docs!
+
+![Peacock Windows](https://raw.githubusercontent.com/johnpapa/vscode-peacock/main/resources/hero.png 'Peacock windows')
+
+## Resources
+
+- [Peacock docs on GitHub Pages](https://johnpapa.github.io/vscode-peacock/)
+- [Peacock on the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock&WT.mc_id=academic-0000-jopapa)
+- [CI workflow (GitHub Actions)](https://github.com/johnpapa/vscode-peacock/actions/workflows/ci.yml)
+- [Docs workflow (GitHub Actions)](https://github.com/johnpapa/vscode-peacock/actions/workflows/docs.yml)
+- [MIT License](http://opensource.org/licenses/MIT)
+- [Get VS Code](https://code.visualstudio.com/?WT.mc_id=academic-0000-jopapa)
+- [Create your first VS Code extension](https://code.visualstudio.com/api/get-started/your-first-extension?WT.mc_id=academic-0000-jopapa)
+- [VS Code Extension API](https://code.visualstudio.com/api/references/vscode-api?WT.mc_id=academic-0000-jopapa)
+- [Learn how to add WebPack bundles to your favorite extensions](https://code.visualstudio.com/updates/v1_32?WT.mc_id=academic-0000-jopapa#_bundling-extensions-with-webpack?wt.mc_id=peacock-github-jopapa)
+
+## Credits
+
+Inspiration comes in many forms. These folks and teams have contributed either through ideas, issues, pull requests, or guidance. Thank you!
+
+- The VS Code team and their incredibly [helpful guide for creating extensions](https://code.visualstudio.com/api/get-started/your-first-extension?WT.mc_id=academic-0000-jopapa)
+
+- Here are some great [examples for extensions](https://github.com/Microsoft/vscode-extension-samples) from the VS Code team
+
+## Code of Conduct
+
+[Code of Conduct](https://github.com/johnpapa/vscode-peacock/blob/HEAD/CODE_OF_CONDUCT.md).
+
+## Contributing
+
+The fastest way to contribute is with [Copilot CLI](https://github.com/features/copilot/cli/) — it knows this repo's conventions automatically:
+
+```
+copilot "Add a new command called 'Change to a Seasonal Color' that picks a color based on the current season"
+```
+
+Or contribute manually — see [CONTRIBUTING.md](https://github.com/johnpapa/vscode-peacock/blob/HEAD/CONTRIBUTING.md) for the full guide:
+
+1. Fork this repo and create a branch
+2. `npm install` → make your changes → `npm test`
+3. Open a PR
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock) for full documentation]
+]]></description>
+    <summary>Subtly change the workspace color of your workspace. Ideal when you have multiple VS Code instances and you want to quickly identify which is which.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock#changelog</releaseNotes>
+    <tags>vscode extension vscode-peacock</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

@@ -48,6 +48,7 @@ extensions:
   - james-yu.latex-workshop
   - jeff-hykin.better-cpp-syntax
   - johnpapa.angular2
+  - johnpapa.vscode-peacock
   - kevinrose.vsc-python-indent
   - mechatroner.rainbow-csv
   - ms-azuretools.vscode-azure-github-copilot
