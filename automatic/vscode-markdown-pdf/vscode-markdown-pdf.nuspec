@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-markdown-pdf</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Markdown PDF</title>
+    <authors>yzane</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/yzane/vscode-markdown-pdf.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/yzane/vscode-markdown-pdf</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/yzane/vscode-markdown-pdf/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/yzane/vscode-markdown-pdf#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-markdown-pdf/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/yzane.markdown-pdf/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Markdown PDF
+
+
+  
+
+
+This VS Code extension converts Markdown files to pdf, html, png or jpeg files.
+
+[Japanese README](https://github.com/yzane/vscode-markdown-pdf/blob/HEAD/README.ja.md)
+
+## Table of Contents
+<!-- TOC depthFrom:2 depthTo:2 updateOnSave:false -->
+
+- [What's New](#whats-new)
+- [Breaking Changes](#breaking-changes)
+- [Features](#features)
+- [Chromium](#chromium)
+- [Usage](#usage)
+- [Extension Settings](#extension-settings)
+- [Options](#options)
+- [FAQ](#faq)
+- [Known Issues](#known-issues)
+- [Change Log](#change-log)
+- [License](#license)
+- [Sponsor](#sponsor)
+- [Special thanks](#special-thanks)
+
+<!-- /TOC -->
+
+
+
+## What's New
+
+Highlights of new features and improvements since v2. See [Breaking Changes](#breaking-changes) for changes that may affect existing behavior.
+
+### 2.2.0
+
+- Improve error notifications with actionable hints and a Show Details button ([details](#how-do-i-troubleshoot-a-failed-export))
+- Add detailed logging to the new Markdown PDF output channel ([details](#how-do-i-troubleshoot-a-failed-export))
+- Add `Markdown PDF: Output Diagnostics` command for bug reports ([details](#how-do-i-troubleshoot-a-failed-export))
+
+### 2.1.0
+
+- Add PlantUML fenced code block support ([details](#plantuml))
+- Add math rendering via KaTeX ([details](#math))
+- Auto-download latest Chrome Stable ([details](#markdown-pdfchromiumautodownload))
+
+## Breaking Changes
+
+Changes since v2 that may affect existing behavior. See the [FAQ](#faq) section for details.
+
+### 2.2.0
+
+- With `markdown-pdf.sanitize: "gfm"` (default) or `"gfm-allow-style"`, block-level `<style>`, `<script>`, and `` elements are now removed together with their content, instead of being escaped and left as visible text in the output. A notification reports what was removed during an export.
+    - Details: [Why is my raw HTML being escaped or removed?](#why-is-my-raw-html-being-escaped-or-removed)
+
+### 2.1.0
+
+- Security hardening: To mitigate XSS-like risk ([#411](https://github.com/yzane/vscode-markdown-pdf/issues/411)), raw HTML in Markdown is now sanitized by default following the [GFM Disallowed Raw HTML extension](https://github.github.com/gfm/#disallowed-raw-html-extension-). Tags such as `<script>`, ``, `<style>`, and `on*` / `javascript:` attributes are stripped from Markdown body content. The behavior is controlled by the new [markdown-pdf.sanitize](#markdown-pdfsanitize) setting.
+    - Details: [Why is my raw HTML being escaped or removed?](#why-is-my-raw-html-being-escaped-or-removed)
+
+### 2.0.0
+
+- Heading IDs now follow GitHub-compatible VS Code slug generation. Existing internal anchors in your documents may change.
+    - Details: [Why did my heading anchors change?](#why-did-my-heading-anchors-change)
+- Highlight.js upgraded from v9 to v11. Some highlight style names have been renamed or removed.
+    - Details: [Why did my syntax highlight style stop working?](#why-did-my-syntax-highlight-style-stop-working)
+- Front matter parsing is now stricter. Some previously accepted formats may be rejected.
+    - Details: [Why is my front matter no longer parsed?](#why-is-my-front-matter-no-longer-parsed)
+- Chromium is resolved from an installed Chrome/Edge browser first, or auto-downloaded on first use.
+    - Details: [How is the Chromium browser selected?](#how-is-the-chromium-browser-selected) / [Where is Chromium downloaded?](#where-is-chromium-downloaded)
+
+## Features
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf) for full documentation]
+]]></description>
+    <summary>Convert Markdown to PDF</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf#changelog</releaseNotes>
+    <tags>vscode extension markdown-pdf</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

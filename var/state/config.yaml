@@ -168,5 +168,6 @@ extensions:
   - wakatime.vscode-wakatime
   - wallabyjs.quokka-vscode
   - xdebug.php-debug
+  - yzane.markdown-pdf
   - yzhang.markdown-all-in-one
   - zhuangtongfa.material-theme
