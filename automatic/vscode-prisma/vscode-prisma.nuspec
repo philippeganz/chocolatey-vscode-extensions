@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-prisma</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Prisma</title>
+    <authors>Prisma</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/prisma/language-tools.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/prisma/language-tools</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/prisma/language-tools/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/prisma/language-tools#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-prisma/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/prisma.prisma/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+Prisma VS Code Extension
+
+  Adds a database management UI, syntax highlighting, linting, code completion, formatting, jump-to-definition and more.
+
+
+## Features
+
+### Visual database management UI
+
+The Prisma VS Code extension features a database managent UI that you can access via the **Prisma logo** in the sidebar. It allows to manage Prisma Postgres instances:
+
+- Authenticate with the [Prisma Console](https://console.prisma.io)
+- Create and delete Prisma Postgres instances (remote & local)
+- View and edit data via an embedded Prisma Studio
+- Visualize your database schema
+
+### Editor support
+
+- Syntax highlighting of `schema.prisma`
+- Linting
+  - Diagnostic tools are used to surface errors and warnings in your schema file as you type.
+- Code Completion
+  - Completion results appear for symbols as you type.
+  - You can trigger this manually with the `Ctrl+Space` shortcut.
+- Documentation help
+  - Documentation of a completion result pops up as completion results are provided.
+- Quick info on hover
+  - Documentation Comments (`///`) of models and enums appear anywhere you hover over their usages.
+- Go to Definition
+  - Jump to or peek a model or enum's declaration.
+- Formatting
+  - Format code either manually or on save (if configured).
+    - _To automatically format on save, add the following to your `settings.json` file:_
+      ```
+      "editor.formatOnSave": true
+      ```
+    - _To enable formatting in combination with `prettier`, add the following to your `settings.json` file:_
+      ```
+      "[prisma]": {
+        "editor.defaultFormatter": "Prisma.prisma"
+      },
+      ```
+      or use the [Prettier plugin for Prisma](https://github.com/umidbekk/prettier-plugin-prisma)
+- Rename
+  - Rename models, enums, fields and enum values
+    - Click into the model or enum, press `F2` and then type the new desired name and press `Enter`
+    - All usages will be renamed
+    - Automatically applies `@map` or `@@map` on the schema
+- Quick-fixes
+  - Quickly fix typos in model and enum names
+  - Create new models and enums with a single click
+
+## Preview
+
+
+  Database management UI
+
+The database management UI gives you a visual way to perform various database workflows.
+![Preview Schema](https://cdn.sanity.io/images/p2zxqf70/production/f7a4f862f7f12d96c98eafef1b6bf0f2d0cac943-3740x1964.png)
+
+
+
+
+  Syntax highlighting
+
+Syntax highlighting eases visual comprehension of the Prisma schema.
+![Preview Schema](https://user-images.githubusercontent.com/1328733/147264843-fc32c2aa-7490-4e49-9478-abc16cbd0682.png)
+
+
+
+  Formatting
+
+Formatting ensures consistent indentation of your models for better readability.
+![Formatting](https://user-images.githubusercontent.com/1328733/147264852-849cb539-9bdc-4916-9d0f-483536061f7c.gif)
+
+
+
+  Linting and autocompletion
+
+Linting shows inline errors in the schema, and autocompletion assists in defining the correct type.
+![Linting and autocompletion](https://user-images.githubusercontent.com/1328733/147265321-2e1956ec-9f57-4ff3-9493-8163a727308d.gif)
+
+
+
+  Contextual suggestions
+
+Contextual suggestions assist in defining field types, models, and relations while formatting automatically defines back relations.
+![Contextual suggestions](https://user-images.githubusercontent.com/1328733/147265323-4eb397b4-acda-4c78-9f27-1230d7ea4603.gif)
+
+
+
+  Jump-to-definition
+
+Easily navigate definitions, i.e. models in the Prisma schema.
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma) for full documentation]
+]]></description>
+    <summary>Adds syntax highlighting, formatting, auto-completion, jump-to-definition and linting for .prisma files.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=prisma.prisma#changelog</releaseNotes>
+    <tags>vscode extension prisma</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
