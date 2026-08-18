@@ -55,6 +55,7 @@ extensions:
   - johnpapa.vscode-peacock
   - johnpapa.winteriscoming
   - kevinrose.vsc-python-indent
+  - llvm-vs-code-extensions.vscode-clangd
   - mechatroner.rainbow-csv
   - mongodb.mongodb-vscode
   - monokai.theme-monokai-pro-vscode
