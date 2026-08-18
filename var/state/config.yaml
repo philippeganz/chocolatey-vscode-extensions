@@ -117,6 +117,7 @@ extensions:
   - ms-python.vscode-python-envs
   - ms-toolsai.datawrangler
   - ms-toolsai.jupyter
+  - ms-toolsai.jupyter-hub
   - ms-toolsai.jupyter-keymap
   - ms-toolsai.jupyter-renderers
   - ms-toolsai.tensorboard

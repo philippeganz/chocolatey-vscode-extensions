@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-hub
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\ms-toolsai.jupyter-hub-2025.8.2026072301.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: E4A0F4E244668AA17ABF7D4CFB3B6826895AAA2A292BD75D78B63B4AAFF13EFE
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/ms-toolsai.jupyter-hub/license
