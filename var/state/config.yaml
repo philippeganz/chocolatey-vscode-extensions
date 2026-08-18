@@ -190,6 +190,7 @@ extensions:
   - shopify.ruby-lsp
   - sonarsource.sonarlint-vscode
   - streetsidesoftware.code-spell-checker
+  - svelte.svelte-vscode
   - tim-koehler.helm-intellisense
   - timonwong.shellcheck
   - tomoki1207.pdf
