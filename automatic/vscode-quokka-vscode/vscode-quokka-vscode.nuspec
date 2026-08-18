@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-quokka-vscode</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Quokka.js</title>
+    <authors>WallabyJs</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://marketplace.visualstudio.com/items?itemName=wallabyjs.quokka-vscode</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <bugTrackerUrl>https://github.com/wallabyjs/quokka/issues</bugTrackerUrl>
+    <docsUrl>http://quokkajs.com</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-quokka-vscode/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/wallabyjs.quokka-vscode/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# [Quokka.js](https://quokkajs.com) Visual Studio Code Extension
+
+Quokka.js is a developer productivity tool for rapid JavaScript / TypeScript prototyping. Runtime values are updated and displayed in your IDE next to your code, as you type.
+
+![Quokka.js in VS Code](https://quokkajs.com/assets/img/main-video.gif)
+
+## Quick links
+
+- [Docs](https://quokkajs.com/docs)
+- [Issues/questions](https://github.com/wallabyjs/quokka)
+
+]]></description>
+    <summary>JavaScript and TypeScript playground in your editor.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=wallabyjs.quokka-vscode#changelog</releaseNotes>
+    <tags>vscode extension quokka-vscode</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

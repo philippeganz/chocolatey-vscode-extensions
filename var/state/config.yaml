@@ -165,6 +165,7 @@ extensions:
   - vscodevim.vim
   - vue.volar
   - wakatime.vscode-wakatime
+  - wallabyjs.quokka-vscode
   - xdebug.php-debug
   - yzhang.markdown-all-in-one
   - zhuangtongfa.material-theme
