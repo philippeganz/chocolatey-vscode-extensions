@@ -166,6 +166,7 @@ extensions:
   - vscode-icons-team.vscode-icons
   - vscodevim.vim
   - vue.volar
+  - waderyan.gitblame
   - wakatime.vscode-wakatime
   - wallabyjs.quokka-vscode
   - xdebug.php-debug

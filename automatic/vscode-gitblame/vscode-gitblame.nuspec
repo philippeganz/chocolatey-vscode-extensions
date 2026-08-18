@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-gitblame</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Git Blame</title>
+    <authors>waderyan</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/Sertion/vscode-gitblame.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Sertion/vscode-gitblame</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Sertion/vscode-gitblame/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Sertion/vscode-gitblame/blob/main/README.md</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-gitblame/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/waderyan.gitblame/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Git Blame
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Sertion_vscode-gitblame&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Sertion_vscode-gitblame)
+
+Features:
+* See Git blame information in the status bar for the currently selected line.
+* See Git blame information in-line for your currently selected line.
+* See Git blame information on the last selected line in your editor.
+* Quick link to open the latest commit on the current line in the most popular online git tools.
+* Open `git show` for the latest commit on the current line in an editor terminal.
+* Commands that can be bound to custom keyboard shortcuts.
+* Support for both SHA-1 and SHA-256 repositories.
+
+## How to use
+
+![Feature Usage](https://raw.githubusercontent.com/Sertion/vscode-gitblame/master/images/preview.png)
+
+*Git Blame* adds git blame information to your vscode compatible view. See information about what commit last changed a line and how long ago it was. Click the message to see more information about the commit. It is possible to edit all of these information messages in the settings. There are multiple tokens available. These are described below.
+
+*Git Blame* works very well with WSL but does not work with the web browser based editors.
+
+## Commands
+### Show quick info
+The command `gitblame.quickInfo` opens a information message with the current line's blamed commit's information.
+### View last change online
+The command `gitblame.online` opens the configured url for the current line's online tool.
+### Copy hash to clipboard
+The command `gitblame.addCommitHashToClipboard` copies the current line's blamed commit hash to the clipboard.
+### Copy tool URL to clipboard
+The command `gitblame.addToolUrlToClipboard` copies the tool url for the current line's blamed commit to the clipboard.
+### Git show for current line hash
+The command `gitblame.gitShow` shows the current comit in a terminal using `git show $HASH`.
+
+## Configuration
+
+### `gitblame.commitUrl`
+> Type: `string`
+
+> Default value: `"${tool.protocol}//${gitorigin.hostname}${gitorigin.port}${gitorigin.path}${tool.commitpath}${hash}"`
+
+Url where you can see the commit by hash
+
+If set to an empty value it will try to guess the URL based on your remote origin. Can only support servers that don't require auth.
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame) for full documentation]
+]]></description>
+    <summary>See git blame information in the status bar or in-line.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame#changelog</releaseNotes>
+    <tags>vscode extension gitblame</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
