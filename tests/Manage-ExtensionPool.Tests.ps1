@@ -26,7 +26,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
     Context "Audit Mode" {
         It "Should succeed when config matches directories" {
 
-            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $mockAuto = Join-Path $TestDrive "mockAuto"
 
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
             if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
@@ -42,6 +42,27 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
             { & $script:scriptPath -Audit } | Should -Not -Throw
 
             Remove-Item (Join-Path $mockAuto "vscode-rainbow-csv") -Recurse -Force
+        }
+
+        It "Should report orphaned directories" {
+            $mockAuto = Join-Path $TestDrive "mockAuto"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+            if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
+            [void](New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-rainbow-csv") -Force)
+            [void](New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-orphan-ext") -Force)
+
+            Mock Test-Path -MockWith { return $true }
+            Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('mechatroner.rainbow-csv')) } }
+            Mock Write-Err -MockWith { }
+            Mock Write-Red -MockWith { }
+
+            & $script:scriptPath -Audit
+
+            Should -Invoke -CommandName Write-Err -Times 1 -ParameterFilter { $msg -match "orphaned directories" }
+            Should -Invoke -CommandName Write-Red -Times 1 -ParameterFilter { $msg -match "vscode-orphan-ext" }
+
+            Remove-Item (Join-Path $mockAuto "vscode-rainbow-csv") -Recurse -Force
+            Remove-Item (Join-Path $mockAuto "vscode-orphan-ext") -Recurse -Force
         }
     }
 
@@ -80,7 +101,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
 
     Context "CheckStale Mode" {
         It "Should ignore unpublished packages correctly" {
-            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $mockAuto = Join-Path $TestDrive "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
             if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
             [void](New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-missing") -Force)
@@ -95,7 +116,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
 
     Context "CheckAge Mode" {
         It "Should report abandoned extensions in CheckAge Mode" {
-            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $mockAuto = Join-Path $TestDrive "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
             Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('test.old')) } }
@@ -124,7 +145,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
         }
 
         It "Should ignore failed marketplace queries gracefully" {
-            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $mockAuto = Join-Path $TestDrive "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
             Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('test.error')) } }
@@ -136,7 +157,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
 
     Context "Add Mode" {
         It "Should skip tracked extensions if -Force is not specified" {
-            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $mockAuto = Join-Path $TestDrive "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
             Mock Test-Path -MockWith { return $true }
@@ -154,7 +175,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
         }
 
         It "Should invoke factory for tracked extensions if -Force is specified" {
-            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $mockAuto = Join-Path $TestDrive "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
             Mock Test-Path -MockWith { return $true }
@@ -166,7 +187,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
         }
 
         It "Should auto-commit new extensions if -AutoCommit is specified" {
-            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $mockAuto = Join-Path $TestDrive "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
             Mock Test-Path -MockWith { return $false } -ParameterFilter { $Path -match 'autocommit' }
@@ -224,7 +245,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
         }
 
         It "Should skip auto-commit in Add Mode if no changes are detected" {
-            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $mockAuto = Join-Path $TestDrive "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
             Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new() } }
@@ -245,11 +266,23 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
 
             { & $script:scriptPath -Add "test.nocommits" -AutoCommit } | Should -Not -Throw
         }
+
+        It "Should gracefully skip 404s but instantly abort on MarketplaceThrottlingError" {
+            $mockAuto = Join-Path $TestDrive "mockAuto"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+            Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new() } }
+
+            Mock Get-VsCodeMarketplaceMetadata -MockWith { throw "Marketplace API rejected (404 Not Found)" }
+            { & $script:scriptPath -Add "fake.404" } | Should -Not -Throw
+
+            Mock Get-VsCodeMarketplaceMetadata -MockWith { throw "MarketplaceThrottlingError: rate limit reached" }
+            { & $script:scriptPath -Add "fake.throttled" } | Should -Throw "*MarketplaceThrottlingError*"
+        }
     }
 
     Context "Remove Mode" {
         It "Should remove extension and auto-commit if -AutoCommit is specified" {
-            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $mockAuto = Join-Path $TestDrive "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
             $shredderPath = "$PSScriptRoot\..\bin\Invoke-ExtensionShredder.ps1"
@@ -265,7 +298,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
         }
 
         It "Should skip auto-commit in Remove Mode if no changes are detected" {
-            $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+            $mockAuto = Join-Path $TestDrive "mockAuto"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
 
             $shredderPath = "$PSScriptRoot\..\bin\Invoke-ExtensionShredder.ps1"
@@ -355,12 +388,20 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
             }
 
             It "Should report missing automatic scaffold in Audit Mode" {
+                $mockAuto = Join-Path $TestDrive "mockAuto"
+                $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+                if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
+
                 Mock Test-Path -MockWith { if ($Path -match 'config.yaml') { return $true } else { return $false } }
                 Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('missing.ext')) } }
                 { & $script:scriptPath -Audit } | Should -Not -Throw
             }
 
             It "Should successfully audit when scaffolds match in Audit Mode" {
+                $mockAuto = Join-Path $TestDrive "mockAuto"
+                $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
+                if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
+
                 Mock Test-Path -MockWith { return $true }
                 Mock Get-ConfigState -MockWith { return [PSCustomObject]@{ Extensions = [System.Collections.Generic.List[string]]::new([string[]]@('missing.ext')) } }
                 { & $script:scriptPath -Audit } | Should -Not -Throw
@@ -371,7 +412,7 @@ Describe "Manage-ExtensionPool CLI" -Tag "Integration", 'Manage-ExtensionPool' {
             }
 
             It "Should report stale packages in CheckStale Mode" {
-                $mockAuto = Join-Path ([System.IO.Path]::GetTempPath()) "mockAuto"
+                $mockAuto = Join-Path $TestDrive "mockAuto"
                 $env:CHOCO_VSCODE_AUTOMATIC_DIR = $mockAuto
                 if (-not (Test-Path $mockAuto)) { [void](New-Item -ItemType Directory -Path $mockAuto -Force) }
                 [void](New-Item -ItemType Directory -Path (Join-Path $mockAuto "vscode-stale") -Force)

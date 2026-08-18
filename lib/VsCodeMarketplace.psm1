@@ -36,4 +36,4 @@ if (Test-Path $publicDir) {
     }
 }
 
-Export-ModuleMember -Function Get-VsCodeMarketplaceMetadata, Get-VsCodeExtensionUrl, Invoke-RobustDownload, Expand-VsCodePayload, Update-NuspecDependency, Get-VsCodeNuspecMetadata, New-VerificationFile, Update-VsCodeNuspecMetadata, Save-VsCodeIcon, Update-NuspecCDataDescription, Save-NuspecXml
+Export-ModuleMember -Function Get-VsCodeMarketplaceMetadata, Get-VsCodeExtensionUrl, Invoke-RobustDownload, Expand-VsCodePayload, Update-NuspecDependency, Get-VsCodeNuspecMetadata, New-VerificationFile, Update-VsCodeNuspecMetadata, Save-VsCodeIcon, Update-NuspecCDataDescription, Save-NuspecXml, Invoke-WithMarketplaceRetry

@@ -57,22 +57,9 @@ function Get-VsCodeMarketplaceMetadata {
         "Content-Type" = "application/json"
     }
 
-    $retryCount = 0
-    $success = $false
-    $res = $null
-
-    while (-not $success -and $retryCount -lt 5) {
-        try {
-            $res = Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers
-            $success = $true
-        }
-        catch {
-            Write-Yellow "    [WARNING] VS Code Marketplace API failed (Rate Limit/Network). Retrying in 5 seconds..."
-            $retryCount++
-            if ($retryCount -ge 5) { throw $_ }
-            Start-Sleep -Seconds 5
-        }
-    }
+    $res = Invoke-WithMarketplaceRetry -Action {
+        Invoke-RestMethod -Uri $marketplaceUrl -Method Post -Body $body -Headers $headers
+    } -ErrorMessage "VS Code Marketplace API failed"
 
     $ext = $res.results[0].extensions[0]
     if (-not $ext) { throw "Extension not found on Marketplace: $Publisher.$ExtensionName" }

@@ -116,6 +116,10 @@ jobs:
         if: steps.changed-packages.outputs.any_changed == 'true'
         run: choco upgrade chocolatey -y
 
+      - name: Install Chocolatey Community Validation Extension
+        if: steps.changed-packages.outputs.any_changed == 'true'
+        run: choco install chocolatey-community-validation.extension -y --no-progress
+
       - name: Test Package Build
         if: steps.changed-packages.outputs.any_changed == 'true'
         shell: pwsh
@@ -143,6 +147,9 @@ jobs:
 
       - name: Upgrade Chocolatey
         run: choco upgrade chocolatey -y
+
+      - name: Install Chocolatey Community Validation Extension
+        run: choco install chocolatey-community-validation.extension -y --no-progress
 
       - name: Install PowerShell Modules
         shell: pwsh

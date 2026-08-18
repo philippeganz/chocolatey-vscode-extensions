@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 
 <#
 .SYNOPSIS
@@ -172,7 +172,12 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
             }
         }
         catch {
-            Write-Err "Marketplace API rejected '$cleanId' (404 Not Found or Invalid). Skipping."
+            $errMessage = $_.Exception.Message
+            if ($errMessage -match 'MarketplaceThrottlingError') {
+                Write-Err "ABORTING: VS Code Marketplace is throttling requests. This is a rate-limit error, not a 404."
+                throw $_
+            }
+            Write-Err "Marketplace API rejected '$cleanId' (404 Not Found or Invalid). Skipping. Details: $errMessage"
         }
     }
 }
@@ -207,7 +212,10 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Search') {
         "Content-Type" = "application/json"
     }
 
-    $response = Invoke-RestMethod -Method POST -Uri $url -Headers $headers -Body $bodyStr
+    $response = Invoke-WithMarketplaceRetry -Action {
+        Invoke-RestMethod -Method POST -Uri $url -Headers $headers -Body $bodyStr
+    } -ErrorMessage "VS Code Marketplace API failed"
+
     $results = [System.Collections.Generic.List[PSCustomObject]]::new()
 
     foreach ($ext in $response.results[0].extensions) {
@@ -308,7 +316,10 @@ elseif ($CheckAge) {
         $bodyStr = $bodyObj | ConvertTo-Json -Depth 10 -Compress
 
         try {
-            $response = Invoke-RestMethod -Method POST -Uri $url -Headers $headers -Body $bodyStr
+            $response = Invoke-WithMarketplaceRetry -Action {
+                Invoke-RestMethod -Method POST -Uri $url -Headers $headers -Body $bodyStr
+            } -ErrorMessage "Failed to query a chunk of extensions from the Marketplace API"
+
             if ($response.results -and $response.results[0].extensions) {
                 foreach ($extData in $response.results[0].extensions) {
                     $lastUpdatedStr = $extData.versions[0].lastUpdated

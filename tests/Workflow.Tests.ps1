@@ -29,7 +29,13 @@ Describe "VSCode Extensions Chocolatey Workflow" -Tag "E2E", 'Workflow' {
 
         # Isolate the Packages Directory to a temp folder parallel to bin so relative paths in AU templates still work
         $script:realPackagesDir = Join-Path $script:repoRoot "test_automatic"
+        if (Test-Path $script:realPackagesDir) {
+            Remove-Item $script:realPackagesDir -Recurse -Force
+        }
+        New-Item -ItemType Directory -Path $script:realPackagesDir | Out-Null
+
         $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
+        $env:CHOCO_VSCODE_MAX_RETRIES = 3
         $script:pkgDir = Join-Path $script:realPackagesDir $script:packageName
 
         # 1. Backup Config
@@ -61,6 +67,10 @@ extensions:
             Remove-Item $script:realPackagesDir -Recurse -Force
         }
         Remove-Item Env:\CHOCO_VSCODE_AUTOMATIC_DIR -ErrorAction SilentlyContinue
+        Remove-Item Env:\CHOCO_VSCODE_MAX_RETRIES -ErrorAction SilentlyContinue
+
+        # 3. Cleanup Artifacts
+        Get-ChildItem -Path $script:repoRoot -Filter "out_artifacts*" -Directory | Remove-Item -Recurse -Force
     }
 
     Context "1. Add a Package (Manage-ExtensionPool.ps1)" {
@@ -86,7 +96,7 @@ extensions:
     Context "2. Update the Package (Invoke-AuUpdater.ps1)" {
         It "Should run the AU updater and update metadata/binaries" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
-            $outDir = Join-Path $script:realPackagesDir "out_artifacts"
+            $outDir = Join-Path $script:repoRoot "out_artifacts"
             & $script -ForcedPackages $script:packageName -OutputDir $outDir
         }
 
@@ -118,7 +128,7 @@ extensions:
     Context "3. Search for an Extension (Manage-ExtensionPool.ps1)" {
         It "Should successfully search the VS Code Marketplace API" {
             $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
-            $output = & $script -Search "mechatroner.rainbow-csv"
+            $output = & $script -Search $script:extName
             $output | Should -Not -BeNullOrEmpty
         }
     }
@@ -153,7 +163,7 @@ extensions:
     Context "4.6 Search for a package (Manage-ExtensionPool.ps1)" {
         It "Should successfully search the marketplace" {
             $script = Join-Path $script:binDir "Manage-ExtensionPool.ps1"
-            & $script -Search "rainbow-csv"
+            & $script -Search $script:extName
         }
     }
 
@@ -163,7 +173,7 @@ extensions:
             # Invalid ID Format
             & $script -Add "invalidformat"
             # Already tracked
-            & $script -Add "mechatroner.rainbow-csv"
+            & $script -Add "$script:publisher.$script:extName"
             # Does not exist API
             & $script -Add "fake.does-not-exist"
         }
@@ -172,20 +182,21 @@ extensions:
     Context "4.1 Moderation Repush (Invoke-AuUpdater.ps1)" {
         It "Should successfully run moderation repush bypass" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
-            $outDir = Join-Path $script:realPackagesDir "out_artifacts_2"
+            $outDir = Join-Path $script:repoRoot "out_artifacts_2"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
             & $script -ModerationRepush $script:packageName -OutputDir $outDir
 
             $nuspec = [xml](Get-Content (Join-Path $script:pkgDir "$script:packageName.nuspec"))
             $nuspec.package.metadata.version | Should -Be "3.24.1"
+            $nuspec.package.metadata.description.Length | Should -BeLessThan 4000
         }
 
         It "Should successfully parse @version and build older specific version" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
-            $outDir = Join-Path $script:realPackagesDir "out_artifacts_3"
+            $outDir = Join-Path $script:repoRoot "out_artifacts_3"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
 
-            # Using an older specific version of rainbow-csv to test override functionality
+            # Using a specific version of rainbow-csv to test override functionality
             & $script -ModerationRepush "$script:packageName@3.24.0" -OutputDir $outDir
 
             $nuspec = [xml](Get-Content (Join-Path $script:pkgDir "$script:packageName.nuspec"))
@@ -199,12 +210,28 @@ extensions:
             { & $script -PushUrl "https://nexus.local" -ForcedPackages "test" } | Should -Throw
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $oldEnv
         }
+
+        It "Should skip gracefully if update.ps1 is missing in Moderation Repush" {
+            $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
+            $outDir = Join-Path $script:repoRoot "out_artifacts_missing_update"
+            $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
+
+            # Temporarily rename update.ps1
+            $updatePath = Join-Path $script:pkgDir "update.ps1"
+            $backupPath = Join-Path $script:pkgDir "update.ps1.bak"
+            Rename-Item $updatePath -NewName "update.ps1.bak"
+
+            { & $script -ModerationRepush $script:packageName -OutputDir $outDir } | Should -Not -Throw
+
+            # Restore
+            Rename-Item $backupPath -NewName "update.ps1"
+        }
     }
 
     Context "4.2 Bulk Update Mode (Invoke-AuUpdater.ps1)" {
         It "Should run successfully when updating all packages" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
-            $outDir = Join-Path $script:realPackagesDir "out_artifacts_bulk"
+            $outDir = Join-Path $script:repoRoot "out_artifacts_bulk"
             $env:CHOCO_VSCODE_AUTOMATIC_DIR = $script:realPackagesDir
             { & $script -OutputDir $outDir } | Should -Not -Throw
         }
@@ -313,7 +340,7 @@ extensions:
 
         It "Should warn gracefully when update script yields no payloads" {
             $script = Join-Path $script:binDir "Invoke-AuUpdater.ps1"
-            $outDir = Join-Path $script:realPackagesDir "out_artifacts_empty"
+            $outDir = Join-Path $script:repoRoot "out_artifacts_empty"
 
             # Clean up any leftover .nupkg files from previous tests to ensure a true 0-payload state
             Get-ChildItem -Path $script:realPackagesDir -Filter "*.nupkg" -Recurse | Remove-Item -Force

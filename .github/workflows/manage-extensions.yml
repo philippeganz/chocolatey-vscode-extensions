@@ -3,7 +3,7 @@ name: Manage VS Code Extension Pool
 
 on:
   issues:
-    types: [opened, labeled, reopened]
+    types: [labeled, reopened]
 
 jobs:
   scaffold-extension:
@@ -39,7 +39,7 @@ jobs:
           $labels = $env:LABELS | ConvertFrom-Json
 
           $extId = ""
-          if ($issueBody -match '(?sm)### Extension ID\s*\n+(.*?)(?=\n###|\z)') {
+          if ($issueBody -match '(?sm)### Extension ID[^\n]*\n+(.*?)(?=\n###|\z)') {
               $extId = $matches[1].Trim()
           }
 
