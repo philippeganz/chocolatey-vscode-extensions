@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-windows-ai-studio</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Foundry Toolkit for VS Code</title>
+    <authors>ms-windows-ai-studio</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/Microsoft/windows-ai-studio.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/windows-ai-studio</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/windows-ai-studio/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/windows-ai-studio#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-windows-ai-studio/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-windows-ai-studio.windows-ai-studio/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+![Feature Highlight](https://aka.ms/ai-toolkit/feature-highlights-image)
+
+## 🤖 What is Microsoft Foundry Toolkit
+
+Microsoft Foundry Toolkit is the new name for AI Toolkit. It is a Visual Studio Code extension that helps you build AI agents quickly, with built-in access to [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry/) resources for model deployment, agent management, and more without leaving VS Code.
+
+> 💡 **Note**: We have renamed this product to reflect its full integration with Microsoft Foundry. The previously separate Microsoft Foundry extension is now merged into this single extension. All existing features remain unchanged.
+
+With Microsoft Foundry Toolkit you can:
+
+- 🔍 **Discover and evaluate models** from providers including Microsoft Foundry, Foundry Local, Anthropic, OpenAI, GitHub, Google, and NVIDIA NIM, or run models locally with ONNX and Ollama.
+- ⚡ **Build, test, and deploy AI agents** with Agent Builder for no-code prompt agents, or create code-based hosted agents with debugging, streaming visualization, and MCP tool integrations.
+- ☁️ **Manage Microsoft Foundry resources** directly from VS Code: browse projects, deploy models from the catalog, and create, deploy, and test agents with the Microsoft Foundry Agent Service.
+
+### ✨ Core Features
+
+Features are grouped by workflow: models, agents, and the Microsoft Foundry resources that support both.
+
+#### 🧠 Models
+
+Everything you need to discover, test, customize, and optimize AI models.
+
+| Feature | Description |
+|---------|-------------|
+| [Model Catalog](https://code.visualstudio.com/docs/intelligentapps/models) | Discover and access AI models from Microsoft Foundry, Foundry Local, GitHub, ONNX, Ollama, OpenAI, Anthropic, Google, and more. Compare models side-by-side and find the best fit for your use case. |
+| [Playground](https://code.visualstudio.com/docs/intelligentapps/playground) | Interactive chat environment for real-time model testing. Experiment with different prompts, parameters, and multi-modal inputs including images and attachments. |
+| [Fine-tuning](https://code.visualstudio.com/docs/intelligentapps/finetune) | Customize and adapt models for specific domains and requirements. Train models locally with GPU support or use Azure Container Apps for cloud-based fine-tuning. |
+| [Model Conversion](https://code.visualstudio.com/docs/intelligentapps/modelconversion) | Convert, quantize, and optimize machine learning models for local deployment. Transform models from Hugging Face and other sources to run efficiently on Windows with CPU, GPU, or NPU acceleration. |
+| [Profiling (Windows ML)](https://code.visualstudio.com/docs/intelligentapps/profiling) | Diagnose CPU, GPU, and NPU usage for running processes, ONNX models across execution providers, and Windows Machine Learning events. |
+
+#### 🤖 Agents
+
+Build, test, deploy, and observe AI agents end to end, from prompt agents to code-based hosted agents.
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) for full documentation]
+]]></description>
+    <summary>Build AI agents and workflows in Microsoft Foundry, experiment with open or proprietary models.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio#changelog</releaseNotes>
+    <tags>vscode extension windows-ai-studio</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-azure-mcp-server" />
+      <dependency id="vscode-azureresourcegroups" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
