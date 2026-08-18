@@ -47,6 +47,7 @@ extensions:
   - google.geminicodeassist
   - grapecity.gc-excelviewer
   - graphql.vscode-graphql
+  - graphql.vscode-graphql-execution
   - graphql.vscode-graphql-syntax
   - hashicorp.hcl
   - hashicorp.sentinel
