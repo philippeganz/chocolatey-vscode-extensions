@@ -51,6 +51,7 @@ extensions:
   - johnpapa.vscode-peacock
   - kevinrose.vsc-python-indent
   - mechatroner.rainbow-csv
+  - monokai.theme-monokai-pro-vscode
   - ms-azuretools.vscode-azure-github-copilot
   - ms-azuretools.vscode-azure-mcp-server
   - ms-azuretools.vscode-azureappservice
