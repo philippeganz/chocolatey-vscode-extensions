@@ -29,10 +29,11 @@ function Invoke-RobustDownload {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Justification = 'Variables are consumed dynamically inside the dot-sourced ScriptBlock')]
     param (
         [Parameter(Mandatory = $true)][string]$Url,
-        [Parameter(Mandatory = $true)][string]$OutFile
+        [Parameter(Mandatory = $true)][string]$OutFile,
+        [Parameter(Mandatory = $false)][string]$LogMessage = "Downloading VSIX Payload..."
     )
 
-    Write-White "    Downloading VSIX Payload..."
+    Write-White "    $LogMessage"
     Invoke-WithMarketplaceRetry -Action {
         Invoke-WebRequest -Uri $Url -OutFile $OutFile -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600
     } -ErrorMessage "Download failed"

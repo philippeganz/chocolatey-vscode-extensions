@@ -1,4 +1,4 @@
-#Requires -Version 7.0
+﻿#Requires -Version 7.0
 #Requires -Module au
 
 <#
@@ -196,9 +196,42 @@ function global:au_BeforeUpdate {
     # so that PowerShell's XML parser doesn't incorrectly escape the payload when saving.
     Update-NuspecCDataDescription -NuspecXml $package.NuspecXml -CDataSafeReadme $payloadResult.CDataSafeReadme -ShortDescription $Latest.RawMeta.shortDescription
 
-    # Dynamically discover missing dependencies (e.g. extension packs) and auto-queue them to the Factory
     $configPath = [System.IO.Path]::GetFullPath((Join-Path $ProjectRoot "var\state\config.yaml"))
-    Update-NuspecDependency -NuspecXml $package.NuspecXml -PackageJson $payloadResult.PackageJson -ConfigPath $configPath
+    $newDeps = Update-NuspecDependency -NuspecXml $package.NuspecXml -PackageJson $payloadResult.PackageJson -ConfigPath $configPath
+    if ($newDeps) {
+        $factoryPath = Join-Path $ProjectRoot "bin\Manage-ExtensionPool.ps1"
+        foreach ($dep in $newDeps) {
+            Write-Magenta "    [AU] Spawning Factory in fresh runspace for missing dependency: $dep"
+
+            $procParams = @{
+                FilePath = "pwsh"
+                ArgumentList = @("-NoProfile", "-NonInteractive", "-Command", "& '$factoryPath' -Add $dep")
+                Wait = $true
+                NoNewWindow = $true
+            }
+            $proc = Start-Process @procParams -PassThru
+            if ($proc.ExitCode -ne 0) {
+                Write-Warning "    [AU] Factory scaffold failed for dependency '$dep'."
+            }
+        }
+
+        # --------------------------------------------------------------------------------
+        # Dependency DAG Resolution (AU Mode)
+        # --------------------------------------------------------------------------------
+        # When AU processes an update for an extension, it evaluates the DAG strictly before
+        # starting the updates. If this package suddenly introduces a new dependency that we
+        # do not track yet, AU cannot dynamically inject it into the currently running DAG.
+        #
+        # Strategy (Fail & Defer):
+        # 1. We spawn the Factory asynchronously (above) to scaffold the missing dependencies.
+        # 2. We intentionally throw an exception to forcefully FAIL the update of this parent.
+        # 3. This guarantees that we never push a parent package to Chocolatey before its
+        #    dependencies are published.
+        # 4. On the NEXT scheduled AU cron run, the DAG will see the newly scaffolded
+        #    dependencies, process them FIRST, and finally process this parent package.
+        # --------------------------------------------------------------------------------
+        throw "DependencyResolutionPending: Scaffolding new dependencies. Failing parent package to defer to next AU run."
+    }
 
     Save-NuspecXml -NuspecXml $package.NuspecXml -NuspecPath $nuspecPath
 

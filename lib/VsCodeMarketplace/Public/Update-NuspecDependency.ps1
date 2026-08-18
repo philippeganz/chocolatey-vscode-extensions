@@ -27,13 +27,15 @@
     None
 
 .OUTPUTS
-    None
+    [System.Collections.Generic.List[string]]
+    A list of newly discovered dependency identifiers.
 
 .NOTES
     Mutates the passed XML object in memory. Prevents cyclic dependency loops natively.
 #>
 function Update-NuspecDependency {
     [CmdletBinding()]
+    [OutputType([System.Collections.Generic.List[string]])]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Justification = 'Function manages external state where ShouldProcess is handled internally')]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
     param(
@@ -75,6 +77,8 @@ function Update-NuspecDependency {
     $trackedExtensions = [System.Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
     foreach ($ext in $config.extensions) { [void]$trackedExtensions.Add($ext) }
 
+    $missingDeps = [System.Collections.Generic.List[string]]::new()
+
     $processDep = {
         param($depRaw)
         if ($depRaw.ToLower().StartsWith("vscode.")) { return }
@@ -89,11 +93,9 @@ function Update-NuspecDependency {
             [void]$depsNode.AppendChild($depNode)
 
             if (-not $trackedExtensions.Contains($dep)) {
-                Write-Magenta "    [AUTO-DISCOVERY] Queuing missing dependency via Factory: $dep"
-                $factoryPath = Join-Path $script:ProjectRoot "bin\Manage-ExtensionPool.ps1"
-                & $factoryPath -Add $dep
+                Write-Magenta "    [AUTO-DISCOVERY] Discovered untracked dependency: $dep"
+                $missingDeps.Add($dep)
                 [void]$trackedExtensions.Add($dep)
-                $global:au_RequiresSecondRun = $true
             }
         }
     }
@@ -106,5 +108,10 @@ function Update-NuspecDependency {
     }
 
     [void]$depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n    "))
+
+    # Return the strongly-typed List[string] of missing dependencies so that
+    # the calling scope (Manage-ExtensionPool or AuExtensionHooks) can handle
+    # the orchestration (dynamic queueing or Fail/Defer strategy) appropriately.
+    return $missingDeps
 }
 

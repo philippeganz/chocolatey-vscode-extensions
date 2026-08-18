@@ -292,10 +292,3 @@ finally {
         }
     }
 }
-
-if ($global:au_RequiresSecondRun) {
-    Write-Host "
->>> [AUTO-DISCOVERY] New dependencies were scaffolded! Triggering secondary AU run to package them..." -ForegroundColor Magenta
-    $global:au_RequiresSecondRun = $false
-    & $MyInvocation.MyCommand.Path -ForcedPackages $ForcedPackages -PushUrl $PushUrl -ModerationRepush $ModerationRepush -OutputDir $OutputDir
-}

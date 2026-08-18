@@ -42,7 +42,7 @@ function Save-VsCodeIcon {
     if (-not (Test-Path $localIconPath)) {
         if ($IconUrl) {
             try {
-                Invoke-RobustDownload -Url $IconUrl -OutFile $localIconPath
+                Invoke-RobustDownload -Url $IconUrl -OutFile $localIconPath -LogMessage "Downloading Icon..."
             }
             catch {
                 Write-Verbose "Failed to download icon from $($IconUrl): $_"
