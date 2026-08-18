@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-azure-dev</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Azure Developer CLI</title>
+    <authors>ms-azuretools</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/azure/azure-dev.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/azure/azure-dev</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Azure/azure-dev/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/azure/azure-dev#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azure-dev/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.azure-dev/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Azure Developer CLI Visual Studio Code extension
+
+This extension makes it easier to run, create Azure Resources, and deploy Azure applications with the Azure Developer CLI.
+
+## What It Does
+For more information about Azure Developer CLI and this VS Code extension, please [see the documentation](https://aka.ms/azure-dev/vscode).
+
+## Tell Us What You Think!
+- [Give us a thumbs up or down](https://aka.ms/azure-dev/hats). We want to hear good news, but bad news are even more important!
+- Use [Discussions](https://aka.ms/azure-dev/discussions) to share new ideas or ask questions about Azure Developer CLI and the VS Code extension.
+- To report problems [file an issue](https://aka.ms/azure-dev/issues).
+
+## Code of Conduct
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [[email removed]](mailto:[email removed]) with any additional questions or comments.
+
+## Telemetry
+
+VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more. If you don’t wish to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` setting to `off`. Learn more about telemetry handling in [VS Code FAQ](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
+
+## Contributing
+
+See [the contribution guidelines](https://github.com/azure/azure-dev/blob/HEAD/CONTRIBUTING.md) for ideas and guidance on how to improve the extension. Thank you!
+
+## License
+
+[MIT](https://github.com/Azure/azure-dev/LICENSE.md)
+
+
+]]></description>
+    <summary>Makes it easy to run, provision, and deploy Azure applications using the Azure Developer CLI</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev#changelog</releaseNotes>
+    <tags>vscode extension azure-dev</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
