@@ -150,6 +150,7 @@ extensions:
   - redhat.ansible
   - redhat.fabric8-analytics
   - redhat.java
+  - redhat.vscode-community-server-connector
   - redhat.vscode-openshift-connector
   - redhat.vscode-redhat-account
   - redhat.vscode-xml
