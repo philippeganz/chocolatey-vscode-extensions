@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=ms-toolsai.tensorboard
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\ms-toolsai.tensorboard-2024.3.1002291100.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: DC193AE0456BB5B3B3A6892060439CEB59E467D7028927C4E86C9E42DE643C4A
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/ms-toolsai.tensorboard/license
