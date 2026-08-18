@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-graphql-syntax</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - GraphQL: Syntax Highlighting</title>
+    <authors>GraphQL</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/graphql/graphiql.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/graphql/graphiql</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/graphql/graphiql/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-syntax/README.md</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-graphql-syntax/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/graphql.vscode-graphql-syntax/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# GraphQL Syntax Support
+
+Adds full GraphQL syntax highlighting and language support such as bracket
+matching.
+
+- Supports `.graphql`/`.gql`/`.graphqls` highlighting
+- Javascript, Typescript & JSX/TSX (examples: [test.js](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-syntax/tests/__fixtures__/test.js) & [test.ts](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-syntax/tests/__fixtures__/test.ts))
+- Vue (examples: [test-sfc-comp.vue](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-syntax/tests/__fixtures__/test-sfc-comp.vue) & [test-sfc.vue](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-syntax/tests/__fixtures__/test-sfc.vue))
+- Svelte (example: [test.svelte](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-syntax/tests/__fixtures__/test.svelte))
+- ReasonML/ReScript (`%graphql()` ) (example: [test.re](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-syntax/tests/__fixtures__/test.re))
+- Python (example: [test.py](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-syntax/tests/__fixtures__/test.py))
+- PHP (example: [test.php](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-syntax/tests/__fixtures__/test.php))
+- Markdown (examples: [test.md](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-syntax/tests/__fixtures__/test.md) & [test-py.md](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-syntax/tests/__fixtures__/test-py.md))
+- Scala (example: [test.scala](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-syntax/tests/__fixtures__/test.scala))
+
+You'll want to install this if you do not use `graphql-config`, or want to use
+the highlighting with other extensions than `vscode-graphql`
+
+## Contributing
+
+Feel free to open a PR to fix, enhance any language support, or even add new
+languages 😍
+
+see:
+
+- [the grammars](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-syntax/grammars/)
+- [the applicable vscode docs](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide)
+
+### Contributor Guide: Improving a Language
+
+Whether fixing a bug or adding a new delimiter for your language, here are a few tips for you:
+
+1. TDD approach: add your bug case or new delimiter example to the relevant file in `tests/__fixtures__`
+1. run `yarn test -u` in the syntax extension workspace, and observe whether vscode-textmate tokenizes your example properly
+1. fix/update/add the relevant pattern, and repeat the above to see if the tokenization changes. you should see `meta.embedded.block.graphql`
+1. to test manually, run `yarn vsce:package` in the workspace and right click to install the bundled vsix extension, and open the fixture file
+
+
+
+### Contributor Guide: Adding a Language
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql-syntax) for full documentation]
+]]></description>
+    <summary>Adds syntax highlighting support for .graphql &amp; embedded support for javascript, typescript, vue, markdown, python, php, reason, ocaml and rescript</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=graphql.vscode-graphql-syntax#changelog</releaseNotes>
+    <tags>vscode extension vscode-graphql-syntax</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
