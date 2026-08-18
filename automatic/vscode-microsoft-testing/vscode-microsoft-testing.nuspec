@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-microsoft-testing</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Azure Load Testing</title>
+    <authors>ms-azure-load-testing</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/microsoft/azureloadtesting-extension.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/microsoft/azureloadtesting-extension</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/microsoft/azureloadtesting-extension/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/microsoft/azureloadtesting-extension#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-microsoft-testing/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azure-load-testing.microsoft-testing/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Azure Load Testing for Visual Studio Code
+The Azure Load Testing extension makes it easy to create and run Locust or JMeter based load tests using GitHub Copilot—all within VS Code. Iterate locally, then scale effortlessly in Azure. Whether you're new to Locust or a performance testing expert, this extension streamlines test creation, iteration, and scaling in the cloud.
+
+**New! The VS Code extension now supports JMeter, in addition to the existing support for Locust.**
+
+
+## Get Started with Agent Mode
+
+### Load Test an Endpoint
+
+Open the **Copilot Chat** window and ensure **Agent Mode** is enabled. 
+
+Then type a prompt like:
+
+`Run a load test in Azure for https://example.com`
+
+![alt text](https://github.com/microsoft/azureloadtesting-extension/raw/HEAD/media/agent-mode-create-script-for-endpoint.png)
+
+Copilot Agent will use multiple MCP tools provided by the Azure Load Testing extension to:
+1. Create a load test script.
+2. Help you select or create an Azure Load Testing resource (you'll be prompted to sign in and pick an Azure subscription).
+3. Run the load test in Azure. 
+    - A `load.config.yaml` file is created for easy reuse.
+    - If your app is hosted in Azure, you'll be prompted to enable optional server-side metrics for deeper test insights.
+
+Once the load test starts, you can view detailed results and live metrics in the Azure portal.
+
+![alt text](https://github.com/microsoft/azureloadtesting-extension/raw/HEAD/media/agent-mode-create-and-run-load-test.png)
+
+
+### Fetch Insights and Implement Suggestions with Copilot
+
+Azure Load Testing now generates **AI-driven insights** for each test run. These insights and recommendations can be retrieved directly in VS Code. 
+
+After your test completes, try prompting Copilot:
+
+`Fetch insights from my Azure load test run`
+
+Copilot will summarize key findings and may suggest optimizations. You can then ask Copilot to help implement any recommended changes. 
+
+**Tip:** To retrieve insights from a previous run, prompt: 
+
+`Fetch insights from another test run`
+
+VS Code will display a list of past test runs to choose from. 
+
+### Create Realistic Load Tests from HTTP files or API Collections
+
+The extension supports generating load test scripts from a variety of inputs—including HTTP files, Postman collections, and Insomnia collections. This enables Copilot to build rich test scenarios with real API calls, request data, and auth details.
+    
+#### From an HTTP file
+If you have a file named `myrequests.http` in your VS Code workspace, try: 
+
+`Create a load test script based on the http file myrequests.http`
+
+#### From a Postman Collection
+For a file like `myapi.postman_collection.json`:
+
+`Create a load test script based on the Postman collection myapi.postman_collection.json`
+
+#### From an Insomnia Collection
+For a file like `myapi.insomnia_collection.json`:
+
+`Create a load test script based on the Insomnia collection myapi.insomnia_collection.json`
+
+#### From a URL
+Don't have any files? You can still start with a simple input:
+
+`Create a load test script for the endpoint https://example.com`
+
+
+## Get Started with Ask Mode
+This tutorial guides you through generating, refining, and executing realistic load tests. 
+
+By the end, you'll have a fully functional load test script generated from a **Postman collection**, **Insomnia collection**, or **.http file**, enhanced with Copilot-powered improvements, and ready to scale in **Azure Load Testing**.
+
+![Create Load test scripts with Ask mode](https://github.com/microsoft/azureloadtesting-extension/raw/HEAD/media/create-locust-test.gif)
+
+### Prerequisites
+
+Before you begin, make sure you have the following:
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azure-load-testing.microsoft-testing) for full documentation]
+]]></description>
+    <summary>An extension to create and run load tests using Azure Load Testing.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azure-load-testing.microsoft-testing#changelog</releaseNotes>
+    <tags>vscode extension microsoft-testing</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-copilot-chat" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
