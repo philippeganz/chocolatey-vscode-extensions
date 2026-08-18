@@ -5,6 +5,7 @@ extensions:
   - amazonwebservices.aws-toolkit-vscode
   - angular.ng-template
   - anthropic.claude-code
+  - atlassian.atlascode
   - batisteo.vscode-django
   - blackboxapp.blackbox
   - bmewburn.vscode-intelephense-client
