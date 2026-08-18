@@ -97,6 +97,7 @@ extensions:
   - ms-mssql.mssql
   - ms-mssql.sql-bindings-vscode
   - ms-mssql.sql-database-projects-vscode
+  - ms-ossdata.vscode-pgsql
   - ms-playwright.playwright
   - ms-python.anaconda-extension-pack
   - ms-python.autopep8

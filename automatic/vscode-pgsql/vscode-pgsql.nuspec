@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-pgsql</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - PostgreSQL</title>
+    <authors>ms-ossdata</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/microsoft/vscode-pgsql.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/microsoft/vscode-pgsql</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/microsoft/vscode-pgsql/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/microsoft/vscode-pgsql/blob/main/README.md</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-pgsql/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-ossdata.vscode-pgsql/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# PostgreSQL for Visual Studio Code
+
+![PostgreSQL for Visual Studio Code](https://github.com/microsoft/vscode-pgsql/raw/HEAD/img/intro-schema-agent-vid.gif)
+
+PostgreSQL for Visual Studio Code is the essential extension for working with PostgreSQL databases - locally or in the cloud. Connect, query, build, and chat with your databases with ease, including seamless Entra authentication for Azure Database for PostgreSQL.
+
+To learn more about the PostgreSQL extension and how it can simplify building
+applications on PostgreSQL, visit our official [MSFT Learn Documentation].
+
+## Supported Operating Systems
+
+The extension is supported on the following operating systems:
+
+- **Windows**: x64 and ARM64 (ARM64 requires Windows 11)
+- **Linux**: x64 and ARM64 (requires glibc 2.35+)
+- **macOS**: macOS 13+
+
+## About This Repository
+
+This repository does not contain the source code for the PostgreSQL extension, which is not [open source]. Instead, this repository serves as a hub for [issue tracking], documentation, and community feedback.
+
+## Features
+
+Below are some of the key features of the PostgreSQL extension:
+
+### Connect to PostgreSQL
+
+Connect to any PostgreSQL database.
+
+![Connect to PostgreSQL](https://github.com/microsoft/vscode-pgsql/raw/HEAD/img/connect-local-vid.gif)
+
+Browse Azure to easily find and connect to your Azure Database for PostgreSQL servers with either password or Entra authentication.
+
+![Connect to Azure PostgreSQL](https://github.com/microsoft/vscode-pgsql/raw/HEAD/img/connect-azure-vid.gif)
+
+### Explore your database
+
+Easily explore your database objects, including tables, views, functions, and more.
+
+![Explore your database](https://github.com/microsoft/vscode-pgsql/raw/HEAD/img/object-explorer-vid.gif)
+
+### Schema Visualization
+
+Visualize your database schemas quickly in VS Code.
+
+![Schema Visualization](https://github.com/microsoft/vscode-pgsql/raw/HEAD/img/schema-viz-vid.gif)
+
+### Query Plan Visualization
+
+Explore PostgreSQL EXPLAIN output in four synchronized views: an interactive node graph showing operator relationships, an icicle chart for identifying hotspots, a sortable table for comparing nodes, and a raw source view with Monaco Editor support. Color-coded severity groups highlight performance bottlenecks, and GitHub Copilot integration provides AI-assisted analysis and optimization guidance. Launch the visualizer from the query editor toolbar, the Query Results panel, or the Command Palette.
+
+![Query Plan Visualization](https://github.com/microsoft/vscode-pgsql/raw/HEAD/img/query-plan-visual-vid.gif)
+
+### Object Explorer Search
+
+Search for database objects by name across connections, databases, and schemas — without manually expanding the Object Explorer tree. Filter by object type (tables, views, functions, sequences, and more) and schema, then click any result to navigate directly to it in the tree. Launch search from the Object Explorer toolbar or by right-clicking any server, database, or schema node.
+
+![Object Explorer Search](https://github.com/microsoft/vscode-pgsql/raw/HEAD/img/object-explorer-search-vid.gif)
+
+### Apache AGE Graph Visualization
+
+Run Apache AGE Cypher queries and explore the results as an interactive node-edge graph. The extension automatically detects graph query results and renders them in a visual explorer with per-node callouts, zoom and pan controls, export support, and theme-aware styling.
+
+![Apache AGE Graph Visualization](https://github.com/microsoft/vscode-pgsql/raw/HEAD/img/apache-age-graph-vid.gif)
+
+### Copilot @pgsql agent
+
+Chat with your database using the @pgsql agent in Copilot 'Ask' mode. Requires GitHub Copilot.
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-pgsql) for full documentation]
+]]></description>
+    <summary>Develop, query, and manage PostgreSQL (Postgres) databases with IntelliSense, Object Explorer, schema tools, and AI-assisted workflows.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-pgsql#changelog</releaseNotes>
+    <tags>vscode extension vscode-pgsql</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
