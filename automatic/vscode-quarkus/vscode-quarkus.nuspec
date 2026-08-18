@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-quarkus</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Quarkus</title>
+    <authors>redhat</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/redhat-developer/vscode-quarkus.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/redhat-developer/vscode-quarkus</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/redhat-developer/vscode-quarkus/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/redhat-developer/vscode-quarkus#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-quarkus/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-quarkus/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Quarkus Tools for Visual Studio Code
+
+[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/redhat.vscode-quarkus?style=for-the-badge&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-quarkus)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/redhat.vscode-quarkus?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-quarkus)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/redhat-developer/vscode-quarkus/tests.yml?branch=master&style=for-the-badge&logo=github)](https://github.com/redhat-developer/vscode-quarkus/actions?query=branch%3Amaster)
+[![License](https://img.shields.io/github/license/redhat-developer/vscode-quarkus?style=for-the-badge)](https://github.com/redhat-developer/vscode-quarkus/blob/master/LICENSE)
+
+## Description
+
+This Visual Studio Code extension provides support for :
+
+ * [Quarkus](https://quarkus.io/) and [MicroProfile](https://github.com/eclipse/microprofile) development
+by extending [Visual Studio Code extension for MicroProfile](https://github.com/redhat-developer/vscode-microprofile) with Quarkus features.
+
+![](https://github.com/redhat-developer/vscode-quarkus/raw/HEAD/images/propertiesSupport.png)
+
+ * [Qute support](https://github.com/redhat-developer/vscode-quarkus/blob/HEAD/docs/qute/README.md) to provide completion, validation, etc. for the [Qute template engine](https://quarkus.io/guides/qute-reference) inside Java and template files.
+
+![](https://github.com/redhat-developer/vscode-quarkus/raw/HEAD/images/quteSupport.png)
+
+ * [Renarde support](https://github.com/redhat-developer/vscode-quarkus/blob/HEAD/docs/renarde/README.md) to make sure that the Quarkus, MicroProfile, and Qute features work properly when working with a [Renarde](https://quarkiverse.github.io/quarkiverse-docs/quarkus-renarde/dev/index.html) application.
+
+![](https://github.com/redhat-developer/vscode-quarkus/raw/HEAD/docs/renarde/images/renarde-workspace-symbols.gif)
+
+## Quarkus VS Code Commands
+The following commands are supported for both Maven and Gradle Quarkus projects:
+
+  * `Quarkus: Generate a Quarkus project`: Generate a Quarkus project, based on https://code.quarkus.io/
+  * `Quarkus: Add extensions to current project`: Add Quarkus extensions to currently opened Quarkus project
+  * `Quarkus: Debug current Quarkus project`: Launches the Maven `quarkus:dev` plugin or the Gradle `quarkusDev` command and automatically attaches a debugger
+  * `Quarkus: Build executable`: Launches Maven or Gradle with the correct arguments to build an executable of the application (requires GraalVM or Mandrel to be configured)
+
+## Quarkus/MicroProfile `properties` Features
+
+In `application.properties` and `microprofile-config.properties` files, you will benefit with:
+
+  * Completion support for Quarkus/MicroProfile properties
+  * Hover support for Quarkus/MicroProfile properties
+  * Definition support for Quarkus/MicroProfile properties
+  * Format support for Quarkus/MicroProfile properties
+  * Validation and Quick Fix support for Quarkus/MicroProfile properties
+  * Support for Quarkus profiles
+  * Outline support (flat or tree view)
+  * Code snippets:
+    * **qds** - Configure a Quarkus datasource
+    * **qj** - Configure a Jaeger tracer
+
+## Quarkus `yaml` Features
+
+In `application.yaml` and `application.yml` files, you will benefit with:
+
+  * Completion support for Quarkus/MicroProfile properties
+  * Hover support for Quarkus/MicroProfile properties
+  * Validation support for Quarkus/MicroProfile properties
+  * Support for Quarkus profiles
+  * Outline support
+
+## Quarkus/MicroProfile `Java` Features
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-quarkus) for full documentation]
+]]></description>
+    <summary>Quarkus Tools for Visual Studio Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-quarkus#changelog</releaseNotes>
+    <tags>vscode extension vscode-quarkus</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-microprofile" />
+      <dependency id="vscode-java" />
+      <dependency id="vscode-java-debug" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

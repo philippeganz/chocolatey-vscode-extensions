@@ -153,6 +153,7 @@ extensions:
   - redhat.vscode-community-server-connector
   - redhat.vscode-microprofile
   - redhat.vscode-openshift-connector
+  - redhat.vscode-quarkus
   - redhat.vscode-redhat-account
   - redhat.vscode-xml
   - redhat.vscode-yaml
