@@ -93,6 +93,7 @@ extensions:
   - ms-dotnettools.vscode-dotnet-runtime
   - ms-dynamics-smb.al
   - ms-edgedevtools.vscode-edge-devtools
+  - ms-kubernetes-tools.vscode-aks-tools
   - ms-kubernetes-tools.vscode-kubernetes-tools
   - ms-mssql.data-workspace-vscode
   - ms-mssql.mssql
