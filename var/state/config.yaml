@@ -133,6 +133,7 @@ extensions:
   - ms-vscode-remote.vscode-remote-extensionpack
   - ms-vscode.azure-repos
   - ms-vscode.cmake-tools
+  - ms-vscode.copilot-mermaid-diagram
   - ms-vscode.cpp-devtools
   - ms-vscode.cpptools
   - ms-vscode.cpptools-extension-pack
