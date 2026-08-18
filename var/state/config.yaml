@@ -50,6 +50,7 @@ extensions:
   - johnpapa.angular2
   - kevinrose.vsc-python-indent
   - mechatroner.rainbow-csv
+  - ms-azuretools.vscode-azureappservice
   - ms-azuretools.vscode-azurefunctions
   - ms-azuretools.vscode-azureresourcegroups
   - ms-azuretools.vscode-azureterraform
