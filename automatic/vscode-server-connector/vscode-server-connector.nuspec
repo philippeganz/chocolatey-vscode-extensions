@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-server-connector</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - JBoss Toolkit</title>
+    <authors>redhat</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/redhat-developer/vscode-server-connector.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/redhat-developer/vscode-server-connector</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/redhat-developer/vscode-server-connector/issues/</bugTrackerUrl>
+    <docsUrl>https://github.com/redhat-developer/vscode-server-connector#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-server-connector/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-server-connector/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# JBoss Toolkit
+
+[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/redhat.vscode-server-connector?style=for-the-badge&label=VS%20Marketplace&logo=visual-studio-code&color=blue)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector)
+[![Downloads](https://img.shields.io/visual-studio-marketplace/d/redhat.vscode-server-connector?style=for-the-badge&color=purple)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector)
+[![License](https://img.shields.io/badge/license-EPLv2.0-brightgreen.png?style=for-the-badge)](https://github.com/redhat-developer/vscode-server-connector/blob/master/LICENSE)
+
+A Visual Studio Code extension for interacting with Red Hat Servers and Runtimes like WildFly and Red Hat EAP.
+
+### Supported Servers
+   * WildFly 33 and below (WildFly 8)
+   * Red Hat JBoss Enterprise Application Platform (EAP) 8.0 and below (EAP 4.3)
+
+## Commands and features
+
+![ screencast ](https://raw.githubusercontent.com/redhat-developer/vscode-server-connector/master/screencast/vscode-server-connector.gif)
+
+This extension depends on VSCode RSP UI Extension which is going to be installed automatically along with the JBoss Toolkit  Extension. RSP UI, in conjunction with JBoss Toolkit Extension supports several commands for interacting with supported server adapters; these are accessible via the command menu (`Cmd+Shift+P` on macOS or `Ctrl+Shift+P` on Windows and Linux) and may be bound to keys in the normal way.
+
+### Available Commands
+   This extension provides no additional commands other than those available in [rsp-ui](https://github.com/redhat-developer/vscode-rsp-ui#available-commands)
+
+## Extension Settings
+   This extension provides no additional settings other than those available in [rsp-ui](https://github.com/redhat-developer/vscode-rsp-ui#extension-settings)
+
+## Server Parameters
+   This extension provides some ADDITIONAL server parameters in addition to those available in rsp-ui. To see a list of global server parameters, please go [here](https://github.com/redhat-developer/vscode-rsp-ui#server-parameters). Below are JBoss / WildFly specific parameters.
+
+   * `"args.vm.override.string"` - allow to override VM arguments. Once you edit this flag, *make sure "args.override.boolean" is set to true before launching your server. Otherwise, the server will attempt to auto-generate the launch arguments as it normally does.*
+   * `"args.program.override.string"` - allow to override program arguments. Once you edit this flag, *make sure "args.override.boolean" is set to true before launching your server. Otherwise, the server will attempt to auto-generate the launch arguments as it normally does.*
+
+   * `"jboss.server.host"` - allow to set the host you want the current JBoss/Wildfly instance to bind to (default localhost)
+   * `"jboss.server.port"` - allow to set the port you want the current JBoss/Wildfly instance to bind to (default 8080)
+   * `"wildfly.server.config.file"` - the name of the configuration file to be used for the current Jboss/Wildfly instance. The file has to be stored in the same folder as the default standalone.xml file. (e.g "wildfly.server.config.file": "newconfigfile.xml")
+
+## FAQ
+---
+
+### 1. How can i override Program and VM arguments?
+Due to some issues and requests we received from users we added an additional flag "args.override.boolean" to allow to override program and vm arguments.
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector) for full documentation]
+]]></description>
+    <summary>Allows a user to start, stop and deploy to Red Hat server and runtime products like Wildfly and JBoss EAP (Enterprise Application Platform).</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector#changelog</releaseNotes>
+    <tags>vscode extension vscode-server-connector</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-rsp-ui" />
+      <dependency id="vscode-rsp-ui" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

@@ -155,6 +155,7 @@ extensions:
   - redhat.vscode-openshift-connector
   - redhat.vscode-quarkus
   - redhat.vscode-redhat-account
+  - redhat.vscode-server-connector
   - redhat.vscode-xml
   - redhat.vscode-yaml
   - ritwickdey.liveserver
