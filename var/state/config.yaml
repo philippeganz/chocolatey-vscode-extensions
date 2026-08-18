@@ -52,6 +52,7 @@ extensions:
   - mechatroner.rainbow-csv
   - ms-azuretools.vscode-azure-github-copilot
   - ms-azuretools.vscode-azureappservice
+  - ms-azuretools.vscode-azurecontainerapps
   - ms-azuretools.vscode-azurefunctions
   - ms-azuretools.vscode-azureresourcegroups
   - ms-azuretools.vscode-azurestaticwebapps
