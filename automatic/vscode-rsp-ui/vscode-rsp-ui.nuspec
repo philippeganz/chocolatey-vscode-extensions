@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-rsp-ui</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Runtime Server Protocol UI</title>
+    <authors>redhat</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/redhat-developer/vscode-rsp-ui.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/redhat-developer/vscode-rsp-ui</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/redhat-developer/vscode-rsp-ui/issues/</bugTrackerUrl>
+    <docsUrl>https://github.com/redhat-developer/vscode-rsp-ui#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-rsp-ui/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-rsp-ui/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Runtime Server Protocol UI
+
+[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/redhat.vscode-rsp-ui?style=for-the-badge&label=VS%20Marketplace&logo=visual-studio-code&color=blue)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-rsp-ui)
+[![Downloads](https://img.shields.io/visual-studio-marketplace/d/redhat.vscode-rsp-ui?style=for-the-badge&color=purple)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-rsp-ui)
+[![Gitter](https://img.shields.io/gitter/room/redhat-developer/server-connector?style=for-the-badge&logo=gitter)](https://gitter.im/redhat-developer/server-connector)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/redhat-developer/vscode-rsp-ui/gh-actions.yml?style=for-the-badge&logo=github)](https://github.com/redhat-developer/vscode-rsp-ui/actions)
+[![License](https://img.shields.io/badge/license-EPLv2.0-brightgreen.png?style=for-the-badge)](https://github.com/redhat-developer/vscode-rsp-ui/blob/master/LICENSE)
+
+A Visual Studio Code extension that provides a unified UI for any RSP (Runtime Server Protocol) provider to contribute their RSP implementation to. 
+
+## Warning: Not a standalone extension
+
+This extension on its own provides no support for any specific runtimes. If you install only this extension, 
+the views and actions may appear not to function. 
+
+To be used properly, this extension requires other contributing extensions that provide implementations
+that start or stop specific RSP instances and are capable of managing specific server or runtime types.
+
+## Commands and features
+
+![ screencast ](https://raw.githubusercontent.com/redhat-developer/vscode-rsp-ui/master/screencast/vscode-rsp-ui.gif)
+
+This extension supports a number of commands for interacting with supported server adapters; these are accessible via the command menu (`Cmd+Shift+P` on macOS or `Ctrl+Shift+P` on Windows and Linux) and may be bound to keys in the normal way.
+
+### Available Commands
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-rsp-ui) for full documentation]
+]]></description>
+    <summary>Provides a unified UI to interact with runtimes and servers managed over the RSP protocol.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-rsp-ui#changelog</releaseNotes>
+    <tags>vscode extension vscode-rsp-ui</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
