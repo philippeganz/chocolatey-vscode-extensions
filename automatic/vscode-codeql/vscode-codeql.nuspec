@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-codeql</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - CodeQL</title>
+    <authors>GitHub</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/github/vscode-codeql.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/github/vscode-codeql</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/github/vscode-codeql/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/github/vscode-codeql#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-codeql/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/github.vscode-codeql/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# CodeQL extension for Visual Studio Code
+
+This project is an extension for Visual Studio Code that adds rich language support for [CodeQL](https://codeql.github.com/docs/) and allows you to easily find problems in codebases. In particular, the extension:
+
+- Enables you to use CodeQL to query databases generated from source code.
+- Shows the flow of data through the results of path queries, which is essential for triaging security results.
+- Provides an easy way to run queries from the large, open source repository of [CodeQL security queries](https://github.com/github/codeql).
+- Adds IntelliSense to support you writing and editing your own CodeQL query and library files.
+
+To see what has changed in the last few versions of the extension, see the [Changelog](https://github.com/github/vscode-codeql/blob/main/extensions/ql-vscode/CHANGELOG.md).
+
+You can also read full documentation for the extension on the [GitHub documentation website](https://docs.github.com/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension).
+
+## Quick start overview
+
+The information in this `README` file describes the quickest way to start using CodeQL.
+For information about other configurations, see "[Using the advanced functionality of the CodeQL for VS Code extension](https://docs.github.com/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension)" in the GitHub documentation.
+
+### Quick start: Installing and configuring the extension
+
+1. [Install the extension](#installing-the-extension).  
+1. [Check access to the CodeQL CLI](#checking-access-to-the-codeql-cli).
+1. [Clone the CodeQL starter workspace](#cloning-the-codeql-starter-workspace).
+
+### Quick start: Using CodeQL
+
+1. [Import a database from GitHub](#importing-a-database-from-github).
+1. [Run a query](#running-a-query).
+
+---
+<!-- markdownlint-disable-next-line MD024 -->
+## Quick start: Installing and configuring the extension
+
+### Installing the extension
+
+The CodeQL extension requires a minimum of Visual Studio Code 1.39. Older versions are not supported.
+
+1. Install and open Visual Studio Code.
+1. Open the Extensions view (press **Ctrl+Shift+X** or **Cmd+Shift+X**).
+1. At the top of the Extensions view, type `CodeQL` in the box labeled **Search Extensions in Marketplace**.
+1. Locate the CodeQL extension and select **Install**. This will install the extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=github.vscode-codeql).
+
+### Checking access to the CodeQL CLI
+
+The extension uses the [CodeQL CLI](https://codeql.github.com/docs/codeql-cli/) to compile and run queries. The extension automatically manages access to the CLI for you by default (recommended). To check for updates to the CodeQL CLI, you can use the **CodeQL: Check for CLI Updates** command.
+
+If you want to override the default behavior and use a CodeQL CLI that's already on your machine, see "[Configuring access to the CodeQL CLI](https://docs.github.com/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli)" in the GitHub documentation.
+
+If you have any difficulty with CodeQL CLI access, see the **CodeQL Extension Log** in the **Output** view for any error messages.
+
+### Cloning the CodeQL starter workspace
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-codeql) for full documentation]
+]]></description>
+    <summary>CodeQL for Visual Studio Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=github.vscode-codeql#changelog</releaseNotes>
+    <tags>vscode extension vscode-codeql</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>

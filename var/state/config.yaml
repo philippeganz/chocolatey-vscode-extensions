@@ -38,6 +38,7 @@ extensions:
   - github.copilot-chat
   - github.github-vscode-theme
   - github.remotehub
+  - github.vscode-codeql
   - github.vscode-github-actions
   - github.vscode-pull-request-github
   - gitlab.gitlab-workflow
