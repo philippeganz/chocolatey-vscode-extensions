@@ -84,6 +84,7 @@ extensions:
   - ms-ceintl.vscode-language-pack-ko
   - ms-ceintl.vscode-language-pack-pl
   - ms-ceintl.vscode-language-pack-pt-br
+  - ms-ceintl.vscode-language-pack-qps-ploc
   - ms-ceintl.vscode-language-pack-ru
   - ms-ceintl.vscode-language-pack-tr
   - ms-ceintl.vscode-language-pack-zh-hans
