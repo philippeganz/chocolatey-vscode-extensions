@@ -56,6 +56,7 @@ extensions:
   - johnpapa.winteriscoming
   - kevinrose.vsc-python-indent
   - mechatroner.rainbow-csv
+  - mongodb.mongodb-vscode
   - monokai.theme-monokai-pro-vscode
   - ms-azure-load-testing.microsoft-testing
   - ms-azuretools.azure-dev
