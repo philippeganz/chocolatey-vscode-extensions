@@ -1,0 +1,126 @@
+# Azure Cosmos DB for VS Code
+
+
+
+Browse, manage, and query your Azure Cosmos DB databases both locally and in the cloud with support for **Azure Cosmos DB for NoSQL**.
+
+![Azure Cosmos DB Extension](https://github.com/microsoft/vscode-cosmosdb/raw/HEAD/resources/readme/overview.gif)
+
+> Sign up today for your free Azure account and receive 12 months of free popular services, $200 free credit and 25+ always free services 👉 [Start Free](https://azure.microsoft.com/free/open-source).
+
+# Features
+
+## Azure Cosmos DB Explorer
+
+The Azure Cosmos DB Explorer helps you find, view, and manage your Azure CosmosDB databases.
+
+- **Discover Database Accounts**: scan your Azure subscription for available database accounts and get a structured list of your resources.
+
+- **Open in Azure Portal**: Access database servers directly in the Azure portal.
+
+- **Manage Databases**: View, create, and delete databases, collections, stored procedures, and documents.
+
+- **Edit Documents and Queries**: Open documents, stored procedures, and queries in the editor.
+
+- **Save Changes**: Make updates and persist them to the cloud.
+
+- **Workspace Support**: Attach database accounts to your workspace using connection strings. This is especially useful for teams working with shared resources from various subscriptions.
+
+## Account Overview Dashboard
+
+The Account Overview Dashboard gives you an at-a-glance, read-only view of a Cosmos DB account: inventory, provisioned vs. normalized RU consumption, partition health, active alerts, and recommendations. Open it from an account node in the Explorer.
+
+Every section reads from Azure Resource Manager and Azure Monitor. When a section can't load, it shows an explicit empty state instead of a blank panel:
+
+- **No data** — the account is healthy but has no data for the selected window.
+- **Not supported** — the section doesn't apply to this account's API (for example, inventory metrics are only available for NoSQL (Core) API accounts).
+- **Access required** — your Azure role doesn't grant permission to read the underlying data.
+
+### Required Azure roles
+
+Data is fetched with your Azure credentials, so each section requires the corresponding role assignment. If a role is missing, that section shows an "Access required" empty state naming the role below; the rest of the dashboard continues to work.
+
+| Dashboard section                               | Minimum Azure role              |
+| ----------------------------------------------- | ------------------------------- |
+| Account header, inventory, throughput           | Reader on the Cosmos DB account |
+| RU trends, partition health, derived advisories | Monitoring Reader               |
+| Active alerts                                   | Monitoring Reader               |
+| Advisor recommendations                         | Reader on the subscription      |
+
+Learn more about assigning roles in [Azure role-based access control](https://learn.microsoft.com/azure/role-based-access-control/overview).
+
+## Query Editor
+
+The Query Editor allows you to write and execute queries across your databases.
+
+- **Rich Syntax Highlighting**: Highlights query syntax to make it more readable and help prevent errors.
+
+- **Query History**: Automatically saves previously executed queries, allowing you to open and reuse them later.
+
+- **Run Queries**: Execute queries and view results in Table, JSON, or Tree view.
+
+- **Export Results**: Provides options to copy query results as JSON or CSV or to save them to a file for later use.
+
+- **Pagination**: Adjust how many results are displayed at a time when working with large datasets.
+
+- **Query Insights and Index Advisor**: Displays key details such as execution time, resource consumption, and indexing recommendations.
+
+- **Edit Documents**: Open, update, and save individual documents.
+
+- **Create New Documents**: Write and validate documents with syntax highlighting.
+
+![Query Editor with Results](https://github.com/microsoft/vscode-cosmosdb/raw/HEAD/resources/readme/queryEditor.png)
+
+### Keyboard Shortcuts
+
+The Azure Cosmos DB extension supports various keyboard shortcuts to improve your productivity when working with queries and documents.
+
+For a complete list of keyboard shortcuts, see [Keyboard Shortcuts](https://github.com/microsoft/vscode-cosmosdb/blob/HEAD/docs/hotkeys/01_keyboard_shortcuts.md).
+
+## AI-Powered Query Assistance (GitHub Copilot)
+
+The extension integrates with GitHub Copilot to help you write, edit, and understand Cosmos DB NoSQL queries using natural language.
+
+- **Generate Query**: Click the **AI** button in the Query Editor toolbar and select **Generate query** to describe your query in plain English. Copilot will generate a Cosmos DB NoSQL query for you.
+
+- **Explain Query**: Click the **AI** button and select **Explain query** to get a plain-English explanation of the current query in the editor.
+
+> **Requires** the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension and an active Copilot subscription.
+
+For more details, see the [AI Chat documentation](https://github.com/microsoft/vscode-cosmosdb/blob/HEAD/src/chat/README.md).
+
+## Import into Azure Cosmos DB
+
+The extension allows you to import documents into CosmosDB.
+
+- **Workspace Integration**: Use the context menu of a collection or document file (JSON) to initiate import.
+
+  ![Import documents](https://github.com/microsoft/vscode-cosmosdb/raw/HEAD/resources/readme/import_documents.gif)
+
+## Attach to the Azure Cosmos DB Emulator
+
+Attach the Azure Cosmos DB Emulator to work with a local instance of Azure Cosmos DB for development and testing purposes.
+
+- **Emulator Installation**: Install and run the [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) on your local machine.
+
+- **New Emulator Connection**: Expand 'CosmosDB Accounts', next expand 'Local Emulators', and select 'New Emulator Connection' to link the emulator to your workspace.
+
+## Known Issues
+
+> [!WARNING]
+> Support for previously included features such as MongoDB, PostgreSQL, Graph (Gremlin), Table, Cassandra, and the Grammar Language Server has been removed from this extension.
+>
+> - For MongoDB support, use the [DocumentDB Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-documentdb).
+> - For PostgreSQL support, use the [PostgreSQL Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-pgsql).
+
+
+
+# Telemetry
+
+VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=521839) to learn more. If you don’t wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`. If you want to disable feedback requests in VS Code, set `telemetry.feedback.enabled` to `false`. Learn more in our [FAQ](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
+
+**Data Collection.** The software may collect information about you and your use of the software and send it to Microsoft. Microsoft may use this information to provide services and improve our products and services. You may turn off the telemetry as described in the repository. There are also some features in the software that may enable you and Microsoft to collect data from users of your applications. If you use these features, you must comply with applicable law, including providing appropriate notices to users of your applications together with a copy of Microsoft’s privacy statement. Our privacy statement is located at https://go.microsoft.com/fwlink/?LinkID=521839. You can learn more about data collection and use in the help documentation and our privacy statement. Your use of the software operates as your consent to these practices.
+
+# License
+
+[MIT](https://github.com/microsoft/vscode-cosmosdb/blob/HEAD/LICENSE.md)

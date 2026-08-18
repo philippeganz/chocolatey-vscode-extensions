@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-cosmosdb</id>
+    <version>0.0.0</version>
+    <title>Visual Studio Code Extension - Azure Cosmos DB</title>
+    <authors>ms-azuretools</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/microsoft/vscode-cosmosdb.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/microsoft/vscode-cosmosdb</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/microsoft/vscode-cosmosdb/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/microsoft/vscode-cosmosdb/blob/main/README.md</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-cosmosdb/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-cosmosdb/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
+# Azure Cosmos DB for VS Code
+
+
+
+Browse, manage, and query your Azure Cosmos DB databases both locally and in the cloud with support for **Azure Cosmos DB for NoSQL**.
+
+![Azure Cosmos DB Extension](https://github.com/microsoft/vscode-cosmosdb/raw/HEAD/resources/readme/overview.gif)
+
+> Sign up today for your free Azure account and receive 12 months of free popular services, $200 free credit and 25+ always free services 👉 [Start Free](https://azure.microsoft.com/free/open-source).
+
+# Features
+
+## Azure Cosmos DB Explorer
+
+The Azure Cosmos DB Explorer helps you find, view, and manage your Azure CosmosDB databases.
+
+- **Discover Database Accounts**: scan your Azure subscription for available database accounts and get a structured list of your resources.
+
+- **Open in Azure Portal**: Access database servers directly in the Azure portal.
+
+- **Manage Databases**: View, create, and delete databases, collections, stored procedures, and documents.
+
+- **Edit Documents and Queries**: Open documents, stored procedures, and queries in the editor.
+
+- **Save Changes**: Make updates and persist them to the cloud.
+
+- **Workspace Support**: Attach database accounts to your workspace using connection strings. This is especially useful for teams working with shared resources from various subscriptions.
+
+## Account Overview Dashboard
+
+The Account Overview Dashboard gives you an at-a-glance, read-only view of a Cosmos DB account: inventory, provisioned vs. normalized RU consumption, partition health, active alerts, and recommendations. Open it from an account node in the Explorer.
+
+Every section reads from Azure Resource Manager and Azure Monitor. When a section can't load, it shows an explicit empty state instead of a blank panel:
+
+- **No data** — the account is healthy but has no data for the selected window.
+- **Not supported** — the section doesn't apply to this account's API (for example, inventory metrics are only available for NoSQL (Core) API accounts).
+- **Access required** — your Azure role doesn't grant permission to read the underlying data.
+
+### Required Azure roles
+
+Data is fetched with your Azure credentials, so each section requires the corresponding role assignment. If a role is missing, that section shows an "Access required" empty state naming the role below; the rest of the dashboard continues to work.
+
+| Dashboard section                               | Minimum Azure role              |
+| ----------------------------------------------- | ------------------------------- |
+| Account header, inventory, throughput           | Reader on the Cosmos DB account |
+| RU trends, partition health, derived advisories | Monitoring Reader               |
+| Active alerts                                   | Monitoring Reader               |
+| Advisor recommendations                         | Reader on the subscription      |
+
+Learn more about assigning roles in [Azure role-based access control](https://learn.microsoft.com/azure/role-based-access-control/overview).
+
+## Query Editor
+
+The Query Editor allows you to write and execute queries across your databases.
+
+- **Rich Syntax Highlighting**: Highlights query syntax to make it more readable and help prevent errors.
+
+- **Query History**: Automatically saves previously executed queries, allowing you to open and reuse them later.
+
+- **Run Queries**: Execute queries and view results in Table, JSON, or Tree view.
+
+- **Export Results**: Provides options to copy query results as JSON or CSV or to save them to a file for later use.
+
+- **Pagination**: Adjust how many results are displayed at a time when working with large datasets.
+
+... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) for full documentation]
+]]></description>
+    <summary>Connect Azure CosmosDB databases in Azure, inspect and edit your data and run powerful queries with the visual query editor.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb#changelog</releaseNotes>
+    <tags>vscode extension vscode-cosmosdb</tags>
+    <dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+      <dependency id="vscode-azureresourcegroups" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
