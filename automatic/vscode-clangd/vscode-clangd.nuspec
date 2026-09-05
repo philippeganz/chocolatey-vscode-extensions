@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-clangd</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - clangd</title>
-    <authors>llvm-vs-code-extensions</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/clangd/vscode-clangd.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/clangd/vscode-clangd</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/clangd/vscode-clangd/issues</bugTrackerUrl>
-    <docsUrl>https://clangd.llvm.org/</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-clangd/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/llvm-vs-code-extensions.vscode-clangd/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-clangd</id><version>0.6.0</version><title>Visual Studio Code Extension - clangd</title><authors>llvm-vs-code-extensions</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/clangd/vscode-clangd.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/clangd/vscode-clangd</projectSourceUrl><bugTrackerUrl>https://github.com/clangd/vscode-clangd/issues</bugTrackerUrl><docsUrl>https://clangd.llvm.org/</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-clangd/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/llvm-vs-code-extensions.vscode-clangd/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # clangd
 
 [clangd](https://clangd.llvm.org) helps developers write, understand and
@@ -113,16 +97,6 @@ clangd to format the old line and semantically reindent.
 ![Format-on-type](https://raw.githubusercontent.com/clangd/vscode-clangd/master/doc-assets/format.png)
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd) for full documentation]
-]]></description>
-    <summary>C/C++ completion, navigation, and insights</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd#changelog</releaseNotes>
-    <tags>vscode extension vscode-clangd</tags>
-    <dependencies>
+]]></description><summary>C/C++ completion, navigation, and insights</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd#changelog</releaseNotes><tags>vscode extension vscode-clangd</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
