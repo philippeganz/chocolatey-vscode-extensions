@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-spring-boot</id>
-    <version>2.4.2026080100</version>
-    <title>Visual Studio Code Extension - Spring Boot Tools</title>
-    <authors>vmware</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/spring-projects/spring-tools.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-spring-boot/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/vmware.vscode-spring-boot/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-spring-boot</id><version>2.4.2026090500</version><title>Visual Studio Code Extension - Spring Boot Tools</title><authors>vmware</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/spring-projects/spring-tools.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/spring-projects/spring-tools</projectSourceUrl><bugTrackerUrl>https://github.com/spring-projects/spring-tools/issues</bugTrackerUrl><docsUrl>https://github.com/spring-projects/spring-tools#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-spring-boot/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/vmware.vscode-spring-boot/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # VS Code Language Server for Spring Boot
 
 VSCode extension and Language Server providing support for working with Spring Boot 
@@ -80,19 +67,8 @@ If there are multiple instances of the app running on your machine, the live dat
 ### Application Requirements for Spring Boot projects
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot) for full documentation]
-]]></description>
-    <summary>Provides validation and content assist for Spring Boot `application.properties`, `application.yml` properties files. As well as Boot-specific support for `.java` files.</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot#changelog</releaseNotes>
-    <tags>vscode extension spring-boot</tags>
-    <dependencies>
+]]></description><summary>Provides validation and content assist for Spring Boot `application.properties`, `application.yml` properties files. As well as Boot-specific support for `.java` files.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot#changelog</releaseNotes><tags>vscode extension vscode-spring-boot</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-java" />
       <dependency id="vscode-maven" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
