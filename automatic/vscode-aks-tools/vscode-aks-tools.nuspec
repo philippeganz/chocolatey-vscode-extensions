@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-aks-tools</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Azure Kubernetes Service (AKS)</title>
-    <authors>ms-kubernetes-tools</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Azure/vscode-aks-tools.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/Azure/vscode-aks-tools</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/Azure/vscode-aks-tools/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/Azure/vscode-aks-tools#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-aks-tools/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-kubernetes-tools.vscode-aks-tools/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-aks-tools</id><version>2.5.0</version><title>Visual Studio Code Extension - Azure Kubernetes Service (AKS)</title><authors>ms-kubernetes-tools</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Azure/vscode-aks-tools.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Azure/vscode-aks-tools</projectSourceUrl><bugTrackerUrl>https://github.com/Azure/vscode-aks-tools/issues</bugTrackerUrl><docsUrl>https://github.com/Azure/vscode-aks-tools#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-aks-tools/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-kubernetes-tools.vscode-aks-tools/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Azure Kubernetes Service (AKS) Extension for Visual Studio Code
 
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/8315/badge)](https://www.bestpractices.dev/projects/8315) [![Build](https://github.com/Azure/vscode-aks-tools/actions/workflows/build.yml/badge.svg)](https://github.com/Azure/vscode-aks-tools/actions/workflows/build.yml) [![CodeQL](https://github.com/Azure/vscode-aks-tools/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Azure/vscode-aks-tools/actions/workflows/codeql-analysis.yml)
@@ -47,17 +31,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [[email removed]](mailto:[email removed]) with any additional questions or comments.
 
-]]></description>
-    <summary>Create, manage, deploy, and diagnose AKS clusters directly from VS Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools#changelog</releaseNotes>
-    <tags>vscode extension vscode-aks-tools</tags>
-    <dependencies>
+]]></description><summary>Create, manage, deploy, and diagnose AKS clusters directly from VS Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools#changelog</releaseNotes><tags>vscode extension vscode-aks-tools</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-kubernetes-tools" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
