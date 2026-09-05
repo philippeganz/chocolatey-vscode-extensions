@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-copilot-vision</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Vision for Copilot Preview</title>
-    <authors>ms-vscode</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-copilot-vision.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/microsoft/vscode-copilot-vision</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/microsoft/vscode-copilot-vision/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/microsoft/vscode-copilot-vision#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-copilot-vision/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.vscode-copilot-vision/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-copilot-vision</id><version>0.2.2026041518</version><title>Visual Studio Code Extension - Vision for Copilot Preview</title><authors>ms-vscode</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-copilot-vision.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-copilot-vision</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-copilot-vision/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/vscode-copilot-vision#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-copilot-vision/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.vscode-copilot-vision/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Description
 
 Vision is currently available in the latest version of VS Code. Read more about the feature in our [release notes](https://code.visualstudio.com/updates/v1_98#_copilot-vision-preview). This extension will soon be deprecated in favor of this built-in image flow in Github Copilot Chat. 
@@ -63,16 +47,6 @@ Additionally, users can generate or refine alt text for images in markdown, HTML
   f. In VS Code, run "Copilot Vision: Set Current Model's API Key" and paste the key from step d.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-copilot-vision) for full documentation]
-]]></description>
-    <summary>A chat extension providing vision capabilities in VS Code, with a focus on accessibility.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-copilot-vision#changelog</releaseNotes>
-    <tags>vscode extension vscode-copilot-vision</tags>
-    <dependencies>
+]]></description><summary>A chat extension providing vision capabilities in VS Code, with a focus on accessibility.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-copilot-vision#changelog</releaseNotes><tags>vscode extension vscode-copilot-vision</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
