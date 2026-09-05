@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-windows-ai-studio.windows-ai-studio-1.6.8.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-windows-ai-studio.windows-ai-studio-1.6.11.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 4CBB43F1EE4C2B62304AD531A4619E29A2B14511E7D5624DB92208C0B0797B26
+   Expected SHA256: 2758682B6C8F923974341CBEEDDCE7DC524EE783D08813B9DB1B7CDCDE41D501
 
 ---
 SOFTWARE LICENSE:
