@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\sonarsource.sonarlint-vscode-5.8.1.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\sonarsource.sonarlint-vscode-5.9.1.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: DCC1D6E903180AD3CBB53A8C4965FF198CD5C3E7A4C719B1DA61DA42F51E56DB
+   Expected SHA256: 170071573EFCDEF1AC911F6F6C488CF63C1845AD33D9D4A03F5B31FB2F267F1E
 
 ---
 SOFTWARE LICENSE:

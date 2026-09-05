@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-sonarlint-vscode</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - SonarQube for IDE</title>
-    <authors>SonarSource</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/SonarSource/sonarlint-vscode.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/SonarSource/sonarlint-vscode</projectSourceUrl>
-    <bugTrackerUrl>https://community.sonarsource.com/c/sl/vs-code/36</bugTrackerUrl>
-    <docsUrl>https://www.sonarsource.com/products/sonarlint/</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-sonarlint-vscode/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/sonarsource.sonarlint-vscode/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-sonarlint-vscode</id><version>5.9.1</version><title>Visual Studio Code Extension - SonarQube for IDE</title><authors>SonarSource</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/SonarSource/sonarlint-vscode.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/SonarSource/sonarlint-vscode</projectSourceUrl><bugTrackerUrl>https://community.sonarsource.com/c/sl/vs-code/36</bugTrackerUrl><docsUrl>https://www.sonarsource.com/products/sonarlint/</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-sonarlint-vscode/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/sonarsource.sonarlint-vscode/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # SonarQube for IDE: Visual Studio Code (formerly SonarLint)
 
 SonarQube for IDE by [Sonar](https://www.sonarsource.com/) is a free, sophisticated static analysis tool that enhances your code quality and security. Analyze your code early—as you write or generate it. Local analysis automatically identifies quality and security issues in real-time, even with AI-generated code. Fix issues found using QuickFix or the AI CodeFix feature, before pushing to your SCM. This ensures your code meets your quality standards and is safe for running in production. 
@@ -46,16 +30,6 @@ Watch the [SonarQube for IDE: VSCode Overview](https://www.youtube.com/watch?v=m
 Have a need in SonarQube for IDE: VS Code that’s not being met? Or not being met well? Ever wish you could talk directly to the Product Manager? Well now’s your chance! Congratulations, you are SonarQube's Product Manager for a day. If you would like to see a new feature, please create a new thread in the Community Forum here, under ["Product Manager for a Day"](https://community.sonarsource.com/c/sl/pm-for-a-day-sl/41).
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) for full documentation]
-]]></description>
-    <summary>Advanced linter to detect &amp; fix coding issues locally in JS/TS, Python, Java, C#, C/C++, Go, PHP.  Use with SonarQube (Server, Cloud) for optimal team performance.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=sonarsource.sonarlint-vscode#changelog</releaseNotes>
-    <tags>vscode extension sonarlint-vscode</tags>
-    <dependencies>
+]]></description><summary>Advanced linter to detect &amp; fix coding issues locally in JS/TS, Python, Java, C#, C/C++, Go, PHP.  Use with SonarQube (Server, Cloud) for optimal team performance.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=sonarsource.sonarlint-vscode#changelog</releaseNotes><tags>vscode extension sonarlint-vscode</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
