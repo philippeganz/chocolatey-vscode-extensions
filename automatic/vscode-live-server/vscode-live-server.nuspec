@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-live-server</id>
-    <version>0.5.2026072301</version>
-    <title>Visual Studio Code Extension - Live Preview</title>
-    <authors>ms-vscode</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-livepreview.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-live-server/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.live-server/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-live-server</id><version>0.5.2026082601</version><title>Visual Studio Code Extension - Live Preview</title><authors>ms-vscode</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-livepreview.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-livepreview</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-livepreview/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/vscode-livepreview#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-live-server/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.live-server/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 > **This is the pre-release edition of Live Preview for early feedback and testing. It works best with [VS Code Insiders](https://code.visualstudio.com/insiders).**
 
 # Live Preview - VS Code Extension 📡
@@ -74,16 +61,6 @@ Although all of the images above use the embedded browser, you can also experien
 You can edit the preview target in the extension settings.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) for full documentation]
-]]></description>
-    <summary>Hosts a local server in your workspace for you to preview your webpages on.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server#changelog</releaseNotes>
-    <tags>vscode extension live-server</tags>
-    <dependencies>
+]]></description><summary>Hosts a local server in your workspace for you to preview your webpages on.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server#changelog</releaseNotes><tags>vscode extension live-server</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
