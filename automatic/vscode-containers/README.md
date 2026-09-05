@@ -2,7 +2,7 @@
 
 The Container Tools extension makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. It also provides one-click debugging of Node.js, Python, and .NET inside a container.
 
-![Container Tools extension overview](https://github.com/microsoft/vscode-containers/raw/HEAD/resources/readme/overview.gif)
+![Container Tools extension overview](https://github.com/microsoft/vscode-containers/raw/HEAD/extensions/vscode-containers/resources/readme/overview.gif)
 
 **Check out the [Working with containers](https://aka.ms/AA7arez) topic on the Visual Studio Code documentation site to get started**.
 
@@ -25,7 +25,7 @@ Container Tools provides basic IntelliSense when editing your `Dockerfile` and `
 
 > Note: [Docker DX](https://marketplace.visualstudio.com/items?itemName=docker.docker) is the official language service from Docker that provides more advanced IntelliSense for Docker, Compose, and Bake configuration files. This extension is recommended to be installed alongside Container Tools for enhanced editing support.
 
-![IntelliSense for Dockerfiles](https://github.com/microsoft/vscode-containers/raw/HEAD/resources/readme/dockerfile-intellisense.png)
+![IntelliSense for Dockerfiles](https://github.com/microsoft/vscode-containers/raw/HEAD/extensions/vscode-containers/resources/readme/dockerfile-intellisense.png)
 
 In addition, you can use the Problems panel (<kbd>Ctrl+Shift+M</kbd> on Windows/Linux, <kbd>Shift+Command+M</kbd> on Mac) to view common errors for `Dockerfile` and `compose.yaml` files.
 
@@ -41,17 +41,17 @@ The Container Tools extension contributes a Container Explorer view to VS Code. 
 
 The right-click menu provides access to commonly used commands for each type of asset.
 
-![Container Explorer context menu](https://github.com/microsoft/vscode-containers/raw/HEAD/resources/readme/container-view-context-menu.gif)
+![Container Explorer context menu](https://github.com/microsoft/vscode-containers/raw/HEAD/extensions/vscode-containers/resources/readme/container-view-context-menu.gif)
 
 You can rearrange the view panes by dragging them up or down with a mouse and use the context menu to hide or show them.
 
-![Customize Container Explorer](https://github.com/microsoft/vscode-containers/raw/HEAD/resources/readme/container-view-rearrange.gif)
+![Customize Container Explorer](https://github.com/microsoft/vscode-containers/raw/HEAD/extensions/vscode-containers/resources/readme/container-view-rearrange.gif)
 
 ### Container commands
 
 Many of the most common container commands are built right into the Command Palette:
 
-![Container commands](https://github.com/microsoft/vscode-containers/raw/HEAD/resources/readme/command-palette.png)
+![Container commands](https://github.com/microsoft/vscode-containers/raw/HEAD/extensions/vscode-containers/resources/readme/command-palette.png)
 
 You can run container commands to manage [images](https://docs.docker.com/engine/reference/commandline/image/), [networks](https://docs.docker.com/engine/reference/commandline/network/), [volumes](https://docs.docker.com/engine/reference/commandline/volume/), [container registries](https://docs.docker.com/engine/reference/commandline/push/), and [Docker Compose](https://docs.docker.com/compose/reference/overview/). In addition, the **Containers: Prune System** command will remove stopped containers, dangling images, and unused networks and volumes.
 
@@ -60,25 +60,25 @@ You can run container commands to manage [images](https://docs.docker.com/engine
 
 [Docker Compose](https://docs.docker.com/compose/) lets you define and run multi-container applications. Our [Compose Language Service](https://github.com/microsoft/compose-language-service) in the Container Tools extension gives you IntelliSense and tab completions when authoring `compose.yaml` files. Press `Ctrl+Space` to see a list of valid Compose directives.
 
- ![Compose IntelliSense](https://github.com/microsoft/vscode-containers/raw/HEAD/resources/readme/tab-completions.gif)
+ ![Compose IntelliSense](https://github.com/microsoft/vscode-containers/raw/HEAD/extensions/vscode-containers/resources/readme/tab-completions.gif)
 
 We also provide tooltips when you hover over a Compose YAML attribute.
 
- ![Compose Tooltips](https://github.com/microsoft/vscode-containers/raw/HEAD/resources/readme/hover-support.png)
+ ![Compose Tooltips](https://github.com/microsoft/vscode-containers/raw/HEAD/extensions/vscode-containers/resources/readme/hover-support.png)
 
 While `Compose Up` allows you to run all of your services at once, our new feature `Compose Up - Select Services` lets you select any combination of the services you want to run.
 
-![Compose Up - Select Subset](https://github.com/microsoft/vscode-containers/raw/HEAD/resources/readme/select-subset.gif)
+![Compose Up - Select Subset](https://github.com/microsoft/vscode-containers/raw/HEAD/extensions/vscode-containers/resources/readme/select-subset.gif)
 
 Once your `Compose Up` command completes, navigate to the Container Explorer to view your services as a Compose Group. This allows you to start, stop, and view the logs of each service as a group.
 
-![Compose Groups](https://github.com/microsoft/vscode-containers/raw/HEAD/resources/readme/compose-group.png)
+![Compose Groups](https://github.com/microsoft/vscode-containers/raw/HEAD/extensions/vscode-containers/resources/readme/compose-group.png)
 
 ### Using image registries
 
 You can display the content and push, pull, or delete images from [Docker Hub](https://hub.docker.com/) and [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/):
 
-![Azure Container Registry content](https://github.com/microsoft/vscode-containers/raw/HEAD/resources/readme/container-registry.png)
+![Azure Container Registry content](https://github.com/microsoft/vscode-containers/raw/HEAD/extensions/vscode-containers/resources/readme/container-registry.png)
 
 An image in an Azure Container Registry can be deployed to Azure App Service directly from VS Code. See [Deploy images to Azure App Service](https://aka.ms/AA7arf8) to get started. For more information about how to authenticate to and work with registries, see [Using container registries](https://aka.ms/AA7arf9).
 
@@ -96,7 +96,7 @@ The Container Tools extension supports multiple container runtime options, such 
 
 ## Contributing
 
-See [the contribution guidelines](https://github.com/microsoft/vscode-containers/blob/HEAD/CONTRIBUTING.md) for ideas and guidance on how to improve the extension. Thank you!
+See [the contribution guidelines](https://github.com/microsoft/vscode-containers/blob/HEAD/../../CONTRIBUTING.md) for ideas and guidance on how to improve the extension. Thank you!
 
 ### Code of Conduct
 
@@ -108,4 +108,4 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
 
 ## License
 
-[MIT](https://github.com/microsoft/vscode-containers/blob/HEAD/LICENSE.md)
+[MIT](https://github.com/microsoft/vscode-containers/blob/HEAD/../../LICENSE.md)
