@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-community-server-connector</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Community Server Connectors</title>
-    <authors>redhat</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/redhat-developer/rsp-server-community.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/redhat-developer/rsp-server-community</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/redhat-developer/rsp-server-community.git</bugTrackerUrl>
-    <docsUrl>https://github.com/redhat-developer/rsp-server-community#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-community-server-connector/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-community-server-connector/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-community-server-connector</id><version>0.26.22</version><title>Visual Studio Code Extension - Community Server Connectors</title><authors>redhat</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/redhat-developer/rsp-server-community.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/redhat-developer/rsp-server-community</projectSourceUrl><bugTrackerUrl>https://github.com/redhat-developer/rsp-server-community.git</bugTrackerUrl><docsUrl>https://github.com/redhat-developer/rsp-server-community#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-community-server-connector/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-community-server-connector/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Runtime Server Protocol - Community Extension
 
 
@@ -59,17 +43,7 @@ This extension depends on VSCode RSP UI Extension which is going to be installed
    * Websphere Liberty [ 21.x ]
 
 
-]]></description>
-    <summary>Connects vscode with open source community-driven servers and runtimes.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector#changelog</releaseNotes>
-    <tags>vscode extension vscode-community-server-connector</tags>
-    <dependencies>
+]]></description><summary>Connects vscode with open source community-driven servers and runtimes.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector#changelog</releaseNotes><tags>vscode extension vscode-community-server-connector</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-rsp-ui" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
