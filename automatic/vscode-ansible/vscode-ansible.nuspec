@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-ansible</id>
-    <version>26.6.0</version>
-    <title>Visual Studio Code Extension - Ansible</title>
-    <authors>redhat</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>git+https://github.com/ansible/vscode-ansible.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-ansible/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.ansible/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-ansible</id><version>26.8.2</version><title>Visual Studio Code Extension - Ansible</title><authors>redhat</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/ansible/vscode-ansible.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/ansible/vscode-ansible</projectSourceUrl><bugTrackerUrl>https://github.com/ansible/vscode-ansible/issues</bugTrackerUrl><docsUrl>https://github.com/ansible/vscode-ansible#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-ansible/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/redhat.ansible/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Ansible VS Code Extension
 
 The Ansible extension for Visual Studio Code streamlines Ansible development by
@@ -45,8 +32,6 @@ Before you begin, make sure your system has:
 
 It is recommended to open a folder containing Ansible files with a VS Code
 workspace.
-
-![Linter support](https://raw.githubusercontent.com/wiki/ansible/vscode-ansible/images/activate-extension.gif)
 
 Note:
 
@@ -110,20 +95,12 @@ This section provides quick access to:
 
 #### Initialize Section
 
+This section helps you create new Ansible projects:
+
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=redhat.ansible) for full documentation]
-]]></description>
-    <summary>Ansible language support</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.ansible#changelog</releaseNotes>
-    <tags>vscode extension ansible</tags>
-    <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+]]></description><summary>Ansible language support</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.ansible#changelog</releaseNotes><tags>vscode extension ansible</tags><dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-python" />
       <dependency id="vscode-python-envs" />
       <dependency id="vscode-yaml" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
