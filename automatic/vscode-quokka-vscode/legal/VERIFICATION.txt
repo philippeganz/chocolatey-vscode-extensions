@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\wallabyjs.quokka-vscode-1.0.766.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\wallabyjs.quokka-vscode-1.0.769.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 46B88BE8FDA462AEF20492F18735F68DDADB3EC9BD619CF180689E344574A8D4
+   Expected SHA256: 7C0C0A7B7B582F36946CB44FEA5BA277B625DB5C0AB1EAA6F399B8AFACA9C718
 
 ---
 SOFTWARE LICENSE:
