@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-remotehub</id>
-    <version>0.65.2026072301</version>
-    <title>Visual Studio Code Extension - GitHub Repositories</title>
-    <authors>GitHub</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-remote-repositories-github.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-remotehub/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/github.remotehub/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-remotehub</id><version>0.65.2026080601</version><title>Visual Studio Code Extension - GitHub Repositories</title><authors>GitHub</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-remote-repositories-github.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-remote-repositories-github</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-remote-repositories-github/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/vscode-remote-repositories-github#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-remotehub/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/github.remotehub/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 > **This is the pre-release edition of GitHub Repositories for early feedback and testing. It works best with [VS Code Insiders](https://code.visualstudio.com/insiders).**
 
 # GitHub Repositories
@@ -51,17 +38,7 @@ You can then search for a repo or pull request. In the gif below, we search for 
 This extension provides the following support for GitHub repositories:
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) for full documentation]
-]]></description>
-    <summary>Remotely browse and edit any GitHub repository</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=github.remotehub#changelog</releaseNotes>
-    <tags>vscode extension remotehub</tags>
-    <dependencies>
+]]></description><summary>Remotely browse and edit any GitHub repository</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=github.remotehub#changelog</releaseNotes><tags>vscode extension remotehub</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-remote-repositories" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
