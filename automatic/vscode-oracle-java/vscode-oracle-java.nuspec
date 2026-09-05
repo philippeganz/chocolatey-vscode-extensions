@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-oracle-java</id>
-    <version>26.0.0</version>
-    <title>Visual Studio Code Extension - Java</title>
-    <authors>Oracle</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/oracle/javavscode</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-oracle-java/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/Oracle.oracle-java/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-oracle-java</id><version>26.0.2</version><title>Visual Studio Code Extension - Java</title><authors>Oracle</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/oracle/javavscode.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/oracle/javavscode</projectSourceUrl><bugTrackerUrl>https://github.com/oracle/javavscode/issues</bugTrackerUrl><docsUrl>https://github.com/oracle/javavscode#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-oracle-java/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/Oracle.oracle-java/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 <!--
 
 Copyright (c) 2023-2026, Oracle and/or its affiliates.
@@ -61,17 +48,6 @@ Java Platform extension from Oracle brings full-featured development support (ed
     - Open the folder with existing __Maven__ or __Gradle__ project files (_pom.xml_ or _build.gradle, gradle.properties_).
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=Oracle.oracle-java) for full documentation]
-]]></description>
-    <summary>Java Platform Extension for Visual Studio Code</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=Oracle.oracle-java#changelog</releaseNotes>
-    <tags>vscode extension oracle-java</tags>
-    <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+]]></description><summary>Java Platform Extension for Visual Studio Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=Oracle.oracle-java#changelog</releaseNotes><tags>vscode extension oracle-java</tags><dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>

@@ -65,13 +65,13 @@ In the VS Code command palette:
 
 ## Project Explorer
 Project Explorer provides an overview of logical project structure, groups sources together and greatly simplifies Java package structure exploration. Project Explorer is an addition to the classical workspace explorer. Use it to build, test, execute and operate your Maven and Gradle Java projects.<br/>
-![Project Explorer](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/project-explorer.png)
+![Project Explorer](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/project-explorer.png)
 
 ## Interactive Java Notebooks
 ### Introduction
 * Experience interactive coding with Java notebooks. See the [Using Interactive Java Notebooks](https://github.com/oracle/javavscode/wiki/Interactive-Java-Notebooks) wiki for guidance and tutorials on using notebooks.
 * Use the __Java: Create New Notebook...__ command to create a new Java notebook (`.ijnb` file)<br/>
-    ![Java Notebook](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/java_notebook.gif)
+    ![Java Notebook](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/java_notebook.gif)
 * Add code snippets with `+ Code` button and document with markdown cells using the `+ Markdown` button.
 * Double-click on a cell to edit and press `Esc` when done.
 * Jupyter-style notebooks let you combine Java code snippets with markdown-formatted text cells.
@@ -85,9 +85,9 @@ Project Explorer provides an overview of logical project structure, groups sourc
 ### Java Notebooks for Java Projects
 * Document Java projects with interactive Java notebooks.
     * Open or create a Java notebook in your workspace folder loaded with classes from your project.<br/>
-    ![Java Notebook For Project](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/project_notebook.gif)
+    ![Java Notebook For Project](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/project_notebook.gif)
     * Use the `Project Context` options to switch to a different project context.<br/>
-    ![Switch Project Context](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/project_context.png)
+    ![Switch Project Context](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/project_context.png)
 * Provide code snippets, markdown explanations, and expected outputs.
 
 ### Notebook Configurations
@@ -106,18 +106,18 @@ Note: If you change these settings while a notebook is open, click __Restart__ k
 ## JShell
 * Use the __Java: Open JShell...__ command to open JShell.
 * Project classes from currently open project are automatically loaded.<br/>
-![JShell](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/jshell.gif)
+![JShell](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/jshell.gif)
 
 ## Debugger and Launch Configurations
 Language Server __Java+ ...__ launch configuration supports debugging and running Java applications using JDK11 or newer. 
 1. The launch configuration (debugger) is invoked when `Run main | Debug main` codelens is selected in the code.
 2. Or __Java+...__ is selected in __Run and Debug__ activity panel.</br>
-![Debug configurations](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/debuggers.png)
+![Debug configurations](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/debuggers.png)
 
 ### Launch Configurations
 * __Launch Java App__ - Debug or Run current Java project
 * __Attach to Port__ & __Attach to Process__ - Attach debugger actions. Available when __Java+ ...__ at the bottom of drop down list is selected.
-    * Select this configuration, then click the ![Run](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/run.png) button.
+    * Select this configuration, then click the ![Run](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/run.png) button.
     * Select either from available process or enter the port to connect to JVM running with JDWP.
     * __Attach to Shared Memory__ is available on Windows in addition to above mentioned _Attach..._
 
@@ -125,7 +125,7 @@ Default launch configurations provided by Language Server can modified in `launc
 
 ### Run Configurations panel
 Program arguments, VM options, environment variables, etc., can be set in the Run Configuration panel in the Explorer view. The panel is sufficient for typical use-cases Java programmers face. Advanced, expert scenarios may require the use of the VS Code `launch.json`.<br/>
-![Run Configuration](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/run_config.png) 
+![Run Configuration](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/run_config.png) 
 
 ### VS Code variable substitution in settings
 The extension supports [VS Code variable substitution](https://code.visualstudio.com/docs/editor/variables-reference) (for example `${workspaceFolder}`, `${userHome}`, `${env:NAME}`) for the following settings:
@@ -157,38 +157,38 @@ If the system does not detect any JDK, the extension will offer a downloader and
 Alternatively, you can manually select an already installed JDK to use with the extension through the "Select an installed JDK" command in the VS Code command palette.
 
 You can also access the JDK downloader through the "Download, install, and Use JDK" option in the command palette.<br/>
-![JDK Downloader](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/jdk_downloader.gif)
+![JDK Downloader](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/jdk_downloader.gif)
 
 ## Enabling Java Preview Features 
 When using preview features use the quick fix action option to easily enable them.
 
-![Enable Preview](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/enable_preview.gif)
+![Enable Preview](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/enable_preview.gif)
 
 ## Supported Refactorings
 Class level refactorings as well as variable refactorings are supported in VS Code via the Oracle Java Platform extension. See the following screenshots:
 
 ### Source Action ... context menu
-![Class Source Actions](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/Source_actions.png) 
+![Class Source Actions](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/Source_actions.png) 
 
 ### Introduce refactorings available via Show Code actions light bulb
-![Introduce ... refactoring](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/Introduce_refactoring.png)
+![Introduce ... refactoring](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/Introduce_refactoring.png)
 
 ### More Refactorings available also using Refactor... context menu
-![More Refactorings](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/Refactor_menu.png)
+![More Refactorings](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/Refactor_menu.png)
 
 ### Surround with refactorings
-![Surrond with Refactorings](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/Surrond_With_refactorings.png)  
+![Surrond with Refactorings](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/Surrond_With_refactorings.png)  
 
 Some refactorings are two steps with like __Generate Override method__ ... where method to be overriden is selected in 2nd step:<br/>
-![Override refactoring](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/Override_refactoring.png)
+![Override refactoring](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/Override_refactoring.png)
 
 ### Change Method Parameters refactoring
 Change method parameters refactoring is provided using dedicated form allowing to change, add, move, remove method parameters.<br/>
-![Change method parameters refactoring](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/change_method_params.png)
+![Change method parameters refactoring](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/change_method_params.png)
 
 ### Move Members Refactoring
 Move members refactoring provides dedicated form as well.<br/>
-![Move members refactoring](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/move_refactoring.png)
+![Move members refactoring](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/move_refactoring.png)
 
 ### Some other supported refactorings are:
 * Convert to static import 
@@ -232,18 +232,18 @@ The `Jdk › Java › On Save: Organize Imports` setting in VS Code `Settings | 
 
 ## JavaDoc smart editing
 When adding JavaDoc to code Oracle Java Platform extension assists by suggesting to insert preformatted and prepopulated JavaDoc comment. Type `/**` above the method signature and the IDE offers to complete the JavaDoc. The action creates a JavaDoc comment with all the parameters prepared.<br/>
-![JavaDoc Completion](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/javadoc.png)
+![JavaDoc Completion](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/javadoc.png)
 
 ## Test Explorer
 Oracle Java Platform extension provides Test Explorer view which allows to run all tests in a project, examine the results, go to source code and run particular test.<br/>
-![Test Explorer](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/Test_explorer.png)
+![Test Explorer](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/Test_explorer.png)
 
 ### Localization support
 Oracle Java Platform extension provides localization support for _Japanese_ and _Simplified Chinese_.
 Use the `View | Command Palette | Configure Display Language` command to select `ja` for _Japanese_ or `zh-cn` for _Simplified Chinese_
 
 
-![Localization.gif](https://github.com/oracle/javavscode/raw/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/images/Localization.gif)
+![Localization.gif](https://github.com/oracle/javavscode/raw/546664922821e98aa6bf735bf9102e5bbac48236/vscode/images/Localization.gif)
 ## Selecting the JDK
 The JDK to build, run and debug projects is being searched in the following locations:
 
@@ -266,6 +266,10 @@ If your extension is not starting and throwing some error like no JDK found even
 ## Workspace
 The extension will analyze the content of the opened workspace, and relevant other files. If the workspace contains a lot of data, this may take a long time. It is therefore recommended to avoid adding unnecessarily big folders in a workspace. Specifically, it is not recommended to open user's home directory as a part of the workspace.
 
+VS Code enables the extension only in workspaces that are trusted by you.
+
+The extension requests an additional trust decision from you, when the workspace contains extension settings. The extension stops further activation unless you choose to trust such a workspace. Use the __Java: Manage trust decisions for Oracle Java workspace settings__ command to view and edit your choice at any time.
+
 ## Known Issues
 1. If an action has been applied to the Maven `pom.xml` file through the extension, such as enabling a preview feature or adding a test runner framework, subsequent compile or run operations may fail. To resolve this issue, please follow the steps below:
     1. Check the `pom.xml` file for any duplicated tags.
@@ -283,7 +287,7 @@ The extension will analyze the content of the opened workspace, and relevant oth
 
 You may choose to enable the Oracle Java extension for Visual Studio Code (\"*JVSCE*\") to collect and send anonymous technical data commonly known as \"*telemetry data*\" to Oracle to help improve the Java platform. 
 - No personal information nor source code is collected. 
-- You may refer to the data collection and privacy policy for JVSCE at [TELEMETRY.md](https://github.com/oracle/javavscode/blob/ad16371d316860772abfa4b891ec3cb763e96c0c/vscode/TELEMETRY.md).
+- You may refer to the data collection and privacy policy for JVSCE at [TELEMETRY.md](https://github.com/oracle/javavscode/blob/546664922821e98aa6bf735bf9102e5bbac48236/vscode/TELEMETRY.md).
 - No information is sent prior to you enabling Telemetry.
 
 ### Enabling/Disabling Telemetry
@@ -295,7 +299,7 @@ If you wish to enable or disable the collection and transmission of the telemetr
 
 ## Contributing
 
-This project welcomes contributions from the community. Before submitting a pull request, please [review our contribution guide](https://github.com/oracle/javavscode/blob/ad16371d316860772abfa4b891ec3cb763e96c0c/CONTRIBUTING.md)
+This project welcomes contributions from the community. Before submitting a pull request, please [review our contribution guide](https://github.com/oracle/javavscode/blob/546664922821e98aa6bf735bf9102e5bbac48236/CONTRIBUTING.md)
 
 ## Security
 
@@ -306,4 +310,4 @@ Please consult the [security guide](https://github.com/oracle/javavscode/blob/ma
 Copyright (c) 2023-2026 Oracle and/or its affiliates.
 
 Oracle Java Platform Extension for Visual Studio Code is licensed under [Apache 2.0 License](https://github.com/oracle/javavscode/blob/main/LICENSE.txt).
-The [THIRD_PARTY_LICENSES](https://github.com/oracle/javavscode/blob/ad16371d316860772abfa4b891ec3cb763e96c0c/THIRD_PARTY_LICENSES.txt) file contains third party notices and licenses.
+The [THIRD_PARTY_LICENSES](https://github.com/oracle/javavscode/blob/546664922821e98aa6bf735bf9102e5bbac48236/THIRD_PARTY_LICENSES.txt) file contains third party notices and licenses.
