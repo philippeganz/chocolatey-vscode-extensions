@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\amazonwebservices.aws-toolkit-vscode-4.13.0.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\amazonwebservices.aws-toolkit-vscode-4.15.0.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 4A4D6F428EDA29B20557CC0F03B192B299DC9FDFAD0BB902826EF25A41AEE2B3
+   Expected SHA256: 50EA9B4CFE522E27619A85591E4EFC2D1465C22BEE11ECBF9417737E7F301C4F
 
 ---
 SOFTWARE LICENSE:
