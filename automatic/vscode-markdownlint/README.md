@@ -221,11 +221,11 @@ If none of these files exist, a new `.markdownlint.json` containing the default 
 
 > **Note**: Because JavaScript is cached by VS Code after being loaded, edits to `.markdownlint.cjs`/`.markdownlint.mjs`/`.markdownlint-cli2.cjs`/`.markdownlint-cli2.mjs` require a restart of VS Code.
 
-### markdownlint.config
+### ~~markdownlint.config~~
 
-> **Note**: Using a project-local configuration file is preferred because doing so works with command-line tools and is easier for collaboration.
+The `markdownlint.config` property has been deprecated; please use a configuration file instead ([as outlined in the Configure section](#configure)).
 
-The configuration above might look like the following in VS Code's user settings file:
+When `markdownlint.config` is present in workspace context, replacing it can be done by creating a `.markdownlint.json` file in the root of the workspace with the value of the setting as its content. For example, removing this setting from the project's `.vscode/settings.json`:
 
 ```json
 {
@@ -238,19 +238,39 @@ The configuration above might look like the following in VS Code's user settings
 }
 ```
 
-When using `extends` in this context:
+Leaving just:
 
-* File paths referenced by `extends` from configuration files within a workspace are resolved relative to that configuration file.
-* When running VS Code locally:
-  * File paths referenced by `extends` from user settings are resolved relative to the user's home directory (e.g., `%USERPROFILE%` on Windows or `$HOME` on macOS/Linux).
-  * File paths referenced by `extends` from workspace settings are resolved relative to the workspace folder.
-  * VS Code's [predefined variables](https://code.visualstudio.com/docs/reference/variables-reference) `${userHome}` and `${workspaceFolder}` can be used within an `extends` path from user or workspace settings to override the default behavior.
+```json
+{
+    "editor.someSetting": true
+}
+```
+
+And adding a `.markdownlint.json` file with the corresponding configuration to the root of the project:
+
+```json
+{
+    "MD003": { "style": "atx_closed" },
+    "MD007": { "indent": 4 },
+    "no-hard-tabs": false
+}
+```
+
+When `markdownlint.config` is present in user context, replacing it can be done by creating a `.markdownlint.json` file (as above) in the user's home directory and setting `markdownlint.configFile` to the corresponding path (for example, `${userHome}/.markdownlint.json`). Similar to the scenario above, the user setting from something like `~/Library/Application Support/Code/User/settings.json` would become:
+
+```json
+{
+    "editor.someSetting": true,
+    "markdownlint.configFile": "${userHome}/.markdownlint.json"
+}
+```
 
 ### markdownlint.configFile
 
 The default behavior of storing configuration files in the root of a project works well most of the time.
 However, projects that need to store configuration files in a different location can set `configFile` to the project-relative path of that file.
 All [`markdownlint-cli2` configuration files used with `--config`](https://github.com/DavidAnson/markdownlint-cli2?tab=readme-ov-file#command-line) are supported (including TOML files).
+VS Code's predefined variables `${userHome}` and `${workspaceFolder}` are supported (and the latter can be [scoped per workspace folder](https://code.visualstudio.com/docs/reference/variables-reference#_platform-and-workspace-considerations)).
 
 This looks like the following in VS Code's user settings:
 
@@ -388,33 +408,13 @@ By default, such violations are displayed in VS Code at Diagnostic Severity `Inf
 
 The value of `severityForWarning` can be the same as the value of `severityForError`.
 
-### markdownlint.customRules
+### ~~markdownlint.customRules~~
 
-Custom rules can be specified in VS Code's user/workspace configuration to apply additional linting beyond the default set of rules. Custom rules are specified by the path to a JavaScript file or the name of or path to an [npm](https://www.npmjs.com/) package exporting one rule or an array of rules ([examples of custom rules](https://www.npmjs.com/search?q=keywords:markdownlint-rule)).
+The `markdownlint.customRules` property has been deprecated; please use a configuration file instead ([as outlined in the Configure section](#configure)).
 
-Paths are typically relative to the root of the current workspace and should begin with `./` to [differentiate the relative path from a module identifier](https://nodejs.org/docs/latest-v18.x/api/modules.html#file-modules). Paths can be absolute and begin with `/`, though this is discouraged because it does not work reliably across different machines. If implementing custom rules in a workspace, consider committing the rule code under the `.vscode` directory where it will be separate from other workspace content and available to everyone who clones the repository. Paths of the form `{extension}/path` are relative to the base directory of the VS Code extension named `extension` (which must already be installed). This syntax allows custom rules to be included within another extension's package, though this is discouraged because it introduces a subtle dependency on the other extension.
+Paths of the form `{extension}/path` (which allowed custom rules to be included within another extension's package) were previously discouraged and will no longer be supported.
 
-An example of VS Code's workspace settings for custom rules might look like the following:
-
-```json
-{
-    "editor.someSetting": true,
-    "markdownlint.customRules": [
-        "./.vscode/my-custom-rule.js",
-        "./.vscode/my-custom-rule-array.js",
-        "./.vscode/npm-package-for-custom-rule",
-        "/absolute/path/to/custom/rule.js",
-        "{publisher.extension-name}/custom-rule.js",
-        "{publisher.extension-name}/npm/rule/package"
-    ]
-}
-```
-
-For information about authoring custom rules, see [the `markdownlint` documentation for custom rules](https://github.com/DavidAnson/markdownlint/blob/main/doc/CustomRules.md). When developing a custom rule, the recommended approach is to write and debug outside VS Code because that avoids limitations like needing to reload to refresh script files. For more, see the [Interoperability section](#interoperability) below.
-
-> **Note**: Custom rules can also be specified (in a portable way other tools will recognize) via the [`customRules` property in `.markdownlint-cli2.{jsonc,yaml,cjs,mjs}`](https://github.com/DavidAnson/markdownlint-cli2#configuration).
-> In `markdownlint-cli2` configuration files, the `modulePaths` property can be used in conjunction to specify one or more additional paths for resolving module references.
-> This can be used to work around the VS Code limitation that globally-installed Node modules are unavailable by setting `modulePaths` to the location of the global module path (typically `/usr/local/lib` on macOS/Linux or `~/AppData/Roaming/npm` on Windows).
+The migration process is similar to [what's outlined in the `markdownlint.configFile` section](#markdownlintconfigfile). For more, see the documentation about [using the `customRules` property in `.markdownlint-cli2.{jsonc,yaml,cjs,mjs}`](https://github.com/DavidAnson/markdownlint-cli2#configuration). The `modulePaths` property can be used in conjunction with `customRules` to specify one or more additional paths for resolving module references. Setting `modulePaths` to the location of the global module path (typically `/usr/local/lib` on macOS/Linux or `~/AppData/Roaming/npm` on Windows) can be used to work around the VS Code limitation that globally-installed Node modules are not available by default.
 
 ### markdownlint.lintWorkspaceGlobs
 

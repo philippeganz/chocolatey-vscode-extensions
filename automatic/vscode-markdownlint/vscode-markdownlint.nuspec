@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-markdownlint</id>
-    <version>0.62.0</version>
-    <title>Visual Studio Code Extension - markdownlint</title>
-    <authors>DavidAnson</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/DavidAnson/vscode-markdownlint.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-markdownlint/icon.png</iconUrl>
-    <licenseUrl>
-      https://marketplace.visualstudio.com/items?itemName=davidanson.vscode-markdownlint</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-markdownlint</id><version>0.62.1</version><title>Visual Studio Code Extension - markdownlint</title><authors>DavidAnson</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/DavidAnson/vscode-markdownlint.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/DavidAnson/vscode-markdownlint</projectSourceUrl><bugTrackerUrl>https://github.com/DavidAnson/vscode-markdownlint/issues</bugTrackerUrl><docsUrl>https://github.com/DavidAnson/vscode-markdownlint</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-markdownlint/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/davidanson.vscode-markdownlint/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # markdownlint
 
 > Markdown/CommonMark linting and style checking for Visual Studio Code
@@ -52,17 +38,6 @@ By default, `markdownlint` will scan and report issues for files that VS Code tr
 ## Rules
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) for full documentation]
-]]></description>
-    <summary>Markdown linting and style checking for Visual Studio Code</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=davidanson.vscode-markdownlint#changelog</releaseNotes>
-    <tags>vscode extension markdownlint</tags>
-    <dependencies>
+]]></description><summary>Markdown linting and style checking for Visual Studio Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=davidanson.vscode-markdownlint#changelog</releaseNotes><tags>vscode extension vscode-markdownlint</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
