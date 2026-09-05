@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-ceintl.vscode-language-pack-qps-ploc-1.131.2026072717.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-ceintl.vscode-language-pack-qps-ploc-1.131.2026090407.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: BD054F2E0BFF85D2CC2EFBBA8696114969D881DC777D2803BF308D6F6E768CA8
+   Expected SHA256: 1A5344A8EBA0FB789393A793B172A8412AF896442CE576988AC0BB232646A725
 
 ---
 SOFTWARE LICENSE:
