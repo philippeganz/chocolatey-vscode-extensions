@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-copilotstudio.vscode-copilotstudio-1.7.20.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-copilotstudio.vscode-copilotstudio-1.8.17.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 257217405755A81665B682C9E5AA1FAB9FCA1C2167FA3F95EAA791F51AC94924
+   Expected SHA256: B452EFE33E7ECC562836241BA23809D5F6754E30CBBA6EC417EA2CB4A5C5A760
 
 ---
 SOFTWARE LICENSE:
