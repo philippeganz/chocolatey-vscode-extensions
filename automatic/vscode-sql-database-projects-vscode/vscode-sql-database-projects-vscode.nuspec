@@ -1,25 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-sql-database-projects-vscode</id>
-    <version>1.6.2</version>
-    <title>Visual Studio Code Extension - SQL Database Projects</title>
-    <authors>ms-mssql</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-mssql.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-sql-database-projects-vscode/icon.png</iconUrl>
-    <licenseUrl>
-      https://marketplace.visualstudio.com/items?itemName=ms-mssql.sql-database-projects-vscode</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-sql-database-projects-vscode</id><version>1.7.0</version><title>Visual Studio Code Extension - SQL Database Projects</title><authors>ms-mssql</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-mssql.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-mssql</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-mssql/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-mssql/blob/main/extensions/sql-database-projects/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-sql-database-projects-vscode/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-mssql.sql-database-projects-vscode/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # SQL Database Projects extension
 
 Database source control where objects are stored as code, integrating with build-time validation and dynamically calculated deployments for database DevOps. Cross-platform and compatible with Visual Studio SQL Server Data Tools (SSDT) for SQL Server, Azure SQL, and Fabric SQL.
 
 ## Overview
 
-SQL Database Projects for Azure Data Studio and VS Code provides a way to design, edit, and publish objects to SQL databases from a source controlled project. For a complete development workflow, build and deploy your database projects in CI/CD pipelines, such as [GitHub Actions](https://github.com/azure/sql-action) or Azure DevOps.
+SQL Database Projects for Visual Studio Code provides a way to design, edit, and publish objects to SQL databases from a source controlled project. For a complete development workflow, build and deploy your database projects in CI/CD pipelines, such as [GitHub Actions](https://github.com/azure/sql-action) or Azure DevOps.
 
 ![SQL project lifecycle](https://github.com/Microsoft/vscode-mssql/raw/main/extensions/sql-database-projects/images/sqlproj-lifecycle.png)
 
@@ -51,19 +37,8 @@ CREATE TABLE [dbo].[Product] (
 ## Features
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-mssql.sql-database-projects-vscode) for full documentation]
-]]></description>
-    <summary>Enables users to develop and publish database schemas for MSSQL Databases</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=ms-mssql.sql-database-projects-vscode#changelog</releaseNotes>
-    <tags>vscode extension sql-database-projects-vscode</tags>
-    <dependencies>
+]]></description><summary>Enables users to develop and publish database schemas for MSSQL Databases</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-mssql.sql-database-projects-vscode#changelog</releaseNotes><tags>vscode extension sql-database-projects-vscode</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-mssql" />
       <dependency id="vscode-data-workspace-vscode" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
