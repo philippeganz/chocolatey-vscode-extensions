@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=ms-python.python
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\ms-python.python-2026.7.2026082601.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: 61E86330282ED4C1E3115617ED0F3EFB0FBD2C7005BE57CE03EB1CFA5D1A4242
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/ms-python.python/license
