@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\atlassian.atlascode-4.1.195.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\atlassian.atlascode-4.1.198.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: CF65777138817BB30F7A6C6BDF2B5CDBE6DCF8CE8B376F86B2E14EF8994B99B1
+   Expected SHA256: 8779862F63C09930EA5BD83BFC12E4F3331D0F6B7FFC1B2864DEC2EFDFEEDEE5
 
 ---
 SOFTWARE LICENSE:
