@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-azuretools.vscode-cosmosdb-0.37.0.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-azuretools.vscode-cosmosdb-0.37.2.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 27760E37B6AFAA3D45C46CF7FE6837E0DF19D746E57BA4963774D9E94AFC0107
+   Expected SHA256: 0E6616E624D53490CDF88AC66808676C789378B7160892FD9ADE495047EB3B3E
 
 ---
 SOFTWARE LICENSE:

@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-cosmosdb</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Azure Cosmos DB</title>
-    <authors>ms-azuretools</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-cosmosdb.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/microsoft/vscode-cosmosdb</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/microsoft/vscode-cosmosdb/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/microsoft/vscode-cosmosdb/blob/main/README.md</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-cosmosdb/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-cosmosdb/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-cosmosdb</id><version>0.37.2</version><title>Visual Studio Code Extension - Azure Cosmos DB</title><authors>ms-azuretools</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-cosmosdb.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-cosmosdb</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-cosmosdb/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/vscode-cosmosdb/blob/main/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-cosmosdb/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-cosmosdb/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Azure Cosmos DB for VS Code
 
 
@@ -57,41 +41,20 @@ Every section reads from Azure Resource Manager and Azure Monitor. When a sectio
 
 Data is fetched with your Azure credentials, so each section requires the corresponding role assignment. If a role is missing, that section shows an "Access required" empty state naming the role below; the rest of the dashboard continues to work.
 
-| Dashboard section                               | Minimum Azure role              |
-| ----------------------------------------------- | ------------------------------- |
-| Account header, inventory, throughput           | Reader on the Cosmos DB account |
-| RU trends, partition health, derived advisories | Monitoring Reader               |
-| Active alerts                                   | Monitoring Reader               |
-| Advisor recommendations                         | Reader on the subscription      |
+| Dashboard section                                      | Minimum Azure role              |
+| ------------------------------------------------------ | ------------------------------- |
+| Account header, inventory, throughput                  | Reader on the Cosmos DB account |
+| RU trends, partition health, Tier-1 derived advisories | Monitoring Reader               |
+| Tier-2 (log-based) derived advisories                  | Log Analytics Reader            |
+| Active alerts                                          | Monitoring Reader               |
+| Advisor recommendations                                | Reader on the subscription      |
+
+Tier-2 derived advisories (cross-partition query fan-out, shard-key misalignment, uncontrolled ingestion, and shared-throughput starvation) additionally read the account's `CDB*` diagnostic-log tables, so they require **Diagnostic Settings → Log Analytics** enabled on the account plus the [Log Analytics Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#log-analytics-reader) role (Monitoring Reader also works). When these are missing, the Derived Advisories card still renders every Tier-1 advisory and flags the Tier-2 gap with a "Partial coverage" notice.
 
 Learn more about assigning roles in [Azure role-based access control](https://learn.microsoft.com/azure/role-based-access-control/overview).
 
-## Query Editor
-
-The Query Editor allows you to write and execute queries across your databases.
-
-- **Rich Syntax Highlighting**: Highlights query syntax to make it more readable and help prevent errors.
-
-- **Query History**: Automatically saves previously executed queries, allowing you to open and reuse them later.
-
-- **Run Queries**: Execute queries and view results in Table, JSON, or Tree view.
-
-- **Export Results**: Provides options to copy query results as JSON or CSV or to save them to a file for later use.
-
-- **Pagination**: Adjust how many results are displayed at a time when working with large datasets.
-
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) for full documentation]
-]]></description>
-    <summary>Connect Azure CosmosDB databases in Azure, inspect and edit your data and run powerful queries with the visual query editor.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb#changelog</releaseNotes>
-    <tags>vscode extension vscode-cosmosdb</tags>
-    <dependencies>
+]]></description><summary>Connect Azure CosmosDB databases in Azure, inspect and edit your data and run powerful queries with the visual query editor.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb#changelog</releaseNotes><tags>vscode extension vscode-cosmosdb</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-azureresourcegroups" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
