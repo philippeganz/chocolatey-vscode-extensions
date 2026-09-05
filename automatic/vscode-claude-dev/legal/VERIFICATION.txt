@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\saoudrizwan.claude-dev-4.1.9.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\saoudrizwan.claude-dev-4.1.17.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: A8C67F5863F73A4D6055F1C3362BEA77A28D5D927F2A6CA48138FE6615C89929
+   Expected SHA256: 82875472744DED4A360E22C726BB6101962ECF0A178AA8EFE84A5C7EA728D2F5
 
 ---
 SOFTWARE LICENSE:

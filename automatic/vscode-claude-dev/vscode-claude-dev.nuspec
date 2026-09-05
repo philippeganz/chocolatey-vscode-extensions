@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-claude-dev</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Cline</title>
-    <authors>saoudrizwan</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/cline/cline.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/cline/cline</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/cline/cline/issues</bugTrackerUrl>
-    <docsUrl>https://cline.bot</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-claude-dev/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/saoudrizwan.claude-dev/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-claude-dev</id><version>4.1.17</version><title>Visual Studio Code Extension - Cline</title><authors>saoudrizwan</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/cline/cline.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/cline/cline</projectSourceUrl><bugTrackerUrl>https://github.com/cline/cline/issues</bugTrackerUrl><docsUrl>https://cline.bot</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-claude-dev/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/saoudrizwan.claude-dev/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Cline
 
 <table>
@@ -62,16 +46,6 @@ Thanks to [Claude Sonnet's agentic coding capabilities](https://www.anthropic.c
 Cline supports API providers like OpenRouter, Anthropic, OpenAI, Google Gemini, AWS Bedrock, Azure, GCP Vertex, Cerebras and Groq. You can also configure any OpenAI compatible API, or use a local model through LM Studio/Ollama. If you're using OpenRouter, the extension fetches their latest model list, allowing you to use the newest models as soon as they're available.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev) for full documentation]
-]]></description>
-    <summary>Autonomous coding agent right in your IDE, capable of creating/editing files, running commands, using the browser, and more with your permission every step of the way.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev#changelog</releaseNotes>
-    <tags>vscode extension claude-dev</tags>
-    <dependencies>
+]]></description><summary>Autonomous coding agent right in your IDE, capable of creating/editing files, running commands, using the browser, and more with your permission every step of the way.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev#changelog</releaseNotes><tags>vscode extension claude-dev</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
