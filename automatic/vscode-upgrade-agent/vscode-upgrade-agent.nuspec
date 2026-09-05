@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-upgrade-agent</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - GitHub Copilot upgrade</title>
-    <authors>ms-dotnettools</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/upgrade-agent-plugins.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/microsoft/upgrade-agent-plugins</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/microsoft/upgrade-agent-plugins/issues/new</bugTrackerUrl>
-    <docsUrl>https://github.com/microsoft/upgrade-agent-plugins/</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-upgrade-agent/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-dotnettools.upgrade-agent/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-upgrade-agent</id><version>1.1.485</version><title>Visual Studio Code Extension - GitHub Copilot upgrade</title><authors>ms-dotnettools</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/upgrade-agent-plugins.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/upgrade-agent-plugins</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/upgrade-agent-plugins/issues/new</bugTrackerUrl><docsUrl>https://github.com/microsoft/upgrade-agent-plugins/</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-upgrade-agent/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-dotnettools.upgrade-agent/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # GitHub Copilot upgrade
 
 Upgrade and migrate your projects with GitHub Copilot in Visual Studio Code.
@@ -47,7 +31,7 @@ prompt to the Upgrade agent.
 
 ## What it can help with
 
-This release includes built-in support for these .NET upgrade scenarios:
+This release includes built-in support for these upgrade scenarios:
 
 | Scenario | Use it when you want to... | Example prompt |
 |---|---|---|
@@ -62,20 +46,11 @@ This release includes built-in support for these .NET upgrade scenarios:
 | Newtonsoft.Json migration | Replace Newtonsoft.Json usage with System.Text.Json where appropriate. | `Replace Newtonsoft.Json with System.Text.Json` |
 | SqlClient migration | Move SQL Server data access from System.Data.SqlClient to Microsoft.Data.SqlClient. | `Update this app to use Microsoft.Data.SqlClient` |
 | Semantic Kernel agents migration | Move Semantic Kernel agent code to the Microsoft Agents framework. | `Migrate my Semantic Kernel agents` |
+| PowerShell 5.1 to 7 upgrade | Move Windows PowerShell 5.1 scripts, modules, and manifests — build, deploy, and operations automation — to cross-platform PowerShell 7. | `Upgrade my PowerShell scripts to PowerShell 7` |
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgrade-agent) for full documentation]
-]]></description>
-    <summary>Upgrade your projects with GitHub Copilot. Analyzes your code and drives framework upgrades, dependency migrations, and other upgrade tasks with AI assistance.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgrade-agent#changelog</releaseNotes>
-    <tags>vscode extension upgrade-agent</tags>
-    <dependencies>
+]]></description><summary>Upgrade your projects with GitHub Copilot. Analyzes your code and drives framework upgrades, dependency migrations, and other upgrade tasks with AI assistance.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgrade-agent#changelog</releaseNotes><tags>vscode extension upgrade-agent</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-dotnet-runtime" />
       <dependency id="vscode-copilot-chat" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>

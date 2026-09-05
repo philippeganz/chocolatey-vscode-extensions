@@ -30,7 +30,7 @@ prompt to the Upgrade agent.
 
 ## What it can help with
 
-This release includes built-in support for these .NET upgrade scenarios:
+This release includes built-in support for these upgrade scenarios:
 
 | Scenario | Use it when you want to... | Example prompt |
 |---|---|---|
@@ -45,6 +45,7 @@ This release includes built-in support for these .NET upgrade scenarios:
 | Newtonsoft.Json migration | Replace Newtonsoft.Json usage with System.Text.Json where appropriate. | `Replace Newtonsoft.Json with System.Text.Json` |
 | SqlClient migration | Move SQL Server data access from System.Data.SqlClient to Microsoft.Data.SqlClient. | `Update this app to use Microsoft.Data.SqlClient` |
 | Semantic Kernel agents migration | Move Semantic Kernel agent code to the Microsoft Agents framework. | `Migrate my Semantic Kernel agents` |
+| PowerShell 5.1 to 7 upgrade | Move Windows PowerShell 5.1 scripts, modules, and manifests — build, deploy, and operations automation — to cross-platform PowerShell 7. | `Upgrade my PowerShell scripts to PowerShell 7` |
 
 The agent analyzes your workspace, identifies relevant upgrade work, breaks it
 into reviewable tasks, and helps you continue or resume progress over time. It
@@ -91,11 +92,57 @@ To file an issue, use
 
 ## Privacy
 
-GitHub Copilot upgrade uses GitHub Copilot to help modify code in your current
-workspace. It does not retain code snippets beyond the immediate session and
-does not collect, transmit, or store your custom tasks. See the
+### What is sent to GitHub Copilot
+
+GitHub Copilot upgrade works through GitHub Copilot to analyze and modify code in
+your current workspace. To do that, the Upgrade agent and its tools include
+workspace content in your Copilot requests. Depending on the scenario and the
+step you are on, that content can include:
+
+- **Workspace identifiers** — file, project, and solution paths.
+- **Source code** — contents and code snippets from the files being analyzed or
+  changed, and from project and configuration files such as `.csproj`, `.sln`,
+  `package.json`, and `Directory.Packages.props`.
+- **Dependency and framework data** — package names and versions, project
+  references, and current and target framework versions.
+- **Build and validation output** — restore, build, analyzer, and test results,
+  including compiler errors, warnings, diagnostic IDs, and failure messages.
+- **Prompts, instructions, and upgrade workspace** — your chat prompts and
+  instructions; the generated assessment, `plan.md`, `tasks.md`, and per-task
+  files under `tasks/{taskId}/`, including any edits you make to them; and
+  preferences and instructions in `scenario-instructions.md`. These files are
+  written only to your repository under `.github/upgrades/`. The extension does
+  not independently upload or store them elsewhere, but the agent reads them
+  while working and when resuming, so their contents may be included in GitHub
+  Copilot requests.
+
+This content is handled as part of your GitHub Copilot requests, subject to the
+[GitHub General Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+For details on how Copilot handles prompts and retention, see the
+[GitHub Copilot Trust Center](https://copilot.github.trust.page/).
+
+### Telemetry
+
+The extension and the upgrade tools it starts collect usage telemetry: anonymous
+session and device identifiers, product and environment versions, the selected
+upgrade scenario, aggregate workspace metrics, upgrade progress and timing, and
+diagnostic identifiers such as compiler error and analysis rule IDs.
+
+Telemetry does not include source code or file contents. Diagnostics are reduced
+to identifiers and counts rather than message text, and repository URLs and
+names and any reported paths are hashed before they are sent.
+
+This extension respects the VS Code `telemetry.telemetryLevel` setting; setting
+it to `off` disables telemetry for both the extension and the upgrade tools it
+starts. See the
 [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839)
 for more information.
+
+### Other network activity
+
+The extension downloads the upgrade tools from nuget.org, or from the feed you
+configure in `copilotUpgrade.nugetSource`, and may use the .NET Install Tool for
+Extension Authors to acquire the required .NET SDK.
 
 ## License
 

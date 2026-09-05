@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-dotnettools.upgrade-agent-1.1.290.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-dotnettools.upgrade-agent-1.1.485.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 6CC93B5A4DC153481278DD2B4A1000E1F4BABFFAD3A3FAF5AD940F1C03552D6B
+   Expected SHA256: D37E0DC913580D45DED572E99792FEFA33CC5729F64CAC550F7B4773CF0A4DB1
 
 ---
 SOFTWARE LICENSE:
