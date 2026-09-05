@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-latex-workshop</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - LaTeX Workshop</title>
-    <authors>James-Yu</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/James-Yu/LaTeX-Workshop.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/James-Yu/LaTeX-Workshop</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/James-Yu/LaTeX-Workshop/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/James-Yu/LaTeX-Workshop</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-latex-workshop/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/james-yu.latex-workshop/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-latex-workshop</id><version>10.18.0</version><title>Visual Studio Code Extension - LaTeX Workshop</title><authors>James-Yu</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/James-Yu/LaTeX-Workshop.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/James-Yu/LaTeX-Workshop</projectSourceUrl><bugTrackerUrl>https://github.com/James-Yu/LaTeX-Workshop/issues</bugTrackerUrl><docsUrl>https://github.com/James-Yu/LaTeX-Workshop</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-latex-workshop/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/james-yu.latex-workshop/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Visual Studio Code LaTeX Workshop Extension
 
 <!-- [![version](https://img.shields.io/visual-studio-marketplace/v/James-Yu.latex-workshop)](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
@@ -50,16 +34,6 @@ The manual of the extension is maintained as a [wiki](https://github.com/James-Y
 ### Table of Contents
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) for full documentation]
-]]></description>
-    <summary>Boost LaTeX typesetting efficiency with preview, compile, autocomplete, colorize, and more.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=james-yu.latex-workshop#changelog</releaseNotes>
-    <tags>vscode extension latex-workshop</tags>
-    <dependencies>
+]]></description><summary>Boost LaTeX typesetting efficiency with preview, compile, autocomplete, colorize, and more.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=james-yu.latex-workshop#changelog</releaseNotes><tags>vscode extension latex-workshop</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
