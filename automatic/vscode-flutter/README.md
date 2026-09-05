@@ -19,4 +19,3 @@ Please see the [Flutter documentation for using VS Code](https://docs.flutter.de
 ## Reporting Issues
 
 Issues for both Dart and Flutter extensions should be reported in the [Dart-Code issue tracker](https://github.com/Dart-Code/Dart-Code/issues).
-
