@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-datawrangler</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Data Wrangler</title>
-    <authors>ms-toolsai</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-data-wrangler.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/microsoft/vscode-data-wrangler</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/microsoft/vscode-data-wrangler/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/microsoft/vscode-data-wrangler</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-datawrangler/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-toolsai.datawrangler/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-datawrangler</id><version>1.24.2</version><title>Visual Studio Code Extension - Data Wrangler</title><authors>ms-toolsai</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-data-wrangler.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-data-wrangler</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-data-wrangler/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/vscode-data-wrangler</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-datawrangler/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-toolsai.datawrangler/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Data Wrangler Extension for Visual Studio Code
 
  - 📊 Visualize & filter large tabular datasets
@@ -63,16 +47,6 @@ You’ll also see an **Open 'df' in Data Wrangler** button (where `df` is the va
 ### Launch Data Wrangler directly from a file
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) for full documentation]
-]]></description>
-    <summary>Data viewing, cleaning and preparation for tabular datasets</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler#changelog</releaseNotes>
-    <tags>vscode extension datawrangler</tags>
-    <dependencies>
+]]></description><summary>Data viewing, cleaning and preparation for tabular datasets</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler#changelog</releaseNotes><tags>vscode extension datawrangler</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
