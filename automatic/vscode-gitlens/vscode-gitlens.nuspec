@@ -1,71 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-gitlens</id>
-    <version>2026.7.310556</version>
-    <title>Visual Studio Code Extension - GitLens — Git supercharged</title>
-    <authors>eamodio</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/gitkraken/vscode-gitlens.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-gitlens/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/eamodio.gitlens/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
-# GitLens &mdash; Supercharge Git in VS Code
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-gitlens</id><version>2026.9.40515</version><title>Visual Studio Code Extension - GitLens — Git supercharged</title><authors>eamodio</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/gitkraken/vscode-gitlens.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/gitkraken/vscode-gitlens</projectSourceUrl><bugTrackerUrl>https://github.com/gitkraken/vscode-gitlens/issues</bugTrackerUrl><docsUrl>https://gitkraken.com/gitlens</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-gitlens/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/eamodio.gitlens/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+# GitLens &mdash; Supercharge Git in <!-- #vscode -->VS Code<!-- /#vscode: Your Editor -->
 
-> Supercharge Git and unlock **untapped knowledge** within your repo to better **understand**, **write**, and **review** code. Focus, collaborate, accelerate.
+> Understand any line of code, keep every branch, worktree, and coding agent in view, and ship cleaner history &mdash; without leaving <!-- #vscode -->VS Code<!-- /#vscode: your editor -->.
 
-[GitLens](https://gitkraken.com/gitlens?utm_source=gitlens-extension&utm_medium=in-app-links&utm_campaign=gitlens-logo-links 'Learn more about GitLens') is a powerful [open-source](https://github.com/gitkraken/vscode-gitlens 'Open GitLens on GitHub') extension for Visual Studio Code built and maintained by GitKraken.
+[GitLens](https://gitkraken.com/gitlens?utm_source=gitlens-extension&utm_medium=in-app-links&utm_campaign=gitlens-logo-links 'Learn more about GitLens') is an [open-source](https://github.com/gitkraken/vscode-gitlens 'Open GitLens on GitHub') extension built and maintained by GitKraken, and installed more than 51 million times.
 
-Enhance your workflows with powerful Git functionality like in-editor blame annotations, hovers, CodeLens, and more—all fully customizable within VS Code. Try GitLens Pro's advanced workflows that accelerate PR reviews, provide rich interactive Git actions, and enhance collaboration for you and your team.
+Your repository moves faster than it used to. Coding agents open branches, worktrees pile up, and pull requests stack while you're still reading a diff. GitLens pulls all of it into one interactive view &mdash; history, working changes, branches, worktrees, and live agent activity together &mdash; then helps you review it, rebase it, and shape it into commits someone can actually read.
 
-## Getting Started
+<figure align="center">
+  <a title="Watch the GitLens Getting Started video" href="https://www.youtube.com/watch?v=7cy4_M0lH6k">
+    
+  </a>
+</figure>
 
-Install GitLens by clicking `Install` on the banner above, or from the Extensions side bar in VS Code by searching for GitLens.
+**[Start your free 14-day Pro trial](https://gitkraken.dev/register?product=gitlens&source=marketing_page&redirect_uri=vscode%3A%2F%2Feamodio.gitlens%2Flogin&flow=gitlens_web&utm_source=gitlens-extension&utm_medium=readme&utm_content=hero)** &mdash; no credit card required.
 
+GitLens Community is free and open-source, forever &mdash; and several Pro features, the Commit Graph among them, are free on public repos.
 
-  <a title="Watch the GitLens Getting Started video" href="https://www.youtube.com/watch?v=UQPb73Zz9qk"></a>
+# Getting Started
 
+1. **Install it** &mdash; search for GitLens in <!-- #vscode -->the Extensions side bar in VS Code<!-- /#vscode: your editor's Extensions side bar -->.
+2. **Sign in** &mdash; a [free GitKraken account](https://gitkraken.dev/register?product=gitlens&source=marketing_page&redirect_uri=vscode%3A%2F%2Feamodio.gitlens%2Flogin&flow=gitlens_web&utm_source=gitlens-extension&utm_medium=readme&utm_content=getting-started) opens the Commit Graph on your public repos, and starts your trial if you want it everywhere.
+3. **Open the Commit Graph** &mdash; click the **GitLens** icon in the activity bar, and there it is: your history, your working changes, and everything in flight. (`GitLens: Show Commit Graph` works too.)
+4. **Connect what you use** &mdash; your Git host and issue tracker for pull requests, issues, and autolinks, then your coding agents for session tracking and the GitKraken MCP.<!-- #vscode -->
 
-- Use `Switch to Pre-Release Version` on the extension banner to be the first to experience new features.
+💡 Want new features first? Hit `Switch to Pre-Release Version` on the GitLens extension page in VS Code.<!-- /#vscode -->
 
-> Have questions or concerns? Talk to our engineering team directly through our [GitHub Discussions](https://github.com/gitkraken/vscode-gitlens/discussions/categories/feedback) page. Having a positive experience with GitLens? Feel free to [write a review](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens&ssr=false#review-details).
+`Preview` features require a free GitKraken account and may become Pro features in the future. `Experimental` features are on by default but still changing.
 
-## GitLens Editions: Community and Pro
+# See Everything in One Place &mdash; Commit Graph
 
-**GitLens Community** is free and gives you powerful tools to manage Git and understand how your code has evolved and by whom. With popular features like in-editor blame annotations, hovers, and CodeLens, you can see actionable authorship details at the top of each file. Track the history of any file over time using Revision Navigation to gain deeper insights into code changes.
-
-**GitLens Pro** takes your workflow to the next level by unlocking advanced features and seamless integrations:
-
-- **Accelerate PR reviews** and easily manage your end-to-end workflows with a clean and actionable PR, issue, and branch Home View built directly into VS Code.
-- **Manage commits effortlessly** using the Commit Graph, where you can execute advanced actions like rebase, merge, and more. With powerful search and filtering, quickly locate commits, branches, or files.
-- **Enhance collaboration** by integrating with platforms like GitHub, GitLab, and Bitbucket, reducing context switching. View and manage PRs directly in VS Code through Launchpad.
-
-You can [try GitLens Pro for free](https://gitkraken.dev/register?product=gitlens&source=marketing_page&redirect_uri=vscode%3A%2F%2Feamodio.gitlens%2Flogin&flow=gitlens_web&utm_source=gitlens-extension&utm_medium=readme) by signing up for a GitKraken account. Some Pro features are available for free on public repos. `Preview` features may require a GitKraken account and could become Pro features in the future.
-
-[Workflows](#discover-powerful-workflows 'Jump to Discover Powerful Workflows')
-| [More Features](#more-features 'Jump to More Features')
-| [Labs](#gitkraken-labs 'Jump to GitKraken Labs')
-| [Pro](#ready-for-gitlens-pro 'Jump to Ready for GitLens Pro?')
-| [Support and Community](#support-and-community 'Jump to Support and Community')
-| [Contributing](#contributing 'Jump to Contributing')
-| [Contributors](#contributors- 'Jump to Contributors')
-| [License](#license 'Jump to License')
-
-# Discover Powerful Workflows
+Answering "what is actually going on in this repo right now" usually takes a view for branches, another for stashes, a terminal for status, and a browser tab for pull requests. The Commit Graph answers it in one place, and lets you act on the answer. [Learn more](https://gitkraken.com/solutions/commit-graph?utm_source=gitlens-extension&utm_medium=in-app-links)
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) for full documentation]
-]]></description>
-    <summary>Supercharge Git within VS Code — Visualize code authorship at a glance via Git blame annotations and CodeLens, seamlessly navigate and explore Git repositories, gain valuable insights via rich visualizations and powerful comparison commands, and so much more</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#changelog</releaseNotes>
-    <tags>vscode extension gitlens</tags>
-    <dependencies>
+]]></description><summary>Supercharge Git within VS Code — Visualize code authorship at a glance via Git blame annotations and CodeLens, seamlessly navigate and explore Git repositories, gain valuable insights via rich visualizations and powerful comparison commands, and so much more</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#changelog</releaseNotes><tags>vscode extension gitlens</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
