@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-lldb</id>
-    <version>1.12.2</version>
-    <title>Visual Studio Code Extension - CodeLLDB</title>
-    <authors>vadimcn</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/vadimcn/codelldb.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-lldb/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/vadimcn.vscode-lldb/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-lldb</id><version>1.12.3</version><title>Visual Studio Code Extension - CodeLLDB</title><authors>vadimcn</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/vadimcn/codelldb.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/vadimcn/codelldb</projectSourceUrl><bugTrackerUrl>https://github.com/vadimcn/codelldb/issues</bugTrackerUrl><docsUrl>https://github.com/vadimcn/codelldb#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-lldb/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/vadimcn.vscode-lldb/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Features
 - Conditional breakpoints, function breakpoints, logpoints,
 - Hardware data access breakpoints (watchpoints),
@@ -27,7 +14,7 @@
 - Remote debugging,
 - Reverse debugging (experimental, requires a compatible backend).
 
-For full details please see [User's Manual](https://github.com/vadimcn/codelldb/blob/v1.12.2/MANUAL.md).
+For full details please see [User's Manual](https://github.com/vadimcn/codelldb/blob/v1.12.3/MANUAL.md).
 
 
 # Languages
@@ -47,10 +34,10 @@ and Zig.
 
 ## Target
 CodeLLDB supports AArch64, ARM, AVR, MSP430, RISCV, X86 architectures and may be used to debug on embedded platforms
-via [remote debugging](https://github.com/vadimcn/codelldb/blob/v1.12.2/MANUAL.md#remote-debugging).
+via [remote debugging](https://github.com/vadimcn/codelldb/blob/v1.12.3/MANUAL.md#remote-debugging).
 
 # More information
-- [CodeLLDB User's Manual](https://github.com/vadimcn/codelldb/blob/v1.12.2/MANUAL.md) - how to use this extension.
+- [CodeLLDB User's Manual](https://github.com/vadimcn/codelldb/blob/v1.12.3/MANUAL.md) - how to use this extension.
 - [Debugging in VS Code](https://code.visualstudio.com/docs/editor/debugging) - if you are new to VSCode debugging.
 - [LLDB Tutorial](https://lldb.llvm.org/use/tutorial.html) - all of LLDB's CLI commands and scripting features may be used in CodeLLDB.
 - [Wiki pages](https://github.com/vadimcn/codelldb/wiki) - [troubleshooting](https://github.com/vadimcn/codelldb/wiki/Troubleshooting) and other tips and tricks.
@@ -60,27 +47,17 @@ via [remote debugging](https://github.com/vadimcn/codelldb/blob/v1.12.2/MANUAL.m
 
 C++ debugging with data visualization ([Howto](https://github.com/vadimcn/codelldb/wiki/Data-visualization)):
 
-![source](https://github.com/vadimcn/codelldb/raw/v1.12.2/images/plotting.png)
+![source](https://github.com/vadimcn/codelldb/raw/v1.12.3/images/plotting.png)
 
 
 
 
 Rust debugging:
 
-![source](https://github.com/vadimcn/codelldb/raw/v1.12.2/images/source.png)
+![source](https://github.com/vadimcn/codelldb/raw/v1.12.3/images/source.png)
 
 
 
-]]></description>
-    <summary>Debugger for native code, powered by LLDB. Debug C++, Rust, and other compiled languages.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb#changelog</releaseNotes>
-    <tags>vscode extension lldb</tags>
-    <dependencies>
+]]></description><summary>Debugger for native code, powered by LLDB. Debug C++, Rust, and other compiled languages.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb#changelog</releaseNotes><tags>vscode extension vscode-lldb</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>

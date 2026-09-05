@@ -13,7 +13,7 @@
 - Remote debugging,
 - Reverse debugging (experimental, requires a compatible backend).
 
-For full details please see [User's Manual](https://github.com/vadimcn/codelldb/blob/v1.12.2/MANUAL.md).<br>
+For full details please see [User's Manual](https://github.com/vadimcn/codelldb/blob/v1.12.3/MANUAL.md).<br>
 
 # Languages
 The primary focus of this project are the C++ and Rust languages, for which CodeLLDB includes built-in visualizers for
@@ -31,10 +31,10 @@ and Zig.
 
 ## Target
 CodeLLDB supports AArch64, ARM, AVR, MSP430, RISCV, X86 architectures and may be used to debug on embedded platforms
-via [remote debugging](https://github.com/vadimcn/codelldb/blob/v1.12.2/MANUAL.md#remote-debugging).
+via [remote debugging](https://github.com/vadimcn/codelldb/blob/v1.12.3/MANUAL.md#remote-debugging).
 
 # More information
-- [CodeLLDB User's Manual](https://github.com/vadimcn/codelldb/blob/v1.12.2/MANUAL.md) - how to use this extension.
+- [CodeLLDB User's Manual](https://github.com/vadimcn/codelldb/blob/v1.12.3/MANUAL.md) - how to use this extension.
 - [Debugging in VS Code](https://code.visualstudio.com/docs/editor/debugging) - if you are new to VSCode debugging.
 - [LLDB Tutorial](https://lldb.llvm.org/use/tutorial.html) - all of LLDB's CLI commands and scripting features may be used in CodeLLDB.
 - [Wiki pages](https://github.com/vadimcn/codelldb/wiki) - [troubleshooting](https://github.com/vadimcn/codelldb/wiki/Troubleshooting) and other tips and tricks.
@@ -43,11 +43,10 @@ via [remote debugging](https://github.com/vadimcn/codelldb/blob/v1.12.2/MANUAL.m
 # Screenshots
 
 C++ debugging with data visualization ([Howto](https://github.com/vadimcn/codelldb/wiki/Data-visualization)):<br>
-![source](https://github.com/vadimcn/codelldb/raw/v1.12.2/images/plotting.png)
+![source](https://github.com/vadimcn/codelldb/raw/v1.12.3/images/plotting.png)
 <br>
 <br>
 Rust debugging:<br>
-![source](https://github.com/vadimcn/codelldb/raw/v1.12.2/images/source.png)
-
+![source](https://github.com/vadimcn/codelldb/raw/v1.12.3/images/source.png)
 
 
