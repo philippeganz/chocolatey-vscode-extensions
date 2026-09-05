@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-java-dependency</id>
-    <version>0.27.2026062300</version>
-    <title>Visual Studio Code Extension - Project Manager for Java</title>
-    <authors>vscjava</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-java-dependency.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-java-dependency/icon.png</iconUrl>
-    <licenseUrl>
-      https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-java-dependency</id><version>0.27.2026082200</version><title>Visual Studio Code Extension - Project Manager for Java</title><authors>vscjava</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-java-dependency.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-java-dependency</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-java-dependency/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-java-dependency/blob/main/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-java-dependency/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/vscjava.vscode-java-dependency/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Project Manager for Java
 
 > Manage Java projects in Visual Studio Code
@@ -70,26 +56,20 @@ You can tell that the glob pattern is supported. And here's more - you can  incl
 }
 ```
 
+### Stay Secure and Up to Date
+
+Project Manager for Java keeps an eye on your project's Java runtime and dependencies, so you don't have to track them yourself. When it spots something worth your attention, it offers a one-click recommendation to fix it:
+
+- **Upgrade recommendations** – Get notified when your Java runtime or libraries are out of date, deprecated, or have reached end of life, along with a suggested target version.
+- **Security recommendations** – Get alerted when known vulnerabilities (CVEs) are detected in your dependencies, so you can address them before they become a problem.
+
+When you accept a recommendation, the upgrade or fix is carried out for you by the [GitHub Copilot app modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure) extension. If the extension isn't installed yet, it will be set up automatically as part of the flow.
+
+You can turn these reminders on or off at any time with the `java.dependency.enableDependencyCheckup` setting.
+
 ## Requirements
 
-- VS Code (version 1.95.0+)
-- [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
-
-
-## Settings
-
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) for full documentation]
-]]></description>
-    <summary>Manage Java projects in Visual Studio Code</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency#changelog</releaseNotes>
-    <tags>vscode extension java-dependency</tags>
-    <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+]]></description><summary>Manage Java projects in Visual Studio Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency#changelog</releaseNotes><tags>vscode extension vscode-java-dependency</tags><dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
