@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-toolsai.jupyter-hub-2025.8.2026072301.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-toolsai.jupyter-hub-2025.8.2026082101.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: E4A0F4E244668AA17ABF7D4CFB3B6826895AAA2A292BD75D78B63B4AAFF13EFE
+   Expected SHA256: FB8DEDBA42956A9E36C2872D64BEA6CE813F8D35AFF90FF90B39725FF9CEAEC9
 
 ---
 SOFTWARE LICENSE:
