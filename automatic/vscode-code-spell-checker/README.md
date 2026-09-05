@@ -59,6 +59,7 @@ Open up VS Code and hit `F1` and type `ext` select install and type `code-spell-
 - [Australian English](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-australian-english) - Australian English dictionary extension for VS Code.
 - [Austrian German](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-austrian-german) - Austrian German dictionary extension for VS Code.
 - [Basque](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-basque) - Basque dictionary extension for VS Code.
+- [Belarusian](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-belarusian) - Belarusian dictionary extension for VS Code.
 - [British English](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-british-english) - British English dictionary extension for VS Code.
 - [British English](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-british-english-ise) - British English -ise dictionary extension for VS Code.
 - [Bulgarian](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-bulgarian) - Bulgarian dictionary extension for VS Code.
@@ -158,7 +159,7 @@ The concept is simple, split camelCase words before checking them against a list
 
 - camelCase -> camel case
 - HTMLInput -> html input -- Notice that the `I` is associated with `Input` and not `HTML`
-- snake_case_words -> snake case words
+- snake\_case\_words -> snake case words
 - camel2snake -> camel snake -- (the 2 is ignored)
 
 ### Special case with ALL CAPS words
@@ -374,6 +375,7 @@ Order of precedence:
 
 1. Workspace Folder `cspell.json`
 1. Workspace Folder `.vscode/cspell.json`
+1. Config Folder `.config/cspell.json`
 1. VS Code Preferences `cSpell` section.
 
 ### Adding words to the Workspace Dictionary
@@ -770,4 +772,3 @@ See: [FAQ](https://github.com/streetsidesoftware/vscode-spell-checker/blob/main/
 <p align="center">Brought to you by <a href="https://streetsidesoftware.com" title="Street Side Software"><img width="16" alt="Street Side Software Logo" src="https://i.imgur.com/CyduuVY.png" /> Street Side Software</a></p>
 
 <!--- @@inject-end: ./static/footer.md --->
-
