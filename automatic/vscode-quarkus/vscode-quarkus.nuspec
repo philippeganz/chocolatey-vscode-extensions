@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-quarkus</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Quarkus</title>
-    <authors>redhat</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/redhat-developer/vscode-quarkus.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/redhat-developer/vscode-quarkus</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/redhat-developer/vscode-quarkus/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/redhat-developer/vscode-quarkus#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-quarkus/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-quarkus/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-quarkus</id><version>1.24.2026082508</version><title>Visual Studio Code Extension - Quarkus</title><authors>redhat</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/redhat-developer/vscode-quarkus.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/redhat-developer/vscode-quarkus</projectSourceUrl><bugTrackerUrl>https://github.com/redhat-developer/vscode-quarkus/issues</bugTrackerUrl><docsUrl>https://github.com/redhat-developer/vscode-quarkus#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-quarkus/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-quarkus/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Quarkus Tools for Visual Studio Code
 
 [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/redhat.vscode-quarkus?style=for-the-badge&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-quarkus)
@@ -75,19 +59,9 @@ In `application.yaml` and `application.yml` files, you will benefit with:
 ## Quarkus/MicroProfile `Java` Features
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-quarkus) for full documentation]
-]]></description>
-    <summary>Quarkus Tools for Visual Studio Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-quarkus#changelog</releaseNotes>
-    <tags>vscode extension vscode-quarkus</tags>
-    <dependencies>
+]]></description><summary>Quarkus Tools for Visual Studio Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-quarkus#changelog</releaseNotes><tags>vscode extension vscode-quarkus</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-microprofile" />
       <dependency id="vscode-java" />
       <dependency id="vscode-java-debug" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
