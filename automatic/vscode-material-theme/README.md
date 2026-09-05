@@ -9,19 +9,6 @@ Atom's iconic One Dark theme, and one of the most installed [themes](https://mar
 [![Preview in vscode.dev](https://img.shields.io/badge/preview%20in-vscode.dev-blue)](https://vscode.dev/theme/zhuangtongfa.Material-theme) [![Version](https://vsmarketplacebadges.dev/version/zhuangtongfa.Material-theme.png)](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme) [![Installs](https://vsmarketplacebadges.dev/installs/zhuangtongfa.Material-theme.png)](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)
 
 
-## SPONSORS
-<h2>
-<a href="https://plugins.jetbrains.com/plugin/22655-mysql-proxy" target="__blank"  style="display:inline-flex;align-items:center;">
-MySQL Proxy
-</a>
-</h2>
-
-[A plugin for IDEA](https://plugins.jetbrains.com/plugin/22655-mysql-proxy) that records code CRUD operations, helping you identify potential issues in SQL and providing optimization suggestions.  
-
-一个记录代码 CRUD 操作的 IDEA 插件，帮助您识别潜在问题的SQL并提供优化建议。
-
-
-
 ## SCREENSHOT
 
 ![ScreenShot](https://cdn.jsdelivr.net/gh/binaryify/onedark-pro/screenshots/normal.png)
@@ -243,7 +230,7 @@ To help with documentation, first fork and clone this repository.
 
 `cd` to the `OneDark-Pro` folder
 
-Run `yarn`
+Run `npm install`
 
 Then run
 `npm run docs` to serve the documentation
@@ -264,4 +251,3 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/onedark-pro#sponsor" target="_blank">
 <img src="https://opencollective.com/onedark-pro/sponsor.svg?width=890">
 </a>
-
