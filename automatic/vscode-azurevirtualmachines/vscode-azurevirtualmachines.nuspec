@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-azurevirtualmachines</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Azure Virtual Machines</title>
-    <authors>ms-azuretools</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-azurevirtualmachines.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/microsoft/vscode-azurevirtualmachines</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/microsoft/vscode-azurevirtualmachines/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/Microsoft/vscode-azurevirtualmachines/blob/main/README.md</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azurevirtualmachines/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azurevirtualmachines/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-azurevirtualmachines</id><version>0.6.11</version><title>Visual Studio Code Extension - Azure Virtual Machines</title><authors>ms-azuretools</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-azurevirtualmachines.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-azurevirtualmachines</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-azurevirtualmachines/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-azurevirtualmachines/blob/main/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-azurevirtualmachines/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azurevirtualmachines/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Azure Virtual Machines for Visual Studio Code (Preview)
 
 <!-- region exclude-from-marketplace -->
@@ -80,17 +64,7 @@ Your SSH Config (`~/.ssh/config`) file will be updated so you can connect via SS
 ## Contributing
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurevirtualmachines) for full documentation]
-]]></description>
-    <summary>An Azure Virtual Machines extension for Visual Studio Code.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurevirtualmachines#changelog</releaseNotes>
-    <tags>vscode extension vscode-azurevirtualmachines</tags>
-    <dependencies>
+]]></description><summary>An Azure Virtual Machines extension for Visual Studio Code.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurevirtualmachines#changelog</releaseNotes><tags>vscode extension vscode-azurevirtualmachines</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-azureresourcegroups" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
