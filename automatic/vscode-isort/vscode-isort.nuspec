@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-isort</id>
-    <version>2026.7.12041004</version>
-    <title>Visual Studio Code Extension - isort</title>
-    <authors>ms-python</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-isort.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-isort/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-python.isort/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-isort</id><version>2026.7.12461009</version><title>Visual Studio Code Extension - isort</title><authors>ms-python</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-isort.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-isort</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-isort/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-isort</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-isort/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-python.isort/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Import sorting extension for Visual Studio Code using isort
 
 A Visual Studio Code extension that provides import sorting for Python projects using isort. The extension uses the Language Server Protocol ([LSP](https://microsoft.github.io/language-server-protocol/)) to run `isort` in a server-like mode.
@@ -58,17 +45,7 @@ If you want to disable isort for your entire workspace or globally, you can [dis
 ## Settings
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-python.isort) for full documentation]
-]]></description>
-    <summary>Import organization support for Python files using isort.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.isort#changelog</releaseNotes>
-    <tags>vscode extension isort</tags>
-    <dependencies>
+]]></description><summary>Import organization support for Python files using isort.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.isort#changelog</releaseNotes><tags>vscode extension isort</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-python" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
