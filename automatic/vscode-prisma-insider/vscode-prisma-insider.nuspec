@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-prisma-insider</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Prisma - Insider</title>
-    <authors>Prisma</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/prisma/language-tools.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/prisma/language-tools</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/prisma/language-tools/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/prisma/language-tools#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-prisma-insider/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/prisma.prisma-insider/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-prisma-insider</id><version>31.12.7</version><title>Visual Studio Code Extension - Prisma - Insider</title><authors>Prisma</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/prisma/language-tools.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/prisma/language-tools</projectSourceUrl><bugTrackerUrl>https://github.com/prisma/language-tools/issues</bugTrackerUrl><docsUrl>https://github.com/prisma/language-tools#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-prisma-insider/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/prisma.prisma-insider/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 Prisma VS Code Extension - Insider
 
 ## Insider Build
@@ -67,7 +51,7 @@ Easily navigate definitions, i.e. models in the Prisma schema.
 
 ## Build information
 
-- This version is built from commit [6b594b597a0a4f19f70e5e24590288813a7f4d72](https://github.com/prisma/language-tools/commit/6b594b597a0a4f19f70e5e24590288813a7f4d72).
+- This version is built from commit [3c526c3ca6f6fbe869230130a21836f62776a774](https://github.com/prisma/language-tools/commit/3c526c3ca6f6fbe869230130a21836f62776a774).
 - This is for Prisma CLI 7.9.0-dev.4.
 
 ## Contributing
@@ -91,16 +75,6 @@ If you want to opt out of telemetry you can either, in your VS Code settings:
 
 If you have a security issue to report, please contact us at [[email removed]](mailto:[email removed]?subject=[GitHub]%20Prisma%202%20Security%20Report%20VSCode)
 
-]]></description>
-    <summary>This is the Insider Build of the Prisma VS Code extension (only use it if you are also using the dev version of the CLI).</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=prisma.prisma-insider#changelog</releaseNotes>
-    <tags>vscode extension prisma-insider</tags>
-    <dependencies>
+]]></description><summary>This is the Insider Build of the Prisma VS Code extension (only use it if you are also using the dev version of the CLI).</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=prisma.prisma-insider#changelog</releaseNotes><tags>vscode extension prisma-insider</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
