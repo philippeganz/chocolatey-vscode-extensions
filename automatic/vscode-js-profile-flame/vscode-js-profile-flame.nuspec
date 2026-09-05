@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-js-profile-flame</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Flame Chart Visualizer for JavaScript Profiles</title>
-    <authors>ms-vscode</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-js-profile-visualizer.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/microsoft/vscode-js-profile-visualizer</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/microsoft/vscode-js-profile-visualizer/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/microsoft/vscode-js-profile-visualizer#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-js-profile-flame/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.vscode-js-profile-flame/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-js-profile-flame</id><version>1.0.11</version><title>Visual Studio Code Extension - Flame Chart Visualizer for JavaScript Profiles</title><authors>ms-vscode</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-js-profile-visualizer.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-js-profile-visualizer</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-js-profile-visualizer/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/vscode-js-profile-visualizer#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-js-profile-flame/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.vscode-js-profile-flame/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # `vscode-js-profile-flame`
 
 This package contains two pieces of functionality: a flame chart viewer for V8-style `.cpuprofile` files, and a realtime performance view for VS Code:
@@ -57,16 +41,6 @@ You can open a `.heapsnapshot` file in VS Code and click on the "graph" icon bes
 
 ![](https://github.com/microsoft/vscode-js-profile-visualizer/raw/HEAD/packages/vscode-js-profile-flame/resources/retainers.png)
 
-]]></description>
-    <summary>Flame graph visualizer for Heap and CPU profiles taken from the JavaScript debugger</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-js-profile-flame#changelog</releaseNotes>
-    <tags>vscode extension vscode-js-profile-flame</tags>
-    <dependencies>
+]]></description><summary>Flame graph visualizer for Heap and CPU profiles taken from the JavaScript debugger</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-js-profile-flame#changelog</releaseNotes><tags>vscode extension vscode-js-profile-flame</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>

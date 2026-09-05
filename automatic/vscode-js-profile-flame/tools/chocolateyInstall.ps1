@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Auto-generated install script for Chocolatey.
 
