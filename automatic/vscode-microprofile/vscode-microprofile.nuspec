@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-microprofile</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Tools for MicroProfile</title>
-    <authors>redhat</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/redhat-developer/vscode-microprofile.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/redhat-developer/vscode-microprofile</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/redhat-developer/vscode-microprofile/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/redhat-developer/vscode-microprofile#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-microprofile/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-microprofile/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-microprofile</id><version>0.18.0</version><title>Visual Studio Code Extension - Tools for MicroProfile</title><authors>redhat</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/redhat-developer/vscode-microprofile.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/redhat-developer/vscode-microprofile</projectSourceUrl><bugTrackerUrl>https://github.com/redhat-developer/vscode-microprofile/issues</bugTrackerUrl><docsUrl>https://github.com/redhat-developer/vscode-microprofile#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-microprofile/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-microprofile/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Tools for MicroProfile
 
 [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/redhat.vscode-microprofile?style=for-the-badge&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-microprofile)
@@ -57,17 +41,7 @@ In `Java` files, you will benefit with:
 ## Requirements
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-microprofile) for full documentation]
-]]></description>
-    <summary>Language Support for Eclipse MicroProfile</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-microprofile#changelog</releaseNotes>
-    <tags>vscode extension vscode-microprofile</tags>
-    <dependencies>
+]]></description><summary>Language Support for Eclipse MicroProfile</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-microprofile#changelog</releaseNotes><tags>vscode extension vscode-microprofile</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-java" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
