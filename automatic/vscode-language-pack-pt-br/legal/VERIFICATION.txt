@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-pt-br
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\ms-ceintl.vscode-language-pack-pt-br-1.131.2026090407.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: C09B2EF6B1273375D18F19E68B8C3C13D1AA81F047D81D8B6E162F03957E4F91
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/ms-ceintl.vscode-language-pack-pt-br/license
