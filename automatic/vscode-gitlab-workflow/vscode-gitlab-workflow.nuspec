@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-gitlab-workflow</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - GitLab</title>
-    <authors>GitLab</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://gitlab.com/gitlab-org/gitlab-vscode-extension.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://gitlab.com/gitlab-org/gitlab-vscode-extension</projectSourceUrl>
-    <bugTrackerUrl>https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/issues</bugTrackerUrl>
-    <docsUrl>https://gitlab.com/gitlab-org/gitlab-vscode-extension#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-gitlab-workflow/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/gitlab.gitlab-workflow/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-gitlab-workflow</id><version>6.90.1</version><title>Visual Studio Code Extension - GitLab</title><authors>GitLab</authors><owners>philippe.ganz</owners><projectUrl>https://gitlab.com/gitlab-org/gitlab-vscode-extension.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://gitlab.com/gitlab-org/gitlab-vscode-extension</projectSourceUrl><bugTrackerUrl>https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/issues</bugTrackerUrl><docsUrl>https://gitlab.com/gitlab-org/gitlab-vscode-extension#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-gitlab-workflow/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/gitlab.gitlab-workflow/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # GitLab for VS Code extension
 
 The GitLab for VS Code extension brings GitLab Duo and other GitLab features directly into Visual Studio Code:
@@ -86,16 +70,6 @@ for this project.
 The GitLab for VS Code extension uses the telemetry settings in Visual Studio Code to send usage and error information to GitLab.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=GitLab.gitlab-workflow) for full documentation]
-]]></description>
-    <summary>Official GitLab-maintained extension for Visual Studio Code.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=gitlab.gitlab-workflow#changelog</releaseNotes>
-    <tags>vscode extension gitlab-workflow</tags>
-    <dependencies>
+]]></description><summary>Official GitLab-maintained extension for Visual Studio Code.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=gitlab.gitlab-workflow#changelog</releaseNotes><tags>vscode extension gitlab-workflow</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
