@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Auto-generated install script for Chocolatey.
 
@@ -17,7 +17,7 @@ $ErrorActionPreference = 'Stop'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 # The payload is entirely embedded in the package to guarantee Air-Gap compliance.
-$vsixPath = Join-Path $toolsDir "mongodb.mongodb-vscode-1.16.1.vsix"
+$vsixPath = Join-Path $toolsDir "mongodb.mongodb-vscode-1.17.1.vsix"
 
 # Install-VsCodeExtension is a specialized helper provided by the chocolatey-vscode.extension dependency.
 Install-VsCodeExtension -extensionId $vsixPath

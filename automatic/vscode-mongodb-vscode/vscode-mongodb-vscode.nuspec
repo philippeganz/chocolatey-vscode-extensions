@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-mongodb-vscode</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - MongoDB for VS Code</title>
-    <authors>mongodb</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/mongodb-js/vscode.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/mongodb-js/vscode</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/mongodb-js/vscode/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/mongodb-js/vscode</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-mongodb-vscode/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/mongodb.mongodb-vscode/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-mongodb-vscode</id><version>1.17.1</version><title>Visual Studio Code Extension - MongoDB for VS Code</title><authors>mongodb</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/mongodb-js/vscode.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/mongodb-js/vscode</projectSourceUrl><bugTrackerUrl>https://github.com/mongodb-js/vscode/issues</bugTrackerUrl><docsUrl>https://github.com/mongodb-js/vscode</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-mongodb-vscode/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/mongodb.mongodb-vscode/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # MongoDB for VS Code
 
 MongoDB for VS Code makes it easy to work with your data in MongoDB directly from your VS Code environment. MongoDB for VS Code is the perfect companion for [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register?utm_source=vscode&utm_medium=product), but you can also use it with your self-managed MongoDB instances.
@@ -51,21 +35,6 @@ Read more about this functionality in the [online documentation](https://www.mon
 
 _Note: Make sure you are connected to a server or cluster before using a playground. You can't run a playground and you won't get intelligent completions if you are not connected._
 
-#### From Query API to your favorite language
-
-Select queries and aggregations within your Playground files and translate them into your favorite programming language. Supported languages are:
-
- * Java
- * Node.js
- * C#
- * Python 3
- * Ruby
- * Go
- * Rust
- * PHP
-
-![Export to language](https://github.com/mongodb-js/vscode/raw/main/resources/screenshots/export-to-language.gif)
-
 ### Document Editing
 
 Editing documents with MongoDB for VS Code is as natural as editing any file in the code editor. Open a document in an editor tab, edit it, and save the changes back to MongoDB.
@@ -82,17 +51,15 @@ _Note: The `mongosh` binary needs to be in your `$PATH`. You can download the `m
 
 ### Terraform snippet for MongoDB Atlas
 
+If you use Terraform to manage your infrastructure, MongoDB for VS Code helps you get started with the [MongoDB Atlas Provider](https://www.terraform.io/docs/providers/mongodbatlas/index.html). Just open a Terraform file, type `atlas` and you are good to go.
+
+![Terraform snippet](https://github.com/mongodb-js/vscode/raw/main/resources/screenshots/terraform.png)
+
+### Atlas Stream Processing
+
+Connect to Atlas Stream Processing instances and develop stream processors using playgrounds.
+
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) for full documentation]
-]]></description>
-    <summary>Connect to MongoDB and Atlas directly from your VS Code environment, navigate your databases and collections, inspect your schema and use playgrounds to prototype queries and aggregations.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode#changelog</releaseNotes>
-    <tags>vscode extension mongodb-vscode</tags>
-    <dependencies>
+]]></description><summary>Connect to MongoDB and Atlas directly from your VS Code environment, navigate your databases and collections, inspect your schema and use playgrounds to prototype queries and aggregations.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode#changelog</releaseNotes><tags>vscode extension mongodb-vscode</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>

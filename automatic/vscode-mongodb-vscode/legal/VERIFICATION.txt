@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\mongodb.mongodb-vscode-1.16.1.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\mongodb.mongodb-vscode-1.17.1.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 508C57AC9A47FC8C7812FEAF7AE99C4FFF61D528198045C78E7C24387F5C878E
+   Expected SHA256: CA8505C72BB8AE02556D22D4E0131D478AC5E770C7407C39A86170A91C345FB2
 
 ---
 SOFTWARE LICENSE:
