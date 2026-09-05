@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-yaml</id>
-    <version>1.25.2026073109</version>
-    <title>Visual Studio Code Extension - YAML</title>
-    <authors>redhat</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/redhat-developer/vscode-yaml</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-yaml/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-yaml/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-yaml</id><version>1.25.2026090408</version><title>Visual Studio Code Extension - YAML</title><authors>redhat</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/redhat-developer/vscode-yaml.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/redhat-developer/vscode-yaml</projectSourceUrl><bugTrackerUrl>https://github.com/redhat-developer/vscode-yaml/issues</bugTrackerUrl><docsUrl>https://github.com/redhat-developer/vscode-yaml#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-yaml/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-yaml/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 [![Visual Studio Marketplace](https://img.shields.io/badge/Visual%20Studio%20Marketplace-Available-blue?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/redhat-developer/vscode-yaml/CI.yaml?branch=main&style=for-the-badge&logo=github)](https://github.com/redhat-developer/vscode-yaml/actions?query=workflow:CI)
 [![License](https://img.shields.io/github/license/redhat-developer/vscode-yaml?style=for-the-badge)](https://github.com/redhat-developer/vscode-yaml/blob/main/LICENSE)
@@ -56,16 +43,6 @@ Schema validation supports JSON Schema `draft-04`, `draft-07`, `2019-09`, and `2
 The following settings are supported:
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for full documentation]
-]]></description>
-    <summary>YAML Language Support by Red Hat, with built-in Kubernetes syntax support</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml#changelog</releaseNotes>
-    <tags>vscode extension yaml</tags>
-    <dependencies>
+]]></description><summary>YAML Language Support by Red Hat, with built-in Kubernetes syntax support</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml#changelog</releaseNotes><tags>vscode extension vscode-yaml</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
