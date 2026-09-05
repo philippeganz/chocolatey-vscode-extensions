@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-azuretools.vscode-azurelogicapps-5.991.3.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-azuretools.vscode-azurelogicapps-5.996.0.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 0F027CD9DA7976C3CA83A248C32DB5E962588A116C4AB83A0F65F1037BBB078B
+   Expected SHA256: 937B113392B8014719D7BB7763BF520E68BD7EC03ADFF5177F0FFAEB0BFF43F8
 
 ---
 SOFTWARE LICENSE:
