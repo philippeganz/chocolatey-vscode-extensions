@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-ai-remote</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Azure Machine Learning - Remote</title>
-    <authors>ms-toolsai</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-tools-for-ai.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/Microsoft/vscode-tools-for-ai</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/Microsoft/vscode-tools-for-ai/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/Microsoft/vscode-tools-for-ai#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-ai-remote/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-toolsai.vscode-ai-remote/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-ai-remote</id><version>1.5.2026090400</version><title>Visual Studio Code Extension - Azure Machine Learning - Remote</title><authors>ms-toolsai</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-tools-for-ai.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-tools-for-ai</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-tools-for-ai/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-tools-for-ai#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-ai-remote/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-toolsai.vscode-ai-remote/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Azure Machine Learning - Remote Extension
 
 This extension is complementary to the [Azure Machine Learning](https://aka.ms/aml-ext-get-started) extension and is used to seamlessly connect VS Code to a remote Compute Instance.
@@ -66,16 +50,6 @@ Open the Command Palette (Command+Shift+P on macOS and Ctrl+Shift+P on Windows/L
 
 The Azure Machine Learning - Remote Extension for Visual Studio Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://privacy.microsoft.com/privacystatement) to learn more. This extension respects the telemetry.enableTelemetry setting which you can learn more about [here](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
 
-]]></description>
-    <summary>This extension is used by the Azure Machine Learning Extension</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai-remote#changelog</releaseNotes>
-    <tags>vscode extension vscode-ai-remote</tags>
-    <dependencies>
+]]></description><summary>This extension is used by the Azure Machine Learning Extension</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai-remote#changelog</releaseNotes><tags>vscode extension vscode-ai-remote</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
