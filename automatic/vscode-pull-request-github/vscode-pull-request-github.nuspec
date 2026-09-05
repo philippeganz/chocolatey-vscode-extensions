@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-pull-request-github</id>
-    <version>0.163.2026073104</version>
-    <title>Visual Studio Code Extension - GitHub Pull Requests</title>
-    <authors>GitHub</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-pull-request-github</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-pull-request-github/icon.png</iconUrl>
-    <licenseUrl>
-      https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-pull-request-github</id><version>0.165.2026090413</version><title>Visual Studio Code Extension - GitHub Pull Requests</title><authors>GitHub</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-pull-request-github.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-pull-request-github</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-pull-request-github/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-pull-request-github#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-pull-request-github/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/GitHub.vscode-pull-request-github/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 [![Build Status](https://dev.azure.com/vscode/vscode-pull-request-github/_apis/build/status/vscode-pull-request-github%20%28pr%29?branchName=main)](https://dev.azure.com/vscode/vscode-pull-request-github/_build?definitionId=44&branchName=main)
 
 > Review and manage your GitHub pull requests and issues directly in VS Code
@@ -93,17 +79,6 @@ See our [wiki](https://github.com/Microsoft/vscode-pull-request-github/wiki) for
 ## Contributing
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) for full documentation]
-]]></description>
-    <summary>Pull Request and Issue Provider for GitHub</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github#changelog</releaseNotes>
-    <tags>vscode extension pull-request-github</tags>
-    <dependencies>
+]]></description><summary>Pull Request and Issue Provider for GitHub</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github#changelog</releaseNotes><tags>vscode extension vscode-pull-request-github</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
