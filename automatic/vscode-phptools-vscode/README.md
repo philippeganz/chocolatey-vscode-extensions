@@ -13,7 +13,8 @@ This package extends VS Code with fast code completion, advanced editor features
 
 - **fast code completion** with context-aware resolution, automatic import, and detailed informational tooltips.
 - **starred suggestions:** ([premium](https://www.devsense.com/features#vscode)) most probable completions are marked with a star and shown at the top of the list.
-- **generics**, **PHPStan** and **Psalm** integrated with the entire IntelliSense functionality.
+- **PHPStan**, **Psalm** and **generics** annotations supported across the entire IntelliSense functionality.
+- **rename refactoring** safely renames any symbol with rename preview across the workspace.
 - **@mixin** support and other annotations natively included.
 - **signature help** guides through the function's parameters and PHP 8 named arguments.
 - **auto-import** corresponding aliases upon completion automatically.
@@ -36,10 +37,10 @@ This package extends VS Code with fast code completion, advanced editor features
 - **highlight to-do** in your code, in Documentary Comments, and Single-Line comments.
 - **composer.json** IntelliSense, diagnostics, commands, and code actions through [**Composer**](https://marketplace.visualstudio.com/items?itemName=DEVSENSE.composer-php-vscode) extension.
 - **code actions** ([premium](https://www.devsense.com/features#vscode)) for namespace resolution, getters/setters, adding `use`, or implementing interfaces.
+- **inline refactorings** ([premium](https://www.devsense.com/features#vscode)) to extract method, extract constant, interface, implement abstracts, and others.
 - **code fixes** ([premium](https://www.devsense.com/features#vscode)) to resolve common issues, refactor expressions, and more.
 - **code lenses** ([premium](https://www.devsense.com/features#vscode)) seamlessly show the number of references and other information.
 - **inlay hints** ([premium](https://www.devsense.com/features#vscode)) for parameter names, by-ref arguments, and type annotations.
-- **rename refactoring** ([premium](https://www.devsense.com/features#vscode)) safely renames any symbol with rename preview across the workspace.
 - **IntelliPHP** ([premium](https://www.devsense.com/features#vscode)), privacy-first local AI whole-line suggestions.
 
 ### Laravel IDE
