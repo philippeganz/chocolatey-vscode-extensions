@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-flake8</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Flake8</title>
-    <authors>ms-python</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-flake8.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/microsoft/vscode-flake8</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/Microsoft/vscode-flake8/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/Microsoft/vscode-flake8</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-flake8/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-python.flake8/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-flake8</id><version>2026.7.12461008</version><title>Visual Studio Code Extension - Flake8</title><authors>ms-python</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-flake8.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-flake8</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-flake8/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-flake8</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-flake8/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-python.flake8/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Flake8 extension for Visual Studio Code 
 
 A Visual Studio Code extension with support for the Flake8 linter. The extension ships with `flake8==7.3.0`.
@@ -68,17 +52,7 @@ There are several settings you can configure to customize the behavior of this e
         </tr></tbody></table>
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-python.flake8) for full documentation]
-]]></description>
-    <summary>Linting support for Python files using Flake8.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.flake8#changelog</releaseNotes>
-    <tags>vscode extension flake8</tags>
-    <dependencies>
+]]></description><summary>Linting support for Python files using Flake8.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.flake8#changelog</releaseNotes><tags>vscode extension flake8</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-python" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
