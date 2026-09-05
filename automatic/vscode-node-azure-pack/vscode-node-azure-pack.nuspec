@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-node-azure-pack</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Azure Tools</title>
-    <authors>ms-vscode</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-node-azure-pack.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/microsoft/vscode-node-azure-pack</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/microsoft/vscode-node-azure-pack/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/microsoft/vscode-node-azure-pack</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-node-azure-pack/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.vscode-node-azure-pack/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-node-azure-pack</id><version>1.8.2</version><title>Visual Studio Code Extension - Azure Tools</title><authors>ms-vscode</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-node-azure-pack.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-node-azure-pack</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-node-azure-pack/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/vscode-node-azure-pack</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-node-azure-pack/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.vscode-node-azure-pack/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Azure Tools for Visual Studio Code
 
 Build, deploy, and manage Azure applications without leaving VS Code.
@@ -59,11 +43,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 [MIT](https://github.com/microsoft/vscode-node-azure-pack/blob/HEAD/LICENSE)
 
-]]></description>
-    <summary>Build, deploy, and manage Azure applications with support from Copilot all without leaving VS Code.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack#changelog</releaseNotes>
-    <tags>vscode extension vscode-node-azure-pack</tags>
-    <dependencies>
+]]></description><summary>Build, deploy, and manage Azure applications with support from Copilot all without leaving VS Code.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack#changelog</releaseNotes><tags>vscode extension vscode-node-azure-pack</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-azureappservice" />
       <dependency id="vscode-azurestaticwebapps" />
@@ -77,10 +57,4 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
       <dependency id="vscode-azure-mcp-server" />
       <dependency id="vscode-microsoft-testing" />
       <dependency id="vscode-windows-ai-studio" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
