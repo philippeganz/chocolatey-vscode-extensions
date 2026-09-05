@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-pylint</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Pylint</title>
-    <authors>ms-python</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-pylint.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/microsoft/vscode-pylint</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/Microsoft/vscode-pylint/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/Microsoft/vscode-pylint</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-pylint/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-python.pylint/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-pylint</id><version>2026.7.12461007</version><title>Visual Studio Code Extension - Pylint</title><authors>ms-python</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-pylint.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-pylint</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-pylint/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-pylint</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-pylint/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-python.pylint/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Pylint extension for Visual Studio Code
 
 A Visual Studio Code extension with support for the Pylint linter. This extension ships with `pylint=4.0.5`.
@@ -46,17 +30,7 @@ But if you wish to disable linting with Pylint for your entire workspace or glob
 There are several settings you can configure to customize the behavior of this extension.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint) for full documentation]
-]]></description>
-    <summary>Linting support for Python files using Pylint.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.pylint#changelog</releaseNotes>
-    <tags>vscode extension pylint</tags>
-    <dependencies>
+]]></description><summary>Linting support for Python files using Pylint.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.pylint#changelog</releaseNotes><tags>vscode extension pylint</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-python" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>

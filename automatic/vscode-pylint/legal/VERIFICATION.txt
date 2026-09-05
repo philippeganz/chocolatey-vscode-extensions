@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-python.pylint-2026.7.12041008.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-python.pylint-2026.7.12461007.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 2D817365931826C53C73B76B9074B244E332A078FEDA9665AB51FCD7225E9C6F
+   Expected SHA256: 41B70F5A040C841B1CC7D62C3C3639CC476398DF08BD1AD9B4368DE0C8A06E5D
 
 ---
 SOFTWARE LICENSE:
