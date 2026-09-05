@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-python-envs</id>
-    <version>1.37.2026073101</version>
-    <title>Visual Studio Code Extension - Python Environments</title>
-    <authors>ms-python</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-python-environments.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-python-envs/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-python.vscode-python-envs/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-python-envs</id><version>1.37.2026090401</version><title>Visual Studio Code Extension - Python Environments</title><authors>ms-python</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-python-environments.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-python-environments</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-python-environments/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/vscode-python-environments</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-python-envs/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-python.vscode-python-envs/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Python Environments
 
 ## Overview
@@ -50,17 +37,6 @@ For more control, you can create a custom environment where you can specify Pyth
 The following environment managers are supported out of the box:
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs) for full documentation]
-]]></description>
-    <summary>Provides a unified python environment experience</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs#changelog</releaseNotes>
-    <tags>vscode extension python-envs</tags>
-    <dependencies>
+]]></description><summary>Provides a unified python environment experience</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs#changelog</releaseNotes><tags>vscode extension vscode-python-envs</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
