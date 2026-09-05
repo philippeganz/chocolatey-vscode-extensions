@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-mssql</id>
-    <version>1.44.1</version>
-    <title>Visual Studio Code Extension - SQL Server (mssql)</title>
-    <authors>ms-mssql</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-mssql.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-mssql/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-mssql.mssql/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-mssql</id><version>1.45.1</version><title>Visual Studio Code Extension - SQL Server (mssql)</title><authors>ms-mssql</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-mssql.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-mssql</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-mssql/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-mssql/blob/main/mssql/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-mssql/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-mssql.mssql/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 [![Roadmap 2026](https://img.shields.io/badge/Roadmap%202026-green?logo=github)](https://aka.ms/vscode-mssql-roadmap#2026)
 [![Report Bug](https://img.shields.io/badge/Report%20Bug-red?logo=github)](https://aka.ms/vscode-mssql-bug)
 [![Request Feature](https://img.shields.io/badge/Request%20Feature-blue?logo=github)](https://aka.ms/vscode-mssql-feature-request)
@@ -40,20 +27,10 @@ The MSSQL extension provides a rich set of capabilities for SQL development. Eac
 ### General Availability
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) for full documentation]
-]]></description>
-    <summary>Design and optimize schemas for SQL Server, Azure SQL, and SQL Database in Fabric using a modern, lightweight extension built for developers</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql#changelog</releaseNotes>
-    <tags>vscode extension mssql</tags>
-    <dependencies>
+]]></description><summary>Design and optimize schemas for SQL Server, Azure SQL, and SQL Database in Fabric using a modern, lightweight extension built for developers</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql#changelog</releaseNotes><tags>vscode extension mssql</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-data-workspace-vscode" />
       <dependency id="vscode-sql-database-projects-vscode" />
       <dependency id="vscode-sql-bindings-vscode" />
       <dependency id="vscode-dotnet-runtime" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
