@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-dotnettools.dotnet-maui-1.17.156.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-dotnettools.dotnet-maui-1.17.232.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 28B654836ED2E4F79851FB466897412B49589413FA54617DA87C443852FE9099
+   Expected SHA256: 265C7F5C8AE1FA2785BAF7A581548052BF7E8D52E5929587D530F766707FFB0B
 
 ---
 SOFTWARE LICENSE:
