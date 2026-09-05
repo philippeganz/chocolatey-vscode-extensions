@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\ms-azuretools.vscode-azurefunctions-1.22.1.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: 9546F58F99542E6E0141708D28247B9655EFE53E0939A0E2A98FBE9CF7CEC3C7
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azurefunctions/license
