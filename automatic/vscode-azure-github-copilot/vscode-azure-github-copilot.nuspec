@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-azure-github-copilot</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - GitHub Copilot for Azure</title>
-    <authors>ms-azuretools</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azure-github-copilot/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azure-github-copilot/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-azure-github-copilot</id><version>1.0.231</version><title>Visual Studio Code Extension - GitHub Copilot for Azure</title><authors>ms-azuretools</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-azure-github-copilot/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azure-github-copilot/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # What's GitHub Copilot for Azure?
 
 GitHub Copilot for Azure is a Visual Studio Code extension that includes a set of Azure skills for specialized domain knowledge, and integrates support for GitHub Copilot agent and ask modes. Use Azure skills for deep, service-specific guidance, leverage Azure tools in agent mode to automatically complete Azure tasks, or chat with @azure in ask mode to get help with Azure services, development for Azure, and Azure DevOps tasks. Go to the [release notes](https://aka.ms/azcode/copilot/changelog) for details on the latest updates.
@@ -67,18 +51,8 @@ GitHub Copilot for Azure tools include:
 ### Resource Information
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) for full documentation]
-]]></description>
-    <summary>GitHub Copilot for Azure is the @azure extension. It's designed to help streamline the process of developing for Azure. You can ask @azure questions about Azure services or get help with tasks related to Azure and developing for Azure, all from within Visual Studio Code.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot#changelog</releaseNotes>
-    <tags>vscode extension vscode-azure-github-copilot</tags>
-    <dependencies>
+]]></description><summary>GitHub Copilot for Azure is the @azure extension. It's designed to help streamline the process of developing for Azure. You can ask @azure questions about Azure services or get help with tasks related to Azure and developing for Azure, all from within Visual Studio Code.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot#changelog</releaseNotes><tags>vscode extension vscode-azure-github-copilot</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-azureresourcegroups" />
       <dependency id="vscode-azure-mcp-server" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
