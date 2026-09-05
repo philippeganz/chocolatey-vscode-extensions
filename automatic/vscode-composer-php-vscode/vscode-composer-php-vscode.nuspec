@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-composer-php-vscode</id>
-    <version>1.72.19127</version>
-    <title>Visual Studio Code Extension - Composer</title>
-    <authors>DEVSENSE</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/DEVSENSE/phptools-docs.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-composer-php-vscode/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/devsense.composer-php-vscode/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-composer-php-vscode</id><version>1.73.19228</version><title>Visual Studio Code Extension - Composer</title><authors>DEVSENSE</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/DEVSENSE/phptools-docs.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/DEVSENSE/phptools-docs</projectSourceUrl><bugTrackerUrl>https://github.com/DEVSENSE/phptools-docs/issues</bugTrackerUrl><docsUrl>https://www.devsense.com/</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-composer-php-vscode/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/devsense.composer-php-vscode/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Composer for Visual Studio Code
 
 [![PHP Tools product page](https://img.shields.io/badge/%F0%9F%8C%8E-Home%20page-blue.svg)](https://www.devsense.com) 
@@ -80,16 +67,6 @@ Runs the `install` command.
 ### `composer: update`
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=DEVSENSE.composer-php-vscode) for full documentation]
-]]></description>
-    <summary>All-in-One composer integration, quick actions, commands, automatic installation, tasks, code lenses, diagnostics, and composer.json IntelliSense.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=devsense.composer-php-vscode#changelog</releaseNotes>
-    <tags>vscode extension composer-php-vscode</tags>
-    <dependencies>
+]]></description><summary>All-in-One composer integration, quick actions, commands, automatic installation, tasks, code lenses, diagnostics, and composer.json IntelliSense.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=devsense.composer-php-vscode#changelog</releaseNotes><tags>vscode extension composer-php-vscode</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
