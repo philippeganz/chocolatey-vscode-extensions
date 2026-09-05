@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Auto-generated install script for Chocolatey.
 
@@ -17,7 +17,7 @@ $ErrorActionPreference = 'Stop'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 # The payload is entirely embedded in the package to guarantee Air-Gap compliance.
-$vsixPath = Join-Path $toolsDir "monokai.theme-monokai-pro-vscode-2.0.14.vsix"
+$vsixPath = Join-Path $toolsDir "monokai.theme-monokai-pro-vscode-2.0.15.vsix"
 
 # Install-VsCodeExtension is a specialized helper provided by the chocolatey-vscode.extension dependency.
 Install-VsCodeExtension -extensionId $vsixPath

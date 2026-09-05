@@ -1,19 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-theme-monokai-pro-vscode</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Monokai Pro</title>
-    <authors>monokai</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <bugTrackerUrl>https://github.com/monokai-pro/vscode</bugTrackerUrl>
-    <docsUrl>https://monokai.pro</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-theme-monokai-pro-vscode/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/monokai.theme-monokai-pro-vscode/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-theme-monokai-pro-vscode</id><version>2.0.15</version><title>Visual Studio Code Extension - Monokai Pro</title><authors>monokai</authors><owners>philippe.ganz</owners><projectUrl>https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><bugTrackerUrl>https://github.com/monokai-pro/vscode</bugTrackerUrl><docsUrl>https://monokai.pro</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-theme-monokai-pro-vscode/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/monokai.theme-monokai-pro-vscode/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 Monokai Pro for Visual Studio Code
 ==================================
 
@@ -51,16 +36,6 @@ History of Monokai
 ------------------
 
 Monokai Pro was created by the same author of the iconic Monokai color palette, first introduced back in 2006. While the classic Monokai remains popular and has inspired many variations over the years, Monokai Pro is its official modern successor, offering a more refined and balanced color scheme. Today, it's the go-to choice for professional developers around the world.
-]]></description>
-    <summary>✨ Professional dark &amp; light theme + icon pack, from the author of the original Monokai color scheme.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode#changelog</releaseNotes>
-    <tags>vscode extension theme-monokai-pro-vscode</tags>
-    <dependencies>
+]]></description><summary>✨ Professional dark &amp; light theme + icon pack, from the author of the original Monokai color scheme.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode#changelog</releaseNotes><tags>vscode extension theme-monokai-pro-vscode</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>

@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\monokai.theme-monokai-pro-vscode-2.0.14.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\monokai.theme-monokai-pro-vscode-2.0.15.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 90C14B800AEA123E73485D430B9F71C90E66701579A4DE9F79B29DB6A8F2F6F2
+   Expected SHA256: C36A3E9826C444AC6B0979258CC14B4FD7D8C7F1043ABD0E2E86B1D14E4D5B78
 
 ---
 SOFTWARE LICENSE:
