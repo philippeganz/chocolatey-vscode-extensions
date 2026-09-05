@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\prisma.prisma-31.11.0.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\prisma.prisma-31.12.8.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: BEF1EBE6367695C70EF773BCD8E2A7445E30C95BF79FF1F79CA248A997488E56
+   Expected SHA256: DD726EEE0F0D9DEBC166227DD22A20A91D90308827090FC714823DF111BC6AB2
 
 ---
 SOFTWARE LICENSE:
