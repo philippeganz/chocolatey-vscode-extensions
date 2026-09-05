@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=vue.volar
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\vue.volar-3.3.11.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: C1D10BA0CE9CCE7D25AE4F46766061E79C54297117BB9A647DA89126F174E9EC
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/vue.volar/license
