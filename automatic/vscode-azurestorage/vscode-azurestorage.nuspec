@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-azurestorage</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Azure Storage</title>
-    <authors>ms-azuretools</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-azurestorage.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/microsoft/vscode-azurestorage</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/microsoft/vscode-azurestorage/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/microsoft/vscode-azurestorage/blob/main/README.md</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azurestorage/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azurestorage/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-azurestorage</id><version>0.17.2</version><title>Visual Studio Code Extension - Azure Storage</title><authors>ms-azuretools</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-azurestorage.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-azurestorage</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-azurestorage/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/vscode-azurestorage/blob/main/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-azurestorage/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azurestorage/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Azure Storage for Visual Studio Code (Preview)
 
 <!-- region exclude-from-marketplace -->
@@ -71,17 +55,7 @@ Once you have created your Storage Account, right click on the Storage Account a
 Make sure you've compiled your app (run `npm run build` if you created a sample from create-react-app) prior to deploying it to Azure.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for full documentation]
-]]></description>
-    <summary>Manage your Azure Storage accounts including Blob Containers, File Shares, Tables and Queues</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage#changelog</releaseNotes>
-    <tags>vscode extension vscode-azurestorage</tags>
-    <dependencies>
+]]></description><summary>Manage your Azure Storage accounts including Blob Containers, File Shares, Tables and Queues</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage#changelog</releaseNotes><tags>vscode extension vscode-azurestorage</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-azureresourcegroups" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
