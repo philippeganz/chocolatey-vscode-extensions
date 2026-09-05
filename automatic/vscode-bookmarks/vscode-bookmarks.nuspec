@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-bookmarks</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Bookmarks</title>
-    <authors>alefragnani</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/alefragnani/vscode-bookmarks.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/alefragnani/vscode-bookmarks</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/alefragnani/vscode-bookmarks/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/alefragnani/vscode-bookmarks/blob/master/README.md</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-bookmarks/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/alefragnani.bookmarks/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-bookmarks</id><version>14.1.1</version><title>Visual Studio Code Extension - Bookmarks</title><authors>alefragnani</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/alefragnani/vscode-bookmarks.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/alefragnani/vscode-bookmarks</projectSourceUrl><bugTrackerUrl>https://github.com/alefragnani/vscode-bookmarks/issues</bugTrackerUrl><docsUrl>https://github.com/alefragnani/vscode-bookmarks/blob/master/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-bookmarks/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/alefragnani.bookmarks/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 
   
 
@@ -98,16 +82,6 @@ Quicky move between bookmarks backward and forward, even if located outside the 
 ### List / List from All Files
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks) for full documentation]
-]]></description>
-    <summary>Mark lines and jump to them</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=alefragnani.bookmarks#changelog</releaseNotes>
-    <tags>vscode extension bookmarks</tags>
-    <dependencies>
+]]></description><summary>Mark lines and jump to them</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=alefragnani.bookmarks#changelog</releaseNotes><tags>vscode extension bookmarks</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
