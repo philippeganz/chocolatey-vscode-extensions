@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-gitblame</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Git Blame</title>
-    <authors>waderyan</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Sertion/vscode-gitblame.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/Sertion/vscode-gitblame</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/Sertion/vscode-gitblame/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/Sertion/vscode-gitblame/blob/main/README.md</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-gitblame/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/waderyan.gitblame/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-gitblame</id><version>13.1.0</version><title>Visual Studio Code Extension - Git Blame</title><authors>waderyan</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Sertion/vscode-gitblame.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Sertion/vscode-gitblame</projectSourceUrl><bugTrackerUrl>https://github.com/Sertion/vscode-gitblame/issues</bugTrackerUrl><docsUrl>https://github.com/Sertion/vscode-gitblame/blob/main/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-gitblame/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/waderyan.gitblame/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Git Blame
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Sertion_vscode-gitblame&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Sertion_vscode-gitblame)
@@ -60,16 +44,6 @@ Url where you can see the commit by hash
 If set to an empty value it will try to guess the URL based on your remote origin. Can only support servers that don't require auth.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame) for full documentation]
-]]></description>
-    <summary>See git blame information in the status bar or in-line.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame#changelog</releaseNotes>
-    <tags>vscode extension gitblame</tags>
-    <dependencies>
+]]></description><summary>See git blame information in the status bar or in-line.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame#changelog</releaseNotes><tags>vscode extension gitblame</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
