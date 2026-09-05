@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-copilot-mermaid-diagram</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - vscode-mermAId</title>
-    <authors>ms-vscode</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-mermAId.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/microsoft/vscode-mermAId</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/microsoft/vscode-mermAId/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/microsoft/vscode-mermAId#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-copilot-mermaid-diagram/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.copilot-mermaid-diagram/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-copilot-mermaid-diagram</id><version>0.0.2026051301</version><title>Visual Studio Code Extension - vscode-mermAId</title><authors>ms-vscode</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-mermAId.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-mermAId</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-mermAId/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/vscode-mermAId#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-copilot-mermaid-diagram/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.copilot-mermaid-diagram/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 > [!NOTE]  
 > Starting in VS Code 1.109 [support for mermaid diagrams is built into VS Code](https://code.visualstudio.com/updates/v1_109#_mermaid-diagrams-in-chat-responses)!  Therefore this extension is no longer maintained.
 
@@ -64,17 +48,7 @@ Export diagrams as markdown to share directly in places that render mermaid (lik
 4. to disable even with the key set use the setting `mermaid.enableGroq`
 5. groq API key is store in extension secrets, may not persist always so check if you think there is an issue
 
-]]></description>
-    <summary>Exploration into Copilot Chat-powered Diagram Generation</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.copilot-mermaid-diagram#changelog</releaseNotes>
-    <tags>vscode extension copilot-mermaid-diagram</tags>
-    <dependencies>
+]]></description><summary>Exploration into Copilot Chat-powered Diagram Generation</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.copilot-mermaid-diagram#changelog</releaseNotes><tags>vscode extension copilot-mermaid-diagram</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-copilot-chat" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
