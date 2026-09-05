@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-java</id>
-    <version>1.56.2026073109</version>
-    <title>Visual Studio Code Extension - Language Support for Java(TM) by Red Hat</title>
-    <authors>redhat</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/redhat-developer/vscode-java</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-java/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/redhat.java/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-java</id><version>1.57.2026090508</version><title>Visual Studio Code Extension - Language Support for Java(TM) by Red Hat</title><authors>redhat</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/redhat-developer/vscode-java.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/redhat-developer/vscode-java</projectSourceUrl><bugTrackerUrl>https://github.com/redhat-developer/vscode-java/issues</bugTrackerUrl><docsUrl>https://github.com/redhat-developer/vscode-java#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-java/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/redhat.java/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 Language support for Java &trade; for Visual Studio Code
 =====================
 
@@ -69,16 +56,6 @@ To launch and debug your Java programs, it's recommended you install *[Java Debu
 See the [changelog](https://github.com/redhat-developer/vscode-java/blob/HEAD/CHANGELOG.md) for the latest release. You might also find useful information in the project [Wiki](https://github.com/redhat-developer/vscode-java/wiki).
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=redhat.java) for full documentation]
-]]></description>
-    <summary>Java Linting, Intellisense, formatting, refactoring, Maven/Gradle support and more...</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.java#changelog</releaseNotes>
-    <tags>vscode extension java</tags>
-    <dependencies>
+]]></description><summary>Java Linting, Intellisense, formatting, refactoring, Maven/Gradle support and more...</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.java#changelog</releaseNotes><tags>vscode extension java</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
