@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-maven</id>
-    <version>0.45.2026052803</version>
-    <title>Visual Studio Code Extension - Maven for Java</title>
-    <authors>vscjava</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-maven.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-maven/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/vscjava.vscode-maven/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-maven</id><version>0.45.2026081903</version><title>Visual Studio Code Extension - Maven for Java</title><authors>vscjava</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-maven.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-maven</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-maven/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-maven/</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-maven/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/vscjava.vscode-maven/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Maven for Java
 
 [![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/vscjava.vscode-maven.svg)](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
@@ -36,35 +23,35 @@ Maven extension for VS Code. It provides a project explorer and shortcuts to exe
 For troubleshooting, please refer to the page [HERE](https://github.com/Microsoft/vscode-maven/blob/HEAD/Troubleshooting.md).
 
 ## Basic Usage
-<details open>
-<summary>Maven Explorer</summary>
+
+Maven Explorer
 
 The extension scans `pom.xml` in your workspace, and displays all Maven projects and their modules in the sidebar.
 
 ![Screenshot](https://github.com/Microsoft/vscode-maven/raw/HEAD/images/explorer.png)
 
-</details>
 
-<details>
-<summary>Run Plugin Goals</summary>
+
+
+Run Plugin Goals
 
 The extension parse effective-pom of Maven projects, and displays all plugins and plugin goals hierarchically.
 
 ![Screenshot](https://github.com/Microsoft/vscode-maven/raw/HEAD/images/plugin.gif)
 
-</details>
 
-<details>
-<summary>POM File Editing</summary>
+
+
+POM File Editing
 
 The extension provides Maven specific completion suggestions when editing POM files, including snippets and artifact hints.
 
 ![Screenshot](https://github.com/Microsoft/vscode-maven/raw/HEAD/images/completion.gif)
 
-</details>
 
-<details>
-<summary>Re-Run Historical Commands</summary>
+
+
+Re-Run Historical Commands
 
 It preserves history of goals for each project, so you can fast re-run previous long commands, e.g. `mvn <goals> -Dparam1=value1 -Dparam2=value2 -Dparam3=value3 ...`
 There are 2 entries for it:
@@ -72,10 +59,10 @@ There are 2 entries for it:
 * Right-click on a project -> Click `History ...` -> Select command from the history
 
 ![Screenshot](https://github.com/Microsoft/vscode-maven/raw/HEAD/images/history.gif)
-</details>
 
-<details>
-<summary>Archetype Related</summary>
+
+
+Archetype Related
 
 ### Generate from Maven Archetype
 The extension loads archetypes listed in local/remote catalog. After selection, the extension sends `mvn archetype:generate -D...` to terminal.
@@ -90,25 +77,14 @@ With following steps, you can update the **local cache** of Maven **remote catal
 
 Command Palette -> select `Maven: Update Maven Archetype Catalog`.
 
-</details>
+
 
 ## Additional Configurations
 
-<details open>
-<summary>JAVA_HOME and Other Environment Variables</summary>
+
+JAVA_HOME and Other Environment Variables
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) for full documentation]
-]]></description>
-    <summary>Manage Maven projects, execute goals, generate project from archetype, improve user experience for Java developers.</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven#changelog</releaseNotes>
-    <tags>vscode extension maven</tags>
-    <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+]]></description><summary>Manage Maven projects, execute goals, generate project from archetype, improve user experience for Java developers.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven#changelog</releaseNotes><tags>vscode extension vscode-maven</tags><dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
