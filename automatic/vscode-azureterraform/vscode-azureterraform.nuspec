@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-azureterraform</id>
-    <version>0.10.3</version>
-    <title>Visual Studio Code Extension - Microsoft Terraform</title>
-    <authors>ms-azuretools</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Azure/vscode-azureterraform.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azureterraform/icon.png</iconUrl>
-    <licenseUrl>
-      https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureterraform</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-azureterraform</id><version>0.10.4</version><title>Visual Studio Code Extension - Microsoft Terraform</title><authors>ms-azuretools</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Azure/vscode-azureterraform.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Azure/vscode-azureterraform</projectSourceUrl><bugTrackerUrl>https://github.com/Azure/vscode-azureterraform/issues</bugTrackerUrl><docsUrl>https://github.com/Azure/vscode-azureterraform#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-azureterraform/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureterraform/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Microsoft Terraform
 
 The VSCode Microsoft Terraform extension is designed to increase developer productivity authoring, testing and using Terraform with Azure. The extension provides terraform command support and resource graph visualization.
@@ -89,17 +75,6 @@ Paste ARM template to the terraform configuration, it will convert to azapi conf
 ![convert ARM template to azapi configuration](https://github.com/Azure/vscode-azureterraform/raw/HEAD/images/paste-arm-templates-as-config.png)
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureterraform) for full documentation]
-]]></description>
-    <summary>VS Code extension for developing with Terraform on Azure</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureterraform#changelog</releaseNotes>
-    <tags>vscode extension azureterraform</tags>
-    <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+]]></description><summary>VS Code extension for developing with Terraform on Azure</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureterraform#changelog</releaseNotes><tags>vscode extension vscode-azureterraform</tags><dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
