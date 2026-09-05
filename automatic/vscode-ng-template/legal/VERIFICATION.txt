@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=angular.ng-template
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\angular.ng-template-22.1.0.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: FCF7ED52F684F448EC2917344E717495FB4E829E5FCCA991F8A1A1A1C5C432B9
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/angular.ng-template/license
