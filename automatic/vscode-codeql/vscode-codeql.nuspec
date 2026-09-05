@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-codeql</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - CodeQL</title>
-    <authors>GitHub</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/github/vscode-codeql.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/github/vscode-codeql</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/github/vscode-codeql/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/github/vscode-codeql#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-codeql/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/github.vscode-codeql/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-codeql</id><version>1.17.8</version><title>Visual Studio Code Extension - CodeQL</title><authors>GitHub</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/github/vscode-codeql.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/github/vscode-codeql</projectSourceUrl><bugTrackerUrl>https://github.com/github/vscode-codeql/issues</bugTrackerUrl><docsUrl>https://github.com/github/vscode-codeql#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-codeql/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/github.vscode-codeql/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # CodeQL extension for Visual Studio Code
 
 This project is an extension for Visual Studio Code that adds rich language support for [CodeQL](https://codeql.github.com/docs/) and allows you to easily find problems in codebases. In particular, the extension:
@@ -68,16 +52,6 @@ If you have any difficulty with CodeQL CLI access, see the **CodeQL Extension Lo
 ### Cloning the CodeQL starter workspace
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-codeql) for full documentation]
-]]></description>
-    <summary>CodeQL for Visual Studio Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=github.vscode-codeql#changelog</releaseNotes>
-    <tags>vscode extension vscode-codeql</tags>
-    <dependencies>
+]]></description><summary>CodeQL for Visual Studio Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=github.vscode-codeql#changelog</releaseNotes><tags>vscode extension vscode-codeql</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
