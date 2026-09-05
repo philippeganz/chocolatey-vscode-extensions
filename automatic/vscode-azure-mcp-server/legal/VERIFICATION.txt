@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-azuretools.vscode-azure-mcp-server-3.0.35.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-azuretools.vscode-azure-mcp-server-3.0.41.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: CC4428E103BADF93DFBA8D392C7077E1DA032C129CE7AE54951DE50C5B4EFA37
+   Expected SHA256: 339290CB99E7EDE4711AA7E7A7612E4878C1546373FDB978597694DB70A4F567
 
 ---
 SOFTWARE LICENSE:
