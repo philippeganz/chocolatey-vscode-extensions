@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-azure-dev</id><version>0.10.0</version><title>Visual Studio Code Extension - Azure Developer CLI</title><authors>ms-azuretools</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/azure/azure-dev.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/azure/azure-dev</projectSourceUrl><bugTrackerUrl>https://github.com/Azure/azure-dev/issues</bugTrackerUrl><docsUrl>https://github.com/azure/azure-dev#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azure-dev/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.azure-dev/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-azure-dev</id>
+    <version>0.10.0</version>
+    <title>Visual Studio Code Extension - Azure Developer CLI</title>
+    <authors>ms-azuretools</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/azure/azure-dev.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/azure/azure-dev</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Azure/azure-dev/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/azure/azure-dev#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azure-dev/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.azure-dev/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 # Azure Developer CLI Visual Studio Code extension
 
 This extension makes it easier to run, create Azure Resources, and deploy Azure applications with the Azure Developer CLI.
@@ -28,6 +44,16 @@ See [the contribution guidelines](https://github.com/azure/azure-dev/blob/HEAD/C
 [MIT](https://github.com/Azure/azure-dev/LICENSE.md)
 
 
-]]></description><summary>Makes it easy to run, provision, and deploy Azure applications using the Azure Developer CLI</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev#changelog</releaseNotes><tags>vscode extension azure-dev</tags><dependencies>
+]]></description>
+    <summary>Makes it easy to run, provision, and deploy Azure applications using the Azure Developer CLI</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev#changelog</releaseNotes>
+    <tags>vscode extension azure-dev</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
