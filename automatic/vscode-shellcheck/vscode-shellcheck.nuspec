@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-shellcheck</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/vscode-shellcheck/vscode-shellcheck.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/vscode-shellcheck/vscode-shellcheck</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/vscode-shellcheck/vscode-shellcheck/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/vscode-shellcheck/vscode-shellcheck#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-shellcheck/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/timonwong.shellcheck/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -119,7 +122,7 @@ Alternatively, you can fix all errors on demand by running the command _Fix All_
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=timonwong.shellcheck#changelog</releaseNotes>
     <tags>vscode extension shellcheck</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
