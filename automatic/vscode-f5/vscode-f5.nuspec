@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-f5</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/f5devcentral/vscode-f5.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/f5devcentral/vscode-f5</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/f5devcentral/vscode-f5/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/f5devcentral/vscode-f5/blob/HEAD/README.md</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-f5/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/f5devcentral.vscode-f5/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -57,17 +60,17 @@ Then install the extension following the steps below:
 
 Select the extensions view
 
-<img src="https://github.com/f5devcentral/vscode-f5/raw/HEAD/images/vscode_extensions_icon.PNG" alt="drawing" width="5%"/>
+
 
 Search for `F5`, select the extension "The F5 Extension", then `Install`
 
-<img src="https://github.com/f5devcentral/vscode-f5/raw/HEAD/images/installWithinCode_11.04.2020.gif" alt="drawing" width="80%"/>
+
 
 ## Create a device and connect
 
 Select `Add Host` in the `F5: Hosts` view.  Then type in device details in the \<user\>@x.x.x.x format, hit `Enter` to submit
 
-<img src="https://github.com/f5devcentral/vscode-f5/raw/HEAD/images/addDeviceConnect_11.04.2020.gif" alt="drawing" width="80%"/>
+
 
 ## Deploy example as3 app
 
@@ -87,7 +90,7 @@ Right-click in the editor and select `POST as AS3 Declaration`.  This should pos
 
 !> Please be sure to have the AS3 service installed prior.  See [ATC RPM Mgmt](https://github.com/f5devcentral/vscode-f5/blob/HEAD/atc_rpm_mgmt.md) for assistance with getting a service installed
 
-<img src="https://github.com/f5devcentral/vscode-f5/raw/HEAD/images/as3SnippetDemo_11.04.2020.gif" alt="drawing" width="80%"/>
+
 
 
 
@@ -104,11 +107,10 @@ HTTP/422 responses - Can happen for a handful of reasons:
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=F5DevCentral.vscode-f5) for full documentation]
 ]]></description>
     <summary>Supercharge your F5 automation development</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=f5devcentral.vscode-f5#changelog</releaseNotes>
-    <tags>vscode extension f5</tags>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=f5devcentral.vscode-f5#changelog</releaseNotes>
+    <tags>vscode extension vscode-f5</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
