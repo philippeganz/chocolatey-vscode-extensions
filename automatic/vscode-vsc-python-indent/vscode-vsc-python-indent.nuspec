@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-vsc-python-indent</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/kbrose/vsc-python-indent.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/kbrose/vsc-python-indent</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/kbrose/vsc-python-indent/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/kbrose/vsc-python-indent#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vsc-python-indent/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/kevinrose.vsc-python-indent/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
