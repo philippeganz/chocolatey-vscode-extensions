@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-jupyter-keymap</id>
@@ -6,8 +6,11 @@
     <title>Visual Studio Code Extension - Jupyter Keymap</title>
     <authors>ms-toolsai</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-jupyter-keymap</projectUrl>
+    <projectUrl>https://github.com/Microsoft/vscode-jupyter-keymap.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/vscode-jupyter-keymap</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/vscode-jupyter-keymap/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/vscode-jupyter-keymap#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-jupyter-keymap/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-toolsai.jupyter-keymap/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -40,11 +43,10 @@ Any use of third-party trademarks or logos are subject to those third-party's po
 
 ]]></description>
     <summary>Jupyter keymaps for notebooks</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-keymap#changelog</releaseNotes>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-keymap#changelog</releaseNotes>
     <tags>vscode extension jupyter-keymap</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
