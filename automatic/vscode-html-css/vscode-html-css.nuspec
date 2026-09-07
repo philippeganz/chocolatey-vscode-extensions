@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-html-css</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/ecmel/vscode-html-css.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/ecmel/vscode-html-css</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/ecmel/vscode-html-css/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/ecmel/vscode-html-css</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-html-css/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ecmel.vscode-html-css/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -122,11 +125,10 @@ Component's [static styles](https://lit.dev/docs/components/styles/) will be ava
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css) for full documentation]
 ]]></description>
     <summary>CSS Intellisense for HTML</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css#changelog</releaseNotes>
-    <tags>vscode extension html-css</tags>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css#changelog</releaseNotes>
+    <tags>vscode extension vscode-html-css</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>

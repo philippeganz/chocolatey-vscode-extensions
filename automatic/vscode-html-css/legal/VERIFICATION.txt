@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\ecmel.vscode-html-css-2.0.14.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: D080305FF28F87508A09010D733B439C291B6035A2A4ED3DCE5DD071BD513DF0
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/ecmel.vscode-html-css/license
