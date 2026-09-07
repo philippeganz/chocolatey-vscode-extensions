@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-bicep</id>
@@ -6,8 +6,11 @@
     <title>Visual Studio Code Extension - Bicep</title>
     <authors>ms-azuretools</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Azure/bicep</projectUrl>
+    <projectUrl>https://github.com/Azure/bicep.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Azure/bicep</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Azure/bicep/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Azure/bicep/blob/main/README.md</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-bicep/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-bicep/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -73,9 +76,8 @@ The bicep language service supports document symbols, which help power a broad s
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) for full documentation]
 ]]></description>
     <summary>Bicep language support for Visual Studio Code</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep#changelog</releaseNotes>
-    <tags>vscode extension bicep</tags>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep#changelog</releaseNotes>
+    <tags>vscode extension vscode-bicep</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-dotnet-runtime" />
