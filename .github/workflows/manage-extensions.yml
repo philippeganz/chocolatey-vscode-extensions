@@ -64,6 +64,7 @@ jobs:
           }
 
           Write-Host "Triggering Factory Engine for: $extId ($action)" -ForegroundColor Cyan
+          $env:PSModulePath = "$PWD/lib;$env:PSModulePath"
           ./bin/Manage-ExtensionPool.ps1 @splat
 
           # Export variables for downstream steps

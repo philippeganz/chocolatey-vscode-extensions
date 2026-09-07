@@ -148,8 +148,8 @@ jobs:
       - name: Upgrade Chocolatey
         run: choco upgrade chocolatey -y
 
-      - name: Install Chocolatey Community Validation Extension
-        run: choco install chocolatey-community-validation.extension -y --no-progress
+      - name: Install Chocolatey Dependencies & Test Prereqs
+        run: choco install chocolatey-community-validation.extension chocolatey-vscode.extension vscode -y --no-progress
 
       - name: Install PowerShell Modules
         shell: pwsh
@@ -164,6 +164,7 @@ jobs:
         shell: pwsh
         run: |
           Import-Module Pester -MinimumVersion 6.0.0 -Force
+          $env:PSModulePath = "$PWD/lib;$env:PSModulePath"
           $config = [PesterConfiguration]::Default
           $config.Run.Path = './tests'
           $config.Run.PassThru = $true
