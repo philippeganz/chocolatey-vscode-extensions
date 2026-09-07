@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-blackbox</id><version>2.8.53</version><title>Visual Studio Code Extension - BLACKBOXAI #1 AI Coding Agent and Coding Copilot</title><authors>Blackboxapp</authors><owners>philippe.ganz</owners><projectUrl>https://marketplace.visualstudio.com/items?itemName=blackboxapp.blackbox</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><bugTrackerUrl>https://www.useblackbox.io/</bugTrackerUrl><docsUrl>https://www.useblackbox.io/</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-blackbox/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/blackboxapp.blackbox/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-blackbox</id>
+    <version>2.8.53</version>
+    <title>Visual Studio Code Extension - BLACKBOXAI #1 AI Coding Agent and Coding Copilot</title>
+    <authors>Blackboxapp</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://marketplace.visualstudio.com/items?itemName=blackboxapp.blackbox</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <bugTrackerUrl>https://www.useblackbox.io/</bugTrackerUrl>
+    <docsUrl>https://www.useblackbox.io/</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-blackbox/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/blackboxapp.blackbox/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 # BLACKBOX AI for VS Code
 
 ## Claude Code, Codex, Gemini, Blackbox. All Agents in One.
@@ -59,6 +74,16 @@ Switch between 300+ models in one click. Claude Sonnet 4.6, GPT-5.4, Gemini 3.1 
 [![](https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/run-command.png)]()
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=Blackboxapp.blackbox) for full documentation]
-]]></description><summary>BLACKBOX AI is an AI coding assistant that helps developers  by providing real-time code completion, documentation, and debugging suggestions. BLACKBOX AI is also integrated with a variety of develope</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=blackboxapp.blackbox#changelog</releaseNotes><tags>vscode extension blackbox</tags><dependencies>
+]]></description>
+    <summary>BLACKBOX AI is an AI coding assistant that helps developers  by providing real-time code completion, documentation, and debugging suggestions. BLACKBOX AI is also integrated with a variety of develope</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=blackboxapp.blackbox#changelog</releaseNotes>
+    <tags>vscode extension blackbox</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
