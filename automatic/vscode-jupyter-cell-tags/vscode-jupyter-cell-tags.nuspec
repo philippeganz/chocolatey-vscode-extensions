@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-jupyter-cell-tags</id>
@@ -6,11 +6,13 @@
     <title>Visual Studio Code Extension - Jupyter Cell Tags</title>
     <authors>ms-toolsai</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-jupyter-cell-tags</projectUrl>
+    <projectUrl>https://github.com/Microsoft/vscode-jupyter-cell-tags.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/vscode-jupyter-cell-tags</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/vscode-jupyter-cell-tags/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/vscode-jupyter-cell-tags#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-jupyter-cell-tags/icon.png</iconUrl>
-    <licenseUrl>
-      https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-jupyter-cell-tags</licenseUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-toolsai.vscode-jupyter-cell-tags/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Jupyter Cell Tags support in VS Code
@@ -48,11 +50,10 @@ Any use of third-party trademarks or logos are subject to those third-party's po
 
 ]]></description>
     <summary>Jupyter Cell Tags support for VS Code</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-jupyter-cell-tags#changelog</releaseNotes>
-    <tags>vscode extension jupyter-cell-tags</tags>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-jupyter-cell-tags#changelog</releaseNotes>
+    <tags>vscode extension vscode-jupyter-cell-tags</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
