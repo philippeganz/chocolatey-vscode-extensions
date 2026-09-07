@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-azureappservice</id><version>0.27.0</version><title>Visual Studio Code Extension - Azure App Service</title><authors>ms-azuretools</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-azureappservice.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-azureappservice</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-azureappservice/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-azureappservice/blob/main/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-azureappservice/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureappservice/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-azureappservice</id>
+    <version>0.27.0</version>
+    <title>Visual Studio Code Extension - Azure App Service</title>
+    <authors>ms-azuretools</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/Microsoft/vscode-azureappservice.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/vscode-azureappservice</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/vscode-azureappservice/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/vscode-azureappservice/blob/main/README.md</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-azureappservice/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureappservice/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 # Azure App Service for Visual Studio Code (Preview)
 
 <!-- region exclude-from-marketplace -->
@@ -58,7 +74,17 @@ Click **Yes** if prompted to update your configuration to run `npm install` on t
 Once the deployment starts, you're prompted to update your workspace so that subsequent deploys from this workspace automatically deploy to the same App Service web app. Choose **Yes** to ensure your changes are deployed to the correct app - you can change this later by editing your workspace settings (in `.vscode/settings.json`).
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for full documentation]
-]]></description><summary>An Azure App Service management extension for Visual Studio Code.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice#changelog</releaseNotes><tags>vscode extension vscode-azureappservice</tags><dependencies>
+]]></description>
+    <summary>An Azure App Service management extension for Visual Studio Code.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice#changelog</releaseNotes>
+    <tags>vscode extension vscode-azureappservice</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-azureresourcegroups" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
