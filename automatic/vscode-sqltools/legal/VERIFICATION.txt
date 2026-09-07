@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\mtxr.sqltools-0.28.6.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: 4A95451FE41FF6DA67366E09E73DDF3A15B3CD83F42E49C3366F3C2473319085
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/mtxr.sqltools/license
