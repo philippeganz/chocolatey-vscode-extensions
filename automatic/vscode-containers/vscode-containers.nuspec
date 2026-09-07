@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-containers</id><version>2.5.0</version><title>Visual Studio Code Extension - Container Tools</title><authors>ms-azuretools</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-containers.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-containers</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-containers/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/vscode-containers/blob/main/extensions/vscode-containers/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-containers/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-containers/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-containers</id>
+    <version>2.5.0</version>
+    <title>Visual Studio Code Extension - Container Tools</title>
+    <authors>ms-azuretools</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/microsoft/vscode-containers.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/microsoft/vscode-containers</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/microsoft/vscode-containers/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/microsoft/vscode-containers/blob/main/extensions/vscode-containers/README.md</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-containers/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-containers/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 ## Container Tools for Visual Studio Code
 
 The Container Tools extension makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. It also provides one-click debugging of Node.js, Python, and .NET inside a container.
@@ -43,6 +59,16 @@ The Container Tools extension contributes a Container Explorer view to VS Code. 
 The right-click menu provides access to commonly used commands for each type of asset.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) for full documentation]
-]]></description><summary>Makes it easy to create, manage, and debug containerized applications.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers#changelog</releaseNotes><tags>vscode extension vscode-containers</tags><dependencies>
+]]></description>
+    <summary>Makes it easy to create, manage, and debug containerized applications.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers#changelog</releaseNotes>
+    <tags>vscode extension vscode-containers</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
