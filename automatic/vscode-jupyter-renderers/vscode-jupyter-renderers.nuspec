@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-jupyter-renderers</id>
@@ -6,8 +6,11 @@
     <title>Visual Studio Code Extension - Jupyter Notebook Renderers</title>
     <authors>ms-toolsai</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-notebook-renderers</projectUrl>
+    <projectUrl>https://github.com/Microsoft/vscode-notebook-renderers.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/vscode-notebook-renderers</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/vscode-notebook-renderers/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/vscode-notebook-renderers</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-jupyter-renderers/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-toolsai.jupyter-renderers/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -16,7 +19,7 @@
 
 A [Visual Studio Code](https://code.visualstudio.com/) extension that provides renderers for outputs of [Jupyter Notebooks](https://jupyter.org/).
 
-<img src=https://raw.githubusercontent.com/microsoft/vscode-notebook-renderers/main/images/sample.png>
+
 
 # Getting Started
 * Install this extension
@@ -60,11 +63,10 @@ contact [[email removed]](mailto:[email removed]) with any additional questions 
 
 ]]></description>
     <summary>Renderers for Jupyter Notebooks (with plotly, vega, gif, png, svg, jpeg and other such outputs)</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-renderers#changelog</releaseNotes>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-renderers#changelog</releaseNotes>
     <tags>vscode extension jupyter-renderers</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
