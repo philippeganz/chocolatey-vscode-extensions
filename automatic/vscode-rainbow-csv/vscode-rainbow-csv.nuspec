@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-rainbow-csv</id>
@@ -6,8 +6,11 @@
     <title>Visual Studio Code Extension - Rainbow CSV</title>
     <authors>mechatroner</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/mechatroner/vscode_rainbow_csv</projectUrl>
+    <projectUrl>https://github.com/mechatroner/vscode_rainbow_csv.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/mechatroner/vscode_rainbow_csv</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/mechatroner/vscode_rainbow_csv/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/mechatroner/vscode_rainbow_csv#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-rainbow-csv/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/mechatroner.rainbow-csv/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -85,11 +88,10 @@ To recheck a CSV file, click the "CSVLint" button in the status bar.
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv) for full documentation]
 ]]></description>
     <summary>Highlight CSV and TSV files, Run SQL-like queries</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv#changelog</releaseNotes>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv#changelog</releaseNotes>
     <tags>vscode extension rainbow-csv</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>

@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\mechatroner.rainbow-csv-3.24.1.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: C59A4AEA924D5E7C6E75ABB32628448BD5404915E2F3DFA19FBBDF177DEA4606
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/mechatroner.rainbow-csv/license
