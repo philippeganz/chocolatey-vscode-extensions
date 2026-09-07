@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-rust-analyzer</id><version>0.4.3038</version><title>Visual Studio Code Extension - rust-analyzer</title><authors>rust-lang</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/rust-lang/rust-analyzer.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/rust-lang/rust-analyzer</projectSourceUrl><bugTrackerUrl>https://github.com/rust-lang/rust-analyzer/issues</bugTrackerUrl><docsUrl>https://rust-analyzer.github.io/</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-rust-analyzer/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/rust-lang.rust-analyzer/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-rust-analyzer</id>
+    <version>0.4.3040</version>
+    <title>Visual Studio Code Extension - rust-analyzer</title>
+    <authors>rust-lang</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/rust-lang/rust-analyzer.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/rust-lang/rust-analyzer</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/rust-lang/rust-analyzer/issues</bugTrackerUrl>
+    <docsUrl>https://rust-analyzer.github.io/</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-rust-analyzer/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/rust-lang.rust-analyzer/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 # rust-analyzer
 
 This extension provides support for the [Rust programming language](https://www.rust-lang.org/).
@@ -52,6 +68,16 @@ For usage and troubleshooting requests, please use the ["IDEs and Editors" categ
 
 See [rust-analyzer.github.io](https://rust-analyzer.github.io/) for more information.
 
-]]></description><summary>Rust language support for Visual Studio Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer#changelog</releaseNotes><tags>vscode extension rust-analyzer</tags><dependencies>
+]]></description>
+    <summary>Rust language support for Visual Studio Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer#changelog</releaseNotes>
+    <tags>vscode extension rust-analyzer</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
