@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-language-pack-pt-br</id><version>1.131.2026090407</version><title>Visual Studio Code Extension - Portuguese (Brazil) Language Pack for Visual Studio Code</title><authors>MS-CEINTL</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-loc.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-loc</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-loc/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-loc#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-language-pack-pt-br/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-ceintl.vscode-language-pack-pt-br/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-language-pack-pt-br</id>
+    <version>1.131.2026090407</version>
+    <title>Visual Studio Code Extension - Portuguese (Brazil) Language Pack for Visual Studio Code</title>
+    <authors>MS-CEINTL</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/Microsoft/vscode-loc.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/vscode-loc</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/vscode-loc/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/vscode-loc#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-language-pack-pt-br/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-ceintl.vscode-language-pack-pt-br/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 #  Pacote de Idioma Português Brasileiro para VS Code
 
 O Pacote de Idioma Português Brasileiro fornece uma Interface de Usuário (UI) localizada para o VS Code.
@@ -102,6 +118,16 @@ The source code and strings are licensed under the [MIT](https://github.com/Micr
 ## Credits
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-pt-BR) for full documentation]
-]]></description><summary>Language pack extension for Portuguese (Brazil)</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-pt-br#changelog</releaseNotes><tags>vscode extension vscode-language-pack-pt-br</tags><dependencies>
+]]></description>
+    <summary>Language pack extension for Portuguese (Brazil)</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-pt-br#changelog</releaseNotes>
+    <tags>vscode extension vscode-language-pack-pt-br</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
