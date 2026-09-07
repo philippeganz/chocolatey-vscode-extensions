@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-liveserver</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/ritwickdey/vscode-live-server.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/ritwickdey/vscode-live-server</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/ritwickdey/vscode-live-server/issues</bugTrackerUrl>
+    <docsUrl>https://ritwickdey.github.io/vscode-live-server/</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-liveserver/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ritwickdey.LiveServer/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -24,10 +27,12 @@ _[Wanna try [LIVE SERVER++](https://github.com/ritwickdey/vscode-live-server-plu
 
 [![VSCode Marketplace](https://img.shields.io/vscode-marketplace/v/ritwickdey.LiveServer.svg?style=flat-square&label=vscode%20marketplace)](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) [![Total Installs](https://img.shields.io/vscode-marketplace/d/ritwickdey.LiveServer.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) [![Avarage Rating](https://img.shields.io/vscode-marketplace/r/ritwickdey.LiveServer.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)  
 [![Travis branch](https://img.shields.io/travis/ritwickdey/vscode-live-server/master.svg?style=flat-square&label=travis%20branch)](https://travis-ci.org/ritwickdey/vscode-live-server) [![Appveyor branch](https://img.shields.io/appveyor/ci/ritwickdey/vscode-live-server.svg?style=flat-square&label=appveyor%20branch)](https://ci.appveyor.com/project/ritwickdey/vscode-live-server) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/ritwickdey/vscode-live-server/) 
-<br>
+
+
 
 **Launch a local development server with live reload feature for static & dynamic pages.**
-<br>
+
+
 
 ![Live Server Demo VSCode](https://github.com/ritwickdey/vscode-live-server/raw/HEAD/images/Screenshot/vscode-live-server-animated-demo.gif)
 
@@ -51,11 +56,10 @@ _[Wanna try [LIVE SERVER++](https://github.com/ritwickdey/vscode-live-server-plu
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for full documentation]
 ]]></description>
     <summary>Launch a development local Server with live reload feature for static &amp; dynamic pages</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer#changelog</releaseNotes>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer#changelog</releaseNotes>
     <tags>vscode extension liveserver</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
