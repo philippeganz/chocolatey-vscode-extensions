@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-fabric8-analytics</id>
@@ -6,8 +6,11 @@
     <title>Visual Studio Code Extension - Red Hat Dependency Analytics</title>
     <authors>redhat</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/fabric8-analytics/fabric8-analytics-vscode-extension</projectUrl>
+    <projectUrl>https://github.com/fabric8-analytics/fabric8-analytics-vscode-extension.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/fabric8-analytics/fabric8-analytics-vscode-extension</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/fabric8-analytics/fabric8-analytics-vscode-extension/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/fabric8-analytics/fabric8-analytics-vscode-extension/blob/main/README.md</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-fabric8-analytics/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/redhat.fabric8-analytics/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -18,10 +21,12 @@
 ![CI](https://github.com/fabric8-analytics/fabric8-analytics-vscode-extension/workflows/CI/badge.svg?branch=main)
 [![Codecov](https://codecov.io/gh/fabric8-analytics/fabric8-analytics-vscode-extension/branch/main/graph/badge.svg?token=rHIO4KNlJ0)](https://codecov.io/gh/fabric8-analytics/fabric8-analytics-vscode-extension)
 
-<br >Red Hat's Dependency Analytics (RHDA) extension gives you awareness to security concerns within your software supply chain while you code your application.
+
+Red Hat's Dependency Analytics (RHDA) extension gives you awareness to security concerns within your software supply chain while you code your application.
 The Red Hat Dependency Analytics extension uses vulnerability data sources for the most up-to-date vulnerability information available.
 
-<br >Dependency Analytics supports the following project ecosystems:
+
+Dependency Analytics supports the following project ecosystems:
 - Maven
 - NPM
 - PNPM
@@ -31,7 +36,8 @@ The Red Hat Dependency Analytics extension uses vulnerability data sources for t
 - Gradle (Kotlin / Groovy DSL)
 - Rust (Cargo)
 
-<br >**NOTE:**
+
+**NOTE:**
 The Red Hat Dependency Analytics extension is an online service hosted and maintained by Red Hat.
 Red Hat Dependency Analytics only accesses your manifest files to analyze your application dependencies before displaying the vulnerability report.
 
@@ -79,11 +85,10 @@ When a specific path is configured in the settings, it takes precedence over the
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=redhat.fabric8-analytics) for full documentation]
 ]]></description>
     <summary>Provides insights on security vulnerabilities and license compatibility in your application dependencies.</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=redhat.fabric8-analytics#changelog</releaseNotes>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.fabric8-analytics#changelog</releaseNotes>
     <tags>vscode extension fabric8-analytics</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
