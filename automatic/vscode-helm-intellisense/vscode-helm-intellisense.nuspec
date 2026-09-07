@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-helm-intellisense</id>
@@ -6,14 +6,17 @@
     <title>Visual Studio Code Extension - Helm Intellisense</title>
     <authors>Tim-Koehler</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/tim-koehler/Helm-Intellisense</projectUrl>
+    <projectUrl>https://github.com/tim-koehler/Helm-Intellisense.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/tim-koehler/Helm-Intellisense</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/tim-koehler/Helm-Intellisense/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/tim-koehler/Helm-Intellisense#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-helm-intellisense/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/tim-koehler.helm-intellisense/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-<h1 align="center">Helm-Intellisense</h1>
-<div align="center">
+Helm-Intellisense
+
 
 ![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/Tim-Koehler.helm-intellisense?style=flat-square)
 ![Visual Studio Marketplace Rating (Stars)](https://img.shields.io/visual-studio-marketplace/stars/Tim-Koehler.helm-intellisense?style=flat-square)
@@ -23,7 +26,7 @@
 ### Extension to help writing Helm-Templates by providing intellisense
 
 ![Demo Gif](https://imgur.com/pC2vuoN.gif) 
-</div>
+
 
 ## Features
 
@@ -46,9 +49,11 @@
 
 | Setting                                   | Description
 |:------------------------------------------|:----------------------------------------------------------------------------------------
-| `helm-intellisense.customValueFileNames`  | Defines list of possible files containing values<br>(default: `values.yaml`)
+| `helm-intellisense.customValueFileNames`  | Defines list of possible files containing values
+(default: `values.yaml`)
 | `helm-intellisense.lintFileOnSave`        | If set to `true` the `Helm-Intellisense: Lint` command will be executed on save (default: `true`)
-| `helm-intellisense.excludeFromLinting`    | Define a list of filenames which should be excluded from linting.<br> Wildcards are also possible (Example: `*.gotmpl`)
+| `helm-intellisense.excludeFromLinting`    | Define a list of filenames which should be excluded from linting.
+ Wildcards are also possible (Example: `*.gotmpl`)
 
 ## Multiple value files (overriding)
 
@@ -64,11 +69,10 @@ In this case values will be overwritten/merged by dev and dev by prod. This also
 
 ]]></description>
     <summary>This extension provides intellisense for helm templates</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=tim-koehler.helm-intellisense#changelog</releaseNotes>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=tim-koehler.helm-intellisense#changelog</releaseNotes>
     <tags>vscode extension helm-intellisense</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
