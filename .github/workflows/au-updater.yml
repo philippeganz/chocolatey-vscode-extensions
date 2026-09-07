@@ -105,14 +105,14 @@ jobs:
               Import-Module powershell-yaml
               # ConvertFrom-Yaml on a file with just list items returns an array of strings
               $newDeps = Get-Content $scaffoldFile -Raw -Encoding UTF8 | ConvertFrom-Yaml
-              
+
               if ($newDeps) {
                   Write-Host "Found new dependencies to scaffold: $($newDeps | Select-Object -Unique -join ', ')"
-                  
+
                   # Run the Factory to scaffold them all at once and auto-commit
                   $factoryPath = Join-Path $PWD "bin\Manage-ExtensionPool.ps1"
                   & $factoryPath -Add $newDeps -AutoCommit
-                  
+
                   Write-Host "Pushing new dependency scaffolds to main..."
                   git push origin main
               }
