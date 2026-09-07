@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-jupyter-hub</id><version>2025.8.2026082101</version><title>Visual Studio Code Extension - JupyterHub</title><authors>ms-toolsai</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-jupyter-hub.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-jupyter-hub</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-jupyter-hub/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-jupyter-hub</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-jupyter-hub/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-toolsai.jupyter-hub/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-jupyter-hub</id>
+    <version>2025.8.2026082101</version>
+    <title>Visual Studio Code Extension - JupyterHub</title>
+    <authors>ms-toolsai</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/Microsoft/vscode-jupyter-hub.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/vscode-jupyter-hub</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/vscode-jupyter-hub/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/vscode-jupyter-hub</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-jupyter-hub/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-toolsai.jupyter-hub/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 # JupyterHub Extension for Visual Studio Code
 
 A [Visual Studio Code](https://code.visualstudio.com/) [extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) that integrates with the Jupyter Extension allowing user to connect and execute code against kernels running on [JupyterHub](https://jupyter.org/hub).
@@ -33,7 +49,17 @@ trademarks or logos is subject to and must follow
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
 
-]]></description><summary>Support for connecting to Jupyter Hub in VS Code along with the Jupyter Extension</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-hub#changelog</releaseNotes><tags>vscode extension jupyter-hub</tags><dependencies>
+]]></description>
+    <summary>Support for connecting to Jupyter Hub in VS Code along with the Jupyter Extension</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-hub#changelog</releaseNotes>
+    <tags>vscode extension jupyter-hub</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-jupyter" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
