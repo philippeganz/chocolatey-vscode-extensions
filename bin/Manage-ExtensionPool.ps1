@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 
 <#
 .SYNOPSIS
@@ -7,12 +7,12 @@
 .DESCRIPTION
     A state-aware CLI that acts as the single entry point for adding, removing, and
     auditing Chocolatey VS Code extensions in this repository. It natively manages
-    the config.yaml file and delegates scaffolding logic to the backend Factory API.
+    the extensions.yaml file and delegates scaffolding logic to the backend Factory API.
 
     Features:
     - Add/Remove extensions with complete lifecycle and state management.
     - Search the VS Code Marketplace API directly from the terminal.
-    - Audit local directories against config.yaml tracking state.
+    - Audit local directories against extensions.yaml tracking state.
     - Scan for stale packages on the Chocolatey Community Feed.
 
 .PARAMETER Add
@@ -21,7 +21,7 @@
 
 .PARAMETER Remove
     An array of extension identifiers to cleanly remove from the pool.
-    Deletes the local scaffolding directory and removes the entry from config.yaml.
+    Deletes the local scaffolding directory and removes the entry from extensions.yaml.
 
 .PARAMETER Search
     A string query to search the live VS Code Marketplace API directly from the terminal.
@@ -31,9 +31,15 @@
     Queries the public Chocolatey Community Feed to identify packages in our pool
     that are potentially out of sync or missing from the gallery.
 
+.PARAMETER AutoCommit
+    If specified alongside -Add or -Remove, automatically performs a git commit using the generic Checkpoint-GitRepository module after the operation completes.
+
+.PARAMETER CheckAge
+    Queries the VS Code Marketplace API in bulk to identify active extensions that haven't received an update from their publisher in over 3 years (abandoned extensions).
+
 .PARAMETER Audit
     Validates the local state of the 'automatic/' directory against the declared
-    state in 'config.yaml', identifying ghost packages or missing scaffolding.
+    state in 'extensions.yaml', identifying ghost packages or missing scaffolding.
 
 .EXAMPLE
     .\Manage-ExtensionPool.ps1 -Search "python"
@@ -49,12 +55,13 @@
 
 .NOTES
     This script is the human-facing orchestrator. It safely bridges the gap between the
-    Factory (`Invoke-ExtensionFactory.ps1`) and the Shredder (`Invoke-ExtensionShredder.ps1`).
+    Factory (`Add-VSCodeExtension`) and the Shredder (`Remove-VSCodeExtension`).
 #>
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Write-Host is required for CI/CD logging and workflow orchestration')]
+
 [CmdletBinding(DefaultParameterSetName = 'None')]
 param (
     [Parameter(ParameterSetName = 'Add', Mandatory = $true)]
+    [ValidateNotNullOrEmpty()]
     [string[]]$Add,
 
     [Parameter(ParameterSetName = 'Add', Mandatory = $false)]
@@ -62,6 +69,7 @@ param (
     [switch]$Force,
 
     [Parameter(ParameterSetName = 'Remove', Mandatory = $true)]
+    [ValidateNotNullOrEmpty()]
     [string[]]$Remove,
 
     [Parameter(ParameterSetName = 'Add', Mandatory = $false)]
@@ -69,6 +77,7 @@ param (
     [switch]$AutoCommit,
 
     [Parameter(ParameterSetName = 'Search', Mandatory = $true)]
+    [ValidateNotNullOrWhiteSpace()]
     [string]$Search,
 
     [Parameter(ParameterSetName = 'CheckStale', Mandatory = $true)]
@@ -89,36 +98,40 @@ param (
 # Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
 
-$ProjectRoot = (Resolve-Path "$PSScriptRoot\..").Path
-
 # =============================================================================
 # Import Modules
 # =============================================================================
-Import-Module "$ProjectRoot\lib\CoreHelpers.psm1"
-Import-Module "$ProjectRoot\lib\ConfigHelpers.psm1"
-Import-Module "$ProjectRoot\lib\VsCodeMarketplace.psm1"
+$env:PSModulePath = "$PSScriptRoot\..\lib;$env:PSModulePath"
+Import-Module ChocoVSCodeCore
+Import-Module ChocoVSCodeMarketplace
+Import-Module ChocoVSCodeExtensionManager
 
 # =============================================================================
 # 1. State Initialization
 # =============================================================================
-# Load config.yaml safely
-$configPath = [System.IO.Path]::GetFullPath((Join-Path $ProjectRoot "var\state\config.yaml"))
+# Load extensions.yaml safely
+$repoRoot = (Split-Path $PSScriptRoot -Parent)
+$StatePath = Join-Path $repoRoot "var\state\extensions.yaml"
+$AutomaticDir = Join-Path $repoRoot "automatic"
+$TemplatesDir = Join-Path $repoRoot "etc\templates"
 
 # =============================================================================
 # 2. Execution Logic
 # =============================================================================
 if ($PSCmdlet.ParameterSetName -eq 'Add') {
     Write-Info "Executing Pre-flight Checks for Add Operation..."
-    $state = Get-ConfigState -ConfigPath $configPath
+    $state = [System.Collections.Generic.List[string]]::new([string[]](Get-ChocoVSCodeExtensionState -StatePath $StatePath))
 
-    $addList = [System.Collections.Generic.List[string]]::new($Add)
+    # Natively deduplicate the input array to prevent redundant validation loops
+    [string[]]$uniqueAdd = $Add | Select-Object -Unique
+    $addList = [System.Collections.Generic.List[string]]::new($uniqueAdd)
     for ($i = 0; $i -lt $addList.Count; $i++) {
         $id = $addList[$i]
         $cleanId = $id.ToLower()
 
-        Write-Cyan "`n================================================================================"
-        Write-Cyan " QUEUED: $cleanId"
-        Write-Cyan "================================================================================"
+        Write-StyledMessage -Color Cyan -Message "`n================================================================================"
+        Write-StyledMessage -Color Cyan -Message " QUEUED: $cleanId"
+        Write-StyledMessage -Color Cyan -Message "================================================================================"
 
         $parts = $cleanId -split '\.'
         if ($parts.Count -ne 2) {
@@ -126,7 +139,13 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
             continue
         }
 
-        if ($state.Extensions.Contains($cleanId)) {
+        # Strict Regex validation according to VS Code Marketplace rules
+        if ($cleanId -notmatch '^[a-z0-9-]+\.[a-z0-9-]+$') {
+            Write-Err "Invalid characters in '$cleanId'. Publisher and Extension names must contain only lowercase alphanumeric characters and hyphens."
+            continue
+        }
+
+        if (($state.Contains($cleanId))) {
             if ($Force) {
                 Write-Info "Extension '$cleanId' is already tracked, but -Force was requested. Regenerating..."
             }
@@ -146,35 +165,37 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
                         continue
                     }
                     else {
-                        Write-Yellow "Extension '$cleanId' is deprecated, but -Force was specified. Proceeding."
+                        Write-StyledMessage -Color Yellow -Message "Extension '$cleanId' is deprecated, but -Force was specified. Proceeding."
                     }
                 }
 
                 Write-Success "Verified '$cleanId' exists on the VS Code Marketplace!"
 
-                $baseAuto = Get-AutomaticDirectory
-                $pkgName = Get-ChocoPackageName $cleanId
+                $baseAuto = $AutomaticDir
+                $pkgName = Get-ChocoVSCodePackageName $cleanId
                 if ((Test-Path (Join-Path $baseAuto $pkgName)) -and (-not $Force)) {
                     Write-Err "Package directory '$pkgName' already exists but is not tracked. Aborting to prevent adoption of unverified files. Use -Force to overwrite."
                     continue
                 }
 
-                if (-not $state.Extensions.Contains($cleanId)) {
-                    $state.Extensions.Add($cleanId)
+                if (-not ($state.Contains($cleanId))) {
+                    $state.Add($cleanId)
                 }
 
                 Write-Info "Invoking Factory API for scaffolding $cleanId..."
                 $factoryParams = @{
-                    ExtensionId = @($cleanId)
-                    Force       = $Force.IsPresent
+                    ExtensionId  = $cleanId
+                    StatePath    = $StatePath
+                    AutomaticDir = $AutomaticDir
+                    TemplatesDir = $TemplatesDir
+                    Force        = $Force.IsPresent
                 }
-                $factoryPath = Join-Path $PSScriptRoot "Invoke-ExtensionFactory.ps1"
-                $discoveredDeps = & $factoryPath @factoryParams
+                $discoveredDeps = Add-VSCodeExtension @factoryParams
 
                 # Save state
-                Save-ConfigState -ConfigPath $configPath -ExtensionsList $state.Extensions
+                Save-ChocoVSCodeExtensionState -StatePath $StatePath -ExtensionsList $state
                 if ($AutoCommit) {
-                    Invoke-GitAutoCommit -ExtensionId $cleanId -CommitMessage "Add new $cleanId extension"
+                    Checkpoint-GitRepository -ExtensionId $cleanId -CommitMessage "Add new $cleanId extension"
                 }
 
                 # --------------------------------------------------------------------------------
@@ -191,7 +212,7 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
                     foreach ($dep in $discoveredDeps) {
                         $depLower = $dep.ToLower()
                         if (-not $addList.Contains($depLower)) {
-                            Write-Magenta "`n    [POOL] Discovered untracked dependency '$depLower'. Queueing..."
+                            Write-StyledMessage -Color Magenta -Message "`n    [POOL] Discovered untracked dependency '$depLower'. Queueing..."
                             $addList.Add($depLower)
                         }
                     }
@@ -213,13 +234,14 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
         $cleanId = $id.ToLower()
         Write-Info "Invoking Shredder for removal of $cleanId..."
         $shredderParams = @{
-            ExtensionId = @($cleanId)
-            Force       = $Force.IsPresent
+            ExtensionId  = @($cleanId)
+            StatePath    = $StatePath
+            AutomaticDir = $AutomaticDir
+            Force        = $Force.IsPresent
         }
-        $shredderPath = Join-Path $PSScriptRoot "Invoke-ExtensionShredder.ps1"
-        & $shredderPath @shredderParams
+        Remove-VSCodeExtension @shredderParams
         if ($AutoCommit) {
-            Invoke-GitAutoCommit -ExtensionId $cleanId -CommitMessage "Remove $cleanId extension"
+            Checkpoint-GitRepository -ExtensionId $cleanId -CommitMessage "Remove $cleanId extension"
         }
     }
 }
@@ -264,7 +286,7 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Search') {
 }
 elseif ($CheckStale) {
     Write-Info "Scanning Chocolatey Community API for stale packages (> 3 months old)..."
-    $autoDir = Get-AutomaticDirectory
+    $autoDir = $AutomaticDir
     if (-not (Test-Path $autoDir)) { throw "Automatic directory not found." }
     $packages = (Get-ChildItem -Path $autoDir -Directory).Name
 
@@ -314,14 +336,14 @@ elseif ($CheckStale) {
 }
 elseif ($CheckAge) {
     Write-Info "Scanning VS Code Marketplace for abandoned extensions (> 3 years old)..."
-    $state = Get-ConfigState -ConfigPath $configPath
+    $state = [System.Collections.Generic.List[string]]::new([string[]](Get-ChocoVSCodeExtensionState -StatePath $StatePath))
     $cutoff = (Get-Date).AddYears(-3)
 
     $results = [System.Collections.Generic.List[PSCustomObject]]::new()
 
     # Query Marketplace API in chunks of 50
     $chunkSize = 50
-    $total = $state.Extensions.Count
+    $total = $state.Count
     $marketplaceBaseUrl = "https://marketplace.visualstudio.com"
     $url = "$marketplaceBaseUrl/_apis/public/gallery/extensionquery"
     $headers = @{
@@ -330,7 +352,7 @@ elseif ($CheckAge) {
     }
 
     for ($i = 0; $i -lt $total; $i += $chunkSize) {
-        $chunk = $state.Extensions | Select-Object -Skip $i -First $chunkSize
+        $chunk = $state | Select-Object -Skip $i -First $chunkSize
         $criteria = @()
         foreach ($ext in $chunk) {
             $criteria += @{ filterType = 7; value = $ext }
@@ -378,13 +400,13 @@ elseif ($CheckAge) {
 }
 elseif ($Audit) {
     Write-Info "Auditing state configuration against local directory structures..."
-    $state = Get-ConfigState -ConfigPath $configPath
-    $autoDir = Get-AutomaticDirectory
+    $state = [System.Collections.Generic.List[string]]::new([string[]](Get-ChocoVSCodeExtensionState -StatePath $StatePath))
+    $autoDir = $AutomaticDir
     $directories = if (Test-Path $autoDir) { (Get-ChildItem -Path $autoDir -Directory).Name } else { @() }
 
     $expectedDirs = [System.Collections.Generic.List[string]]::new()
-    foreach ($id in $state.Extensions) {
-        $pkgName = Get-ChocoPackageName $id
+    foreach ($id in $state) {
+        $pkgName = Get-ChocoVSCodePackageName $id
         if ($pkgName) {
             $expectedDirs.Add($pkgName)
         }
@@ -405,15 +427,15 @@ elseif ($Audit) {
     }
 
     if ($orphans.Count -gt 0) {
-        Write-Err "Found $($orphans.Count) orphaned directories in /automatic that are NOT tracked in config.yaml:"
-        $orphans | ForEach-Object { Write-Red "    - $_" }
+        Write-Err "Found $($orphans.Count) orphaned directories in /automatic that are NOT tracked in extensions.yaml:"
+        $orphans | ForEach-Object { Write-StyledMessage -Color Red -Message "    - $_" }
     }
     if ($missing.Count -gt 0) {
         Write-Err "Found $($missing.Count) tracked packages missing their /automatic directory scaffolds:"
-        $missing | ForEach-Object { Write-Red "    - $_" }
+        $missing | ForEach-Object { Write-StyledMessage -Color Red -Message "    - $_" }
     }
     if ($orphans.Count -eq 0 -and $missing.Count -eq 0) {
-        Write-Success "Audit Complete! The config.yaml state perfectly matches the local directory scaffolds."
+        Write-Success "Audit Complete! The extensions.yaml state perfectly matches the local directory scaffolds."
     }
 }
 else {
