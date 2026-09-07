@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-cpp-devtools</id><version>0.7.0</version><title>Visual Studio Code Extension - C/C++ DevTools</title><authors>ms-vscode</authors><owners>philippe.ganz</owners><projectUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-cpp-devtools/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.cpp-devtools/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-cpp-devtools</id>
+    <version>0.7.0</version>
+    <title>Visual Studio Code Extension - C/C++ DevTools</title>
+    <authors>ms-vscode</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-cpp-devtools/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.cpp-devtools/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 # C/C++ DevTools
 
 The C/C++ DevTools extension exposes C++ language and CMake build tooling as tools that **GitHub Copilot's agent mode** can invoke. It integrates with the [C/C++](https://github.com/microsoft/vscode-cpptools/) and [CMake Tools](https://github.com/microsoft/vscode-cmake-tools/) extensions to give Copilot deep, symbol-level awareness of your codebase and your active CMake build configuration.
@@ -44,6 +57,16 @@ To report issues or share feedback, please file them in the appropriate reposito
 
 This extension collects usage data and sends it to Microsoft to help improve our products and services. Collection of telemetry is controlled via the same setting provided by Visual Studio Code: `"telemetry.enableTelemetry"`. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkId=521839) to learn more.
 
-]]></description><summary>Enhanced development tools for C++ in VS Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools#changelog</releaseNotes><tags>vscode extension cpp-devtools</tags><dependencies>
+]]></description>
+    <summary>Enhanced development tools for C++ in VS Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools#changelog</releaseNotes>
+    <tags>vscode extension cpp-devtools</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
