@@ -1,5 +1,5 @@
-﻿[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification = 'Variables are declared for AU hooks and module scope but not read within this script block')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Required for module state propagation')]
 param()
-$ExtensionPublisher = "vscjava"
-$ExtensionName = "vscode-gradle"
-. "$PSScriptRoot\..\..\bin\AuExtensionHooks.ps1"
+$global:ExtensionPublisher = "vscjava"
+$global:ExtensionName = "vscode-gradle"
+. "$PSScriptRoot\..\..\bin\Update-ExtensionPackage.ps1"
