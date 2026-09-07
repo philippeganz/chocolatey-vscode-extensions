@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-intelephense-client</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/bmewburn/vscode-intelephense.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/bmewburn/vscode-intelephense</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/bmewburn/vscode-intelephense/issues</bugTrackerUrl>
+    <docsUrl>https://intelephense.com</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-intelephense-client/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/bmewburn.vscode-intelephense-client/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -61,7 +64,7 @@ The language server (intelephense) is proprietary. Please see [here](https://git
 ]]></description>
     <summary>PHP code intelligence for Visual Studio Code</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client#changelog</releaseNotes>
-    <tags>vscode extension intelephense-client</tags>
+    <tags>vscode extension vscode-intelephense-client</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
