@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-django</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/vscode-django/vscode-django.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/vscode-django/vscode-django</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/vscode-django/vscode-django/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/vscode-django/vscode-django</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-django/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/batisteo.vscode-django/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -115,7 +118,7 @@ Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F5</kbd> or 🔄 to reload.
 ]]></description>
     <summary>Beautiful syntax and scoped snippets for perfectionists with deadlines</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django#changelog</releaseNotes>
-    <tags>vscode extension django</tags>
+    <tags>vscode extension vscode-django</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
