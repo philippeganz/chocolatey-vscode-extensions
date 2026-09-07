@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\ms-vscode.js-debug-2022.8.1217.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: AE67E53507783AF806034CDB7AFA1CFE56165EDE399F3022558262C6E9C629E8
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/ms-vscode.js-debug/license
