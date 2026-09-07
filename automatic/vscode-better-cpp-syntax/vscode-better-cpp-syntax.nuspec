@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-better-cpp-syntax</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/jeff-hykin/better-cpp-syntax.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/jeff-hykin/better-cpp-syntax</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/jeff-hykin/better-cpp-syntax/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/jeff-hykin/better-cpp-syntax#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-better-cpp-syntax/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/jeff-hykin.better-cpp-syntax/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
