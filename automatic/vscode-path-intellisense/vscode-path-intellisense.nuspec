@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-path-intellisense</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/ChristianKohler/PathIntellisense.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/ChristianKohler/PathIntellisense</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/ChristianKohler/PathIntellisense/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/ChristianKohler/PathIntellisense</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-path-intellisense/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/christian-kohler.path-intellisense/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
