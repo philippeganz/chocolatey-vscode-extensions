@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-vim</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/VSCodeVim/Vim.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/VSCodeVim/Vim</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/VSCodeVim/Vim/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/VSCodeVim/Vim</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vim/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/vscodevim.vim/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
