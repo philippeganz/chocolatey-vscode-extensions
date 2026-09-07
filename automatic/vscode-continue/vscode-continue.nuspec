@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-continue</id><version>2.1.0</version><title>Visual Studio Code Extension - Continue - open-source AI code agent</title><authors>Continue</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/continuedev/continue.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/continuedev/continue</projectSourceUrl><bugTrackerUrl>https://github.com/continuedev/continue/issues</bugTrackerUrl><docsUrl>https://continue.dev</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-continue/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/continue.continue/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-continue</id>
+    <version>2.1.0</version>
+    <title>Visual Studio Code Extension - Continue - open-source AI code agent</title>
+    <authors>Continue</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/continuedev/continue.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/continuedev/continue</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/continuedev/continue/issues</bugTrackerUrl>
+    <docsUrl>https://continue.dev</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-continue/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/continue.continue/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 
 
 ![Continue logo](https://github.com/continuedev/continue/raw/HEAD/media/readme.png)
@@ -53,6 +69,16 @@ Continue
 ## License
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=Continue.continue) for full documentation]
-]]></description><summary>The leading open-source AI code agent</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=continue.continue#changelog</releaseNotes><tags>vscode extension continue</tags><dependencies>
+]]></description>
+    <summary>The leading open-source AI code agent</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=continue.continue#changelog</releaseNotes>
+    <tags>vscode extension continue</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
