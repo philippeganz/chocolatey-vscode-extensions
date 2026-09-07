@@ -1,12 +1,10 @@
-#Requires -Module powershell-yaml
-
 <#
 .SYNOPSIS
     Dynamically updates the Chocolatey .nuspec XML to append discovered extension dependencies.
 
 .DESCRIPTION
-    Scans the raw package.json of a VS Code extension for internal `extensionDependencies` or `extensionPacks` arrays.
-    It maps these dependencies to their Chocolatey package equivalents, appends them to the `<dependencies>` block of the .nuspec, and auto-queues missing ones to the Factory.
+    Scans the raw package.json of a VS Code extension for internal extensionDependencies or extensionPack arrays.
+    It maps these dependencies to their Chocolatey package equivalents, appends them to the <dependencies> block of the .nuspec, and auto-queues missing ones to the Factory.
 
 .PARAMETER NuspecXml
     An [xml] object representing the parsed .nuspec file.
@@ -17,11 +15,11 @@
 .PARAMETER PackageName
     The canonical Chocolatey package name currently being processed.
 
-.PARAMETER ConfigPath
-    The absolute path to the config.yaml tracker.
+.PARAMETER StatePath
+    The absolute path to the extensions.yaml tracker.
 
 .EXAMPLE
-    Update-NuspecDependency -NuspecXml $xml -PackageJson $json -ConfigPath "C:\var\state\config.yaml"
+    Update-NuspecDependency -NuspecXml $xml -PackageJson $json -PackageName "vscode-python" -StatePath "C:\var\state\extensions.yaml"
 
 .INPUTS
     None
@@ -34,17 +32,35 @@
     Mutates the passed XML object in memory. Prevents cyclic dependency loops natively.
 #>
 function Update-NuspecDependency {
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess = $true)]
     [OutputType([System.Collections.Generic.List[string]])]
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Justification = 'Function manages external state where ShouldProcess is handled internally')]
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Global variables are required for AU configuration and workflow state')]
-    param(
-        [Parameter(Mandatory = $true)][object]$NuspecXml,
+    param (
         [Parameter(Mandatory = $true)]
-        [AllowNull()]
-        [object]$PackageJson,
-        [Parameter(Mandatory = $true)][string]$ConfigPath
+        [ValidateNotNull()]
+        [object]
+        $NuspecXml,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNull()]
+        [object]
+        $PackageJson,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $PackageName,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $StatePath
     )
+
+    $missingDeps = [System.Collections.Generic.List[string]]::new()
+
+    if (-not $PSCmdlet.ShouldProcess("Nuspec XML for $PackageName", "Update Dependencies")) {
+        return $missingDeps
+    }
 
     $dependencyAliases = @{
         "vscode.docker"               = "ms-azuretools.vscode-docker"
@@ -67,17 +83,16 @@ function Update-NuspecDependency {
         $depsNode.RemoveAll()
     }
 
-    [void]$depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n      "))
+    [void]$depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("
+      "))
     $baseDep = $NuspecXml.CreateElement("dependency", $ns)
     $baseDep.SetAttribute("id", "chocolatey-vscode.extension")
     $baseDep.SetAttribute("version", "[1.1.0, 2.0.0)")
     [void]$depsNode.AppendChild($baseDep)
 
-    $config = Get-Content $ConfigPath -Raw -Encoding UTF8 | ConvertFrom-Yaml
+    $config = Get-ChocoVSCodeExtensionState -StatePath $StatePath
     $trackedExtensions = [System.Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
-    foreach ($ext in $config.extensions) { [void]$trackedExtensions.Add($ext) }
-
-    $missingDeps = [System.Collections.Generic.List[string]]::new()
+    foreach ($ext in $config) { [void]$trackedExtensions.Add($ext) }
 
     $processDep = {
         param($depRaw)
@@ -87,13 +102,14 @@ function Update-NuspecDependency {
         $depPackageName = if ($depName.StartsWith("vscode-")) { $depName } else { "vscode-$depName" }
 
         if ($depPackageName -ne $PackageName) {
-            [void]$depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n      "))
+            [void]$depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("
+      "))
             $depNode = $NuspecXml.CreateElement("dependency", $ns)
             $depNode.SetAttribute("id", $depPackageName)
             [void]$depsNode.AppendChild($depNode)
 
             if (-not $trackedExtensions.Contains($dep)) {
-                Write-Magenta "    [AUTO-DISCOVERY] Discovered untracked dependency: $dep"
+                Write-Info "[AUTO-DISCOVERY] Discovered untracked dependency: $dep"
                 $missingDeps.Add($dep)
                 [void]$trackedExtensions.Add($dep)
             }
@@ -107,11 +123,8 @@ function Update-NuspecDependency {
         foreach ($depRaw in $PackageJson.extensionPack) { & $processDep $depRaw }
     }
 
-    [void]$depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("`n    "))
+    [void]$depsNode.AppendChild($NuspecXml.CreateSignificantWhitespace("
+    "))
 
-    # Return the strongly-typed List[string] of missing dependencies so that
-    # the calling scope (Manage-ExtensionPool or AuExtensionHooks) can handle
-    # the orchestration (dynamic queueing or Fail/Defer strategy) appropriately.
     return $missingDeps
 }
-

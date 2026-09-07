@@ -13,6 +13,9 @@
 .PARAMETER OutFile
     The local destination path to save the .vsix archive.
 
+.PARAMETER LogMessage
+    Optional custom console message to display during the download phase.
+
 .EXAMPLE
     Invoke-RobustDownload -Url "https://example.com/payload.vsix" -OutFile "C:\temp\payload.vsix"
 
@@ -27,13 +30,24 @@
 #>
 function Invoke-RobustDownload {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Justification = 'Variables are consumed dynamically inside the dot-sourced ScriptBlock')]
+    [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $true)][string]$Url,
-        [Parameter(Mandatory = $true)][string]$OutFile,
-        [Parameter(Mandatory = $false)][string]$LogMessage = "Downloading VSIX Payload..."
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $Url,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $OutFile,
+
+        [Parameter(Mandatory = $false)]
+        [string]
+        $LogMessage = "Downloading VSIX Payload..."
     )
 
-    Write-White "    $LogMessage"
+    Write-Verbose $LogMessage
     Invoke-WithMarketplaceRetry -Action {
         Invoke-WebRequest -Uri $Url -OutFile $OutFile -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -TimeoutSec 600
     } -ErrorMessage "Download failed"

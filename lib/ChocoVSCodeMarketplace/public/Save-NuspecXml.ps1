@@ -24,10 +24,15 @@
 #>
 function Save-NuspecXml {
     [CmdletBinding()]
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Justification = 'Internal utility for saving files')]
-    param(
-        [Parameter(Mandatory = $true)][object]$NuspecXml,
-        [Parameter(Mandatory = $true)][string]$NuspecPath
+    param (
+        [Parameter(Mandatory = $true)]
+        [object]
+        $NuspecXml,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $NuspecPath
     )
 
     $NuspecXml.Save($NuspecPath)

@@ -28,12 +28,20 @@
     The truncation algorithm recursively unwinds the Markdown AST to find the cleanest cut-off point before 4000 bytes.
 #>
 function Expand-VsCodePayload {
+    [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $true)][string]$VsixPath,
-        [Parameter(Mandatory = $true)][string]$DestinationDir
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $VsixPath,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $DestinationDir
     )
 
-    Write-White "    Extracting Metadata from VSIX Archive..."
+    Write-Verbose "Extracting Metadata from VSIX Archive..."
     # Load the .NET Compression framework into the AppDomain to enable [System.IO.Compression.ZipFile] for parsing VSIX archive streams.
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     $zip = [System.IO.Compression.ZipFile]::OpenRead($VsixPath)

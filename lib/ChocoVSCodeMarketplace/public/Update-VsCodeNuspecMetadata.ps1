@@ -31,16 +31,21 @@
     The updated text string representing the injected .nuspec file content, ready to be written back to disk.
 #>
 function Update-VsCodeNuspecMetadata {
-    [CmdletBinding()]
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Justification = 'Function only performs string manipulation in memory')]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Matching external API or established domain terminology')]
+    [OutputType([string])]
+    [CmdletBinding(SupportsShouldProcess = $true)]
     param (
         [Parameter(Mandatory = $true)]
-        [string]$NuspecContent,
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $NuspecContent,
 
         [Parameter(Mandatory = $true)]
-        [hashtable]$Meta
+        [hashtable]
+        $Meta
     )
+
+    if (-not $PSCmdlet.ShouldProcess("Nuspec Metadata String", "Inject Resolved Metadata")) { return $NuspecContent }
 
     $NuspecContent = $NuspecContent -replace '(?is)<title>.*?</title>', "<title>$($Meta.Title)</title>"
     $NuspecContent = $NuspecContent -replace '(?is)<summary>.*?</summary>', "<summary>$($Meta.Summary)</summary>"

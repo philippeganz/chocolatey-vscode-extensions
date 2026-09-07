@@ -14,9 +14,6 @@
 .PARAMETER ExtensionName
     The canonical extension name.
 
-.PARAMETER Description
-    Optional pre-formatted Markdown description block to inject into the returned object.
-
 .EXAMPLE
     $nuspecMeta = Get-VsCodeNuspecMetadata -ExtMeta $extMeta -ExtensionPublisher "ms-python" -ExtensionName "python"
 
@@ -25,19 +22,29 @@
 
 .OUTPUTS
     [System.Collections.Hashtable]
-    Contains standard string properties: Title, Authors, ProjectUrl, Description, and Summary.
+    Contains standard string properties: Title, Authors, ProjectUrl, and Summary.
 
 .NOTES
     Critical for ensuring invalid ampersands or brackets do not break the `.nuspec` XML compilation.
 #>
 function Get-VsCodeNuspecMetadata {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Matching external API or established domain terminology')]
-    param(
+    [CmdletBinding()]
+    [OutputType([System.Collections.Hashtable])]
+    param (
         [Parameter(Mandatory = $true)]
-        [AllowNull()]
-        [object]$ExtMeta,
-        [Parameter(Mandatory = $true)][string]$ExtensionPublisher,
-        [Parameter(Mandatory = $true)][string]$ExtensionName
+        [object]
+        $ExtMeta,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $ExtensionPublisher,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $ExtensionName
     )
 
     function ConvertTo-XmlSafeString([string]$text) {
