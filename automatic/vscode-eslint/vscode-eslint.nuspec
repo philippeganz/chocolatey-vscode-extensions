@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-eslint</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-eslint.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/vscode-eslint</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/vscode-eslint/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/vscode-eslint#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-eslint/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -139,9 +142,8 @@ From version 2.2.3 on forward odd minor or patch version numbers indicate an ins
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) for full documentation]
 ]]></description>
     <summary>Integrates ESLint JavaScript into VS Code.</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint#changelog</releaseNotes>
-    <tags>vscode extension eslint</tags>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint#changelog</releaseNotes>
+    <tags>vscode extension vscode-eslint</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
