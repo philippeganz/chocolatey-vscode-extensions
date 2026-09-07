@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-angular2</id><version>22.0.0</version><title>Visual Studio Code Extension - Angular Snippets (Version 22)</title><authors>johnpapa</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/johnpapa/vscode-angular-snippets.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/johnpapa/vscode-angular-snippets</projectSourceUrl><bugTrackerUrl>https://github.com/johnpapa/vscode-angular-snippets/issues</bugTrackerUrl><docsUrl>https://github.com/johnpapa/vscode-angular-snippets#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-angular2/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/johnpapa.angular2/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-angular2</id>
+    <version>22.0.0</version>
+    <title>Visual Studio Code Extension - Angular Snippets (Version 22)</title>
+    <authors>johnpapa</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/johnpapa/vscode-angular-snippets.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/johnpapa/vscode-angular-snippets</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/johnpapa/vscode-angular-snippets/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/johnpapa/vscode-angular-snippets#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-angular2/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/johnpapa.angular2/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 # Angular TypeScript Snippets for VS Code
 
 [AI Ready project](https://github.com/johnpapa/ai-ready)
@@ -52,6 +68,16 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (macOS) to
 | `a-route-path-404`           | 404 route path                                                       |
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2) for full documentation]
-]]></description><summary>Angular version 22 snippets by John Papa</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=johnpapa.angular2#changelog</releaseNotes><tags>vscode extension angular2</tags><dependencies>
+]]></description>
+    <summary>Angular version 22 snippets by John Papa</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=johnpapa.angular2#changelog</releaseNotes>
+    <tags>vscode extension angular2</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
