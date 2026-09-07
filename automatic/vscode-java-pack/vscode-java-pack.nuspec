@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-java-pack</id>
@@ -6,8 +6,11 @@
     <title>Visual Studio Code Extension - Extension Pack for Java</title>
     <authors>vscjava</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-java-pack</projectUrl>
+    <projectUrl>https://github.com/Microsoft/vscode-java-pack.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/vscode-java-pack</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/vscode-java-pack</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/vscode-java-pack</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-java-pack/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/vscjava.vscode-java-pack/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -71,11 +74,10 @@ You can use [📦 Docker](https://marketplace.visualstudio.com/items?itemName=Pe
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) for full documentation]
 ]]></description>
     <summary>Popular extensions for Java development that provides Java IntelliSense, debugging, testing, Maven/Gradle support, project management and more</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack#changelog</releaseNotes>
-    <tags>vscode extension java-pack</tags>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack#changelog</releaseNotes>
+    <tags>vscode extension vscode-java-pack</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-java" />
       <dependency id="vscode-java-debug" />
       <dependency id="vscode-java-test" />
