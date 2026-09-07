@@ -6,7 +6,7 @@
    Get-FileHash -Algorithm SHA256 -Path .\ms-python.vscode-python-envs-1.37.2026090401.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 28C608EB75DC5D3DBE6F75B8D66EB822183E6A3E36988CD12EFC2CD0933D5732
+   Expected SHA256: 415281CF3F013B3C7E01D6156DF0AB3FD289879608760FFFB94FAB1F1EA3EDC4
 
 ---
 SOFTWARE LICENSE:
