@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-simple-react-snippets</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/burkeholland/simple-react-snippets.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/burkeholland/simple-react-snippets</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/burkeholland/simple-react-snippets/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/burkeholland/simple-react-snippets#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-simple-react-snippets/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/burkeholland.simple-react-snippets/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

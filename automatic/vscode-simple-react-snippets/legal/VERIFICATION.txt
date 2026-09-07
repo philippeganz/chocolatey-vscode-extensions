@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=burkeholland.simple-react-snippets
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\burkeholland.simple-react-snippets-1.2.8.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: CEB4712591D1A81306564779E90FB00DB09215F9785F72AD6B8B17F1E7199AEF
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/burkeholland.simple-react-snippets/license
