@@ -34,11 +34,27 @@
     Linux/Mac binaries on Windows environments.
 #>
 function Get-VsCodeExtensionUrl {
+    [CmdletBinding()]
+    [OutputType([System.String])]
     param (
-        [Parameter(Mandatory = $true)][string]$Publisher,
-        [Parameter(Mandatory = $true)][string]$ExtensionName,
-        [Parameter(Mandatory = $true)][string]$Version,
-        [Parameter(Mandatory = $true)][object]$ExtMeta
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $Publisher,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $ExtensionName,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $Version,
+
+        [Parameter(Mandatory = $true)]
+        [object]
+        $ExtMeta
     )
 
     $vsixUrl = "$script:MarketplaceBaseUrl/_apis/public/gallery/publishers/$Publisher/vsextensions/$ExtensionName/$Version/vspackage"
@@ -46,7 +62,7 @@ function Get-VsCodeExtensionUrl {
     # Dynamic Platform Detection: Explicitly request the Windows binary if the extension is OS-specific
     $isPlatformSpecific = $ExtMeta.versions | Where-Object { $_.version -eq $ExtMeta.versions[0].version -and $_.targetPlatform -eq "win32-x64" }
     if ($isPlatformSpecific) {
-        Write-Cyan "    [INFO] Platform-specific extension detected. Targeting win32-x64 binary."
+        Write-Info "Platform-specific extension detected. Targeting win32-x64 binary."
         $vsixUrl = "$($vsixUrl)?targetPlatform=win32-x64"
     }
 

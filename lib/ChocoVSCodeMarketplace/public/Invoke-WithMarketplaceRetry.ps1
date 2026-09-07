@@ -16,6 +16,9 @@
     A custom error prefix for the warning log when a transient failure occurs.
     Defaults to "VS Code Marketplace API failed".
 
+.PARAMETER MaxRetries
+    The maximum number of times to retry a failed transient request. Defaults to 3.
+
 .EXAMPLE
     $res = Invoke-WithMarketplaceRetry -Action {
         Invoke-RestMethod -Uri $uri -Method Post -Body $body -Headers $headers
@@ -26,21 +29,34 @@
     is breached. Hard fails immediately on 404s.
 #>
 function Invoke-WithMarketplaceRetry {
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Matching external API or established domain terminology')]
+    [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
-        [scriptblock]$Action,
+        [scriptblock]
+        $Action,
 
         [Parameter(Mandatory = $false)]
-        [string]$ErrorMessage = "VS Code Marketplace API failed"
+        [string]
+        $ErrorMessage = "VS Code Marketplace API failed",
+
+        [Parameter(Mandatory = $false)]
+        [ValidateRange(0, 10)]
+        [int]
+        $MaxRetries = 3
     )
 
-    $retryCount = 0
+    $attemptCount = 0
     $success = $false
     $res = $null
 
-    $maxRetries = if ($env:CHOCO_VSCODE_MAX_RETRIES) { [int]$env:CHOCO_VSCODE_MAX_RETRIES } else { 5 }
-    while (-not $success -and $retryCount -lt $maxRetries) {
+    if (-not $PSBoundParameters.ContainsKey('MaxRetries')) {
+        $MaxRetries = if ($env:CHOCO_VSCODE_MAX_RETRIES) { [int]$env:CHOCO_VSCODE_MAX_RETRIES } else { 3 }
+    }
+
+    # Total attempts equals 1 initial execution + N retries
+    $MaxAttempts = 1 + $MaxRetries
+
+    while (-not $success -and $attemptCount -lt $MaxAttempts) {
         try {
             # Execute the provided script block in the caller's scope so variables map correctly
             $res = . $Action
@@ -54,17 +70,18 @@ function Invoke-WithMarketplaceRetry {
             }
             $isThrottling = ($errMessage -match '503|500|429|CircuitBreakerExceededConcurrencyException|Service Unavailable|Internal Server Error')
 
-            $retryCount++
-            if ($retryCount -ge $maxRetries) {
-                Write-Red "    [FATAL] $ErrorMessage. Exhausted all $maxRetries attempts."
+            $attemptCount++
+            if ($attemptCount -ge $MaxAttempts) {
+                Write-Err "$ErrorMessage. Exhausted all $MaxAttempts attempts ($MaxRetries retries)."
                 if ($isThrottling) {
-                    throw "MarketplaceThrottlingError: VS Code Marketplace API rate limit reached after $maxRetries attempts. ($errMessage)"
+                    throw "MarketplaceThrottlingError: VS Code Marketplace API rate limit reached after $MaxAttempts attempts. ($errMessage)"
                 }
                 throw $_
             }
 
-            $sleepSeconds = [Math]::Pow(2, $retryCount)
-            Write-Yellow "    [WARNING] $ErrorMessage. Retry attempt $retryCount of $($maxRetries - 1) in $sleepSeconds seconds..."
+            # Exponential backoff base 2 (2, 4, 8, 16...)
+            $sleepSeconds = [Math]::Pow(2, $attemptCount)
+            Write-Warn "$ErrorMessage. Retry attempt $attemptCount of $MaxRetries in $sleepSeconds seconds..."
             Start-Sleep -Seconds $sleepSeconds
         }
     }

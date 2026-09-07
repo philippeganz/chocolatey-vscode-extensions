@@ -26,17 +26,24 @@
     None
 #>
 function Update-NuspecCDataDescription {
-    [CmdletBinding()]
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Justification = 'Internal DOM manipulation')]
-    param(
-        [Parameter(Mandatory = $true)][object]$NuspecXml,
+    [CmdletBinding(SupportsShouldProcess = $true)]
+    param (
         [Parameter(Mandatory = $true)]
-        [AllowEmptyString()]
-        [string]$CDataSafeReadme,
+        [object]
+        $NuspecXml,
+
         [Parameter(Mandatory = $true)]
-        [AllowEmptyString()]
-        [string]$ShortDescription
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $CDataSafeReadme,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $ShortDescription
     )
+
+    if (-not $PSCmdlet.ShouldProcess("Nuspec XML DOM", "Update CData Description")) { return }
 
     $descNode = $NuspecXml.SelectSingleNode("//*[local-name()='description']")
     if ($descNode) {

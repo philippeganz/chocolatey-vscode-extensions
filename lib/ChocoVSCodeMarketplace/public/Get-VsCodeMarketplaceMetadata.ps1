@@ -13,6 +13,9 @@
 .PARAMETER ExtensionName
     The canonical name of the extension (e.g. 'python').
 
+.PARAMETER IncludeAllVersions
+    If specified, disables the IncludeLatestVersionOnly query flag and retrieves the entire publishing history of the extension.
+
 .EXAMPLE
     $extMeta = Get-VsCodeMarketplaceMetadata -Publisher "ms-python" -ExtensionName "python"
 
@@ -28,10 +31,21 @@
 #>
 function Get-VsCodeMarketplaceMetadata {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Matching external API or established domain terminology')]
+    [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $true)][string]$Publisher,
-        [Parameter(Mandatory = $true)][string]$ExtensionName,
-        [switch]$IncludeAllVersions
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $Publisher,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $ExtensionName,
+
+        [Parameter(Mandatory = $false)]
+        [switch]
+        $IncludeAllVersions
     )
 
     $marketplaceUrl = "$script:MarketplaceBaseUrl/_apis/public/gallery/extensionquery"
@@ -66,4 +80,5 @@ function Get-VsCodeMarketplaceMetadata {
 
     return $ext
 }
+
 

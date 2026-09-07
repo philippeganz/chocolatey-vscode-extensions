@@ -23,25 +23,41 @@
     New-VerificationFile
 #>
 function New-VerificationFile {
-    [CmdletBinding(SupportsShouldProcess)]
-    param(
-        [Parameter(Mandatory = $true)][string]$VsixPath,
-        [Parameter(Mandatory = $true)][string]$PackageDir,
-        [Parameter(Mandatory = $true)][string]$Publisher,
-        [Parameter(Mandatory = $true)][string]$ExtensionName
+    [CmdletBinding(SupportsShouldProcess = $true)]
+    param (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $VsixPath,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $PackageDir,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $Publisher,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $ExtensionName
     )
 
     $legalDir = Join-Path $PackageDir "legal"
 
-    if ($PSCmdlet.ShouldProcess((Join-Path $legalDir "VERIFICATION.txt"), "Create VERIFICATION.txt file")) {
-        if (-not (Test-Path $legalDir)) { [void](New-Item -ItemType Directory -Force -Path $legalDir) }
+    if (-not $PSCmdlet.ShouldProcess((Join-Path $legalDir "VERIFICATION.txt"), "Create VERIFICATION.txt file")) { return }
 
-        $hash = (Get-FileHash -Path $VsixPath -Algorithm SHA256).Hash
-        $marketplaceUrl = "$script:MarketplaceBaseUrl/items?itemName=$Publisher.$ExtensionName"
-        $licenseUrl = "$script:MarketplaceBaseUrl/items/$Publisher.$ExtensionName/license"
-        $vsixName = Split-Path $VsixPath -Leaf
+    if (-not (Test-Path $legalDir)) { [void](New-Item -ItemType Directory -Force -Path $legalDir) }
 
-        $verificationContent = @"
+    $hash = (Get-FileHash -Path $VsixPath -Algorithm SHA256).Hash
+    $marketplaceUrl = "$script:MarketplaceBaseUrl/items?itemName=$Publisher.$ExtensionName"
+    $licenseUrl = "$script:MarketplaceBaseUrl/items/$Publisher.$ExtensionName/license"
+    $vsixName = Split-Path $VsixPath -Leaf
+
+    $verificationContent = @"
 1. Download the official extension binary directly from the VS Code Marketplace:
    Marketplace URL: $marketplaceUrl
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
@@ -57,7 +73,7 @@ SOFTWARE LICENSE:
 The software license can be found at:
 $licenseUrl
 "@
-        $verificationContent = $verificationContent.Replace("`r`n", "`n")
-        [System.IO.File]::WriteAllText((Join-Path $legalDir "VERIFICATION.txt"), $verificationContent, [System.Text.UTF8Encoding]::new($false))
-    }
+    $verificationContent = $verificationContent.Replace("`r`n", "`n")
+    [System.IO.File]::WriteAllText((Join-Path $legalDir "VERIFICATION.txt"), $verificationContent, [System.Text.UTF8Encoding]::new($false))
+
 }

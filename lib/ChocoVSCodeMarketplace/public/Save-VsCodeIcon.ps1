@@ -28,14 +28,20 @@
 #>
 function Save-VsCodeIcon {
     [CmdletBinding()]
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Justification = 'Internal utility for downloading files')]
-    param(
+    param (
         [Parameter(Mandatory = $false)]
-        [AllowNull()]
-        [AllowEmptyString()]
-        [string]$IconUrl,
-        [Parameter(Mandatory = $true)][string]$PackageDir,
-        [Parameter(Mandatory = $true)][string]$PackageName
+        [string]
+        $IconUrl,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $PackageDir,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrWhiteSpace()]
+        [string]
+        $PackageName
     )
 
     $localIconPath = Join-Path $PackageDir "icon.png"
