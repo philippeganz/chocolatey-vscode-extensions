@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-pgsql</id><version>1.30.1</version><title>Visual Studio Code Extension - PostgreSQL</title><authors>ms-ossdata</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-pgsql.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-pgsql</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-pgsql/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/vscode-pgsql/blob/main/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-pgsql/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-ossdata.vscode-pgsql/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-pgsql</id>
+    <version>1.30.1</version>
+    <title>Visual Studio Code Extension - PostgreSQL</title>
+    <authors>ms-ossdata</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/microsoft/vscode-pgsql.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/microsoft/vscode-pgsql</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/microsoft/vscode-pgsql/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/microsoft/vscode-pgsql/blob/main/README.md</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-pgsql/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-ossdata.vscode-pgsql/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 # PostgreSQL for Visual Studio Code
 
 ![PostgreSQL for Visual Studio Code](https://github.com/microsoft/vscode-pgsql/raw/HEAD/img/intro-schema-agent-vid.gif)
@@ -69,6 +85,16 @@ Run Apache AGE Cypher queries and explore the results as an interactive node-edg
 Chat with your database using the @pgsql agent in Copilot 'Ask' mode. Requires GitHub Copilot.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-pgsql) for full documentation]
-]]></description><summary>Develop, query, and manage PostgreSQL (Postgres) databases with IntelliSense, Object Explorer, schema tools, and AI-assisted workflows.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-pgsql#changelog</releaseNotes><tags>vscode extension vscode-pgsql</tags><dependencies>
+]]></description>
+    <summary>Develop, query, and manage PostgreSQL (Postgres) databases with IntelliSense, Object Explorer, schema tools, and AI-assisted workflows.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-pgsql#changelog</releaseNotes>
+    <tags>vscode extension vscode-pgsql</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
