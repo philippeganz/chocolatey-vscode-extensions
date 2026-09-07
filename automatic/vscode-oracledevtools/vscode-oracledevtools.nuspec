@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-oracledevtools</id>
@@ -6,8 +6,9 @@
     <title>Visual Studio Code Extension - Oracle Developer Tools for VS Code (SQL and PLSQL)</title>
     <authors>Oracle</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://marketplace.visualstudio.com/items?itemName=oracle.oracledevtools</projectUrl>
+    <projectUrl>https://marketplace.visualstudio.com/items?itemName=Oracle.oracledevtools</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <bugTrackerUrl>https://forums.oracle.com/ords/apexds/domain/dev-community/category/oracle-developer-tools-for-vs-code</bugTrackerUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-oracledevtools/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/Oracle.oracledevtools/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -19,7 +20,7 @@ This extension enables editing and execution of SQL and PL/SQL for Oracle Databa
 
 View the [Quickstart: Get Started with Oracle and VSCode](https://docs.oracle.com/en/database/oracle/developer-tools-for-vscode/getting-started/index.html) for details on how to configure, connect and use Oracle Developer Tools for VS Code. Questions or feedback about this extension? Please post your questions, comments, or report issues on the [Oracle Developer Tools forum](https://forums.oracle.com/ords/apexds/domain/dev-community/category/oracle-developer-tools-for-vs-code). 
 
-<img src="https://raw.githubusercontent.com/oracle/dotnet-db-samples/master/session-demos/2019/odtvscodescreenshots/readmeoverview2150.png"  /> 
+ 
 
 
 
@@ -46,16 +47,15 @@ View the [Quickstart: Get Started with Oracle and VSCode](https://docs.oracle.co
 
 Create and manage Oracle Autonomous Databases (ADBs) using the Oracle Cloud Infrastructure Explorer tree control. Create new Always Free or paid ADB instances, and start, stop, and terminate existing ADB instances. Automatically create a walletless database connection or download credentials files.
 
-<img src="https://raw.githubusercontent.com/oracle/dotnet-db-samples/master/session-demos/2019/odtvscodescreenshots/ociexplorer2150.png"  />
+
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=Oracle.oracledevtools) for full documentation]
 ]]></description>
     <summary>Develop SQL and PL/SQL with Oracle Database and Oracle Autonomous Database</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=Oracle.oracledevtools#changelog</releaseNotes>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=Oracle.oracledevtools#changelog</releaseNotes>
     <tags>vscode extension oracledevtools</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-dotnet-runtime" />
     </dependencies>
   </metadata>
