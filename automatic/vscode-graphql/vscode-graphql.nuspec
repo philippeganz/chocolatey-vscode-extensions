@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-graphql</id><version>0.13.4</version><title>Visual Studio Code Extension - GraphQL: Language Feature Support</title><authors>GraphQL</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/graphql/graphiql.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/graphql/graphiql</projectSourceUrl><bugTrackerUrl>https://github.com/graphql/graphiql/issues</bugTrackerUrl><docsUrl>https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-graphql/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/graphql.vscode-graphql/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-graphql</id>
+    <version>0.13.4</version>
+    <title>Visual Studio Code Extension - GraphQL: Language Feature Support</title>
+    <authors>GraphQL</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/graphql/graphiql.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/graphql/graphiql</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/graphql/graphiql/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql/README.md</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-graphql/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/graphql.vscode-graphql/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 [Changelog](https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql/CHANGELOG.md)
 | [Discord Channel](https://discord.gg/r4BxrAG6fN) |
 [LSP Server Docs](https://github.com/graphql/graphiql/blob/main/packages/graphql-language-service-server/README.md)
@@ -64,7 +80,17 @@ same for .json, .toml, etc
 ## Configuration
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql) for full documentation]
-]]></description><summary>GraphQL LSP extension that adds autocompletion, validation, go to definition, hover, outline and more.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=graphql.vscode-graphql#changelog</releaseNotes><tags>vscode extension vscode-graphql</tags><dependencies>
+]]></description>
+    <summary>GraphQL LSP extension that adds autocompletion, validation, go to definition, hover, outline and more.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=graphql.vscode-graphql#changelog</releaseNotes>
+    <tags>vscode extension vscode-graphql</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-graphql-syntax" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
