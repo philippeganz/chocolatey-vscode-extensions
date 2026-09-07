@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-language-pack-cs</id><version>1.131.2026090407</version><title>Visual Studio Code Extension - Czech Language Pack for Visual Studio Code</title><authors>MS-CEINTL</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-loc.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-loc</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-loc/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-loc#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-language-pack-cs/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-ceintl.vscode-language-pack-cs/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-language-pack-cs</id>
+    <version>1.131.2026090407</version>
+    <title>Visual Studio Code Extension - Czech Language Pack for Visual Studio Code</title>
+    <authors>MS-CEINTL</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/Microsoft/vscode-loc.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/vscode-loc</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/vscode-loc/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/vscode-loc#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-language-pack-cs/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-ceintl.vscode-language-pack-cs/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 # Czech Language Pack for VS Code
 
 Jazyková sada nabízí lokalizované uživatelské rozhraní pro VS Code.
@@ -49,6 +65,16 @@ The translation strings are maintained in Microsoft Localization Platform. Chang
 
 The source code and strings are licensed under the [MIT](https://github.com/Microsoft/vscode-loc/blob/master/LICENSE.md) license.
 
-]]></description><summary>Language pack extension for Czech</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-cs#changelog</releaseNotes><tags>vscode extension vscode-language-pack-cs</tags><dependencies>
+]]></description>
+    <summary>Language pack extension for Czech</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-ceintl.vscode-language-pack-cs#changelog</releaseNotes>
+    <tags>vscode extension vscode-language-pack-cs</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
