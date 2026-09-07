@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-gradle</id>
@@ -6,8 +6,11 @@
     <title>Visual Studio Code Extension - Gradle for Java</title>
     <authors>vscjava</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-gradle/</projectUrl>
+    <projectUrl>https://github.com/microsoft/vscode-gradle.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/microsoft/vscode-gradle</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/microsoft/vscode-gradle/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/microsoft/vscode-gradle#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-gradle/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/vscjava.vscode-gradle/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -37,23 +40,23 @@ Once the extension is activated you will see a new Gradle icon in the [activity 
 
 You can also run any Gradle task as a [VS Code task](https://code.visualstudio.com/docs/editor/tasks). Access the Gradle VS Code tasks by running `Run Task` from the command palette.
 
-<details><summary>List projects and tasks</summary>
+List projects and tasks
 
 A Gradle build can have one or more projects. Projects are listed in a flat list with the root project listed first, and sub-projects listed alphabetically thereafter.
 
 When you expand a project, tasks are listed in a tree, grouped by the task group. You can toggle the display of the tasks by clicking on the `Show Flat List`/`Show Tree` button in the tree view header.
 
-<img src="https://github.com/microsoft/vscode-gradle/raw/HEAD/images/gradle-tasks-view.png" width="350" alt="Gradle Tasks View" />
-</details>
 
-<details><summary>List project dependencies</summary>
+
+
+List project dependencies
 
 The project's dependencies are included in the `Dependencies` item under the project. The dependencies are grouped by Gradle configurations and you can expand each configuration to find the corresponding ones. For omitted dependency (marked with a `(*)`), you can use the inline button `Go to Omitted Dependency` to go to the previously listed dependency.
 
-<img src="https://github.com/microsoft/vscode-gradle/raw/HEAD/images/dependencies.png" width="650" alt="Gradle Dependencies" />
-</details>
 
-<details><summary>Run tasks</summary>
+
+
+Run tasks
 
 Tasks can be run via:
 
@@ -64,11 +67,10 @@ Tasks can be run via:
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) for full documentation]
 ]]></description>
     <summary>Manage Gradle Projects, run Gradle tasks and provide better Gradle file authoring experience in VS Code</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle#changelog</releaseNotes>
-    <tags>vscode extension gradle</tags>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle#changelog</releaseNotes>
+    <tags>vscode extension vscode-gradle</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
