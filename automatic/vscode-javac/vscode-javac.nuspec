@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-javac</id><version>0.2.49</version><title>Visual Studio Code Extension - Java Language Support</title><authors>georgewfraser</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/georgewfraser/java-language-server.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/georgewfraser/java-language-server</projectSourceUrl><bugTrackerUrl>https://github.com/georgewfraser/java-language-server/issues</bugTrackerUrl><docsUrl>https://github.com/georgewfraser/java-language-server#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-javac/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/georgewfraser.vscode-javac/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-javac</id>
+    <version>0.2.49</version>
+    <title>Visual Studio Code Extension - Java Language Support</title>
+    <authors>georgewfraser</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/georgewfraser/java-language-server.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/georgewfraser/java-language-server</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/georgewfraser/java-language-server/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/georgewfraser/java-language-server#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-javac/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/georgewfraser.vscode-javac/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 # Language Server for Java using the [Java compiler API](https://docs.oracle.com/javase/10/docs/api/jdk.compiler-summary.html)
 
 A Java [language server](https://github.com/Microsoft/vscode-languageserver-protocol) based on v3.0 of the protocol and implemented using the Java compiler API.
@@ -105,6 +121,16 @@ Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrest
 ```
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=georgewfraser.vscode-javac) for full documentation]
-]]></description><summary>Java support using the Java Compiler API</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=georgewfraser.vscode-javac#changelog</releaseNotes><tags>vscode extension vscode-javac</tags><dependencies>
+]]></description>
+    <summary>Java support using the Java Compiler API</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=georgewfraser.vscode-javac#changelog</releaseNotes>
+    <tags>vscode extension vscode-javac</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
