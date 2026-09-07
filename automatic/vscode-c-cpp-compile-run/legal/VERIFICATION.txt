@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=danielpinto8zz6.c-cpp-compile-run
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\danielpinto8zz6.c-cpp-compile-run-1.0.92.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: 3C5C3E00D3E276E4613514EE1059B568F50E4ED494B65A6A14B6A30B1D7E1944
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/danielpinto8zz6.c-cpp-compile-run/license
