@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-aws-toolkit-vscode</id><version>4.15.0</version><title>Visual Studio Code Extension - AWS Toolkit</title><authors>AmazonWebServices</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/aws/aws-toolkit-vscode.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/aws/aws-toolkit-vscode</projectSourceUrl><bugTrackerUrl>https://github.com/aws/aws-toolkit-vscode/issues</bugTrackerUrl><docsUrl>https://github.com/aws/aws-toolkit-vscode#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-aws-toolkit-vscode/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/amazonwebservices.aws-toolkit-vscode/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-aws-toolkit-vscode</id>
+    <version>4.15.0</version>
+    <title>Visual Studio Code Extension - AWS Toolkit</title>
+    <authors>AmazonWebServices</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/aws/aws-toolkit-vscode.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/aws/aws-toolkit-vscode</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/aws/aws-toolkit-vscode/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/aws/aws-toolkit-vscode#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-aws-toolkit-vscode/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/amazonwebservices.aws-toolkit-vscode/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 [![Twitter Follow](https://img.shields.io/badge/follow-@aws-1DA1F2?style=flat-square&logo=aws&logoColor=white&label=Follow)](https://x.com/awscloud)
 [![Youtube Channel Views](https://img.shields.io/youtube/channel/views/UCd6MoB9NC6uYN2grvUNT-Zg?style=flat-square&logo=youtube&label=Youtube)](https://www.youtube.com/@amazonwebservices)
 ![Marketplace Installs](https://img.shields.io/vscode-marketplace/i/AmazonWebServices.aws-toolkit-vscode.svg?label=Installs&style=flat-square)
@@ -61,6 +77,16 @@ With Workflow Studio integrated with VS Code, you can do the following:
 ![creds](https://raw.githubusercontent.com/aws/aws-toolkit-vscode/HEAD/docs/marketplace/vscode/creds.gif)
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=amazonwebservices.aws-toolkit-vscode) for full documentation]
-]]></description><summary>Including CodeCatalyst, Infrastructure Composer, and support for Lambda, S3, CloudWatch Logs, CloudFormation, and many other services.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=amazonwebservices.aws-toolkit-vscode#changelog</releaseNotes><tags>vscode extension aws-toolkit-vscode</tags><dependencies>
+]]></description>
+    <summary>Including CodeCatalyst, Infrastructure Composer, and support for Lambda, S3, CloudWatch Logs, CloudFormation, and many other services.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=amazonwebservices.aws-toolkit-vscode#changelog</releaseNotes>
+    <tags>vscode extension aws-toolkit-vscode</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
