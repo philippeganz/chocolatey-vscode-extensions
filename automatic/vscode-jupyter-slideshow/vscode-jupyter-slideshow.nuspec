@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-jupyter-slideshow</id>
@@ -6,11 +6,13 @@
     <title>Visual Studio Code Extension - Jupyter Slide Show</title>
     <authors>ms-toolsai</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-jupyter-slideshow</projectUrl>
+    <projectUrl>https://github.com/Microsoft/vscode-jupyter-slideshow.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/vscode-jupyter-slideshow</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/vscode-jupyter-slideshow/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/vscode-jupyter-slideshow#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-jupyter-slideshow/icon.png</iconUrl>
-    <licenseUrl>
-      https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-jupyter-slideshow</licenseUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-toolsai.vscode-jupyter-slideshow/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Jupyter Slide Show support in VS Code
@@ -54,11 +56,10 @@ Any use of third-party trademarks or logos are subject to those third-party's po
 
 ]]></description>
     <summary>Jupyter Slide Show support for VS Code</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-jupyter-slideshow#changelog</releaseNotes>
-    <tags>vscode extension jupyter-slideshow</tags>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-jupyter-slideshow#changelog</releaseNotes>
+    <tags>vscode extension vscode-jupyter-slideshow</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
