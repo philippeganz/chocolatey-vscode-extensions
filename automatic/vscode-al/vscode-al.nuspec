@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-al</id><version>18.0.2668733</version><title>Visual Studio Code Extension - AL Language extension for Microsoft Dynamics 365 Business Central</title><authors>ms-dynamics-smb</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/AL.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/AL</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/al/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/AL#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-al/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-dynamics-smb.al/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-al</id>
+    <version>18.0.2668733</version>
+    <title>Visual Studio Code Extension - AL Language extension for Microsoft Dynamics 365 Business Central</title>
+    <authors>ms-dynamics-smb</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/Microsoft/AL.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/AL</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/microsoft/al/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/AL#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-al/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-dynamics-smb.al/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 ## Overview
 The AL Language extension extends Visual Studio Code with support for the AL programming language for Microsoft Dynamics 365 Business Central.
 The extension provides editor features such as syntax highlighting, code navigation, and diagnostics, and integrates the AL compiler and debugger into Visual Studio Code. It enables authoring, compiling, publishing, and debugging AL extensions directly from the editor, with support for connecting to Business Central environments.
@@ -25,7 +41,17 @@ The AL Language extension for Microsoft Dynamics 365 Business Central collects t
 
 The extension respects the Visual Studio Code setting for [telemetry reporting](https://code.visualstudio.com/docs/getstarted/telemetry). While we appreciate the insights this data provides, we also know that not everyone wants to send usage data and you can disable telemetry as described in [disable telemetry reporting](https://code.visualstudio.com/docs/getstarted/telemetry#_disable-telemetry-reporting).
 
-]]></description><summary>Development tools for Dynamics 365 Business Central</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-dynamics-smb.al#changelog</releaseNotes><tags>vscode extension al</tags><dependencies>
+]]></description>
+    <summary>Development tools for Dynamics 365 Business Central</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-dynamics-smb.al#changelog</releaseNotes>
+    <tags>vscode extension al</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-dotnet-runtime" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
