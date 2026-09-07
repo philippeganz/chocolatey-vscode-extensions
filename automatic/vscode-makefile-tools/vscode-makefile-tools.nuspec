@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-makefile-tools</id>
@@ -8,56 +8,61 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/Microsoft/vscode-makefile-tools.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/vscode-makefile-tools</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/vscode-makefile-tools/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/vscode-makefile-tools</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-makefile-tools/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.makefile-tools/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
-<h1 align=center> <img align=center width=48 src="https://github.com/Microsoft/vscode-makefile-tools/raw/HEAD/res/makefile-logo-no-background.png" alt="Makefile Logo"/> Makefile Tools </h1>
+  Makefile Tools 
 
-<p align=center ><i>Enhancing Makefile development in VS Code.</i></p>
+Enhancing Makefile development in VS Code.
 
-<div align=center>
-    <img alt="VS Code" src="https://img.shields.io/badge/VSCode-7d57c2?style=for-the-badge&logo=visual%20studio%20code&logoColor=white"/>
-    <img alt="Makefile" src="https://img.shields.io/badge/MAKEFILE-white?style=for-the-badge&color=7d57c2&cacheSeconds=3600">
-    <img alt="C" src="https://img.shields.io/badge/C-7d57c2?style=for-the-badge&logo=c&logoColor=white"/>
-    <img alt="C++" src="https://img.shields.io/badge/C%2B%2B-7d57c2?style=for-the-badge&logo=c%2B%2B&logoColor=white"/>
-</div>
 
-<div align=center>
-    <img alt="VS Code Marketplace Downloads" src="https://img.shields.io/visual-studio-marketplace/d/ms-vscode.makefile-tools?style=for-the-badge&color=064f8c&cacheSeconds=3600&link=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dms-vscode.makefile-tools">
-    <img alt="VS Code Marketplace Version" src="https://img.shields.io/visual-studio-marketplace/v/ms-vscode.makefile-tools?style=for-the-badge&color=be2128&cacheSeconds=3600&link=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%2Fms-vscode.makefile-tools%2Fchangelog">
-    <img alt="Closed Issues" src="https://img.shields.io/github/issues-closed/microsoft/vscode-makefile-tools?style=for-the-badge&color=249847&cacheSeconds=3600&link=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fvscode-makefile-tools%2Fissues">
-</div>
+    
+    
+    
+    
 
-<br/>
-<img style="width: 100%" src="https://github.com/Microsoft/vscode-makefile-tools/raw/HEAD/res/graphics/makefile-tools-banner.png" alt="Makefile Tools Banner"/>
+
+
+    
+    
+    
+
+
+
+
+
 
 ## Introduction
 
 [Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) provides the native developer a full-featured, convenient, and powerful workflow for Makefile-based projects in Visual Studio Code. It enhances the development experience with pre and post-configuration script automation, allows for easy switching between multiple configurations, and supports rich IntelliSense features for Makefile. The customizable Project Outline view and environment variable management also simplifies the development experience. Additionally, it can generate a compilation database for integration with Clang tools and other editors/IDEs.
 
-<details open>
-<summary>
+
+
  Features
-</summary><br/>
 
-<p align=center>
-    <img width="49%" src="https://github.com/Microsoft/vscode-makefile-tools/raw/HEAD/res/graphics/built-in-makefile-language-services-feature.png" alt="Built-In Makefile Language Services"/>
-&nbsp;
-    <img width="49%" src="https://github.com/Microsoft/vscode-makefile-tools/raw/HEAD/res/graphics/project-outline-feature.png" alt="Project Outline"/>
-</p>
-<p align=center>
-    <img width="49%" src="https://github.com/Microsoft/vscode-makefile-tools/raw/HEAD/res/graphics/pre-and-post-configure-scripts-feature.png" alt="Pre & Post-Configure Scripts"/>
-&nbsp;
-    <img width="49%" src="https://github.com/Microsoft/vscode-makefile-tools/raw/HEAD/res/graphics/multiple-configurations-feature.png" alt="Multiple Configurations"/>
-</p>
-<p align=center>
-    <img width="49%" src="https://github.com/Microsoft/vscode-makefile-tools/raw/HEAD/res/graphics/environment-variable-configuration-feature.png" alt="Environment Variable Configuration"/>
-&nbsp;
-    <img width="49%" src="https://github.com/Microsoft/vscode-makefile-tools/raw/HEAD/res/graphics/compile-commands-generation-feature.png" alt="Compile Commands Generation"/>
-</p>
 
-</details>
+
+
+    
+&nbsp;
+    
+
+
+    
+&nbsp;
+    
+
+
+    
+&nbsp;
+    
+
+
+
 
 
 ## Getting Started
@@ -65,11 +70,10 @@
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) for full documentation]
 ]]></description>
     <summary>Provide makefile support in VS Code: C/C++ IntelliSense, build, debug/run.</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools#changelog</releaseNotes>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools#changelog</releaseNotes>
     <tags>vscode extension makefile-tools</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
