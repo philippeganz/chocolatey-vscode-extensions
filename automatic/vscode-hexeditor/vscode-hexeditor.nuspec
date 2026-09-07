@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-hexeditor</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/microsoft/vscode-hexeditor.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/microsoft/vscode-hexeditor</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/microsoft/vscode-hexeditor/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/microsoft/vscode-hexeditor#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-hexeditor/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.hexeditor/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
