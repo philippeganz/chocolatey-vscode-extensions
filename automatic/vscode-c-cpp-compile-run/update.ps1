@@ -1,5 +1,5 @@
-﻿[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification = 'Variables are declared for AU hooks and module scope but not read within this script block')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Required for module state propagation')]
 param()
-$ExtensionPublisher = "danielpinto8zz6"
-$ExtensionName = "c-cpp-compile-run"
-. "$PSScriptRoot\..\..\bin\AuExtensionHooks.ps1"
+$global:ExtensionPublisher = "danielpinto8zz6"
+$global:ExtensionName = "c-cpp-compile-run"
+. "$PSScriptRoot\..\..\bin\Update-ExtensionPackage.ps1"
