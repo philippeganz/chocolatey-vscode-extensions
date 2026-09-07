@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-errorlens</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/usernamehw/vscode-error-lens.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/usernamehw/vscode-error-lens</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/usernamehw/vscode-error-lens/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/usernamehw/vscode-error-lens#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-errorlens/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/usernamehw.errorlens/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

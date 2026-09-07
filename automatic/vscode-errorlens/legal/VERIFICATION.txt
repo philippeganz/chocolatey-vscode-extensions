@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\usernamehw.errorlens-3.28.0.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: EDEBBBCBD211D6EC52159D08A650E2785B778966DC99DC1FD6501C5EAF92E02F
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/usernamehw.errorlens/license
