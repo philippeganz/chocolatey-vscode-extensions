@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-vscodeintellicode</id>
@@ -6,11 +6,13 @@
     <title>Visual Studio Code Extension - IntelliCode</title>
     <authors>VisualStudioExptTeam</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/MicrosoftDocs/intellicode</projectUrl>
+    <projectUrl>https://github.com/MicrosoftDocs/intellicode.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/MicrosoftDocs/intellicode</projectSourceUrl>
+    <bugTrackerUrl>https://go.microsoft.com/fwlink/?linkid=2005855</bugTrackerUrl>
+    <docsUrl>https://github.com/MicrosoftDocs/intellicode#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscodeintellicode/icon.png</iconUrl>
-    <licenseUrl>
-      https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode</licenseUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Visual Studio IntelliCode
@@ -36,7 +38,7 @@ IntelliCode API Usage Examples is a feature that lets you see real-world example
 
 This feature currently supports Python, JavaScript and TypeScript (including JSX and TSX files). 
 
-<img width="600px" src="https://aka.ms/IntelliCodeUsageExamplesv2" alt="IntelliCode API Examples. The developer hovers their mouse over a call and a hover window appears. The hover window is scrolled until the IntelliCode API Usage section. The see examples link is clicked and the developer reviews code examples shown in a new untitled editor."/>
+
 
 ## Starred IntelliSense members
 
@@ -53,11 +55,10 @@ Contextual recommendations are based on practices developed in thousands of high
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode) for full documentation]
 ]]></description>
     <summary>AI-assisted development</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode#changelog</releaseNotes>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode#changelog</releaseNotes>
     <tags>vscode extension vscodeintellicode</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-intellicode-api-usage-examples" />
     </dependencies>
   </metadata>

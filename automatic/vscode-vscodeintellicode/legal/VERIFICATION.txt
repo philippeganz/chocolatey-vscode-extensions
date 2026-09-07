@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\VisualStudioExptTeam.vscodeintellicode-1.3.2.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: DB37B1C97D58283E6382DB2F0F1EFFCF796E87959EEF5CACF9746555C372C1FB
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license
