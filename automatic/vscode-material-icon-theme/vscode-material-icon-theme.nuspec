@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-material-icon-theme</id><version>5.38.1</version><title>Visual Studio Code Extension - Material Icon Theme</title><authors>PKief</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/material-extensions/vscode-material-icon-theme.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/material-extensions/vscode-material-icon-theme</projectSourceUrl><bugTrackerUrl>https://github.com/material-extensions/vscode-material-icon-theme/issues</bugTrackerUrl><docsUrl>https://github.com/material-extensions/vscode-material-icon-theme/blob/main/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-material-icon-theme/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/PKief.material-icon-theme/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-material-icon-theme</id>
+    <version>5.38.1</version>
+    <title>Visual Studio Code Extension - Material Icon Theme</title>
+    <authors>PKief</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/material-extensions/vscode-material-icon-theme.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/material-extensions/vscode-material-icon-theme</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/material-extensions/vscode-material-icon-theme/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/material-extensions/vscode-material-icon-theme/blob/main/README.md</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-material-icon-theme/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/PKief.material-icon-theme/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 <!-- markdownlint-disable -->
 
 
@@ -88,6 +104,16 @@ You can change the color of the default file and folder icons using the command 
 or via user settings:
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) for full documentation]
-]]></description><summary>Material Design Icons for Visual Studio Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme#changelog</releaseNotes><tags>vscode extension material-icon-theme</tags><dependencies>
+]]></description>
+    <summary>Material Design Icons for Visual Studio Code</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme#changelog</releaseNotes>
+    <tags>vscode extension material-icon-theme</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
