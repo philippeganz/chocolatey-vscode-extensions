@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-css-peek</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/pranaygp/vscode-css-peek.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/pranaygp/vscode-css-peek</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/pranaygp/vscode-css-peek/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/pranaygp/vscode-css-peek/blob/master/README.md</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-css-peek/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/pranaygp.vscode-css-peek/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -103,7 +106,7 @@ Contributions are greatly appreciated. Please fork the repository and submit a p
 ]]></description>
     <summary>Allow peeking to css ID and class strings as definitions from html files to respective CSS. Allows peek and goto definition.</summary>
     <releaseNotes>https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek#changelog</releaseNotes>
-    <tags>vscode extension css-peek</tags>
+    <tags>vscode extension vscode-css-peek</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>

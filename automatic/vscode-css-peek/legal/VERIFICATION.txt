@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\pranaygp.vscode-css-peek-4.4.3.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: A18FA6A43BF6393CB9845124D8330D1E2F5EA459B8032E2A8B476B0973EE6215
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/pranaygp.vscode-css-peek/license
