@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-winteriscoming</id><version>1.5.0</version><title>Visual Studio Code Extension - Winter is Coming Theme</title><authors>johnpapa</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/johnpapa/vscode-winteriscoming.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/johnpapa/vscode-winteriscoming</projectSourceUrl><bugTrackerUrl>https://github.com/johnpapa/vscode-winteriscoming/issues</bugTrackerUrl><docsUrl>https://github.com/johnpapa/vscode-winteriscoming#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-winteriscoming/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/johnpapa.winteriscoming/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-winteriscoming</id>
+    <version>1.5.0</version>
+    <title>Visual Studio Code Extension - Winter is Coming Theme</title>
+    <authors>johnpapa</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/johnpapa/vscode-winteriscoming.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/johnpapa/vscode-winteriscoming</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/johnpapa/vscode-winteriscoming/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/johnpapa/vscode-winteriscoming#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-winteriscoming/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/johnpapa.winteriscoming/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 # Winter is Coming
 
 [![AI Ready](https://img.shields.io/badge/AI--Ready-yes-brightgreen?style=flat)](https://github.com/johnpapa/ai-ready)
@@ -102,6 +118,16 @@ Be nice.
 ## Credits
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=johnpapa.winteriscoming) for full documentation]
-]]></description><summary>Preferred dark/light themes by John Papa</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=johnpapa.winteriscoming#changelog</releaseNotes><tags>vscode extension winteriscoming</tags><dependencies>
+]]></description>
+    <summary>Preferred dark/light themes by John Papa</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=johnpapa.winteriscoming#changelog</releaseNotes>
+    <tags>vscode extension winteriscoming</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
