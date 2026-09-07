@@ -1,13 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-github-actions</id>
     <version>0.32.3</version>
     <title>Visual Studio Code Extension - GitHub Actions</title>
-    <authors>github</authors>
+    <authors>GitHub</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/github/vscode-github-actions</projectUrl>
+    <projectUrl>https://github.com/github/vscode-github-actions.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/github/vscode-github-actions</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/github/vscode-github-actions/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/github/vscode-github-actions#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-github-actions/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/github.vscode-github-actions/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -76,9 +79,8 @@ We currently do not have the capability to support Operating System (OS) certifi
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions) for full documentation]
 ]]></description>
     <summary>GitHub Actions workflows and runs for github.com hosted repositories in VS Code</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions#changelog</releaseNotes>
-    <tags>vscode extension github-actions</tags>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions#changelog</releaseNotes>
+    <tags>vscode extension vscode-github-actions</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
