@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-microsoft-testing</id><version>0.2.0</version><title>Visual Studio Code Extension - Azure Load Testing</title><authors>ms-azure-load-testing</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/azureloadtesting-extension.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/azureloadtesting-extension</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/azureloadtesting-extension/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/azureloadtesting-extension#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-microsoft-testing/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-azure-load-testing.microsoft-testing/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-microsoft-testing</id>
+    <version>0.2.0</version>
+    <title>Visual Studio Code Extension - Azure Load Testing</title>
+    <authors>ms-azure-load-testing</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/microsoft/azureloadtesting-extension.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/microsoft/azureloadtesting-extension</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/microsoft/azureloadtesting-extension/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/microsoft/azureloadtesting-extension#readme</docsUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-microsoft-testing/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azure-load-testing.microsoft-testing/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 # Azure Load Testing for Visual Studio Code
 The Azure Load Testing extension makes it easy to create and run Locust or JMeter based load tests using GitHub Copilot—all within VS Code. Iterate locally, then scale effortlessly in Azure. Whether you're new to Locust or a performance testing expert, this extension streamlines test creation, iteration, and scaling in the cloud.
 
@@ -82,7 +98,17 @@ By the end, you'll have a fully functional load test script generated from a **P
 Before you begin, make sure you have the following:
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azure-load-testing.microsoft-testing) for full documentation]
-]]></description><summary>An extension to create and run load tests using Azure Load Testing.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azure-load-testing.microsoft-testing#changelog</releaseNotes><tags>vscode extension microsoft-testing</tags><dependencies>
+]]></description>
+    <summary>An extension to create and run load tests using Azure Load Testing.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azure-load-testing.microsoft-testing#changelog</releaseNotes>
+    <tags>vscode extension microsoft-testing</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-copilot-chat" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
