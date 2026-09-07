@@ -82,7 +82,7 @@ When you install an extension from this repository:
 This section is strictly for repository maintainers and contributors.
 
 > [!IMPORTANT]
-> **PowerShell 7 Requirement:** All factory orchestrator scripts (`Manage-ExtensionPool.ps1`, `Invoke-AuUpdater.ps1`, etc.) are heavily optimized for and strictly enforce **PowerShell 7+** (`pwsh`). If you attempt to run these scripts locally using the legacy Windows PowerShell 5.1 (`powershell.exe`), the execution will intentionally abort to prevent corruption.
+> **PowerShell 7 Requirement:** All factory orchestrator scripts (`Manage-ExtensionPool.ps1`, `Update-ExtensionPool.ps1`, etc.) are heavily optimized for and strictly enforce **PowerShell 7+** (`pwsh`). If you attempt to run these scripts locally using the legacy Windows PowerShell 5.1 (`powershell.exe`), the execution will intentionally abort to prevent corruption.
 
 ### Repository Architecture
 
@@ -92,10 +92,9 @@ For a complete breakdown of the PowerShell scripts, modules, and internal functi
 
 Key orchestration scripts:
 
-- **`bin/Manage-ExtensionPool.ps1`**: The primary CLI entry point for adding, removing, and auditing extensions.
-- **`bin/Invoke-ExtensionFactory.ps1`**: The Factory engine that dynamically scaffolds new extension packages.
-- **`bin/Invoke-AuUpdater.ps1`**: The global update engine that wraps the Chocolatey AU module for parallel processing and offline support.
-- **`bin/AuExtensionHooks.ps1`**: The centralized logic engine dot-sourced by all packages' `update.ps1` scripts, injecting AU hooks like `au_GetLatest` and `au_BeforeUpdate`.
+- **`bin/Manage-ExtensionPool.ps1`**: The primary CLI entry point for scaffolding, shredding, and auditing extensions.
+- **`bin/Update-ExtensionPool.ps1`**: The global update engine that wraps the Chocolatey AU module for parallel processing and offline support.
+- **`bin/Update-ExtensionPackage.ps1`**: The localized script natively dot-sourced by all packages' `update.ps1` stubs to execute the update payload and dynamically map the custom AU hooks.
 
 ### How to Add a New Extension
 
