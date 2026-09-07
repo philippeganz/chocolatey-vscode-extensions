@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-redhat-account</id>
@@ -6,8 +6,11 @@
     <title>Visual Studio Code Extension - Red Hat Authentication</title>
     <authors>redhat</authors>
     <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/redhat-developer/vscode-redhat-account</projectUrl>
+    <projectUrl>https://github.com/redhat-developer/vscode-redhat-account.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/redhat-developer/vscode-redhat-account</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/redhat-developer/vscode-redhat-account/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/redhat-developer/vscode-redhat-account#readme</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-redhat-account/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-redhat-account/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -68,11 +71,10 @@ Licensed under the [MIT](https://github.com/redhat-developer/vscode-redhat-accou
 
 ]]></description>
     <summary>Provides authentication support for Red Hat accounts</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=redhat.vscode-redhat-account#changelog</releaseNotes>
-    <tags>vscode extension redhat-account</tags>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-redhat-account#changelog</releaseNotes>
+    <tags>vscode extension vscode-redhat-account</tags>
     <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
     </dependencies>
   </metadata>
   <files>
