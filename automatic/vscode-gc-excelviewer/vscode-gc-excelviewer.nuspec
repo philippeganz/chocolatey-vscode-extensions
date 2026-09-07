@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-gc-excelviewer</id>
@@ -8,6 +8,9 @@
     <owners>philippe.ganz</owners>
     <projectUrl>https://github.com/wijmo/gc-excelviewer.git</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/wijmo/gc-excelviewer</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/wijmo/gc-excelviewer/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/wijmo/gc-excelviewer/blob/master/README.md</docsUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-gc-excelviewer/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/grapecity.gc-excelviewer/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
