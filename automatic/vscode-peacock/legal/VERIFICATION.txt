@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\johnpapa.vscode-peacock-4.3.4.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\johnpapa.vscode-peacock-4.4.1.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 47DABA6C3F1EFC6AD10351A99C9AFBAB33780F1F891B088A625A23DB658F4297
+   Expected SHA256: 9B7E040BD0B8B04A5CBA21B40F12FB410DD55C65B10C55FB8EF8BAB594E2196D
 
 ---
 SOFTWARE LICENSE:

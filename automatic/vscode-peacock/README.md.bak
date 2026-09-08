@@ -1,5 +1,9 @@
 # Peacock for Visual Studio Code
 
+[![AI Ready](https://img.shields.io/badge/AI--Ready-yes-brightgreen?style=flat)](https://github.com/johnpapa/ai-ready)
+
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/johnpapa.vscode-peacock?label=Marketplace)](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock&WT.mc_id=academic-0000-jopapa)
+
 ![Peacock Icon](https://raw.githubusercontent.com/johnpapa/vscode-peacock/main/resources/peacock-icon-small.png 'Peacock')
 
 Subtly change the color of your Visual Studio Code workspace. Ideal when you have multiple VS Code instances, use VS Live Share, or use VS Code's Remote features, and you want to quickly identify your editor.
@@ -30,6 +34,14 @@ Let's see Peacock in action!
 Now enjoy exploring the rest of the features explained in the docs!
 
 ![Peacock Windows](https://raw.githubusercontent.com/johnpapa/vscode-peacock/main/resources/hero.png 'Peacock windows')
+
+## Works with Modern UI
+
+Peacock works whether you're on VS Code's classic UI or the new Modern UI — same colors, same experience.
+
+| Classic UI | Modern UI |
+| --- | --- |
+| ![Peacock in classic UI](https://raw.githubusercontent.com/johnpapa/vscode-peacock/main/resources/modern-ui-classic.png 'Peacock in classic UI') | ![Peacock in modern UI](https://raw.githubusercontent.com/johnpapa/vscode-peacock/main/resources/modern-ui-modern.png 'Peacock in modern UI') |
 
 ## Resources
 
@@ -75,7 +87,7 @@ See [AGENTS.md](https://github.com/johnpapa/vscode-peacock/blob/HEAD/AGENTS.md) 
 
 [Open an issue here](https://github.com/johnpapa/vscode-peacock/issues)
 
-For `workbench.experimental.modernUI` compatibility status, follow the primary tracking issue: [#652](https://github.com/johnpapa/vscode-peacock/issues/652).
+`workbench.experimental.modernUI` compatibility was fixed upstream in VS Code and Peacock colors now apply normally with it enabled. See [#652](https://github.com/johnpapa/vscode-peacock/issues/652) for history.
 
 ## Contributors
 
