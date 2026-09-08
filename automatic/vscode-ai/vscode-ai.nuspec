@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-ai</id>
-    <version>1.5.2026090701</version>
+    <version>1.5.2026090801</version>
     <title>Visual Studio Code Extension - Azure Machine Learning</title>
     <authors>ms-toolsai</authors>
     <owners>philippe.ganz</owners>
