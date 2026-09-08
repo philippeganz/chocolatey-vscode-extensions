@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-phptools-vscode</id>
-    <version>1.73.19228</version>
+    <version>1.73.19244</version>
     <title>Visual Studio Code Extension - PHP</title>
     <authors>DEVSENSE</authors>
     <owners>philippe.ganz</owners>
@@ -50,10 +50,9 @@ This package extends VS Code with fast code completion, advanced editor features
 - **Laravel Blade** full colorization, formatting, and IntelliSense, with PHP IntelliSense, Code Actions, and Hovers. ([link](https://docs.devsense.com/vscode/frameworks/laravel/))
 - **code folding** for code blocks, declarations, comments, and user regions.
 - **unnecessary import check** dims unused `use` and provides a Quick Fix to clean it up.
-- **type hierarchy** visualizing type structure of expressions, classes, interfaces, and traits.
+- **call hierarchy** ([premium](https://www.devsense.com/features#vscode)) visualizing method call chains and function invocations across the codebase.
+- **type hierarchy** ([premium](https://www.devsense.com/features#vscode)) visualizing type structure of expressions, classes, interfaces, and traits.
 - **highlight to-do** in your code, in Documentary Comments, and Single-Line comments.
-- **composer.json** IntelliSense, diagnostics, commands, and code actions through [**Composer**](https://marketplace.visualstudio.com/items?itemName=DEVSENSE.composer-php-vscode) extension.
-- **code actions** ([premium](https://www.devsense.com/features#vscode)) for namespace resolution, getters/setters, adding `use`, or implementing interfaces.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=DEVSENSE.phptools-vscode) for full documentation]
 ]]></description>
