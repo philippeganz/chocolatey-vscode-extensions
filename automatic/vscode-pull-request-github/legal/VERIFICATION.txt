@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\GitHub.vscode-pull-request-github-0.165.2026090413.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\GitHub.vscode-pull-request-github-0.167.2026090810.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 5A524C446A36CD59C48F79494E4CEDC14FE6DEB5CDFC8FAF425C4ADD95EF7B4A
+   Expected SHA256: D6B0F0F0C1AAFF656BB4EC260BDB9B8C8A147FFE9FAB06CD67DF62C985B1E768
 
 ---
 SOFTWARE LICENSE:
