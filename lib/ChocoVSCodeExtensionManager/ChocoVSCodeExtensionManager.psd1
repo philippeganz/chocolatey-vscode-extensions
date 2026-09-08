@@ -9,7 +9,7 @@
 The `ChocoVSCodeExtensionManager` module serves as the primary orchestrator for extension lifecycle management (Scaffolding and Shredding).
 
 It is responsible for:
-- **Scaffolding:** Generating new Chocolatey packages for untracked extensions using the `Add-VSCodeExtension` API, injecting custom variables, and syncing the `extensions.yaml` state.
+- **Scaffolding:** Generating new Chocolatey packages for untracked extensions using the `Add-VSCodeExtension` API, injecting custom variables, and syncing the `extensions.json` state.
 - **Shredding:** Safely destroying deprecated or failing extensions, wiping their directory footprints, and untracking them from the state.
 '@
     PowerShellVersion = '7.0'

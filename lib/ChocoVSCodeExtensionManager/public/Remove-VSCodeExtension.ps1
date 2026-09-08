@@ -6,7 +6,7 @@
     A highly robust, stateless PowerShell function designed to surgically remove extensions
     from the target ecosystem. It performs reverse-lookups on extension IDs, strictly validates
     local dependency trees to prevent the creation of orphaned packages, safely deletes the
-    scaffolded directories, and updates the `extensions.yaml` state tracker.
+    scaffolded directories, and updates the `extensions.json` state tracker.
 
     [Dependency Protection]
     By default, the Shredder will refuse to delete a package if it parses local `.nuspec`
@@ -14,13 +14,13 @@
 
     [Shared Ownership Protection]
     Prevents the deletion of a package directory if multiple different extension IDs in the
-    `extensions.yaml` state file resolve to the exact same Chocolatey package name.
+    `extensions.json` state file resolve to the exact same Chocolatey package name.
 
 .PARAMETER ExtensionId
     An array of extension identifiers or package names to cleanly remove from the pool.
 
 .PARAMETER StatePath
-    The absolute path to the main `extensions.yaml` state file used to track dependency graphs.
+    The absolute path to the main `extensions.json` state file used to track dependency graphs.
 
 .PARAMETER AutomaticDir
     The absolute path to the target automatic directory where the generated packages reside.
@@ -30,7 +30,7 @@
     the package even if it is actively required by other extensions.
 
 .EXAMPLE
-    Remove-VSCodeExtension -ExtensionId "ms-python.python" -StatePath "C:\var\state\extensions.yaml" -AutomaticDir "C:\git\automatic"
+    Remove-VSCodeExtension -ExtensionId "ms-python.python" -StatePath "C:\var\state\extensions.json" -AutomaticDir "C:\git\automatic"
 
 .INPUTS
     [System.String[]]

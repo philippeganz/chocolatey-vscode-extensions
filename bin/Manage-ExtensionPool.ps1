@@ -7,12 +7,12 @@
 .DESCRIPTION
     A state-aware CLI that acts as the single entry point for adding, removing, and
     auditing Chocolatey VS Code extensions in this repository. It natively manages
-    the extensions.yaml file and delegates scaffolding logic to the backend Factory API.
+    the extensions.json file and delegates scaffolding logic to the backend Factory API.
 
     Features:
     - Add/Remove extensions with complete lifecycle and state management.
     - Search the VS Code Marketplace API directly from the terminal.
-    - Audit local directories against extensions.yaml tracking state.
+    - Audit local directories against extensions.json tracking state.
     - Scan for stale packages on the Chocolatey Community Feed.
 
 .PARAMETER Add
@@ -21,7 +21,7 @@
 
 .PARAMETER Remove
     An array of extension identifiers to cleanly remove from the pool.
-    Deletes the local scaffolding directory and removes the entry from extensions.yaml.
+    Deletes the local scaffolding directory and removes the entry from extensions.json.
 
 .PARAMETER Search
     A string query to search the live VS Code Marketplace API directly from the terminal.
@@ -39,7 +39,7 @@
 
 .PARAMETER Audit
     Validates the local state of the 'automatic/' directory against the declared
-    state in 'extensions.yaml', identifying ghost packages or missing scaffolding.
+    state in 'extensions.json', identifying ghost packages or missing scaffolding.
 
 .EXAMPLE
     .\Manage-ExtensionPool.ps1 -Search "python"
@@ -109,9 +109,9 @@ Import-Module ChocoVSCodeExtensionManager
 # =============================================================================
 # 1. State Initialization
 # =============================================================================
-# Load extensions.yaml safely
+# Load extensions.json safely
 $repoRoot = (Split-Path $PSScriptRoot -Parent)
-$StatePath = Join-Path $repoRoot "var\state\extensions.yaml"
+$StatePath = Join-Path $repoRoot "var\state\extensions.json"
 $AutomaticDir = Join-Path $repoRoot "automatic"
 $TemplatesDir = Join-Path $repoRoot "etc\templates"
 
@@ -427,7 +427,7 @@ elseif ($Audit) {
     }
 
     if ($orphans.Count -gt 0) {
-        Write-Err "Found $($orphans.Count) orphaned directories in /automatic that are NOT tracked in extensions.yaml:"
+        Write-Err "Found $($orphans.Count) orphaned directories in /automatic that are NOT tracked in extensions.json:"
         $orphans | ForEach-Object { Write-StyledMessage -Color Red -Message "    - $_" }
     }
     if ($missing.Count -gt 0) {
@@ -435,7 +435,7 @@ elseif ($Audit) {
         $missing | ForEach-Object { Write-StyledMessage -Color Red -Message "    - $_" }
     }
     if ($orphans.Count -eq 0 -and $missing.Count -eq 0) {
-        Write-Success "Audit Complete! The extensions.yaml state perfectly matches the local directory scaffolds."
+        Write-Success "Audit Complete! The extensions.json state perfectly matches the local directory scaffolds."
     }
 }
 else {

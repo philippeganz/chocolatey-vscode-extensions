@@ -5,7 +5,7 @@
 .DESCRIPTION
     A highly robust Git orchestration helper that consolidates index operations for both adding and
     removing extensions from the Chocolatey ecosystem. It automatically stages targeted changes
-    to the `extensions.yaml` state file and the specific package directory inside the automatic folder.
+    to the `extensions.json` state file and the specific package directory inside the automatic folder.
 
     [Smart Evaluation]
     Instead of blindly committing, it uses `git diff --cached` to evaluate if any actual modifications
@@ -19,13 +19,13 @@
     The exact message string to use for the automated git commit.
 
 .PARAMETER StatePath
-    The absolute path to the main `extensions.yaml` state file to stage.
+    The absolute path to the main `extensions.json` state file to stage.
 
 .PARAMETER AutomaticDir
     The absolute path to the automatic directory where the extension packages reside.
 
 .EXAMPLE
-    Checkpoint-GitRepository -ExtensionId "ms-python.python" -CommitMessage "chore: auto-update ms-python.python" -StatePath "C:\var\state\extensions.yaml" -AutomaticDir "C:\git\automatic"
+    Checkpoint-GitRepository -ExtensionId "ms-python.python" -CommitMessage "chore: auto-update ms-python.python" -StatePath "C:\var\state\extensions.json" -AutomaticDir "C:\git\automatic"
 
 .INPUTS
     None

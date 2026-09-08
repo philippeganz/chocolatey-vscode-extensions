@@ -44,17 +44,17 @@ function Get-ChocoVSCodePackageName {
 
 <#
 .SYNOPSIS
-    Reads and parses the extensions.yaml state tracker natively.
+    Reads and parses the extensions.json state tracker natively.
 
 .DESCRIPTION
-    Uses a highly optimized native pipeline to read the extensions.yaml state file,
+    Uses a highly optimized native pipeline to read the extensions.json state file,
     which is a pure root-level YAML array of extension IDs.
 
 .PARAMETER StatePath
-    The absolute path to the extensions.yaml file.
+    The absolute path to the extensions.json file.
 
 .EXAMPLE
-    $extensions = Get-ChocoVSCodeExtensionState -StatePath "C:\var\state\extensions.yaml"
+    $extensions = Get-ChocoVSCodeExtensionState -StatePath "C:\var\state\extensions.json"
 
 .INPUTS
     None
@@ -78,10 +78,7 @@ function Get-ChocoVSCodeExtensionState {
         throw "$fileName not found at $StatePath"
     }
 
-    $extensions = Get-Content $StatePath -Encoding UTF8 |
-    Where-Object { $_ -match '^\s*-\s+(.+)$' } |
-    ForEach-Object { $matches[1].Trim(" ", "'", '"').ToLower() }
-
+    $extensions = Get-Content $StatePath -Raw -Encoding UTF8 | ConvertFrom-Json -ErrorAction SilentlyContinue
     if ($null -eq $extensions) { return [string[]]@() }
 
     return [string[]]$extensions
@@ -89,20 +86,20 @@ function Get-ChocoVSCodeExtensionState {
 
 <#
 .SYNOPSIS
-    Saves the modified extension pool back to extensions.yaml safely.
+    Saves the modified extension pool back to extensions.json safely.
 
 .DESCRIPTION
     Takes an array of extension IDs, sorts them alphabetically, and writes them
-    directly to the extensions.yaml file as a pure root-level YAML array.
+    directly to the extensions.json file as a pure root-level YAML array.
 
 .PARAMETER StatePath
-    The absolute path to the extensions.yaml file.
+    The absolute path to the extensions.json file.
 
 .PARAMETER ExtensionsList
     The updated array of active extensions. Can be empty to clear the pool.
 
 .EXAMPLE
-    Save-ChocoVSCodeExtensionState -StatePath "C:\var\state\extensions.yaml" -ExtensionsList @("foo.bar", "ms-python.python")
+    Save-ChocoVSCodeExtensionState -StatePath "C:\var\state\extensions.json" -ExtensionsList @("foo.bar", "ms-python.python")
 
 .INPUTS
     None

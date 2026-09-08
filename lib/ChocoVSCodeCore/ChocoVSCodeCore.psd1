@@ -10,7 +10,7 @@ The `ChocoVSCodeCore` module provides foundational utilities, configuration logi
 
 It is responsible for:
 - Standardizing console output and logging streams with rich styling.
-- Reading and persisting the global `extensions.yaml` state file.
+- Reading and persisting the global `extensions.json` state file.
 - Providing robust file system and path resolution helpers.
 '@
     PowerShellVersion = '7.0'

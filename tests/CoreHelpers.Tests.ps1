@@ -2,7 +2,7 @@ BeforeAll {
     Import-Module $PSScriptRoot\..\lib\ChocoVSCodeCore\ChocoVSCodeCore.psd1 -Force
     $testDir = Join-Path $TestDrive "CoreHelpersTest"
     New-Item -ItemType Directory -Path $testDir | Out-Null
-    $script:statePath = Join-Path $testDir "extensions.yaml"
+    $script:statePath = Join-Path $testDir "extensions.json"
 }
 
 Describe "Get-ChocoVSCodePackageName" {

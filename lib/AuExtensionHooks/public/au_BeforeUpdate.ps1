@@ -76,7 +76,7 @@ function global:au_BeforeUpdate {
     Update-NuspecCDataDescription -NuspecXml $package.NuspecXml -CDataSafeReadme $payloadResult.CDataSafeReadme -ShortDescription $Latest.RawMeta.shortDescription
 
     $workspace = $env:CHOCO_VSCODE_WORKSPACE_ROOT ?? (Resolve-Path "$PSScriptRoot\..").Path
-    $StatePath = "$workspace\var\state\extensions.yaml"
+    $StatePath = "$workspace\var\state\extensions.json"
     $packageName = $package.Name
     $newDeps = Update-NuspecDependency -NuspecXml $package.NuspecXml -PackageJson $payloadResult.PackageJson -PackageName $packageName -StatePath $StatePath
 
