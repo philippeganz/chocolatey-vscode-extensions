@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-code-spell-checker</id>
-    <version>4.8.0</version>
+    <version>4.9.0</version>
     <title>Visual Studio Code Extension - Code Spell Checker</title>
     <authors>streetsidesoftware</authors>
     <owners>philippe.ganz</owners>
