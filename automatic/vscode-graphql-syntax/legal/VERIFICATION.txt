@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\graphql.vscode-graphql-syntax-1.3.10.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\graphql.vscode-graphql-syntax-1.3.12.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 118E811E5E4809CB3716EB9E9E869D0D72CB3D27BCFB654003276AA3F62BB5A1
+   Expected SHA256: CD45C491F2807973A436C660C45BA0C99CE1EE61C933C5453A09677B31ECB28A
 
 ---
 SOFTWARE LICENSE:
