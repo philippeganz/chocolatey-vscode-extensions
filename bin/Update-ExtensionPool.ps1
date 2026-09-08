@@ -202,14 +202,20 @@ Processing $pkg" -Indent 1
 }
 finally {
 
-    Write-StyledMessage -Color Cyan -Message "`n>>> Restoring hidden README files..."
     $baks = Get-ChildItem -Path $AutomaticDir -Filter "README.md.bak" -Recurse -ErrorAction SilentlyContinue
     if ($baks) {
+        Write-StyledMessage -Color Cyan -Message "`n>>> Restoring hidden README files..."
         foreach ($bak in $baks) {
             $md = Join-Path $bak.DirectoryName "README.md"
             Move-Item $bak.FullName $md -Force
         }
         Write-Success "Restored $($baks.Count) README.md files." -Indent 1
+    }
+
+    if ($global:AU_Packages) {
+        Write-StyledMessage -Color Cyan -Message "`n>>> Exporting AU Engine State Data..."
+        $global:AU_Packages | Select-Object Name, Version, Updated, Ignore, Error, PushError, Status | ConvertTo-Json -Depth 3 | Out-File "var/state/au_results.json" -Encoding UTF8 -Force
+        Write-Success "Saved native AU results to var/state/au_results.json" -Indent 1
     }
 
     Pop-Location

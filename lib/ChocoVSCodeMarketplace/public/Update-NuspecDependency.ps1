@@ -16,10 +16,10 @@
     The canonical Chocolatey package name currently being processed.
 
 .PARAMETER StatePath
-    The absolute path to the extensions.yaml tracker.
+    The absolute path to the extensions.json tracker.
 
 .EXAMPLE
-    Update-NuspecDependency -NuspecXml $xml -PackageJson $json -PackageName "vscode-python" -StatePath "C:\var\state\extensions.yaml"
+    Update-NuspecDependency -NuspecXml $xml -PackageJson $json -PackageName "vscode-python" -StatePath "C:\var\state\extensions.json"
 
 .INPUTS
     None

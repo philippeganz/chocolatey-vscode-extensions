@@ -79,7 +79,24 @@ jobs:
               exit 0
           }
 
+          $auResults = $null
+          if (Test-Path "var/state/au_results.json") {
+              $auResults = Get-Content "var/state/au_results.json" -Raw -Encoding UTF8 | ConvertFrom-Json
+          }
+
           foreach ($pkg in $modifiedPkgs) {
+              # Check if this specific package failed to push according to AU's internal state
+              $pkgState = $null
+              if ($auResults) {
+                  $pkgState = $auResults | Where-Object { $_.Name -eq $pkg }
+              }
+              
+              if ($pkgState -and ($pkgState.Error -or $pkgState.PushError -or ($pkgState.Status -match 'Error'))) {
+                  Write-Host "⚠️ ERROR: Package $pkg failed during AU processing or Push. Rolling back git changes so it is retried next run!"
+                  git checkout -- "automatic/$pkg"
+                  continue
+              }
+
               $version = "unknown"
               $nuspecPath = "automatic/$pkg/$pkg.nuspec"
               if (Test-Path $nuspecPath) {
@@ -88,8 +105,8 @@ jobs:
                       $version = $xml.package.metadata.version
                   }
               }
-
-              Write-Host "Committing updates for: $pkg (v$version)"
+              
+              Write-Host "🤖 Committing updates for: $pkg (v$version)"
               git add "automatic/$pkg"
               git commit -m "🤖 Auto-Update: $pkg v$version [skip ci]"
           }
