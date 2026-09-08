@@ -1,20 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-shellcheck</id>
-    <version>0.39.5</version>
-    <title>Visual Studio Code Extension - ShellCheck</title>
-    <authors>timonwong</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/vscode-shellcheck/vscode-shellcheck.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/vscode-shellcheck/vscode-shellcheck</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/vscode-shellcheck/vscode-shellcheck/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/vscode-shellcheck/vscode-shellcheck#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-shellcheck/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/timonwong.shellcheck/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-shellcheck</id><version>0.40.0</version><title>Visual Studio Code Extension - ShellCheck</title><authors>timonwong</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/vscode-shellcheck/vscode-shellcheck.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/vscode-shellcheck/vscode-shellcheck</projectSourceUrl><bugTrackerUrl>https://github.com/vscode-shellcheck/vscode-shellcheck/issues</bugTrackerUrl><docsUrl>https://github.com/vscode-shellcheck/vscode-shellcheck#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-shellcheck/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/timonwong.shellcheck/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # ShellCheck for Visual Studio Code
 
 Integrates [ShellCheck](https://github.com/koalaman/shellcheck) into VS Code, a linter for Shell scripts.
@@ -117,16 +101,6 @@ Alternatively, you can fix all errors on demand by running the command _Fix All_
 ### Lint `onType` or `onSave`
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=timonwong.shellcheck) for full documentation]
-]]></description>
-    <summary>Integrates ShellCheck into VS Code, a linter for Shell scripts.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=timonwong.shellcheck#changelog</releaseNotes>
-    <tags>vscode extension shellcheck</tags>
-    <dependencies>
+]]></description><summary>Integrates ShellCheck into VS Code, a linter for Shell scripts.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=timonwong.shellcheck#changelog</releaseNotes><tags>vscode extension shellcheck</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
