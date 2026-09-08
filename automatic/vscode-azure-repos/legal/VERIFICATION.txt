@@ -1,0 +1,14 @@
+1. Download the official extension binary directly from the VS Code Marketplace:
+   Marketplace URL: https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-repos
+   (Navigate to 'Version History' and download the exact version, or use the direct download API)
+
+2. Run the following PowerShell command to compute its hash:
+   Get-FileHash -Algorithm SHA256 -Path .\ms-vscode.azure-repos-0.41.2026080601.vsix
+
+3. Compare that hash to the one embedded in this package. They should match exactly:
+   Expected SHA256: F34112B26A71220B2921F5A6206A253ECEC377425383C6B3003762C9E3951165
+
+---
+SOFTWARE LICENSE:
+The software license can be found at:
+https://marketplace.visualstudio.com/items/ms-vscode.azure-repos/license
