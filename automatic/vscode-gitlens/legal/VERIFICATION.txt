@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\eamodio.gitlens-2026.9.40515.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\eamodio.gitlens-2026.9.71112.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 7919B828493ACCB217E3AC85D20A050130319F7EBD79AE409F40238D5E2EFDD4
+   Expected SHA256: 9F1446FAC88D6669AE0E2552C10EDDEE67FE04CCAD6123522471480338CABA19
 
 ---
 SOFTWARE LICENSE:
