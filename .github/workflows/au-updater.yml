@@ -90,7 +90,7 @@ jobs:
               if ($auResults) {
                   $pkgState = $auResults | Where-Object { $_.Name -eq $pkg }
               }
-              
+
               if ($pkgState -and ($pkgState.Error -or $pkgState.PushError -or ($pkgState.Status -match 'Error'))) {
                   Write-Host "⚠️ ERROR: Package $pkg failed during AU processing or Push. Rolling back git changes so it is retried next run!"
                   git checkout -- "automatic/$pkg"
@@ -105,7 +105,7 @@ jobs:
                       $version = $xml.package.metadata.version
                   }
               }
-              
+
               Write-Host "🤖 Committing updates for: $pkg (v$version)"
               git add "automatic/$pkg"
               git commit -m "🤖 Auto-Update: $pkg v$version [skip ci]"
