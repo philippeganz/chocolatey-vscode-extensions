@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\shd101wyy.markdown-preview-enhanced-0.8.34.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\shd101wyy.markdown-preview-enhanced-0.8.35.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: B6DCF59C48FD80B39D228E5353A0E32DF8856B3C86E67D7B9F2B3939D54948C9
+   Expected SHA256: 2ED6911E1B633B7DD3462E34DD26772C06CE3957B8C383F3A0657402F930FC16
 
 ---
 SOFTWARE LICENSE:

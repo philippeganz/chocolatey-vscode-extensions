@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-markdown-preview-enhanced</id>
-    <version>0.8.34</version>
+    <version>0.8.35</version>
     <title>Visual Studio Code Extension - Markdown Preview Enhanced</title>
     <authors>shd101wyy</authors>
     <owners>philippe.ganz</owners>
