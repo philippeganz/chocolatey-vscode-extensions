@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-ruby-lsp</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Ruby LSP</title>
-    <authors>Shopify</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Shopify/ruby-lsp.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/Shopify/ruby-lsp</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/Shopify/ruby-lsp/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/Shopify/ruby-lsp#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-ruby-lsp/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/shopify.ruby-lsp/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-ruby-lsp</id><version>0.10.6</version><title>Visual Studio Code Extension - Ruby LSP</title><authors>Shopify</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Shopify/ruby-lsp.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Shopify/ruby-lsp</projectSourceUrl><bugTrackerUrl>https://github.com/Shopify/ruby-lsp/issues</bugTrackerUrl><docsUrl>https://github.com/Shopify/ruby-lsp#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-ruby-lsp/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/shopify.ruby-lsp/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Ruby LSP
 
 The Ruby LSP is an implementation of the [language server protocol](https://microsoft.github.io/language-server-protocol/)
@@ -84,16 +68,6 @@ Available commands are listed below and can always be found by searching for the
 palette (Default hotkey: CMD + SHIFT + P).
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-lsp) for full documentation]
-]]></description>
-    <summary>VS Code plugin for connecting with the Ruby LSP</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=shopify.ruby-lsp#changelog</releaseNotes>
-    <tags>vscode extension ruby-lsp</tags>
-    <dependencies>
+]]></description><summary>VS Code plugin for connecting with the Ruby LSP</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=shopify.ruby-lsp#changelog</releaseNotes><tags>vscode extension ruby-lsp</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
