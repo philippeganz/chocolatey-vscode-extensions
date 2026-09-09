@@ -32,16 +32,14 @@ jobs:
       - name: Upgrade Chocolatey
         run: choco upgrade chocolatey -y --no-progress
 
-      - name: Install Chocolatey Community Validation Extension
-        run: choco install chocolatey-community-validation.extension -y --no-progress
+      - name: Install Chocolatey Dependencies & Test Prereqs
+        run: choco install chocolatey-community-validation.extension chocolatey-vscode.extension vscode -y --no-progress
 
       - name: Install PowerShell Modules
         shell: pwsh
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
           Install-Module -Name au -Force -Scope CurrentUser -AllowClobber -AcceptLicense
-          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber -AcceptLicense
-
       - name: Run AU Updater
         shell: pwsh
         env:
@@ -56,11 +54,11 @@ jobs:
           $moderation = "${{ inputs.moderation_repush }}"
 
           if ($moderation) {
-            ./bin/Invoke-AuUpdater.ps1 -ModerationRepush $moderation
+            ./bin/Update-ExtensionPool.ps1 -ModerationRepush $moderation
           } elseif ($forced) {
-            ./bin/Invoke-AuUpdater.ps1 -ForcedPackages $forced
+            ./bin/Update-ExtensionPool.ps1 -ForcedPackages $forced
           } else {
-            ./bin/Invoke-AuUpdater.ps1
+            ./bin/Update-ExtensionPool.ps1
           }
 
       - name: Commit and Push Updates
@@ -79,7 +77,24 @@ jobs:
               exit 0
           }
 
+          $auResults = $null
+          if (Test-Path "var/state/au_results.json") {
+              $auResults = Get-Content "var/state/au_results.json" -Raw -Encoding UTF8 | ConvertFrom-Json
+          }
+
           foreach ($pkg in $modifiedPkgs) {
+              # Check if this specific package failed to push according to AU's internal state
+              $pkgState = $null
+              if ($auResults) {
+                  $pkgState = $auResults | Where-Object { $_.Name -eq $pkg }
+              }
+
+              if ($pkgState -and ($pkgState.Error -or $pkgState.PushError -or ($pkgState.Status -match 'Error'))) {
+                  Write-Host "⚠️ ERROR: Package $pkg failed during AU processing or Push. Rolling back git changes so it is retried next run!"
+                  git checkout -- "automatic/$pkg"
+                  continue
+              }
+
               $version = "unknown"
               $nuspecPath = "automatic/$pkg/$pkg.nuspec"
               if (Test-Path $nuspecPath) {
@@ -89,16 +104,45 @@ jobs:
                   }
               }
 
-              Write-Host "Committing updates for: $pkg (v$version)"
+              Write-Host "🤖 Committing updates for: $pkg (v$version)"
               git add "automatic/$pkg"
               git commit -m "🤖 Auto-Update: $pkg v$version [skip ci]"
           }
 
-          if ($status -match 'var/state/config.yaml') {
-              Write-Host "Committing newly discovered dependencies to config.yaml..."
-              git add "var/state/config.yaml"
-              git commit -m "🤖 Auto-Update: Register newly discovered dependencies in config.yaml [skip ci]"
-          }
-
           Write-Host "Pushing all granular commits to main..."
           git push origin main
+
+      - name: Scaffold Missing Dependencies
+        shell: pwsh
+        run: |
+          $scaffoldFile = "var/state/new-packages-to-scaffold.json"
+          if (Test-Path $scaffoldFile) {
+                                          $newDeps = Get-Content $scaffoldFile -Raw -Encoding UTF8 | ConvertFrom-Json
+
+              if ($newDeps) {
+                  Write-Host "Found new dependencies to scaffold: $($newDeps | Select-Object -Unique -join ', ')"
+
+                  # Run the Factory to scaffold them all at once and auto-commit
+                  $factoryPath = Join-Path $PWD "bin\Manage-ExtensionPool.ps1"
+                  & $factoryPath -Add $newDeps -AutoCommit
+
+                  Write-Host "Pushing new dependency scaffolds to main..."
+                  git push origin main
+              }
+          } else {
+              Write-Host "No missing dependencies detected."
+          }
+
+      - name: Report Failures to Pipeline Summary
+        if: always()
+        shell: pwsh
+        run: |
+          $errorFile = "var/state/au_errors.md"
+          if (Test-Path $errorFile) {
+            "### ❌ Moderation Repush / Custom Build Failures" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+            Get-Content $errorFile | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+          }
+          if (Test-Path "Update-AUPackages.md") {
+            "### 📊 Chocolatey AU Native Report" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+            Get-Content "Update-AUPackages.md" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+          }

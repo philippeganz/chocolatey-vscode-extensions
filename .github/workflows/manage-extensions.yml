@@ -24,7 +24,6 @@ jobs:
         shell: pwsh
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
-          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber -AcceptLicense
 
       - name: Parse Issue and Execute Factory
         id: factory
@@ -64,6 +63,7 @@ jobs:
           }
 
           Write-Host "Triggering Factory Engine for: $extId ($action)" -ForegroundColor Cyan
+          $env:PSModulePath = "$PWD/lib;$env:PSModulePath"
           ./bin/Manage-ExtensionPool.ps1 @splat
 
           # Export variables for downstream steps
@@ -93,7 +93,7 @@ jobs:
           branch: 'feature/${{ steps.factory.outputs.ACTION }}-extension-${{ github.event.issue.number }}'
           add-paths: |
             automatic/*
-            var/state/config.yaml
+            var/state/extensions.json
 
       - name: Comment on Issue
         uses: peter-evans/create-or-update-comment@v5

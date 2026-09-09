@@ -1,5 +1,5 @@
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification = 'Variables are declared for AU hooks and module scope but not read within this script block')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Required for module state propagation')]
 param()
-$ExtensionPublisher = "ms-toolsai"
-$ExtensionName = "tensorboard"
-. "$PSScriptRoot\..\..\bin\AuExtensionHooks.ps1"
+$global:ExtensionPublisher = "ms-toolsai"
+$global:ExtensionName = "tensorboard"
+. "$PSScriptRoot\..\..\bin\Update-ExtensionPackage.ps1"

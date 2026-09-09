@@ -148,14 +148,13 @@ jobs:
       - name: Upgrade Chocolatey
         run: choco upgrade chocolatey -y
 
-      - name: Install Chocolatey Community Validation Extension
-        run: choco install chocolatey-community-validation.extension -y --no-progress
+      - name: Install Chocolatey Dependencies & Test Prereqs
+        run: choco install chocolatey-community-validation.extension chocolatey-vscode.extension vscode -y --no-progress
 
       - name: Install PowerShell Modules
         shell: pwsh
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
-          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber -AcceptLicense
           Install-Module -Name au -Force -Scope CurrentUser -AllowClobber -AcceptLicense
           Install-Module -Name platyPS -Force -Scope CurrentUser -AllowClobber -AcceptLicense
           Install-Module -Name Pester -MinimumVersion 6.0.0 -Force -Scope CurrentUser -AllowClobber -AcceptLicense -SkipPublisherCheck
@@ -164,6 +163,7 @@ jobs:
         shell: pwsh
         run: |
           Import-Module Pester -MinimumVersion 6.0.0 -Force
+          $env:PSModulePath = "$PWD/lib;$env:PSModulePath"
           $config = [PesterConfiguration]::Default
           $config.Run.Path = './tests'
           $config.Run.PassThru = $true
@@ -173,7 +173,7 @@ jobs:
 
           # Enable Code Coverage Profiling
           $config.CodeCoverage.Enabled = $true
-          $config.CodeCoverage.Path = @('./bin/*.ps1', './lib/*.psm1', './lib/VsCodeMarketplace/*/*.ps1')
+          $config.CodeCoverage.Path = @('./bin/*.ps1', './lib/*/*.psm1', './lib/*/public/*.ps1')
           $config.CodeCoverage.OutputFormat = 'Cobertura'
           $config.CodeCoverage.OutputPath = Join-Path $PWD 'coverage.xml'
 

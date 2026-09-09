@@ -16,8 +16,8 @@ This workflow is triggered manually by maintainers or automatically via GitHub I
 flowchart TD
     subgraph "The CLI Orchestrator"
         A["User CLI / GitHub IssueOps"] --> B("Manage-ExtensionPool.ps1")
-        B -->|Add new extension| C{"Invoke-ExtensionFactory.ps1"}
-        B -->|Remove extension| Z{"Invoke-ExtensionShredder.ps1"}
+        B -->|Add new extension| C{"Add-VSCodeExtension"}
+        B -->|Remove extension| Z{"Remove-VSCodeExtension"}
     end
 
     subgraph "The Factory (Bootstrapping)"
@@ -31,7 +31,7 @@ flowchart TD
     subgraph "The Shredder (Teardown)"
         Z -->|Validates Dependencies| Y["Checks local .nuspecs"]
         Y -->|Safe to remove| X["Wipes package directory"]
-        X -->|Cleans State| W["var/state/config.yaml"]
+        X -->|Cleans State| W["var/state/extensions.json"]
     end
 ```
 
@@ -42,7 +42,7 @@ This workflow is fully automated. It sweeps the repository on a daily cron sched
 ```mermaid
 flowchart TD
     subgraph "The AU Engine (Maintenance)"
-        Cron["GitHub Actions Daily Schedule"] --> G("Invoke-AuUpdater.ps1")
+        Cron["GitHub Actions Daily Schedule"] --> G("Update-ExtensionPool.ps1")
         G -->|au_GetLatest| H{"Is new version available?"}
         H -->|No| ZZZ["Sleeps until next run"]
         H -->|Yes| I{"au_BeforeUpdate Hook"}
@@ -63,10 +63,10 @@ flowchart TD
 
 ## Directory Structure
 
-- `.github/workflows/`: Contains the AU CI/CD pipelines (which natively run `Invoke-AuUpdater.ps1` and inject granular git commits), testing pipelines, and the MkDocs GitHub Pages deployment pipeline.
+- `.github/workflows/`: Contains the AU CI/CD pipelines (which natively run `Update-ExtensionPool.ps1` and inject granular git commits), testing pipelines, and the MkDocs GitHub Pages deployment pipeline.
 - `automatic/`: Contains the AU templates for every managed extension. **(All packages use an optimized 3-line stub pattern instead of bloated scripts, pointing to a shared logic engine).**
-- `bin/`: Contains the core executable engineering scripts (Factory, Updater, Documentation Generators).
-- `lib/`: Contains shared PowerShell modules (e.g., the `VsCodeMarketplace` library) that power both the Factory and the AU Engine.
+- `bin/`: Contains the core executable orchestrators (`Manage-ExtensionPool.ps1`, `Update-ExtensionPool.ps1`, `Update-ExtensionPackage.ps1`).
+- `lib/`: Contains the strictly structured PowerShell modules (`ChocoVSCodeCore`, `ChocoVSCodeExtensionManager`, `ChocoVSCodeMarketplace`) that power the repository.
 - `docs/`: Houses the MkDocs Material site and the auto-generated PlatyPS Markdown reference documentation.
 - `tests/`: Holds the comprehensive Pester 6 test suites that validate the entire lifecycle engine during CI/CD execution.
 - `var/state/`: Embraces the Linux FHS (Filesystem Hierarchy Standard) convention to cleanly separate dynamic runtime state and tracking files from the underlying execution logic.
@@ -81,7 +81,7 @@ The single CLI entry point for humans and CI/CD pipelines to modify the state of
 - **`-Remove`**: Routes the parameters to the Shredder for package dismantling.
 - **`-AutoCommit`**: Evaluates the Git diff after the child scripts finish and commits the changes.
 
-### 2. The Scaffolder: `Invoke-ExtensionFactory.ps1`
+### 2. The Scaffolder: `Add-VSCodeExtension`
 
 Responsible exclusively for **Day 0 Bootstrapping (Creation)**.
 
@@ -89,14 +89,14 @@ Responsible exclusively for **Day 0 Bootstrapping (Creation)**.
 - **Smart CI Bootstrapping:** Extensions are explicitly scaffolded with `<version>0.0.0</version>` in their `.nuspec`. This inherently triggers the AU Engine to push the pristine upstream version on its first run without requiring manual intervention.
 - **Iterative Auto-Discovery:** If the extension has internal dependencies (like Extension Packs), the Factory yields a list of untracked dependencies back to the orchestrator (`Manage-ExtensionPool.ps1`). The orchestrator dynamically queues and scaffolds them iteratively within the same run, cleanly unrolling the dependency tree without recursion or nested process spawning.
 
-### 3. The Destroyer: `Invoke-ExtensionShredder.ps1`
+### 3. The Destroyer: `Remove-VSCodeExtension`
 
 Responsible exclusively for **Day 0 Teardown (Removal)**.
 
 - **Dependency Validation**: Scans all local `.nuspec` files to ensure the package you are trying to remove is not actively required by another package in the pool. It blocks removal to prevent silent breakages unless explicitly overridden via `-Force`.
-- **State De-sync**: Neatly deletes the physical `automatic/` directory and updates the flat `config.yaml` to ensure the package is purged from both the local disk and the pool registry.
+- **State De-sync**: Neatly deletes the physical `automatic/` directory and updates the flat `extensions.json` to ensure the package is purged from both the local disk and the pool registry.
 
-### 4. The Maintainer: `Invoke-AuUpdater.ps1`
+### 4. The Maintainer: `Update-ExtensionPool.ps1`
 
 Responsible exclusively for **Day 1 Maintenance**.
 It sweeps the repository daily, triggering the native Chocolatey Automatic Updater (AU) framework for all existing packages in the `automatic/` directory.
@@ -127,10 +127,11 @@ Responsible exclusively for generating the internal API reference.
 To ensure long-term stability and security, this repository adheres to strict architectural mandates. Any future PRs or automated refactoring must respect these rules:
 
 1. **Strict Dependency Minimization (No External Binaries):**
-   We rely natively on PowerShell. External binaries (like `yq` or `jq`) are strictly forbidden to minimize supply-chain risk and pipeline bloat. For YAML parsing, we exclusively use the `powershell-yaml` module which is invoked natively.
+   We rely natively on PowerShell. External binaries (like `yq` or `jq`) are strictly forbidden to minimize supply-chain risk and pipeline bloat. For state parsing, we exclusively use the native PowerShell `ConvertFrom-Json` cmdlet.
 
-2. **The Flat State (`var/state/config.yaml`):**
-   The `config.yaml` file, located in our FHS-compliant state directory, is designed to be a completely flat array of tracked extensions. It does not track state, output directories, or versions. The physical directories in `automatic/` serve as the actual state.
+2. **The Flat State (`var/state/extensions.json`):**
+   > **CRITICAL:** This is an automated machine-to-machine state file. **DO NOT EDIT THIS FILE MANUALLY.**
+   All additions and removals MUST be executed via the `.\bin\Manage-ExtensionPool.ps1` CLI, which natively orchestrates the structural scaffolding/teardown and updates this file automatically. The `extensions.json` file is a flat JSON array designed purely for internal tracking; the physical directories in `automatic/` serve as the actual state.
 
 3. **The Air-Gap Mandate (Pure Packages):**
    Packages must never reach out to the internet during `choco install`. The `.vsix` payload is strictly downloaded during the Factory/AU build phase and embedded *inside* the `.nupkg`. Because the binary is internal, native AU checksum generation is explicitly bypassed (`-ChecksumFor none`); the package is protected by Chocolatey's native SHA512 hash instead.
@@ -149,3 +150,11 @@ If you need to completely nuke a package and rebuild it from scratch, use the `-
 ### Emergency Hotfixes (Forced Updates)
 
 If you need to manually push a hotfix to a package (e.g., you fixed a typo in the installer script) but the upstream software version hasn't changed, you must trigger the **Chocolatey AU Updater** workflow manually via the GitHub Actions UI. Supply the package name in the `forced_packages` input. The orchestrator will inject `$global:au_Force = $true` to bypass the version math, trigger AU to append a timestamp, rebuild the binary, and push the revision directly to the gallery.
+
+### 5. The Marketplace SDK: ChocoVSCodeMarketplace
+
+A deeply decoupled, stateless library containing all business logic for interacting with the VS Code Marketplace and generating Chocolatey specifications. Heavily consumed by both the Scaffolder (Day 0) and the AU Engine (Day 1) to guarantee zero code duplication.
+
+- **API Callers**: Get-VsCodeMarketplaceMetadata, Get-VsCodeExtensionUrl, Invoke-RobustDownload, Invoke-WithMarketplaceRetry.
+- **Disk Operations**: Expand-VsCodePayload, New-VerificationFile, Save-VsCodeIcon, Save-NuspecXml.
+- **DOM & XML Manipulators**: Get-VsCodeNuspecMetadata, Update-NuspecCDataDescription, Update-NuspecDependency, Update-VsCodeNuspecMetadata.
