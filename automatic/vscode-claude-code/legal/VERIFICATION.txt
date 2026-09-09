@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\anthropic.claude-code-2.1.263.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\anthropic.claude-code-2.1.266.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 91FF4CEAE3483D0D9142C0F29BB25E5B36B07F116E09392C78739FDB74E551ED
+   Expected SHA256: 350553186BDD8C76E6B6E2EE56E4B95B152FD3BA11265D8ED86AADA87D4D989C
 
 ---
 SOFTWARE LICENSE:
