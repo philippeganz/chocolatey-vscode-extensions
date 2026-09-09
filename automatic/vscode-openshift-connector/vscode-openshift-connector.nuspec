@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-openshift-connector</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - OpenShift Toolkit</title>
-    <authors>redhat</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/redhat-developer/vscode-openshift-tools.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-openshift-connector/icon.png</iconUrl>
-    <licenseUrl>
-      https://marketplace.visualstudio.com/items?itemName=redhat.vscode-openshift-connector</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-openshift-connector</id><version>1.21.1</version><title>Visual Studio Code Extension - OpenShift Toolkit</title><authors>redhat</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/redhat-developer/vscode-openshift-tools.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/redhat-developer/vscode-openshift-tools</projectSourceUrl><bugTrackerUrl>https://github.com/redhat-developer/vscode-openshift-tools/issues</bugTrackerUrl><docsUrl>https://github.com/redhat-developer/vscode-openshift-tools#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-openshift-connector/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-openshift-connector/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 
 The OpenShift Toolkit Extension revolutionizes cloud-native application development by seamlessly integrating with Red Hat OpenShift Hybrid Cloud and Kubernetes. With this powerful extension, developers can harness the full potential of OpenShift and Kubernetes directly within their favorite code editor, streamlining the development process and enhancing productivity.
 
@@ -54,18 +40,7 @@ The OpenShift Toolkit extension provides multiple views to the user once it is l
 <code>3. Serverless Functions View</code>: Lists the available functions created in the cluster and provides the option to Create, Build, Deploy, and Run functions. It also allows you to Manage Repositories for the function template.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-openshift-connector) for full documentation]
-]]></description>
-    <summary>Fast iterative application development on Red Hat OpenShift and Kubernetes</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=redhat.vscode-openshift-connector#changelog</releaseNotes>
-    <tags>vscode extension openshift-connector</tags>
-    <dependencies>
-      <dependency id="chocolatey-vscode.extension" version="1.1.0" />
+]]></description><summary>Fast iterative application development on Red Hat OpenShift and Kubernetes</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=redhat.vscode-openshift-connector#changelog</releaseNotes><tags>vscode extension vscode-openshift-connector</tags><dependencies>
+      <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-redhat-account" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
