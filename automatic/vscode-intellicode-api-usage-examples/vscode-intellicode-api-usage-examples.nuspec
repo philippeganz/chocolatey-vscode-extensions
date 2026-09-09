@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-intellicode-api-usage-examples</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - IntelliCode API Usage Examples</title>
-    <authors>VisualStudioExptTeam</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/MicrosoftDocs/intellicode.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/MicrosoftDocs/intellicode</projectSourceUrl>
-    <bugTrackerUrl>https://go.microsoft.com/fwlink/?linkid=2005855</bugTrackerUrl>
-    <docsUrl>https://github.com/MicrosoftDocs/intellicode#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-intellicode-api-usage-examples/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/visualstudioexptteam.intellicode-api-usage-examples/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-intellicode-api-usage-examples</id><version>0.2.9</version><title>Visual Studio Code Extension - IntelliCode API Usage Examples</title><authors>VisualStudioExptTeam</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/MicrosoftDocs/intellicode.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/MicrosoftDocs/intellicode</projectSourceUrl><bugTrackerUrl>https://go.microsoft.com/fwlink/?linkid=2005855</bugTrackerUrl><docsUrl>https://github.com/MicrosoftDocs/intellicode#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-intellicode-api-usage-examples/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/visualstudioexptteam.intellicode-api-usage-examples/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # IntelliCode API Usage Examples
 
 Ever wish you could easily access code examples for APIs you work with? IntelliCode API Usage Examples makes that a reality. Now with just one click you can access examples for over 100K different APIs!
@@ -34,16 +18,6 @@ This feature currently supports Python, JavaScript and TypeScript (including JSX
 
 ## How does it work?
 It uses a scan of public GitHub repositories, which creates a mapping from function names to code snippets. These code snippets represent real world usages of those functions. The mapping is used to provide the examples you see when using the feature, via a web service. When you hover a function, the feature only ever sends the names of functions found in public open source repos to the service. It will never send your own custom function names. You can read more about the privacy characteristics of the feature [here](https://aka.ms/apiexamplesprivacy)
-]]></description>
-    <summary>See relevant code examples from GitHub for over 100K different APIs right in your editor.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=visualstudioexptteam.intellicode-api-usage-examples#changelog</releaseNotes>
-    <tags>vscode extension intellicode-api-usage-examples</tags>
-    <dependencies>
+]]></description><summary>See relevant code examples from GitHub for over 100K different APIs right in your editor.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=visualstudioexptteam.intellicode-api-usage-examples#changelog</releaseNotes><tags>vscode extension intellicode-api-usage-examples</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
