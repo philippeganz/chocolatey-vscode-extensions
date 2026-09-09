@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-c-cpp-runner</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - C/C++ Runner</title>
-    <authors>franneck94</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/franneck94/vscode-c-cpp-runner.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/franneck94/vscode-c-cpp-runner</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/franneck94/vscode-c-cpp-runner/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/franneck94/vscode-c-cpp-runner/README.md</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-c-cpp-runner/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/franneck94.c-cpp-runner/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-c-cpp-runner</id><version>9.5.0</version><title>Visual Studio Code Extension - C/C++ Runner</title><authors>franneck94</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/franneck94/vscode-c-cpp-runner.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/franneck94/vscode-c-cpp-runner</projectSourceUrl><bugTrackerUrl>https://github.com/franneck94/vscode-c-cpp-runner/issues</bugTrackerUrl><docsUrl>https://github.com/franneck94/vscode-c-cpp-runner/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-c-cpp-runner/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/franneck94.c-cpp-runner/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # VSCode C/C++ Runner
 
 🚀 Compile, run and debug [**single**](#compile-a-single-file) or [**multiple**](#compile-all-files-in-one-folder) C/C++/Cuda files with ease. 🚀  
@@ -76,18 +60,8 @@ Note: You **don't** have to edit the **c_cpp_properties.json** file.
 ### Basic settings
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=franneck94.c-cpp-runner) for full documentation]
-]]></description>
-    <summary>🚀 Compile, run and debug single or multiple C/C++ files with ease. 🚀</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=franneck94.c-cpp-runner#changelog</releaseNotes>
-    <tags>vscode extension c-cpp-runner</tags>
-    <dependencies>
+]]></description><summary>🚀 Compile, run and debug single or multiple C/C++ files with ease. 🚀</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=franneck94.c-cpp-runner#changelog</releaseNotes><tags>vscode extension c-cpp-runner</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-cpptools" />
       <dependency id="vscode-lldb" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
