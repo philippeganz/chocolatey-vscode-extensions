@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-remote-ssh-edit</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Remote - SSH: Editing Configuration Files</title>
-    <authors>ms-vscode-remote</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/Microsoft/vscode-remote-release</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/Microsoft/vscode-remote-release/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/Microsoft/vscode-remote-release#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-remote-ssh-edit/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh-edit/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-remote-ssh-edit</id><version>0.87.0</version><title>Visual Studio Code Extension - Remote - SSH: Editing Configuration Files</title><authors>ms-vscode-remote</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-remote-release</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-remote-release/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-remote-release#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-remote-ssh-edit/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh-edit/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Visual Studio Code Remote - SSH: Editing Configuration Files
 
 The **Remote - SSH** extension lets you use any remote machine with a SSH server as your development environment.
@@ -43,16 +27,6 @@ Visual Studio Code **Remote - SSH: Editing Configuration Files** and related ext
 ## License
 
 By downloading and using the Visual Studio **Remote - SSH: Editing Configuration Files** extension and its related components, you agree to the product [license terms](https://go.microsoft.com/fwlink/?linkid=2077057) and [privacy statement](https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx).
-]]></description>
-    <summary>Edit SSH configuration files</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit#changelog</releaseNotes>
-    <tags>vscode extension remote-ssh-edit</tags>
-    <dependencies>
+]]></description><summary>Edit SSH configuration files</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit#changelog</releaseNotes><tags>vscode extension remote-ssh-edit</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
