@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-svelte-vscode</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Svelte for VS Code</title>
-    <authors>svelte</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/sveltejs/language-tools.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/sveltejs/language-tools</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/sveltejs/language-tools/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/sveltejs/language-tools#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-svelte-vscode/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/svelte.svelte-vscode/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-svelte-vscode</id><version>110.3.1</version><title>Visual Studio Code Extension - Svelte for VS Code</title><authors>svelte</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/sveltejs/language-tools.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/sveltejs/language-tools</projectSourceUrl><bugTrackerUrl>https://github.com/sveltejs/language-tools/issues</bugTrackerUrl><docsUrl>https://github.com/sveltejs/language-tools#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-svelte-vscode/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/svelte.svelte-vscode/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Svelte for VS Code
 
 Provides syntax highlighting and rich intellisense for Svelte components in VS Code, using the [svelte language server](https://github.com/sveltejs/language-tools/blob/HEAD/packages/language-server).
@@ -89,16 +73,6 @@ This is useful when you use something like Yarn PnP and need its loader argument
 ##### `svelte.language-server.port`
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) for full documentation]
-]]></description>
-    <summary>Svelte language support for VS Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode#changelog</releaseNotes>
-    <tags>vscode extension svelte-vscode</tags>
-    <dependencies>
+]]></description><summary>Svelte language support for VS Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode#changelog</releaseNotes><tags>vscode extension svelte-vscode</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
