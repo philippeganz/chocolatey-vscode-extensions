@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-ng-template</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Angular Language Service</title>
-    <authors>Angular</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/angular/angular.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/angular/angular</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/angular/angular/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/angular/angular#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-ng-template/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/angular.ng-template/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-ng-template</id><version>22.1.0</version><title>Visual Studio Code Extension - Angular Language Service</title><authors>Angular</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/angular/angular.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/angular/angular</projectSourceUrl><bugTrackerUrl>https://github.com/angular/angular/issues</bugTrackerUrl><docsUrl>https://github.com/angular/angular#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-ng-template/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/angular.ng-template/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Angular Language Service
 
 ![demo](https://github.com/angular/vscode-ng-language-service/raw/main/demo.gif)
@@ -101,16 +85,6 @@ For more information, please see [#594](https://github.com/angular/vscode-ng-lan
 Download the `.vsix` file for the release that you want to install from the [releases](https://github.com/angular/angular/releases?q=vscode&expanded=true) tab.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) for full documentation]
-]]></description>
-    <summary>Editor services for Angular templates</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=angular.ng-template#changelog</releaseNotes>
-    <tags>vscode extension ng-template</tags>
-    <dependencies>
+]]></description><summary>Editor services for Angular templates</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=angular.ng-template#changelog</releaseNotes><tags>vscode extension ng-template</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
