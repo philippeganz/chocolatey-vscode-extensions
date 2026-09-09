@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-remote-repositories</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Remote Repositories</title>
-    <authors>ms-vscode</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/microsoft/vscode-remote-repositories-github.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/microsoft/vscode-remote-repositories-github</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/microsoft/vscode-remote-repositories-github/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/microsoft/vscode-remote-repositories-github#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-remote-repositories/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.remote-repositories/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-remote-repositories</id><version>0.43.2026080601</version><title>Visual Studio Code Extension - Remote Repositories</title><authors>ms-vscode</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/microsoft/vscode-remote-repositories-github.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/microsoft/vscode-remote-repositories-github</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-remote-repositories-github/issues</bugTrackerUrl><docsUrl>https://github.com/microsoft/vscode-remote-repositories-github#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-remote-repositories/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.remote-repositories/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 > **This is the pre-release edition of Remote Repositories for early feedback and testing. It works best with [VS Code Insiders](https://code.visualstudio.com/insiders).**
 
 # Remote Repositories
@@ -23,18 +7,8 @@ The **Remote Repositories extension** integrates with the GitHub Repositories an
 
 This extension was previously part of the GitHub Repositories extension.
 
-]]></description>
-    <summary>Remotely browse and edit git repositories</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories#changelog</releaseNotes>
-    <tags>vscode extension remote-repositories</tags>
-    <dependencies>
+]]></description><summary>Remotely browse and edit git repositories</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories#changelog</releaseNotes><tags>vscode extension remote-repositories</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-remotehub" />
       <dependency id="vscode-azure-repos" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
