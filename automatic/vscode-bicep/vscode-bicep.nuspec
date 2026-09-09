@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-bicep</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Bicep</title>
-    <authors>ms-azuretools</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Azure/bicep.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/Azure/bicep</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/Azure/bicep/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/Azure/bicep/blob/main/README.md</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-bicep/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-bicep/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-bicep</id><version>0.47.16</version><title>Visual Studio Code Extension - Bicep</title><authors>ms-azuretools</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Azure/bicep.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Azure/bicep</projectSourceUrl><bugTrackerUrl>https://github.com/Azure/bicep/issues</bugTrackerUrl><docsUrl>https://github.com/Azure/bicep/blob/main/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-bicep/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-bicep/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Key features of the Bicep VS Code extension
 
 The [Bicep VS Code extension](https://docs.microsoft.com/azure/azure-resource-manager/bicep/install#vs-code-and-bicep-extension) is capable of many of the features you would expect out of other language tooling. Here is a comprehensive list of the features that are currently implemented.
@@ -74,17 +58,7 @@ The bicep language service supports document symbols, which help power a broad s
 ### Outline view and breadcrumb view
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) for full documentation]
-]]></description>
-    <summary>Bicep language support for Visual Studio Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep#changelog</releaseNotes>
-    <tags>vscode extension vscode-bicep</tags>
-    <dependencies>
+]]></description><summary>Bicep language support for Visual Studio Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep#changelog</releaseNotes><tags>vscode extension vscode-bicep</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-dotnet-runtime" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>

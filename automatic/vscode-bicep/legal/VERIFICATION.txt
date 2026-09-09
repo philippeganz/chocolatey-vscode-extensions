@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-azuretools.vscode-bicep-0.46.1.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-azuretools.vscode-bicep-0.47.16.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 497B3BC762AF59A5EC6527F185E09042E97D8D48974D4B2DF22FC4E2AC25F633
+   Expected SHA256: 2FF44074A3331F800D06D4A5EE2939FDAC03EB6CF4DE3CC4C17295194C13EF8C
 
 ---
 SOFTWARE LICENSE:
