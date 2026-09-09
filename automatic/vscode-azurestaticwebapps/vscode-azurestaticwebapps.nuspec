@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-azurestaticwebapps</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Azure Static Web Apps</title>
-    <authors>ms-azuretools</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-azurestaticwebapps.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/Microsoft/vscode-azurestaticwebapps</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/Microsoft/vscode-azurestaticwebapps/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/Microsoft/vscode-azurestaticwebapps/blob/main/README.md</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-azurestaticwebapps/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azurestaticwebapps/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-azurestaticwebapps</id><version>0.13.3</version><title>Visual Studio Code Extension - Azure Static Web Apps</title><authors>ms-azuretools</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-azurestaticwebapps.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-azurestaticwebapps</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-azurestaticwebapps/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-azurestaticwebapps/blob/main/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-azurestaticwebapps/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azurestaticwebapps/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Azure Static Web Apps for Visual Studio Code
 
 <!-- region exclude-from-marketplace -->
@@ -72,17 +56,7 @@ Commit and push your changes to the GitHub repository that your static web app i
 If you create a pull request through GitHub, GitHub Actions will create a staging environment with your new changes live.  Your Production environment and staging environments are all listed within your Static Web App as well as application settings.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) for full documentation]
-]]></description>
-    <summary>An Azure Static Web Apps extension for Visual Studio Code.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps#changelog</releaseNotes>
-    <tags>vscode extension vscode-azurestaticwebapps</tags>
-    <dependencies>
+]]></description><summary>An Azure Static Web Apps extension for Visual Studio Code.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps#changelog</releaseNotes><tags>vscode extension vscode-azurestaticwebapps</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-azureresourcegroups" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
