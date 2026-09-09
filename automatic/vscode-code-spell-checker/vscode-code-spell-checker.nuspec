@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-code-spell-checker</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Code Spell Checker</title>
-    <authors>streetsidesoftware</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/streetsidesoftware/vscode-spell-checker.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/streetsidesoftware/vscode-spell-checker</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/streetsidesoftware/vscode-spell-checker/issues</bugTrackerUrl>
-    <docsUrl>https://streetsidesoftware.github.io/vscode-spell-checker</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-code-spell-checker/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/streetsidesoftware.code-spell-checker/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-code-spell-checker</id><version>4.9.0</version><title>Visual Studio Code Extension - Code Spell Checker</title><authors>streetsidesoftware</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/streetsidesoftware/vscode-spell-checker.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/streetsidesoftware/vscode-spell-checker</projectSourceUrl><bugTrackerUrl>https://github.com/streetsidesoftware/vscode-spell-checker/issues</bugTrackerUrl><docsUrl>https://streetsidesoftware.github.io/vscode-spell-checker</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-code-spell-checker/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/streetsidesoftware.code-spell-checker/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Spelling Checker for Visual Studio Code
 
 A basic spell checker that works well with code and documents.
@@ -71,16 +55,6 @@ Open up VS Code and hit `F1` and type `ext` select install and type `code-spell-
 ### Language Dictionaries
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) for full documentation]
-]]></description>
-    <summary>Spelling checker for source code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker#changelog</releaseNotes>
-    <tags>vscode extension code-spell-checker</tags>
-    <dependencies>
+]]></description><summary>Spelling checker for source code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker#changelog</releaseNotes><tags>vscode extension code-spell-checker</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
