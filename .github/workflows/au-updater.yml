@@ -40,8 +40,6 @@ jobs:
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
           Install-Module -Name au -Force -Scope CurrentUser -AllowClobber -AcceptLicense
-          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber -AcceptLicense
-
       - name: Run AU Updater
         shell: pwsh
         env:
@@ -117,11 +115,9 @@ jobs:
       - name: Scaffold Missing Dependencies
         shell: pwsh
         run: |
-          $scaffoldFile = "var/state/new-packages-to-scaffold.yaml"
+          $scaffoldFile = "var/state/new-packages-to-scaffold.json"
           if (Test-Path $scaffoldFile) {
-              Import-Module powershell-yaml
-              # ConvertFrom-Yaml on a file with just list items returns an array of strings
-              $newDeps = Get-Content $scaffoldFile -Raw -Encoding UTF8 | ConvertFrom-Yaml
+                                          $newDeps = Get-Content $scaffoldFile -Raw -Encoding UTF8 | ConvertFrom-Json
 
               if ($newDeps) {
                   Write-Host "Found new dependencies to scaffold: $($newDeps | Select-Object -Unique -join ', ')"

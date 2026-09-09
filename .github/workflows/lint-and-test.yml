@@ -155,7 +155,6 @@ jobs:
         shell: pwsh
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
-          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber -AcceptLicense
           Install-Module -Name au -Force -Scope CurrentUser -AllowClobber -AcceptLicense
           Install-Module -Name platyPS -Force -Scope CurrentUser -AllowClobber -AcceptLicense
           Install-Module -Name Pester -MinimumVersion 6.0.0 -Force -Scope CurrentUser -AllowClobber -AcceptLicense -SkipPublisherCheck

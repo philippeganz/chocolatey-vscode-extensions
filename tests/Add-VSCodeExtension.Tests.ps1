@@ -50,7 +50,7 @@ Describe "Add-VSCodeExtension" {
             Mock Save-NuspecXml -ModuleName ChocoVSCodeExtensionManager {}
 
             $fakeAutomaticDir = Join-Path $TestDrive "automatic"
-            $fakeStatePath = Join-Path $TestDrive "state.yaml"
+            $fakeStatePath = Join-Path $TestDrive "state.json"
             Add-VSCodeExtension -ExtensionId "ms-python.python" -StatePath $fakeStatePath -AutomaticDir $fakeAutomaticDir -TemplatesDir $fakeTemplatesDir
 
             Should -Invoke -CommandName Get-VsCodeMarketplaceMetadata -ModuleName ChocoVSCodeExtensionManager -Times 1

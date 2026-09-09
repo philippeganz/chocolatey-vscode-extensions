@@ -16,13 +16,10 @@ Describe "Get-ChocoVSCodePackageName" {
 
 Describe "Get-ChocoVSCodeExtensionState" {
     Context "Successful Route" {
-        It "should parse the flat YAML array and return string array" {
+        It "should parse the flat JSON array and return string array" {
             # Setup
-            $yaml = "---
-- 'ms-python.python'
-- eamodio.gitlens
-"
-            Set-Content -Path $script:statePath -Value $yaml -Encoding UTF8
+            $json = '["ms-python.python", "eamodio.gitlens"]'
+            Set-Content -Path $script:statePath -Value $json -Encoding UTF8
 
             # Execution
             $result = Get-ChocoVSCodeExtensionState -StatePath $script:statePath
@@ -37,7 +34,7 @@ Describe "Get-ChocoVSCodeExtensionState" {
 
 Describe "Save-ChocoVSCodeExtensionState" {
     Context "Successful Route" {
-        It "should sort, deduplicate, and write extensions to YAML array" {
+        It "should sort, deduplicate, and write extensions to JSON array" {
             # Setup
             $extList = @("ms-python.python", "z-author.extension", "a-author.extension", "ms-python.python")
 
