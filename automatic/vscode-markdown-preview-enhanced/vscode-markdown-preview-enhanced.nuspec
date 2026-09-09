@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-markdown-preview-enhanced</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Markdown Preview Enhanced</title>
-    <authors>shd101wyy</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/shd101wyy/vscode-markdown-preview-enhanced.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/shd101wyy/vscode-markdown-preview-enhanced</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/shd101wyy/vscode-markdown-preview-enhanced/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/shd101wyy/vscode-markdown-preview-enhanced#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-markdown-preview-enhanced/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/shd101wyy.markdown-preview-enhanced/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-markdown-preview-enhanced</id><version>0.8.35</version><title>Visual Studio Code Extension - Markdown Preview Enhanced</title><authors>shd101wyy</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/shd101wyy/vscode-markdown-preview-enhanced.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/shd101wyy/vscode-markdown-preview-enhanced</projectSourceUrl><bugTrackerUrl>https://github.com/shd101wyy/vscode-markdown-preview-enhanced/issues</bugTrackerUrl><docsUrl>https://github.com/shd101wyy/vscode-markdown-preview-enhanced#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-markdown-preview-enhanced/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/shd101wyy.markdown-preview-enhanced/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
  Markdown Preview Enhanced 
 
 ![intro](https://user-images.githubusercontent.com/1908863/28495106-30b3b15e-6f09-11e7-8eb6-ca4ca001ab15.png)
@@ -56,16 +40,6 @@ For more information about this project and how to use this extension, please ch
 **This extension does not collect, transmit, or share your data with any external service.** The core preview, scroll sync, math typesetting, diagram rendering, and all editor features run entirely on your local machine. No telemetry, no tracking, no phone-home.
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) for full documentation]
-]]></description>
-    <summary>Markdown Preview Enhanced ported to vscode</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced#changelog</releaseNotes>
-    <tags>vscode extension markdown-preview-enhanced</tags>
-    <dependencies>
+]]></description><summary>Markdown Preview Enhanced ported to vscode</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced#changelog</releaseNotes><tags>vscode extension markdown-preview-enhanced</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
