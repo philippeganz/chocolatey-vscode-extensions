@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-material-theme</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - One Dark Pro</title>
-    <authors>zhuangtongfa</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Binaryify/OneDark-Pro.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/Binaryify/OneDark-Pro</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/Binaryify/OneDark-Pro/issues</bugTrackerUrl>
-    <docsUrl>https://binaryify.github.io/OneDark-Pro/</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-material-theme/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/zhuangtongfa.material-theme/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-material-theme</id><version>3.20.2</version><title>Visual Studio Code Extension - One Dark Pro</title><authors>zhuangtongfa</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Binaryify/OneDark-Pro.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Binaryify/OneDark-Pro</projectSourceUrl><bugTrackerUrl>https://github.com/Binaryify/OneDark-Pro/issues</bugTrackerUrl><docsUrl>https://binaryify.github.io/OneDark-Pro/</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-material-theme/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/zhuangtongfa.material-theme/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)
 
 ## [GitHub Repo](https://github.com/Binaryify/OneDark-Pro) 
@@ -134,16 +118,6 @@ or use the setting `editor.tokenColorCustomizations`
 You could set this in your setting.json to make code be italic
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.material-theme) for full documentation]
-]]></description>
-    <summary>Atom's iconic One Dark theme for Visual Studio Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.material-theme#changelog</releaseNotes>
-    <tags>vscode extension material-theme</tags>
-    <dependencies>
+]]></description><summary>Atom's iconic One Dark theme for Visual Studio Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.material-theme#changelog</releaseNotes><tags>vscode extension material-theme</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
