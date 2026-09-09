@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-clangd</id>
-    <version>0.6.0</version>
+    <version>0.0.0</version>
     <title>Visual Studio Code Extension - clangd</title>
     <authors>llvm-vs-code-extensions</authors>
     <owners>philippe.ganz</owners>

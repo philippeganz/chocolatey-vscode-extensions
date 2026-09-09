@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-language-pack-cs</id>
-    <version>1.131.2026090407</version>
+    <version>0.0.0</version>
     <title>Visual Studio Code Extension - Czech Language Pack for Visual Studio Code</title>
     <authors>MS-CEINTL</authors>
     <owners>philippe.ganz</owners>

@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-al</id>
-    <version>18.0.2668733</version>
+    <version>0.0.0</version>
     <title>Visual Studio Code Extension - AL Language extension for Microsoft Dynamics 365 Business Central</title>
     <authors>ms-dynamics-smb</authors>
     <owners>philippe.ganz</owners>

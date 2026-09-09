@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-claude-code</id>
-    <version>2.1.263</version>
+    <version>0.0.0</version>
     <title>Visual Studio Code Extension - Claude Code for VS Code</title>
     <authors>anthropic</authors>
     <owners>philippe.ganz</owners>

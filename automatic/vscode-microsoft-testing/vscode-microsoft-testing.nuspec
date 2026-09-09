@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-microsoft-testing</id>
-    <version>0.2.0</version>
+    <version>0.0.0</version>
     <title>Visual Studio Code Extension - Azure Load Testing</title>
     <authors>ms-azure-load-testing</authors>
     <owners>philippe.ganz</owners>
