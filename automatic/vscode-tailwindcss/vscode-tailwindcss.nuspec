@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-tailwindcss</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Tailwind CSS IntelliSense</title>
-    <authors>bradlc</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/tailwindlabs/tailwindcss-intellisense.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/tailwindlabs/tailwindcss-intellisense</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/tailwindlabs/tailwindcss-intellisense/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/tailwindlabs/tailwindcss-intellisense</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-tailwindcss/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/bradlc.vscode-tailwindcss/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-tailwindcss</id><version>0.16.0</version><title>Visual Studio Code Extension - Tailwind CSS IntelliSense</title><authors>bradlc</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/tailwindlabs/tailwindcss-intellisense.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/tailwindlabs/tailwindcss-intellisense</projectSourceUrl><bugTrackerUrl>https://github.com/tailwindlabs/tailwindcss-intellisense/issues</bugTrackerUrl><docsUrl>https://github.com/tailwindlabs/tailwindcss-intellisense</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-tailwindcss/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/bradlc.vscode-tailwindcss/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 
 
 Tailwind CSS IntelliSense enhances the Tailwind development experience by providing Visual Studio Code users with advanced features such as autocomplete, syntax highlighting, and linting.
@@ -100,16 +84,6 @@ This setting allows you to add additional language support. The key of each entr
 ```
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) for full documentation]
-]]></description>
-    <summary>Intelligent Tailwind CSS tooling for VS Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss#changelog</releaseNotes>
-    <tags>vscode extension vscode-tailwindcss</tags>
-    <dependencies>
+]]></description><summary>Intelligent Tailwind CSS tooling for VS Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss#changelog</releaseNotes><tags>vscode extension vscode-tailwindcss</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
