@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-remote-explorer</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Remote Explorer</title>
-    <authors>ms-vscode</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/Microsoft/vscode-remote-release</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/Microsoft/vscode-remote-release/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/Microsoft/vscode-remote-release#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-remote-explorer/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.remote-explorer/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-remote-explorer</id><version>0.6.2026031809</version><title>Visual Studio Code Extension - Remote Explorer</title><authors>ms-vscode</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-remote-release.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-remote-release</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-remote-release/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-remote-release#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-remote-explorer/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.remote-explorer/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Visual Studio Code Remote Explorer
 
 The Remote - SSH and Remote - Tunnels extensions let you use any remote machine as your development environment.
@@ -42,16 +26,6 @@ Visual Studio Code **Remote Explorer** and related extensions collect telemetry 
 
 By downloading and using the Visual Studio **Remote Explorer** extension and its related components, you agree to the product [license terms](https://go.microsoft.com/fwlink/?linkid=2077057) and [privacy statement](https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx).
 
-]]></description>
-    <summary>View remote machines for SSH and Tunnels.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer#changelog</releaseNotes>
-    <tags>vscode extension remote-explorer</tags>
-    <dependencies>
+]]></description><summary>View remote machines for SSH and Tunnels.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer#changelog</releaseNotes><tags>vscode extension remote-explorer</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
