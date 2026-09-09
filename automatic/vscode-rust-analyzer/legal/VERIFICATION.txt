@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\rust-lang.rust-analyzer-0.4.3042.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\rust-lang.rust-analyzer-0.4.3043.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: B422AFA7E967CCD4C17FE2880A834E088FE762397B4636FEB7849EA8983F0704
+   Expected SHA256: 400A4B44C31E4F9988E7DEC03BF1C2A1289A23C77A040B83C2BB6F5E17552925
 
 ---
 SOFTWARE LICENSE:
