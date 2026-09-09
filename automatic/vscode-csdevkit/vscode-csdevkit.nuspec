@@ -1,19 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-csdevkit</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - C# Dev Kit</title>
-    <authors>ms-dotnettools</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl> https://devdiv.visualstudio.com/DevDiv/_git/vs-green</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl> https://devdiv.visualstudio.com/DevDiv/_git/vs-green</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/microsoft/vscode-dotnettools/issues</bugTrackerUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-csdevkit/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-dotnettools.csdevkit/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-csdevkit</id><version>3.33.194</version><title>Visual Studio Code Extension - C# Dev Kit</title><authors>ms-dotnettools</authors><owners>philippe.ganz</owners><projectUrl> https://devdiv.visualstudio.com/DevDiv/_git/vs-green</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl> https://devdiv.visualstudio.com/DevDiv/_git/vs-green</projectSourceUrl><bugTrackerUrl>https://github.com/microsoft/vscode-dotnettools/issues</bugTrackerUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-csdevkit/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-dotnettools.csdevkit/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # C# Dev Kit for Visual Studio Code
 
 C# Dev Kit helps you manage your code with a solution explorer and test your code with integrated unit test discovery and execution, elevating your C# development experience wherever you like to develop (Windows, macOS, Linux, and even in a Codespace).
@@ -68,18 +53,8 @@ With C# Dev Kit, your tests in XUnit, NUnit, MSTest and bUnit will be discovered
 ## Installed Extensions
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) for full documentation]
-]]></description>
-    <summary>Official C# extension from Microsoft</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit#changelog</releaseNotes>
-    <tags>vscode extension csdevkit</tags>
-    <dependencies>
+]]></description><summary>Official C# extension from Microsoft</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit#changelog</releaseNotes><tags>vscode extension csdevkit</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-dotnet-runtime" />
       <dependency id="vscode-csharp" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>

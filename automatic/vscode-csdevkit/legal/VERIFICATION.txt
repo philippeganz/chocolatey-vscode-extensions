@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-dotnettools.csdevkit-3.32.194.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-dotnettools.csdevkit-3.33.194.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 16E29B01971B8B029DB7C2338F6CAEEE91A451CA1D6C6C53F62B1DB6E26CC05E
+   Expected SHA256: 407D6A079B15C17F38EDBFF5D18B96164742AE5B3B5B45C762E3F0507D807A2D
 
 ---
 SOFTWARE LICENSE:
