@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-vscode-remote.remote-containers-0.468.0.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-vscode-remote.remote-containers-0.470.0.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 3624C7889DF12264B151D2F0FC8A45322013917B9CF41C2E5FC3751E97219AE8
+   Expected SHA256: 66300DD37EC86E709DF46ACF4C294821DB94248EE89CFF7FB32888271B5069A1
 
 ---
 SOFTWARE LICENSE:
