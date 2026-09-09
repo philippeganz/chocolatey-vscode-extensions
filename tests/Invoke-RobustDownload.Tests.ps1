@@ -8,7 +8,7 @@ Describe "Invoke-RobustDownload" {
         It "should execute the joyful output by deferring the download block to the retry wrapper" {
             Mock Invoke-WithMarketplaceRetry -ModuleName ChocoVSCodeMarketplace {}
 
-            Invoke-RobustDownload -Url "https://fake.url/file.vsix" -OutFile "C:\fake\out.vsix"
+            Invoke-RobustDownload -Url "https://fake.url/file.vsix" -OutFile "$TestDrive\out.vsix"
 
             Should -Invoke -CommandName Invoke-WithMarketplaceRetry -ModuleName ChocoVSCodeMarketplace -Times 1
         }

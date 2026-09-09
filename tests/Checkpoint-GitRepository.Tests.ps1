@@ -17,7 +17,7 @@ Describe "Checkpoint-GitRepository" {
             }
 
             # Execution
-            Checkpoint-GitRepository -ExtensionId "ms-python.python" -CommitMessage "test commit" -StatePath "C:\fake\state.yaml" -AutomaticDir "C:\fake\automatic"
+            Checkpoint-GitRepository -ExtensionId "ms-python.python" -CommitMessage "test commit" -StatePath "$TestDrive\state.json" -AutomaticDir "$TestDrive\automatic"
 
             # Assertion
             Should -Invoke -CommandName git -ModuleName ChocoVSCodeExtensionManager -Times 3

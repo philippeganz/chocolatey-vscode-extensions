@@ -16,7 +16,7 @@ Describe "Remove-VSCodeExtension" {
             New-Item -ItemType Directory -Path $fakeAutomaticDir | Out-Null
             $fakePkgDir = Join-Path $fakeAutomaticDir "vscode-python"
             New-Item -ItemType Directory -Path $fakePkgDir | Out-Null
-            $fakeStatePath = Join-Path $TestDrive "state.yaml"
+            $fakeStatePath = Join-Path $TestDrive "state.json"
 
             Remove-VSCodeExtension -ExtensionId "ms-python.python" -StatePath $fakeStatePath -AutomaticDir $fakeAutomaticDir
 

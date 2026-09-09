@@ -124,19 +124,12 @@ function Save-ChocoVSCodeExtensionState {
 
     $sortedExtensions = @($ExtensionsList | Where-Object { -not [string]::IsNullOrWhiteSpace($_) } | Sort-Object -Unique)
 
-    $yamlBuilder = [System.Text.StringBuilder]::new()
-    [void]$yamlBuilder.Append("---`n")
-
     if ($sortedExtensions.Count -gt 0) {
-        foreach ($extensionId in $sortedExtensions) {
-            [void]$yamlBuilder.Append("- $extensionId`n")
-        }
+        $sortedExtensions | ConvertTo-Json -Depth 3 | Out-File -FilePath $StatePath -Encoding UTF8 -Force
     }
     else {
-        [void]$yamlBuilder.Append("[]`n")
+        "[]" | Out-File -FilePath $StatePath -Encoding UTF8 -Force
     }
-
-    [System.IO.File]::WriteAllText($StatePath, $yamlBuilder.ToString(), [System.Text.UTF8Encoding]::new($false))
 
     Write-Success "State saved to $StatePath ($($sortedExtensions.Count) total extensions tracked)."
 }

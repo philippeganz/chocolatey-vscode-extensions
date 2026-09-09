@@ -39,7 +39,6 @@ jobs:
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
           Install-Module -Name platyPS -Force -Scope CurrentUser -AllowClobber -AcceptLicense
-          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber -AcceptLicense
 
       - name: Generate API Documentation
         shell: pwsh

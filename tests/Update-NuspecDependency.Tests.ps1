@@ -9,8 +9,8 @@ Describe "Update-NuspecDependency" {
             $packageJson = @{
                 extensionDependencies = @("ms-python.python")
             }
-            $fakeStatePath = Join-Path $TestDrive "state.yaml"
-            Set-Content $fakeStatePath -Value "---" -Encoding ASCII
+            $fakeStatePath = Join-Path $TestDrive "state.json"
+            Set-Content $fakeStatePath -Value "[]" -Encoding ASCII
             $deps = Update-NuspecDependency -NuspecXml $xmlDoc -PackageJson $packageJson -PackageName "vscode-test" -StatePath $fakeStatePath
             $deps.Count | Should -Be 1
             $xmlDoc.package.metadata.dependencies.dependency[1].id | Should -Be "vscode-python"
