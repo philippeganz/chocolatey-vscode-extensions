@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-intelli-php-vscode</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - IntelliPHP - AI Suggestions for PHP</title>
-    <authors>DEVSENSE</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/DEVSENSE/phptools-docs.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/DEVSENSE/phptools-docs</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/DEVSENSE/phptools-docs/issues</bugTrackerUrl>
-    <docsUrl>https://www.devsense.com/</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-intelli-php-vscode/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/devsense.intelli-php-vscode/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-intelli-php-vscode</id><version>0.12.17700</version><title>Visual Studio Code Extension - IntelliPHP - AI Suggestions for PHP</title><authors>DEVSENSE</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/DEVSENSE/phptools-docs.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/DEVSENSE/phptools-docs</projectSourceUrl><bugTrackerUrl>https://github.com/DEVSENSE/phptools-docs/issues</bugTrackerUrl><docsUrl>https://www.devsense.com/</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-intelli-php-vscode/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/devsense.intelli-php-vscode/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # IntelliPHP for Visual Studio Code
 
 [![PHP Tools product page](https://img.shields.io/badge/%F0%9F%8C%8E-DEVSENSE-blue.svg)](https://www.devsense.com) 
@@ -57,16 +41,6 @@ IntelliPHP supports ARM and x64 versions of Windows and Mac OS X, as well as x64
 ## Feedback and Support
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=DEVSENSE.intelli-php-vscode) for full documentation]
-]]></description>
-    <summary>Offline AI-assisted development for PHP.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=devsense.intelli-php-vscode#changelog</releaseNotes>
-    <tags>vscode extension intelli-php-vscode</tags>
-    <dependencies>
+]]></description><summary>Offline AI-assisted development for PHP.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=devsense.intelli-php-vscode#changelog</releaseNotes><tags>vscode extension intelli-php-vscode</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
