@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-toolsai.vscode-ai-1.5.2026090801.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-toolsai.vscode-ai-1.5.2026090901.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 658BAAB38F1741858F00FDFC35C87E2B587D39E8ADF989F373E1A5DCEB842EF4
+   Expected SHA256: 346C919D1CFD3D9C81D15D0A875F46BC93C81D8062C937973FBABD5BE512021F
 
 ---
 SOFTWARE LICENSE:
