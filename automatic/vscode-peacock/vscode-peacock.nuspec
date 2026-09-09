@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-peacock</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - Peacock</title>
-    <authors>johnpapa</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/johnpapa/vscode-peacock.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/johnpapa/vscode-peacock</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/johnpapa/vscode-peacock/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/johnpapa/vscode-peacock/blob/main/README.md</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-peacock/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/johnpapa.vscode-peacock/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-peacock</id><version>4.4.1</version><title>Visual Studio Code Extension - Peacock</title><authors>johnpapa</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/johnpapa/vscode-peacock.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/johnpapa/vscode-peacock</projectSourceUrl><bugTrackerUrl>https://github.com/johnpapa/vscode-peacock/issues</bugTrackerUrl><docsUrl>https://github.com/johnpapa/vscode-peacock/blob/main/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-peacock/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/johnpapa.vscode-peacock/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Peacock for Visual Studio Code
 
 [![AI Ready](https://img.shields.io/badge/AI--Ready-yes-brightgreen?style=flat)](https://github.com/johnpapa/ai-ready)
@@ -77,16 +61,6 @@ Peacock works whether you're on VS Code's classic UI or the new Modern UI — sa
 Inspiration comes in many forms. These folks and teams have contributed either through ideas, issues, pull requests, or guidance. Thank you!
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock) for full documentation]
-]]></description>
-    <summary>Subtly change the workspace color of your workspace. Ideal when you have multiple VS Code instances and you want to quickly identify which is which.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock#changelog</releaseNotes>
-    <tags>vscode extension vscode-peacock</tags>
-    <dependencies>
+]]></description><summary>Subtly change the workspace color of your workspace. Ideal when you have multiple VS Code instances and you want to quickly identify which is which.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock#changelog</releaseNotes><tags>vscode extension vscode-peacock</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
