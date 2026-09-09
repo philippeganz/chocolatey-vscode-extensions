@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module au
 
 <#
@@ -204,10 +204,10 @@ function global:au_BeforeUpdate {
             Write-Magenta "    [AU] Spawning Factory in fresh runspace for missing dependency: $dep"
 
             $procParams = @{
-                FilePath = "pwsh"
+                FilePath     = "pwsh"
                 ArgumentList = @("-NoProfile", "-NonInteractive", "-Command", "& '$factoryPath' -Add $dep")
-                Wait = $true
-                NoNewWindow = $true
+                Wait         = $true
+                NoNewWindow  = $true
             }
             $proc = Start-Process @procParams -PassThru
             if ($proc.ExitCode -ne 0) {
@@ -247,16 +247,6 @@ function global:au_BeforeUpdate {
     $hiddenReadmePath = Join-Path $package.Path "README.md.bak"
     if (Test-Path $readmePath) {
         Move-Item $readmePath $hiddenReadmePath -Force
-    }
-}
-
-function global:au_AfterUpdate {
-    param($package)
-    # Restore the README.md after AU has safely finished generating the .nuspec
-    $readmePath = Join-Path $package.Path "README.md"
-    $hiddenReadmePath = Join-Path $package.Path "README.md.bak"
-    if (Test-Path $hiddenReadmePath) {
-        Move-Item $hiddenReadmePath $readmePath -Force
     }
 }
 

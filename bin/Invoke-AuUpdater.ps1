@@ -279,6 +279,16 @@ try {
 finally {
     Pop-Location
 
+    Write-Host "`n>>> Restoring hidden README files..." -ForegroundColor Cyan
+    $baks = Get-ChildItem -Path $packagesDir -Filter "README.md.bak" -Recurse -ErrorAction SilentlyContinue
+    if ($baks) {
+        foreach ($bak in $baks) {
+            $md = Join-Path $bak.DirectoryName "README.md"
+            Move-Item $bak.FullName $md -Force
+        }
+        Write-Host "    Restored $($baks.Count) README.md files." -ForegroundColor Green
+    }
+
     if ($OutputDir) {
         Write-Host "`n>>> Consolidating compiled .nupkg artifacts into Output Directory: $OutputDir" -ForegroundColor Cyan
         if (-not (Test-Path $OutputDir)) { [void](New-Item -ItemType Directory -Path $OutputDir -Force) }
