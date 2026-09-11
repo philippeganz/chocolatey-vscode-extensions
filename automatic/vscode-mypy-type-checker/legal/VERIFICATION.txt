@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-python.mypy-type-checker-2026.7.12471011.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-python.mypy-type-checker-2026.7.12521004.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: F1BF3233338AF72929C6AFA85498799FC543D4BF81674ECFF59CF6846E4FE0D0
+   Expected SHA256: 55D46CE46A7818716CBE256BF32B7D7E6991E5AF312FD79A6FC6912899294347
 
 ---
 SOFTWARE LICENSE:
