@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-pyright.pyright-1.1.413.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-pyright.pyright-1.1.414.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 2EC3764F4D1FA8F38ECF96719270F69E689F221CB896A71BD757AEF21890D42E
+   Expected SHA256: 6C38B791244241766467F557D7FA6AEC5EF4CBEFD6BC4B4D9BAE0C3283A3114E
 
 ---
 SOFTWARE LICENSE:
