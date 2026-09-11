@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\streetsidesoftware.code-spell-checker-4.9.0.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\streetsidesoftware.code-spell-checker-4.9.3.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: A68BE45037ABC4B43F67B67DC00A932B9B0647DE7E72D988A509293E933F0795
+   Expected SHA256: F0C7D778614278A8716B767F6084B3EB437A66618744975EDD7FF2E08E93A2DC
 
 ---
 SOFTWARE LICENSE:
