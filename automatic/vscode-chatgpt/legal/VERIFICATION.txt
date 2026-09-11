@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\openai.chatgpt-26.5903.61454.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\openai.chatgpt-26.5908.31748.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: A0193FC0EB77E1FE6702A051F09151858839359998987AC7862DBA5BAC49FC06
+   Expected SHA256: 7207E089C036025466433C2B73632171E474D2ECCC6E8B57F7EB4755B9433A56
 
 ---
 SOFTWARE LICENSE:
