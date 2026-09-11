@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-vscode-remote.remote-ssh-0.129.2026082615.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-vscode-remote.remote-ssh-0.129.2026090915.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: AB999C2D98D0BB583FAD4C0734D5D687F6B0BC0B378615C35864F4EA3FC8BB46
+   Expected SHA256: A99A25C17D3C0818687DDCEFFE70CBFB6C308BDFE137519EC62C7A0A709F6E7C
 
 ---
 SOFTWARE LICENSE:
