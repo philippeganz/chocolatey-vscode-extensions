@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-python.black-formatter-2026.7.12461009.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-python.black-formatter-2026.7.12521008.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: EF639B83239B4D740766F16610C16DD2DDDB07EDEEA664B771314687CA518F77
+   Expected SHA256: 644423CA5AC70336D09222DFFF23D46EFD7A7066ECFA85EFFEB2AA422E81EC05
 
 ---
 SOFTWARE LICENSE:
