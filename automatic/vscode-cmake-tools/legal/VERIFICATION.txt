@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-vscode.cmake-tools-1.24.39.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-vscode.cmake-tools-1.24.42.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: C8B6039708E133D67FFE19FB5FD1782EF4A3DCEA65B34C72F0440524B2C08954
+   Expected SHA256: 14D6DF3A11619915D5A1FA2A46CF254DFF634EE34E06F6A464668AAFA7D55EBB
 
 ---
 SOFTWARE LICENSE:
