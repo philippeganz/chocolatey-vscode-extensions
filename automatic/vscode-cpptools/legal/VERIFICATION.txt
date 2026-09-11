@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-vscode.cpptools-1.34.3.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-vscode.cpptools-1.35.0.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: DE153149EB7F3665C2278B92D383F7BCE28577D8187647CE8D65395965BBB789
+   Expected SHA256: 4E17EE220209C82F6C4261C19ED401172DE26B69EB8B3B8CA8DA54692C626A6B
 
 ---
 SOFTWARE LICENSE:
