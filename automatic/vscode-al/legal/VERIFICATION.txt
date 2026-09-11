@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-dynamics-smb.al-18.0.2668733.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-dynamics-smb.al-18.0.2732683.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 0B02D96628D8B129A59BFFD385CB901C0EB63D967A9862EF79331688DE4277C6
+   Expected SHA256: 145DAAD766D2FCB02D61D6AA35B55085F394D12F914647A82AA0198B95C2683C
 
 ---
 SOFTWARE LICENSE:
