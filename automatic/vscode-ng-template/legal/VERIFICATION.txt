@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\angular.ng-template-22.1.0.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\angular.ng-template-22.1.1.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: FCF7ED52F684F448EC2917344E717495FB4E829E5FCCA991F8A1A1A1C5C432B9
+   Expected SHA256: B4D867F93F62F3ECDA1AA2B91A2A35CE3DDE52BC06DBE45082C704AE5FA9AED3
 
 ---
 SOFTWARE LICENSE:
