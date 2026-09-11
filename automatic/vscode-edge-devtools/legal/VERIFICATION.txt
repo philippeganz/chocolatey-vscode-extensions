@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-edgedevtools.vscode-edge-devtools-2.1.10.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-edgedevtools.vscode-edge-devtools-2.1.11.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: FCE2F77B43B5311E44BD5941AB0610F4B6950806840813B6F4DDA94391EC173F
+   Expected SHA256: 6CD81FD8BEA8D1B314DCA92FC903945D7CEF4C3BC91B9054479C6BAFDA216BD5
 
 ---
 SOFTWARE LICENSE:

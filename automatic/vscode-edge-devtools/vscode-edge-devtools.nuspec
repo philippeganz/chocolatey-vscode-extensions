@@ -1,20 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-edge-devtools</id>
-    <version>2.1.10</version>
-    <title>Visual Studio Code Extension - Microsoft Edge Tools for VS Code</title>
-    <authors>ms-edgedevtools</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-edge-devtools.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <projectSourceUrl>https://github.com/Microsoft/vscode-edge-devtools</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/Microsoft/vscode-edge-devtools/issues</bugTrackerUrl>
-    <docsUrl>https://github.com/Microsoft/vscode-edge-devtools/blob/main/README.md</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-edge-devtools/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-edgedevtools.vscode-edge-devtools/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-edge-devtools</id><version>2.1.11</version><title>Visual Studio Code Extension - Microsoft Edge Tools for VS Code</title><authors>ms-edgedevtools</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-edge-devtools.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-edge-devtools</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-edge-devtools/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-edge-devtools/blob/main/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-edge-devtools/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-edgedevtools.vscode-edge-devtools/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Microsoft Edge Developer Tools for Visual Studio Code
 
 This extension allows you to use the Developer Tools of Microsoft Edge inside Visual Studio Code. 
@@ -60,16 +44,6 @@ email to ensure we received your original message. Further information, includin
 [MSRC PGP](https://technet.microsoft.com/security/dn606155) key, can be found in
 the [Security TechCenter](https://technet.microsoft.com/security/default).
 
-]]></description>
-    <summary>Use the Microsoft Edge Tools from within VS Code to see your site's runtime HTML structure, alter its layout, fix styling issues as well as see your site's network requests.</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools#changelog</releaseNotes>
-    <tags>vscode extension vscode-edge-devtools</tags>
-    <dependencies>
+]]></description><summary>Use the Microsoft Edge Tools from within VS Code to see your site's runtime HTML structure, alter its layout, fix styling issues as well as see your site's network requests.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools#changelog</releaseNotes><tags>vscode extension vscode-edge-devtools</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
