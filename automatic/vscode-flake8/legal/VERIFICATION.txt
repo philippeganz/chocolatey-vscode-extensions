@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-python.flake8-2026.7.12461008.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-python.flake8-2026.7.12521004.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 5BBC01D8C35DBD7F3240E671E8AA01CC1CA00D0CFD298BAFA2515E4755791DE5
+   Expected SHA256: 1D46C9841E7FDC0805C7E47D309DD7774D25A8B59B1DABDB9B762A115BFE5509
 
 ---
 SOFTWARE LICENSE:
