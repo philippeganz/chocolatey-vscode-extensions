@@ -11,8 +11,10 @@
     <projectSourceUrl>https://github.com/Azure/vscode-aks-tools</projectSourceUrl>
     <bugTrackerUrl>https://github.com/Azure/vscode-aks-tools/issues</bugTrackerUrl>
     <docsUrl>https://github.com/Azure/vscode-aks-tools#readme</docsUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-aks-tools/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/ms-kubernetes-tools.vscode-aks-tools/license</licenseUrl>
+    <iconUrl>
+      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-aks-tools/icon.png</iconUrl>
+    <licenseUrl>
+      https://marketplace.visualstudio.com/items/ms-kubernetes-tools.vscode-aks-tools/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
 # Azure Kubernetes Service (AKS) Extension for Visual Studio Code
@@ -49,7 +51,8 @@ contact [[email removed]](mailto:[email removed]) with any additional questions 
 
 ]]></description>
     <summary>Create, manage, deploy, and diagnose AKS clusters directly from VS Code</summary>
-    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools#changelog</releaseNotes>
+    <releaseNotes>
+      https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools#changelog</releaseNotes>
     <tags>vscode extension vscode-aks-tools</tags>
     <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />

@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-maven</id><version>0.45.2026081903</version><title>Visual Studio Code Extension - Maven for Java</title><authors>vscjava</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-maven.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-maven</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-maven/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-maven/</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-maven/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/vscjava.vscode-maven/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vscode-maven</id>
+    <version>0.45.2026081903</version>
+    <title>Visual Studio Code Extension - Maven for Java</title>
+    <authors>vscjava</authors>
+    <owners>philippe.ganz</owners>
+    <projectUrl>https://github.com/Microsoft/vscode-maven.git</projectUrl>
+    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
+    <projectSourceUrl>https://github.com/Microsoft/vscode-maven</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/Microsoft/vscode-maven/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/Microsoft/vscode-maven/</docsUrl>
+    <iconUrl>
+      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-maven/icon.png</iconUrl>
+    <licenseUrl>https://marketplace.visualstudio.com/items/vscjava.vscode-maven/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><![CDATA[
 # Maven for Java
 
 [![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/vscjava.vscode-maven.svg)](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
@@ -85,6 +102,17 @@ Command Palette -> select `Maven: Update Maven Archetype Catalog`.
 JAVA_HOME and Other Environment Variables
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) for full documentation]
-]]></description><summary>Manage Maven projects, execute goals, generate project from archetype, improve user experience for Java developers.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven#changelog</releaseNotes><tags>vscode extension vscode-maven</tags><dependencies>
+]]></description>
+    <summary>Manage Maven projects, execute goals, generate project from archetype, improve user
+      experience for Java developers.</summary>
+    <releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven#changelog</releaseNotes>
+    <tags>vscode extension vscode-maven</tags>
+    <dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
