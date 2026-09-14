@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\devsense.composer-php-vscode-1.74.19252.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\devsense.composer-php-vscode-1.74.19294.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 0678CB7140C3E39F9833BDC78FBE5AB6935E77AA080CB2D2D3E739CE3BBFBB0E
+   Expected SHA256: A564E838D3D73A5E145574B7DB5DB78DC3566EF1E97DD2FEABE7DD9AA9276D04
 
 ---
 SOFTWARE LICENSE:
