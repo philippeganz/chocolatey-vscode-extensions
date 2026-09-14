@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/thunderclient/thunder-client-support</projectSourceUrl>
     <bugTrackerUrl>https://github.com/thunderclient/thunder-client-support/issues</bugTrackerUrl>
     <docsUrl>https://www.thunderclient.com</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-thunder-client/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-thunder-client/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/rangav.vscode-thunder-client/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

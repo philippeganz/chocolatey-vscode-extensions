@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/microsoft/vscode-js-profile-visualizer</projectSourceUrl>
     <bugTrackerUrl>https://github.com/microsoft/vscode-js-profile-visualizer/issues</bugTrackerUrl>
     <docsUrl>https://github.com/microsoft/vscode-js-profile-visualizer#readme</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-js-profile-flame/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-js-profile-flame/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.vscode-js-profile-flame/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

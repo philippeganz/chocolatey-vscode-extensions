@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure</projectSourceUrl>
     <bugTrackerUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure/issues</bugTrackerUrl>
     <docsUrl>https://github.com/microsoft/GitHub-Copilot-for-Azure</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azure-github-copilot/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azure-github-copilot/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azure-github-copilot/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

@@ -12,8 +12,7 @@
     <bugTrackerUrl>https://github.com/microsoft/vscode-containers/issues</bugTrackerUrl>
     <docsUrl>
       https://github.com/microsoft/vscode-containers/blob/main/extensions/vscode-containers/README.md</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-containers/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-containers/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-containers/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

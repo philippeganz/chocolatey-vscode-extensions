@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/microsoft/vscode-pgsql</projectSourceUrl>
     <bugTrackerUrl>https://github.com/microsoft/vscode-pgsql/issues</bugTrackerUrl>
     <docsUrl>https://github.com/microsoft/vscode-pgsql/blob/main/README.md</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-pgsql/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-pgsql/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-ossdata.vscode-pgsql/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/github/vscode-github-actions</projectSourceUrl>
     <bugTrackerUrl>https://github.com/github/vscode-github-actions/issues</bugTrackerUrl>
     <docsUrl>https://github.com/github/vscode-github-actions#readme</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-github-actions/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-github-actions/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/github.vscode-github-actions/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

@@ -11,8 +11,7 @@
         <projectSourceUrl>https://github.com/microsoft/vscode-azurevirtualmachines</projectSourceUrl>
         <bugTrackerUrl>https://github.com/microsoft/vscode-azurevirtualmachines/issues</bugTrackerUrl>
         <docsUrl>https://github.com/Microsoft/vscode-azurevirtualmachines/blob/main/README.md</docsUrl>
-        <iconUrl>
-            https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azurevirtualmachines/icon.png</iconUrl>
+        <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azurevirtualmachines/icon.png</iconUrl>
         <licenseUrl>
             https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azurevirtualmachines/license</licenseUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>

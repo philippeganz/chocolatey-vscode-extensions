@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/Microsoft/vscode-maven</projectSourceUrl>
     <bugTrackerUrl>https://github.com/Microsoft/vscode-maven/issues</bugTrackerUrl>
     <docsUrl>https://github.com/Microsoft/vscode-maven/</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-maven/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-maven/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/vscjava.vscode-maven/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

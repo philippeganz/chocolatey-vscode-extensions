@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/Azure/bicep</projectSourceUrl>
     <bugTrackerUrl>https://github.com/Azure/bicep/issues</bugTrackerUrl>
     <docsUrl>https://github.com/Azure/bicep/blob/main/README.md</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-bicep/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-bicep/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-azuretools.vscode-bicep/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

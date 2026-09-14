@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/microsoft/vscode-python-environments</projectSourceUrl>
     <bugTrackerUrl>https://github.com/microsoft/vscode-python-environments/issues</bugTrackerUrl>
     <docsUrl>https://github.com/microsoft/vscode-python-environments</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-python-envs/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-python-envs/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-python.vscode-python-envs/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

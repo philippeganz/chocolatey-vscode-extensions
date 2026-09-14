@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/clangd/vscode-clangd</projectSourceUrl>
     <bugTrackerUrl>https://github.com/clangd/vscode-clangd/issues</bugTrackerUrl>
     <docsUrl>https://clangd.llvm.org/</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-clangd/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-clangd/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items/llvm-vs-code-extensions.vscode-clangd/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

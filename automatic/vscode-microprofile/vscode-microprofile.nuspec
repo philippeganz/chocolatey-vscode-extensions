@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/redhat-developer/vscode-microprofile</projectSourceUrl>
     <bugTrackerUrl>https://github.com/redhat-developer/vscode-microprofile/issues</bugTrackerUrl>
     <docsUrl>https://github.com/redhat-developer/vscode-microprofile#readme</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-microprofile/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-microprofile/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-microprofile/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

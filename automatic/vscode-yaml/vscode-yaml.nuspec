@@ -11,8 +11,7 @@
         <projectSourceUrl>https://github.com/redhat-developer/vscode-yaml</projectSourceUrl>
         <bugTrackerUrl>https://github.com/redhat-developer/vscode-yaml/issues</bugTrackerUrl>
         <docsUrl>https://github.com/redhat-developer/vscode-yaml#readme</docsUrl>
-        <iconUrl>
-            https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-yaml/icon.png</iconUrl>
+        <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-yaml/icon.png</iconUrl>
         <licenseUrl>https://marketplace.visualstudio.com/items/redhat.vscode-yaml/license</licenseUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description><![CDATA[

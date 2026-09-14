@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/Azure/vscode-aks-tools</projectSourceUrl>
     <bugTrackerUrl>https://github.com/Azure/vscode-aks-tools/issues</bugTrackerUrl>
     <docsUrl>https://github.com/Azure/vscode-aks-tools#readme</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-aks-tools/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-aks-tools/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items/ms-kubernetes-tools.vscode-aks-tools/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

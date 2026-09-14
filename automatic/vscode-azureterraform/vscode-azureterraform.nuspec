@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/Azure/vscode-azureterraform</projectSourceUrl>
     <bugTrackerUrl>https://github.com/Azure/vscode-azureterraform/issues</bugTrackerUrl>
     <docsUrl>https://github.com/Azure/vscode-azureterraform#readme</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azureterraform/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azureterraform/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureterraform/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

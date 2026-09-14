@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/microsoft/pylance-release</projectSourceUrl>
     <bugTrackerUrl>https://github.com/microsoft/pylance-release/issues</bugTrackerUrl>
     <docsUrl>https://github.com/microsoft/pylance-release#readme</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-pylance/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-pylance/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-python.vscode-pylance/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

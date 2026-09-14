@@ -11,8 +11,7 @@
         <projectSourceUrl>https://github.com/microsoft/mcp</projectSourceUrl>
         <bugTrackerUrl>https://github.com/microsoft/mcp/issues</bugTrackerUrl>
         <docsUrl>https://github.com/microsoft/mcp#readme</docsUrl>
-        <iconUrl>
-            https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azure-mcp-server/icon.png</iconUrl>
+        <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-azure-mcp-server/icon.png</iconUrl>
         <licenseUrl>
             https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azure-mcp-server/license</licenseUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>

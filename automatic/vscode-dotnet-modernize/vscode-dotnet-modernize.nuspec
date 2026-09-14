@@ -9,8 +9,7 @@
     <projectUrl>
       https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-modernize</projectUrl>
     <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-dotnet-modernize/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-dotnet-modernize/icon.png</iconUrl>
     <licenseUrl>
       https://marketplace.visualstudio.com/items/ms-dotnettools.vscode-dotnet-modernize/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

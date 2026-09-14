@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/johnpapa/vscode-peacock</projectSourceUrl>
     <bugTrackerUrl>https://github.com/johnpapa/vscode-peacock/issues</bugTrackerUrl>
     <docsUrl>https://github.com/johnpapa/vscode-peacock/blob/main/README.md</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-peacock/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-peacock/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/johnpapa.vscode-peacock/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

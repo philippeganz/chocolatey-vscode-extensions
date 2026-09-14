@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/github/vscode-codeql</projectSourceUrl>
     <bugTrackerUrl>https://github.com/github/vscode-codeql/issues</bugTrackerUrl>
     <docsUrl>https://github.com/github/vscode-codeql#readme</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-codeql/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-codeql/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/github.vscode-codeql/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

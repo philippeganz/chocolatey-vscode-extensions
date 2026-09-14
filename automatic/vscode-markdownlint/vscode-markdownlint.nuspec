@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/DavidAnson/vscode-markdownlint</projectSourceUrl>
     <bugTrackerUrl>https://github.com/DavidAnson/vscode-markdownlint/issues</bugTrackerUrl>
     <docsUrl>https://github.com/DavidAnson/vscode-markdownlint</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-markdownlint/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-markdownlint/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/davidanson.vscode-markdownlint/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

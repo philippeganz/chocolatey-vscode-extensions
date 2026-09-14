@@ -11,8 +11,7 @@
       <projectSourceUrl>https://github.com/microsoft/vscode-copilotstudio</projectSourceUrl>
       <bugTrackerUrl>https://github.com/microsoft/vscode-copilotstudio/issues</bugTrackerUrl>
       <docsUrl>https://github.com/microsoft/vscode-copilotstudio/blob/main/README.md</docsUrl>
-      <iconUrl>
-         https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-copilotstudio/icon.png</iconUrl>
+      <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-copilotstudio/icon.png</iconUrl>
       <licenseUrl>
          https://marketplace.visualstudio.com/items/ms-copilotstudio.vscode-copilotstudio/license</licenseUrl>
       <requireLicenseAcceptance>false</requireLicenseAcceptance>

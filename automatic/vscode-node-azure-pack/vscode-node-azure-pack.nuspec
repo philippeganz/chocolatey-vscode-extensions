@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/microsoft/vscode-node-azure-pack</projectSourceUrl>
     <bugTrackerUrl>https://github.com/microsoft/vscode-node-azure-pack/issues</bugTrackerUrl>
     <docsUrl>https://github.com/microsoft/vscode-node-azure-pack</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-node-azure-pack/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-node-azure-pack/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-vscode.vscode-node-azure-pack/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

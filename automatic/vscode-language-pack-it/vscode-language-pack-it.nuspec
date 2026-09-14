@@ -11,8 +11,7 @@
     <projectSourceUrl>https://github.com/Microsoft/vscode-loc</projectSourceUrl>
     <bugTrackerUrl>https://github.com/Microsoft/vscode-loc/issues</bugTrackerUrl>
     <docsUrl>https://github.com/Microsoft/vscode-loc#readme</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-language-pack-it/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-language-pack-it/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/ms-ceintl.vscode-language-pack-it/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[

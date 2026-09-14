@@ -12,8 +12,7 @@
     <bugTrackerUrl>https://github.com/graphql/graphiql/issues</bugTrackerUrl>
     <docsUrl>
       https://github.com/graphql/graphiql/blob/main/packages/vscode-graphql-execution/README.md</docsUrl>
-    <iconUrl>
-      https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-graphql-execution/icon.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-graphql-execution/icon.png</iconUrl>
     <licenseUrl>https://marketplace.visualstudio.com/items/graphql.vscode-graphql-execution/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description><![CDATA[
