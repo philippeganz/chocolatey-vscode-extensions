@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-python.debugpy-2026.7.12401012.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-python.debugpy-2026.7.12571011.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: AC1A9276E7E4DA1E58FA3899B5E544FF0E194BE6829405375395FD70D2C76E0C
+   Expected SHA256: E9C70A86A542CC783DF0145C5F89C3AF15C1B0DE7C2015060CBCAA6E8C95A655
 
 ---
 SOFTWARE LICENSE:
