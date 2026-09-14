@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\vmware.vscode-spring-boot-2.5.2026091114.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\vmware.vscode-spring-boot-2.5.2026091414.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 2F90A51002CB8DFACFA1C7AD817F3DEC2D3270778CCCE8AC428A0313ECD9737B
+   Expected SHA256: 80BF857F965CDC12B826AE5F7B73BB7E56A15E37B0D08A2887132B97C804C5DB
 
 ---
 SOFTWARE LICENSE:
