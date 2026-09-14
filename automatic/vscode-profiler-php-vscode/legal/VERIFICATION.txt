@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\devsense.profiler-php-vscode-1.74.19252.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\devsense.profiler-php-vscode-1.74.19294.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 9E32584CC2F31036E5219B2BAA1A48AE45E7B58BF005CE6C7D205F6C3D479FA7
+   Expected SHA256: 0142CF4E53495FDCD3C51D07A4B385C28D8FDE399C3EB4088808239CC5E28CF4
 
 ---
 SOFTWARE LICENSE:
