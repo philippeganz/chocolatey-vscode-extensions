@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\rangav.vscode-thunder-client-2.41.1.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\rangav.vscode-thunder-client-2.41.3.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 04B479CF92ADB49B75C103AA0D5C8F45135A82806284078475B0671E9B3BCA18
+   Expected SHA256: 6E094213B816F666805AFD6905B497293B6D7660742B4C3F568B6895C52B907F
 
 ---
 SOFTWARE LICENSE:
