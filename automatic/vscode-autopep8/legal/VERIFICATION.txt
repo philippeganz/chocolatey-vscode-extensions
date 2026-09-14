@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-python.autopep8-2026.5.12371008.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-python.autopep8-2026.5.12571008.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 4A01144FEF8C4D8E7A9070522D2A2B9F87D0726A079BFA62D60BDC641A3FD2C2
+   Expected SHA256: 74AD1DB581EB24DD05749DCB3FB4D191C3780A44045176E9A40DDA2B2C257197
 
 ---
 SOFTWARE LICENSE:
