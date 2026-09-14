@@ -50,7 +50,7 @@ Easily navigate definitions, i.e. models in the Prisma schema.
 
 ## Build information
 
-- This version is built from commit [3c526c3ca6f6fbe869230130a21836f62776a774](https://github.com/prisma/language-tools/commit/3c526c3ca6f6fbe869230130a21836f62776a774).
+- This version is built from commit [d09fbabfcee54496294758fc2bf3b0a43a9da70a](https://github.com/prisma/language-tools/commit/d09fbabfcee54496294758fc2bf3b0a43a9da70a).
 - This is for Prisma CLI 7.9.0-dev.4.
 
 ## Contributing

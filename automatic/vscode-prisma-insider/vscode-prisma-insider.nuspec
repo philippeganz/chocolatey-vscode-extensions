@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-prisma-insider</id><version>31.12.7</version><title>Visual Studio Code Extension - Prisma - Insider</title><authors>Prisma</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/prisma/language-tools.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/prisma/language-tools</projectSourceUrl><bugTrackerUrl>https://github.com/prisma/language-tools/issues</bugTrackerUrl><docsUrl>https://github.com/prisma/language-tools#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-prisma-insider/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/prisma.prisma-insider/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-prisma-insider</id><version>31.12.9</version><title>Visual Studio Code Extension - Prisma - Insider</title><authors>Prisma</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/prisma/language-tools.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/prisma/language-tools</projectSourceUrl><bugTrackerUrl>https://github.com/prisma/language-tools/issues</bugTrackerUrl><docsUrl>https://github.com/prisma/language-tools#readme</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-prisma-insider/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/prisma.prisma-insider/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 Prisma VS Code Extension - Insider
 
 ## Insider Build
@@ -51,7 +51,7 @@ Easily navigate definitions, i.e. models in the Prisma schema.
 
 ## Build information
 
-- This version is built from commit [3c526c3ca6f6fbe869230130a21836f62776a774](https://github.com/prisma/language-tools/commit/3c526c3ca6f6fbe869230130a21836f62776a774).
+- This version is built from commit [d09fbabfcee54496294758fc2bf3b0a43a9da70a](https://github.com/prisma/language-tools/commit/d09fbabfcee54496294758fc2bf3b0a43a9da70a).
 - This is for Prisma CLI 7.9.0-dev.4.
 
 ## Contributing
