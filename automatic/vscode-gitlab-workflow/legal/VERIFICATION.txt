@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\gitlab.gitlab-workflow-6.90.2.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\gitlab.gitlab-workflow-6.90.3.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: D79AC67C90C6B51F6EAAB0DAAA8365E98205F0A51E0CF0EC3DEA4D84CB947C9A
+   Expected SHA256: FFA47FDC5517BAFCBCDFA61E6526F0E8732BAC85DD3DB2AA74D141978CF7E98D
 
 ---
 SOFTWARE LICENSE:
