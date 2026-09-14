@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\ms-python.vscode-pylance-2026.3.102.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\ms-python.vscode-pylance-2026.3.103.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 5E3900DFDDAD61F8830CF7D7FAB08B06D07F18D3DDC953662C851E518CC6D3F1
+   Expected SHA256: 82279D86E5C301AACDE3F851D2437F91C05FDE2D070DCB9221E268743A4AEF2E
 
 ---
 SOFTWARE LICENSE:
