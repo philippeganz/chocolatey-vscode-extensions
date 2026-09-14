@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\redhat.vscode-xml-0.29.2026091110.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\redhat.vscode-xml-0.29.2026091208.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: 52C78A0F5D5EA01611C119398BCEE7F310949413FB5B090F34DD60CD5DB7EF74
+   Expected SHA256: 3D699E5667D09BB78DE70A11F73D577AB96337826353F769EFA4A8D413F7CE3E
 
 ---
 SOFTWARE LICENSE:
