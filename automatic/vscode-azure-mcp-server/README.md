@@ -293,11 +293,23 @@ Example prompts that generate Azure CLI commands:
 * "Check authentication and connectivity for my ADME endpoint and data partition"
 * "Get an ADME schema by kind"
 * "List shared Well schemas from my ADME data partition"
+* "Fetch multiple OSDU records by id from my ADME data partition"
+* "Get an OSDU record by id or version from my ADME data partition"
+* "List OSDU record ids for a kind in my ADME data partition"
+* "List all versions of an OSDU record in my ADME data partition"
 
 ### 🧮 Azure Data Explorer
 
 * "Get Azure Data Explorer databases in cluster 'mycluster'"
 * "Sample 10 rows from table 'StormEvents' in Azure Data Explorer database 'db1'"
+
+### 🐘 Azure Database for PostgreSQL
+
+* "List all PostgreSQL servers in my subscription"
+* "Show me the tables in the PostgreSQL database 'mydb' in server 'myserver' as user 'myuser'"
+* "Show me the schema of table 'users' in the PostgreSQL database 'mydb' in server 'myserver' as user 'myuser'"
+* "Show me all items that contain the word 'error' in the PostgreSQL database 'mydb' in server 'myserver' as user 'myuser'"
+* "Show me the configuration of PostgreSQL server 'myserver' in resource group 'my-resource-group' as user 'myuser'"
 
 ### 📣 Azure Event Grid
 
@@ -380,7 +392,8 @@ Example prompts that generate Azure CLI commands:
 
 ### 📊 Azure Monitor
 
-* "Query my Log Analytics workspace"
+* "Query an Analytics table in my Log Analytics workspace"
+* "Search a Basic or Auxiliary table in my Log Analytics workspace over the last day"
 * "List my Azure Monitor Health Models"
 * "Get details for my Azure Monitor Health Model 'my-health-model'"
 
@@ -523,7 +536,7 @@ The Azure MCP Server provides tools for interacting with **45+ Azure service are
 - 📦 **Azure Container Apps** - Container hosting
 - 📦 **Azure Container Registry (ACR)** - Container registry management
 - 📊 **Azure Cosmos DB** - NoSQL database operations
-- **Azure Data Manager for Energy** - Health checks and OSDU schema operations
+- **Azure Data Manager for Energy** - Health checks and OSDU schema, record retrieval, and version history operations
 - 🧮 **Azure Data Explorer** - Analytics queries and KQL
 - 🐬 **Azure Database for MySQL** - MySQL database management
 - 🐘 **Azure Database for PostgreSQL** - PostgreSQL database management
@@ -540,7 +553,7 @@ The Azure MCP Server provides tools for interacting with **45+ Azure service are
 - 🗃️ **Azure Managed Lustre** - High-performance Lustre filesystem operations
 - 🏪 **Azure Marketplace** - Product discovery
 - 🔄 **Azure Migrate** - Platform Landing Zone generation and modification guidance
-- 📈 **Azure Monitor** - Logging, metrics, health models, health monitoring, and instrumentation onboarding/migration workflow for local applications
+- 📈 **Azure Monitor** - Log queries, Basic and Auxiliary table search, metrics, health models, health monitoring, and instrumentation onboarding/migration workflow for local applications
 - ⚖️ **Azure Policy** - Policies set to enforce organizational standards
 - ⚙️ **Azure Native ISV Services** - Third-party integrations
 - 🛡️ **Azure Quick Review CLI** - Compliance scanning
