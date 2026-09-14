@@ -3,10 +3,10 @@
    (Navigate to 'Version History' and download the exact version, or use the direct download API)
 
 2. Run the following PowerShell command to compute its hash:
-   Get-FileHash -Algorithm SHA256 -Path .\redhat.java-1.57.2026091108.vsix
+   Get-FileHash -Algorithm SHA256 -Path .\redhat.java-1.57.2026091208.vsix
 
 3. Compare that hash to the one embedded in this package. They should match exactly:
-   Expected SHA256: C909777BF96649A52B4843D6B9A11404B876E1469A27B15AAB71731C66B59A55
+   Expected SHA256: 9D56641640AD800FCB4D746F9342E139287200FCAF3C2EA6CECC70A6ADDE03B1
 
 ---
 SOFTWARE LICENSE:
