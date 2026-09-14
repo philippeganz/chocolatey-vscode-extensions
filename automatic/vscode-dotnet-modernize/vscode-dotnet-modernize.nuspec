@@ -1,19 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-dotnet-modernize</id>
-    <version>0.0.0</version>
-    <title>Visual Studio Code Extension - GitHub Copilot modernization for .NET</title>
-    <authors>ms-dotnettools</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>
-      https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-modernize</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-dotnet-modernize/icon.png</iconUrl>
-    <licenseUrl>
-      https://marketplace.visualstudio.com/items/ms-dotnettools.vscode-dotnet-modernize/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-dotnet-modernize</id><version>1.0.1161</version><title>Visual Studio Code Extension - GitHub Copilot modernization for .NET</title><authors>ms-dotnettools</authors><owners>philippe.ganz</owners><projectUrl>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-modernize</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-dotnet-modernize/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/ms-dotnettools.vscode-dotnet-modernize/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 > ⚠️ **This extension is deprecated.** It has been replaced by
 > **[GitHub Copilot upgrade](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgrade-agent)**
 > (`ms-dotnettools.upgrade-agent`), where all future development continues. **Your existing settings are
@@ -25,30 +10,30 @@
 ## 📋 Prerequisites
 
 - **GitHub Copilot subscription**: If you do not have a subscription, you can get one here: [Get access to Copilot](https://docs.github.com/en/copilot/get-started/what-is-github-copilot#getting-access-to-copilot)
-- **Repository**: Git-based repositories only
-- **Project Targets**: .NET Core 3.x, .NET 5, .NET 6, .NET 7, or .NET 8
+- **Repository**: Git-based repositories only  
+- **Project Targets**: .NET Core 3.x, .NET 5, .NET 6, .NET 7, or .NET 8  
 
 ## 🚀 What’s Included
 
-- **Intelligent upgrade plan generation**
+- **Intelligent upgrade plan generation**  
   The tool analyzes your solution and generates a dependency-aware plan that upgrades projects in the right order.
 
-- **Automated code transformations**
+- **Automated code transformations**  
   Copilot automatically makes the changes required to get your applications running on modern .NET.
 
-- **Customizable workflows**
+- **Customizable workflows**  
   You can tailor which projects to upgrade, whether to address packages with security vulnerabilities in your upgrade, and more.
 
-- **Learning from your manual interventions**
+- **Learning from your manual interventions**  
   When manual intervention is required, the tool can learn from your manual changes and apply those learnings if it encounters a similar situation later on.
 
-- **Git integration**
+- **Git integration**  
   Git commits are automatically created on your behalf so that you can adopt and test changes incrementally.
 
-- **Automatic test validation**
+- **Automatic test validation**  
   The tool automatically runs your application’s unit tests to ensure correct behavior post-upgrade.
 
-- **Agent Mode functionality**
+- **Agent Mode functionality**  
   Take advantage of Copilot Agent Mode with the latest preview version of Visual Studio installed.
 
 
@@ -83,19 +68,8 @@ This extension is licensed under [GitHub Copilot Product Specific Terms](https:/
 ## Trademarks
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-modernize) for full documentation]
-]]></description>
-    <summary>GitHub Copilot upgrade capabilities for modernizing .NET applications.</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-modernize#changelog</releaseNotes>
-    <tags>vscode extension vscode-dotnet-modernize</tags>
-    <dependencies>
+]]></description><summary>GitHub Copilot upgrade capabilities for modernizing .NET applications.</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-modernize#changelog</releaseNotes><tags>vscode extension vscode-dotnet-modernize</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
       <dependency id="vscode-dotnet-runtime" />
       <dependency id="vscode-copilot-chat" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
