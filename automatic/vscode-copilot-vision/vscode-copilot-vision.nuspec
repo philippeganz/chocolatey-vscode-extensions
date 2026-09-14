@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-copilot-vision</id>
-    <version>0.2.2026041518</version>
+    <version>0.0.0</version>
     <title>Visual Studio Code Extension - Vision for Copilot Preview</title>
     <authors>ms-vscode</authors>
     <owners>philippe.ganz</owners>

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
    <metadata>
       <id>vscode-community-server-connector</id>
-      <version>0.26.22</version>
+      <version>0.0.0</version>
       <title>Visual Studio Code Extension - Community Server Connectors</title>
       <authors>redhat</authors>
       <owners>philippe.ganz</owners>

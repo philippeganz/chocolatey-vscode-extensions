@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-markdownlint</id>
-    <version>0.62.1</version>
+    <version>0.0.0</version>
     <title>Visual Studio Code Extension - markdownlint</title>
     <authors>DavidAnson</authors>
     <owners>philippe.ganz</owners>

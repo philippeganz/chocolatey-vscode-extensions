@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-node-azure-pack</id>
-    <version>1.8.2</version>
+    <version>0.0.0</version>
     <title>Visual Studio Code Extension - Azure Tools</title>
     <authors>ms-vscode</authors>
     <owners>philippe.ganz</owners>

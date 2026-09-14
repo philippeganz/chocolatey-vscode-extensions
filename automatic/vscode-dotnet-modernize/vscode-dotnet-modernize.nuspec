@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-dotnet-modernize</id>
-    <version>1.0.1161</version>
+    <version>0.0.0</version>
     <title>Visual Studio Code Extension - GitHub Copilot modernization for .NET</title>
     <authors>ms-dotnettools</authors>
     <owners>philippe.ganz</owners>

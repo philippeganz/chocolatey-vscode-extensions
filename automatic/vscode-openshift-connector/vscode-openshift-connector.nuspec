@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-openshift-connector</id>
-    <version>1.21.1</version>
+    <version>0.0.0</version>
     <title>Visual Studio Code Extension - OpenShift Toolkit</title>
     <authors>redhat</authors>
     <owners>philippe.ganz</owners>

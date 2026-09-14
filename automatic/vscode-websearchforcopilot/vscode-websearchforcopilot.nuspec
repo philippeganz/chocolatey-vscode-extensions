@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-websearchforcopilot</id>
-    <version>0.2.2026090301</version>
+    <version>0.0.0</version>
     <title>Visual Studio Code Extension - Web Search for Copilot</title>
     <authors>ms-vscode</authors>
     <owners>philippe.ganz</owners>

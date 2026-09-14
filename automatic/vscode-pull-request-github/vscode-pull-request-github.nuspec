@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
 	<metadata>
 		<id>vscode-pull-request-github</id>
-		<version>0.167.2026091104</version>
+		<version>0.0.0</version>
 		<title>Visual Studio Code Extension - GitHub Pull Requests</title>
 		<authors>GitHub</authors>
 		<owners>philippe.ganz</owners>

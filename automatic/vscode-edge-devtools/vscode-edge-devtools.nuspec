@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vscode-edge-devtools</id>
-    <version>2.1.11</version>
+    <version>0.0.0</version>
     <title>Visual Studio Code Extension - Microsoft Edge Tools for VS Code</title>
     <authors>ms-edgedevtools</authors>
     <owners>philippe.ganz</owners>

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
     <metadata>
         <id>vscode-java-dependency</id>
-        <version>0.27.2026082200</version>
+        <version>0.0.0</version>
         <title>Visual Studio Code Extension - Project Manager for Java</title>
         <authors>vscjava</authors>
         <owners>philippe.ganz</owners>
