@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>vscode-java-debug</id>
-    <version>0.59.2026072407</version>
-    <title>Visual Studio Code Extension - Debugger for Java</title>
-    <authors>vscjava</authors>
-    <owners>philippe.ganz</owners>
-    <projectUrl>https://github.com/Microsoft/vscode-java-debug.git</projectUrl>
-    <packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-java-debug/icon.png</iconUrl>
-    <licenseUrl>https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug/license</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description><![CDATA[
+<?xml version="1.0" encoding="utf-8"?><package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"><metadata><id>vscode-java-debug</id><version>0.59.2026091007</version><title>Visual Studio Code Extension - Debugger for Java</title><authors>vscjava</authors><owners>philippe.ganz</owners><projectUrl>https://github.com/Microsoft/vscode-java-debug.git</projectUrl><packageSourceUrl>https://github.com/philippeganz/chocolatey-vscode-extensions</packageSourceUrl><projectSourceUrl>https://github.com/Microsoft/vscode-java-debug</projectSourceUrl><bugTrackerUrl>https://github.com/Microsoft/vscode-java-debug/issues</bugTrackerUrl><docsUrl>https://github.com/Microsoft/vscode-java-debug/blob/master/README.md</docsUrl><iconUrl>https://cdn.jsdelivr.net/gh/philippeganz/chocolatey-vscode-extensions@main/automatic/vscode-vscode-java-debug/icon.png</iconUrl><licenseUrl>https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug/license</licenseUrl><requireLicenseAcceptance>false</requireLicenseAcceptance><description><![CDATA[
 # Debugger for Java
 
 [![Gitter](https://badges.gitter.im/Microsoft/vscode-java-debug.svg)](https://gitter.im/Microsoft/vscode-java-debug)
@@ -74,6 +61,8 @@ debugjava -cp bin com.example.Main arg1 arg2
 
 The debugger will automatically attach. See [No-Config Debug Documentation](https://github.com/Microsoft/vscode-java-debug/blob/HEAD/bundled/scripts/noConfigScripts/README.md) for more details.
 
+No-Config Debug is enabled by default. To disable the terminal integration and the AI `debug_java_application` tool, set `"java.debug.settings.enableNoConfigDebug": false`, reload VS Code, and recreate existing terminals. Standard Java launch/attach debugging, including F5 and Run/Debug CodeLens, remains available.
+
 ## AI-Assisted Debugging
 
 When using GitHub Copilot Chat, you can now ask AI to help you debug Java applications! The extension provides a Language Model Tool that enables natural language debugging:
@@ -94,17 +83,6 @@ See [Language Model Tool Documentation](https://github.com/Microsoft/vscode-java
 ### Launch
 
 ... [Truncated due to Chocolatey character limits. See [extension page](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) for full documentation]
-]]></description>
-    <summary>A lightweight Java debugger for Visual Studio Code</summary>
-    <releaseNotes>
-      https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug#changelog</releaseNotes>
-    <tags>vscode extension java-debug</tags>
-    <dependencies>
+]]></description><summary>A lightweight Java debugger for Visual Studio Code</summary><releaseNotes>https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug#changelog</releaseNotes><tags>vscode extension vscode-java-debug</tags><dependencies>
       <dependency id="chocolatey-vscode.extension" version="[1.1.0, 2.0.0)" />
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-    <file src="legal\**" target="legal" />
-  </files>
-</package>
+    </dependencies></metadata><files><file src="tools\**" target="tools" /><file src="legal\**" target="legal" /></files></package>
