@@ -1,3 +1,5 @@
+#Requires -Version 7.0
+
 <#
 .SYNOPSIS
     Evaluates the repository state for a specific extension and performs an atomic auto-commit if changes exist.

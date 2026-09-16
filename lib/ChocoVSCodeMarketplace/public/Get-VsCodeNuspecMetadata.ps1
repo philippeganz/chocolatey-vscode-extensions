@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     Centralized helper to transform VS Code Marketplace JSON into Chocolatey Nuspec strings.

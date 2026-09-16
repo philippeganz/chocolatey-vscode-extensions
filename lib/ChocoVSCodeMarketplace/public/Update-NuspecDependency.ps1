@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     Dynamically updates the Chocolatey .nuspec XML to append discovered extension dependencies.

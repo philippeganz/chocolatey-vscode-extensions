@@ -1,3 +1,5 @@
+#Requires -Version 7.0
+
 <#
 .SYNOPSIS
     A cross-platform helper for rendering colorized, structured console messages using PS7 ANSI strings.

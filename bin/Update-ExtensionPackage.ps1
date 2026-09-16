@@ -1,6 +1,6 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module au
-$ErrorActionPreference = 'Stop'
+#Requires -Module AuExtensionHooks
 
 <#
 .SYNOPSIS
@@ -34,7 +34,7 @@ $ErrorActionPreference = 'Stop'
     required by the underlying AU hooks to dynamically construct API calls.
 #>
 
-Import-Module "$PSScriptRoot\..\lib\AuExtensionHooks\AuExtensionHooks.psd1" -Force
+$ErrorActionPreference = 'Stop'
 
 # Trigger the native AU update pipeline using the loaded hooks
 $pkgResult = Update-Package -ChecksumFor none
@@ -49,7 +49,7 @@ if ($pkgResult.Updated) {
             Write-StyledMessage -Color Cyan -Message ">>> Running Custom Dependency-Free Test for $($nupkg.Name)..." -Indent 1
             choco install $nupkg.FullName --ignore-dependencies -y --no-progress
             if ($LASTEXITCODE -ne 0) {
-                throw "Custom Test Failed for $($nupkg.Name)! The VSIX payload may be corrupted or uninstallable."
+                throw [System.InvalidOperationException]::new("Custom Test Failed for $($nupkg.Name)! The VSIX payload may be corrupted or uninstallable.")
             }
 
             Write-Success "Test passed! Uninstalling..." -Indent 1

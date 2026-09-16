@@ -1,3 +1,5 @@
+#Requires -Version 7.0
+
 <#
 .SYNOPSIS
     The Payload Downloader hook for Chocolatey AU.
@@ -29,9 +31,8 @@
     by `au_GetLatest`.
 #>
 function global:au_BeforeUpdate {
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Required for AU Engine state')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
     param($package)
-
 
     $toolsDir = Join-Path $package.Path 'tools'
     if (-not (Test-Path $toolsDir)) { [void](New-Item -ItemType Directory -Path $toolsDir) }
@@ -101,7 +102,7 @@ function global:au_BeforeUpdate {
         Write-Info "Spawning Orchestrator to scaffold untracked dependencies..."
         Start-Process pwsh -ArgumentList "-NoProfile -NonInteractive -File `"$orchestratorPath`" -Add $($newDeps -join ',')" -NoNewWindow -Wait
 
-        throw "Failing AU Update for $packageName to preserve DAG integrity. Untracked dependencies were successfully scaffolded and will be processed on the next execution cycle."
+        throw [System.InvalidOperationException]::new("Failing AU Update for $packageName to preserve DAG integrity. Untracked dependencies were successfully scaffolded and will be processed on the next execution cycle.")
     }
 
     Save-NuspecXml -NuspecXml $package.NuspecXml -NuspecPath $nuspecPath

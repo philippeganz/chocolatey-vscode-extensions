@@ -1,3 +1,5 @@
+#Requires -Version 7.0
+
 <#
 .SYNOPSIS
     The Metadata Resolution hook for Chocolatey AU.
@@ -19,9 +21,9 @@
     Returns an AU-compatible state object representing the absolute latest upstream release.
 #>
 function global:au_GetLatest {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
     [OutputType([System.Collections.Hashtable])]
     [CmdletBinding()]
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Required for AU Engine state')]
     param()
 
     if ($global:ExtensionVersion) {

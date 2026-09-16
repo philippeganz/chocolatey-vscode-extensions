@@ -1,3 +1,5 @@
+#Requires -Version 7.0
+
 <#
 .SYNOPSIS
     The Execution Engine for safely removing VS Code extensions from the local pool.
@@ -96,13 +98,13 @@ function Remove-VSCodeExtension {
             if ($pkgName) {
                 if (-not $PSCmdlet.ShouldProcess($cleanId, "Shred VSCode Extension")) {
                     continue
-                } $removePackageNames.Add($pkgName)
+                }
+                $removePackageNames.Add($pkgName)
             }
         }
 
         foreach ($cleanId in $removeIds) {
-            Write-StyledMessage -Message "
-----------------------------------------" -Color DarkGray
+            Write-StyledMessage -Message "`n----------------------------------------" -Color DarkGray
             Write-StyledMessage -Message "Shredding: $cleanId" -Color Cyan
             $pkgName = Get-ChocoVSCodePackageName -ExtensionId $cleanId
             if ($pkgName) {
@@ -144,8 +146,9 @@ function Remove-VSCodeExtension {
                     Write-Warn "Overriding dependency protection! Removing '$cleanId' despite being required by: $($dependents -join ', ')." -Indent 1
                 }
 
-                if ($stateList.Contains($cleanId)) {
-                    [void]$stateList.Remove($cleanId)
+                $idx = $stateList.FindIndex([System.Predicate[string]] { param($x) $x.ToLower() -eq $cleanId })
+                if ($idx -ge 0) {
+                    $stateList.RemoveAt($idx)
                     $mutated = $true
                     Write-Success "Removed '$cleanId' from state tracking."
                 }
@@ -186,14 +189,10 @@ function Remove-VSCodeExtension {
 
     end {
         if ($mutated) {
-            Write-StyledMessage -Message "
->>> Finalizing and Syncing state..." -Color Cyan
+            Write-StyledMessage -Message "`n>>> Finalizing and Syncing state..." -Color Cyan
             Save-ChocoVSCodeExtensionState -StatePath $StatePath -ExtensionsList $stateList.ToArray()
         }
-        Write-StyledMessage -Message "
->>> Shredder Run Complete!" -Color Cyan
+        Write-StyledMessage -Message "`n>>> Shredder Run Complete!" -Color Cyan
     }
 
 }
-
-

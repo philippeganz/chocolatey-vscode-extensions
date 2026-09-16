@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     Downloads and guarantees an icon.png file for the package.

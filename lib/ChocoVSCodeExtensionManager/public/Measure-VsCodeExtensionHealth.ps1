@@ -27,11 +27,11 @@ function Measure-VsCodeExtensionHealth {
     )
 
     $health = [PSCustomObject]@{
-        IsDeprecated = $false
+        IsDeprecated       = $false
         DeprecationMessage = $null
-        IsAbandonware = $false
-        LastUpdated = $null
-        YearsOld = 0
+        IsAbandonware      = $false
+        LastUpdated        = $null
+        YearsOld           = 0
     }
 
     # Deprecation Check

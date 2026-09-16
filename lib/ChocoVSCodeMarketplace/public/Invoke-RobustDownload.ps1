@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     Wraps Invoke-WebRequest with robust, auto-healing retry logic to survive CDN rate-limits and timeouts.

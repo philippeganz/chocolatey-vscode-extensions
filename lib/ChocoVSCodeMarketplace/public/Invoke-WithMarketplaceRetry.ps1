@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     A generic retry wrapper for executing network actions against the VS Code Marketplace.
@@ -74,7 +75,7 @@ function Invoke-WithMarketplaceRetry {
             if ($attemptCount -ge $MaxAttempts) {
                 Write-Err "$ErrorMessage. Exhausted all $MaxAttempts attempts ($MaxRetries retries)."
                 if ($isThrottling) {
-                    throw "MarketplaceThrottlingError: VS Code Marketplace API rate limit reached after $MaxAttempts attempts. ($errMessage)"
+                    throw [System.Net.WebException]::new("MarketplaceThrottlingError: VS Code Marketplace API rate limit reached after $MaxAttempts attempts. ($errMessage)")
                 }
                 throw $_
             }

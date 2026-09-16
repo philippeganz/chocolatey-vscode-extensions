@@ -32,10 +32,10 @@ function Get-ChocolateyPackageMetadata {
         $c = $res.Content
 
         $meta = [PSCustomObject]@{
-            PackageName = $PackageName
-            Owners = $null
+            PackageName   = $PackageName
+            Owners        = $null
             RemoteVersion = $null
-            Published = $null
+            Published     = $null
         }
 
         if ($c -match '<d:Owners[^>]*>(.*?)</d:Owners>') {

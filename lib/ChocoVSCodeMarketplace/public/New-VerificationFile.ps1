@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     Generates the legal/VERIFICATION.txt file for a VS Code extension package.

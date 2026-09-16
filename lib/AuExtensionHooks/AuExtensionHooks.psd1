@@ -6,9 +6,13 @@
     CompanyName       = 'Etat de Genève'
     Copyright         = '(c) Philippe Ganz. All rights reserved.'
     Description       = @'
-The `AuExtensionHooks` module is a dedicated, sandboxed execution environment that interfaces directly with the Chocolatey Automatic Updater (AU) engine.
+The AuExtensionHooks module is a dedicated execution environment that interfaces directly with the Chocolatey Automatic Updater (AU) engine.
 
-It provides the mandatory hook implementations (`au_BeforeUpdate`, `au_GetLatest`, `au_SearchReplace`) required by the AU framework. This module uses a state-injection pattern to securely receive context from the execution trigger, allowing it to remain completely isolated while orchestrating the automated package updates.
+It provides the mandatory hook implementations (au_BeforeUpdate, au_GetLatest, au_SearchReplace) required by the AU framework. Instead of scraping HTML, it strictly leverages the upstream VS Code Marketplace REST API for metadata resolution. This module uses a state-injection pattern to securely receive context from the execution trigger, ensuring isolated and resilient package updates.
 '@
-    FunctionsToExport = @('au_GetLatest', 'au_SearchReplace', 'au_BeforeUpdate')
+    FunctionsToExport = @(
+        'au_GetLatest',
+        'au_SearchReplace',
+        'au_BeforeUpdate'
+    )
 }

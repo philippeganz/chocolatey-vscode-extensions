@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     Constructs the direct VSIX payload download URL, handling platform-specific ambiguities.

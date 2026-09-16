@@ -1,3 +1,5 @@
+#Requires -Version 7.0
+
 <#
 .SYNOPSIS
     Resolves the canonical name of the Chocolatey package based on the VS Code extension ID.
@@ -36,10 +38,8 @@ function Get-ChocoVSCodePackageName {
     $parts = $ExtensionId -split '\.'
     $pkgName = if ($parts.Count -eq 2) { $parts[1] } else { $ExtensionId }
     $pkgName = $pkgName.ToLower()
-    if (-not $pkgName.StartsWith("vscode-")) {
-        $pkgName = "vscode-$pkgName"
-    }
-    return $pkgName
+    $cleanName = $pkgName -replace '^vscode-?', ''
+    return "vscode-$cleanName"
 }
 
 <#
@@ -63,6 +63,7 @@ function Get-ChocoVSCodePackageName {
     [string[]]
     An array of tracked extension identifiers.
 #>
+
 function Get-ChocoVSCodeExtensionState {
     [CmdletBinding()]
     [OutputType([string[]])]
@@ -75,7 +76,7 @@ function Get-ChocoVSCodeExtensionState {
 
     if (-not (Test-Path $StatePath)) {
         $fileName = Split-Path $StatePath -Leaf
-        throw "$fileName not found at $StatePath"
+        throw [System.IO.FileNotFoundException]::new("$fileName not found at $StatePath")
     }
 
     $extensions = Get-Content $StatePath -Raw -Encoding UTF8 | ConvertFrom-Json -ErrorAction SilentlyContinue

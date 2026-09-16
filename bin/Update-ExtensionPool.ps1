@@ -1,4 +1,7 @@
 #Requires -Version 7.0
+#Requires -Module au
+#Requires -Module ChocoVSCodeCore
+#Requires -Module ChocoVSCodeMarketplace
 
 <#
 .SYNOPSIS
@@ -55,32 +58,27 @@
 param(
     [Parameter(Mandatory = $false)]
     [ValidateNotNullOrEmpty()]
-    [string[]]$ForcedPackages,
+    [string[]]
+    $ForcedPackages,
 
     [Parameter(Mandatory = $false)]
     [ValidateNotNullOrEmpty()]
-    [string[]]$ModerationRepush,
+    [string[]]
+    $ModerationRepush,
 
     [Parameter(Mandatory = $false)]
     [ValidateNotNullOrWhitespace()]
-    [string]$PushUrl,
+    [string]
+    $PushUrl,
 
     [Parameter(Mandatory = $false)]
     [ValidateNotNullOrWhitespace()]
-    [string]$AutomaticDir = ($env:CHOCO_VSCODE_AUTOMATIC_DIR ?? "$PSScriptRoot\..\automatic")
+    [string]
+    $AutomaticDir = ($env:CHOCO_VSCODE_AUTOMATIC_DIR ?? "$PSScriptRoot\..\automatic")
 )
 
 # WARNING: The Chocolatey AU module relies on legacy PowerShell 5.1 native command argument parsing.
 $global:PSNativeCommandArgumentPassing = 'Legacy'
-
-# =============================================================================
-# Import Modules
-# =============================================================================
-$env:PSModulePath = "$PSScriptRoot\..\lib;$env:PSModulePath"
-Import-Module ChocoVSCodeCore
-Import-Module ChocoVSCodeMarketplace
-Import-Module au
-
 
 # =============================================================================
 # Environment / AU Pipeline Setup
@@ -97,7 +95,7 @@ $opts = @{
 # =============================================================================
 # Execution
 # =============================================================================
-if (-not (Test-Path $AutomaticDir)) { throw "Automatic directory not found: $AutomaticDir" }
+if (-not (Test-Path $AutomaticDir)) { throw [System.IO.DirectoryNotFoundException]::new("Automatic directory not found: $AutomaticDir") }
 Push-Location $AutomaticDir
 
 try {
@@ -110,12 +108,10 @@ try {
         $raw = $ModerationRepush -join ',' -split ',' | ForEach-Object Trim | Where-Object { $_ -ne '' }
         $targetPackages = @(Get-Item -Path $raw -ErrorAction SilentlyContinue | Where-Object { $_.PSIsContainer } | Select-Object -ExpandProperty Name)
 
-        Write-StyledMessage -Color Cyan -Message "
->>> Handing off to native AU Engine..."
+        Write-StyledMessage -Color Cyan -Message "`n>>> Handing off to native AU Engine..."
 
         foreach ($pkg in $targetPackages) {
-            Write-StyledMessage -Color Cyan -Message "
-Processing $pkg" -Indent 1
+            Write-StyledMessage -Color Cyan -Message "`nProcessing $pkg" -Indent 1
 
             $pkgDir = Join-Path $AutomaticDir $pkg
             if (-not (Test-Path $pkgDir)) { Write-Err "Not found: $pkg" -Indent 1; continue }
@@ -168,7 +164,7 @@ Processing $pkg" -Indent 1
                     }
 
                     if (-not $pushSuccess) {
-                        throw "All $maxRetries push attempts failed for $($nupkg.Name)."
+                        throw [System.InvalidOperationException]::new("All $maxRetries push attempts failed for $($nupkg.Name).")
                     }
                 }
                 else {
@@ -212,11 +208,16 @@ finally {
         Write-Success "Restored $($baks.Count) README.md files." -Indent 1
     }
 
+    Pop-Location
+
     if ($global:AU_Packages) {
         Write-StyledMessage -Color Cyan -Message "`n>>> Exporting AU Engine State Data..."
-        $global:AU_Packages | Select-Object Name, Version, Updated, Ignore, Error, PushError, Status | ConvertTo-Json -Depth 3 | Out-File "var/state/au_results.json" -Encoding UTF8 -Force
-        Write-Success "Saved native AU results to var/state/au_results.json" -Indent 1
-    }
 
-    Pop-Location
+        # Ensure the state directory exists at the root level before writing
+        $stateDir = Join-Path $PSScriptRoot "..\var\state"
+        if (-not (Test-Path $stateDir)) { New-Item -ItemType Directory -Path $stateDir -Force | Out-Null }
+
+        $global:AU_Packages | Select-Object Name, Version, Updated, Ignore, Error, PushError, Status | ConvertTo-Json -Depth 3 | Out-File "$stateDir/au_results.json" -Encoding UTF8 -Force
+        Write-Success "Saved native AU results to $stateDir/au_results.json" -Indent 1
+    }
 }

@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     Cracks open a VSIX ZIP archive, extracts package.json, README.md, and LICENSE, and scrubs emails.
@@ -68,7 +69,8 @@ function Expand-VsCodePayload {
             $readmeRaw = Get-Content $readmePath -Raw -Encoding UTF8
             $readmeRaw = $readmeRaw -replace '(?i)[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}', '[email removed]'
 
-            $readmeFull = $readmeRaw
+            # Surgically convert all complex HTML tags (tables, figures, etc) into 100% Pure Markdown
+            $readmeRaw = Convert-MixedMarkdownToPure -Text $readmeRaw
 
             # Semantically truncate to comply with Chocolatey's 4000 character `<description>` limit
             $limit = 3750
@@ -119,10 +121,6 @@ function Expand-VsCodePayload {
                 $marketplaceUrl = "$script:MarketplaceBaseUrl/items?itemName=$($packageJson.publisher).$($packageJson.name)"
                 $readmeRaw = $truncated + "`n`n... [Truncated due to Chocolatey character limits. See [extension page]($marketplaceUrl) for full documentation]"
             }
-
-            # We save the FULL readme back to README.md for the user, but we will return the $readmeRaw (which is truncated) for the nuspec
-            $readmeFull = $readmeFull.Replace("`r`n", "`n")
-            [System.IO.File]::WriteAllText($readmePath, $readmeFull, [System.Text.UTF8Encoding]::new($false))
         }
 
         if ($licenseEntry) {
@@ -137,21 +135,6 @@ function Expand-VsCodePayload {
         if ($null -ne $zip) {
             $zip.Dispose()
         }
-    }
-
-    # Strip raw HTML tags that break Chocolatey Gallery's Markdig Markdown parser for the Nuspec Description only
-    if ($readmeRaw) {
-        $readmeRaw = $readmeRaw -replace '(?i)<img[^>]*>', ''
-        $readmeRaw = $readmeRaw -replace '(?i)</?span[^>]*>', ''
-        $readmeRaw = $readmeRaw -replace '(?i)</?div[^>]*>', ''
-        $readmeRaw = $readmeRaw -replace '(?i)</?center[^>]*>', ''
-        $readmeRaw = $readmeRaw -replace '(?i)</?picture[^>]*>', ''
-        $readmeRaw = $readmeRaw -replace '(?i)</?h[1-6][^>]*>', ''
-        $readmeRaw = $readmeRaw -replace '(?i)</?p[^>]*>', ''
-        $readmeRaw = $readmeRaw -replace '(?i)</?details[^>]*>', ''
-        $readmeRaw = $readmeRaw -replace '(?i)</?summary[^>]*>', ''
-        $readmeRaw = $readmeRaw -replace '(?i)</?i[^>]*>', ''
-        $readmeRaw = $readmeRaw -replace '(?i)<br\s*/?>', "`n"
     }
 
     $cdataSafe = ""

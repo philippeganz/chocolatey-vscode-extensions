@@ -1,3 +1,5 @@
+#Requires -Version 7.0
+
 <#
 .SYNOPSIS
     The String Replacer hook for Chocolatey AU.
@@ -20,6 +22,7 @@
     Returns a hashtable mapping file paths to their respective RegEx replacement rules.
 #>
 function global:au_SearchReplace {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
     [OutputType([System.Collections.Hashtable])]
     [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '', Justification = 'Required for AU Engine state')]

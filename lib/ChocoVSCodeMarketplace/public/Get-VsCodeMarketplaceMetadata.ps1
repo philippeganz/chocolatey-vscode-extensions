@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     Fetches the raw JSON metadata payload for a specific extension from the VS Code Marketplace API.
@@ -76,9 +77,7 @@ function Get-VsCodeMarketplaceMetadata {
     } -ErrorMessage "VS Code Marketplace API failed"
 
     $ext = $res.results[0].extensions[0]
-    if (-not $ext) { throw "Extension not found on Marketplace: $Publisher.$ExtensionName" }
+    if (-not $ext) { return $null }
 
     return $ext
 }
-
-

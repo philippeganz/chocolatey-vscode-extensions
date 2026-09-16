@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     Saves an XML DOM to disk with strictly enforced LF line endings.

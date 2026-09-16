@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 <#
 .SYNOPSIS
     Harmonizes and applies metadata string replacements into a raw Chocolatey .nuspec string.
