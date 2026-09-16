@@ -26,12 +26,6 @@
 [CmdletBinding()]
 param()
 
-# =============================================================================
-# Global Error Handling
-# =============================================================================
-# Enforce strict fail-fast behavior across this entire script/module.
-# Any cmdlet or module import failure will immediately throw a terminating error.
-# Override locally with -ErrorAction SilentlyContinue when needed.
 $ErrorActionPreference = 'Stop'
 
 # =============================================================================

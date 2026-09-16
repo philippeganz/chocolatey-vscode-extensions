@@ -1,5 +1,11 @@
+#Requires -Version 7.0
 BeforeAll {
-    Import-Module $PSScriptRoot\..\lib\ChocoVSCodeCore\ChocoVSCodeCore.psd1 -Force
+    $libPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\lib"))
+    if ($env:PSModulePath -notmatch [regex]::Escape($libPath)) {
+        $env:PSModulePath = "$libPath;$env:PSModulePath"
+    }
+
+    Import-Module ChocoVSCodeCore -Force
 }
 
 Describe "Write-StyledMessage" {
