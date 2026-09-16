@@ -147,7 +147,7 @@ Describe "Update-ExtensionPool CLI - E2E" {
                 Mock Update-AUPackages {}
 
                 $script = Join-Path $PSScriptRoot "..\bin\Update-ExtensionPool.ps1"
-                & $script -ForcedPackages "dummy" -AutomaticDir $autoDir
+                & $script -ForcedPackages "dummy" -AutomaticDir $autoDir -StateDir (Join-Path $TestDrive "var\state")
 
                 # Assertions
                 $outPath = Join-Path $TestDrive "var\state\au_results.json"

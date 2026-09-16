@@ -74,7 +74,12 @@ param(
     [Parameter(Mandatory = $false)]
     [ValidateNotNullOrWhitespace()]
     [string]
-    $AutomaticDir = ($env:CHOCO_VSCODE_AUTOMATIC_DIR ?? "$PSScriptRoot\..\automatic")
+    $AutomaticDir = ($env:CHOCO_VSCODE_AUTOMATIC_DIR ?? "$PSScriptRoot\..\automatic"),
+
+    [Parameter(Mandatory = $false)]
+    [ValidateNotNullOrWhitespace()]
+    [string]
+    $StateDir = ($env:CHOCO_VSCODE_STATE_DIR ?? "$PSScriptRoot\..\var\state")
 )
 
 # WARNING: The Chocolatey AU module relies on legacy PowerShell 5.1 native command argument parsing.
@@ -213,11 +218,10 @@ finally {
     if ($global:AU_Packages) {
         Write-StyledMessage -Color Cyan -Message "`n>>> Exporting AU Engine State Data..."
 
-        # Ensure the state directory exists at the root level before writing
-        $stateDir = Join-Path $PSScriptRoot "..\var\state"
-        if (-not (Test-Path $stateDir)) { New-Item -ItemType Directory -Path $stateDir -Force | Out-Null }
+        # Ensure the state directory exists before writing
+        if (-not (Test-Path $StateDir)) { New-Item -ItemType Directory -Path $StateDir -Force | Out-Null }
 
-        $global:AU_Packages | Select-Object Name, Version, Updated, Ignore, Error, PushError, Status | ConvertTo-Json -Depth 3 | Out-File "$stateDir/au_results.json" -Encoding UTF8 -Force
-        Write-Success "Saved native AU results to $stateDir/au_results.json" -Indent 1
+        $global:AU_Packages | Select-Object Name, Version, Updated, Ignore, Error, PushError, Status | ConvertTo-Json -Depth 3 | Out-File (Join-Path $StateDir "au_results.json") -Encoding UTF8 -Force
+        Write-Success "Saved native AU results to $StateDir/au_results.json" -Indent 1
     }
 }
