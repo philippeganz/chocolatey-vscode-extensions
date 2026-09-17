@@ -165,7 +165,7 @@ jobs:
           Import-Module Pester -MinimumVersion 6.0.0 -Force
           $env:PSModulePath = "$PWD/lib;$env:PSModulePath"
           $config = [PesterConfiguration]::Default
-          $config.Run.Path = './tests'
+          $config.Run.Path = '.'
           $config.Run.PassThru = $true
           $config.TestResult.Enabled = $true
           $config.TestResult.OutputFormat = 'JUnitXml'

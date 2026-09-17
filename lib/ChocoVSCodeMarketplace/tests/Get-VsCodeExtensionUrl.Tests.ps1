@@ -1,6 +1,6 @@
 #Requires -Version 7.0
 BeforeAll {
-    $libPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\lib"))
+    $libPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\.."))
     if ($env:PSModulePath -notmatch [regex]::Escape($libPath)) {
         $env:PSModulePath = "$libPath;$env:PSModulePath"
     }

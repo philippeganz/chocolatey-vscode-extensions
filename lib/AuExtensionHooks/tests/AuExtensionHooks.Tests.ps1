@@ -4,9 +4,9 @@ param()
 
 BeforeAll {
     $script:originalPSModulePath = $env:PSModulePath
-    $libPath = Resolve-Path (Join-Path $PSScriptRoot "..\lib")
+    $libPath = Resolve-Path (Join-Path $PSScriptRoot "..\..")
     $env:PSModulePath = "$libPath;$env:PSModulePath"
-    $libPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\lib"))
+    $libPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\.."))
     if ($env:PSModulePath -notmatch [regex]::Escape($libPath)) {
         $env:PSModulePath = "$libPath;$env:PSModulePath"
     }
@@ -22,6 +22,36 @@ AfterAll {
 
 Describe "AuExtensionHooks Module" {
     Context "Successful Route" {
+        It "should successfully route au_GetLatest to the Marketplace API and yield metadata" {
+            InModuleScope AuExtensionHooks {
+                Mock Get-VsCodeMarketplaceMetadata {
+                    return [PSCustomObject]@{
+                        versions = @(
+                            [PSCustomObject]@{
+                                version = "1.0.0-beta"
+                                files   = @(
+                                    [PSCustomObject]@{ assetType = "Microsoft.VisualStudio.Services.Icons.Default"; source = "https://icon.url" }
+                                )
+                            }
+                        )
+                    }
+                }
+                Mock Get-VsCodeExtensionUrl { return "https://vsix.url" }
+
+                $global:ExtensionPublisher = "test"
+                $global:ExtensionName = "test"
+                $global:ExtensionVersion = $null
+
+                $result = au_GetLatest
+
+                $result.Version | Should -Be "1.0.0-" # Testing the SemVer sanitization replacement
+                $result.URL64 | Should -Be "https://vsix.url"
+                $result.MarketplaceIconUrl | Should -Be "https://icon.url"
+
+                Should -Invoke -CommandName Get-VsCodeMarketplaceMetadata -Times 1
+                Should -Invoke -CommandName Get-VsCodeExtensionUrl -Times 1
+            }
+        }
         It "should execute au_SearchReplace and yield regex replacement mappings" {
             InModuleScope AuExtensionHooks {
                 $global:Latest = @{ Version = "1.0.0"; MarketplaceIconUrl = "https://icon.url" }
