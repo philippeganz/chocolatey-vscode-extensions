@@ -123,7 +123,7 @@ if ($PSCmdlet.ParameterSetName -eq 'Add') {
         }
         elseif ($eligibility.State -ne [ExtensionEligibilityState]::Eligible) {
             Write-Skip "[$([int]$eligibility.State)] Request Denied for '$cleanId': $($eligibility.Message)"
-            if ($CI) { [Environment]::Exit([int]$eligibility.State) }
+            if ($CI) { exit ([int]$eligibility.State) }
             continue
         }
 
@@ -177,7 +177,7 @@ elseif ($PSCmdlet.ParameterSetName -eq 'Remove') {
         if (-not $stateList.Contains($cleanId)) {
             if ($CI) {
                 Write-Skip "[30] Request Denied for '$cleanId': Not tracked in state file."
-                [Environment]::Exit(30)
+                exit 30
             }
         }
         Write-StyledMessage -Color Magenta -Message "`n================================================================================"
