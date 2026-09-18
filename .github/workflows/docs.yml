@@ -7,7 +7,7 @@ on:
       - main
     paths:
       - 'docs/**'
-      - 'bin/**'
+      - '.github/scripts/**'
       - 'lib/**'
       - 'mkdocs.yml'
       - '.github/workflows/docs.yml'
@@ -39,11 +39,11 @@ jobs:
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
           Install-Module -Name platyPS -Force -Scope CurrentUser -AllowClobber -AcceptLicense
-          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber -AcceptLicense
 
       - name: Generate API Documentation
         shell: pwsh
-        run: ./bin/Update-Documentation.ps1
+        run: |
+          ./.github/scripts/Update-Documentation.ps1
 
       - name: Prepare Markdown Files
         run: |
@@ -54,11 +54,31 @@ jobs:
       - name: Dynamically Inject API Reference Nav
         shell: pwsh
         run: |
-          $files = Get-ChildItem -Path docs/reference -Filter "*.md" -File | Sort-Object Name
           $navStr = "  - API Reference:`n"
-          foreach ($f in $files) {
+
+          # Add root level CLI scripts
+          $rootFiles = Get-ChildItem -Path docs/reference -Filter "*.md" -File | Sort-Object Name
+          foreach ($f in $rootFiles) {
               $navStr += "    - $($f.BaseName): reference/$($f.Name)`n"
           }
+
+          # Add nested Module directories
+          $dirs = Get-ChildItem -Path docs/reference -Directory | Sort-Object Name
+          foreach ($d in $dirs) {
+              $navStr += "    - $($d.Name):`n"
+              $subFiles = Get-ChildItem -Path $d.FullName -Filter "*.md" -File | Sort-Object Name
+
+              # Ensure index.md comes first
+              $index = $subFiles | Where-Object Name -eq 'index.md'
+              if ($index) {
+                  $navStr += "      - Overview: reference/$($d.Name)/$($index.Name)`n"
+              }
+
+              foreach ($sf in $subFiles | Where-Object Name -ne 'index.md') {
+                  $navStr += "      - $($sf.BaseName): reference/$($d.Name)/$($sf.Name)`n"
+              }
+          }
+
           $content = Get-Content mkdocs.yml -Raw
           $content = $content -replace '(?m)^\s*-\s*API Reference:\s*reference/?\s*$', $navStr
           $content | Set-Content mkdocs.yml -NoNewline

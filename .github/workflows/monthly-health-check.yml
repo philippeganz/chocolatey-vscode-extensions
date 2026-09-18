@@ -1,0 +1,25 @@
+---
+name: Monthly Health Check
+
+on:
+  # schedule:
+  #   - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  health_check:
+    name: Run Health Diagnostics
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Execute Repository Health Check
+        id: health
+        shell: pwsh
+        run: |
+          .github\scripts\Invoke-RepositoryHealthCheck.ps1

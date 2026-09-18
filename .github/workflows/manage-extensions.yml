@@ -24,7 +24,6 @@ jobs:
         shell: pwsh
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
-          Install-Module -Name powershell-yaml -Force -Scope CurrentUser -AllowClobber -AcceptLicense
 
       - name: Parse Issue and Execute Factory
         id: factory
@@ -32,6 +31,7 @@ jobs:
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
           LABELS: ${{ toJSON(github.event.issue.labels.*.name) }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
 
           # The GitHub Issue Form markdown injects responses below the headers
@@ -48,7 +48,7 @@ jobs:
             exit 1
           }
 
-          $splat = @{}
+          $splat = @{ AutoCommit = $true }
           if ($labels -contains 'extension-removal') {
               $action = 'Remove'
               $emoji = '🗑️'
@@ -57,51 +57,121 @@ jobs:
               $splat["Remove"] = $extId
           } else {
               $action = 'Add'
-              $emoji = '🚀'
+              $emoji = '➕'
               $verb = 'Add new'
               $desc = "added to"
               $splat["Add"] = $extId
           }
 
+          $branchName = "feature/$($action.ToLower())-extension-${{ github.event.issue.number }}"
+
+                    # Configure Git & Create Branch
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B $branchName
+
           Write-Host "Triggering Factory Engine for: $extId ($action)" -ForegroundColor Cyan
-          ./bin/Manage-ExtensionPool.ps1 @splat
+          $argList = @(
+              "-NoProfile",
+              "-NonInteractive",
+              "-Command",
+              "& ./bin/Manage-ExtensionPool.ps1 -$action '$extId' -CI -AutoCommit"
+          )
+          $proc = Start-Process pwsh -ArgumentList $argList -Wait -PassThru
+          $exitCode = $proc.ExitCode
 
-          # Export variables for downstream steps
-          echo "EXT_ID=$extId" >> $env:GITHUB_OUTPUT
-          echo "ACTION=$action" >> $env:GITHUB_OUTPUT
-          echo "EMOJI=$emoji" >> $env:GITHUB_OUTPUT
-          echo "VERB=$verb" >> $env:GITHUB_OUTPUT
-          echo "DESC=$desc" >> $env:GITHUB_OUTPUT
+          if ($exitCode -eq 10) {
+              gh issue comment ${{ github.event.issue.number }} --body "🤖 **Request Denied**: The extension \`$extId\` was not found on the VS Code Marketplace."
+              gh issue close ${{ github.event.issue.number }} --reason "not planned"
+              exit 0
+          }
+          elseif ($exitCode -eq 20) {
+              gh issue comment ${{ github.event.issue.number }} --body "🤖 **Request Ignored**: The extension \`$extId\` is already tracked in the pool."
+              gh issue close ${{ github.event.issue.number }} --reason "completed"
+              exit 0
+          }
+          elseif ($exitCode -eq 30) {
+              gh issue comment ${{ github.event.issue.number }} --body "🤖 **Request Ignored**: The extension \`$extId\` is not currently tracked."
+              gh issue close ${{ github.event.issue.number }} --reason "completed"
+              exit 0
+          }
+          elseif ($exitCode -eq 40) {
+              gh issue comment ${{ github.event.issue.number }} --body "🤖 **Request Denied**: The extension \`$extId\` is abandoned (> 3 years old) and is ineligible for the pool."
+              gh issue close ${{ github.event.issue.number }} --reason "not planned"
+              exit 0
+          }
+          elseif ($exitCode -eq 50) {
+              gh issue comment ${{ github.event.issue.number }} --body "🤖 **Request Denied**: The extension \`$extId\` contains invalid characters. Only lowercase alphanumeric and hyphens are allowed."
+              gh issue close ${{ github.event.issue.number }} --reason "not planned"
+              exit 0
+          }
+          elseif ($exitCode -eq 60) {
+              gh issue comment ${{ github.event.issue.number }} --body "🤖 **Request Denied**: The package already exists on Chocolatey, but you are not listed as an owner. Ownership conflict."
+              gh issue close ${{ github.event.issue.number }} --reason "not planned"
+              exit 0
+          }
+          elseif ($exitCode -eq 70) {
+              gh issue comment ${{ github.event.issue.number }} --body "🤖 **Request Denied**: The extension \`$extId\` is marked as deprecated on the VS Code Marketplace."
+              gh issue close ${{ github.event.issue.number }} --reason "not planned"
+              exit 0
+          }
+          elseif ($exitCode -eq 80) {
+              gh issue comment ${{ github.event.issue.number }} --body "🤖 **Request Denied**: Failed to resolve extension dependencies safely."
+              gh issue close ${{ github.event.issue.number }} --reason "not planned"
+              exit 0
+          }
+          elseif ($exitCode -eq 90) {
+              gh issue comment ${{ github.event.issue.number }} --body "🤖 **Request Denied**: The extension \`$extId\` has an invalid format. Must be 'publisher.extension'."
+              gh issue close ${{ github.event.issue.number }} --reason "not planned"
+              exit 0
+          }
+          elseif ($exitCode -ne 0) {
+              Write-Host "Orchestrator failed with unknown exit code $exitCode" -ForegroundColor Red
+              exit $exitCode
+          }
 
-      - name: Create Pull Request for Review
-        id: cpr
-        uses: peter-evans/create-pull-request@v8
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: '${{ steps.factory.outputs.VERB }} ${{ steps.factory.outputs.EXT_ID }} extension'
-          title: '${{ steps.factory.outputs.EMOJI }} ${{ steps.factory.outputs.ACTION }} VS Code Extension: ${{ steps.factory.outputs.EXT_ID }}'
-          body: |
-            Closes #${{ github.event.issue.number }}
+          # Check if anything was actually committed
+          $status = git status --porcelain
+          $unpushed = git log origin/main..HEAD
+          if (-not $unpushed) {
+              Write-Host "No changes were committed by the Factory Engine. Exiting." -ForegroundColor Yellow
+              exit 0
+          }
 
-            A community member has requested to have `${{ steps.factory.outputs.EXT_ID }}` ${{ steps.factory.outputs.DESC }} the managed Chocolatey package pool.
+          # Push Branch
+          git push -f -u origin $branchName
 
-            This PR was 100% auto-generated by the Factory Engine. The GitHub Action has processed the request and updated the state configurations accordingly.
+          # Create PR using GitHub CLI
+          $prTitle = "$emoji $action VS Code Extension: $extId"
+          $prBody = @"
+          Closes #${{ github.event.issue.number }}
 
-            ### Maintainer Instructions:
-            Review the changes to ensure correctness.
-            Once merged into `main`, the changes will take full effect on the next scheduled AU Engine run!
-          branch: 'feature/${{ steps.factory.outputs.ACTION }}-extension-${{ github.event.issue.number }}'
-          add-paths: |
-            automatic/*
-            var/state/config.yaml
+          A community member has requested to have `$extId` $desc the managed Chocolatey package pool.
 
-      - name: Comment on Issue
-        uses: peter-evans/create-or-update-comment@v5
-        with:
-          issue-number: ${{ github.event.issue.number }}
-          body: |
-            🤖 Beep boop! I've caught your request!
+          This PR was 100% auto-generated by the Factory Engine. The GitHub Action has processed the request and updated the state configurations accordingly.
 
-            I just ran the Factory Engine to process this extension, and I've automatically opened a Pull Request with the generated changes here: ${{ steps.cpr.outputs.pull-request-url }}
+          ### Maintainer Instructions:
+          Review the changes to ensure correctness.
+          Once merged into `main`, the changes will take full effect on the next scheduled AU Engine run!
+          "@
 
-            Once the maintainers review and merge it, your request will be fully resolved. Thanks for contributing!
+          # Check if PR exists
+          $existingPr = gh pr list --head $branchName --state open --json url | ConvertFrom-Json
+          if ($existingPr) {
+              $prUrl = $existingPr[0].url
+              Write-Host "PR already exists: $prUrl"
+          } else {
+              $prUrl = gh pr create --title $prTitle --body $prBody --head $branchName --base main
+              Write-Host "Created PR: $prUrl"
+          }
+
+          # Comment on the issue
+          $commentBody = @"
+          🤖 Beep boop! I've caught your request!
+
+          I just ran the Factory Engine to process this extension, and I've automatically opened a Pull Request with the generated changes here: $prUrl
+
+          Once the maintainers review and merge it, your request will be fully resolved. Thanks for contributing!
+          "@
+
+          gh issue comment ${{ github.event.issue.number }} --body $commentBody
