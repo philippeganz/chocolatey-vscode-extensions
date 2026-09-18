@@ -65,29 +65,20 @@ function Measure-VsCodeExtensionEligibility {
     }
 
     # 4. Marketplace Check (404 and Metadata)
-    try {
-        $meta = Get-VsCodeMarketplaceMetadata -Publisher $parts[0] -ExtensionName $parts[1]
-        if (-not $meta) {
-            return @{ State = [ExtensionEligibilityState]::MarketplaceNotFound; Message = "Extension not found on the VS Code Marketplace." }
-        }
-
-        # 5. Health Check (Deprecation & Abandonware)
-        $health = Measure-VsCodeExtensionHealth -Metadata $meta
-
-        if ($health.IsDeprecated) {
-            return @{ State = [ExtensionEligibilityState]::MarketplaceDeprecated; Message = $health.DeprecationMessage }
-        }
-
-        if ($health.IsAbandonware) {
-            return @{ State = [ExtensionEligibilityState]::MarketplaceAbandonware; Message = "Extension has not been updated in over 3 years ($($health.YearsOld) years old)." }
-        }
+    $meta = Get-VsCodeMarketplaceMetadata -Publisher $parts[0] -ExtensionName $parts[1]
+    if (-not $meta) {
+        return @{ State = [ExtensionEligibilityState]::MarketplaceNotFound; Message = "Extension not found on the VS Code Marketplace." }
     }
-    catch [System.Net.WebException] {
-        # Catch unexpected 500s or timeouts and re-throw them as fatal errors
-        throw $_
+
+    # 5. Health Check (Deprecation & Abandonware)
+    $health = Measure-VsCodeExtensionHealth -Metadata $meta
+
+    if ($health.IsDeprecated) {
+        return @{ State = [ExtensionEligibilityState]::MarketplaceDeprecated; Message = $health.DeprecationMessage }
     }
-    catch {
-        throw $_
+
+    if ($health.IsAbandonware) {
+        return @{ State = [ExtensionEligibilityState]::MarketplaceAbandonware; Message = "Extension has not been updated in over 3 years ($($health.YearsOld) years old)." }
     }
 
     # 7. Chocolatey Ownership Conflict Check
