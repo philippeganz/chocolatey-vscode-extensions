@@ -1,5 +1,6 @@
 #Requires -Version 7.0
 #Requires -Module platyPS
+#Requires -Module ChocoVSCodeCore
 
 <#
 .SYNOPSIS
@@ -28,15 +29,8 @@ param()
 
 $ErrorActionPreference = 'Stop'
 
-# =============================================================================
-# Import Modules
-# =============================================================================
-$env:PSModulePath = "$PSScriptRoot\..\..\lib;$env:PSModulePath"
-Import-Module ChocoVSCodeCore
-Import-Module platyPS
-
-$rootDir = "$PSScriptRoot\..\.."
-$docsDir = Join-Path $rootDir "docs\reference"
+$rootDir = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "../.."))
+$docsDir = Join-Path (Join-Path $rootDir "docs") "reference"
 if (Test-Path $docsDir) {
     Remove-Item -Path $docsDir -Recurse -Force
 }

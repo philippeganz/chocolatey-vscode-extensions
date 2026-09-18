@@ -29,6 +29,10 @@ jobs:
           ref: main
           token: ${{ secrets.PAT }}
 
+      - name: Inject Local Modules into PSModulePath
+        shell: pwsh
+        run: echo "PSModulePath=$PWD/lib$([System.IO.Path]::PathSeparator)$env:PSModulePath" >> $env:GITHUB_ENV
+
       - name: Upgrade Chocolatey
         run: choco upgrade chocolatey -y --no-progress
 

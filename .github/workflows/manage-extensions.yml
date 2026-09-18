@@ -20,6 +20,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Inject Local Modules into PSModulePath
+        shell: pwsh
+        run: echo "PSModulePath=$PWD/lib$([System.IO.Path]::PathSeparator)$env:PSModulePath" >> $env:GITHUB_ENV
+
       - name: Install PowerShell Modules
         shell: pwsh
         run: |

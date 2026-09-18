@@ -18,6 +18,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Inject Local Modules into PSModulePath
+        shell: pwsh
+        run: echo "PSModulePath=$PWD/lib$([System.IO.Path]::PathSeparator)$env:PSModulePath" >> $env:GITHUB_ENV
+
       - name: Execute Repository Health Check
         id: health
         shell: pwsh

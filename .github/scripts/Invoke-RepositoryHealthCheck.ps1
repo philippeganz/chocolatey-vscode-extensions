@@ -1,4 +1,4 @@
-﻿#Requires -Version 7.0
+#Requires -Version 7.0
 #Requires -Module ChocoVSCodeCore
 #Requires -Module ChocoVSCodeMarketplace
 #Requires -Module ChocoVSCodeExtensionManager
@@ -23,9 +23,10 @@ param()
 
 $ErrorActionPreference = 'Stop'
 
-$StatePath = Join-Path $PSScriptRoot "..\var\state\extensions.json"
-$AutomaticDir = Join-Path $PSScriptRoot "..\automatic"
-$reportPath = Join-Path $PSScriptRoot "..\health_report.md"
+$rootDir = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "../../"))
+$StatePath = Join-Path $rootDir "var/state/extensions.json"
+$AutomaticDir = Join-Path $rootDir "automatic"
+$reportPath = Join-Path $rootDir "health_report.md"
 
 $anomalyFound = $false
 
@@ -90,7 +91,7 @@ foreach ($pkg in $directories) {
     # Check for Binary Litter (.nupkg files left behind)
     $nupkgs = Get-ChildItem -Path $pkgDir -Filter "*.nupkg" -ErrorAction SilentlyContinue
     if ($nupkgs) {
-        $nupkgs | ForEach-Object { $binaryLitter.Add($_.FullName.Replace($repoRoot, '')) }
+        $nupkgs | ForEach-Object { $binaryLitter.Add($_.FullName.Replace($rootDir, '')) }
     }
 
     $nuspecPath = Join-Path -Path $pkgDir -ChildPath "$pkg.nuspec"
