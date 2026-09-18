@@ -50,7 +50,7 @@ function Get-ChocolateyPackageMetadata {
 
         return $meta
     }
-    catch [System.Net.WebException] {
+    catch [Microsoft.PowerShell.Commands.HttpResponseException] {
         if ($_.Exception.Response.StatusCode -eq 'NotFound') { return $null }
         throw $_
     }
