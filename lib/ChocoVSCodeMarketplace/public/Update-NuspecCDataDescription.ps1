@@ -34,7 +34,7 @@ function Update-NuspecCDataDescription {
         $NuspecXml,
 
         [Parameter(Mandatory = $true)]
-        [ValidateNotNullOrWhiteSpace()]
+        [AllowEmptyString()]
         [string]
         $CDataSafeReadme,
 
