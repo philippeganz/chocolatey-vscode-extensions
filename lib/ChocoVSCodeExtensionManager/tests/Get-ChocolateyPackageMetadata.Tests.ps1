@@ -1,8 +1,6 @@
 #Requires -Version 7.0
 BeforeAll {
     $script:originalPSModulePath = $env:PSModulePath
-    $libPath = Resolve-Path (Join-Path $PSScriptRoot "..\..")
-    $env:PSModulePath = "$libPath;$env:PSModulePath"
     $libPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\.."))
     if ($env:PSModulePath -notmatch [regex]::Escape($libPath)) {
         $env:PSModulePath = "$libPath;$env:PSModulePath"
@@ -32,6 +30,29 @@ Describe "Get-ChocolateyPackageMetadata" {
             Mock Invoke-WebRequest { return [PSCustomObject]@{ Content = $null } } -ModuleName ChocoVSCodeExtensionManager
             $meta = Get-ChocolateyPackageMetadata -PackageName "vscode-empty"
             $meta | Should -BeNullOrEmpty
+        }
+    }
+
+    Context "OData API HTTP Exception Handling" {
+        It "should safely return null and bypass execution when the feed returns a 404 Not Found exception (Line 54)" {
+            Mock Invoke-WebRequest {
+                $response = [System.Net.Http.HttpResponseMessage]::new([System.Net.HttpStatusCode]::NotFound)
+                $ex = [Microsoft.PowerShell.Commands.HttpResponseException]::new("404 Error", $response)
+                throw $ex
+            } -ModuleName ChocoVSCodeExtensionManager
+
+            $meta = Get-ChocolateyPackageMetadata -PackageName "vscode-404"
+            $meta | Should -BeNullOrEmpty
+        }
+
+        It "should forcefully throw the exception and crash if the API returns a generalized non-404 error (Line 55)" {
+            Mock Invoke-WebRequest {
+                $response = [System.Net.Http.HttpResponseMessage]::new([System.Net.HttpStatusCode]::InternalServerError)
+                $ex = [Microsoft.PowerShell.Commands.HttpResponseException]::new("500 Error", $response)
+                throw $ex
+            } -ModuleName ChocoVSCodeExtensionManager
+
+            { Get-ChocolateyPackageMetadata -PackageName "vscode-500" } | Should -Throw "500 Error"
         }
     }
 }

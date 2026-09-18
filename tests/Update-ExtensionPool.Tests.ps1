@@ -44,7 +44,7 @@ Describe "Update-ExtensionPool CLI - E2E" {
             Should -Invoke -CommandName Update-AUPackages -Times 1
         }
 
-                It "should evaluate default parameters using environment variables (Line 77, 82 - left side of AST)" {
+        It "should evaluate default parameters using environment variables (Line 77, 82 - left side of AST)" {
             Mock Import-Module {
                 if ($Name -eq 'au') { return }
                 & (Get-Command -CommandType Cmdlet -Name Import-Module) @args
@@ -134,7 +134,7 @@ Describe "Update-ExtensionPool CLI - E2E" {
             Remove-Item -Path function:\global:choco -ErrorAction SilentlyContinue
         }
 
-                It "should handle push failures, trigger retry wait, and eventually throw if max retries exhausted (Line 164-167, 172)" {
+        It "should handle push failures, trigger retry wait, and eventually throw if max retries exhausted (Line 164-167, 172)" {
             $autoDir = Join-Path $TestDrive "automatic"
             $pkgName = "vscode-mock-repush"
             $pkgDir = Join-Path $autoDir $pkgName
