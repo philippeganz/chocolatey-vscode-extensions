@@ -19,4 +19,13 @@ Describe "Update-NuspecCDataDescription" {
             (Get-Content $outPath -Raw) | Should -Match "# Hello World"
         }
     }
+    Context "Empty Readme Fallback" {
+        It "should gracefully fallback to injecting the ShortDescription if the README is entirely empty (Line 54)" {
+            $xmlDoc = [xml]"<?xml version='1.0'?><package><metadata><description>placeholder</description></metadata></package>"
+            Update-NuspecCDataDescription -NuspecXml $xmlDoc -CDataSafeReadme "" -ShortDescription "Fallback desc"
+            $outPath = Join-Path $TestDrive "out_fallback.xml"
+            $xmlDoc.Save($outPath)
+            (Get-Content $outPath -Raw) | Should -Match "Fallback desc"
+        }
+    }
 }

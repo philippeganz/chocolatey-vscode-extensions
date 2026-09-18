@@ -30,4 +30,16 @@ Describe "Checkpoint-GitRepository" {
             Should -Invoke -CommandName Write-Success -ModuleName ChocoVSCodeExtensionManager -Times 1
         }
     }
+    Context "Abort Sequence" {
+        It "should safely abort the auto-commit if the git index detects no changes (Line 77)" {
+            Mock Write-Info -ModuleName ChocoVSCodeExtensionManager {}
+            Mock Write-Skip -ModuleName ChocoVSCodeExtensionManager {}
+            Mock git -ModuleName ChocoVSCodeExtensionManager -MockWith {
+                if ($args -contains "diff") { return $null }
+            }
+            Checkpoint-GitRepository -ExtensionId "ms-python.python" -CommitMessage "test commit" -StatePath "$TestDrive\state.json" -AutomaticDir "$TestDrive\automatic"
+            Should -Invoke -CommandName Write-Skip -ModuleName ChocoVSCodeExtensionManager -Times 1
+            Should -Invoke -CommandName git -ModuleName ChocoVSCodeExtensionManager -Times 2
+        }
+    }
 }

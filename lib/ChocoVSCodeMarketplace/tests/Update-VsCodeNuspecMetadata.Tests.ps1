@@ -68,6 +68,20 @@ Describe "Update-VsCodeNuspecMetadata" {
         }
     }
 
+    It "should inject docsUrl after packageSourceUrl if both bugTrackerUrl and projectSourceUrl are absent (Line 91)" {
+        $xmlTemplate = "<?xml version='1.0'?><package><metadata><title>Original</title><packageSourceUrl>https://github.com/chocolatey/choco</packageSourceUrl></metadata></package>"
+        $meta = @{
+            DocsUrl = "https://github.com/docs"
+        }
+
+        $xmlContent = Update-VsCodeNuspecMetadata -NuspecContent $xmlTemplate -Meta $meta
+        $xmlDoc = [xml]$xmlContent
+
+        $xmlDoc.package.metadata.docsUrl | Should -Be "https://github.com/docs"
+        ($xmlContent -match "projectSourceUrl") | Should -Be $false
+        ($xmlContent -match "bugTrackerUrl") | Should -Be $false
+    }
+
     Context "Optional URL Replacement (Existing Tags)" {
         It "should cleanly replace projectSourceUrl, bugTrackerUrl, and docsUrl if they already exist in the XML" {
             $xmlTemplate = "<?xml version='1.0'?><package><metadata><title>Original</title><summary>Original Summary</summary><authors>Original Authors</authors><projectUrl>Original Project</projectUrl><licenseUrl>Original License</licenseUrl><releaseNotes>Original Release</releaseNotes><projectSourceUrl>OLD SOURCE</projectSourceUrl><bugTrackerUrl>OLD BUGS</bugTrackerUrl><docsUrl>OLD DOCS</docsUrl><tags>old tags</tags></metadata></package>"

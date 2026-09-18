@@ -83,6 +83,25 @@ Describe "Add-VSCodeExtension" {
     }
 
     Context "Directory Regeneration and Output Pipes" {
+        It "should skip regeneration and return early if the package directory exists and -Force is NOT passed (Line 106)" {
+            Mock Write-Skip -ModuleName ChocoVSCodeExtensionManager {}
+            Mock Write-StyledMessage -ModuleName ChocoVSCodeExtensionManager {}
+            Mock Get-VsCodeMarketplaceMetadata -ModuleName ChocoVSCodeExtensionManager {}
+
+            $fakeAutomaticDir = Join-Path $TestDrive "auto_skip"
+            New-Item -ItemType Directory -Path $fakeAutomaticDir -Force | Out-Null
+
+            $pkgDir = Join-Path $fakeAutomaticDir "vscode-skip"
+            New-Item -ItemType Directory -Path $pkgDir -Force | Out-Null
+
+            $fakeStatePath = Join-Path $TestDrive "state.json"
+
+            Add-VSCodeExtension -ExtensionId "pub.skip" -StatePath $fakeStatePath -AutomaticDir $fakeAutomaticDir -TemplatesDir $fakeTemplatesDir
+
+            Should -Invoke -CommandName Write-Skip -ModuleName ChocoVSCodeExtensionManager -ParameterFilter { $Message -match "Package folder already exists" }
+            Should -Invoke -CommandName Get-VsCodeMarketplaceMetadata -ModuleName ChocoVSCodeExtensionManager -Times 0
+        }
+
         It "should aggressively remove and regenerate the package directory if -Force is passed (Lines 101-106)" {
             Mock Write-Info -ModuleName ChocoVSCodeExtensionManager {}
             Mock Write-Success -ModuleName ChocoVSCodeExtensionManager {}

@@ -18,4 +18,16 @@ Describe "Save-VsCodeIcon" {
             Should -Invoke -CommandName Invoke-RobustDownload -ModuleName ChocoVSCodeMarketplace -Times 1
         }
     }
+    Context "Error Handling and Fallback" {
+        It "should gracefully catch download exceptions, log them, and generate a transparent dummy icon fallback (Line 55)" {
+            Mock Invoke-RobustDownload -ModuleName ChocoVSCodeMarketplace -MockWith { throw "HTTP 404 Not Found" }
+            Mock Write-Verbose -ModuleName ChocoVSCodeMarketplace {}
+            Mock Write-Warning -ModuleName ChocoVSCodeMarketplace {}
+            $fakePkgDir = Join-Path $TestDrive "pkg_err"
+            New-Item -ItemType Directory -Path $fakePkgDir -Force | Out-Null
+            Save-VsCodeIcon -IconUrl "https://icon.url/bad.png" -PackageDir $fakePkgDir -PackageName "vscode-err"
+            Should -Invoke -CommandName Write-Verbose -ModuleName ChocoVSCodeMarketplace -Times 1
+            Test-Path (Join-Path $fakePkgDir "icon.png") | Should -Be $true
+        }
+    }
 }
